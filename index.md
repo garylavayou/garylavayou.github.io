@@ -24,11 +24,11 @@ Linux
 
 ### Python
 
-语法基础；
+[语法基础](./Python/Python基础.html)；
 
-[数据类型](./Python/Python数据类型.md)；
+[数据类型](./Python/Python数据类型.html)；
 
-[数值计算](./Python/Python数值计算.md)。
+[数值计算](./Python/Python数值计算.html)。
 
 ### Matlab
 
