@@ -26,9 +26,9 @@ Linux
 
 语法基础；
 
-[数据类型](./Python数据类型.md)；
+[数据类型](./Python/Python数据类型.md)；
 
-[数值计算](./Python数值计算.md)。
+[数值计算](./Python/Python数值计算.md)。
 
 ### Matlab
 
