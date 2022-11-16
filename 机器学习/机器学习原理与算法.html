@@ -1,0 +1,900 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>原理与算法 - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html" class="active">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="机器学习与数据挖掘"><a class="header" href="#机器学习与数据挖掘">机器学习与数据挖掘</a></h1>
+<p>(<em><strong>Machine Learning and Data Mining</strong></em>)</p>
+<h2 id="概念"><a class="header" href="#概念">概念</a></h2>
+<p><a href="http://statweb.stanford.edu/%7Etibs/stat315a/glossary.pdf">机器学习与统计学概念</a>对比</p>
+<div class="table-wrapper"><table><thead><tr><th>Machine Learning</th><th>Statistics</th></tr></thead><tbody>
+<tr><td>网络、图</td><td>模型</td></tr>
+<tr><td>权重</td><td>参数</td></tr>
+<tr><td>学习</td><td>拟合</td></tr>
+<tr><td>监督学习</td><td>回归/分类</td></tr>
+<tr><td>无监督学习</td><td>密度估计、聚类</td></tr>
+</tbody></table>
+</div>
+<p>parametric model:  fixed number of parameters.</p>
+<p>nonparametric model: the number of parameters grow with the amount of training data.</p>
+<h3 id="监督学习"><a class="header" href="#监督学习">监督学习</a></h3>
+<h4 id="分类"><a class="header" href="#分类">分类</a></h4>
+<p>$$
+\newcommand{\bm}[1]{\boldsymbol{#1}} 
+\newcommand{\b}[1]{\bold{#1}}
+\newcommand{\t}[1]{{#1}^{\top}}
+\newcommand{\l}{\left}
+\newcommand{\r}{\right}
+\bm{x}\rightarrow y\in{1,\cdots,C}
+$$</p>
+<p>$C=2$：二分类（<em>binary classification</em>）；</p>
+<p>$C&gt;2$：多分类（<em>multi-class classification with a single output</em>）；</p>
+<p>多重二元分类（multi-label classification）：标签不互斥。</p>
+<h5 id="function-approximation"><a class="header" href="#function-approximation">Function Approximation</a></h5>
+<p>未知分类函数（<em>hypothesis</em>）：$y=h(\bm{x})$。</p>
+<p>目标：根据训练集估计分类函数$\hat{y}=\hat{h}(\bm{x})$。</p>
+<p>预测：使用估计函数计算新数据的分类。</p>
+<h4 id="经验风险最小化"><a class="header" href="#经验风险最小化">经验风险最小化</a></h4>
+<p>Empirical risk minimization</p>
+<h5 id="损失函数loss-function"><a class="header" href="#损失函数loss-function">损失函数（loss function）</a></h5>
+<p>$$
+l(\hat{y},y)=l(h(x),y)
+$$</p>
+<p>L2范数是常用于损失函数，即：$l(\hat{y},y)=|h(x)-y|^2$</p>
+<h5 id="期望风险"><a class="header" href="#期望风险">期望风险</a></h5>
+<p>$$
+R(h)=\b{E}\left[l(h(x),y\right]=\begin{cases}
+\int\limits_{x\in\mathcal{D}}{l(h(x),y)\mathrm{d}P(x,y)}<del>(连续变量)\
+\sum\limits_{x\in\mathcal{D}}{l(h(x),y)P(x,y)}</del>(离散变量)
+\end{cases}
+$$</p>
+<p>目标：求最优预测模型（函数$h^<em>$），使得期望风险最小：
+$$
+h^</em>=\mathop{\mathrm{argmax}}_{h\in\mathcal{H}}{R(h)}
+$$</p>
+<p>由于联合分布$P(x,y)$通常未知使得$R(h)$无法计算，因此使用训练集上的<strong>经验风险</strong>作为近似：
+$$
+R_{\mathrm{emp}}(h)=\frac{1}{n}\sum_{i=1}^n{l(h(x_i),y_i)}
+$$
+即优化目标为最小化经验风险
+$$
+\hat{h}=\mathop{\mathrm{argmin}}<em>{h\in\mathcal{H}}{R</em>{\mathrm{emp}}(h)}
+$$</p>
+<h4 id="概率预测probabilistic-predictions"><a class="header" href="#概率预测probabilistic-predictions">概率预测（Probabilistic Predictions）</a></h4>
+<p>使用概率作为估计分类函数的输出，以应对模糊的情况。</p>
+<p>给定训练集$\mathcal{D}$和输入数据$\bm{x}$，可以表示关于各个分类标签的条件概率$p(y|\bm{x},\mathcal{D})$（使用的预测模型$M$也是条件之一，没有对比模型的情况下省略）。</p>
+<p>分类函数：<strong>MAP</strong> (<em>maximum a posteriori</em>，最大后验概率) 估计，选择最大可能的类别。
+$$
+\hat{y}=\hat{h}(\boldsymbol{x})=\mathop{\mathrm{argmax}}_{c=1}^C{p(y=c|\boldsymbol{x},\mathcal{D})}
+$$</p>
+<h3 id="无监督学习"><a class="header" href="#无监督学习">无监督学习</a></h3>
+<p>发现数据中结构（知识发现）。</p>
+<p>目标：估计数据的概率密度分布$p(\bm{x}_i|\bm{\theta})$，其中$\bm{x}_i$ 为数据特征组成的向量，$\bm{\theta}$为数据采样空间的参数，因此这是一个多维概率模型。</p>
+<h3 id="半监督学习semi-supervised-learning"><a class="header" href="#半监督学习semi-supervised-learning">半监督学习（Semi-supervised Learning）</a></h3>
+<h3 id="强化学习"><a class="header" href="#强化学习">强化学习</a></h3>
+<h3 id="迁移学习"><a class="header" href="#迁移学习">迁移学习</a></h3>
+<h5 id="领域domain"><a class="header" href="#领域domain">领域（domain）</a></h5>
+<p>$$
+\mathcal{D}={\mathcal{X},P(\boldsymbol{x})},~\boldsymbol{x}\in\mathcal{X}
+$$
+$\mathcal{X}$为特征空间，$P(\bm{x})$为边缘概率分布。领域不同$\mathcal{D}_s\ne \mathcal{D}_t$意味着特征空间不同$\mathcal{X}_s\ne \mathcal{X}_t$或边缘分布不同$P_s(x)\ne P_t(x)$。</p>
+<h5 id="任务task"><a class="header" href="#任务task">任务（Task）</a></h5>
+<p>$$
+\mathcal{T}={\mathcal{Y},P(y|\boldsymbol{x})}
+$$
+$\mathcal{Y}$为类别空间，$P(y|\bm{x})$为预测模型（条件概率分布）。任务不同$\mathcal{T}_s\ne \mathcal{T}_t$意味着类别空间不同$\mathcal{Y}_s\ne \mathcal{Y}_t$或预测模型不同$P_s(Y|X)\ne P_t(Y|X)$。</p>
+<p>给定辅助领域的标注数据$\mathcal{D}_s$和学习任务$\mathcal{T}_s$，<strong>目标领域的无标数据</strong>$\mathcal{D}_t$和学习任务$\mathcal{T}_t$，迁移学习是在$\mathcal{D}_s\ne \mathcal{D}_t$或$\mathcal{T}_s\ne \mathcal{T}_t$的情况下，==降低预测模型$P_t(y|\bm{x})$的误差==。</p>
+<h5 id="分类-1"><a class="header" href="#分类-1">分类</a></h5>
+<p><img src="%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0.assets/image-20191113095242178.png" alt="image-20191113095242178" /></p>
+<p>在异构特征空间进行迁移学习，通常==必须依赖领域特定的先验知识==，包括特征空间之间的关联关系（如双语词典）、多模数据每个视图之间的对应关系（如网页中的文本和图像）或社交关联关系。</p>
+<p>无监督迁移学习：目标领域没有标注数据的迁移学习任务。</p>
+<ul>
+<li>
+<p><strong>异构特征空间</strong>迁移学习：特征空间不同，类别空间相同。</p>
+<ul>
+<li>将辅助领域映射（翻译）到目标领域，转换为同构迁移学习问题；
+<ul>
+<li><strong>跨语言文本分类</strong>：给定标签时词翻译条件概率由双语字典、辅助领域数据、目标领域数据的期望最大化算法协同学习得到。
+<blockquote>
+<p><em>Shi L, Mihalcea R, Tian M. Cross language text classification by model translation and Semi-Supervised learning. Proceedings of the 2010 Conference on Empirical Methods in Natural Language Processing, 2010.</em></p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>将辅助领域和目标领域映射到同一个抽象空间；</li>
+<li><strong>翻译学习</strong>：</li>
+<li><strong>文本到图像间的知识迁移方法</strong>
+<blockquote>
+<p><em>Zhu Y, Chen Y, Lu Z, et al. Heterogeneous Transfer Learning for Image Classification. Proceedings of the 25th AAAI Conference on Artificial Intelligence, 2011.</em></p>
+</blockquote>
+</li>
+<li>**异构领域适配：基于特征对齐、 扩充和支持向量机的通用异构迁移学习方法
+<blockquote>
+<p><em>Li W, Duan L, Xu D, et al. Learning with Augmented Features for Supervised and Semi-supervised Heterogeneous Domain Adaptation. IEEE Transactions on Pattern Analysis and Machine Intelligence, 2014, 99(PrePrints).</em></p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>异构类别空间</strong>迁移学习：</p>
+</li>
+<li>
+<p>同构迁移学习：特征空间和类别空间相同。</p>
+<ul>
+<li>
+<p>数据集偏移：边缘概率分布和条件概率分布不同</p>
+<ul>
+<li>
+<p><strong>实例权重法</strong>：对辅助领域中的实例进行权重调整、提升位 于目标领域高密度区域的辅助领域实例权重，从而更好地与目标领域数据分布匹配。</p>
+<blockquote>
+<p><em>Bickel S, Bruckner M, Scheffer T. Discriminative learning for differing training and test distributions. Proceedings of the 24th international conference on Machine learning, 2007.</em></p>
+</blockquote>
+</li>
+<li>
+<p><strong>特征表示法</strong>：找到原始数据的新特征表示，使得辅助领域和目标领域的数 据分布更加相似、或使得领域相关的具体特征可以被领域无关的抽象特征所表示。</p>
+<blockquote>
+<p><em>Zhong E, Fan W, Peng J, et al. Cross Domain Distribution Adaptation via Kernel Mapping. Proceedings of the 15th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, 2009.</em></p>
+</blockquote>
+<ul>
+<li><strong>隐含表征学习法</strong>通过分析辅助领域和目标领域的大量无标样例来构建抽象特征表 示，从而隐式地缩小领域间的分布差异
+<ul>
+<li>结构对应学习</li>
+</ul>
+</li>
+<li><strong>概率分布适配法</strong>通过惩罚或移除在领域间统计可变的特征、或通过学习子空间嵌入表示来最小化特定距离函数，从而显式地提升辅助领域和目标领域的样本分布相似度。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>要求目标领域存在少量标注数据。</p>
+</blockquote>
+</li>
+<li>
+<p>领域适配</p>
+</li>
+<li>
+<p>多任务学习</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="性能度量performance-metrics"><a class="header" href="#性能度量performance-metrics">性能度量（Performance Metrics）</a></h3>
+<img src="机器学习原理与算法.assets/1lK17g_LKDGcU7UjKlZn1tQ.png" alt="img" style="zoom:40%;" />
+<h5 id="准确率accuracy"><a class="header" href="#准确率accuracy">准确率（Accuracy）</a></h5>
+<p>$$
+\mathrm{Accuracy}=\frac{\mathrm{True Predict}}{\mathrm{Total}}=\frac{TP+TN}{TP+TN+FP+FN}\notag
+$$</p>
+<h5 id="检出率recall"><a class="header" href="#检出率recall">检出率（Recall）</a></h5>
+<p><strong>Detection Rate</strong>：正确预测正例与真实正例数量之比（反映漏报与正确预报之比）：
+$$
+\mathrm{Recall}=\frac{\mathrm{True Positive}}{\mathrm{TotalActualPositive}}=\frac{TP}{TP+FN}=\frac{1}{1+\frac{FN}{FP}}\notag
+$$</p>
+<h5 id="精度precision"><a class="header" href="#精度precision">精度（Precision）</a></h5>
+<p>正确预测正例与所有预测正例数量之比（反映误报与正确预报之比）：
+$$
+\mathrm{Precision}=\frac{\mathrm{True Positive}}{\mathrm{TotalPredictPositive}}=\frac{TP}{TP+FP}=\frac{1}{1+\frac{FP}{TP}}\notag
+$$</p>
+<p>当正样本数非常少时，召回率和精度可以更加准确反映模型的有效性。</p>
+<h5 id="f1"><a class="header" href="#f1">F1</a></h5>
+<p>$$
+\begin{align}
+\mathrm{F1}&amp;=2\times\frac{\mathrm{Precision}\times\mathrm{Recall}}{\mathrm{Precision}+\mathrm{Recall}}\notag\
+\mathrm{F_{\beta}}&amp;=(1+{\beta}^2)\times\frac{\mathrm{Precision}\times\mathrm{Recall}}{({\beta}^2\mathrm{Precision})+\mathrm{Recall}}\notag
+\end{align}
+$$</p>
+<p><a href="https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc">ROC curve and AUC: Area Under the ROC Curve</a></p>
+<h3 id="可解释性"><a class="header" href="#可解释性">可解释性</a></h3>
+<p><em><strong>z-score</strong></em>：数据标准化，检查特征偏离中心的程度。</p>
+<h2 id="概率模型"><a class="header" href="#概率模型">概率模型</a></h2>
+<p>对于观测的随机变量$X$而言，</p>
+<ul>
+<li>
+<p>先验（prior）概率：$p(X)$，未知其他信息的情况下的概率信息；</p>
+</li>
+<li>
+<p>后验（posterior）概率：$p(X|Y=y)$，已知额外信息的情况下的概条件率信息</p>
+</li>
+<li>
+<p>似然（likelihood）函数：$X=x$发生在条件$Y$下的可能性$p(Y|X=x)$，对应后验概率。</p>
+</li>
+</ul>
+<p>贝叶斯定理：
+$$
+p(X|Y)=\frac{p(X,Y)}{p(Y)}=\frac{p(Y|X)p(X)}{p(Y)}\propto p(Y|X)p(X)
+$$</p>
+<h3 id="参数估计"><a class="header" href="#参数估计">参数估计</a></h3>
+<h4 id="最大似然"><a class="header" href="#最大似然">最大似然</a></h4>
+<p><strong>maximum likelihood estimation (MLE)</strong>：使事件$X=x$（样本）的似然函数最大的参数估计：
+$$
+\hat{\boldsymbol{\theta}}=\mathop{\mathrm{argmax}}_{\boldsymbol{\theta}}{p(X=x|\boldsymbol{\theta})}
+$$</p>
+<h5 id="最小二乘"><a class="header" href="#最小二乘">最小二乘</a></h5>
+<p>最小化观测值与模型预测值的残差。</p>
+<blockquote>
+<p>当模型是高斯分布时，最大似然估计和最小二乘估计是等价的。</p>
+</blockquote>
+<p>$$
+\begin{align*}
+\min {|A\bm{x}-\bm{b}|^2} &amp; 
+\Longrightarrow f(\bm{x})=\bm{x}^\top A^\top A\bm{x}-2\bm{b}^\top A\bm{x} + \bm{b}^\top\bm{b}
+\Longrightarrow \frac{\mathrm{d}f}{\mathrm{d}\bm{x}}=2A^\top A\bm{x}- 2A^\top\bm{b}=0\
+&amp;\Longrightarrow \bm{x}^{\ast}=(A^\top A)^{-1}A^\top\bm{b}
+\end{align*}
+$$</p>
+<blockquote>
+<p>通常$A$的行数远大于列数，$A^\top A$为可逆矩阵。</p>
+</blockquote>
+<h6 id="线性回归"><a class="header" href="#线性回归">线性回归</a></h6>
+<p>对于线性模型拟合：$y=\bm{w}^\top \bm{x} + b$，有
+$$
+\begin{align*}
+l(\bm{w},b)&amp;=|\bm{x}_i^\top\bm{w}+b-\bm{y}_i|^2 \
+&amp;\Longrightarrow \bm{x}_i^\top\bm{w}+b-\bm{y}_i= [\bm{x}_i^\top,1]\left[\begin{array}{c} \bm{w}\b
+\end{array}\right]-y_i
+\end{align*}
+$$
+考虑所有样本可得：$l(\bm{w},b)=|\hat{X}\hat{\bm{w}}-\bm{y}|^2$，其中$\hat{X}=(X^\top,\b{1}),~\hat{\bm{w}}=(\bm{w}^\top,b)^\top,$</p>
+<h5 id="最小均方误差"><a class="header" href="#最小均方误差">最小均方误差</a></h5>
+<h3 id="贝叶斯推理bayesian-inference"><a class="header" href="#贝叶斯推理bayesian-inference">贝叶斯推理（Bayesian Inference）</a></h3>
+<h5 id="最大后验概率"><a class="header" href="#最大后验概率">最大后验概率</a></h5>
+<p>$$
+\begin{align}
+\hat{\boldsymbol{\theta}}&amp;=\mathop{\mathrm{argmax}}<em>{\boldsymbol{\theta}}{p(\boldsymbol{\theta}|X=x)}\notag\
+&amp;=\mathop{\mathrm{argmax}}</em>{\boldsymbol{\theta}}{p(X=x|\boldsymbol{\theta})p(\boldsymbol{\theta})}\notag\
+&amp;=\mathop{\mathrm{argmax}}_{\boldsymbol{\theta}}{\left{\log{p(X=x|\boldsymbol{\theta})}+\log{p(\boldsymbol{\theta})}\right}}
+\end{align}
+$$</p>
+<p>设$h$为假设采样空间，$\mathcal{D}$为样本集合：
+$$
+\begin{align}
+\hat{h}^{MAP}&amp;=\mathop{\mathrm{argmax}}_h{p(\mathcal{D|h})p(h)}\notag\
+&amp;=\mathop{\mathrm{argmax}}_h{\log{p(\mathcal{D|h})}+\log{p(h)}}
+\end{align}
+$$ {eq_bayes_map}</p>
+<blockquote>
+<p><em>For example, if we assume the prior distribution to be Gaussian, MAP is equal to MLE with L2 regularization; if we assume the prior distribution to be Laplace, MAP is equal to MLE with L1 regularization.</em></p>
+</blockquote>
+<p>当样本点足够多时，数据提供的信息将淹没先验信息（<em><strong>data overwhelms the prior</strong></em>），MAP收敛为最大似然估计（<em><strong>maximum likelihood estimate</strong></em>）。
+$$
+\hat{h}^{MLE}=\mathop{\mathrm{argmax}}_h{p(\mathcal{D|h})}
+$$</p>
+<h2 id="几何模型"><a class="header" href="#几何模型">几何模型</a></h2>
+<h3 id="k-nearest-neighbors"><a class="header" href="#k-nearest-neighbors">K-Nearest Neighbors</a></h3>
+<p>距离度量：$D(x,y)={|x-y|_p}$</p>
+<p>多数表决：每个邻居节点的权重可以相同，也可以与距离相关（例如$\frac{1}{d}$）。</p>
+<blockquote>
+<p>比如，我们判断一个人的人品，只需要观察他来往最密切的几个人的人品好坏就可以得出了。</p>
+</blockquote>
+<ul>
+<li>分类：训练集里和预测的样本特征最近的$K$个样本，选取样本中的主要类别作为预测。</li>
+<li>回归：平均法，即最近的$K$个样本的样本输出的平均值作为回归预测值。</li>
+</ul>
+<h4 id="参数选择"><a class="header" href="#参数选择">参数选择</a></h4>
+<p>对于$k$值的选择，没有一个固定的经验，一般根据样本的分布，选择一个较小的值，可以通过交叉验证选择一个合适的$k$值。</p>
+<h4 id="距离计算"><a class="header" href="#距离计算">距离计算</a></h4>
+<h5 id="暴力搜索"><a class="header" href="#暴力搜索">暴力搜索</a></h5>
+<p>计算预测样本与训练集所有样本的距离，找出$k$邻近样本，进行多数表决确定预测样本的类型。</p>
+<h5 id="kd树k-dimensional-tree"><a class="header" href="#kd树k-dimensional-tree">KD树（K-Dimensional Tree）</a></h5>
+<p>在训练阶段建立KD树（模型）。</p>
+<ul>
+<li>计算样本集合各个特征的取值的方差，用方差最大的第$n$维特征$f_n$来作为根节点的划分标准（<strong>方差越大，则数据在该维度上更加分散</strong>）。</li>
+<li>将样本按$f_n$划分为两个子集，作为根节点的左右子节点的输入。</li>
+<li>对于左右子节点，重复上述操作。</li>
+</ul>
+<p>搜索临近节点：</p>
+<h5 id="球树"><a class="header" href="#球树">球树</a></h5>
+<h4 id="参考资料"><a class="header" href="#参考资料">参考资料</a></h4>
+<ol>
+<li><a href="https://www.cnblogs.com/pinard/p/6061661.html">K近邻法(KNN)原理小结</a>。</li>
+</ol>
+<h3 id="k-means"><a class="header" href="#k-means">K-means</a></h3>
+<p>对于给定的样本集，按照样本之间的距离大小，将样本集划分为$K$个簇。让簇内的点尽量紧密的连在一起，而让簇间的距离尽量的大。
+$$
+\begin{align*}
+E &amp;= \sum_{i=1}^k\sum_{x \in C_i} {|x-\mu_i|}<em>2^2\
+\mu_i &amp;= \frac{1}{|C_i|}\sum\limits</em>{x \in C_i}x
+\end{align*}
+$$
+$k$值的选择：根据对数据的先验经验选择一个合适的$k$值，如果没有什么先验知识，则可以通过交叉验证选择一个合适的$k$值。</p>
+<p>选择$k$个初始化的质心：$k$个初始化的质心的位置选择对最后的聚类结果和运行时间都有很大的影响，因此需要选择合适的$k$个质心，最好这些质心不能太近。</p>
+<h4 id="优化"><a class="header" href="#优化">优化</a></h4>
+<h5 id="k-means-1"><a class="header" href="#k-means-1">K-Means++</a></h5>
+<p>优化初始质心的选择。</p>
+<h5 id="mini-batch-k-means"><a class="header" href="#mini-batch-k-means">Mini Batch K-Means</a></h5>
+<h4 id="参考资料-1"><a class="header" href="#参考资料-1">参考资料</a></h4>
+<ol>
+<li><a href="https://www.cnblogs.com/pinard/p/6164214.html">K-Means聚类算法原理</a>。</li>
+</ol>
+<h3 id="谱聚类spectral-clustering"><a class="header" href="#谱聚类spectral-clustering">谱聚类（Spectral Clustering）</a></h3>
+<h4 id="算法"><a class="header" href="#算法">算法</a></h4>
+<p>聚类问题：不同分组间的边（相似度）权重较低，而相同分组内节点间的边权重较高。</p>
+<p>主要思想：==将数据点映射到相似矩阵的特征向量。==</p>
+<h5 id="割图graph-cut"><a class="header" href="#割图graph-cut">割图（Graph Cut）</a></h5>
+<p>点的聚类近似对应了最小割（min-cut）：即割集（割间的边）的权重之和最小，且割内边权重之和尽可能大。由此得到两种优化目标，即RatioCut和Ncut。</p>
+<blockquote>
+<p>$$
+\begin{align*}
+\mathrm{cut}(A,B)&amp;=\sum_{i\in A,j\in B}{w_{ij}}\
+\mathrm{cut}(A_1,A_2,\cdots,A_k)&amp;=\sum_{i=1}^k{\mathrm{cut}(A_i,\bar{A}_i)}\notag
+\end{align*}
+$$</p>
+</blockquote>
+<p>平衡性：</p>
+<p><code>RatioCut</code>：使用子集的节点数调整子集的权重。
+$$
+\mathrm{RatioCut}(A_1,\cdots,A_k) = \sum_1^k{\frac{\mathrm{Cut}(A_i,\hat{A})}{|A_i|}}
+$$</p>
+<blockquote>
+<p>对应非规范化的拉普拉斯矩阵$L$。</p>
+</blockquote>
+<p><code>Ncut</code>：使用子集的边权重调整子集的权重。
+$$
+\mathrm{Ncut}(A_1,\cdots,A_k) = \sum_1^k{\frac{\mathrm{Cut}(A_i,\hat{A})}{\mathrm{vol}(A_i)}}
+$$</p>
+<blockquote>
+<p>对应规范化的拉普拉斯矩阵$L_{\mathrm{rw}}$或$L_{\mathrm{sym}}$。</p>
+</blockquote>
+<h3 id="logistic-regression"><a class="header" href="#logistic-regression">Logistic Regression</a></h3>
+<h2 id="学习框架"><a class="header" href="#学习框架">学习框架</a></h2>
+<h3 id="adaboost"><a class="header" href="#adaboost">AdaBoost</a></h3>
+<p>调整训练实例的权重已提升弱学习器的准确率。</p>
+<h2 id="应用"><a class="header" href="#应用">应用</a></h2>
+<h3 id="分类-2"><a class="header" href="#分类-2">分类</a></h3>
+<h4 id="document-classification"><a class="header" href="#document-classification">Document classification</a></h4>
+<p>bag of words: a binary document × word co-occurrence matrix</p>
+<h4 id="image-classification"><a class="header" href="#image-classification">Image Classification</a></h4>
+<p>Object (Face) detection and recognition</p>
+<h3 id="回归"><a class="header" href="#回归">回归</a></h3>
+<p>Predict tomorrow's stock market price</p>
+<p>Predict the location in 3D space of a robot arm end effector</p>
+<p>Predict the temperature at any location</p>
+<p><a href="#%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92">线性回归（Linear Regression）</a></p>
+<h3 id="聚类clustering"><a class="header" href="#聚类clustering">聚类（Clustering）</a></h3>
+<ol>
+<li>estimate the distribution over the number of clusters, $p(K|D)$</li>
+<li>estimate which cluster each point belongs to,  $z^{*}_i = \mathop{\mathrm{argmax}}_k{p(z_i=k|\bm{x}_i,\mathcal{D})}$, where $z_i$ is <strong>hidden</strong> or <strong>latent</strong> variable.</li>
+</ol>
+<p>model based clustering:  fit a probabilistic model to the data.</p>
+<h3 id="discovering-latent-factors"><a class="header" href="#discovering-latent-factors">Discovering latent factors</a></h3>
+<h3 id="discovering-graph-structure"><a class="header" href="#discovering-graph-structure">Discovering graph structure</a></h3>
+<p>measure a set of correlated variables;  discover which ones are most correlated with which others.
+$$
+\hat{G}=\mathop{\mathrm{argmax}}{p(G|\mathcal{D})}
+$$</p>
+<h3 id="matrix-completion"><a class="header" href="#matrix-completion">Matrix Completion</a></h3>
+<h5 id="collaborative-filtering"><a class="header" href="#collaborative-filtering">Collaborative filtering</a></h5>
+<p>recommendation system</p>
+<h3 id="特征选择feature-selection"><a class="header" href="#特征选择feature-selection">特征选择（Feature Selection）</a></h3>
+<h2 id="方法"><a class="header" href="#方法">方法</a></h2>
+<h3 id="naive-bayes朴素贝叶斯"><a class="header" href="#naive-bayes朴素贝叶斯">Naive Bayes（朴素贝叶斯）</a></h3>
+<p>基于概率预测实际需要建立$p(y|\bm{x},\mathcal{D})$的模型，根据贝叶斯定理可得，
+$$
+\begin{align}
+p(y|\boldsymbol{x})&amp;=\frac{p(\boldsymbol{x},y)}{p(\boldsymbol{x})}\notag\
+&amp;=\frac{p(\boldsymbol{x}|y)p(y)}{\sum_i{p(\boldsymbol{x}|y=c_i)p(y=c_i)}} \notag\
+&amp;\propto p(\boldsymbol{x}|y)p(y)
+\end{align}
+$$</p>
+<blockquote>
+<p>分母与$y$无关。</p>
+</blockquote>
+<p>因此需要求出联合概率分布或间接求出类别的先验概率$p(y)$和样本关于类别的条件概率。</p>
+<p><strong>朴素贝叶斯方法</strong>假设数据服从某种类型的分布，利用样本估计该分布的参数。当获得估计参数后，利用概率模型以及贝叶斯公式即可计算出分类的概率。<strong>首先，每个类别的对应参数$\bm{\theta}^c,c=1,...,C$可能不同；其次，给定类别中数据的每个维度对应一组参数$\bm{\theta}^c_{!j}, j=1,...,F$，各组参数可能并非相对独立</strong>。为了简化计算，假设数据的各个维度的特征（<em>feature</em>）的条件分布独立（因此参数估计是相互独立的，实际情况并不一定成立，因此朴素）。</p>
+<blockquote>
+<p>设样本点维度为$F$，类别总数为$C$。</p>
+</blockquote>
+<p>单个样本点发生的概率（似然函数）：
+$$
+\begin{align}
+p(\boldsymbol{x}<em>i,y_i|\boldsymbol{\theta})&amp;=p(\boldsymbol{x}<em>i|y_i,\boldsymbol{\theta})p(y_i|\boldsymbol{\theta})\notag\
+&amp;=p(y_i|\boldsymbol{\theta})\prod</em>{c=1}^{C}{p(\boldsymbol{x}<em>i|y_i,\boldsymbol{\theta})^{\mathbb{I}(c=y_i)}}\
+&amp;=p(y_i|\boldsymbol{\theta})p(\boldsymbol{x}<em>i|c,\boldsymbol{\theta}^c)|</em>{c=y_i}\
+&amp;=p(y_i|\boldsymbol{\pi})p(\boldsymbol{x}<em>i|\boldsymbol{\theta}^c)|</em>{c=y_i}\
+&amp;=p(y_i|\boldsymbol{\pi})\prod</em>{j=1}^{F}{p(x</em>{ij}|\boldsymbol{\theta}^c_{!j})|_{c=y_i}}
+\end{align}
+$$</p>
+<p>其中$\bm{\pi}=(\pi_c)|_{c=1,...,C}$为标签$y$的概率分布。由于样本点已知其分类，因此仅考虑其对应分类的概率$p(\bm{x}_i|y_i=c,\bm{\theta})\ne0$。由于参数独立，因此在计算条件概率时，条件只包含样本点所属类别对应特征维度的参数。</p>
+<p>样本集合发生的概率为各个样本点发生的联合概率（认为各个点相互独立）
+$$
+\begin{align}
+p(\mathcal{D}|\boldsymbol{\theta})&amp;=\prod_{i=1}^D{\left{p(y_i|\boldsymbol{\pi})\prod_{j=1}^F{p(\boldsymbol{x}<em>{ij}|\boldsymbol{\theta}</em>{!j}^c)|<em>{c=y_j}}\right}}\notag\
+&amp;=\prod</em>{i=1}^D{p(y_i|\boldsymbol{\pi})}\prod_{i=1}^D{\prod_{j=1}^F{p(\boldsymbol{x}<em>{ij}|\boldsymbol{\theta}</em>{!j}^c)|<em>{c=y_j}}}\
+\log{p(\mathcal{D}|\boldsymbol{\theta})}&amp;=\sum</em>{i=1}^{D}{\log{p(y_i|\boldsymbol{\pi})}}+\sum_{i=1}^D{\sum_{j=1}^F{\log{p(\boldsymbol{x}<em>{ij}|\boldsymbol{\theta^c</em>{!j}})|<em>{c=y_i}}}}\notag\
+&amp;=\sum</em>{i=1}^C{N_c\log{\pi_c}}+\sum_{i=1}^D{\sum_{j=1}^F{\log{p(\boldsymbol{x}<em>{ij}|\boldsymbol{\theta^c</em>{!j}})|_{c=y_i}}}}
+\end{align}
+$$</p>
+<p>其中$\N_c$表示所有$D$个样本点中类别为$c$的数量（对应的概率为$\pi_c$）。</p>
+<p>采用<strong>最大似然估计</strong>，则是要使（对数）似然函数在考察参数条件下最大化，
+$$
+\begin{align}
+\mathop{\mathrm{argmax}}<em>\boldsymbol{\theta}~&amp;{\log{p(\mathcal{D}|\boldsymbol{\theta})}},\
+\mathrm{s.t.~~~} &amp;\sum</em>{c=1}^C{\pi_c}=1. \notag
+\end{align}
+$$</p>
+<h5 id="gaussian-naive-bayes"><a class="header" href="#gaussian-naive-bayes">Gaussian Naive Bayes</a></h5>
+<p>连续数据，假设数据的每一个特征服从一个正态分布，</p>
+<p>$$
+p(\boldsymbol{x}|y=c,\boldsymbol{\theta})=\prod_{j=1}^D\mathcal{N}(x_j|\mu_{!j}^c,{{\sigma}_{!j}^c}^2)
+$$</p>
+<p>估计分布的期望和方差。</p>
+<h5 id="bernoulli-naive-bayes"><a class="header" href="#bernoulli-naive-bayes">Bernoulli Naive Bayes</a></h5>
+<p>特征的值由两个取值（0和1），采用伯努利分布$p(\bm{x}|y=c,\bm{\theta})=\prod_{j=1}^D\mathrm{Ber}(x_j|{\mu}_{!j}^c)$，估计每个特征的分布的期望${\mu}_j^c$（即$x=1$的概率）。</p>
+<h5 id="multinomial-naive-bayes"><a class="header" href="#multinomial-naive-bayes">Multinomial Naive Bayes</a></h5>
+<p>特征可以取多个离散值，在二值基础上推广。</p>
+<h4 id="模型拟合"><a class="header" href="#模型拟合">模型拟合</a></h4>
+<h3 id="神经网络"><a class="header" href="#神经网络">神经网络</a></h3>
+<p>A neural network is a very powerful machine learning mechanism which basically mimics how a human brain learns. The brain receives the stimulus from the outside world, does the processing on the input, and then generates the output.</p>
+<p><img src="%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0.assets/content_content_neuron.png" alt="img" /></p>
+<h4 id="激活函数activation-function"><a class="header" href="#激活函数activation-function">激活函数（Activation Function）</a></h4>
+<img src="机器学习.assets/neutron_activate_function.png" alt="neutron activate function" style="zoom: 50%;" />
+<p>单个神经元：输入$\bm{x}=(x_i)<em>{i=1,\cdots,n}$，神经元输入权重$W_i=(w_i)</em>{i=1,\cdots,n}$，
+$$
+\begin{align*}
+y_j&amp;=f(b+\sum_{i=1}^{n}{x_iw_i})=f(W_i\bm{x}+b),\
+z_j&amp;= b_j+W_i\bm{x} \Longrightarrow y_j=f(z_j)
+\end{align*}
+$$</p>
+<blockquote>
+<p><em>A neural network without an activation function is essentially just a linear regression model.</em> </p>
+</blockquote>
+<p>单层网络：第$k$层神经元序列$\bm{q}^{(k)}=(q_j^{(k)}=(f_j^{(k)},b_j^{(k)}))<em>{j=1,\cdots,m}$，$\bm{f}^{(k)}=(f_j^{(k)})</em>{j=1,\cdots,m}, \bm{b}^{(k)}=(b_j^{(k)})_{j=1,\cdots,m}$。每个神经元的激活函数分别处理一个线性组合输入$z_j$。</p>
+<p>可以将各层网络的处理写作迭代的形式：
+$$
+\begin{align*}
+\bm{q}^{(k+1)}(\bm{x}^{(k)})&amp;=\begin{cases}
+\bm{z}^{(k+1)}=\bm{b}^{(k+1)}+\bm{W}^{(k+1)}\bm{x}^{(k)} \
+\bm{x}^{(k+1)}=\bm{f}^{(k)}(\bm{z}^{(k+1)}) 
+\end{cases},~~k=1,2,\cdots\
+x^{(k+1)}_j&amp;=f_j^{(k)}(z^{(k+1)}_j)
+\end{align*}
+$$</p>
+<blockquote>
+<p>通常每一层使用相同类型的神经元，即激活函数相同$f_j^{(k)}=f^{(k)}$。</p>
+</blockquote>
+<h5 id="sigmoid"><a class="header" href="#sigmoid">Sigmoid</a></h5>
+<p>$$
+f(x)=\frac{1}{1+e^{-x}}
+$$</p>
+<p>This means that in this range small changes in x would also bring about large changes in the value of Y. So the function essentially tries to push the Y values towards the extremes. This is a very desirable quality when we are trying to classify the values to a particular class.</p>
+<p><strong>Problem</strong>:</p>
+<ul>
+<li>when $x$ is large,  the gradient is approaching to zero and the network is not really learning.</li>
+</ul>
+<h5 id="tanh---scaled-sigmoid"><a class="header" href="#tanh---scaled-sigmoid">Tanh - Scaled Sigmoid</a></h5>
+<p>$$
+\begin{align}
+\mathrm{tanh}(x)&amp;=2\mathrm{sigmoid}(2x)-1 \notag\
+&amp; =\frac{2}{1+e^{-2x}} -1 
+\end{align}
+$$</p>
+<p>it ranges from -1 to 1.</p>
+<h5 id="relu"><a class="header" href="#relu">ReLU</a></h5>
+<p>$$
+f(x)=\mathrm{max}(0,x)
+$$</p>
+<p>The main advantage of using the ReLU function over other activation functions is that it does not activate all the neurons at the same time.</p>
+<p><strong>Problems</strong>:  gradients moving towards zero.</p>
+<p><strong>Solution</strong>: </p>
+<ul>
+<li>Leaky ReLU.</li>
+</ul>
+<p>$$
+f(x)=\begin{cases}
+ax, &amp; x&lt; 0 \
+x,  &amp; x \ge 0
+\end{cases} ~~(a\rightarrow0^+)
+$$</p>
+<ul>
+<li>Parameterized ReLU function</li>
+</ul>
+<h5 id="softmax"><a class="header" href="#softmax">Softmax</a></h5>
+<p>$$
+\boldsymbol{\sigma}(\boldsymbol{z})<em>j=\frac{e^{z_j}}{\sum</em>{k=1}^{K}{e^{z_k}}},~\forall j=1,\cdots,K.
+$$</p>
+<p><strong>==Multi-class problem==</strong>: the softmax function would squeeze the outputs for each class between 0 and 1 and would also divide by the sum of the outputs. This essentially gives the probability of the input being in a particular class. </p>
+<blockquote>
+<ul>
+<li>Sigmoid functions and their combinations generally work better in the case of classifiers</li>
+<li>Sigmoids and tanh functions are sometimes avoided due to the vanishing gradient problem</li>
+<li>ReLU function is a general activation function and is used in most cases these days</li>
+<li>If we encounter a case of dead neurons in our networks the leaky ReLU function is the best choice</li>
+<li>Always keep in mind that ReLU function should only be used in the hidden layers ???</li>
+<li>As a rule of thumb, you can begin with using ReLU function and then move over to other activation functions in case ReLU doesn’t provide with optimum results</li>
+</ul>
+</blockquote>
+<p>https://www.analyticsvidhya.com/blog/2017/10/fundamentals-deep-learning-activation-functions-when-to-use-them/</p>
+<p><a href="https://www.asimovinstitute.org/neural-network-zoo/">The Neural Network Zoo - The Asimov Institute</a></p>
+<p><img src="%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%8E%9F%E7%90%86%E4%B8%8E%E7%AE%97%E6%B3%95.assets/NeuralNetworkZoo20042019.png" alt="" /></p>
+<h4 id="feed-forward-neural-network"><a class="header" href="#feed-forward-neural-network">Feed-forward Neural Network</a></h4>
+<h5 id="感知器perceptron"><a class="header" href="#感知器perceptron">感知器（Perceptron）</a></h5>
+<p>单层感知器仅能学习线性可分模式。</p>
+<p>https://www.simplilearn.com/what-is-perceptron-tutorial</p>
+<h5 id="multi-layer-perceptrons-mlps"><a class="header" href="#multi-layer-perceptrons-mlps">Multi-Layer Perceptrons (MLPs)</a></h5>
+<h5 id="线性神经网络"><a class="header" href="#线性神经网络">线性神经网络</a></h5>
+<p>感知器传输函数是一个二值阈值元件，而线性神经网络的传输函数是线性的。这就决定了感知器只能做简单的分类，而线性神经网络还可以实现==线性==拟合或逼近。</p>
+<h5 id="非线性神经网络"><a class="header" href="#非线性神经网络">非线性神经网络</a></h5>
+<p>要形成非线性分界面，网状结构和非线性激活函数缺一不可。如果缺乏网状结构（<em>逻辑回归</em>），$\bm{x}$经过投影其信息只在 $W$方向上有变化。若缺乏非线性激活函数，则无论有多少层，<a href="https://zhuanlan.zhihu.com/p/35307826">网络仍然是一个线性回归</a>。</p>
+<img src="机器学习.assets/1568938883673.png" alt="Feed-forward Neural Network" style="zoom:80%;" />
+<p>优化神经网络：调整网络中的参数$W,b$，以最小化损失函数。</p>
+<h5 id="参考文献"><a class="header" href="#参考文献">参考文献</a></h5>
+<ol>
+<li>https://www.learnopencv.com/understanding-feedforward-neural-networks/</li>
+<li>https://www.analyticsvidhya.com/blog/2018/07/using-power-deep-learning-cyber-security/</li>
+</ol>
+<h4 id="卷积神经网络cnn"><a class="header" href="#卷积神经网络cnn">卷积神经网络CNN</a></h4>
+<p>CNNs specifically are inspired by the biological visual cortex<sup class="footnote-reference"><a href="#cnn-python">1</a></sup>.</p>
+<blockquote>
+<p><em>In this experiment, the researchers showed that <strong>some individual neurons in the brain activated or fired only in the presence of edges of a particular orientation like vertical or horizontal edges</strong>. Hubel and Wiesel found that all of these neurons were well ordered in a columnar fashion and that together they were able to produce visual perception.</em></p>
+</blockquote>
+<p><img src="%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0.assets/2019-06-19-lenet.png" alt="LeNet-5网络结构" /></p>
+<p><img src="%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0.assets/Typical_cnn_kecdep.png" alt="convolutional neural networks python" /></p>
+<blockquote>
+<p>层间特征的映射关系不是通过<strong>全连接</strong>，而是<strong>局部卷积</strong>构造。</p>
+</blockquote>
+<h5 id="preprocessing-降采样"><a class="header" href="#preprocessing-降采样">preprocessing: 降采样</a></h5>
+<h5 id="convolution"><a class="header" href="#convolution">convolution</a></h5>
+<blockquote>
+<p>提取局部特征（模式）。</p>
+<p><em>卷积核模式匹配无法区分以下模式：设计不同的卷积核可区分以上两种模式，从而避免额外的归一化操作。</em></p>
+<img src="assets/conv-normalize-needed.png" alt="卷积结果是否需要归一化？" style="zoom:50%;" />
+</blockquote>
+<p>每一个kernel在一张图上通过卷积运算生成一个feature map（每个卷积核代表了一种图像模式），输入图像本身也相当于一个kernel map（对于RGB图像，每个图像对应三个输入通道，相当于有三个kernel map）。每个输入图像使用同一组卷积核分别进行计算，因此输出feature map数量：<code>n_input_map*n_kenerls_per_map</code>；</p>
+<p>输出数据的形状：<code>n_input_map*n_kernels_per_map*(n_rows*n_cols)</code>；</p>
+<p>因此每层参数数量：<code>(n_input_map*kernel_size+1)*n_kernels_per_map</code>，每个卷积核对应一个权重系数矩阵和一个<code>bias</code>参数（$y_{ij}=\boldsymbol{wx}_{ij}+b$）。对于输入层，<code>num_input_map=1</code>（对于RGB图像，<code>num_input_map=3</code>，因此<a href="https://stackoverflow.com/a/57268398/6571140">输入层需要三个二维卷积核分别对三个通道进行卷积并将结果求和</a>（<a href="TensorFlow.html#Conv2D">Keras的<code>Conv2D</code></a>）。</p>
+<blockquote>
+<p><strong>bias</strong>：单个输入图上的卷积核使用独立的bias，但这些bias跨feature map是共享的参数，因此偏置参数的个数为<code>n_kenerls_per_map</code>。（<em>==同一层卷积核在不同feature map是独立的，但偏置是共享的？==</em>）</p>
+</blockquote>
+<p>==卷积计算实际是权重与数据的内积。卷积核的移动过程类比于数字信号处理中的卷积运算过程==。卷积计算可在feature_map内部（复制image数据）以及feature_map之间并行。</p>
+<blockquote>
+<p><em>dot product between their <strong>weights</strong> (kernel) and a small receptive field to which they are connected to in the input volume.</em></p>
+</blockquote>
+<h5 id="subsampling-降低分辨率"><a class="header" href="#subsampling-降低分辨率">subsampling: 降低分辨率</a></h5>
+<blockquote>
+<p>有助于==减小过拟合==。</p>
+</blockquote>
+<ul>
+<li>
+<p><strong>max-pooling</strong>: <em>takes the largest value from the window of the image currently covered by the kernel of the pooling layer.</em></p>
+<blockquote>
+<p>卷积运算的值越大，意味着对应位置的模式与卷积核越匹配。因此，通过<code>max-pooling</code>运算后，卷积运算提取的模式信息仍能在<code>feature_map</code>中得到保留。</p>
+<p><em>池化层窗口移动步长为窗口宽度。</em></p>
+</blockquote>
+</li>
+<li>
+<p>full connected layers: 类似传统神经网络的部分</p>
+</li>
+</ul>
+<h5 id="全连接层"><a class="header" href="#全连接层">全连接层</a></h5>
+<p>将feature maps转换为1维向量，从而可用于输出层的softmax分类器或sigmoid进行预测。</p>
+<div class="footnote-definition" id="cnn-python"><sup class="footnote-definition-label">1</sup>
+<p><a href="https://www.datacamp.com/community/tutorials/convolutional-neural-networks-python">Convolutional Neural Networks in Python - DataCamp</a></p>
+</div>
+<h4 id="损失函数"><a class="header" href="#损失函数">损失函数</a></h4>
+<p><a href="#%E7%BB%8F%E9%AA%8C%E9%A3%8E%E9%99%A9%E6%9C%80%E5%B0%8F%E5%8C%96">损失函数</a>以神经网络的输出作为自变量，以训练数据集的标签作为参数。</p>
+<p><code>binary_crossentropy</code></p>
+<h3 id="autoencoder"><a class="header" href="#autoencoder"><a href="DimensionalityReduction.html#AutoEncoder">AutoEncoder</a></a></h3>
+<h3 id="深度学习"><a class="header" href="#深度学习">深度学习</a></h3>
+<ol>
+<li>https://www.analyticsvidhya.com/blog/2016/03/introduction-deep-learning-fundamentals-neural-networks/</li>
+<li>https://www.analyticsvidhya.com/blog/2018/05/essentials-of-deep-learning-trudging-into-unsupervised-deep-learning/</li>
+</ol>
+<h4 id="time-series-forecasting--modeling"><a class="header" href="#time-series-forecasting--modeling">Time Series forecasting &amp; modeling</a></h4>
+<h5 id="methods"><a class="header" href="#methods">Methods</a></h5>
+<ol>
+<li>
+<p>Moving Average</p>
+</li>
+<li>
+<p>Linear Regression</p>
+</li>
+<li>
+<p>k-Nearest Neighbors</p>
+</li>
+<li>
+<p>Auto ARIMA</p>
+</li>
+<li>
+<p>Prophet</p>
+</li>
+<li>
+<p>Long Short Term Memory (LSTM)</p>
+</li>
+<li>
+<p>https://www.analyticsvidhya.com/blog/2018/10/predicting-stock-price-machine-learningnd-deep-learning-techniques-python/</p>
+</li>
+<li>
+<p>https://www.analyticsvidhya.com/blog/2016/02/time-series-forecasting-codes-python/?utm_source=blog&amp;utm_medium=stockmarketpredictionarticle</p>
+</li>
+</ol>
+<h4 id="gan"><a class="header" href="#gan">GAN</a></h4>
+<p>https://www.analyticsvidhya.com/blog/2019/04/top-5-interesting-applications-gans-deep-learning/</p>
+<h3 id="训练"><a class="header" href="#训练">训练</a></h3>
+<h4 id="model-selection"><a class="header" href="#model-selection">Model Selection</a></h4>
+<h4 id="数据集"><a class="header" href="#数据集">数据集</a></h4>
+<h5 id="training-set"><a class="header" href="#training-set">training set</a></h5>
+<h5 id="validation-set"><a class="header" href="#validation-set">validation set</a></h5>
+<p>We fit all the models on the training set, and evaluate their performance on the validation set, and pick the best.</p>
+<p><strong>cross validation</strong>: split the training data into $K$ folds; train on all the folds but the $k$’th, and test on the $k$’th, in a round-robin fashion.</p>
+<h5 id="test-set"><a class="header" href="#test-set">test set</a></h5>
+<h2 id="优化理论"><a class="header" href="#优化理论">优化理论</a></h2>
+<h3 id="梯度搜索算法"><a class="header" href="#梯度搜索算法">梯度搜索算法</a></h3>
+<h4 id="stochastic-gradient-descent"><a class="header" href="#stochastic-gradient-descent">Stochastic Gradient Descent</a></h4>
+<blockquote>
+<p>learning of linear classifiers under convex loss functions such as (linear) Support Vector Machines and Logistic Regression. </p>
+<p>SGD has been successfully applied to <em>large-scale</em> and <em>sparse</em> machine learning problems often encountered in text classification and natural language processing.</p>
+</blockquote>
+<p>Stochastic Gradient Descent：根据一个样本计算梯度；</p>
+<p>Batch Gradient Descent：根据所有样本计算平均梯度（计算所有样本的平均误差，以2范数构造损失函数即为均方误差（MSE））；</p>
+<p>mini-batch SGD：计算一批样本的平均梯度（兼顾计算效率与收敛速率）。</p>
+<h5 id="参考文献-1"><a class="header" href="#参考文献-1">参考文献</a></h5>
+<ol>
+<li>https://scikit-learn.org/stable/modules/sgd.html#sgd </li>
+<li>https://adventuresinmachinelearning.com/stochastic-gradient-descent/</li>
+</ol>
+<h4 id="adam"><a class="header" href="#adam">ADAM</a></h4>
+<h3 id="back-propagation"><a class="header" href="#back-propagation">Back-Propagation</a></h3>
+<p><img src="%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0.assets/image-20210111170508921.png" alt="bp" /></p>
+<p>利用链式规则对$W_{ij}^{(k)}$反向逐级求导：
+$$
+\newcommand{\d}[2]{\frac{\partial#1}{\partial#2}}
+\begin{align*}
+\d{l}{f_1^{(3)}}&amp;=\dot{l}(u),~~u=f_1^{(3)}-y_1\</p>
+<p>\d{l}{w_{11}^{(2)}}&amp;=\d{l}{f_1^{(3)}}\d{f_1^{(3)}}{z_1^{(3)}}\d{z_1^{(3)}}{w_{11}^{(2)}}=\d{l}{f_1^{(3)}}\cdot\dot{f}_1^{(3)}\cdot f_1^{(2)}
+\end{align*}
+$$
+其中，通过正向传播并利用初始化的权重系数$W$，可获得各级神经元输入值$z$、激活函数的函数值$f$和导数值$\dot{f}$。</p>
+<blockquote>
+<p><em>Without the differentiable non linear function, this would not be possible.</em></p>
+<p>类似地对$b_i^{(k)}$求导可得：
+$$
+\d{l}{b_1^{(2)}}=\d{l}{f_1^{(3)}}\d{f_1^{(3)}}{z_1^{(3)}}\d{z_1^{(3)}}{b_1^{(2)}}=\d{l}{f_1^{(3)}}\cdot\dot{f}_1^{(3)}, ~~\left(\d{z_1^{(3)}}{b_1^{(2)}}=1\right)\notag
+$$</p>
+</blockquote>
+<p>利用后一级已有导数信息，可迅速计算当前层级的导数：
+$$
+\begin{align*}
+\d{l}{f_{1}^{(2)}}&amp;=\d{l}{f_1^{(3)}}\d{f_1^{(3)}}{z_1^{(3)}}\d{z_1^{(3)}}{f_{1}^{(2)}}=\d{l}{f_1^{(3)}}\cdot\dot{f}<em>1^{(3)}\cdot w</em>{11}^{(2)}\</p>
+<p>\d{l}{w_{11}^{(1)}}&amp;=\d{l}{f_1^{(2)}}\d{f_1^{(2)}}{z_1^{(2)}}\d{z_1^{(2)}}{w_{11}^{(1)}}=\d{l}{f_{1}^{(2)}}\cdot\dot{f}<em>1^{(2)}\cdot f</em>{1}^{(1)}
+\end{align*}
+$$</p>
+<blockquote>
+<p>$z_1^{(3)}=w_{11}^{(2)}f_1^{(2)}+b_1^{(2)}$，因此对$w_{11}^{(2)}$求导仅与$f_1^{(2)}$相关。</p>
+</blockquote>
+<p>如果存在多个输出，或者较浅的层级在求导时，其前置神经元存在多条路径：
+$$
+\begin{align*}
+\d{l}{f_{1}^{(1)}}&amp;=\sum_{i=1}^{n_2}\left{\d{l}{f_i^{(2)}}\d{f_i^{(2)}}{z_i^{(2)}}\d{z_i^{(2)}}{f_1^{(1)}}\right}=\sum_{i=1}^{n_2}\left{\d{l}{f_{i}^{(2)}}\cdot\dot{f}<em>i^{(2)}\cdot w</em>{i1}^{(1)}\right}\</p>
+<p>\d{l}{w_{12}^{(0)}}&amp;=\d{l}{f_1^{(1)}}\d{f_1^{(1)}}{z_1^{(1)}}\d{z_1^{(1)}}{w_{12}^{(0)}}=\d{l}{f_1^{(1)}}\dot{f}_1^{(1)}\cdot f_2^{(0)}
+\end{align*}
+$$</p>
+<h5 id="向量化"><a class="header" href="#向量化">向量化</a></h5>
+<p>将各级的函数值、导数值信息表示为向量，并根据各级的维度关系，可以得到各级梯度的向量化表示。
+$$
+\begin{align*}
+\bm{d}^{(k)}&amp;=\left(\d{l}{f_{i}^{(2)}}\cdot\dot{f}<em>i^{(k)}\right)</em>{i=1,\cdots,n_k},&amp;
+\bm{f}^{(k)}&amp;=\left(f_i^{(k)}\right)_{i=1,\cdots,n_k},\
+\frac{\mathrm{d}l}{\mathrm{d}\bm{f}^{(k)}}&amp;={W^{(k)}}^{\top}\cdot\bm{d}^{(k+1)},&amp;
+\frac{\mathrm{d}l}{\mathrm{d}\bm{W}^{(k)}}&amp;=\bm{d}^{(k+1)}\cdot{\bm{f}^{(k)}}^{\top}.
+\end{align*}
+$$
+基于梯度信息，我们可以利用梯度下降算法进行迭代从而优化神经网络的参数，以最小化训练数据集的损失。</p>
+<h5 id="参考文献-2"><a class="header" href="#参考文献-2">参考文献</a></h5>
+<ol>
+<li>https://towardsdatascience.com/applied-deep-learning-part-1-artificial-neural-networks-d7834f67a4f6</li>
+<li>https://adventuresinmachinelearning.com/neural-networks-tutorial/</li>
+</ol>
+<h2 id="开源项目"><a class="header" href="#开源项目">开源项目</a></h2>
+<h3 id="generative-models-in-tensorflow-2"><a class="header" href="#generative-models-in-tensorflow-2"><a href="https://github.com/timsainb/tensorflow2-generative-models">Generative Models in TensorFlow 2</a></a></h3>
+<p>This repository contains TF implementations of multiple generative models, including:</p>
+<ul>
+<li>Generative Adversarial Networks (GANs)</li>
+<li>Autoencoder</li>
+<li>Variational Autoencoder (VAE)</li>
+<li>VAE-GAN, among others.</li>
+</ul>
+<h3 id="stumpy--time-series-data-mining"><a class="header" href="#stumpy--time-series-data-mining"><a href="https://github.com/TDAmeritrade/stumpy">STUMPY – Time Series Data Mining</a></a></h3>
+<p>Below are a few time series data mining tasks this matrix profile helps us perform:</p>
+<ul>
+<li>Anomaly discovery</li>
+<li>Semantic segmentation</li>
+<li>Density estimation</li>
+<li>Time series chains (temporally ordered set of subsequence patterns)</li>
+<li>Pattern/motif (approximately repeated subsequences within a longer time series) discovery</li>
+</ul>
+<h3 id="awesome-decision-tree-research-papers"><a class="header" href="#awesome-decision-tree-research-papers"><a href="https://github.com/benedekrozemberczki/awesome-decision-tree-papers">Awesome Decision Tree Research Papers</a></a></h3>
+<p>The repository also contains the implementation of each paper.</p>
+<h2 id="框架"><a class="header" href="#框架">框架</a></h2>
+<h3 id="pytorch"><a class="header" href="#pytorch">PyTorch</a></h3>
+<p>PyTorch is a Python based scientific computing package that is <strong>similar to NumPy, but with the added power of GPUs</strong>. It is also a <strong>deep learning framework that provides maximum flexibility and speed</strong> during implementing and building deep neural network architectures.</p>
+<ol>
+<li>https://www.analyticsvidhya.com/blog/2019/01/guide-pytorch-neural-networks-case-studies/</li>
+</ol>
+<blockquote>
+<ul>
+<li>Use Case 1: Handwritten Digits Classification (Numerical Data, MLP)</li>
+<li>Use Case 2: Objects Image Classification (Image Data, CNN)</li>
+<li>Use Case 3: Sentiment Text Classification (Text Data, RNN)</li>
+<li>Use Case 4: Image Style Transfer (Transfer Learning)</li>
+</ul>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../机器学习/图神经网络.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../机器学习/统计学习算法.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../机器学习/图神经网络.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../机器学习/统计学习算法.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

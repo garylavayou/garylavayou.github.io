@@ -1,0 +1,236 @@
+1.C语言连接数据库
+	头文件：mysql.h
+	库文件：参考mysql_config
+1.1.函数库和连接初始化
+
+1.1.1.my_init
+	#include <my_global.h>
+	#include <my_sys.h>
+	void my_init(void);
+	初始化MySQL函数库需要的一些全局变量，该函数也为当前线程调用mysql_thread_init()。在用户开始使用MySQL库函数之前有必要调用该函数进行初始化。
+	在调用mysql_init(), mysql_library_init(), mysql_server_init()以及 mysql_connect()时，则会自动调用my_init()。因此，如果最先使用的是这些函数，则不必显式调用my_init()。
+
+1.1.2.mysql_thread_init
+	my_bool mysql_thread_init(void)
+	该函数用于初始化一些线程相关的变量。但是通常不需要显式调用该函数：
+	my_init()会自动调用该函数，而my_init()又会自动被mysql_init(), mysql_library_init(), mysql_server_init()以及 mysql_connect()所调用。
+
+1.1.1.mysql_init
+	MYSQL* mysql_init(MYSQL *mysql);
+	分配或初始化一个MYSQL对象以用于mysql_real_connect()。如果mysql为NULL，那么该函数将分配，初始化一个新对象，否则初始化传入的对象。
+	如果mysql_init()分配了一个新的对象，则在调用mysql_close时，释放分配的对象。
+	返回分配或传入的MYSQL对象的指针。如果内存分配不成功返回NULL。
+
+1.2.连接管理
+
+1.2.1.mysql_real_connect()
+	MYSQL *mysql_real_connect(
+		MYSQL *mysql, 
+		const char *host, 
+		const char *user, 
+		const char *passwd, 
+		const char *db, 
+		unsigned int port, 
+		const char *unix_socket, 
+		unsigned long client_flag
+	)
+	mysql_real_connect()尝试与运行在host上的数据库引擎建立连接。该函数必须在执行其他需要有效连接句柄的API函数之前调用。
+	参数：
+	mysql 	- MYSQL structure。在使用前，应该先调用mysql_init()。
+	host 	- 主机名或IP地址。如果为NULL或“localhost”，则表示与本地主机建立连接。 
+	user	- MySQL用户名
+	passwd	- 用户密码。如果为NULL，则代表用户没有密码。user和passwd所使用的字符集在MYSQL对象中保存，可以使用mysql_options()修改。
+	db		- 表将要连接的数据库名称。
+	port	- 如果不是0，则代表TCP/IP连接的段口号。host的值决定连接类型。
+	unix_socket - 如果不是NULL，则代表要使用的套接字或命名管道。
+	client_flag - 通常是0。
+	如果成功，返回MYSQL*连接句柄，与传入的第一个参数一致，否则返回NULL。在进行数据库连接时使用的数据库程序和连接库的版本应该保持一致，否则会因为套接字文件等设置的不一致导致无法连接到数据库。
+
+1.2.2.mysql_close()
+	void mysql_close(MYSQL *mysql)
+	关闭一个已经建立的连接。如果连接句柄是动态分配的，则还要释放该句柄。
+
+1.2.3.mysql_ping()
+	int mysql_ping(MYSQL *mysql)
+	检测到server的连接是否工作。如果连接中断，且没有启动自动连接，该函数返回错误，否则会自动重新连接。
+	如果客户端与服务器的连接长时间处于空闲状态，则可以使用该函数检测server是否关闭了连接，并在必要的时候重新连接。
+	如果服务器处于活动状态，返回0；如果发生错误返回非0。非0不一定代表服务器停止，也有可能是其他原因如网络问题导致连接中断。
+
+1.3.信息查询
+
+1.3.1.mysql_character_set_name()
+	const char *mysql_character_set_name(MYSQL *mysql)
+	返回当前连接的默认字符集名称。
+
+1.3.2.mysql_get_character_set_info()
+	void mysql_get_character_set_info(MYSQL *mysql, MY_CHARSET_INFO *cs)
+	返回客户端当前默认的字符集的信息。返回信息存储在MY_CHARSET_INFO结构中。
+	typedef struct character_set{
+  	unsigned int      number;     /* 字符集代码              */
+  	unsigned int      state;      /* 字符集状态              */
+  	const char        *csname;    /* 校对规则名称            */
+  	const char        *name;      /* 字符集名称              */
+  	const char        *comment;   /* 注释                    */
+  	const char        *dir;       /* 字符集目录              */
+  	unsigned int      mbminlen;   /* 字符编码最短长度（字节） */
+  	unsigned int      mbmaxlen;   /* 字符编码最长长度（字节） */
+	} MY_CHARSET_INFO;
+
+1.3.3.mysql_set_character_set()
+	int mysql_set_character_set(MYSQL *mysql, const char *csname)
+	设置当前连接默认的字符集。csname代表一个有效的字符集名称，校对规则则是字符集默认的校对规则。该函数类似于“SET NAMES”语句，但同时设置mysql->charset字段的值。
+	成功返回0，错误返回非零。
+	
+1.3.4.mysql_get_client_info()
+	const char *mysql_get_client_info(void)
+	返回代表当前MySQL客户端函数库的版本的字符串。
+
+1.3.5.mysql_get_client_version()
+	unsigned long mysql_get_client_version(void)
+	返回代表客户端函数库版本的整数。返回值具有XYYZZ的形式，X代表主版本，YY代表发布级版本，ZZ是同一发布级的版本号。例如40102代表版本：4.1.2。
+	
+1.3.6.mysql_get_host_info()
+	const char *mysql_get_host_info(MYSQL *mysql)
+	返回描述当前连接的字符串，包括服务器主机名。
+
+1.3.7.mysql_get_proto_info()
+	unsigned int mysql_get_proto_info(MYSQL *mysql)
+	返回当前连接的协议版本。
+
+1.3.8.mysql_get_server_version()
+	unsigned long mysql_get_server_version(MYSQL *mysql)
+	返回服务器的版本，表示方法与客户端表示方法一致。
+
+1.3.9.mysql_get_server_info()
+	const char *mysql_get_server_info(MYSQL *mysql)
+	返回表示服务器版本的字符串。
+
+1.4.错误信息
+1.4.1.mysql_errno()
+	unsigned int mysql_errno(MYSQL *mysql)
+	返回最近调用的API的错误码。返回值为0代表没有错误发生。一些函数在成功调用后，并不设置errno，一般来说，所有询问服务器的函数在成功返回后都会重置errno。
+
+1.4.2.mysql_error()
+	const char *mysql_error(MYSQL *mysql)
+	返回最近调用API的错误信息。如果之前没有发生错误，则返回空字符串。
+
+1.5.数据库查询
+
+1.5.1.mysql_query()
+	int mysql_query(MYSQL *mysql, const char *stmt_str)
+	执行stmt_str指向的SQL语句。通常该字符串由一个SQL语句组成，且句末不包含“;”或“\g”。如果multiple-statement execution被设置为允许，则一个字符串可以包含多条由分号分割的语句。
+	mysql_query()不能用于包含binary data的语句，必须使用mysql_real_query()来代替。（binary data 中包含'\0',mysql_query()会将其当作字符串的结束）
+	如果想知道执行一条语句后是否返回一个集合，可以使用mysql_field_count()来检查。
+	返回0代表执行成功，返回非0代表发生错误。
+
+1.5.2.mysql_real_query()
+	int mysql_real_query(
+		MYSQL *mysql, 
+		const char *stmt_str, 
+		unsigned long length
+	)
+	执行stmt_str指向的SQL语句，该语句的字节长度为length。与mysql_query()一样句末不包含“;”或“\g”。如果multiple-statement execution被设置为允许，则一个字符串可以包含多条由分号分割的语句。
+	该函数可以执行包含二进制数据的语句。
+
+1.6.读取结果集数据
+
+1.6.1.mysql_store_result()
+	MYSQL_RES *mysql_store_result(MYSQL *mysql)
+	在调用mysql_query()或mysql_real_query()后，如果成功返回一个结果集，则需要调用mysql_store_result()或mysql_use_result()。也必须在使用完结果集后，调用mysql_free_result()。对于不返回结果的语句，不必调用mysql_store_result(),不过即使调用也不会造成任何影响。
+	如果启用了“多语句支持”，则需要调用mysql_next_result()来依次返回每句语句的结果集。
+	mysql_store_result()将执行语句的完整结果读取到客户端，分配一个MYSQL_RES结构，将结果放置在该结构中。
+	如果没有结果返回，则返回值为NULL；如果读取结果集发生错误，也会返回NULL可以通过调用mysql_error()、mysql_erro()、mysql_field_count()来检查是否发生错误。
+	如果语句执行后返回的结果集的行数为0，则返回空的结果集（与NULL是不同的）。
+	如果返回结果不是NULL，则可以调用mysql_num_rows()确定返回结果共有多少行。
+	可以调用mysql_fetch_row()来从结果集中读取一行数据，或调用mysql_row_seek()和mysql_row_tell()来设置或得到当前行在结果集中的位置。
+
+1.6.2.mysql_free_result()
+	void mysql_free_result(MYSQL_RES *result)
+	释放由mysql_store_result(), mysql_use_result(), mysql_list_dbs()等分配的内存。在完成结果集的使用后，应该调用该函数释放结果集占用的空间。
+	不要在释放结果集后再尝试访问。
+
+1.6.3.mysql_num_rows()
+	my_ulonglong mysql_num_rows(MYSQL_RES *result)
+	返回结果集的行数。
+	mysql_num_rows()用于要返回结果集的语句，如SELECT；对于INSERT、UPDATE或DELETE等语句，要返回受影响的语句，需要调用mysql_affected_rows()。
+	
+1.6.4.mysql_affected_rows()
+	my_ulonglong mysql_affected_rows(MYSQL *mysql)
+	可以在执行mysql_query()或mysql_real_query之后调用，返回受上一句查询影响的行数，包括改变、删除、插入等操作。对于SELECT语句，mysql_affected_rows()类似于mysql_num_rows。
+	
+1.6.5.mysql_num_fields()
+	unsigned int mysql_num_fields(MYSQL_RES *result)
+	unsigned int mysql_field_count(MYSQL *mysql)
+	返回结果集的列数，既可以通过结果集也可以通过连接句柄来获取。
+	mysql_field_count()一般用于在mysql_store_result()返回NULL之后。这样，可以确定是否mysql_store_result产生了一个空结果集。如果是空结果集，则该函数返回集合的列数，否则返回0。
+
+1.6.6.mysql_fetch_field()
+	MYSQL_FIELD *mysql_fetch_field(MYSQL_RES *result)
+	获取结果集的列定义，并将返回值放在MYSQL_FIELD结构中。重复调用该函数可以以此获取结果集的所有列，直到返回NULL。
+	每次调用SELECT语句之后，mysql_fetch_field()都重新从第一列开始返回。mysql_field_seek()也会影响mysql_fetch_field()返回的列。
+	
+1.6.7.mysql_fetch_field_direct()
+	MYSQL_FIELD *mysql_fetch_field_direct(
+		MYSQL_RES *result, 
+		unsigned int fieldnr
+	)
+	返回指定列号的列定义，将结果存储在MYSQL_FIELD结构中。指定的列的列号应该在0到mysql_num_fields(result)-1之间。
+
+1.6.8.mysql_fetch_fields()
+	MYSQL_FIELD *mysql_fetch_fields(MYSQL_RES *result)
+	返回结果集的所有列的定义。结果存储在一个MYSQL_FIELD数组中，返回该数组的首地址，根据mysql_num_fields(result)确定列数即数组长度。
+	
+1.6.9.mysql_fetch_row()
+	MYSQL_ROW mysql_fetch_row(MYSQL_RES *result)
+	返回结果集的下一行并存储在MYSQL_ROW结构中。在mysql_store_result()之后调用该函数，当没有下一行时返回NULL。在mysql_use_result()之后调用该函数，当没有下一行或发生错误时返回NULL。
+	返回的一行的值的数目即列数（mysql_num_fields(result)）。如果row是返回值，则该列的每一个值通过row[i]的方式访问，其中0<=i<=[mysql_num_fields(result)-1]。每个数组元素是一个指向值的指针，如果一个值为NULL，则row[i]=NULL。
+	一行中每个字段的值的长度，可以使用mysql_fetch_lengths()来获取。字段值为空字符串或具有NULL值，其长度都为0；可以通过检查该字段值的指针来区分两者，如果指针为NULL，则字段值为NULL，否则字段值为空字符串。
+	
+1.6.10.mysql_fetch_lengths()
+	unsigned long *mysql_fetch_lengths(MYSQL_RES *result)
+	返回结果集的当前行的每一列值的长度，结果包存在一个数组中，返回值为数组的首地址。该返回值可以用于memcpy进行值的拷贝，避免使用strcpy()，以提高效率。如果返回值是binary data，则必须使用该函数来确定每个字段值的长度。
+	如果发生错误，返回值为NULL。
+	
+1.7.多线程共享数据库连接
+	每个连接都是线程安全的，因此可以按以下注意事项，让多个线程共享一个连接：
+	* 两个线程不能使用相同的连接同时发送查询请求。必须保证在mysql_query()到mysql_store_result()之间，不能要其他线程使用该连接。
+	* 使用mysql_store_result()可以让不同的线程访问不同的结果集。
+	* 如果使用mysql_use_result()，则要保证没有其他线程使用该连接直到结果集被释放。但是，最好使用mysql_store_result()。
+	* 如果多线程要共享一个连接，则需要在mysql_query()和mysql_store_result()前后使用互斥锁。
+	* 如果使用的是POSIX threads，则可以使用pthread_mutex_lock()和 pthread_mutex_unlock()建立和释放互斥锁。
+	如果在一个线程中没有调用mysql_init，就调用其他库函数，则因为缺少线程相关的变量导致程序出错（并产生core dump）。为了避免该问题：
+	1.在调用其他函数之前调用mysql_library_init()。该函数不是线程安全的，因此应该在线程创建前使用或用互斥变量进行保护。
+	2.在调用其他函数之前调用mysql_thread_init()。
+	3.在线程结束之前，调用mysql_thread_end()，释放线程相关的变量。
+	
+2. 使用C++连接数据库
+	头文件：
+			#include <mysql_connection.h>
+			#include <cppconn/driver.h>
+			#include <cppconn/exception.h>
+			#include <cppconn/resultset.h>
+			#include <cppconn/statement.h>
+			#include <cppconn/prepared_statement.h>
+	库文件：
+			libmysqlclient.a/so
+			libmysqlcppconn.a/so
+			
+2.1. 建立连接
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+

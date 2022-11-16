@@ -1,0 +1,500 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>高级编程 - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html" class="active">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="python高级编程"><a class="header" href="#python高级编程">Python高级编程</a></h1>
+<p>Python语言的高级特性。</p>
+<h2 id="协程和任务"><a class="header" href="#协程和任务">协程和任务</a></h2>
+<blockquote>
+<p><em><code>asyncio</code> is used as a foundation for multiple Python asynchronous frameworks that provide high-performance network and web-servers, database connection libraries, distributed task queues, etc.</em></p>
+</blockquote>
+<p>asyncio适用于IO密集型任务，提供<strong>high-level</strong> APIs：</p>
+<ul>
+<li><a href="https://docs.python.org/3/library/asyncio-task.html#coroutine">run Python coroutines</a> concurrently and have full control over their execution;</li>
+<li>perform <a href="https://docs.python.org/3/library/asyncio-stream.html#asyncio-streams">network IO and IPC</a>;</li>
+<li>control <a href="https://docs.python.org/3/library/asyncio-subprocess.html#asyncio-subprocess">subprocesses</a>;</li>
+<li>distribute tasks via <a href="https://docs.python.org/3/library/asyncio-queue.html#asyncio-queues">queues</a>;</li>
+<li><a href="https://docs.python.org/3/library/asyncio-sync.html#asyncio-sync">synchronize</a> concurrent code;</li>
+</ul>
+<p>以及底层API用于开发库和框架。</p>
+<h3 id="异步方法"><a class="header" href="#异步方法">异步方法</a></h3>
+<p>基于<code>async/await</code>语法定义异步函数：异步方法中可嵌套调用异步方法，也可仅是普通耗时IO操作。</p>
+<pre><code class="language-python">import asyncio
+async say_after(length, msg):
+   await asyncio.sleep(length)
+   print(msg*length)
+async def main():
+   print('start')
+   await asyncio.sleep(1)
+   task1 = asyncio.create_task(say_after(1, 'hello'))
+   task2 = asyncio.create_task(say_after(2, 'hello'))
+   await task1
+   await task2
+   print('end')
+</code></pre>
+<h4 id="运行异步方法"><a class="header" href="#运行异步方法">运行异步方法</a></h4>
+<h5 id="入口函数"><a class="header" href="#入口函数">入口函数</a></h5>
+<p>执行异步方法，管理异步事件循环和线程池。</p>
+<pre><code class="language-python">asyncio.run(main())
+</code></pre>
+<h5 id="嵌套调用异步方法"><a class="header" href="#嵌套调用异步方法">嵌套调用异步方法</a></h5>
+<p>直接访问异步方法返回的是<code>coroutines</code>对象，需要通过<code>await</code>关键字来启用协程。</p>
+<pre><code class="language-python">await async_method()
+await function_that_returns_a_future_object()  # await Future object
+</code></pre>
+<p><em><strong>awaitable</strong></em> objects: <strong>coroutines</strong>, <strong>Tasks</strong>, and <strong>Futures</strong>.</p>
+<h5 id="并发调用异步方法"><a class="header" href="#并发调用异步方法">并发调用异步方法</a></h5>
+<p>使用<code>asyncio.create_task</code>创建并调度多个协程并返回<code>Task</code>对象，可在后续等待一批协程执行完成。</p>
+<p>https://docs.python.org/3/library/asyncio-task.html</p>
+<p>https://docs.python.org/3/library/asyncio.html</p>
+<h2 id="反射"><a class="header" href="#反射">反射</a></h2>
+<h3 id="获取动态属性"><a class="header" href="#获取动态属性">获取动态属性</a></h3>
+<pre><code class="language-python">value = getattr(obj, name) # exception if not exist
+tf = hasattr(obj, name)
+</code></pre>
+<h3 id="动态增删属性"><a class="header" href="#动态增删属性">动态增删属性</a></h3>
+<pre><code class="language-python">setattr(obj, name, value)  # obj.attr = value
+delattr(obj, name)         # del obj.attr
+</code></pre>
+<blockquote>
+<p><code>object.__set_attr__()</code>：子类内部可覆盖该方法，以改变设置属性时的行为。只有在没有找到属性的情况下，才调用<code>__getattr__</code>，已有的属性，比如<code>name</code>，不会在<code>__getattr__</code>中查找。</p>
+<p>注意：如果存在成员函数名<code>name</code>，则不能设置同名属性，否则产生（<code>AttributeError</code>）。</p>
+</blockquote>
+<p><a href="https://www.liaoxuefeng.com/wiki/1016959663602400/1017590712115904">定制类 - 廖雪峰的官方网站 (liaoxuefeng.com)</a></p>
+<h2 id="装饰器"><a class="header" href="#装饰器">装饰器</a></h2>
+<p>装饰器（<em>Decorator</em>）可以基于函数的闭包构建，为已有函数<code>some_func</code>增加前置/后置处理。</p>
+<pre><code class="language-python">def decorator(some_func):
+   def wrapper(*args,**kwargs):  # warpper for some_func
+      print &quot;before some_func&quot;
+      ret = some_func(*args,**kwargs) 
+      return ret + 1
+   return wrapper
+# 等效于回调函数
+def decorator(some_func, *args, **kwargs):
+   print &quot;before some_func&quot;
+   ret = some_func(*args,**kwargs) 
+   return ret + 1
+</code></pre>
+<p>使用装饰器：</p>
+<pre><code class="language-python">@decorator
+def some_func(*args,**kwargs):
+  pass
+# equivalent form
+some_func = decorator(som_func)(*args,**kwargs)
+</code></pre>
+<p>向装饰器传递参数需要再定义一层装饰器：</p>
+<pre><code class="language-python">def decorator_with_args(deco_args):
+   def decorator(some_func):
+      def wrapper(*args,**kwargs): 
+         # use deco_args in the the wrapper function.
+         return some_func(*args,**kwargs) 
+      return wrapper
+   return decorator
+# define function with decorator
+@decorator_with_args(deco_args)
+def some_func(*args, **kwargs)
+</code></pre>
+<h5 id="基于类的装饰器"><a class="header" href="#基于类的装饰器">基于类的装饰器</a></h5>
+<p>装饰器实际是<code>callable</code>对象。除函数外，实现<code>__call__</code>方法的类也是<code>callable</code>对象（等效于将基于函数定义的内容放到了<code>__call__</code>方法中）。带参数的基于类的装饰器定义（在构造函数中定义传递给装饰器的参数，装饰目标传递给<code>__call__</code>方法）：</p>
+<pre><code class="language-python">class logger(object):
+  def __init__(self, level='INFO'):
+    self.level = level
+  def __call__(self, func): # 实现callable接口
+    def wrapper(*args, **kwargs):
+      print(&quot;[{level}]: the function {func}() is running...&quot;\
+            .format(level=self.level, func=func.__name__))
+      func(*args, **kwargs)
+    return wrapper # 返回包装后的函数对象
+
+@logger(level='WARN')
+def somefunc(*args, **kwargs): # =&gt; logger(level='WARN')(somefunc,...)
+  pass
+</code></pre>
+<p>如果装饰器不带参数（类比于基于函数的装饰器，比带参数的少了一层函数定义；装饰目标传递给装饰器的构造方法）：</p>
+<pre><code class="language-python">class logger(object):
+   def __init__(self, func):
+      self.func = func
+      def __call__(self, *args, **kwargs): # 实现callable接口
+         print(&quot;[INFO]: the function {func}() is running...&quot;\
+               .format(func=self.func.__name__))
+         return self.func(*args, **kwargs)
+@logger
+def somefunc(*args,**kwargs): # =&gt; logger(somefunc)(...)
+  pass
+</code></pre>
+<h5 id="装饰类的装饰器"><a class="header" href="#装饰类的装饰器">装饰类的装饰器</a></h5>
+<p>装饰器的参数由函数名变为类。</p>
+<pre><code class="language-python">class singleton:    # &lt;== 基于类的装饰器，用于装饰Singleton Class
+   _instances = {}  # &lt;== 记录所有Singleton实例
+   def __init__(self, cls):
+      self._cls = cls
+   def __call__(self, *args,**kwargs):
+      if self._cls.__name__ not in singleton._instances:
+         singleton._instances[self._cls.__name__] = cls(*args, **kwargs)
+      return singleton._instances[self._cls.__name__]
+@singleton
+class User:
+   def __init__(self, name):
+      self.name = name
+user = User('gary')   # =&gt; singleton(User)('gary')
+</code></pre>
+<h2 id="跨语言编程"><a class="header" href="#跨语言编程">跨语言编程</a></h2>
+<h3 id="matlab"><a class="header" href="#matlab">Matlab</a></h3>
+<h4 id="python调用matlab"><a class="header" href="#python调用matlab">Python调用Matlab</a></h4>
+<pre><code class="language-shell">cd &quot;matlabroot\extern\engines\python&quot;
+python setup.py install   # conda activate
+</code></pre>
+<blockquote>
+<p><a href="https://www.mathworks.com/content/dam/mathworks/mathworks-dot-com/support/sysreq/files/python-support.pdf">查看支持的Python版本</a>。</p>
+</blockquote>
+<pre><code class="language-python">import matlab.engine
+eng = matlab.engine.start_matlab()
+eng.addpath(r'path\to\work\dir')
+</code></pre>
+<h5 id="在python程序中创建matlab矩阵类型"><a class="header" href="#在python程序中创建matlab矩阵类型">在Python程序中创建Matlab矩阵类型</a></h5>
+<pre><code class="language-python">matlab.type(initializer=None,size=None,is_complex=False)
+</code></pre>
+<p><code>type</code>包括：<code>double</code>、<code>single</code>、<code>intXX</code>、<code>uintXX</code>、<code>logical</code>。</p>
+<blockquote>
+<p><code>matlab.int64</code>在Matlab中转换为<code>int32</code>；<code>matlab.uint64</code>在Matlab中转换为<code>uint32</code>；<code>logical</code>类型不能用于构造复数（无<code>is_complex</code>参数）。</p>
+</blockquote>
+<p><code>initializer</code>为矩阵初始值，即Python序列类型（<code>list</code>和<code>tuple</code>）；<code>size</code>为矩阵维度，需要与初始化值的维度匹配。未指定<code>size</code>时，矩阵维度默认为$1\times N$；如果初始化数据中元素为序列类型，矩阵维度为$m\times N$。未指定初始化值时，元素值设为默认值（<code>0</code>）。</p>
+<p><code>matlab.type.size</code>：获取矩阵的维度；
+<code>matlab.type.reshape(size)</code>：修改矩阵维度；
+<code>pyarray[i]</code>：索引矩阵的行。Matlab矩阵默认为二维矩阵。
+<code>pyarray[i][j]</code>:索引矩阵元素。Matlab中索引起始为1，在Python代码中索引起始为0；
+<code>pyarray[i][j:k]</code>：切片；</p>
+<blockquote>
+<p>如果使用Matlab矩阵自身元素更新自身可能得到造成非预期结果。</p>
+<pre><code class="language-python">mlarray[0] = mlarray[0][::-1]
+</code></pre>
+</blockquote>
+<p>将数据从Python程序传递至Matlab程序：</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Python Input Argument Type</th><th style="text-align: left">Resulting MATLAB Data Type</th></tr></thead><tbody>
+<tr><td style="text-align: left"><code>matlab.type</code> (<a href="#%E5%9C%A8Python%E7%A8%8B%E5%BA%8F%E4%B8%AD%E5%88%9B%E5%BB%BAMatlab%E7%9F%A9%E9%98%B5%E7%B1%BB%E5%9E%8B">数值矩阵</a>)</td><td style="text-align: left">数值矩阵</td></tr>
+<tr><td style="text-align: left"><code>float</code></td><td style="text-align: left"><code>double</code></td></tr>
+<tr><td style="text-align: left"><code>complex</code></td><td style="text-align: left">Complex <code>double</code></td></tr>
+<tr><td style="text-align: left"><code>int</code></td><td style="text-align: left"><code>int32</code>(Windows)<code>int64</code>(Linux/Mac)</td></tr>
+<tr><td style="text-align: left"><code>float('nan'\|'inf')</code></td><td style="text-align: left"></td></tr>
+<tr><td style="text-align: left"><code>bool</code></td><td style="text-align: left"><code>logical</code></td></tr>
+<tr><td style="text-align: left"><code>str</code></td><td style="text-align: left"><code>char</code></td></tr>
+<tr><td style="text-align: left"><code>bytearray</code>/<code>bytes</code></td><td style="text-align: left"><code>uint8</code> array</td></tr>
+<tr><td style="text-align: left"><code>dict</code></td><td style="text-align: left">结构体（key必须为字符串）</td></tr>
+<tr><td style="text-align: left"><code>list</code>/<code>set</code>/<code>tuple</code>/<code>range</code></td><td style="text-align: left">Cell array</td></tr>
+<tr><td style="text-align: left"><code>memoryview</code>/<code>None</code></td><td style="text-align: left">Not supported</td></tr>
+</tbody></table>
+</div>
+<p>从Matlab程序返回至Python的数据：</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">MATLAB Output Argument Type</th><th style="text-align: left">Resulting Python Data Type</th></tr></thead><tbody>
+<tr><td style="text-align: left">数值矩阵</td><td style="text-align: left"><code>matlab</code> 数值矩阵</td></tr>
+<tr><td style="text-align: left"><code>double</code> <code>single</code></td><td style="text-align: left"><code>float</code></td></tr>
+<tr><td style="text-align: left">复数(any numeric type)</td><td style="text-align: left"><code>complex</code></td></tr>
+<tr><td style="text-align: left"><code>int8</code> <code>uint8</code> <code>int16</code> <code>uint16</code> <code>int32</code></td><td style="text-align: left"><code>int</code></td></tr>
+<tr><td style="text-align: left"><code>uint32</code> <code>int64</code> <code>uint64</code></td><td style="text-align: left"><code>int</code> <code>long</code></td></tr>
+<tr><td style="text-align: left"><code>NaN</code></td><td style="text-align: left"><code>inf</code></td></tr>
+<tr><td style="text-align: left"><code>logical</code></td><td style="text-align: left"><code>bool</code></td></tr>
+<tr><td style="text-align: left"><code>char</code> array (1-by-<code>N</code>, <code>N</code>-by-1)</td><td style="text-align: left"><code>str</code></td></tr>
+<tr><td style="text-align: left">结构体</td><td style="text-align: left"><code>dict</code></td></tr>
+<tr><td style="text-align: left">1D cell array</td><td style="text-align: left"><code>list</code></td></tr>
+</tbody></table>
+</div>
+<h3 id="在matlab中调用python"><a class="header" href="#在matlab中调用python">在Matlab中调用Python</a></h3>
+<p>在Matlab会话中启用Python环境：</p>
+<pre><code class="language-matlab">pe = pyenv('Version','C:/tools/miniconda3/envs/data/python.exe')
+pe = pyenv   # read curent python environment
+</code></pre>
+<blockquote>
+<p>在整个会话中只能导入一次Python环境，可根据<code>pe.Status</code>来判断是否已经导入。</p>
+</blockquote>
+<p>调用python的包无需使用<code>import</code>语句</p>
+<pre><code class="language-matlab">syspath = py.sys.path
+syspath.append(pwd)
+import py.textwrap.wrap
+S2 = wrap('another string');
+mm = py.importlib.import_module('mymod');
+% Use mm as an alias to access functionality in mymod
+py.help('object')
+</code></pre>
+<h3 id="java"><a class="header" href="#java">Java</a></h3>
+<p><a href="https://www.py4j.org/">Welcome to Py4J — Py4J</a></p>
+<h2 id="python项目"><a class="header" href="#python项目">Python项目</a></h2>
+<h5 id="basic-layout"><a class="header" href="#basic-layout">Basic Layout</a></h5>
+<pre><code class="language-shell">projectname/
+├── .gitignore
+├── projectname.py
+├── LICENSE           # if you’re distributing code.
+├── README.md
+├── requirements.txt  # Python dependencies and versions
+├── setup.py          # installation
+└── tests.py
+</code></pre>
+<h5 id="modulized-layout"><a class="header" href="#modulized-layout">modulized layout</a></h5>
+<pre><code class="language-shell">helloworld/
+├── bin/              # 可编写脚本调用模块的主程序
+├── docs/
+│   ├── hello.md
+│   └── world.md
+├── helloworld/       # package contains sub-modules
+│   ├── __init__.py   # indicator of package
+│   ├── helloworld.py # 可包括多层内部package进行功能划分
+│   └── helpers.py
+├── tests/            # 对应功能模块结构编写测试
+│   ├── helloworld_tests.py
+│   └── helpers_tests.py
+└── ...   # other files in basic layout
+</code></pre>
+<h3 id="测试"><a class="header" href="#测试">测试</a></h3>
+<h4 id="性能测试"><a class="header" href="#性能测试">性能测试</a></h4>
+<p>代码片段的运行时间统计。</p>
+<pre><code class="language-python">from timeit import timeit
+print(timeit('[n**2 for n in range(10) if n%2==0]', number=10000))
+</code></pre>
+<h4 id="单元测试"><a class="header" href="#单元测试">单元测试</a></h4>
+<blockquote>
+<p><em>A unit is a specific piece of code to be tested, such as a function or a class. Unit tests are then other pieces of code that specifically exercise the code unit with a full range of different inputs, including boundary and edge cases.</em></p>
+</blockquote>
+<p><code>unittest</code>用于单元测试。<code>setUp</code>（由<code>__init__()</code>调用）和<code>tearDown</code>用于为每个测试用例初始化和回收资源，与<code>test_case()</code>组成一个测试配置。<code>unittest.main()</code>为测试类中的每个测试用例构造一个测试类实例，并调用该测试用例方法（因此在一个测试类中<code>setUp</code>等方法调用次数与测试样例数一致）。</p>
+<pre><code class="language-python">import unittest
+class MyTestCases(unittest.TestCase):
+  def setUp(self):
+    pass
+  def tearDown(self):
+    pass
+  def test_case(self): # 测试项
+    self.assertTrue(True, msg='Test Pass.')  # 使用assert语句判断并记录测试结果
+if __name__ == '__main__':
+  unittest.main()   # 使用Python运行该脚本自动执行所有测试
+</code></pre>
+<p>执行测试。测试项的执行顺序依据测试方法名称排序。</p>
+<pre><code class="language-shell">python test/components/test_operators.py
+</code></pre>
+<pre><code class="language-shell">python -m unittest test.components.test_operators 
+python -m unittest test/components/test_operators.py
+# 需要相应目录下有__init__.py，否则无法将对应文件夹视为模块
+</code></pre>
+<h5 id="构造测试组"><a class="header" href="#构造测试组">构造测试组</a></h5>
+<pre><code class="language-python">if __name__ == '__main__':
+  suite = unittest.TestSuite()
+  suite.addTests([
+    TestCases('test_scalar_operator'),  # 参数为测试类中的测试方法名
+  ])
+  runner = unittest.TextTestRunner()
+  runner.run(suite)
+</code></pre>
+<p><code>TextTestRunner</code>以文本形式显示测试结果，包括：</p>
+<ul>
+<li>测试名称；</li>
+<li>测试过程中的错误信息；</li>
+<li>测试结果汇总。</li>
+</ul>
+<h3 id="编译打包"><a class="header" href="#编译打包">编译打包</a></h3>
+<pre><code class="language-shell">python -m compileall pysrc.py # compile to .pyc file
+python -m zipfile \
+       -c demo.zip demo/*   # 将源文件打包为zip =&gt; 执行：python demo.zip
+python3 -m zipapp demo -m &quot;main:main&quot;
+</code></pre>
+<h3 id="分发和安装"><a class="header" href="#分发和安装">分发和安装</a></h3>
+<pre><code class="language-python">from setuptools import setup, find_packages
+setup(
+   name=&quot;mytest&quot;,
+   version=&quot;1.0&quot;,
+   author=&quot;wangbm&quot;,
+   author_email=&quot;wongbingming@163.com&quot;,
+   description=&quot;Learn to Pack Python Module&quot;,
+   url=&quot;http://iswbm.com/&quot;, 
+   packages=find_packages(),
+   python_requires='&gt;=2.7, &lt;=3',
+	install_requires=['docutils&gt;=0.3'],  # 自动下载安装依赖包
+   setup_requires=['pbr'],              # 当前环境必须存在依赖包
+   entry_points={
+        'console_scripts': [
+            'foo = foo.main:main'  # 生成/usr/bin/foo -&gt; foo.main模块中的main函数
+        ]
+    },
+   scripts=['bin/foo.sh', 'bar.py'] # 将脚本复制到系统路径中
+)
+</code></pre>
+<p><a href="https://zhuanlan.zhihu.com/p/276461821">花了两天，终于把 Python 的 setup.py 给整明白了 - 知乎 (zhihu.com)</a></p>
+<p><a href="https://setuptools.pypa.io/en/latest/userguide/quickstart.html">setuptools Quickstart - setuptools 60.5.2 documentation (pypa.io)</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../Python/Python系统编程.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../Java/JAVA编程基础.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../Python/Python系统编程.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../Java/JAVA编程基础.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

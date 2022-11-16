@@ -1,0 +1,1278 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Shell Script - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html" class="active">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="linux-shell"><a class="header" href="#linux-shell">Linux Shell</a></h1>
+<h2 id="shell"><a class="header" href="#shell">Shell</a></h2>
+<p>Shell包括命令行Shell和图形Shell，Linux中使用的命令行Shell包括：</p>
+<ul>
+<li>Bourne Shell（<code>/usr/bin/sh</code>或<code>/bin/sh</code>）</li>
+<li><strong>Bourne Again Shell</strong>（<code>/bin/bash</code>，<strong>常用</strong>）</li>
+<li>C Shell（<code>/usr/bin/csh</code>）</li>
+<li>K Shell（<code>/usr/bin/ksh</code>）</li>
+<li>Shell for Root（<code>/sbin/sh</code>）</li>
+<li>……</li>
+</ul>
+<blockquote>
+<p>如今Debian和Ubuntu中，<code>/bin/sh</code>默认已经指向dash，这是一个不同于<code>bash</code>的shell，它主要是为了==执行脚本==而出现，而不是交互环境，它速度更快，但功能相比<code>bash</code>要少很多，语法严格遵守POSIX标准。</p>
+</blockquote>
+<pre><code class="language-shell">chsh -s /usr/bin/bash  # 切换用户默认的登录环境
+</code></pre>
+<p>Shell将用户输入的命令进行解释并提交系统执行，从而实现用户与系统间的交互。为了避免不必要的用户操作，Shell支持从文件自动读取命令并执行，即执行<strong>Shell Script/Shell Program</strong>。</p>
+<blockquote>
+<p><em>A shell is a command language interpreter which provide an interface to user to use operating system services.</em> </p>
+</blockquote>
+<h3 id="shell脚本文件"><a class="header" href="#shell脚本文件">Shell脚本文件</a></h3>
+<p>注释：“<code>#</code>”用于注释。第一行<code>#!/bin/bash</code>声明执行这个脚本所使用的shell程序的名称。在较为特殊的程序代码部分，务必要加上批注说明。</p>
+<blockquote>
+<p>保持良好的编程风格，应该在每个脚本文件的头部记录文件相关信息：功能、版本信息、作者与联络方式、版权宣告方式、</p>
+</blockquote>
+<p>主要代码部分：如果读到一个换行符号（<code>CR</code>），就尝试开始执行该行（或该串）指令。指令、选项与参数之间的多个空白（空格、制表符、空白行）会被忽略掉。如果一行内容太多，可使用“<code>\</code>”来延伸至下一行（<code>\</code>之后不==能有包括空白在内的任何内容==）； </p>
+<blockquote>
+<p>Windows换行规则<code>CR LF</code>不能被正确识别。</p>
+</blockquote>
+<p>语句块：使用花括号“<code>{}</code>”可以将多条语句放在一起，一个语句块相当于一条语句。</p>
+<h3 id="变量"><a class="header" href="#变量">变量</a></h3>
+<p>变量名大小写敏感，有效字符包括字母、下划线和数字，但首字母不能是数字。<strong>变量的值为字符串</strong>。</p>
+<h4 id="变量属性"><a class="header" href="#变量属性">变量属性</a></h4>
+<pre><code class="language-shell">declare [option] [name=[value]]
+</code></pre>
+<p><code>-i</code>：使变量具有整数性质，对变量赋值时将<a href="#%E6%95%B4%E6%95%B0%E8%BF%90%E7%AE%97">评估赋值表达式的数值结果</a>；
+<code>-a/-A</code>：将一个变量声明为数组/字典；
+<code>-l/-u</code>：将赋给变量的值自动转换为小写/大写；
+<code>-r</code>：使变量只读；
+<code>-x</code>：使变量成为环境变量（<code>export</code>）；</p>
+<blockquote>
+<p>使用<code>+</code>关闭相应的属性；</p>
+</blockquote>
+<p>输出控制：</p>
+<ul>
+<li>
+<p><code>-p</code>：显示==变量的值和属性==；如果未指定名称，则显示所有变量的信息；</p>
+<pre><code class="language-shell">declare -p        # 输出所有变量的信息
+y=0; declare -p y # 输出: declare -- y=&quot;0&quot;
+declare -p array  # 输出: declare -a array='([0]=&quot;1&quot; [1]=&quot;2&quot; [2]=&quot;3&quot;)'
+</code></pre>
+</li>
+<li>
+<p><code>-f/-F</code>：仅显示函数，<code>-F</code>仅显示函数名和属性；</p>
+</li>
+</ul>
+<h4 id="赋值"><a class="header" href="#赋值">赋值</a></h4>
+<p>未赋值的变量也可以使用，其值为空字符串。==字符串可以跨行表示，两行内容之间会添加空白分隔（使用“<code>\</code>”连接两行消除换行符）==。</p>
+<pre><code class="language-shell">var_name=&quot;value&quot;
+readonly var_name # 将变量设置为只读。
+</code></pre>
+<blockquote>
+<p><strong>等号两边不能有空格</strong>。</p>
+</blockquote>
+<p>当<code>value</code>中包含空白字符时，需要使用引号<code>'</code>或<code>&quot;</code>将其包围起来，否则只能识别空白之前的内容。引号内容可以换行（两行间的空白内容以及换行符被自动替换为一个空格）。两个相邻字符串（无空分隔）视为一个字符串。</p>
+<ul>
+<li>
+<p>==变量如果不带引号，则能触发通配符<code>*</code>和<code>?</code>匹配文件名；会消耗转移字符，<code>\a</code>实际内容为<code>a</code>。==</p>
+</li>
+<li>
+<p>单引号中的<strong>内容不做额外解释</strong>，即双引号<code>&quot;</code>、取值运算符<code>$</code>、历史记录运算符<code>!</code>、以及转义字符<code>\</code>等都视为普通字符。</p>
+</li>
+<li>
+<p><strong>双引号</strong>中可使用特殊字符，并使用<code>\$</code>、<code>\&quot;</code>和<code>\\</code>分别来取消<code>$</code>、<code>&quot;</code>和<code>\</code>的特殊含义，单引号视为普通字符。</p>
+<blockquote>
+<p>双引号中非转义字符前出现的<code>\</code>无特殊作用，例如<code>\a</code>，不会消耗转义字符，内容为<code>&quot;\a&quot;</code>。</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="读取"><a class="header" href="#读取">读取</a></h4>
+<p>获取变量的值，<strong>使用大括号用于帮助解释器识别变量名的边界。</strong></p>
+<pre><code class="language-shell">$var_name
+${var_name}abc
+echo &quot;$str_name&quot;
+</code></pre>
+<blockquote>
+<p>获取变量的值时，一定要带上<code>$</code>，否则只是使用变量名字符串。</p>
+</blockquote>
+<p>输出当前Shell环境中的所有变量和函数：</p>
+<pre><code class="language-shell">set/declare
+</code></pre>
+<h5 id="命令行展开"><a class="header" href="#命令行展开">命令行展开</a></h5>
+<p>Shell解释器执行语句时，会首先对语句中的变量<code>$var</code>进行值替换，然后对其中的特殊字符（如<code>*</code>，<code>~</code>）进行替换，最后根据空白将语句内容解析为<a href="#%E5%8F%82%E6%95%B0%E5%8F%98%E9%87%8F">命令和参数序列</a>。</p>
+<ul>
+<li>
+<p>避免特殊字符展开：将特殊字符或包含特殊字符的变量置于引号中<code>&quot;$var&quot;</code>，其中的所有字符都被视为普通字符（除转义序列外）；</p>
+</li>
+<li>
+<p>避免包含空白的变量被展开为多个参数：同样将该变量的引用置于<code>&quot;&quot;</code>中。如<code>&quot;hello world&quot;</code>或<code>&quot;$var_with_spaces&quot;</code>；</p>
+</li>
+<li>
+<p>如果变量的内容已经显示指定了参数边界，如<code>'arg 1' 'arg2'</code>，则命令行不要为其添加<code>&quot;&quot;</code>（否则仅相当于一个参数）；但如果该变量受上述两项限制需要<code>&quot;&quot;</code>，则使用<code>eval</code>对命令行内容执行两遍解释，从而对该变量进行两次解释（第一次执行变量替换，第二次执行参数解析）。</p>
+<blockquote>
+<p><a href="https://blog.csdn.net/damotiansheng/article/details/39735441">消除参数中成对的双引号（字符），并将引号之间的内容作为一个参数</a>。</p>
+<pre><code class="language-shell">eval echo '&quot;abc' 'def&quot;' 'ghi'  # =&gt; echo &quot;abc def&quot; ghi  =&gt; abc def ghi
+</code></pre>
+<p>变量值中自带的引号只是普通字符（区别与命令行或脚本上书写的引号边界），其不能避免变量在空白处被展开。带空格的变量与其他变量拼接后再作为参数传递给其他脚本，则无法避免该变量在空格处被展开。应该单独将该变量置于引号中传递给脚本，或者使用<code>eval</code>命令对参数中包含的引号做第二次解释。</p>
+<pre><code class="language-shell">x=&quot;x 'y z'&quot;
+y=&quot;\&quot;a b c\&quot;&quot;
+z=&quot;$y $x&quot;    # =&gt; z = [&quot;a b c&quot; x 'y z']
+./script.sh $z      # ./script.sh '&quot;a' 'b' 'c&quot;' 'x' 'y' 'z'
+eval./script.sh $z  # ./script.sh 'a b c' 'x' 'y z'
+./script.sh &quot;$y&quot; &quot;$x&quot;  # ./script.sh '&quot;a b c&quot;' 'x 'y z'
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<h4 id="删除变量"><a class="header" href="#删除变量">删除变量</a></h4>
+<pre><code class="language-shell">unset TEST_VAR	# clear a shell/env variable
+</code></pre>
+<h3 id="数据结构"><a class="header" href="#数据结构">数据结构</a></h3>
+<h4 id="数组"><a class="header" href="#数组">数组</a></h4>
+<p>序列由<code>()</code>包含多个元素</p>
+<pre><code class="language-shell">array=('abc' 123 4.56 ...)  # declare -a array=(1 2 3)
+</code></pre>
+<blockquote>
+<p>名为<code>@</code>的数组：脚本的所有输入参数组成的特殊的数组。</p>
+</blockquote>
+<p>使用从0开始的下标访问数组元素：</p>
+<pre><code class="language-shell">ai=&quot;${array[i]}&quot;		# ${array}=&gt;${array[0]}
+</code></pre>
+<h5 id="数组与字符串转换"><a class="header" href="#数组与字符串转换">数组与字符串转换</a></h5>
+<p>使用“<code>@</code>”或“<code>*</code>”获取数组所有元素，其返回结果为字符串。</p>
+<pre><code class="language-shell">x=&quot;${array[@]}&quot;   # 所有元素拼接成的字符串*
+cmd &quot;${array[@]}&quot; # 将数组展开到命令行，每个元素成为单独参数**
+</code></pre>
+<blockquote>
+<p><code>*</code>：表达式添加<code>&quot;&quot;</code>后，数组元素中可以包含空白，解释器视整个数组元素内容为一个参数（类似于命令行输入<code>'abc d'</code>）；</p>
+<p><code>**</code>：用于命令行时（如作为<code>for</code>循环的迭代序列或命令参数序列），Shell会首先对<code>&quot;${array[@]}&quot;</code>进行解释展开为多个参数，而赋值时则不会（否则如<code>x=1 2 3</code>这样的语句会报错）；</p>
+</blockquote>
+<p>将字符串转换为数组：根据展开表达式中的空格分隔数组元素</p>
+<pre><code class="language-shell">array=($cat_array) 
+eval array=(&quot;$cat_array&quot;) #*
+</code></pre>
+<blockquote>
+<p><code>*</code>：如果字符串中人为定义了元素边界<code>''</code>，则使用<code>eval</code>对字符串内容再解释一次。</p>
+</blockquote>
+<h5 id="数组元素迭代"><a class="header" href="#数组元素迭代">数组元素迭代</a></h5>
+<pre><code class="language-shell">for a in &quot;${array[@]}&quot;; do   #*
+    echo $a
+done   
+# =&gt; 也可根据子串长度，按编号顺序迭代
+for ((i=0;i&lt;${#array[@]};i++)); do echo ${array[$i]}; done
+</code></pre>
+<blockquote>
+<p><code>*</code>：注意数组在<a href="#%E5%BA%8F%E5%88%97%E5%B1%95%E5%BC%80%E8%BF%AD%E4%BB%A3">循环语句</a>中使用<code>&quot;...&quot;</code>，<a href="#%E6%95%B0%E7%BB%84%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2">防止子串被空格分开</a>。</p>
+</blockquote>
+<p>查找序列中的元素：</p>
+<pre><code class="language-shell">function arrayfind(){
+    local value=$1; shift; local array=(&quot;$@&quot;); #*
+    local index=-1
+    for (( i=0; i&lt;${#array[@]}; i++ )); do     
+        if [[ &quot;$value&quot; == ${array[$i]} ]]; then
+            index=$i
+            break
+        fi
+    done
+    echo $index
+}
+</code></pre>
+<blockquote>
+<p><code>*</code>：函数无法接受数组对象作为参数，传入数组首先被扩展为多个参数，再在函数中重新拼装为数组。</p>
+</blockquote>
+<h5 id="子数组"><a class="header" href="#子数组">子数组</a></h5>
+<p>获取子数组，第二个参数省略则获取到结束。</p>
+<pre><code class="language-shell">sub_array=(${array[@]:i[:j]})
+</code></pre>
+<p>如果数组元素包含空格，则应该使用<code>&quot;${array[@]:i[:j]}&quot;</code>防止数组元素边界丢失，否则上述表达式将按空格为边界重新构造数组。</p>
+<p>序列长度：</p>
+<pre><code class="language-shell">${#array[@]}  # &lt;=&gt; ${#array[*]}
+</code></pre>
+<blockquote>
+<p>注意：<code>${#array}</code>返回数组第一个元素（字符串）的长度。</p>
+</blockquote>
+<p>扩展序列，序列元素可动态增加，跳过赋值的序列元素为空。</p>
+<pre><code class="language-shell">a+=(1 2)    # 不支持 (1 2)+(3 4)
+array[5]=v2  # echo $array[4]  ==&gt; 输出为空
+</code></pre>
+<h4 id="字典"><a class="header" href="#字典">字典</a></h4>
+<pre><code class="language-shell">declare -A dict  # decalre dict as a dictonary
+dict[x]=1
+declare -A dict=([x]=1 [y]=2 ...) 
+echo dict[x]
+</code></pre>
+<h3 id="运行"><a class="header" href="#运行">运行</a></h3>
+<p>脚本文件如果具有可读可执行权限 (<code>rx</code>)，可将其视为命令在Shell中执行：</p>
+<pre><code class="language-sh">/home/gary/work.sh		# 绝对路径
+./work.sh				# 相对路径（不能省略./）
+work.sh					# 文件位于系统路径PATH
+</code></pre>
+<p>对于不具有执行权限的脚本文件，则可由解释器（<code>bash</code>）读取执行：</p>
+<pre><code class="language-bash">bash /path/to/file.sh arg1, arg2,...
+</code></pre>
+<p>可以为运行脚本提供多个参数。通过以上各方法执行Shell脚本将会创建一个新Shell实例（进程），脚本将由新的Shell实例解释执行。==环境变量将由原有的Shell实例传递给新的Shell实例，而普通变量将不会传递==。在脚本执行过程中，<strong>新Shell中任何变量的修改都不会传递回原有的Shell</strong>。</p>
+<p>利用 <code>source </code>来执行脚本：在当前Shell进程中执行脚本中的语句，而不创建新的Shell进程。如果<strong>提供额外参数</strong>，则脚本的运行的参数变量会被更新，脚本执行完后恢复原有的参数变量。==脚本执行过程中对原Shell中的变量更新有效==。</p>
+<pre><code class="language-bash">source script [args] # . script
+source ~/.bashrc     # Ubuntu必须在交互式Shell中运行=&gt; bash -i script.sh
+</code></pre>
+<blockquote>
+<p>Ubuntu环境下运行<code>.bashrc</code>必须<a href="https://stackoverflow.com/a/43660876/6571140">在交互式Shell中进行</a>（运行的Shell脚本非交互环境），否则脚本直接返回。如果不屏蔽<code>.bashrc</code>中判断交互式逻辑，可将初始化内容移至其他脚本文件中并在用户脚本中使用<code>source</code>调用。</p>
+<p>注意：<code>.bashrc</code>中如果有输出语句（例如<code>echo</code>），可能导致从远端执行<code>scp</code>无法正常工作（启动SSH会话会自动加载<code>.bashrc</code>，输出语句可能中断后续传输命令）。</p>
+</blockquote>
+<p>执行符号链接的脚本时，当前工作目录为符号链接所在目录。</p>
+<h4 id="运行环境"><a class="header" href="#运行环境">运行环境</a></h4>
+<p>Shell配置文件通常定义了<a href="Linux-Shell.html#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">环境变量</a>以及初始化脚本。配置文件根据作用范围分为系统配置文件和用户配置文件。</p>
+<h5 id="系统配置脚本"><a class="header" href="#系统配置脚本">系统配置脚本</a></h5>
+<p><code>/etc/profile</code>为系统默认配置，在系统启动时加载。不推荐用户修改此文件，以免系统升级时造成配置丢失，应该在<code>/etc/profile.d</code>目录下创建<code>appxxx.sh</code>定义环境变量。</p>
+<h5 id="系统环境变量"><a class="header" href="#系统环境变量">系统环境变量</a></h5>
+<p><code>/etc/environment</code>保存了系统环境变量（如<code>PATH</code>）的赋值表达式，在==用户登录==时读取。</p>
+<h5 id="用户配置文件"><a class="header" href="#用户配置文件">用户配置文件</a></h5>
+<p>用户登录时，Shell会自动按序尝试加载<code>~/.bash_profile</code>、<code>~/.bash_login</code>和<code>~/.profile</code>（如果发现一个文件则不再加载后续文件）。系统默认创建的<code>~/.bash_profile</code>还会加载<code>~/.bashrc</code>，而<code>~/.bashrc</code>则会加载<code>/etc/bashrc</code><sup class="footnote-reference"><a href="#shellrc">1</a></sup>。如果希望配置仅对当前用户有效，应修改用户目录下的上述配置文件。</p>
+<p>当使用SSH远程登录时，上述与Shell相关配置文件不会被加载，而是直接加载<code>~/.bashrc</code>（Ubuntu中会在<code>~/.bashrc</code>中判断Shell是否为交互式，如果非交互式跳过后续配置加载）。</p>
+<h5 id="设置运行时选项"><a class="header" href="#设置运行时选项">设置运行时选项</a></h5>
+<p><code>set</code>命令可以对Shell进行设置。</p>
+<pre><code class="language-sh">set -x         # [-o xtrace]  按执行内容回显命令      
+set -e         # [-o errexit] 命令返回非0时退出程序   
+set -u         # [-o nonset]  引用未设置的变量产生错误 
+set -v         # [-o verbose] 按输入内容回显命令      
+set -n cmdline # [-o noexec]  读取命令输入但不执行    
+set -o posix   # config to print variables only
+set -o history # enable command history
+</code></pre>
+<blockquote>
+<p>使用<code>set +opt</code>关闭选项。</p>
+</blockquote>
+<h5 id="环境变量"><a class="header" href="#环境变量">环境变量</a></h5>
+<p><em><strong>Environmental Variable</strong></em>：<a href="https://www.digitalocean.com/community/tutorials/how-to-read-and-set-environmental-and-shell-variables-on-a-linux-vps">可以被子进程或Shell继承的变量</a>。</p>
+<div class="table-wrapper"><table><thead><tr><th>变量</th><th>描述</th></tr></thead><tbody>
+<tr><td><code>$PATH</code></td><td>可执行文件的搜索路径</td></tr>
+<tr><td><code>$LANG</code></td><td>操作系统的语言和编码方案（例如<code>en_US.UTF-8</code>）</td></tr>
+<tr><td><code>$LD_LIBRARY_PATH</code></td><td>非标准共享库的搜索路径</td></tr>
+<tr><td><code>$HOME</code></td><td>用户家目录</td></tr>
+</tbody></table>
+</div>
+<blockquote>
+<p>共享库的寻找和加载是由<code>/lib/ld.so</code>实现的。<code>ld.so</code>在标准路经(<code>/lib</code>，<code>/usr/lib</code>) 中寻找共享库。Linux通用的做法是将非标准路径加入<code>/etc/ld.so.conf</code>，然后运行<code>ldconfig</code>生成<code>/etc/ld.so.cache</code>。</p>
+</blockquote>
+<p><em><strong>Shell Variable</strong></em>：独立为每个Shell定义的变量。</p>
+<div class="table-wrapper"><table><thead><tr><th>变量</th><th>描述</th></tr></thead><tbody>
+<tr><td><code>$$</code></td><td>当前进程的进程号，通常用它来生成唯一的临时文件。</td></tr>
+<tr><td><code>$!</code></td><td>最后运行的==后台==进程的进程标识（<code>pid</code>）。</td></tr>
+<tr><td><code>$?</code></td><td>上个命令的退出状态，或函数的返回值（可获取<code>ssh</code>远程执行命令的返回值）。</td></tr>
+<tr><td><code>$LINENO</code></td><td>当前的行号（<code>sh</code>中无效，使用<code>bash</code>）</td></tr>
+<tr><td><code>$-</code></td><td>==启用的Shell环境选项==。</td></tr>
+</tbody></table>
+</div>
+<pre><code class="language-sh">env NAME=VALUE 
+    [-u,--unset=NAME]
+</code></pre>
+<blockquote>
+<p>修改（删除）环境变量。</p>
+</blockquote>
+<p>查看环境变量：</p>
+<pre><code class="language-sh">env
+printenv [ | grep PATH]
+printenv NAME
+</code></pre>
+<p>转换普通变量为环境变量：</p>
+<pre><code class="language-sh">export [-n] SHELL_VAR   # turn into env-variable / turn normal
+export var=value        # define a new env-variable
+set -a                  # [-o allexport] export all defined variables
+</code></pre>
+<h5 id="参数变量"><a class="header" href="#参数变量">参数变量</a></h5>
+<p>执行程序（脚本、二进制文件）时，可以传入多个参数。</p>
+<pre><code class="language-sh">./shfile.sh [arg1 arg2 ...]
+</code></pre>
+<blockquote>
+<p>传入程序的参数变量为字符串值而非脚本中书写的字面值，变量中的转义字符不会被再被解释。</p>
+</blockquote>
+<p>在脚本文件内部，按以下方式获取参数信息：</p>
+<div class="table-wrapper"><table><thead><tr><th>变量</th><th>描述</th></tr></thead><tbody>
+<tr><td><code>$0</code>, <code>$1</code>,<code>$2</code>,...</td><td>按序号访问传入参数（<code>$0</code>为<strong>脚本名</strong>）</td></tr>
+<tr><td><code>$*</code>、<code>$@</code></td><td>输入参数（不包含<code>$0</code>）组成的序列，使用<code>&quot;&quot;</code><a href="#%E6%95%B0%E7%BB%84%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2">避免参数展开</a>。</td></tr>
+<tr><td><code>&quot;$*&quot;</code></td><td>结果为一个字符串<code>'arg 1 arg 2 arg 3'</code></td></tr>
+<tr><td><code>&quot;$@&quot;</code></td><td>保留原参数结构<code>'arg 1' 'arg 2' 'arg 3'</code></td></tr>
+<tr><td><code>${@:m:n}</code></td><td>获取输入参数<a href="#%E5%AD%90%E6%95%B0%E7%BB%84">序列部分内容</a>，使用<code>&quot;&quot;</code>避免原参数展开。<br />==使用<code>()</code>使返回结果仍以数组存储，否则结果会转换为字符串==。</td></tr>
+<tr><td><code>$#</code></td><td>传递给脚本的参数个数，不包括脚本名称（<code>$0</code>）</td></tr>
+</tbody></table>
+</div>
+<blockquote>
+<p>命令行参数展开测试：</p>
+<pre><code class="language-shell">for arg in &quot;$@&quot; ; do # &lt;-&gt; $* &quot;$*&quot; 
+       echo $arg
+done
+</code></pre>
+</blockquote>
+<p><code>shift n</code>：移动输入参数起始下标，向右移动<code>$i</code>和<code>$@</code>等参数读取位置（默认<code>n=1</code>，不影响<code>$0</code>）。</p>
+<p>设置参数：更新当前Shell环境得输入参数（覆盖调用时传入值）：</p>
+<pre><code class="language-sh">set -- args...
+eval set -- &quot;arg1 'arg 2' 'arg 3'&quot;  #* 
+set -				# -x and -v options are off **
+</code></pre>
+<blockquote>
+<p><code>*</code>：如果参数通过字符串提供且其中带字符串边界(')，则需使用<code>eval</code>避免错误空白位置参数展开。</p>
+<p><code>**</code>：如果未提供参数，则将当前状态下的<code>&quot;$@&quot;</code>（如经过<code>shift</code>移位后）设置为输入参数。</p>
+</blockquote>
+<h5 id="隔离运行"><a class="header" href="#隔离运行">隔离运行</a></h5>
+<p>使用<code>chroot</code>命令切换待执行程序的根目录，运行的程序不能访问指定根目录以外的文件，适用于做为测试环境。要在指定根目录下和真正根目录下一样运行相应的程序，需要：</p>
+<img src="Linux-Shell.assets/chroot-command.jpg" alt="Lightbox" style="zoom: 67%;" />
+<ul>
+<li><a href="Linux%E5%8F%91%E8%A1%8C%E7%89%88.html#%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8yum(dnf)">在该根目录下安装对应的程序</a>，该方法将自动安装程序及其依赖包。</li>
+<li>手动复制系统根目录下已可执行文件及其依赖项，需要自行确定依赖项。</li>
+</ul>
+<pre><code class="language-shell">chroot --userspec=USER:GROUP --groups=G_LIST NEWROOT [COMMAND [ARG]...]
+</code></pre>
+<p>如果未指定命令，则默认运行：<code>'${SHELL} -i'</code>。</p>
+<h4 id="历史记录"><a class="header" href="#历史记录">历史记录</a></h4>
+<pre><code class="language-sh">ctrl + r   # 在终端反向搜索历史命令
+!!				 # 执行上一条命令
+!*				 # 上一条命令的所有参数 (!:1-$)
+!$				 # 上一条命令的最后一个参数 (!:N,第N个参数; !-n:$, last-but-n)
+</code></pre>
+<p>历史记录中最常用的命令：</p>
+<pre><code class="language-sh">history | awk 'BEGIN {FS=&quot;[ \t]+|\\|&quot;} {print $3}' | \
+					sort | uniq -c | sort -nr | head -n N
+</code></pre>
+<p>清空屏幕：<code>ctrl+l</code>。</p>
+<p>复制/粘贴：<code>ctrl+shift+c/v</code>。</p>
+<h2 id="运算"><a class="header" href="#运算">运算</a></h2>
+<h3 id="字符串操作"><a class="header" href="#字符串操作">字符串操作</a></h3>
+<pre><code class="language-sh">${#str}   # 字符串的长度，注意数组长度${#array[@]}
+</code></pre>
+<h5 id="查找"><a class="header" href="#查找">查找</a></h5>
+<p>使用<code>grep</code>和正则表达式可以自定义查找方式，包括<code>startswith</code>，<code>endswith</code>等，在程序中可根据<a href="#grep">返回值</a>判断是否成功匹配。</p>
+<pre><code class="language-sh">grep 'hive' &lt;&lt;&lt; 'apache-hive-3.1.2-bin'
+#&gt; apache-hive-3.1.2-bin
+grep -Po '^(\w)+' &lt;&lt;&lt; 'spark-3.0.1-bin-hadoop3.2.tgz' # startswith
+#&gt; spark
+grep -Eo '(tar.gz|tgz)$' &lt;&lt;&lt; 'hadoop-3.2.1.tar.gz'  # endswith
+#&gt; tar.gz
+</code></pre>
+<p>在条件表达式中，通过<a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%AF%94%E8%BE%83">字符串比较测试</a>也可进行查找匹配，但仅能判断是否匹配，而不能获取匹配结果；另一方面，<code>grep</code>的返回值可用于条件表达式判断是否成功匹配。</p>
+<h5 id="替换"><a class="header" href="#替换">替换</a></h5>
+<pre><code class="language-shell">${param:-DEFAULT}  # 如果param为空，则返回为默认值
+${param-DEFAULT}   # 如果param未定义，则返回为默认值
+${param:=DEFAULT}  # 如果param为空，则把它设置为默认值，并返回param的值
+${param=DEFAULT}   # 如果param未定义，则把它设置为默认值，并返回param的值
+# &quot;:&quot;限定判断条件变量为空，&quot;=/-&quot;决定是否为变量赋值
+${param%PATERRN}   # 从param尾部删除与PATERRN最小匹配
+${param%%PATERRN}  # 从param尾部删除与PATERRN最长匹配
+${param#PATERRN}   # 从param头部删除与PATERRN最小匹配
+${param##PATERRN}  # 从param头部删除与PATERRN最长匹配
+</code></pre>
+<blockquote>
+<p><a href="https://handerfly.github.io/shell/2019/04/03/shell%E7%BC%96%E7%A8%8B%E5%86%92%E5%8F%B7%E5%8A%A0-%E7%AD%89%E5%8F%B7-%E5%8A%A0%E5%8F%B7-%E5%87%8F%E5%8F%B7-%E9%97%AE%E5%8F%B7/">shell 编程：冒号 后面跟 等号，加号，减号，问号的意义 - 笨鸟教程的博客 | BY BenderFly (handerfly.github.io)</a></p>
+</blockquote>
+<p>使用<code>sed</code>和正则表达式可以很容易实现字符串内容的修改：</p>
+<pre><code class="language-sh">sed -n 's/ /\*/p' &lt;&lt;&lt; 'hello world'  # 替换匹配内容
+#&gt; hello*world
+sed -E 's/.(tar.gz|tgz)$//' &lt;&lt;&lt; 'hadoop-3.2.1.tar.gz'   # 删除后缀
+#&gt; hadoop-3.2.1
+</code></pre>
+<h5 id="拼接"><a class="header" href="#拼接">拼接</a></h5>
+<pre><code class="language-sh">str3=$str1$str2
+</code></pre>
+<blockquote>
+<p>拼接变量的值，由于变量的值为字符串，因此实际等效于字符串拼接。</p>
+</blockquote>
+<p>拼接文件内容：</p>
+<pre><code class="language-shell">STR=''  
+for line in $(cat filename); do 
+  line=$(sed -E 's/#.*//' &lt;&lt;&lt; $line)    # edit the line           
+  STR=&quot;$STR $line&quot;
+done
+</code></pre>
+<h5 id="获取子串"><a class="header" href="#获取子串">获取子串</a></h5>
+<p>按索引（<code>0-based</code> index）获取：</p>
+<pre><code class="language-sh">sub_str=${str:START:LENGTH}		# ${string:start=0:length=${#str}}
+</code></pre>
+<p>使用正则表达式（捕获组）获取匹配子串：</p>
+<pre><code class="language-sh">ps -ef | sed -nE '100s/^[a-zA-Z0-9\+]+ +([0-9]+).*/\1/p'  # 获取pid
+#&gt; 184289
+</code></pre>
+<p>使用分隔符拆分字符串并获取子串：</p>
+<pre><code class="language-sh">read -a cmd_args &lt;&lt;&lt; &quot;sudo apt update&quot;      # 将拆分结果存入数组（分隔符$IFS，默认为空白）
+</code></pre>
+<p>仅获取拆分后的某个子串：</p>
+<pre><code class="language-shell">ps -ef | sed -n '10p' | awk '{print $2}'           # use awk
+cut -d &quot;;&quot; -f 1 &lt;&lt;&lt; &quot;bla@some.com;john@home.com&quot;   # use cut
+</code></pre>
+<blockquote>
+<p><code>awk</code>将连续多个分隔符视为一个分隔符；<code>cut</code>将连续分隔符之间视为空字符串。</p>
+</blockquote>
+<p><code>xargs</code>将管道或标准输入（stdin）数据转换成命令行参数。</p>
+<pre><code class="language-sh">xargs  # https://www.runoob.com/linux/linux-comm-xargs.html
+local_home=${local_home%'/'}   # trim the trailing '/'
+</code></pre>
+<h3 id="整数运算"><a class="header" href="#整数运算">整数运算</a></h3>
+<h5 id="declare"><a class="header" href="#declare"><a href="#%E8%AE%BE%E7%BD%AE%E5%8F%98%E9%87%8F%E5%B1%9E%E6%80%A7">declare</a></a></h5>
+<pre><code class="language-shell">declare -i n
+n=7/3              # echo $n =&gt; 2 : 非四舍五入（舍去小数）
+n=n+1              # 计算表达式中无须使用$对变量求值
+</code></pre>
+<h5 id="expr"><a class="header" href="#expr">expr</a></h5>
+<p><code>expr</code>将参数解释为表达式并进行评估，输出计算结果。表达式中操作符和操作数需要使用空白分开，可以包含简单四则==整数==运算（<code>+</code>、<code>-</code>、<code>*</code>、<code>/</code>）、求余（<code>%</code>）、逻辑运算（<code>|</code>、<code>&amp;</code>、<code>=</code>、<code>&gt;</code>、<code>&gt;=</code>、<code>&lt;</code>、<code>&lt;=</code>、<code>!=</code>）。乘号(<code>*</code>)前边必须加反斜杠(<code>\</code>)避免通配符展开。</p>
+<pre><code class="language-sh">R=$(expr $a + $b – 20 \* $c / $d + $e % 10)
+</code></pre>
+<h5 id="let"><a class="header" href="#let">==let==</a></h5>
+<p><code>let</code>表达式中不能包含空格，且变量名无需添加<code>$</code>，<code>let</code>会对表达式进行解释和计算。</p>
+<pre><code class="language-shell">let z=5
+let z=z+1   # &lt;=&gt; let z=$z+1
+</code></pre>
+<h5 id="bash算术运算"><a class="header" href="#bash算术运算">bash算术运算</a></h5>
+<pre><code class="language-sh">((a = $b + 10))   # 对空格没有要求
+</code></pre>
+<h3 id="日期和时间"><a class="header" href="#日期和时间">日期和时间</a></h3>
+<p><a href="Linux%E9%85%8D%E7%BD%AE%E5%92%8C%E7%AE%A1%E7%90%86.html#%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4"><code>date</code>命令</a>可以对表示时间的变量进行增加(<code>+</code>)/减少(<code>-</code>)操作。</p>
+<pre><code class="language-sh">iter_date=$(date +%Y%m%d -d &quot;$iter_date + 1 year&quot;)
+</code></pre>
+<blockquote>
+<p>输入<code>$iter_date</code>为空时，默认为当前日期时间</p>
+</blockquote>
+<h5 id="计算时间差"><a class="header" href="#计算时间差">计算时间差</a></h5>
+<p>利用<a href="Linux%E9%85%8D%E7%BD%AE%E5%92%8C%E7%AE%A1%E7%90%86.html#%E8%8E%B7%E5%8F%96%E6%97%A5%E6%9C%9F%E5%AD%97%E6%AE%B5">时间戳</a>计算时间差。</p>
+<pre><code class="language-shell">let DIFF=($(date +%s -d 20210131)-$(date +%s -d 20210101))  # diff of seconds
+let t_minutes=t_elapse/60
+let t_seconds=t_elapse%60
+</code></pre>
+<h3 id="条件表达式"><a class="header" href="#条件表达式">条件表达式</a></h3>
+<p>语法：使用<code>[ expr ]</code>定义条件表达式。表达式返回值<code>0</code>表示<code>true</code>，<code>1</code>表示<code>false</code>。</p>
+<p>注意在中括号内的变量，最好都以双引号括号起来（避免空字符串以及带空白的字符串展开造成语法错误）；常数也最好都以单或双引号括号起来。</p>
+<blockquote>
+<p><code>[</code> 是条件表达式的命令名，其后的内容作为其参数展开，因此<code>[]</code>、运算符、变量之间必须以空格分隔，而展开后带空格的变量也需要使用引号保证参数的完整性。<code>&lt;</code>、<code>&gt;</code>、<code>&amp;&amp;</code>、<code>||</code>、<code>()</code>等特殊字符作为Shell的命令，是不能作为参数的，因此不能直接出现在条件表达式中（使用转义字符<code>\</code>）。</p>
+</blockquote>
+<p>表达式中仅允许使用以下定义的运算符对变量进行测试，而使用其他命令将会出错。</p>
+<h4 id="数值比较"><a class="header" href="#数值比较">数值比较</a></h4>
+<p><code>-eq</code>（<code>==</code>）、<code>-ne</code>（<code>!=</code>）、<code>-gt</code>（<code>&gt;</code>）、<code>-lt</code>（<code>&lt;</code>）、<code>-ge</code>（<code>&gt;=</code>）、<code>-le</code>（<code>&lt;=</code>），只支持数值比较。</p>
+<pre><code class="language-sh">[ $a -eq $b ]
+</code></pre>
+<blockquote>
+<p>由于<code>&gt;</code>、<code>&lt;</code>为特殊字符不能作为关系运算符，使用命令选项表示关系运算符。</p>
+</blockquote>
+<h4 id="逻辑运算"><a class="header" href="#逻辑运算">逻辑运算</a></h4>
+<pre><code class="language-sh">[ ! expr1 ]		# logical not
+[ $a -o $b ]	# logical or
+[ $a -a $b ]	# logical and
+[ -r $1 ] &amp;&amp; [ -s $1 ]
+</code></pre>
+<h4 id="字符串比较"><a class="header" href="#字符串比较">字符串比较</a></h4>
+<p>字符串运算符：<code>=</code>、<code>!=</code>；</p>
+<pre><code class="language-shell">[ $str1 != $str2 ]	# 字符串比较
+[ -z &quot;$str&quot; ]	# true(0) if str is zero-length
+[ -n &quot;$str&quot; ]  # true(0) if str is non-zero-length
+</code></pre>
+<blockquote>
+<p><code>-n</code>参数需要使用<code>&quot;&quot;</code>括起来，否则对空字符串的计算结果不正确。</p>
+</blockquote>
+<h4 id="文件测试"><a class="header" href="#文件测试">文件测试</a></h4>
+<pre><code class="language-sh">[ -dfrwxse file ]	
+</code></pre>
+<p><code>-e</code>：文件是否存在；<code>-d</code>：目录；<code>-f</code>：普通文件；<code>-r</code>：读权限；<code>-w</code>：写权限；<code>-x</code>：访问/执行权限；<code>-s</code>：文件是否为空。</p>
+<h4 id="robust-condition-expression"><a class="header" href="#robust-condition-expression">Robust Condition Expression</a></h4>
+<p>相比于<code>[]</code>，<code>[[]]</code>提高了条件语句的健壮性和可用性，具体地，<code>[[]]</code>可以==处理空字符串以及带空格的字符串==，因此不用对<strong>变量取值</strong>（<code>$var</code>）增加额外的引号。</p>
+<blockquote>
+<p>需要在<code>bash</code>环境中使用<code>[[]]</code>。</p>
+</blockquote>
+<ul>
+<li>
+<p>使用<code>&amp;&amp;</code>、<code>||</code>作为逻辑运算符</p>
+<pre><code class="language-sh">[[ expr1 &amp;&amp; expr2 ]]	# logical and
+[[ expr1 || expr2 ]]	# logical or
+</code></pre>
+</li>
+<li>
+<p>支持使用<code>&lt;</code>，<code>&gt;</code>，<code>==</code>，<code>&gt;</code>，<code>&lt;</code>，<code>!=</code>做字符串比较；</p>
+</li>
+<li>
+<p><code>=~</code>运算符，用于正则表达式匹配（==正则表达式模式不能加引号==）；</p>
+<pre><code class="language-sh">[[ $answer =~ ^y(es)?$ ]]; echo $?  #*
+</code></pre>
+</li>
+<li>
+<p>通配符<code>*</code>、<code>?</code>匹配（模式表达式不能带引号，否则视为普通字符串）；</p>
+<pre><code class="language-sh">[[ $ANSWER = y* ]]; echo $?			# start with
+</code></pre>
+</li>
+</ul>
+<h5 id="优先级"><a class="header" href="#优先级">优先级</a></h5>
+<p>在<code>[[]]</code>表达式中，使用<code>()</code>保证优先级。</p>
+<h2 id="流程控制"><a class="header" href="#流程控制">流程控制</a></h2>
+<p>不存在块作用域：语句块中定义的变量在语句块结束后仍有效（因为不存在变量声明语句）。</p>
+<p>==流程控制语句块可以嵌套==。</p>
+<p>==语句块内容不能为空，否则有语法错误==。</p>
+<h3 id="函数"><a class="header" href="#函数">函数</a></h3>
+<p>在脚本中可将一组常用操作定义为函数。函数的定义必须出现在调用之前，不存在前向声明。</p>
+<pre><code class="language-sh">function fun_name(){	# function keyword is optional
+  statements;
+  return n;				# optional
+}
+</code></pre>
+<h5 id="函数输入参数"><a class="header" href="#函数输入参数">函数输入参数</a></h5>
+<p>函数没有显式定义参数，<a href="#%E5%8F%82%E6%95%B0%E5%8F%98%E9%87%8F">参数传入规则</a>与脚本一致，即在函数内部参数变量<code>$1,...</code>将被更新未调用函数时传递的参数，其中<code>$0</code>==仍为调用脚本名==。函数执行完返回调用程序后，参数变量将恢复到调用程序之前的状态。</p>
+<h5 id="函数返回值"><a class="header" href="#函数返回值">函数返回值</a></h5>
+<p>返回值代表函数的执行状态，不表示函数的输出内容。因此，使用 <code>return</code>返回<strong>整数值</strong>（通常<code>&lt;128</code>）；如果不加<code>return</code>语句，将以最后一条命令的返回值作为函数的返回值。</p>
+<h5 id="函数输出"><a class="header" href="#函数输出">函数输出</a></h5>
+<p>函数应该向<strong>标准输出</strong>发送输出数据（如<code>echo &quot;output&quot;</code>），从而使调用程序可通过<code>$(func args)</code>捕获到输出内容。同时，应该向<strong>标准错误输出</strong>（<code>command &gt;&amp;2</code>）发送预计行为外的输出（如错误信息、日志信息等），以保证调用程序获得预期的输出内容（或在出现异常的情况下获得空内容）。调用程序如果未捕获输出结果且未做重定向，则标准输出和标准错误输出通常都会打印到控制台。</p>
+<h5 id="函数内的变量作用域"><a class="header" href="#函数内的变量作用域">函数内的变量作用域</a></h5>
+<p>函数中的变量作用域与<code>source script.sh</code>（当前Shell执行）相似：</p>
+<ul>
+<li>
+<p>==函数可以访问被执行脚本所在Shell环境中的变量==。</p>
+</li>
+<li>
+<p>==函数中声明的变量默认为<code>global</code>作用域，即在函数调用返回后仍然有效==。</p>
+<ul>
+<li>==如果函数调用是在<code>$(...)</code>中而非当前Shell，则函数中定义的变量离开<code>$(...)</code>语句后无效==。</li>
+</ul>
+</li>
+<li>
+<p>使用<code>local</code>关键字在函数内部声明局部变量。如果局部变量与全局变量名字相同，则在局部变量的作用域内，局部变量将覆盖全局变量。==局部变量仅具有函数范围生命周期==。</p>
+</li>
+</ul>
+<h3 id="语句连接和语句块"><a class="header" href="#语句连接和语句块">语句连接和语句块</a></h3>
+<p><code>&amp;&amp;</code>：如果第一条命令执行成功（返回0）则执行<code>&amp;&amp;</code>后续命令；</p>
+<p><code>;</code>：用于连接两条命令，无论第一条是否执行成功，都继续执行后续命令。在交互环境下执行命令时，前一条命令中的==赋值语句==设置的变量仅限当前命令使用，当前命令执行完后恢复设置前的值；在脚本中编写同样的命令则不会被重置。这个特性方便临时设置分隔符等变量。</p>
+<pre><code class="language-shell">IFS=:; read host path &lt;&lt;&lt; 'user@host:downloads/'; echo IFS=$IFS; 
+</code></pre>
+<blockquote>
+<p>上述命令在交互终端中运行时，打印<code>IFS</code>为空；在脚本中执行（<code>bash -c</code>）则打印<code>:</code>。仅对赋值语句有效，通过<code>read</code>赋值的变量的值在下一语句执行后仍然保留。</p>
+</blockquote>
+<h3 id="条件"><a class="header" href="#条件">条件</a></h3>
+<pre><code class="language-sh">if cond_expr1 ; then 
+	statements
+elif cond_expr2 ; then		# elif 可选
+	statements
+else						# else 可选
+	statements
+fi
+</code></pre>
+<p><code>cond_expr1</code>为<a href="#_%E6%9D%A1%E4%BB%B6%E8%A1%A8%E8%BE%BE%E5%BC%8F">条件表达式</a>。<code>then</code>可以和<code>condition</code>置于一行，但需要在<code>condition</code>和<code>then</code>之间添加“<code>;</code>”。</p>
+<pre><code class="language-sh">case $variable in		# swith-case
+	pattern1 [|pattern11...] ) 
+		statements 
+		;;
+	pattern2 [|pattern22...] ) 
+		statements 
+		;;
+	......
+	*)
+  	;;
+esac
+</code></pre>
+<blockquote>
+<p><code>pattern</code>表示匹配模式字符串，不需要添加引号。</p>
+<p>多种模式可以使用“|”合并为一类。使用“)”表示模式说明的结束，使用“;;（双分号）”表示一个模式行的结束。</p>
+</blockquote>
+<p>只执行一个匹配行，即使其后有更精确的匹配。</p>
+<p>模式语句支持正则表达式。</p>
+<p>模式可使用通配符，因此可以使用“<code>*</code>”作为默认模式。当所有的匹配都不成功时，才执行“<code>*</code>”对应的命令。通配符扩展在引号中不起作用。</p>
+<h3 id="循环"><a class="header" href="#循环">循环</a></h3>
+<h4 id="迭代"><a class="header" href="#迭代">迭代</a></h4>
+<p>基于数值的迭代：</p>
+<pre><code class="language-shell">for ((i=0;i&lt;len;i++)); do  # 控制语句不需要使用$i和$len, 但过程语句需要$i
+	echo $i
+done
+</code></pre>
+<p>遍历基于空格分割的字符串序列：</p>
+<pre><code class="language-sh">for v in v1 v2 v3 ...; do
+	statements
+done
+</code></pre>
+<p>==<code>v1 v2 v3...</code>是由空格分隔的字符串==。</p>
+<h5 id="序列展开迭代"><a class="header" href="#序列展开迭代">序列展开迭代</a></h5>
+<p>可由<a href="#%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E8%BF%AD%E4%BB%A3">序列</a>转换<code>v in ${array[@]}</code>得到迭代元素。如果序列元素本身包含空白，则要使用<code>v in &quot;${array[@]}&quot;</code>，防止元素被分割。</p>
+<p>命令行参数展开（<code>*</code>），将被替换为所有匹配文件名构成的可迭代对象。</p>
+<pre><code class="language-shell">for s in ./*.sh; do echo $s; done   # 文件名包含空格不会被中断
+</code></pre>
+<h4 id="条件循环"><a class="header" href="#条件循环">条件循环</a></h4>
+<pre><code class="language-sh">while condition ; do
+	statements
+done 
+until condition ; do
+	statements
+done
+</code></pre>
+<h3 id="其他"><a class="header" href="#其他">其他</a></h3>
+<p><code>break</code>：跳出循环（<code>case</code>语句使用<code>;;</code>终止分支，不需要使用<code>break</code>）；</p>
+<p><code>continue</code>：跳过本次循环的剩余内容；</p>
+<p><code>return</code>：用于函数的返回（或使用<code>source/shell</code>调用的脚本的返回），并提供返回值。</p>
+<p><code>exit</code>：用于脚本提前退出并提供返回值。</p>
+<h2 id="输入输出"><a class="header" href="#输入输出">输入输出</a></h2>
+<h3 id="标准输入输出"><a class="header" href="#标准输入输出">标准输入输出</a></h3>
+<h5 id="输出"><a class="header" href="#输出">输出</a></h5>
+<pre><code class="language-sh">echo -n -e $var
+echo `expr`
+echo $var1 $var2   
+</code></pre>
+<blockquote>
+<p><code>-n</code>：不输出换行；
+<code>-e</code>：确保输出内容启用==转义字符==（例如<code>\n, \t</code>）；</p>
+</blockquote>
+<p>C语言风格输出函数：</p>
+<pre><code class="language-sh">printf &quot;%10s %08d %-10.2f\n&quot; hello 8 9.9
+printf '%s\n' A-{1..5}  # 自动展开并迭代1到5的序列
+printf -v outstr FORMAT ARGS  # 将格式化输出存储到变量中。
+</code></pre>
+<p>获取命令的==标准输出==（非返回值，返回值为<code>$?</code>）。错误输出不会被<code>$()</code>捕获，仍正常输出（到终端）。</p>
+<pre><code class="language-sh">result=$(cmd.sh args)   # assign the output string to result
+result=`cmd.sh args`
+</code></pre>
+<h5 id="输入"><a class="header" href="#输入">输入</a></h5>
+<p><code>read</code>从标准输入==读取一行==内容。可将文件或标准输出重定向至<code>read</code>。</p>
+<pre><code class="language-shell">read -a array -d delim prompt -r ... [vars ...]
+</code></pre>
+<p>如果提供了一个或多个位置参数变量，则==使用分隔符<code>$IFS</code>分割读取内容==，并将分隔后的内容依次存入位置参数；如果没有位置参数变量，则将读取内容存入<code>$REPLY</code>中。</p>
+<blockquote>
+<p><code>read</code>如何从子shell中返回变量到父进程？</p>
+</blockquote>
+<p>参数：
+<code>-a array</code>：将分割后的内容按顺序存入数组；
+<code>-d delim</code>：将<strong>行结束符</strong>设置为<code>delim</code>的第一个字符（后续字符无效）而不是以换行结束；将行结束符置空将读取整个文件的内容。
+<code>-e</code>：使用<code>readline</code>读取一行内容（可自动补全文件名等）；
+<code>-n nchars</code>：读取最多<code>nchars</code>个字符后结束（不用等到换行），仍支持分隔符；<code>-N</code>忽略分隔符；
+<code>-p prompt</code>：输入内容前的提示信息；
+<code>-r</code>：忽略字符串中的转义字符（<code>\</code>）；
+<code>-s</code>：不在终端上显示输入内容（用于==输入密码==）；Enter结束输入但不会产生换行作用；需要在程序中执行换行。
+<code>-t timeout</code>：设置读取超时时间（用于交互式界面）；</p>
+<p>从标准输入<strong>读取多行内容</strong>：直到输入一行内容为<code>&quot;EOF&quot;</code>终止，也可以使用<code>ctrl+D</code>结束输入标准输入流。</p>
+<pre><code class="language-shell">text=$(cat &lt;&lt; EOF)
+</code></pre>
+<h4 id="重定向"><a class="header" href="#重定向">重定向</a></h4>
+<p>Linux程序通常使用标准输入/输出与用户或系统交互。</p>
+<ul>
+<li>编写程序时，默认仅需要处理标准输入输出，在不必要的情况下不额外打开文件，以简化程序逻辑。</li>
+<li>调用程序时，通过重定向命令使用文件数据流代替标准输入输出；</li>
+</ul>
+<h5 id="重定向语法"><a class="header" href="#重定向语法">重定向语法</a></h5>
+<div class="table-wrapper"><table><thead><tr><th>语法</th><th>说明</th></tr></thead><tbody>
+<tr><td><code>command &lt; filename</code></td><td>使用文件代替标准输入。</td></tr>
+<tr><td><code>command &gt;&amp;2</code></td><td>将命令的输出定向到错误输出。</td></tr>
+<tr><td><code>command &lt;&lt;[-] end_word</code></td><td>从标准输入读取内容，直到一行仅包含<code>end_word</code>；<br/><code>-</code>去除内容开始前的<code>tab</code>制表符。</td></tr>
+<tr><td><code>command &lt;&lt;&lt; args</code></td><td>使用命令行参数代替标准输入。</td></tr>
+<tr><td><code>command &gt; filename</code></td><td>使用文件代替标准输出（<code>&gt;&gt;</code>追加模式）。</td></tr>
+<tr><td><code>command 2&gt; filename</code></td><td>使用文件代替标准错误输出（<code>2&gt;&gt;</code>追加模式）。</td></tr>
+<tr><td><code>command &gt; filename 2&gt;&amp;1</code><br /><code>command 2&gt; filename 1&gt;&amp;2</code></td><td>将标准输出和标准错误输出都定向到指定文件。<br />（<code>&gt;&gt;</code>或<code>2&gt;&gt;</code>追加模式）</td></tr>
+</tbody></table>
+</div>
+<blockquote>
+<p><code>2&gt;&amp;1</code>表示将标准错误输出再定向到标准输出。</p>
+</blockquote>
+<p>https://www.gnu.org/software/bash/manual/html_node/Redirections.html</p>
+<p>示例：</p>
+<pre><code class="language-sh">command &gt; /dev/null 2&gt;&amp;1	# 将标准输出和错误输出丢弃
+</code></pre>
+<h5 id="清空文件"><a class="header" href="#清空文件">清空文件</a></h5>
+<pre><code class="language-sh">&gt; FILENAME                # =&gt; &gt; FILENAME =&gt; true &gt; FILENAME
+cat /dev/null &gt; FILENAME  # =&gt; cp /dev/null FILENAME
+truncate -s 0 FILENAME
+</code></pre>
+<p>不要尝试将一个文件读出的同时再写回当前文件（<code>cat file &gt; file</code>），因为此命令在执行前会为输出流清空当前文件。</p>
+<h4 id="管道"><a class="header" href="#管道">管道</a></h4>
+<p>管道用于连接两个命令，<strong>将上一个命令的标准输出作为下一个命令的标准输入</strong>。示例如下：</p>
+<pre><code class="language-sh">ps -ef | grep 'apache' | grep -v grep
+</code></pre>
+<p>将错误输出流传入管道：</p>
+<pre><code class="language-sh">command | 2&gt;&amp;1 grep 'something'
+</code></pre>
+<h3 id="文件输入输出"><a class="header" href="#文件输入输出">文件输入输出</a></h3>
+<pre><code class="language-shell">text=$(cat txtfile)
+</code></pre>
+<p>除了使用文件名读取文件内容外，使用重定向语法也可以使程序读取文件内容代替默认的标准输入。</p>
+<p><code>head/tail</code>用于过滤部分数据：</p>
+<pre><code class="language-shell">head -n,--lines=[-]N FILE # 输出前N行内容，-表示除去最后N行的内容
+tail -f,--follow FILE
+     -n,--lines=[+]N  # 输出文件最后N行，+表示从第N行开始输出
+     --pid=PID        # with -f, terminate after process PID dies   
+</code></pre>
+<p><code>more</code>：键入用<code>〈space〉</code>键显示后续内容，显示当前查看的百分比。
+<code>pg</code>：分屏显示文件的内容，按<code>&lt;enter&gt;</code>键显示下一屏的内容。</p>
+<h4 id="按行读写和处理文件"><a class="header" href="#按行读写和处理文件">按行读写和处理文件</a></h4>
+<p>使用循环读取文件中每一行的内容：将<code>while</code>语句块视为一条语句，可使用“<code>|</code>”接收前置命令的输出或使用“<code>&lt;,&gt;</code>”等 来重定向标准输入/输出输入到文件，那么<code>while</code>语句块中的所有命令将使用重定向后的输入输出。</p>
+<pre><code class="language-sh"># read name=value pairs from file
+lines=()
+while IFS='=' read name ...; do  # 如果读整行则指定一个变量(IFS='')
+   echo $name $value;            
+   # process line
+   lines+=($name)                # 将文件内容保存到数组
+done &lt; src_file                  # default: from stand input 
+</code></pre>
+<blockquote>
+<p><code>IFS=</code>默认以空白为分隔符（将自动截断输入的前后空白内容）。</p>
+<p>需要注意，如果使用文件重定向，但循环过程中存在交互输入，则交互输入内容也会从文件中获取，这可能是不希望的行为。因此需要首先==将文件内容读取序列==中，然后再使用<code>for</code>循环迭代并获取用户的输入。</p>
+<p>如果需要对读入的每一行分别进行处理输出（如替换修改等，可使用<code>grep/sed/awk</code>等工具）。当如果需要处理的内容与上下文相关，则需要自定义处理逻辑。</p>
+</blockquote>
+<h5 id="将文件内容构造为序列"><a class="header" href="#将文件内容构造为序列">将文件内容构造为序列</a></h5>
+<p><code>mapfile</code>和<code>readarray</code>可简化上述读取操作。</p>
+<pre><code class="language-shell">mapfile -t lines &lt; file.txt   # ==&gt; readarray 
+# 默认分隔符为所有空白，这里将分隔符设置为换行，因此按行拆分为序列
+IFS=$'\r\n' GLOBIGNORE='*' command eval  'XYZ=($(cat /etc/passwd))'
+IFS=$'\n' read -d '' -r -a lines &lt; /etc/passwd 
+</code></pre>
+<blockquote>
+<p>如果使用<code>for</code>语句读取文件输入（使用<code>cat, sed</code>等），需要注意==文件内容将会被拼接为一个整体，并按空格分离进行迭代==。</p>
+<pre><code class="language-shell">for pkg in $(sed -E 's/#.*//' all_conda.pkgs); do echo $pkg; done
+</code></pre>
+</blockquote>
+<h5 id="将序列内容写入文件"><a class="header" href="#将序列内容写入文件">将序列内容写入文件</a></h5>
+<p>将整个命令的标准输出定向到文件，避免重复打开文件。</p>
+<pre><code class="language-shell">for line in &quot;${text_array[@]}&quot;; do
+	echo $line   
+done &gt; text.txt
+for ((i=0;i&lt;${#text_array[@]};i++)); do  
+	echo &quot;$i: ${text_array[i]}&quot;
+done &gt; text.txt
+</code></pre>
+<h2 id="进程"><a class="header" href="#进程">进程</a></h2>
+<h3 id="创建进程"><a class="header" href="#创建进程">创建进程</a></h3>
+<p>Shell执行命令时创建子进程（子Shell，进程号<code>$!</code>），并等待子进程结束。如果要立即返回则使用<code>&amp;</code>使子进程与Shell分离。</p>
+<pre><code class="language-sh">./script.sh args &gt; tmp.log 2&gt;&amp;1 &amp;
+</code></pre>
+<p>子进程分离后，其标准输入输出仍然绑定在原Shell，因此需要进行重定向。也可以使用<code>nohup</code>自动进行重定向，输出内容到<code>nohup.out</code>中。</p>
+<pre><code class="language-sh">nohup ./script.sh args &amp;
+</code></pre>
+<h3 id="信号处理"><a class="header" href="#信号处理">信号处理</a></h3>
+<p>通常，当子进程在执行时，<code>bash</code>会忽略所有信号。</p>
+<pre><code class="language-sh">#!/bin/bash 
+term_handler() { 
+  echo &quot;Caught SIGTERM signal!&quot; 
+  kill -TERM &quot;$child&quot; 2&gt;/dev/null
+}
+trap term_handler SIGTERM
+echo &quot;Doing some initial work...&quot;;
+/bin/start/main/server --nodaemon &amp;
+child=$! 		# get Process ID
+wait &quot;$child&quot;	# wait child to end or any signals
+</code></pre>
+<blockquote>
+<p><code>term_handler='-'</code>默认处理方式；<code>term_handler=''</code>忽略信号。</p>
+</blockquote>
+<h3 id="调度"><a class="header" href="#调度">调度</a></h3>
+<p>休眠</p>
+<pre><code class="language-sh">sleep 100  # seconds
+</code></pre>
+<h2 id="调试程序"><a class="header" href="#调试程序">调试程序</a></h2>
+<p><a href="https://opensource.com/article/22/7/print-stack-trace-bash-scripts?check_logged_in=1">Fix bugs in Bash scripts by printing a stack trace | Opensource.com</a></p>
+<pre><code class="language-shell">set -E     # the error trap is inherited throughout the script
+trap 'ERRO_LINENO=$LINENO' ERR # traps commands that exit with a non-zero code
+trap '_failure' EXIT
+</code></pre>
+<pre><code class="language-shell">_failure() {
+  ERR_CODE=$? # capture last command exit code
+  set +xv # turns off debug logging, just in case
+  if [[  $- =~ e &amp;&amp; ${ERR_CODE} != 0 ]]
+  then
+      # only log stack trace if requested (set -e)
+      # and last command failed
+      echo
+      echo &quot;========= CATASTROPHIC COMMAND FAIL =========&quot;
+      echo
+      echo &quot;SCRIPT EXITED ON ERROR CODE: ${ERR_CODE}&quot;
+      echo
+      LEN=${#BASH_LINENO[@]}
+      for (( INDEX=0; INDEX&lt;$LEN-1; INDEX++ ))
+      do
+          echo '---'
+          echo &quot;FILE: $(basename ${BASH_SOURCE[${INDEX}+1]})&quot;
+          echo &quot;  FUNCTION: ${FUNCNAME[${INDEX}+1]}&quot;
+          if [[ ${INDEX} &gt; 0 ]]
+          then
+           # commands in stack trace
+              echo &quot;  COMMAND: ${FUNCNAME[${INDEX}]}&quot;
+              echo &quot;  LINE: ${BASH_LINENO[${INDEX}]}&quot;
+          else
+              # command that failed
+              echo &quot;  COMMAND: ${BASH_COMMAND}&quot;
+              echo &quot;  LINE: ${ERRO_LINENO}&quot;
+          fi
+      done
+      echo
+      echo &quot;======= END CATASTROPHIC COMMAND FAIL =======&quot;
+      echo
+  fi
+}
+</code></pre>
+<p>The following built-in shell values are used to build the stack trace:</p>
+<ol>
+<li><code>BASH_SOURCE</code>: Array of filenames where each command was called back to the main script.</li>
+<li><code>FUNCNAME</code>: Array of function names matching each file in <code>BASH_SOURCE</code>.</li>
+<li><code>BASH_LINENO</code>: Array of line numbers per file matching <code>BASH_SOURCE</code>.</li>
+<li><code>BASH_COMMAND</code>: Last command executed with flags and arguments.</li>
+</ol>
+<h2 id="应用"><a class="header" href="#应用">应用</a></h2>
+<h3 id="选项参数设置"><a class="header" href="#选项参数设置">选项参数设置</a></h3>
+<p><a href="https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash">选项参数解析</a>：<code>getopt</code>是标准的参数处理程序，可以处理长、短选项参数以及位置参数。将<code>arguments</code>中的选项参数和位置参数使用<code>&quot;--&quot;</code>分离开，任意位置的非选项参数全部移至<code>&quot;--&quot;</code>之后。</p>
+<pre><code class="language-shell">getopt --longoptions longopts \ # 长选项
+       --options shortopts \    # 短选项
+       --name progname \ # 解析参数出错时显示的程序名(通常为当前脚本名&quot;$0&quot;)
+       arguments...      # 带解析的参数列表(通常为$@)
+</code></pre>
+<p><code>OPTIONS</code>和<code>LONGOPTS</code>不能包含空格。==如果某类选项为空，仍需要传递空字符串<code>&quot;&quot;</code>作为相应的参数==，否则解析选项参数不正确。</p>
+<h4 id="参数处理程序"><a class="header" href="#参数处理程序">参数处理程序</a></h4>
+<p>将命令行输入参数中的选项参数与位置参数分离并处理，提供给后续程序使用。</p>
+<pre><code class="language-sh">SHORT=dfo:v
+LONGS=debug,force,output:,verbose        
+! PARSED=$(getopt --options=$SHORT --longoptions=$LONGS --name &quot;$0&quot; -- &quot;$@&quot;) #*
+if [ ${PIPESTATUS[0]} -ne 0 ]; then  # [ $? -ne 0 ]
+    exit 2
+fi
+eval set -- &quot;$PARSED&quot;  #**
+while true; do
+    case &quot;$1&quot; in
+        -d|--debug)
+        	OPT_DEBUG='--debug'
+            ;;
+        -o|--output)
+        	OUTPUT=$2
+            shift
+            ;;
+        --)
+            shift
+            break # break the while loop
+            ;;
+        *)
+            echo &quot;Programming error&quot;
+            exit 3
+            ;;
+    esac
+    shift
+done
+</code></pre>
+<blockquote>
+<p><code>*</code>：<code>&quot;$@&quot;</code>防止<a href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B1%95%E5%BC%80">包含空格的原有参数被展开为多个参数</a>，<code>!</code><a href="https://stackoverflow.com/a/29754866/6571140">忽略命令执行错误并继续执行</a>（如果未设置<code>set -o errexit</code>则无需添加，直接检查<code>$0</code>而非<code>$PIPESTATUS</code>）。</p>
+<p><code>**</code>：正确处理解析后带空格的参数，如<code>-d --source 'test 1' -- 'test 2'</code>。其中的<code>'</code>是字符串中的普通字符而非参数边界，如果直接书写<code>$PARSED</code>，则会导致命令行按其值的空白展开得到<code>'test</code>，<code>1'</code>这样的参数，破坏原有参数结构。<a href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B1%95%E5%BC%80">通过添加<code>&quot;&quot;</code>以及使用<code>eval</code>可将解析后的参数中的<code>'</code>重新解释为参数边界</a>。</p>
+</blockquote>
+<p>执行脚本：如果选项的值带有空格，可使用引号将选项括起来，防止空格后内容被展开<a href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B1%95%E5%BC%80">解释为独立参数</a>。</p>
+<pre><code class="language-sh">./script.sh --option=&quot;sip REGEXP 10.12.20.4[5-9]&quot;
+</code></pre>
+<p>如果脚本还具有子命令，则在调用上述处理参数前首先处理并消耗固定的子命令参数。</p>
+<pre><code class="language-shell">if [[ $1 == &quot;command&quot; ]]; then
+    shift
+    set -            #*
+    sub_process &quot;$@&quot; #**
+fi
+</code></pre>
+<blockquote>
+<p><code>*</code>：消耗子命令参数后，重设<a href="#%E5%8F%82%E6%95%B0%E5%8F%98%E9%87%8F">参数变量</a>。</p>
+<p><code>**</code>：可以将该子命令的参数处理程序及功能代码写在当前<code>if</code>语句块中，或者将其封装为单独函数（<a href="#%E5%87%BD%E6%95%B0%E8%BE%93%E5%85%A5%E5%8F%82%E6%95%B0">函数支持参数传递</a>）。</p>
+</blockquote>
+<h5 id="固定参数检测逻辑"><a class="header" href="#固定参数检测逻辑">固定参数检测逻辑</a></h5>
+<p>以下命令不做替换，仅检测参数是否为空已决定程序是否继续执行，适用于处理固定参数。</p>
+<pre><code class="language-shell">param=${param:?MESSAGE}
+</code></pre>
+<p>如果<code>param</code>为空，则向标准错误输出信息，并退出脚本。</p>
+<h3 id="文本处理"><a class="header" href="#文本处理">文本处理</a></h3>
+<p>文本处理工具<code>grep</code>，<code>sed</code>，<code>awk</code>对比：</p>
+<ul>
+<li>三者均可以通过正则表达式对输入行进行筛选；</li>
+<li><code>grep</code>仅用于查找匹配模式，并返回匹配行（或匹配模式部分）；</li>
+<li><code>sed</code>还可以对匹配行进行编辑（替换），并进行上下文相关的修改，==通过替换操作可提取文本中的正则表达式捕获内容==；</li>
+<li><code>awk</code>更适合格式化文本，对文本进行较复杂格式处理（如分割字段并格式化）。</li>
+</ul>
+<h4 id="grep"><a class="header" href="#grep">grep</a></h4>
+<p>从文件读取行并执行正则表达式匹配。返回值：<code>0</code>匹配到模式；<code>1</code>未匹配到模式。</p>
+<pre><code class="language-shell">grep  [option] PATTERN [file1  file2  …]
+</code></pre>
+<blockquote>
+<p><code>-</code>作为文件名代表标准输入；使用管道输入则无需提供文件输入参数。</p>
+</blockquote>
+<p><a href="../%E7%AC%94%E8%AE%B0/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.html#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%B1%BB%E5%9E%8B"><strong>正则表达式类型</strong></a>：<code>-G,--basic-regexp</code>，<code>-E,--extended-regexp </code>，<code>-P,--perl-regexp</code>。<code>-P</code>支持<code>\d,\w</code>等字符集合；此外，<code>grep</code>支持预定义的命名字符集合（<a href="../%E7%AC%94%E8%AE%B0/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.html#grep">这些与实现相关，仅在<code>grep</code>中可用</a>）。</p>
+<h5 id="匹配模式pattern"><a class="header" href="#匹配模式pattern">匹配模式(pattern)</a></h5>
+<div class="table-wrapper"><table><thead><tr><th>选项</th><th>说明</th></tr></thead><tbody>
+<tr><td><code>-e,--regexp=PATTERN</code></td><td>使用<code>PATTERN</code>进行匹配。<br/>由于<code>PATTERN</code>直接提供在命令行，该选项可以省略。<br/>该选项可以用于提供多个匹配模式，而命令行中只能提供一个。</td></tr>
+<tr><td><code>-f,--file=FILE</code></td><td>从文件<code>FILE</code>中读取<code>PATTERN</code>。</td></tr>
+<tr><td><code>-i,--ignore-case</code></td><td>忽略大小写</td></tr>
+<tr><td><code>-w,--word-regexp</code></td><td>匹配整个单词</td></tr>
+<tr><td><code>-x,--line-regexp</code></td><td>匹配整行</td></tr>
+</tbody></table>
+</div>
+<h5 id="执行控制"><a class="header" href="#执行控制">执行控制</a></h5>
+<div class="table-wrapper"><table><thead><tr><th>选项</th><th>说明</th></tr></thead><tbody>
+<tr><td><code>-m,--max-count=NUM</code></td><td>在<code>NUM</code>次匹配之后停止</td></tr>
+<tr><td><code>--binary-files=TYPE</code></td><td>文件类型：<code>binary</code>，<code>text</code>或<code>without-match</code></td></tr>
+<tr><td><code>-a, --text</code><br/><code>--binary-file=text</code></td><td></td></tr>
+<tr><td><code>-I</code><br/><code>--binary-file=without-match</code></td><td>表示不查找二进制文件。</td></tr>
+<tr><td><code>-d,--directories=ACTION</code></td><td>如何处理文件夹：<code>read</code>，<code>recurse</code>，<code>skip</code></td></tr>
+<tr><td><code>-r, --recursive</code></td><td><code>--directories=recurse</code></td></tr>
+<tr><td><code>-R</code></td><td>递归，但不追踪符号链接。</td></tr>
+<tr><td><code>-D,-devices=ACTION</code></td><td>如何处devices，FIFOs和socket：<code>read</code>，<code>skip</code></td></tr>
+<tr><td><code>--include=FILE_PATTERN</code></td><td>搜索文件的文件名需要匹配<code>FILE_PATTERN</code>，<br/><code>FILE_PATTERN</code>可以包括通配符“<code>*</code>”“<code>?</code>”。</td></tr>
+<tr><td><code>--exclude=FILE_PATTERN</code></td><td>排除文件名与<code>FILE_PATTERN</code>匹配的文件。</td></tr>
+<tr><td><code>--exclude-from=FILE</code></td><td>跳过与<code>FILE</code>中的模式匹配的文件</td></tr>
+<tr><td><code>--exclude-dir=PATTERN</code></td><td>跳过与<code>PATTERN</code>匹配的文件夹</td></tr>
+<tr><td><code>-v, --inver-match</code></td><td>选择没有匹配的行</td></tr>
+</tbody></table>
+</div>
+<h5 id="输出控制"><a class="header" href="#输出控制">输出控制</a></h5>
+<div class="table-wrapper"><table><thead><tr><th>选项</th><th>说明</th></tr></thead><tbody>
+<tr><td><code>-b,--byte-offset</code></td><td>在输出的匹配行前添加匹配行相对文件起始位置的字节数。</td></tr>
+<tr><td><code>-n,--line-number</code></td><td>在输出的匹配行前添加行号</td></tr>
+<tr><td><code>-H,--with-filename</code> <br/><code>-h,--no-filename</code></td><td>在输出的匹配行前添加文件名<br/>（从起始位置开始的相对路径，默认）。<code>-h</code>不输出文件名。</td></tr>
+<tr><td><code>-o, --only-matching</code></td><td>==只输出匹配部分==</td></tr>
+<tr><td><code>-q, --quiet, --silent</code></td><td>不输出普通消息</td></tr>
+<tr><td><code>-s, --no-message</code></td><td>不输出错误消息（要输出其他消息）</td></tr>
+<tr><td><code>-L,--files-without-match</code></td><td>仅输出没有发生匹配的文件的文件名。</td></tr>
+<tr><td><code>-l,--files-with-matches</code></td><td>仅输出发生匹配的文件的文件名<br/>（从起始位置开始的相对路径）。</td></tr>
+<tr><td><code>-c, --count</code></td><td>仅输出一个文件中匹配的行数。</td></tr>
+<tr><td><code>-B, --before-context=N</code></td><td>输出匹配行及其之前的N行内容</td></tr>
+<tr><td><code>-A, --after-context=N</code></td><td>输出匹配行及其之后的<code>N</code>行内容</td></tr>
+<tr><td><code>-C, --context=&lt;NUM&gt;</code><br/><code>-&lt;NUM&gt;</code></td><td>输出匹配行及其前后的<code>NUM</code>行内容</td></tr>
+<tr><td><code>--color[=WHEN] </code><br/><code>--colour[=WHEN]</code></td><td>使用颜色高亮匹配内容，<code>WHEN='always','never', 'auto'</code>。</td></tr>
+</tbody></table>
+</div>
+<h4 id="sed"><a class="header" href="#sed">sed</a></h4>
+<blockquote>
+<p><em><strong>stream editor</strong></em> for filtering and transforming text. (<code>info sed</code>)</p>
+</blockquote>
+<p><code>sed</code>一次处理一行内容，把当前行存储在称为“<strong>模式空间</strong>”（pattern space）临时缓冲区中，接着用<code>sed</code>命令处理模式空间中的内容；处理完成后将结果发送到输出流并清空模式空间，再继续处理下一行内容直到文件输入结束。<strong>保持空间</strong>（hold space）用于保存一些内容，在整个循环执行过程中不会被自动清空。</p>
+<pre><code class="language-sh">sed [options] [script] input-files
+</code></pre>
+<p><code>-E,-r,--regexp-extended</code>：在脚本中==使用扩展的正则表达式==(ERE)而非基本正则表达式(BRE)，由于<code>/</code>在sed表达式中用于脚本命令的分隔符，因此是特殊字符，对于普通的<code>/</code>字符需要添加转义<code>\</code>，或使用<code>\%REGEXP%</code>设置分隔符（<code>%</code>可以为任意字符）。</p>
+<blockquote>
+<p>不支持<a href="">字符集合</a><code>\d</code>、<code>\w</code>等。</p>
+</blockquote>
+<p><strong>脚本</strong><code>script</code>：处理一行内容<code>sed</code><a href="#sed%E8%84%9A%E6%9C%AC%E8%AF%AD%E5%8F%A5">脚本语句</a>。如果没有指定<code>-e,-f</code>选项，则<code>sed</code>使用第一个非选项参数作为脚本，其他参数作为输入文件；<code>-e,-f</code>选项可组合使用也可出现多次，最终的命令脚本是所有选项提供的脚本的组合；</p>
+<blockquote>
+<p><code>-e,--expression=script</code>：要执行的命令；
+<code>-f,--file=script-file</code>：从文件中读取命令；</p>
+</blockquote>
+<p><code>script</code>参数中使用<code>;</code>分隔多个命令；文件中的命令使用换行分隔；</p>
+<p><strong>输入输出</strong>：如果未指定输入文件，或输入文件为<code>-</code>，则<code>sed</code>使用标准输入流作为输入，也可以接收管道作为输入；<code>sed</code>使用标准输出流输出，可将输出重定向到文件（<strong>注意不要将输出重定向到输入文件，这样会先清空输入文件内容</strong>，应该使用<code>--in-place[=BACKUP_SUFFIX]</code>选项更新源文件）。</p>
+<pre><code class="language-sh">sed 's/hello/world/' input.txt &gt; output.txt 
+cat input.txt | sed 's/hello/world' - &gt; output.txt
+</code></pre>
+<p><code>sed</code>默认输出所有输入内容（除了被<code>d</code>命令删除的内容）。使用<code>-n</code>抑制输出后，仅输出命令指定的内容（例如使用<code>p</code>命令输出指定的行）。</p>
+<pre><code class="language-sh">ps -ef | sed -n '1p;10p;$p' file.txt   # 仅输出第1、10行和最后一行
+</code></pre>
+<p><code>-s,--separate</code>：将多个文件视为独立的流，而非一个单独的长输入流；
+<code>-i,--inplace[=SUFFIX]</code>：修改原始文件（inplace）；具体操作是先将输出保存到一个临时文件，结束处理时用临时替换原始文件。如果提供<code>SUFFIX</code>则将原始文件重命名为以<code>SUFFIX</code>结尾的备份文件。如果<code>SUFFIX</code>包含<code>*</code>，则将<code>*</code>替换为原始文件名，从而实现添加前缀（或路径名）。==由于<code>-i</code>是对原文修改，因此慎用<code>-n</code>选项，否则导致原文内容被误删除==；
+<code>--follow-symlinks</code>：仅在<code>-i</code>指定时有效，修改符号链接最终指向的文件；
+<code>-n,--silent,--quiet</code>：抑制自动输出；
+<code>-l,--line-length=N</code>：指定输出自动换行的长度，默认值为70；</p>
+<p><strong>返回值</strong>：<code>0</code>成功；<code>1</code>无效命令；<code>2</code>某个文件无法打开；<code>4</code>输入输出错误；使用命令<code>q</code>或<code>Q</code>自定义返回值<code>Q42</code>。</p>
+<h5 id="sed脚本语句"><a class="header" href="#sed脚本语句">sed脚本语句</a></h5>
+<p><code>sed</code>脚本语句的语法：<code>[addr]{X[/options/];Y[/opts/];...}</code>。</p>
+<p><code>X,Y,...</code>代表单字符的<code>sed</code>命令；<code>addr</code>为行地址；<code>options</code>为某些命令的选项。</p>
+<p>一条语句中包含一个行地址，但可包含多条命令构成命令组。如果只有一条命令则可以省略<code>{}</code>。</p>
+<blockquote>
+<p>如果没有使用<code>{}</code>，则<code>;</code>后的命令属于下一条语句（没有行地址，默认匹配全部文本）。</p>
+</blockquote>
+<h6 id="行地址"><a class="header" href="#行地址">行地址</a></h6>
+<p>使用数值表示单独的行（从1开始，<code>$</code>表示最后一行），使用<code>N1,N2</code>指定连续的行区间；使用<code>start~step</code>来指定每隔若干行取一行执行；==未指定行地址则默认对所有行执行命令==；可以使用正则表达式<code>/pattern/</code>来匹配目标行：</p>
+<pre><code class="language-sh">ps -ef | sed -n '2,$/p'  # 跳过第一行
+sed '/apple/s/hello/world/' input &gt; output # edit on line contain 'apple'
+</code></pre>
+<blockquote>
+<p>无论是数字或正则表达式表示的行地址，取补集即：<code>'/REGEXP/!cmd'</code>。</p>
+</blockquote>
+<div class="table-wrapper"><table><thead><tr><th>命令</th><th>说明</th></tr></thead><tbody>
+<tr><td><code>aTEXT</code>, <code>a TEXT</code></td><td>在一行后插入文本</td></tr>
+<tr><td><code>cTEXT</code>, <code>c TEXT</code></td><td>替换文本</td></tr>
+<tr><td><code>iTEXT</code>, <code>i TEXT</code></td><td>在一行前插入文本</td></tr>
+<tr><td><code>p,P,l</code></td><td>打印模式空间（一行），<code>-P</code>打印到出现换行符；</td></tr>
+<tr><td><code>d</code></td><td>删除模式空间，进入下一次循环；<br/><code>-D</code>删除换行符之前内容，并重新开始当前循环<br/>（没有换行符则进入下一循环）；</td></tr>
+<tr><td><code>n</code></td><td>非安静模式下，输出当前模式空间内容，<br/>在任何情况下，用下一行内容替换当前模式空间内容<br />（下一行内容被消耗不会再被下一个循环读取）</td></tr>
+<tr><td><code>z</code></td><td>清空模式空间（空字符串，仍占一行）</td></tr>
+<tr><td><code>F</code></td><td>将前行所属的文件名作为一行插入当前行之前</td></tr>
+<tr><td><code>g,G</code></td><td>用保持空间的内容替换模式空间的内容；<code>G</code>为追加模式</td></tr>
+<tr><td><code>h,H</code></td><td>使用模式空间内容替换保持空间的内容；<code>H</code>为追加模式</td></tr>
+<tr><td><code>x</code></td><td>交换模式空间和保持空间的内容</td></tr>
+<tr><td><code>s/REGEXP/REPLACE/[FLAGS]</code></td><td>==替换匹配行的匹配内容==</td></tr>
+<tr><td><code>y/src/dst/</code></td><td>将模式空间中属于<code>src</code>集合中的字符用<code>dst</code>集合中的相应字符代替</td></tr>
+</tbody></table>
+</div>
+<blockquote>
+<p><code>'a', 'c', 'i'</code>命令之后内容为插入的文本，因此不能在其后使用<code>;</code>连接其他命令。这些命令只能放在脚本最后或使用换行符分隔其他命令（命令行输入一条命令后换行继续输入另一条命令）。</p>
+<pre><code class="language-sh">$ seq 2 | sed '1a Hello
+&gt; 2d'
+</code></pre>
+<p>替换模式：使用源空间内容替换目标空间内容；</p>
+<p>追加模式：在目标空间的内容基础上拼接一个换行符(<code>newline</code>)以及源空间的内容；</p>
+</blockquote>
+<p><code>-n</code>命令常用于处理每隔<code>N</code>行执行的操作；</p>
+<pre><code class="language-sh">seq 6 | sed '0~3s/./x/'  # 等效于 sed 'n;n;s/./x'
+</code></pre>
+<h6 id="s命令substitute"><a class="header" href="#s命令substitute"><code>s</code>命令（substitute）</a></h6>
+<p><code>s</code>命令可添加的选项（<code>FLAG</code>）：</p>
+<p><code>g</code>：==替换所有匹配，而不仅是首个匹配==；
+<code>p</code>：如果发生替换，则输出替换后的模式空间；未发生替换则不输出内容；未添加该选项时，根据<code>-n</code>选项（抑制自动输出）确定是否输出当前行（可能发生替换）的内容。
+<code>w FILENAME</code>：如果发生替换，则将结果输出到文件，使用<code>/dev/stderr</code>和<code>/dev/stdout</code>表示标准输出流；
+<code>i,I</code>：大小写不敏感的匹配；</p>
+<p>当使用==扩展正则表达式==（<code>-E</code>）时，<code>REPLACE</code>中的特殊字符需要添加<code>\</code>转义为普通字符。</p>
+<p><code>\</code>、<code>&amp;</code>、空格和换行（换行为<code>\n</code>）。对于非转义字符，使用<code>\c</code>等效于直接使用该字符。
+使用<code>\N</code>（<code>N=1~9</code>）表示第N个捕获（位于正则表达式中<code>(</code>和<code>)</code>之间的内容），用<code>&amp;</code>表示整个匹配（即实现在原文内容前后插入内容）；
+<code>\L</code>：将替换内容变换为小写字母直到<code>\U</code>或<code>\E</code>；<code>\l</code>将后续第一个字符变为小写；
+<code>\U</code>：将替换内容变换为大写字母直到<code>\L</code>或<code>\E</code>；<code>\u</code>将后续第一个字符变为大写；</p>
+<blockquote>
+<p>大小写替换范围作用在一个匹配结果之内，每个匹配结果独立执行大小写替换；</p>
+</blockquote>
+<h4 id="awkgawk"><a class="header" href="#awkgawk">awk/gawk</a></h4>
+<blockquote>
+<p>gawk - pattern scanning and processing language.</p>
+</blockquote>
+<h5 id="基本用法"><a class="header" href="#基本用法">基本用法</a></h5>
+<pre><code class="language-sh">awk '{[pattern] action}' {filenames} 
+</code></pre>
+<blockquote>
+<p><code>awk</code>的命令语句只能用单引号<code>''</code>，避免shell展开其中的参数（例如<code>$1</code>）。</p>
+</blockquote>
+<p>输出：</p>
+<pre><code class="language-sh">awk '{print $1,$4}' &lt;&lt;&lt; 'this is a string' # 每行按空格或TAB分割，输出文本中的1、4项
+awk '{printf &quot;%-8s %-10s\n&quot;,$1,$4}' &lt;&lt;&lt; 'this is a string' # 格式化输出
+</code></pre>
+<blockquote>
+<p><code>printf</code>的格式声明和参数之间使用<code>,</code>分隔（可包含空格）。</p>
+</blockquote>
+<p>设置分隔符：</p>
+<pre><code class="language-sh">awk -F, '{print $1,$2}'   log.txt  # 使用&quot;,&quot;分割
+awk 'BEGIN{FS=&quot;,&quot;} {print $1,$2}' log.txt
+# 使用多个分隔符：先使用空格分割，然后对分割结果再使用&quot;,&quot;分割，[]不是分隔符的一部分
+awk -F '[ ,]'  '{print $1,$2,$5}' log.txt  
+</code></pre>
+<p>设置变量：</p>
+<pre><code class="language-sh">awk -va=1 '{print $1,$1+a}' log.txt   # set a=1
+</code></pre>
+<p>调用脚本：</p>
+<pre><code class="language-sh">awk [options] -f program-file [--] file ...
+awk [options] [--] program-text file ...
+</code></pre>
+<h5 id="运算符"><a class="header" href="#运算符">运算符</a></h5>
+<h5 id="内置变量"><a class="header" href="#内置变量">内置变量</a></h5>
+<p><code>$NF</code>：字符串的最后一列；</p>
+<p>https://www.runoob.com/linux/linux-comm-awk.html</p>
+<h5 id="过滤"><a class="header" href="#过滤">过滤</a></h5>
+<p>过滤：</p>
+<pre><code class="language-sh">awk '$1&gt;2' log.txt
+awk '$1==2 {print $1,$3}' log.txt 
+awk '$1&gt;2 &amp;&amp; $2==&quot;Are&quot; {print $1,$2,$3}' log.txt
+</code></pre>
+<p>可使用正则表达式过滤行。对整行进行过滤，<code>/REGEXP/</code>是模式。</p>
+<pre><code class="language-shell">awk '/re/ ' log.txt                      # 输出包含 &quot;re&quot; 的行 ==&gt; grep 're' &lt; log.txt
+awk '!/th/ {print $2,$4}' log.txt        # 取反匹配       
+awk 'BEGIN{IGNORECASE=1} /this/' log.txt # 忽略大小写
+</code></pre>
+<p>或根据分割后的字段进行过滤，<code>~</code>表示模式开始：</p>
+<pre><code class="language-sh">awk '$2 ~ /th/ {print $2,$4}' log.txt    # 第二列包含 &quot;th&quot;
+awk '$2 !~ /th/ {print $2,$4}' log.txt   # 取反匹配
+</code></pre>
+<h5 id="awk脚本"><a class="header" href="#awk脚本">awk脚本</a></h5>
+<pre><code class="language-sh">#!/bin/awk -f
+BEGIN{} #运行前
+{} #运行中：处理每一行
+END{} #运行后
+</code></pre>
+<h5 id="awk参考资料"><a class="header" href="#awk参考资料">awk参考资料</a></h5>
+<ol>
+<li>
+<p><a href="./cheat_sheet_gnuawk_v3.pdf">GNU awk Cheat Sheet</a></p>
+</li>
+<li>
+<p><a href="./gawk.pdf">GAWK: Effective AWK Programming</a></p>
+</li>
+</ol>
+<h4 id="全文处理"><a class="header" href="#全文处理">全文处理</a></h4>
+<h5 id="按行排序"><a class="header" href="#按行排序">按行排序</a></h5>
+<pre><code class="language-shell">sort [OPTIONS] FILES...
+sort &lt;&lt; EOF            # 对键入内容按行进行排序
+cmd_output | sort      # 对命令输出内容按行排序 &lt;== 
+</code></pre>
+<ul>
+<li><code>-b, --ignore-leading-blanks</code>：忽略起始空白；</li>
+<li><code>-f, --ignore-case</code>：忽略大小写；</li>
+<li><code>-r, --reverse</code>：反向排序；</li>
+<li><code>-o, --output=FILE</code>：输出文件。</li>
+</ul>
+<h5 id="去重"><a class="header" href="#去重">去重</a></h5>
+<p>检测连续的重复记录（可能需要先进行排序），默认输出去除重复记录的结果。</p>
+<pre><code class="language-shell">uniq INPUT           
+cmd_output | unique
+</code></pre>
+<p>以标准输入或文件作为输入，并输出到标准输出或文件。选项：</p>
+<ul>
+<li><code>-c, --count</code>：在每一行前添加出现次数；</li>
+<li><code>-d, --repeated</code>：仅打印重复行（只保留一条记录）；</li>
+<li><code>-u, --unique</code>：仅打印不重复的行；</li>
+</ul>
+<h2 id="参考文献"><a class="header" href="#参考文献">参考文献</a></h2>
+<div class="footnote-definition" id="shellmath"><sup class="footnote-definition-label">2</sup>
+<p>Math in Shell Scripts, http://faculty.salina.k-state.edu/tim/unix_sg/bash/math.html</p>
+</div>
+<div class="footnote-definition" id="shellrc"><sup class="footnote-definition-label">1</sup>
+<p><a href="https://stackoverflow.com/questions/18186929/what-are-the-differences-between-a-login-shell-and-interactive-shell">What are the differences between a login shell and interactive shell?</a></p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../Linux/Linux配置和管理.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../Linux/Linux发行版.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../Linux/Linux配置和管理.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../Linux/Linux发行版.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

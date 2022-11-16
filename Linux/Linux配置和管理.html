@@ -1,0 +1,2591 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>配置管理 - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html" class="active">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html" class="active">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="linux配置和管理"><a class="header" href="#linux配置和管理">Linux配置和管理</a></h1>
+<h2 id="文件管理"><a class="header" href="#文件管理">文件管理</a></h2>
+<p>在Linux/UNIX中，所有的对象都被视为文件，包括普通文件、目录、设备、套接字。</p>
+<h3 id="目录路径"><a class="header" href="#目录路径">目录路径</a></h3>
+<pre><code class="language-sh">pwd                   # Print Working Directory
+dirname filename      # parent directory
+basename filename     # 
+</code></pre>
+<blockquote>
+<p><code>pwd</code>列出正在工作的目录，用于显示你当前所处的目录名。<code>pwd</code>命令总是返回你当前所处的目录的完全路径名。<code>dirname</code>返回查询路径的父目录（从文件路径中截取）。<code>basename</code>仅返回文件的名称。</p>
+</blockquote>
+<p><code>readlink</code>和<code>realpath</code>解析文件的绝对路径，跟踪解析所有符号链接。</p>
+<pre><code class="language-shell">readlink -e \ # 解析过程中的所有目标必须存在 =&gt; realpath -e filename
+         -f \ # 除最终目标外所有目标必须存在 =&gt; realpath    filename
+         -m \ # 允许目标不存在             =&gt; realpath -m filename
+         FILENAME 
+</code></pre>
+<h5 id="切换目录"><a class="header" href="#切换目录">切换目录</a></h5>
+<pre><code class="language-shell">cd  [dir_name]     # 切换工作目录（Change Directory）
+chroot [OPTION] NEWROOT [COMMAND [ARG]...]  # 切换命令运行的根目录
+</code></pre>
+<blockquote>
+<p>不带任何参数时，将把你送回自己的用户主目录中（等效于<code>cd ~</code>）。<code>..</code>表示父目录。</p>
+<p>登录完成后，工作目录为用户主目录。</p>
+</blockquote>
+<h5 id="创建目录"><a class="header" href="#创建目录">创建目录</a></h5>
+<p>在每一个新的子目录中，均包含两个标准的项目：<code>.</code>代表当前目录和<code>..</code>代表父目录。</p>
+<pre><code class="language-shell">mkdir -m,--mode=MODE -p dir_name 
+install [OPTIONS] -d dir1 dir2 ...   # 创建目录并设置权限
+</code></pre>
+<blockquote>
+<p><code>-m</code>：可用来创建一个带有特定权限的子目录（<code>chmod</code>声明方式）。
+<code>-p</code>：父目录不存在的情况下首先创建父目录，忽略已存在目录（默认报错）。</p>
+</blockquote>
+<h5 id="删除目录"><a class="header" href="#删除目录">删除目录</a></h5>
+<pre><code class="language-sh">rmdir -p dir_name ...   # -p 一次删除多个目录
+</code></pre>
+<blockquote>
+<p><code>dir_name</code>不能为当前工作目录（即要在父目录中删除子目录）。应该拥有被删除目录的写该目录必须为空目录（即只包含<code>.</code>和<code>..</code>，否则使用<code>rm -rf dir_name</code>）。</p>
+</blockquote>
+<h4 id="显示目录中的项目"><a class="header" href="#显示目录中的项目">显示目录中的项目</a></h4>
+<h5 id="列表显示"><a class="header" href="#列表显示">列表显示</a></h5>
+<pre><code class="language-sh">ls [options] [dir_name]
+</code></pre>
+<h6 id="文件过滤选项"><a class="header" href="#文件过滤选项">文件过滤选项</a></h6>
+<p><code>-a</code>：显示所有文件（包括以<code>.</code>开头的文件（夹）），<code>-A</code>仅忽略<code>.</code>和<code>..</code>；
+<code>-R</code>：递归显示所有子目录的内容；
+<code>-d</code>：只显示目录条目的信息；</p>
+<h6 id="文件信息选项"><a class="header" href="#文件信息选项">文件信息选项</a></h6>
+<p><code>-l</code>：列表显示目录中文件的详细信息，与其他排序方式组合使用时则显示相应的排序字段；<code>-g</code>与<code>-l</code>相似但不显示文件所有者，<code>-o</code>不显示用户组；</p>
+<blockquote>
+<p>文件类型信息：<code>-</code> 表示普通文件（<code>f</code>）；<code>d</code> 目录文件；<code>b</code>块设备文件例如磁盘；<code>c</code>字符设备文件，<code>p</code>命名管道（FIFO） ；<code>l</code>符号链接；<code>s</code> 套接字（socket）；</p>
+</blockquote>
+<p><code>--author</code>：显示文件创建者；
+<code>-n</code>：显示数字形式的用户和用户组ID；
+<code>-i</code>：<code>inode</code>序号将列在第一列；
+<code>--time-STYLE</code>：时间显示格式，包括：<code>full-iso</code>（<code>2020-03-07 15:07:15.542112573 +0800</code>）、<code>long-iso</code>（<code>2020-03-07 17:34</code>）、<code>iso</code>（<code>03-07 15:07</code>）、<code>locale</code>（<code>Mar  7 15:07</code>）或<code>+FORMAT</code>；
+<code>--full-time</code>：显示完整时间，等价于<code>-l --time-style=full-iso</code>；
+<code>-h</code>：显示更加友好的文件长度信息（<code>1K 234M 2G</code>，等价<code>--human-readable</code>）；
+<code>-s</code>：显示文件占用的磁盘容量；
+<code>--block-size=SIZE</code>：<code>K,M,G,T,P,E,Z,Y</code> （powers of 1024）或 <code>KB,MB,...</code> （powers of 1000）</p>
+<h6 id="排序选项"><a class="header" href="#排序选项">排序选项</a></h6>
+<p><code>--sort=WORD</code>：<code>WORD=none(-U),size(-S),time(-t),version(-v),extension(-X)</code>，未声明排序选项时，<strong>默认</strong>按文件名排序。<code>-c</code>：按<code>ctime</code>（指文件的<code>inode</code>信息被改变的时间）排序；<code>-u</code>：按访问时间排序；<code>-t</code>：按修改时间排序，优先级低于<code>-c</code>和<code>-u</code>；
+<code>-r</code>：反向排序；</p>
+<h5 id="查看目录树"><a class="header" href="#查看目录树">查看<a href="%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86.html">目录树</a></a></h5>
+<pre><code class="language-sh">tree -L &lt;n&gt; path  # not built-in
+</code></pre>
+<p><code>-L &lt;n&gt;</code>：搜索深度；<code>-l</code>：跟踪符号链接；</p>
+<h4 id="文件信息"><a class="header" href="#文件信息">文件信息</a></h4>
+<p>获取文件的信息：</p>
+<pre><code class="language-sh">stat &lt;path/to/file&gt; -c,--format,--printf=FORMAT \
+     -f,--file-system   # 显示文件所在文件系统信息而非文件信息
+</code></pre>
+<p>格式参数<code>FORMAT</code>可包含多个格式声明以及普通字符，<code>--printf</code>还可使用<code>&quot;\&quot;</code>转义字符；</p>
+<div class="table-wrapper"><table><thead><tr><th>格式</th><th>内容</th><th>格式</th><th>内容</th><th>格式</th><th>内容</th><th>格式</th><th>内容</th><th>格式</th><th>内容</th></tr></thead><tbody>
+<tr><td><code>%n</code></td><td>文件名</td><td><code>%F</code></td><td>文件类型</td><td><code>%g</code></td><td>group id</td><td><code>%y</code></td><td>修改时间</td><td><code>%a</code></td><td>八进制访问权限</td></tr>
+<tr><td><code>%N</code></td><td><code>&quot;文件名&quot;</code></td><td><code>%s</code></td><td>file bytes</td><td><code>%G</code></td><td>group name</td><td><code>%Y</code></td><td>修改时间戳</td><td><code>%A</code></td><td>字母访问权限</td></tr>
+<tr><td><code>%h</code></td><td>硬链接数</td><td><code>%m</code></td><td>挂载点</td><td><code>%u</code></td><td>owner id</td><td><code>%w</code></td><td>创建时间</td><td><code>%x</code></td><td>访问时间</td></tr>
+<tr><td><code>%i</code></td><td>inode数</td><td><code>%C</code></td><td>SELinux</td><td><code>%U</code></td><td>owner name</td><td><code>%W</code></td><td>创建时间戳</td><td><code>%X</code></td><td>访问时间戳</td></tr>
+</tbody></table>
+</div>
+<p>除<code>stat</code>外，还可以使用<code>date</code>获取<a href="#%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4">文件修改时间</a>：</p>
+<pre><code class="language-sh">date -r &lt;filename&gt; [+&quot;%Y%m%d&quot;] 
+</code></pre>
+<p>获取文件类型：</p>
+<pre><code class="language-shell">file &lt;path/to/file&gt; \
+    -i，--mime      \  # =&gt; --mime-type + --mime encoding
+    -z,--uncompress \  # 尝试解压压缩文件并查看其中内容
+</code></pre>
+<h5 id="修改文件属性"><a class="header" href="#修改文件属性">修改文件属性</a></h5>
+<p><code>touch</code>可以用于<a href="https://askubuntu.com/questions/62492/how-can-i-change-the-date-modified-created-of-a-file">修改文件访问时间</a>。</p>
+<pre><code class="language-shell">touch filename
+touch -d &quot;2 hours ago&quot; filename
+</code></pre>
+<h3 id="普通文件"><a class="header" href="#普通文件">普通文件</a></h3>
+<h4 id="移动"><a class="header" href="#移动">移动</a></h4>
+<p>如果源文件/目录与目标文件/目录同名，则用源文件/目录替换同名目标文件/目录的内容；否则，将源文件/目录移动到目标目录中；此时，目标目录必须存在，不会首先创建目录。</p>
+<pre><code class="language-shell">mv [-f]  file_path /path/newname
+</code></pre>
+<blockquote>
+<p>如果源与目标所在路径相同，<code>mv</code>等效于重命名。</p>
+</blockquote>
+<h5 id="批量重命名"><a class="header" href="#批量重命名">批量重命名</a></h5>
+<p>将文件名中已知的部分内容替换为新的内容，其余部分（使用通配符表示）不变。</p>
+<pre><code class="language-sh">rename 's/pattern/replace/' FILES    # sed style
+rename pattern replace FILES
+</code></pre>
+<p><code>pattern</code>为Perl正则表达式，文件名<code>FILES</code>支持通配符（<code>?*.txt</code>）。</p>
+<blockquote>
+<p>使用需注意，原始的<code>rename</code>不会检查已有文件而直接覆盖。</p>
+</blockquote>
+<h4 id="复制"><a class="header" href="#复制">复制</a></h4>
+<pre><code class="language-sh">cp [-raf] file_path /path/filecopy  # -a 保留原属性
+</code></pre>
+<blockquote>
+<p><code>cp</code>的文件创建行为与<code>mv</code>相同。</p>
+</blockquote>
+<h5 id="安装"><a class="header" href="#安装">安装</a></h5>
+<p><code>install</code>支持设置目标文件的权限和属性（==不支持文件夹（递归）复制==）：</p>
+<ul>
+<li>
+<p><code>-m,--mode=MODE</code>：设置访问权限；</p>
+</li>
+<li>
+<p><code>-g,--group=GROUP</code>，<code>-o,--owner=OWNER</code>：设置所属关系（<code>chgrp,chown</code>），代替当前进程的默认值；</p>
+</li>
+<li>
+<p><code>-p, --preserve-timestamps</code>：保留文件的访问/修改时间；</p>
+</li>
+</ul>
+<pre><code class="language-shell">install [OPTION] -D [-T] SOURCE DEST   # single-file to file
+</code></pre>
+<blockquote>
+<p><code>-D</code>：（递归）创建目标文件的父目录（<code>mkdir -p</code>），未指定该选项则不会自动创建目录；</p>
+</blockquote>
+<pre><code class="language-shell">install [OPTION] SOURCE... DIRECTORY   # single to dir
+install [OPTION] -t DIRECTORY SOURCE...# multiple to dir (--target-directory)
+</code></pre>
+<blockquote>
+<p><code>-b,--suffix=BACKUP</code>：备份选项以及备份目标文件夹；</p>
+</blockquote>
+<h4 id="删除文件"><a class="header" href="#删除文件">删除文件</a></h4>
+<pre><code class="language-sh">rm [-rf] file  # can use wildcard
+</code></pre>
+<blockquote>
+<p>使用<code>-rf</code>递归删除非空文件夹。</p>
+</blockquote>
+<h4 id="文件链接"><a class="header" href="#文件链接">文件链接</a></h4>
+<p><strong>硬链接</strong>（<strong>hard link</strong>）：是对原文件的引用（引用同一个<code>inode</code>，在<code>inode</code>中计数），与原文件等价（即拥有相同访问权限）。删除硬链接将减小<code>inode</code>计数，到<code>inode</code>计数为0时删除文件。</p>
+<p><strong>符号链接</strong>（<strong>symbolic/soft link</strong>）：保存到目标文件（夹）的路径（或相对路径），访问符号链接将跳转到目标文件（夹）。符号链接是一个独立的文件（具有相应的<code>inode</code>节点），因此具有独立的文件权限。删除原文件后，符号链接失效。</p>
+<h5 id="创建链接"><a class="header" href="#创建链接">创建链接</a></h5>
+<pre><code class="language-sh">ln -s /file/path /symbol/path	  # symbolic link
+ln /file/path /symbol/path      # hard link file
+ln -d /dir/path /symbol/path    # hard link 目录（不一定支持）
+# -f,--force 移除已有文件链接 
+</code></pre>
+<p>符号链接的目标可以是任意内容（创建的时候不做检查合法性），符号链接支持跨文件系统。硬链接的目标必须存在且仅支持在同一设备的同一文件系统。</p>
+<h5 id="访问链接"><a class="header" href="#访问链接">访问链接</a></h5>
+<p>==文件链接解引用时，相对路径的父目录为文件链接所在目录==，解析符号链接目标时是递归式解析。</p>
+<p>工作目录路径：如果切换工作目录到符号链接指向的目录，则工作目录路径为符号链接的路径而非目标目录的真实路径（比较<code>pwd</code>和<code>realpath</code>的输出结果），向上跳转（<code>..</code>）会返回符号链接所在目录。</p>
+<p>在Linux中创建的符号链接在Windows中仍然能访问（WSL），但Windows不做递归解析，仅以当前工作目录路径为参考解析符号链接，因此<strong>使用相对路径的多级符号链接解析会出错</strong>。</p>
+<h4 id="临时文件"><a class="header" href="#临时文件">临时文件</a></h4>
+<p>在指定目录下（默认为<code>/tmp</code>）创建临时文件并输出文件路径。</p>
+<pre><code class="language-shell">tempfile --directory PATH # [Debian] 
+mktemp -p PATH     # [Fedora-coreutils]
+       --directory # 创建目录而非文件
+</code></pre>
+<h3 id="查找文件"><a class="header" href="#查找文件">查找文件</a></h3>
+<pre><code class="language-sh">which &lt;command&gt;
+command -V &lt;command&gt;
+</code></pre>
+<blockquote>
+<p>从系统环境变量中查找文件并返回绝对路径。</p>
+</blockquote>
+<h4 id="查找目录中的文件"><a class="header" href="#查找目录中的文件">查找目录中的文件</a></h4>
+<pre><code class="language-sh">find [-HLP][-D debugopts][-Olevel][start_dir...][expression]
+</code></pre>
+<p><code>start_dir</code>表示查找路径，可以使用绝对路径，也可以使用相对路径，可以同时指定多个目录；如果没有指定，则<strong>默认为当前目录</strong>。==默认输出信息为查找到的文件夹和文件信息，并包含从查找目录开始的完整路径信息。==</p>
+<h5 id="选项option"><a class="header" href="#选项option">选项（Option）</a></h5>
+<p>选项<strong>控制<code>find</code>访问文件系统的行为</strong>。</p>
+<p><code>-H</code>，<code>-L</code>和<code>-P</code>（默认）控制处理符号链接的行为。</p>
+<blockquote>
+<p><code>-P</code>表示不解析任何符号链接；
+<code>-H</code>表示除了命令行提供的文件名外，不解析其他符号链接。如果符号链接不能被解析，则返回符号连接本身的信息；
+<code>-L</code>表示在可能的情况下解析符号链接，反之返回符号链接自身的信息。（<code>-follow</code> deprecated）</p>
+</blockquote>
+<p><code>-D debugopts</code>：输出诊断信息。</p>
+<p><code>-Olevel</code>：查询优化。默认首先执行基于文件名的表达式（<code>-name</code>，<code>-regex</code>等）；其次执行<code>-type</code>或<code>-xtype</code>的表达式（通过<code>readdir()</code>读取文件类型）。</p>
+<p>读取上述选项之后，检查后续参数是否为文件/路径，直到以<code>-</code>、<code>(</code>、<code>!</code>开始的参数（也可以使用<code>--</code>声明选项参数的结束）。剩余参数为控制搜索行为的表达式。</p>
+<h5 id="表达式expression"><a class="header" href="#表达式expression">表达式（Expression）</a></h5>
+<p>表达式用于控制如何匹配文件以及对匹配文件的操作。表达式可以包含以下内容：</p>
+<ul>
+<li><code>Tests</code>：测试文件属性，返回<code>true|false</code>；</li>
+<li><code>Actions</code>：对匹配结果执行操作，根据操作结果返回<code>true|false</code>；如果表达式没有包含操作，则默认为<code>-print</code>；</li>
+<li><code>Global options</code>：全局选项，总是返回<code>true</code>；</li>
+<li><code>Positional options</code>：仅影响其后的测试或操作，总是返回<code>true</code>；</li>
+<li><code>Operator</code>：将表达式中多个内容连接起来：<code>-o</code>（逻辑<code>OR</code>）、<code>-a</code>（逻辑<code>AND</code>）；表达式内容之间默认使用<code>-a</code>连接；可以使用<code>()</code>声明优先级。</li>
+</ul>
+<h6 id="全局选项"><a class="header" href="#全局选项">全局选项</a></h6>
+<ul>
+<li><code>-d,-depth</code>：先处理文件夹中的内容，再处理文件夹本身；</li>
+<li><code>-maxdepth,-mindepth LEVEL</code>：指定搜索的层级，<code>0</code>表示起始点本身；</li>
+<li><code>-mount, -xdev</code>：不搜索挂载的其他文件系统目录；</li>
+<li><code>-help,--help,--version</code>：帮助、版本信息。</li>
+</ul>
+<h6 id="位置选项"><a class="header" href="#位置选项">位置选项</a></h6>
+<ul>
+<li>
+<p><code>-daystart</code>：计算时间时从今天开始，而非24小时前算起。影响其后的测试条件<code>-amin</code>, <code>-cmin</code>, <code>-mmin</code>, <code>-atime</code>, <code>-ctime</code>和<code>-mtime</code>。</p>
+</li>
+<li>
+<p><code>-regextype TYPE</code>：默认为<code>emacs</code>，包括：<code>awk,egrep,grep,sed</code>等。</p>
+<blockquote>
+<p><code>-regextype egrep</code>在CentOS 7 上不支持<code>{}</code>。</p>
+</blockquote>
+</li>
+</ul>
+<h6 id="测试条件"><a class="header" href="#测试条件">测试条件</a></h6>
+<div class="table-wrapper"><table><thead><tr><th>表达式</th><th>说明</th></tr></thead><tbody>
+<tr><td><code>-name PATTERN</code></td><td>查找==文件名==匹配<code>PATTERN</code>的文件，可以使用通配符<code>*，？,[]</code>。</td></tr>
+<tr><td><code>-path PATTERN</code></td><td>==从搜索路径开始的完整文件名（非绝对路径）==与<code>PATTERN</code>进行匹配<br />（<code>-wholename</code>）。</td></tr>
+<tr><td><code>-regex PATTERN</code></td><td>使用正则表达式匹配文件。文件名以<code>./</code>开头的==完整相对路径==，<br />注意在正则表达式前添加<code>.*</code>以匹配前缀；</td></tr>
+<tr><td><code>-atime [+-]N</code> <br/> <code>-ctime [+-]N</code> <br/> <code>-mtime [+-]N</code></td><td>判断最近访问(<code>-a</code>)，状态变化(<code>-c</code>)，修改(<code>-m</code>)时间：<br/>如果参数为<code>N</code>，表示时间在<code>N</code>天之内<br/>（0表示0~24小时，1表示24~48小时，…）</td></tr>
+<tr><td><code>-amin [+-]N</code></td><td>时间单位为<code>min</code>（类似地<code>-cmin</code>，<code>-mmin</code>）</td></tr>
+<tr><td><code>-anewer FILE</code></td><td>测试最近访问时间是否比<code>FILE</code>更近（<code>-cnewer,-newer</code>）。</td></tr>
+<tr><td><code>-used [+-]N</code></td><td>在文件状态改变<code>N</code>天（<code>+N,-N</code>）之内文件被访问过。</td></tr>
+<tr><td><code>-empty</code></td><td>测试文件或文件夹是否为空。</td></tr>
+<tr><td><code>-size n[u]</code></td><td>文件大小：单位<code>u=cwbkMG:</code></td></tr>
+<tr><td><code>-fstype TYPE</code></td><td>测试文件所在的文件系统的类型是否为<code>TYPE</code>。</td></tr>
+<tr><td><code>-uid [+-]N</code></td><td>文件的用户ID（组ID<code>-gid</code>）是否为<code>N</code>（或<code>+N,-N</code>）。</td></tr>
+<tr><td><code>-user NAME</code></td><td>文件的用户名（组名<code>-group</code>）是否为<code>NAME</code>（允许使用ID）。</td></tr>
+<tr><td><code>-nouser</code></td><td>文件的用户ID（组ID<code>-nogroup</code>）没有对应的用户（组）。</td></tr>
+<tr><td><code>-lname PATTERN</code></td><td>符号链接所指向的文件的文件名是否与<code>PATTERN</code>匹配。</td></tr>
+<tr><td><code>-perm pmode</code></td><td>文件的权限是否与<code>pmode</code>匹配，<br/><code>pmode</code>可以是符号或数字模式，例如：<code>-perm 664</code>。<br/>直接指定单项权限<code>-readable</code>、<code>-writable</code>、<code>-executable</code>。</td></tr>
+<tr><td><code>-type &lt;c&gt;</code></td><td><a href="#%E6%96%87%E4%BB%B6%E4%BF%A1%E6%81%AF%E9%80%89%E9%A1%B9">文件类型</a>： <code>bcdpfls</code></td></tr>
+<tr><td><code>-xtype c</code></td><td>除符号链接以外，与<code>-type</code>作用一致；</td></tr>
+<tr><td><code>-inum [+-]N</code></td><td>rarely useful.</td></tr>
+<tr><td><code>-samefile NAME</code></td><td>文件与<code>NAME</code>为同一个文件。</td></tr>
+<tr><td><code>-links [+-]N</code></td><td>File has n hard links.</td></tr>
+</tbody></table>
+</div>
+<blockquote>
+<p>匹配文件名的测试命令前添加<code>i</code>（例如<code>-iname</code>）为忽略大小写版本。
+通配符需要使用引号包围以防被shell展开。
+参数如果为<code>+N</code>，则表示大于<code>N</code>，如果为<code>-N</code>则表示小于<code>N</code>。</p>
+</blockquote>
+<h6 id="运算符"><a class="header" href="#运算符">运算符</a></h6>
+<div class="table-wrapper"><table><thead><tr><th>运算符</th><th>表达式</th></tr></thead><tbody>
+<tr><td><code>()</code></td><td><code>(EXPR)</code></td></tr>
+<tr><td><code>!</code>   <code>-not</code></td><td><code>!EXPR</code>   <code>–not EXPR</code></td></tr>
+<tr><td><code>-a</code>  <code>-and</code></td><td><code>EXPR1 –a EXPR2</code>  <code>EXPR1 –and EXPR2</code></td></tr>
+<tr><td><code>-o</code>  <code>-or</code></td><td><code>EXPR1 –o EXPR2</code>  <code>EXPR1 –or EXPR2</code></td></tr>
+<tr><td><code>,</code></td><td><code>EXPR1, EXPR2</code></td></tr>
+</tbody></table>
+</div>
+<h6 id="动作"><a class="header" href="#动作">动作</a></h6>
+<div class="table-wrapper"><table><thead><tr><th>命令</th><th>说明</th></tr></thead><tbody>
+<tr><td><code>-print, -print0</code></td><td><code>print0</code>会在文件名结尾追加“<code>null</code>”。</td></tr>
+<tr><td><code>-fprint FILE</code><br/><code>-fprint0 FILE</code></td><td>打印完整文件名到<code>FILE</code>。<br/>如果文件不存在则创建文件；<br/>如果存在，则文件内容被删除；<br/>即使没有输出内容，该文件仍然会被创建。</td></tr>
+<tr><td><code>-ls</code><br/><code>-fls FILE</code></td><td>以<code>ls -dils</code>格式打印到标准输出。<code>-fls</code>输出到文件。</td></tr>
+<tr><td><code>-printf FORMAT</code><br/><code>-fprintf FILE FORMAT</code></td><td>位宽和精度说明类似于C语言的<code>printf</code>(<code>man find</code>)。</td></tr>
+<tr><td><code>-execdir command</code><br/><code>-exec command</code></td><td><code>-execdir</code>将其后直到<code>;</code>的所有内容视为<code>command</code>，<br/>同时将其中的“<code>{}</code>”替换为查找结果的文件名。<br/><code>command</code>中的特殊字符需要使用“<code>\</code>”或“<code>'</code>”以防被shell展开。</td></tr>
+<tr><td><code>-execdir command {}+</code><br/><code>-exec command {}+</code></td><td>命令末尾的“<code>{}</code>”展开为匹配文件名称的列表；</td></tr>
+<tr><td><code>-okdir command</code><br/><code>-ok command</code></td><td>询问用户是否执行命令</td></tr>
+<tr><td><code>-delete</code></td><td>删除成功返回真；如果失败，生成错误信息；</td></tr>
+</tbody></table>
+</div>
+<h5 id="查找文件示例"><a class="header" href="#查找文件示例">查找文件示例</a></h5>
+<p>高亮<code>find</code>查找结果：</p>
+<pre><code class="language-sh">find ./ -name '*.tar.gz' | grep --color '.tar.gz'
+</code></pre>
+<p>打印查找到文件的详细信息。</p>
+<pre><code class="language-sh">find ./ -name '*.tar.gz' -exec ls -lh {} ';' 
+</code></pre>
+<p>删除文件：</p>
+<pre><code class="language-shell">find . -maxdepth 1 -newer archive.tar.gz -execdir rm -rf {} ';'
+</code></pre>
+<p>在过滤文件中查找内容：</p>
+<pre><code class="language-sh">find ./ –name '*.cpp' –exec grep -Hn 'main' {} ';'
+find ./ -name &quot;*.log&quot; | xargs grep –Hn 'ERROR'
+</code></pre>
+<p><em><code>grep</code>与<code>find</code>同时使用时，默认不会输出文件名（添加<code>-H</code>选项），也不会高亮文本（使用<code>--color</code>选项）。</em></p>
+<h4 id="查找文件内容"><a class="header" href="#查找文件内容">查找文件内容</a></h4>
+<p>使用<a href="Linux-Shell.html#grep"><code>grep</code></a>查找具有给定内容和文件名的文件：</p>
+<pre><code class="language-sh">grep -rl 'main' --include='*.cpp' ./  # 输出匹配文件的文件名
+grep -rn 'main' --include='*.cpp' ./  # 输出匹配行的行号和内容
+</code></pre>
+<h2 id="硬件管理"><a class="header" href="#硬件管理">硬件管理</a></h2>
+<h3 id="查看硬件信息"><a class="header" href="#查看硬件信息">查看硬件信息</a></h3>
+<pre><code class="language-shell">sudo dmidecode -t,--type type_code|type_keyword
+sudo dmidecode [options] | grep -A16 'System Information$'   # 系统和主板信息
+</code></pre>
+<p>硬件类型（<code>type_keyword</code>）包括：<code>bios</code>, <code>system</code>, <code>baseboard</code>, <code>chassis</code>, <code>processor</code>, <code>memory</code>, <code>cache</code>, <code>connector</code>, <code>slot</code>。每种类型可能包括多个子类型（<code>type_code</code>）。</p>
+<pre><code class="language-shell">sudo lshw \               # list hardware [yum install lshw]
+     -class &lt;hw_class&gt; \  # class can be found using lshw -short
+     -{html|xml|json}  \  # 输出格式
+     -short \ # device tree: 优先级高于输出格式
+     -businfo # showing bus information
+</code></pre>
+<p>硬件类型可通过<code>lshw -short</code>的输出获取，包括：<code>system</code>，<code>bus</code>，<code>memory</code>，<code>processor</code>，<code>storage</code>，<code>input</code>，<code>display</code>，<code>disk</code>，<code>volume</code>，<code>network</code>，<code>power</code>等。</p>
+<blockquote>
+<p>其他工具：<code>hwinfo</code>（默认未安装到系统）；<code>hardinfo</code>（图形界面）。</p>
+</blockquote>
+<h5 id="cpu"><a class="header" href="#cpu">CPU</a></h5>
+<pre><code class="language-sh">lscpu              # CPU信息概述
+nproc              # number of process unit
+sudo lshw -C processor
+cat /proc/cpuinfo  # CPU details
+sudo dmidecode --type processor # details
+</code></pre>
+<blockquote>
+<p><code>cpuid</code>获取详细信息（未安装）。</p>
+</blockquote>
+<pre><code class="language-sh">cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c
+# 8  Intel(R) Xeon(R) CPU            E5410   @ 2.33GHz
+## (CPU with 8 logical core)
+cat /proc/cpuinfo | grep 'physical id' | uniq -c
+#      4 physical id      : 0
+#      4 physical id      : 1
+### (2 physical CPU with 4-core)
+</code></pre>
+<h5 id="内存"><a class="header" href="#内存">内存</a></h5>
+<pre><code class="language-sh">free -h	-w	# summary
+cat /proc/meminfo  # details
+vmstat -s
+sudo dmidecode -t memory   # Memory Device
+</code></pre>
+<blockquote>
+<p>all tmpfs pages will be shown as “<code>Shmem</code>” in <code>/proc/meminfo</code> and “<code>Shared</code>” in <code>free(1)</code>.</p>
+</blockquote>
+<h5 id="磁盘信息"><a class="header" href="#磁盘信息">磁盘信息</a></h5>
+<p>列出存储设备信息：</p>
+<pre><code class="language-sh">sudo fdisk -l [device_name]  # 查看磁盘设备 =&gt; sudo parted /dev/sda print
+lsblk    # 列出块设备
+sudo blkid /dev/sda
+# /dev/sda: UUID=&quot;3255683f-53a2-4fdf-91cf-b4c1041e2a62&quot; TYPE=&quot;ext4&quot;
+</code></pre>
+<p>查看序列号：</p>
+<pre><code class="language-shell">udevadm info --query=all --name=/dev/sda | grep ID_SERIAL
+hdparm -I /dev/sda   # install hdparm
+lshw -class disk     # install lshw
+smartctl -i /dev/sda # install smartmontools
+</code></pre>
+<blockquote>
+<p>位于磁盘阵列中的磁盘序列号不可见（系统读取的是RAID分配的ID）。</p>
+</blockquote>
+<h5 id="文件系统信息"><a class="header" href="#文件系统信息">文件系统信息</a></h5>
+<p>列出系统支持的文件系统：</p>
+<pre><code class="language-shell">cat /proc/filesystems
+</code></pre>
+<blockquote>
+<p><code>exfat</code>格式支持需要安装<code>exfat-fuse</code>和<code>exfat-utils</code>包；NTFS格式需要安装<code>ntfs-3g</code>包（CentOS）。</p>
+</blockquote>
+<p>列出挂载的（文件或目录所在）<a href="%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86.html#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%B1%BB%E5%9E%8B">文件系统</a>信息。</p>
+<pre><code class="language-sh">df [-ahHkT] [目录或文件名]
+# Filesystem      Size  Used Avail Use% Mounted on
+# /dev/sdd        251G  1.6G  237G   1% /
+# tmpfs            13G  252M   13G   2% /mnt/wsl
+</code></pre>
+<blockquote>
+<p><code>-hH</code>：以合适的单位显示数据（1024进制，<code>-H</code>为1000进制），提高可读性；
+<code>-i,--inodes</code>：显示<code>inode</code>信息而非磁盘容量信息；
+<code>-T,--print-type</code>：==打印文件系统类型==，例如<code>ext4</code>、<code>tmpfs</code>等；
+<code>-t,--type=TYPE</code>：仅显示指定类型文件系统；<code>-x,--exclude-type=TYPE</code>排除指定类型；</p>
+</blockquote>
+<p>列出文件或目录的<strong>磁盘占用量</strong>（<strong>disk usage</strong>）：</p>
+<pre><code class="language-sh">du [-ahskm] 文件或目录名称
+</code></pre>
+<p><code>-c, --total</code>；
+<code>-h, --human-readable</code>；
+<code>-s, --summarize</code>；
+<code>-d,--max-depth=N</code>：显示最大路径深度；</p>
+<h3 id="磁盘管理"><a class="header" href="#磁盘管理">磁盘管理</a></h3>
+<h4 id="磁盘分区与格式化"><a class="header" href="#磁盘分区与格式化">磁盘分区与格式化</a></h4>
+<p><strong>注意：以下操作可能导致数据丢失，应事先做好数据备份！！！</strong></p>
+<p>使用<code>fdisk</code>或<code>parted</code>操作文件分区表（<code>fdisk -l</code>查看<a href="#%E7%A3%81%E7%9B%98%E4%BF%A1%E6%81%AF">磁盘信息</a>）：</p>
+<pre><code class="language-sh">sudo fdisk device_name   # 操作分区表
+# fdisk命令
+# [F] 列出未分区的空闲空间    n 新增分区
+# l   列出已知分区类型        t 更改分区类型
+# p   打印分区表             d 删除分区  
+# [i] 打印选择的分区信息      v 验证分区表
+# m   打印命令列表           g 创建GPT分区表
+#                          o 创建DOS（MBR）分区表
+# q   放弃更改并退出         w 保存分区更改
+</code></pre>
+<blockquote>
+<p>未添加<code>device_name</code>时，列出系统内所有存储设备（<code>/dev</code>）的分区（partition）信息。</p>
+<p><a href="https://gparted.org/livecd.php">GParted -- Live CD/USB/PXE/HD</a>：<em>With GParted you can resize, copy, and move partitions without data loss.</em> <code>gparted</code>是一款图形界面的分区工具。</p>
+</blockquote>
+<p>更改正在使用的分区：首先删除分区（记录下分区表的起止位置），然后重新创建分区，并指定新的起止位置（注意不要和已有分区重叠）和分区类型，保存并退出（<a href="https://www.codenotary.com/blog/enlarge-a-disk-and-partition-of-any-linux-vm-without-a-reboot/">使用工具</a><code>cloud-utils.growpart</code>）。分区表更改不会立即生效，因此可以修改正在使用的分区，重启机器或使用<code>partprobe [/dev/sda]</code>或<code>kpartx [/dev/sda]</code>命令重新载入新的分区表。如果是普通卷，则需要使用<code>resize2fs</code>更新文件系统容量，如果是LVM物理卷，则使用<code>pvresize</code>更新（<code>resize2fs</code>无法操作LVM物理卷）。</p>
+<h5 id="磁盘格式化"><a class="header" href="#磁盘格式化">磁盘格式化</a></h5>
+<p>新建分区后，需要对分区进行格式化设置文件系统才能进行<a href="#%E7%A3%81%E7%9B%98%E6%8C%82%E8%BD%BD%E4%B8%8E%E5%8D%B8%E9%99%A4">挂载使用</a>。整个磁盘也可以不进行分区直接格式化。</p>
+<pre><code class="language-sh">mkfs -t &lt;fstype&gt; /dev/sda
+mkfs.&lt;fstype&gt; options /dev/sda  # 格式化分区/dev/sda1
+</code></pre>
+<p><code>fstype</code>文件系统类型，例如 <code>ext4</code>, <code>xfs</code>, <code>btrfs </code>, <code>ZFS</code>等(<a href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF">系统有支持</a>才会生效)。在选择文件系统类型时，如无特殊要求，选择系统中已有分区类型（默认类型），确保兼容和稳定性。</p>
+<blockquote>
+<p><code>mke2fs</code>：创建<code>ext2</code>/<code>ext3</code>/<code>ext4</code>文件系统，对应命令：<code>mkfs.ext2|3|4</code>。<code>ext</code>文件系统的<code>i-node</code>节点总数在文件系统创建后不能改变，调整文件系统容量将按比例调整inode数量（<code>bytes-per-inode</code>）。</p>
+</blockquote>
+<p><a href="https://linuxiac.com/linux-file-system-types-explained-which-one-should-you-use/">Linux File System Types Explained, Which One Should You Use (linuxiac.com)</a></p>
+<h5 id="数据恢复"><a class="header" href="#数据恢复">数据恢复</a></h5>
+<p><a href="https://www.cgsecurity.org/wiki/TestDisk_Step_By_Step">TestDisk Step By Step - CGSecurity</a></p>
+<p><a href="https://www.dedoimedo.com/computers/linux-data-recovery.html">How to recover partitions and data using Linux - Tutorial (dedoimedo.com)</a></p>
+<p><a href="https://www.simplified.guide/linux/disk-recover-partition-table">How to recover lost partition using Linux (simplified.guide)</a></p>
+<blockquote>
+<p><em>TestDisk is powerful free data recovery software! It was primarily designed to help recover lost partitions and/or make non-booting disks bootable again when these symptoms are caused by faulty software: certain types of viruses or human error (such as accidentally deleting a Partition Table).</em></p>
+<p>==<em>Even though the old partition table was destroyed, it was just a pointer to the start and end addresses of the actual data, so to speak.</em>==</p>
+</blockquote>
+<p><a href="https://www.dedoimedo.com/computers/clonezilla.html">The new and definite CloneZilla tutorial (dedoimedo.com)</a></p>
+<h4 id="磁盘检验"><a class="header" href="#磁盘检验">磁盘检验</a></h4>
+<pre><code>fsck [-t &lt;fstype&gt;] [-ACay] /dev/sda
+</code></pre>
+<blockquote>
+<p>用来检查和维护不一致的文件系统。若系统掉电或磁盘发生问题，可利用<code>fsck</code>命令对文件系统进行检查。</p>
+</blockquote>
+<h4 id="磁盘挂载与卸除"><a class="header" href="#磁盘挂载与卸除">磁盘挂载与卸除</a></h4>
+<pre><code class="language-sh">mount -t &lt;fstype&gt; -L &lt;label&gt; -o &lt;opts&gt; -n /dev/dev_name /mnt/mnt_name
+mount --move /mnt/userdirs /home    # move mount point of a filesystem
+umount [-fn] [/dev/dev_name | /mnt/mnt_name]
+findmnt --types &lt;fstype&gt;            # 查看已挂载的文件系统
+</code></pre>
+<blockquote>
+<p>如果挂载的目标路径下有数据，则数据会被隐藏；卸载磁盘后可恢复访问原有数据<sup class="footnote-reference"><a href="#mount">1</a></sup>。</p>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_file_systems/assembly_mounting-file-systems_managing-file-systems">Sharing a mount on multiple mount points</a></p>
+</blockquote>
+<p>挂载NTFS文件系统：</p>
+<pre><code class="language-shell">yum install fuse ntfs-3g   # centos
+mount -t ntfs-3g /dev/sdb1 /mnt/win
+</code></pre>
+<p>如果卸除设备时出现<strong>设备忙</strong>的错误，可<a href="#%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E6%89%93%E5%BC%80%E8%B5%84%E6%BA%90">查看正在使用该设备的进程</a>有哪些并尝试关闭进程。</p>
+<h5 id="挂载cd"><a class="header" href="#挂载cd">挂载CD</a></h5>
+<pre><code class="language-shell">mount -t auto [-r] /dev/cdrom /mnt/cdrom # 挂载CD
+</code></pre>
+<h5 id="挂载可移动介质"><a class="header" href="#挂载可移动介质">挂载可移动介质</a></h5>
+<p>挂载磁盘的目标文件夹必须存在，挂载的磁盘应该已经使用支持的文件系统<a href="#%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F%E5%8C%96">格式化</a>。可移动磁盘设备标识类似于内置磁盘（使用<code>fdisk -l</code>或<code>parted -l</code>查看）。</p>
+<h5 id="自动挂载"><a class="header" href="#自动挂载">自动挂载</a></h5>
+<ol>
+<li>
+<p>将挂载命令写入开机启动脚本；</p>
+</li>
+<li>
+<p>配置<code>systemd.mount</code><a href="https://www.freedesktop.org/software/systemd/man/systemd.mount.html">单元文件</a>；</p>
+<pre><code class="language-ini">[Mount]
+What=/dev/sda
+Where=/data
+Type=ext4
+Options=
+</code></pre>
+</li>
+<li>
+<p>使用<code>/etc/fstab</code>配置，<code>systemd</code>会将其中的内容转换为单元文件；</p>
+<pre><code class="language-shell"># DevicePath    MountPoint  FS Type      Mount Options       Dump  CheckOrder
+/dev/sdba         /data      ext4             -               0        1
+LABEL=t-home2     /home      ext4    defaults,auto_da_alloc   0        2
+SERVER:PATH
+</code></pre>
+</li>
+</ol>
+<h4 id="逻辑卷管理lvm"><a class="header" href="#逻辑卷管理lvm">逻辑卷管理LVM</a></h4>
+<blockquote>
+<p>Logical Volume Management, gives users the power to pool and abstract the physical layout of component storage devices, to gather existing storage devices into groups and allocate logical units from the combined space as needed.</p>
+</blockquote>
+<h5 id="lvm存储信息"><a class="header" href="#lvm存储信息">LVM存储信息</a></h5>
+<p>显示系统中的LVM兼容卷，包括可转换为LVM物理卷（<em>Physical Volumns</em>）的存储设备：</p>
+<pre><code class="language-sh">sudo lvmdiskscan \
+     -l # 仅显示LVM物理卷, ==&gt; pvscan, pvs, pvdisplay
+</code></pre>
+<p>显示系统中的物理卷组（<em>Virtual Group</em>）信息：</p>
+<pre><code class="language-sh">sudo vgscan  # =&gt; vgs, vgdisplay
+</code></pre>
+<p>显示系统中的逻辑卷（<em>Logical Volumn</em>）：（逻辑卷设备路径、<code>VG Name</code>、<code>PV</code>）</p>
+<pre><code class="language-sh">sudo lvscan # lvs, lvdisplay [-m]
+</code></pre>
+<h5 id="管理lvm存储"><a class="header" href="#管理lvm存储">管理LVM存储</a></h5>
+<p>从原始磁盘创建LVM物理卷，注意将磁盘上原有数据备份，加入LVM管理后将覆盖原有数据。</p>
+<blockquote>
+<p>A header is written to storage devices to mark them as free to use as LVM components. </p>
+</blockquote>
+<pre><code class="language-sh">sudo pvcreate /dev/sda /dev/sdb ...
+pvresize /dev/sda1
+pvresize --setphysicalvolumesize 40G /dev/sda1 # shrink
+</code></pre>
+<blockquote>
+<p>如果物理磁盘分区通过<code>fdisk</code>进行了扩展，可以通过<code>pvresize</code>更新LVM物理卷的容量。<a href="https://www.techrepublic.com/blog/smb-technologist/extending-partitions-on-linux-vmware-virtual-machines/">也可以将空余磁盘空间创建为一个新的物理分区</a>，设置为LVM PV并加入LVM虚拟卷组。</p>
+</blockquote>
+<p>将物理卷创建为卷组，通常只需要一个卷组并在此之上创建虚拟卷。</p>
+<pre><code class="language-sh">sudo vgcreate volume_group_name /dev/sda /dev/sdb ...
+</code></pre>
+<p>向卷组中增加物理卷：</p>
+<pre><code class="language-sh">sudo vgextend volume_group_name /dev/sdb
+</code></pre>
+<p>创建虚拟卷，创建后需要对虚拟卷进行<a href="#%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F%E5%8C%96">格式化</a>。</p>
+<pre><code class="language-sh">sudo lvcreate -L 10G -n VolumnName LVMVolGroup   # 绝对容量
+sudo lvcreate -l 100%FREE -n VolumnName2 LVMVolGroup # 相对容量
+</code></pre>
+<blockquote>
+<p>虚拟卷的底层物理磁盘分配方案支持线性（<code>linear</code>，默认）、<code>striped</code>（RAID 0）、<code>raid1</code>等。</p>
+</blockquote>
+<p>虚拟卷容量调整，使用<code>-L</code>选项增加/减少绝对容量，或用<code>-l</code>选项增加相对容量。</p>
+<pre><code class="language-sh">sudo lvresize -L +5G --resizefs LVMVolGroup/vol_name
+sudo lvresize -l +100%FREE --resizefs LVMVolGroup/vol_name
+</code></pre>
+<blockquote>
+<p><em>XFS filesystem shrinking is unsupported.</em> <code>resize2fs</code> <em>is for ext filesystems.</em></p>
+</blockquote>
+<h4 id="raid"><a class="header" href="#raid">RAID</a></h4>
+<h5 id="hardware-raid"><a class="header" href="#hardware-raid">Hardware RAID</a></h5>
+<p>在BIOS中配置磁盘的RAID选项，参考产品用户手册。</p>
+<h5 id="software-raid"><a class="header" href="#software-raid">Software RAID</a></h5>
+<ol>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-use-lvm-to-manage-storage-devices-on-ubuntu-18-04">How To Use LVM To Manage Storage Devices on Ubuntu 18.04</a>.</li>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-create-raid-arrays-with-mdadm-on-ubuntu-18-04">How To Create RAID Arrays with mdadm on Ubuntu 18.04 | DigitalOcean</a>.</li>
+</ol>
+<h3 id="显示设备"><a class="header" href="#显示设备">显示设备</a></h3>
+<p>查看显示设备：</p>
+<pre><code class="language-sh">lspci | grep -i vga            # &lt;== install pciutils
+sudo lshow [-short] -c CLASS   # list hardware, CLASS for class/description
+sudo lspci -v -s 03:00.0
+</code></pre>
+<h5 id="安装nvidia显卡驱动"><a class="header" href="#安装nvidia显卡驱动">安装Nvidia显卡驱动</a></h5>
+<pre><code class="language-shell">rl=$(uname -r)
+yum install gcc gcc-c++ make kernel-devel-$rl kernel-headers-$rl
+apt install gcc make linux-headers-$rl [libglvnd]
+</code></pre>
+<blockquote>
+<p>注意内核开发包的版本需要于系统内核版本完全一致，否则无法成功安装驱动程序。</p>
+</blockquote>
+<p>检查<code>nouveau</code>模块是否加载，已加载则先禁用</p>
+<pre><code class="language-shell">lsmod | grep nouveau
+# edit: /usr/lib/modprobe.d/blacklist-nouveau.conf  # [Ubuntu]/etc/modprobe.d/*
+blacklist nouveau
+options nouveau modeset=0
+dracut -force   # 重启系统，使内核模块配置生效 [Ubuntu]update-initramfs -u
+</code></pre>
+<p>安装驱动程序：</p>
+<pre><code class="language-shell">./NVIDIA-Linux-x86_64-390.46.run --no-opengl-files --ui=none --no-questions --accept-license
+# edit: /etc/rc.d/rc.local
+nvidia-smi -pm 1   # GPU驱动模式设置为常驻内存
+nvidia-smi         # nvidia proprietary driver =&gt; watch -n 1 nvidia-smi
+</code></pre>
+<h5 id="ubuntu桌面版显卡驱动"><a class="header" href="#ubuntu桌面版显卡驱动">Ubuntu桌面版显卡驱动</a></h5>
+<pre><code class="language-shell">ubuntu-drivers devices             # 列出可用驱动
+sudo ubuntu-drivers autoinstall    # 安装推荐驱动
+sudo apt install nvidia-driver-440 # 安装指定名称驱动
+</code></pre>
+<p>安装完成后重启。</p>
+<p><a href="https://linuxconfig.org/how-to-install-the-nvidia-drivers-on-ubuntu-20-04-focal-fossa-linux">How to install the NVIDIA drivers on Ubuntu 20.04 Focal Fossa Linux - Linux Tutorials - Learn Linux Configuration</a>。</p>
+<h3 id="网络设备配置管理"><a class="header" href="#网络设备配置管理"><a href="#%E7%BD%91%E7%BB%9C%E8%AE%BE%E5%A4%87%E9%93%BE%E8%B7%AF%E7%AE%A1%E7%90%86">网络设备配置管理</a></a></h3>
+<h2 id="系统配置"><a class="header" href="#系统配置">系统配置</a></h2>
+<h3 id="系统信息"><a class="header" href="#系统信息">系统信息</a></h3>
+<h4 id="操作系统"><a class="header" href="#操作系统">操作系统</a></h4>
+<pre><code class="language-shell">uname [options]
+</code></pre>
+<div class="table-wrapper"><table><thead><tr><th>选项</th><th>说明</th></tr></thead><tbody>
+<tr><td><code> -a, --all</code></td><td>包括以下系统信息：</td></tr>
+<tr><td><code>-s, --kernel-name</code></td><td>内核名称（<code>Linux</code>）</td></tr>
+<tr><td><code>-n, --nodename</code></td><td>网络主机名称（使用<code>hostnamectl</code>设置）</td></tr>
+<tr><td><code>-r, --kernel-release</code></td><td>内核发行版本（<code>3.10.0-1160.24.1.el7.x86_64</code>）</td></tr>
+<tr><td><code>-v, --kernel-version</code></td><td>内核版本（<code>#1 SMP Thu Apr 8 19:51:47 UTC 2021</code>）</td></tr>
+<tr><td><code>-m, --machine</code></td><td>机器的硬件架构名称（<code>x86_64</code>）</td></tr>
+<tr><td><code>-o, --operating-system</code></td><td>操作系统（<code>GNU/Linux</code>）</td></tr>
+</tbody></table>
+</div>
+<blockquote>
+<p><code>-i,--hardware-platform</code>和<code>-p, --processor</code>（不可移植），通常与<code>-m</code>输出一致。</p>
+</blockquote>
+<h5 id="系统版本信息"><a class="header" href="#系统版本信息">系统版本信息</a></h5>
+<pre><code class="language-sh">cat /etc/issue          # [Ubuntu]
+cat /etc/lsb-release    # [Ubuntu]
+cat /etc/os-release     # [Ubuntu|CentOS]
+lsb_release -crid       # 包含版本号详细信息，CentOS需要安装redhat-lsb-core 
+rpm -qa centos-release  # [Fedora/CentOS]
+rpm -qi basesystem      # [Fedora/CentOS](包含安装日期)
+</code></pre>
+<h5 id="操作系统安装时间"><a class="header" href="#操作系统安装时间">操作系统安装时间</a></h5>
+<p>通过文件系统创建时间判断操作系统安装时间：</p>
+<pre><code class="language-shell">tune2fs -l $(df / | awk '$6 ~ /\// {print $1}') | grep 'Filesystem created:'  # -&gt; dumpe2fs
+rpm -qi setup|setuptool|basesystem    # [Fedora/CentOS]
+</code></pre>
+<blockquote>
+<p><code>tune2fs</code>是设置ext2/ext3/ext4文件系统参数的工具。</p>
+</blockquote>
+<h4 id="主机名"><a class="header" href="#主机名">主机名</a></h4>
+<pre><code class="language-shell">hostnamectl  # 显示主机信息（主机名、系统名、架构...）
+hostnamectl set-hostname 'gfs.server.03.net' # 设置主机名
+sysctl -n kernel.hostname
+</code></pre>
+<blockquote>
+<p>某些服务（例如Cloudera）需要检测主机名与域名（FQDN）的一致性，为了避免产生警告，将主机名设置为域名。</p>
+<p>WSL-Ubuntu中<code>hostnamectl</code>不可用。</p>
+</blockquote>
+<h4 id="域名映射"><a class="header" href="#域名映射">域名映射</a></h4>
+<pre><code class="language-sh">sudo vi /etc/hosts
+# change &lt;hosts&gt; file
+192.168.137.11 new-host-name
+</code></pre>
+<p>可能需要重启。</p>
+<h4 id="日期时间"><a class="header" href="#日期时间">日期时间</a></h4>
+<p>显示时间</p>
+<pre><code class="language-sh">date                           # Sun May 16 13:07:15 CST 2021
+date +'%H'                     # %T %c %F
+date -d,--date='7:00:00' +'%s' # parse a date and display it
+date --date='@2147483647'      # parse a timestamp (seconds)
+date -r,--reference=FILE       # 显示文件最近修改时间
+</code></pre>
+<blockquote>
+<p>默认显示当前时间，使用<code>-d,--date</code>指定要显示的时间的字符串；字符串缺少的部分设为当前时间。空字符串表示当天开始时间。</p>
+</blockquote>
+<p><a href="https://www.cyberciti.biz/faq/unix-linux-bash-get-time/">A list of date command field descriptors</a></p>
+<h5 id="获取日期字段"><a class="header" href="#获取日期字段">获取日期字段</a></h5>
+<div class="table-wrapper"><table><thead><tr><th>格式声明</th><th>含义</th><th>格式声明</th><th>含义</th><th>格式声明</th><th>含义</th></tr></thead><tbody>
+<tr><td><code>%Y</code></td><td><code>YYYY</code></td><td><code>%m</code></td><td><code>mm</code></td><td><code>%d</code></td><td><code>dd</code></td></tr>
+<tr><td><code>%H</code></td><td><code>HH</code>(00-23)</td><td><code>%M</code></td><td><code>MM</code>(00-59)</td><td><code>%S</code></td><td><code>SS</code></td></tr>
+<tr><td><code>%s</code></td><td>时间戳（秒）</td><td><code>%3N</code></td><td>毫秒</td><td><code>%N</code></td><td>纳秒</td></tr>
+<tr><td></td><td></td><td><code>%f</code></td><td>微秒</td><td></td><td></td></tr>
+</tbody></table>
+</div>
+<h5 id="格式化日期字段"><a class="header" href="#格式化日期字段">格式化日期字段</a></h5>
+<p><code>%</code>后可额外设置表示填充的字符：<code>-</code>不填充；<code>_</code>填充空格；<code>0</code>填充0（默认）；<code>^</code>使用大写字母；<code>#</code>（尽可能）改变字符大小写。</p>
+<div class="table-wrapper"><table><thead><tr><th>格式</th><th>含义</th><th>格式</th><th>含义</th><th>格式</th><th>含义</th></tr></thead><tbody>
+<tr><td><code>%c</code></td><td>locale's datetime</td><td><code>%x</code></td><td>locale' date</td><td><code>%X</code></td><td>locale's time</td></tr>
+<tr><td><code>%D</code></td><td><code>%m/%d/%y</code></td><td><code>%F</code></td><td><code>%Y-%m-%d</code></td><td></td><td></td></tr>
+<tr><td><code>%T</code></td><td><code>%H:%M:%S</code></td><td><code>%r</code></td><td><code>12:11:04 PM</code></td><td><code>%X</code></td><td><code>23:13:48</code>(locale)</td></tr>
+<tr><td><code>%y</code></td><td><code>yy</code></td><td></td><td></td><td><code>%e</code></td><td><code>%_d</code></td></tr>
+<tr><td><code>%I</code></td><td><code>hh</code>(01-12)</td><td><code>%k</code></td><td><code>_H</code>(0-23)</td><td><code>%l</code></td><td><code>_h</code></td></tr>
+<tr><td><code>%j</code></td><td><code>ddd</code>: day of year</td><td><code>%w</code></td><td>day of week(0-6)<br/> 0 is Sunday</td><td><code>%u</code></td><td>day of week(1-7)<br/>1 is Monday</td></tr>
+<tr><td><code>%W</code></td><td>week of year(00-53),<br/>Monday first</td><td><code>%U</code></td><td>week of year(00-53),<br/>Sunday first</td><td><code>%V</code></td><td>week of year(01-53),  <br/>Monday first</td></tr>
+<tr><td><code>%p</code></td><td><code>AM/PM</code></td><td><code>%P</code></td><td><code>am/pm</code></td><td><code>%q</code></td><td>quater <code>00-04</code></td></tr>
+<tr><td><code>%z</code></td><td>时区<code>-0400</code></td><td><code>%:z</code></td><td><code>-04:00</code></td><td><code>%::z</code></td><td><code>-04:00:00</code></td></tr>
+<tr><td><code>%Z</code></td><td>时区类型<code>EDT/CST</code></td><td></td><td></td><td></td><td></td></tr>
+</tbody></table>
+</div>
+<p>设置时间：</p>
+<pre><code class="language-sh">timedatectl [status]		# 显示系统的日期、时间和时区等信息
+timedatectl set-time &quot;2012-10-30 18:17:16&quot;  # &lt;== timedatectl set-ntp no
+date -u,--utc=MMDDhhmmCCYY.ss  # print or set datetime
+date -s,--set=STRING
+timedatectl set-timezone &lt;Asia/Shanghai&gt;
+timedatectl list-timezones	# 列出已知时区
+</code></pre>
+<p>系统启动时间：</p>
+<pre><code class="language-shell">uptime
+</code></pre>
+<h3 id="系统引导配置"><a class="header" href="#系统引导配置">系统引导配置</a></h3>
+<p>引导配置文件：</p>
+<pre><code class="language-sh">/etc/default/grub
+/etc/grub/grub.cfg # auto-generated by grub-update
+</code></pre>
+<p>选择默认用户界面：</p>
+<pre><code class="language-sh">sudo systemctl set-default multiuser.target # terminal shell
+sudo systemctl set-default graphical.target # GUI
+</code></pre>
+<h4 id="添加开机启动项"><a class="header" href="#添加开机启动项">添加开机启动项</a></h4>
+<ol>
+<li>
+<p>编辑<code>/etc/rc.local</code>脚本（兼容性目的），并设定可执行权限（<code>sudo chmod 755</code>）</p>
+<blockquote>
+<p>适合较短的命令</p>
+</blockquote>
+</li>
+<li>
+<p>将启动项的脚本添加到<code>/etc/init.d</code>目录下，并设置可执行权限</p>
+<pre><code class="language-sh">ln -s task.sh /etc/init.d/task
+sudo chmod +x /etc/init.d/task
+</code></pre>
+<pre><code class="language-shell">cd /etc/init.d
+sudo update-rc.d task defaults 95  # execute order
+sudo update-rc.d -f task remove  # remove the task
+</code></pre>
+<p>如果使用需要开机通过<code>chkconfig</code>设置开机启动的服务，则脚本开头应该包含以下信息：</p>
+<pre><code class="language-shell">#！/bin/bash
+# chkconfig: 2345 20 80
+# description: Saves and restores system entropy pool \
+# for higher quality random number generation.
+</code></pre>
+<p><code>chkconfig: 2345 20 80</code>表示这个服务在运行级别2345下运行，20表示开机启动优先权重，80表示关闭优先权重。</p>
+<p>也可以手动调用<code>chkconfig</code>添加开机启动服务</p>
+<pre><code class="language-shell">chkconfig --add my-service
+</code></pre>
+<p>实际上<code>chkconfig --add</code>命令是将<code>/etc/init.d</code>中的启动脚本软连接到<code>/etc/rc.d/rcx.d</code>（<code>rc0.d ... rc6.d</code>）0-6个运行级别对应相应的目录，都是位于<code>/etc/init.d</code>中脚本的软连接。</p>
+<p><code>/etc/init.d/</code>中的脚本，可以通过命令： </p>
+<pre><code>service service_name [start/stop]
+</code></pre>
+<p>启动或者关闭（添加到启动脚本中实现自启动，见方法1或）。</p>
+</li>
+<li>
+<p>将启动任务的脚本放到目录<code>/etc/profile.d</code>下，系统启动后将自动执行其中的shell脚本。</p>
+</li>
+<li>
+<p>注册为<a href="https://askubuntu.com/questions/814/how-to-run-scripts-on-start-up/719157#719157"><code>systemd</code></a>托管的服务，在系统启动时运行。</p>
+</li>
+</ol>
+<h3 id="内核配置"><a class="header" href="#内核配置">内核配置</a></h3>
+<p>内核配置项对应文件系统中<code>/proc/sys</code>目录。</p>
+<p>读取内核配置项：配置项具有分级结构（对应上述目录树），名称以<code>.</code>或<code>/</code>分隔。</p>
+<pre><code class="language-shell">sysctl -n variable          # 输出value, 默认输出 variable = value
+sysctl -a -pattern PATTERN  # 打印所有配置项（某些配置项需要管理员权限才可访问）
+</code></pre>
+<blockquote>
+<p><code>-n,--values</code>：仅打印配置项的值；<code>-N,--names</code>：仅打印配置项的名称；</p>
+</blockquote>
+<pre><code class="language-shell">sysctl -q,--quiet \        # 不将设置的值回显到屏幕
+       -w variable=value ...
+</code></pre>
+<p>加载内核配置：</p>
+<pre><code class="language-shell">sysctl -p,--load [FILE] # 默认加载/etc/sysctl.conf
+sysctl --system         # 加载系统中所有配置文件
+</code></pre>
+<h4 id="文件系统"><a class="header" href="#文件系统">文件系统</a></h4>
+<h5 id="最大打开文件数量限制"><a class="header" href="#最大打开文件数量限制">最大打开文件数量限制</a></h5>
+<pre><code class="language-shell">ulimit -n 8192  # 默认1024, 临时修改
+</code></pre>
+<p>编辑<code>/etc/security/limits.conf</code>，永久修改：</p>
+<pre><code class="language-shell"># domain type item   value
+    *    soft nofile 16384  # soft limits of Number of Open file
+    *    hard nofile 16384  # hard limits 
+</code></pre>
+<p><a href="https://stackoverflow.com/questions/49632581/fix-with-ulimit-n-8192">linux - Fix with ulimit -n 8192 - Stack Overflow</a></p>
+<h5 id="inotify文件监控数量限制"><a class="header" href="#inotify文件监控数量限制"><code>inotify</code>文件监控数量限制</a></h5>
+<p>文件监控数量限制如果设置太小，容易触发<code>inotify watch limit reached</code>错误。临时设置运行时参数：</p>
+<pre><code class="language-shell">sudo sysctl fs.inotify.max_user_watches=524288  # 8192 default
+</code></pre>
+<p>永久修改配置（<code>/etc/sysctl.conf</code>）并运行<code>sysctl -p</code>重新加载。</p>
+<pre><code class="language-shell">fs.inotify.max_user_watches=524288
+</code></pre>
+<h3 id="字体"><a class="header" href="#字体">字体</a></h3>
+<p>用户可将字体安装在<code>/usr/share/fonts</code>目录下，使用<code>fc-list</code>（需要安装<code>fontconfig</code>）可查看系统中可用字体。</p>
+<pre><code class="language-shell">fc-list                                    # &quot;FONT_PATH: FONT_FAMILY:style=STYLE&quot;
+fc-list : family                           # 仅输出字体名
+fc-list :lang=zh family style file spacing # &quot;PATH: FAMILY:style=STYLE:spacing=SPACE&quot;
+</code></pre>
+<h3 id="日志"><a class="header" href="#日志">日志</a></h3>
+<p>大部分的发行版都内置使用<code>syslog</code>系统日志，常见的日志一般存放在 <code>/var/log</code> 中。 </p>
+<h5 id="常见的系统日志"><a class="header" href="#常见的系统日志">常见的系统日志</a></h5>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">日志名称</th><th style="text-align: left">记录信息</th></tr></thead><tbody>
+<tr><td style="text-align: center"><code>alternatives.log</code></td><td style="text-align: left">系统的一些更新替代信息记录</td></tr>
+<tr><td style="text-align: center"><code>apport.log</code></td><td style="text-align: left">应用程序崩溃信息记录</td></tr>
+<tr><td style="text-align: center"><code>apt/history.log</code></td><td style="text-align: left">使用<code>apt</code>安装卸载软件的信息记录</td></tr>
+<tr><td style="text-align: center"><code>apt/term.log</code></td><td style="text-align: left">使用<code>apt</code>时的具体操作，如package的下载、打开等</td></tr>
+<tr><td style="text-align: center"><code>auth.log</code></td><td style="text-align: left">登录认证的信息记录</td></tr>
+<tr><td style="text-align: center"><code>boot.log</code></td><td style="text-align: left">系统启动时的程序服务的日志信息</td></tr>
+<tr><td style="text-align: center"><code>Consolekit/history</code></td><td style="text-align: left">控制台的信息记录</td></tr>
+<tr><td style="text-align: center"><code>dist-upgrade</code></td><td style="text-align: left"><code>dist-upgrade</code> 这种更新方式的信息记录</td></tr>
+<tr><td style="text-align: center"><code>dmesg</code></td><td style="text-align: left">启动时，显示屏幕上内核缓冲信息,与硬件有关的信息</td></tr>
+<tr><td style="text-align: center"><code>dpkg.log</code></td><td style="text-align: left"><code>dpkg</code> 命令管理包的日志</td></tr>
+<tr><td style="text-align: center"><code>faillog</code></td><td style="text-align: left">用户登录失败详细信息记录</td></tr>
+<tr><td style="text-align: center"><code>fontconfig.log</code></td><td style="text-align: left">与字体配置有关的信息记录</td></tr>
+<tr><td style="text-align: center"><code>kern.log</code></td><td style="text-align: left">内核产生的信息记录，在自己修改内核时有很大帮助</td></tr>
+<tr><td style="text-align: center"><code>lastlog</code></td><td style="text-align: left">用户的最近一次信息记录。</td></tr>
+<tr><td style="text-align: center"><code>wtmp</code></td><td style="text-align: left">登录信息的记录。</td></tr>
+<tr><td style="text-align: center"><code>btmp</code></td><td style="text-align: left">远程登录信息记录。</td></tr>
+<tr><td style="text-align: center"><code>syslog</code></td><td style="text-align: left">系统信息记录</td></tr>
+</tbody></table>
+</div>
+<p>日志一般都是文本文件，可使用 <code>less</code>、<code>cat</code>、<code>more</code> 等工具查看。 <code>wtmp</code>、<code>lastlog </code>是二进制文件，需要使用<code>last</code>和<code>lastlog</code>工具来提取其中的信息。</p>
+<h4 id="rsyslog"><a class="header" href="#rsyslog">rsyslog</a></h4>
+<h4 id="systemd-journal"><a class="header" href="#systemd-journal">systemd-journal</a></h4>
+<h5 id="查看日志"><a class="header" href="#查看日志">查看日志</a></h5>
+<p>筛选日志：</p>
+<pre><code class="language-shell">journalctl --system|user          # 查看系统/当前用户日志
+journalctl -u,--unit=UNIT
+           -t,--identifier=STRING # 查看指定syslog标识的日志
+           -S,--since=DATE        # '2022-05-01 [12:00:00]'
+           -U,--until=DATE
+</code></pre>
+<p>追踪日志更新：</p>
+<pre><code class="language-shell">journalctl -f,--follow
+           -n,--lines=NUM         # 显示日志数量
+</code></pre>
+<h5 id="日志存储设置"><a class="header" href="#日志存储设置">日志存储设置</a></h5>
+<pre><code class="language-shell">journalctl --disk-usage
+journalctl --rotate
+journalctl --vacuum-time=2d   # 清理超过2天的日志
+journalctl --vacuum-size=100M # 清理超过100M的日志
+journalctl --vacuum-files=5   # 清理超过数量的日志
+systemctl kill --kill-who=main --signal=SIGUSR2 systemd-journald.service
+rm -rf /run/log/journal/* 
+rm -rf /var/log/journal/* 
+systemctl restart systemd-journald.service
+journalctl --verify
+</code></pre>
+<h4 id="终端命令记录"><a class="header" href="#终端命令记录">终端命令记录</a></h4>
+<pre><code class="language-sh">histroy   # 显示历史记录： cat ~/.bash_history
+history -c  # 删除历史记录：rm ~/.bash_history
+</code></pre>
+<h4 id="用户登录信息"><a class="header" href="#用户登录信息">用户登录信息</a></h4>
+<pre><code class="language-sh">who /var/log/wtmp  	# 查看用户登录历史记录
+last [username] [-f /var/log/btmp] # 默认读取/var/log/wtmp
+lastlog [-u username] [-t 5] [-b 60]
+</code></pre>
+<h4 id="浏览器桌面环境"><a class="header" href="#浏览器桌面环境">浏览器（桌面环境）</a></h4>
+<pre><code class="language-sh">ls -l ~/.opera/cach4
+ls -l ~/.mozilla/firefox/*.default/cache
+</code></pre>
+<h4 id="日志清理"><a class="header" href="#日志清理">日志清理</a></h4>
+<p><code>logrotate</code>是Linux自带的文本日志处理工具，可进行切割、打包、压缩等处理。其配置文件位于<code>/etc/logrotate.conf</code>以及<code>/etc/logrotate.d/</code>。</p>
+<pre><code class="language-shell">/tmp/dask/*log {
+  rotate 7       # 指定日志文件删除之前转储的次数,0直接删除,-1不删除
+  daily          # 指定转储周期:hourly,daily,weekly,monthly, yearly
+  minsize 1M     # 文件大于1M时才会进行轮转
+  maxsize 100M   # 文件大于100M时强制进行轮转(即使还未到轮换周期)
+  size    100M   # 指定轮转大小: k/M/G (与轮转周期互斥)
+  minage  10     # 文件创建超过10天才进行轮转
+  maxage  100    # 移除创建超过100天的已轮转的文件
+  missingok      # 忽略不存在的日志文件/nomissingok
+  ifempty        # 即使日志文件为空文件也做轮转/noifempty
+  dateext        # 使用当期日期作为命名格式,默认值取决于轮换周期
+  dateformat -%Y%m%d%H # 
+  nocompress     # 
+  create [[mode] owner group] # 新日志文件的权限, 默认和原来的文件相同的权限
+  copytruncate   # 复制并清空日志文件(override create)*
+  prerotate
+  	script	
+  endscript
+  postrotate     # postrotate脚本 
+    /sbin/nginx -s reload  
+  endscript  # postrotate脚本结束
+}
+</code></pre>
+<blockquote>
+<p><code>*</code>：适用于日志输出程序无法获取日志文件打开状态的情况；但可能造成少量日志丢失。</p>
+</blockquote>
+<p><code>logrotate</code>通过<code>ctrontab</code>调度，默认每天运行一次（除非任务指定更小的周期）。可手动立即执行：</p>
+<pre><code class="language-shell">logrotate -s /var/lib/logrotate/logrotate.status /etc/logrotate.conf
+</code></pre>
+<h2 id="软件管理"><a class="header" href="#软件管理">软件管理</a></h2>
+<p>各发行版提供的<a href="#Linux%E5%8F%91%E8%A1%8C%E7%89%88.md">软件仓库与软件管理方案</a>。本章介绍，当前主要的跨发行版软件管理解决方案。</p>
+<h3 id="snap"><a class="header" href="#snap">Snap</a></h3>
+<p>Snap将软件及其依赖打包到独立环境，它的运行环境是容器化的沙箱，从而避免各发行版兼容性问题并保证一定的安全性。</p>
+<p><img src="Linux%E9%85%8D%E7%BD%AE%E5%92%8C%E7%AE%A1%E7%90%86.assets/image-20210731135944209.png" alt="image-20210731135944209" /></p>
+<h4 id="安装snap"><a class="header" href="#安装snap">安装snap</a></h4>
+<p>Ubuntu/Debian系统预装<code>snapd</code>，使用<code>snap version</code>查看。</p>
+<pre><code class="language-shell">sudo yum install snapd  # [epel-release]
+sudo systemctl enable snapd # 安装后需要手动启动
+</code></pre>
+<blockquote>
+<p><code>snapd</code>无需持续在后台运行，仅在执行<code>snap</code>命令时被调用运行。</p>
+</blockquote>
+<h4 id="安装和升级snap软件"><a class="header" href="#安装和升级snap软件">安装和升级snap软件</a></h4>
+<pre><code class="language-shell">snap find &quot;media player&quot;
+sudo snapd install 'appname'
+sudo snap refresh 'appname'    # update
+snap list  # 列出已安装的软件的简要信息
+snap info 'pkgname'| 'pkgname.snap'  # 查看[已安装]软件包信息
+          --color=auto|always|never
+          --verbose
+</code></pre>
+<p>安装<code>classic</code>类型的软件，此类软件不受沙盒限制：</p>
+<pre><code class="language-shell">sudo ln -s /var/lib/snapd/snap /snap
+sudo snap install julia --classic
+</code></pre>
+<p>下载<code>snap</code>包和离线安装：</p>
+<pre><code class="language-shell">snap donwload 'package name'
+              --target-directory=.
+              --channel=5.x/stable
+snap ack path/to/package_name.assert  
+snap install path/to/package_name.snap
+             --dangerous  # 如果没有执行ack,则需要该选项才可以安装
+</code></pre>
+<h5 id="snap安装目录"><a class="header" href="#snap安装目录">snap安装目录</a></h5>
+<pre><code class="language-shell">/snap               # -&gt; Debian based
+#/snap/bin                   - Symlinks to snap applications.
+#/snap/&lt;snapname&gt;/&lt;revision&gt; - Mountpoint for snap content.
+#/snap/&lt;snapname&gt;/current    - Symlink to current revision, if enabled.
+/var/lib/snapd/snap # -&gt; RHEL based
+</code></pre>
+<h5 id="snapying用的配置文件数据目录"><a class="header" href="#snapying用的配置文件数据目录">snapying用的配置文件/数据目录</a></h5>
+<pre><code class="language-shell">/var/snap/&quot;snap_name&quot;
+</code></pre>
+<h5 id="移除snap软件"><a class="header" href="#移除snap软件">移除snap软件</a></h5>
+<pre><code class="language-shell">snap remove &quot;snap_name&quot;  
+     --purge  # 不保存软件的数据
+</code></pre>
+<p>软件的所有数据将自动备份（<em>automatic snapshopt</em>）以便后续恢复。</p>
+<h4 id="备份和恢复"><a class="header" href="#备份和恢复">备份和恢复</a></h4>
+<pre><code class="language-shell">snap save 'appname' --users &quot;all&quot;  # 创建用户、系统和配置数据的快照。
+snap saved --id ID
+snap forget &quot;id&quot; &quot;appname&quot;
+snap restore &quot;id&quot; &quot;snap_name&quot; --users &quot;all&quot;  # 使用指定快照恢复其中的用户、系统和配置数据。
+snap export-snapshot &quot;id&quot; /path/to/export
+snap import-snapshot /path/to/import
+</code></pre>
+<blockquote>
+<p>不同版本（<code>epoch</code>）之间不能恢复数据。</p>
+</blockquote>
+<p>回退到上个版本并恢复数据(不包括共享数据)：</p>
+<pre><code class="language-shell">sudo snap revert 'appname' --revision ID 
+</code></pre>
+<h4 id="snap配置"><a class="header" href="#snap配置">snap配置</a></h4>
+<pre><code class="language-shell">snap get &quot;appname&quot;
+snap set &quot;appname&quot; key1=value1 key2.subkey=value2
+snap unset &quot;appname&quot; key1 key2
+</code></pre>
+<h4 id="管理snap应用的运行状态"><a class="header" href="#管理snap应用的运行状态">管理snap应用的运行状态</a></h4>
+<p>查看服务运行状态和日志：</p>
+<pre><code class="language-shell">snap services &lt;appaname&gt;  # 查看APP提供的服务的运行状态
+# =&gt; systemctl status snap.&lt;appname&gt;.&lt;appserivce&gt;
+snap logs -f &lt;appname&gt;.&lt;servicename&gt; 
+</code></pre>
+<h5 id="启动应用软件"><a class="header" href="#启动应用软件">启动应用软件</a></h5>
+<p>如果安装未生成启动软件的快捷方式，可通过命令启动。</p>
+<pre><code class="language-shell">snap run &lt;appcommand&gt;   # 命令可通过snap info查看
+</code></pre>
+<h5 id="管理软件服务"><a class="header" href="#管理软件服务">管理软件服务</a></h5>
+<p>可使用<code>snap</code>或<code>systemctl</code>来控制服务运行。<code>snap</code>服务默认会在失效后自动重启。</p>
+<pre><code class="language-shell">sudo snap start/restart/stop &lt;appname&gt;
+sudo snap restart &lt;appname&gt;.&lt;servicename&gt;
+sudo systemctl restart snap.&lt;appname&gt;.&lt;servicename&gt;
+</code></pre>
+<h3 id="appimage"><a class="header" href="#appimage">AppImage</a></h3>
+<p>AppImage比较简单易用，不需要安装额外的工具，整个软件都在一个文件里，下载后可以直接运行。里面有个SquashFS的文件系统，运行的时候会挂在到一个临时的地方，里面有所有只读的文件，包括可执行文件、库文件、静态数据等。除此之外都和普通的软件运行环境是一样的。</p>
+<p><a href="https://github.com/AppImage/AppImageKit/wiki/Similar-projects#comparison">Similar projects · AppImage/AppImageKit Wiki (github.com)</a></p>
+<h3 id="flatpak"><a class="header" href="#flatpak">Flatpak</a></h3>
+<h3 id="linuxbrew"><a class="header" href="#linuxbrew">linuxbrew</a></h3>
+<p>安装发行版软件仓库缺失的软件。</p>
+<h4 id="安装linuxbrew"><a class="header" href="#安装linuxbrew">安装linuxbrew</a></h4>
+<pre><code class="language-shell">SRC_URL='https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh'
+/bin/bash -c &quot;$(curl -fsSL $SRC_URL)&quot;
+</code></pre>
+<p>官方安装脚本下载以及官方源(github)的速度都比较慢，推荐<a href="#%E6%9C%AC%E5%9C%B0%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86">使用代理</a>进行安装。或者<a href="https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/">使用国内镜像进行安装和后续软件安装</a>，配置镜像源相关环境变量：</p>
+<pre><code class="language-shell">MIRROR=&quot;https://mirrors.tuna.tsinghua.edu.cn&quot;
+export HOMEBREW_BREW_GIT_REMOTE=&quot;$MIRROR/git/homebrew/brew.git&quot;
+export HOMEBREW_CORE_GIT_REMOTE=&quot;$MIRROR/git/homebrew/homebrew-core.git&quot;
+export HOMEBREW_BOTTLE_DOMAIN=&quot;$MIRROR/homebrew-bottles&quot;
+</code></pre>
+<p>执行以下命令下载安装脚本并执行安装：</p>
+<pre><code class="language-shell">git clone --depth=1 $MIRROR/git/homebrew/install.git brew-install
+bash brew-install/install.sh
+rm -rf brew-install
+</code></pre>
+<p>安装完成后根据输出提示，将初始化命令加入shell配置文件。然后，根据输出信息，安装建议的编译环境，用于<code>brew</code>进行本地编译打包。</p>
+<blockquote>
+<p><code>brew</code>的默认安装位置为<code>/home/linuxbrew/.linuxbrew/</code>。</p>
+</blockquote>
+<h4 id="安装软件"><a class="header" href="#安装软件">安装软件</a></h4>
+<pre><code class="language-shell">brew install pkgname
+</code></pre>
+<p>查找软件可在<a href="https://brew.sh/">brew.sh</a>查找，或通过命令查找：</p>
+<pre><code class="language-shell">brew search pkgname
+</code></pre>
+<h2 id="进程管理"><a class="header" href="#进程管理">进程管理</a></h2>
+<h3 id="查看进程"><a class="header" href="#查看进程">查看进程</a></h3>
+<pre><code class="language-shell">jobs [-lnprs] [jobspec ...] or jobs -x command [args]
+#    Display status of jobs.
+</code></pre>
+<h4 id="查看并过滤进程"><a class="header" href="#查看并过滤进程">查看并过滤进程</a></h4>
+<pre><code class="language-shell">ps -e|-A  \  # 查看所有进程
+   -T|t   \  # 当前终端上的所有进程
+   -x     \  # 没有关联控制终端（tty）的进程
+   -r     \  # 正在运行的进程 
+   -a     \  # 排除关联tty的所有进程或session leader   
+   -d     \  # 除了session leader外的所有进程
+   -N     \  # --deselect 反选
+   H         # 将线程视作进程显示
+</code></pre>
+<h5 id="查找进程"><a class="header" href="#查找进程">查找进程</a></h5>
+<pre><code class="language-shell">ps -C cmd1,cmd2,... \  # 根据命令名comm筛选
+   -p 123,124,... \    # --pid,-q 根据进程号筛选
+   -ppid 10       \    # 根据父进程号筛选
+   -U EUID        \    # effective user ID (EUID) or name
+   -u RUID        \    # real user ID (RUID) or name
+</code></pre>
+<blockquote>
+<p><code>-C</code>匹配进程命令起始子串，不包括路径与特殊字符'<code>/-</code>'；无法匹配到僵尸进程。</p>
+</blockquote>
+<pre><code class="language-shell">pgrep -f PATTERN  \   # --full 匹配完整进程名
+      -x          \   # --exact 完整匹配命令行
+      -v          \   # --inverse 反向匹配
+      -g PGID,... \   # --pgroup 匹配进程组ID
+      -G GID,...  \   # --group 匹配real group IDs
+      -i          \   # --ignore-case
+      -n          \   # --newest 选择最近启动的进程
+      -o          \   # --oldest
+      -P PPID,... \   # --parent 匹配父进程ID
+      -s SID,...  \   # --sessioin 匹配会话ID
+      -u ID,...   \   # --euid 匹配effective user ID
+      -U ID,...   \   # --uid 匹配real user ID
+      -t TTY,...  \   # --terminal 匹配终端
+      --ns PID --nslist ns,...
+pgrep -l  \  # --list-name 列出PID和进程名
+      -a  \  # --list-full 列出PID和命令行
+      -c  \  # --count 输出匹配计数
+</code></pre>
+<p><code>ps -C</code>和<code>pgrep</code>无法匹配到僵尸进程<code>&lt;defunct&gt;</code>，可以利用<code>ps -ef</code>的输出内容进行匹配。</p>
+<pre><code class="language-sh">ps -ef | grep defunct | grep -v grep
+</code></pre>
+<h5 id="输出进程信息"><a class="header" href="#输出进程信息">输出进程信息</a></h5>
+<pre><code class="language-shell">ps -f|-F \  # 完全信息，包括命令行（-F包括附加信息）
+   -l    \  # 显示更多信息，可以与-f|-F组合使用
+ps -o pid,tid,... \ # 指定输出的字段
+   -o '%cpu %mem' \ # 在单个参数中指定输出的字段
+   -o class       \ # 可指定多个输出选项
+   -o wchan:14    \ # 指定输出字段的位宽
+   -o comm=       \ # 该字段不输出字段名(当所有字段都不输出字段名，省略表头)
+</code></pre>
+<div class="table-wrapper"><table><thead><tr><th></th><th></th><th></th><th></th></tr></thead><tbody>
+<tr><td><code>pid</code></td><td>==进程编号==</td><td><code>ppid</code></td><td>父进程编号</td></tr>
+<tr><td>`lwp</td><td>spid</td><td>tid`</td><td>轻量线程ID</td></tr>
+<tr><td>`pgid</td><td>prp`</td><td>进程组编号</td><td><code>tgid</code></td></tr>
+<tr><td>`%cpu</td><td>pcpu`</td><td>CPU占用率（小数）</td><td><code>c</code></td></tr>
+<tr><td>`cputime</td><td>time`</td><td>==累计CPU占用时长==</td><td><code>pri</code></td></tr>
+<tr><td><code>start_time</code></td><td>==进程启动时间/日期==</td><td><code>start</code></td><td>进程启动时间</td></tr>
+<tr><td><code>etime</code></td><td>==进程启动后经过的时间==</td><td><code>etimes</code></td><td>单位为秒</td></tr>
+<tr><td>`%mem</td><td>pmem`</td><td>内存占用比例</td><td>`vsz</td></tr>
+<tr><td><code>sz</code></td><td>进程镜像大小</td><td><code>size</code></td><td>需要的交换空间大小</td></tr>
+<tr><td>`args</td><td>cmd</td><td>command`</td><td>命令行参数</td></tr>
+<tr><td>`sess</td><td>session</td><td>sid`</td><td>会话编号</td></tr>
+<tr><td>`tty</td><td>tt</td><td>tname`</td><td>控制终端</td></tr>
+<tr><td>`fgid</td><td>fsgid`</td><td>文件访问组编号</td><td>`fgroup</td></tr>
+<tr><td>`state</td><td>s`</td><td></td><td><code>stat</code></td></tr>
+</tbody></table>
+</div>
+<p>进程关联<a href="">用户信息</a>：</p>
+<div class="table-wrapper"><table><thead><tr><th></th><th></th><th>real</th><th>effective</th><th>saved</th></tr></thead><tbody>
+<tr><td>用户ID</td><td><code>uid</code></td><td><code>ruid</code></td><td>`euid</td><td>uid`</td></tr>
+<tr><td>用户标识</td><td><code>user</code></td><td><code>ruser</code></td><td>`euser</td><td>user</td></tr>
+<tr><td>组</td><td><code>gid</code></td><td><code>rgid</code></td><td>`egid</td><td>gid`</td></tr>
+<tr><td>组标识</td><td><code>group</code></td><td><code>rgroup</code></td><td>`group</td><td>egroup`</td></tr>
+</tbody></table>
+</div>
+<blockquote>
+<p>需要systemd支持的字段：</p>
+<ul>
+<li><code>machine</code>：进程分配到的VM或容器名；</li>
+<li><code>ouid</code>：进程会话所有者；</li>
+<li><code>lsession</code>：进程的登录会话标识；</li>
+</ul>
+<p>其他：</p>
+<p><code>psr</code>：为进程分配的处理器，<code>sgi_p</code>：进程当前运行的处理器；</p>
+<p><code>cgroup</code>：控制组；</p>
+<p><code>class|cls|policy</code>：进程调度类型；<code>sched</code>；</p>
+<p><code>blocked|sig_block|sigmask</code>：阻止的信号（32或64位掩码）；
+<code>caught|sig_catch|sigcatch</code>：捕获的信号（32或64位掩码）；
+<code>ignored|sig_ignore, sigignore</code>：忽略的信号（32或64位掩码）；
+<code>pending|sig</code>：挂起的信号（32或64位掩码）；</p>
+<p><code>f|flag|flags</code>：进程标识。</p>
+</blockquote>
+<h5 id="进程树"><a class="header" href="#进程树">进程树</a></h5>
+<pre><code class="language-shell">ps  f  \  # 显示为进程树
+   -H  \  # 显示进程层级（缩进）
+</code></pre>
+<pre><code class="language-sh">pstree -U     \  # --unicode 使用UTF-8画线符号（默认）表示树
+       -A     \  # --ascii 使用ASCII画线符号
+       -h     \  # --highlight-all 重点显示当前进程及其祖先进程
+       -H PID \  # --highlight-pid 重点显示给定进程及其祖先进程
+       -g     \  # --show-pgids 显示进程组标识
+       -p     \  # --show-pids 显示进程标识
+       -s     \  # --show-parents 显示父进程标识
+       -n     \  # --numeric-sort 根据PID对输出排序
+       -l     \  # --long 不截断长行
+       PID    \  # 进程树根节点的PID，默认为1（init/systemd）
+       USER   \  # 显示指定用户的进程树
+</code></pre>
+<h4 id="任务状态"><a class="header" href="#任务状态">任务状态</a></h4>
+<pre><code class="language-sh">top -b -n N \       # 非交互模式，刷新N次
+    -o FIELD[-+] \  # 按字段排序：&quot;+&quot;=&gt;DESC; &quot;-&quot;=&gt;ASC
+    -O              # 不执行命令，仅输出可用的排序字段
+</code></pre>
+<blockquote>
+<p><code>top</code>命令显示的是你的程序占用的cpu的总数，也就是说如果你是4核cpu那么cpu最高占用率可达400%，<code>top</code>里显示的是把所有使用率加起来。</p>
+<p>在<code>top</code>的运行环境中按下键盘的<code>1</code>，显示每个cpu核的状态。</p>
+</blockquote>
+<h5 id="交互环境命令"><a class="header" href="#交互环境命令">交互环境命令</a></h5>
+<p>排序：<code>M-&gt;Mem, N-&gt;PID, P-&gt;%cpu, T-&gt;TIME+</code>。</p>
+<h5 id="watch"><a class="header" href="#watch">watch</a></h5>
+<pre><code class="language-shell">watch &quot;ps -ef | grep nginx | grep -v grep&quot; \
+      -d,--difference        \ # 高亮两次更新的差别
+      -n,--interval seconds  \ # 更新周期
+</code></pre>
+<p><code>watch</code>的命令参数可包含多条命令，输出结果包含每条命令的输出内容。</p>
+<h4 id="查看进程打开资源"><a class="header" href="#查看进程打开资源">查看进程打开资源</a></h4>
+<p>打开的文件可能是常规文件、文件夹、库、流、<a href="#%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E7%8A%B6%E6%80%81%E4%BF%A1%E6%81%AF">网络文件（套接字、NFS文件）</a>等。</p>
+<pre><code class="language-shell">lsof   # list open files
+lsof /bin/bash
+#COMMAND      PID  USER  FD   TYPE DEVICE SIZE/OFF      NODE NAME
+#mysqld_sa   1597 mysql txt    REG  253,0   960472 738200678 /usr/bin/bash
+#sh         11503    es txt    REG  253,0   960472 738200678 /usr/bin/bash
+#bash       16538  yarn txt    REG  253,0   960472 738200678 /usr/bin/bash
+#bash       63028  yarn txt    REG  253,0   960472 738200678 /usr/bin/bash
+</code></pre>
+<blockquote>
+<p>需要安装<code>lsof</code>。</p>
+</blockquote>
+<pre><code class="language-shell">fuser [options] file/fs  # identify processes using files or sockets
+fuser /bin/bash  # 返回使用文件的进程号与使用方式（后缀）
+# /usr/bin/bash:        1597e 11503e 13039e 63028e 63030e 64836e
+</code></pre>
+<h3 id="进程控制"><a class="header" href="#进程控制">进程控制</a></h3>
+<h4 id="创建进程"><a class="header" href="#创建进程">创建进程</a></h4>
+<p><code>nohup &amp;</code></p>
+<h4 id="终止进程"><a class="header" href="#终止进程">终止进程</a></h4>
+<p>如果父进程在子进程之后终止，但子进程终止时父进程没有进行最后的回收工作，子进程残留的数据结构称为僵尸进程。</p>
+<h5 id="终止单个进程"><a class="header" href="#终止单个进程">终止单个进程</a></h5>
+<p><code>kill</code>向进程发送信号使进程终止，默认信号是<code>-TERM</code>。</p>
+<pre><code class="language-sh">kill [-s sigspec | -n signum | -sigspec] pid ...
+kill -l [sigspec]
+</code></pre>
+<p><code>sigspec</code>表示信号名，<code>signum</code>表示信号值。</p>
+<div class="table-wrapper"><table><thead><tr><th>选项</th><th>说明</th></tr></thead><tbody>
+<tr><td><code>-l, --list [sigspec]</code></td><td><strong>列出可发送的信号</strong>，如果给出信号名（值），<br />则将信号名（值）转换为信号值（名）</td></tr>
+<tr><td><code>-s sigspec</code> <br /><code>-n signum</code>   <br /><code>-sigspec</code></td><td>指定发送的信号，例如：<code>-ABRT,-ALRM,-HUP,-KILL,-STOP,-SEGV, -TERM,-TRAP</code>。</td></tr>
+</tbody></table>
+</div>
+<h5 id="终止匹配名称的进程"><a class="header" href="#终止匹配名称的进程">终止匹配名称的进程</a></h5>
+<pre><code class="language-sh">killall [-s sigspec | -sigspec] [-e] [-I] [-g] [-i] [-u user] [-v] [-w] name ...
+killall –l
+</code></pre>
+<p>选项</p>
+<div class="table-wrapper"><table><thead><tr><th>选项</th><th>说明</th></tr></thead><tbody>
+<tr><td><code>-l, --list</code></td><td>列出可发送的信号</td></tr>
+<tr><td><code>-s,--signal sigspec</code> <br/><code> -sigspec</code></td><td>指定发送的信号</td></tr>
+<tr><td><code>-e, --exact</code></td><td>匹配名称</td></tr>
+<tr><td><code>-I, --ignore--case</code></td><td>匹配名称时忽略大小写</td></tr>
+<tr><td><code>-g, --process-group</code></td><td>向进程所属的进程组发送信号</td></tr>
+<tr><td><code>-i, --interactive</code></td><td>在杀死进程前交互式确认</td></tr>
+<tr><td><code>-q, --quiet</code></td><td>如果没有进程被杀死，不输出信息</td></tr>
+<tr><td><code>-u, --user</code></td><td>仅杀死属于给定用户的进程</td></tr>
+<tr><td><code>-v, --verbose</code></td><td>报告信号是否成功发送</td></tr>
+<tr><td><code>-w, --wait</code></td><td>等待所有被杀死的进程结束</td></tr>
+</tbody></table>
+</div>
+<h5 id="终止匹配的进程"><a class="header" href="#终止匹配的进程">终止匹配的进程</a></h5>
+<pre><code class="language-shell">pkill [options] --signal SIGNAL PATTERN
+</code></pre>
+<h5 id="终止图形进程"><a class="header" href="#终止图形进程">终止图形进程</a></h5>
+<pre><code class="language-sh">xkill
+</code></pre>
+<p>出现“<code>x</code>”标志的鼠标，点击需要中止的程序即可。</p>
+<h4 id="清理进程"><a class="header" href="#清理进程">清理进程</a></h4>
+<pre><code class="language-shell">wait -f -n [CH_PID,,,]  # 清理子进程
+</code></pre>
+<h3 id="服务"><a class="header" href="#服务">服务</a></h3>
+<h4 id="systemd"><a class="header" href="#systemd">systemd</a></h4>
+<p><code>systemd</code>（<em><strong>system and service manager</strong></em>），init system (<code>PID=1</code><sup class="footnote-reference"><a href="#pid1">2</a></sup>, started by the kernel, to bring up userspace) managing userspace services. (<em>fast and efficient boot-up</em>)</p>
+<blockquote>
+<p><code>sysvinit</code></p>
+</blockquote>
+<pre><code class="language-shell">/sbin/init -&gt; ../lib/systemd/systemd
+</code></pre>
+<p>system instance: system.conf and the files in system.conf.d</p>
+<p>user instance:  user.conf and the files in user.conf.d</p>
+<p>&quot;units&quot; of 11 different types. states: <code>active/inactive/activating/decativating/failed</code>；</p>
+<p>Units are named as their configuration files</p>
+<p>Processes systemd spawns are placed in individual Linux control groups named after the unit which they belong to in the private systemd hierarchy. <code>/sys/fs/cgroup/systemd/</code></p>
+<p>transaction system: before executing a requested operation, systemd will verify that it makes sense, fixing it if possible, and only failing if it really cannot work.</p>
+<ul>
+<li>
+<p>Service：管理控制守护进程及其相关进程；</p>
+</li>
+<li>
+<p><a href="https://man7.org/linux/man-pages/man5/systemd.socket.5.html">Socket</a>：用于提前创建套接字资源。</p>
+</li>
+<li>
+<p><a href="https://man7.org/linux/man-pages/man5/systemd.target.5.html">Target</a>：group units（使用<code>Requires,After</code>）。</p>
+<p>default.target whose  job is to activate on-boot services and other on-boot units by pulling them in via dependencies.<code> graphical.target</code>/<code>multi-user.target</code></p>
+</li>
+<li>
+<p>Device：expose kernel devices</p>
+</li>
+<li>
+<p><a href="https://man7.org/linux/man-pages/man5/systemd.mount.5.html">Mount</a>/Swap：mount points/memory swap（类似于<code>mount</code>命令）</p>
+</li>
+<li>
+<p>Automount</p>
+</li>
+<li>
+<p>Timer：定时触发其他单元；</p>
+</li>
+<li>
+<p><a href="https://man7.org/linux/man-pages/man5/systemd.path.5.html">Path</a>：</p>
+</li>
+<li>
+<p><a href="https://man7.org/linux/man-pages/man5/systemd.slice.5.html">Slice</a>：分组资源管理；</p>
+</li>
+<li>
+<p>Scope：管理外部进程</p>
+</li>
+</ul>
+<p>信号处理：</p>
+<p><code>SIGTERM</code>：重启systemd system manager；</p>
+<p><code>SIGINT</code>（<code>Ctrl+Alt+Del</code>）：If this signal is received  more than 7 times per 2s, an immediate reboot is triggered.</p>
+<p><code>SIGHUP</code>：<code>systemctl daemon-reload</code></p>
+<p>管理器交互命令可以用于管理服务。<code>systemctl</code> are used to give commands to the manager.</p>
+<pre><code class="language-sh">systemctl --version # 查看版本和加载模块
+systemctl {start|stop|reload|restart|kill} &lt;service&gt;
+systemctl {enable|unmask} --now &lt;service&gt; # 启用并立即启动服务
+systemctl {disable|mask} &lt;service&gt;        # 禁用/屏蔽服务
+systemctl status &lt;service&gt;
+systemctl show &lt;service&gt;
+systemctl list-unit-files --type {service|target} # 列出已安装单元
+systemctl list-units --type {...}                 # 列出已加载单元
+systemctl daemon-reload  # 重新加载服务单元配置（不影响现有服务）
+</code></pre>
+<blockquote>
+<p>此外，<code>systemdctl</code>还可用于控制系统</p>
+<pre><code class="language-sh">systemctl {poweroff|reboot[arg]|suspend|hibernate}
+</code></pre>
+</blockquote>
+<blockquote>
+<p><code>service</code>命令也用用管理服务，在Ubuntu中其实际调用的是<code>systemctl</code>。</p>
+</blockquote>
+<p><a href="http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html">Systemd 入门教程：命令篇 - 阮一峰的网络日志 (ruanyifeng.com)</a></p>
+<h5 id="管理配置文件"><a class="header" href="#管理配置文件">管理配置文件</a></h5>
+<blockquote>
+<p><em>A unit file is a plain text ini-style file that encodes information about a <strong>service</strong>, <strong>socket</strong>, <strong>device</strong>, <strong>mount point</strong>, <strong>automount point</strong>, <strong>swap file</strong> or <strong>partition</strong>, <strong>start-up target</strong>, <strong>watched file system path</strong>, <strong>timer</strong> controlled and supervised by <code>systemd</code>, <strong>resource management slice</strong> or <strong>group of externally created processes</strong>.</em></p>
+</blockquote>
+<p>服务配置文件（<code>.ini</code>格式）位于<code>/lib/systemd/system</code>(<code>/lib-&gt;/usr/lib</code>)；<code>systemctl enable</code>会在<code>/etc/systemd/system</code>目录（某些服务也直接置于<code>*.target</code>子目录下）创建一个指向服务单元的链接（也可直接在该目录下储存配置文件或链接其他位置的配置文件，但无法使用<code>enable/disable</code>命令）。</p>
+<blockquote>
+<p><code>pkg-config systemd --variable=systemdsystemunitdir</code>：系统服务配置文件路径；</p>
+<p><code>pkg-config systemd --variable=systemduserunitdir</code>；</p>
+<p>不同于其他<code>systemctl</code>命令，==必须以管理员权限执行==<code>systemctl enable|disable</code>以创建或删除服务配置文件的链接。</p>
+</blockquote>
+<p>配置文件名由管理单元名和类型名组成，如<code>unit-name[@instance-name].service</code>（<strong>服务模板</strong>：在配置文件中通过<code>&quot;%i&quot;</code>引用实例名称）。文件格式：<code>key=value</code>，<code>=</code>前后空格被忽略；<code>#</code>或<code>;</code>为注释行；<code>\</code>用于换行拼接（连接时添加空格，换行符后的注释行被忽略，随后的内容将继续被拼接）；</p>
+<p>boolean：<code>1,yes,true,on</code>，<code>0,no,false,off</code></p>
+<p>time：默认为秒，&quot;<code>2min 200ms</code>&quot;, s&quot;, &quot;min&quot;, &quot;h&quot;, &quot;d&quot;, &quot;w&quot;, &quot;ms&quot;, &quot;us&quot;.</p>
+<p>multiple settings form a list, empty value &quot;resets&quot;</p>
+<pre><code class="language-ini">[Unit]
+Description=The descript of the service
+Documentation=http://,https://,file:,info:,man:,
+Wants/Requires/Requisite/BindsTo/PartOf/Upholds=
+Conflicts=
+Before/After=
+After=network.target ... nginx.service mongod.service
+[Install]
+Alias=sshd.service   # create symlinks 
+WantedBy/RequiredBy=multi-user.target
+</code></pre>
+<p><a href="https://www.freedesktop.org/software/systemd/man/systemd.unit.html#"><code>Unit</code>和<code>Install</code></a>是所有单元类型配置文件共有的部分。</p>
+<p><code>foo.service.d/*.conf</code>：在该目录下添加配置文件覆盖该服务的默认配置。</p>
+<p><strong>单元参数说明</strong>：</p>
+<ol>
+<li>依赖声明：==不影响启动顺序（可并行启动）==
+<ul>
+<li><code>Wants=</code>：one-time effect <code>=&gt; [Install] WantedBy=</code>：<code>foo.service.wants/</code>
+<ul>
+<li><code>Requires=</code>：<code>=&gt; [Install] RequiredBy=</code>
+<ul>
+<li><code>Requisite=</code>：<code>=&gt; RequisiteOf=</code></li>
+<li><code>BindsTo=</code>：<code>=&gt; BoundBy=</code> </li>
+<li><code>PartOf=</code>：<code>=&gt; ConsistsOf=</code></li>
+</ul>
+</li>
+<li><code>UpHolds=</code>：continuous effect,</li>
+</ul>
+</li>
+<li><code>Conflicts=</code>：<code>=&gt; ConflictedBy=</code></li>
+</ul>
+</li>
+<li>启动顺序
+<ul>
+<li><code>Before=, After=</code></li>
+<li><code>OnFailure=,OnSuccess=</code></li>
+</ul>
+</li>
+</ol>
+<p>Specifiers available in unit files: https://www.freedesktop.org/software/systemd/man/systemd.unit.html#Specifiers</p>
+<p><strong>服务单元参数说明</strong>：</p>
+<pre><code class="language-ini">[Service]
+Type=simple/exec/forking/oneshot/dbus/notify/idle
+ExecStartPre=/usr/local/nginx/sbin/nginx -t -c conf/nginx.conf # 启动前的检测
+ExecStart=/usr/local/nginx/sbin/nginx -c conf/nginx.conf       # 启动服务的命令
+ExecStartPost=/bin/sleep 1                                     # 启动服务后的命令
+ExecReload=/usr/local/nginx/sbin/nginx -s reload               # reload命令
+ExecStop=/bin/kill -s TERM $MAINPID                            # stop命令
+StandardOutput=syslog
+User=service_user
+Environment=&quot;VAR=VALUE&quot;    &quot;VAR2=VALUE2&quot;
+Environment=&quot;VAR3=VALUE3&quot;  # 可声明多行环境变量
+KillMode=control-group, mixed, process, none
+KillSignal=SIGTERM
+</code></pre>
+<ol>
+<li>
+<p><code>Type=</code>：服务类型</p>
+<ul>
+<li><code>simple</code>（默认）：认为<code>ExecStart=</code>配置的进程为服务主进程；当服务主进程被创建后（服务执行程序还未运行）即认为服务启动（即使随后服务启动过程出错，<code>systemctl start</code>仍然报告启动成功）并继续启动后续服务。
+<ul>
+<li><code>exec</code>：等待服务进程被执行后才认为服务启动（<code>systemd</code> 219版本不支持，245版本支持该类型）；
+<ul>
+<li><code>notify</code>：类似于<code>exec</code>，但服务启动后需要发送一个通知消息，服务管理在收到通知消息后，认为服务启动完成并继续启动后续服务；设置<code>NotifyAccess=</code>以访问<code>systemd</code>提供的通知套接字。</li>
+</ul>
+</li>
+<li><code>oneshot</code>：类似于<code>simple</code>，服务主进程退出后即认为服务启动完成，通常用于设置==开机启动任务==；<code>RemainAfterExit=yes</code>用于表示服务在启动完成后进入<code>active</code>状态，否则，由于没有配置持续运行的进程，服务状态将变为<code>deactivating</code>或<code>dead</code>状态。</li>
+<li><code>dbus</code>：类似于<code>simple</code>，服务获得一个D-Bus总线名（<code>BusName=</code>）后，即认为完成启动；默认依赖<code>dbus.socket</code>；</li>
+<li><code>idle</code>：类似于<code>simple</code>，但会延迟服务程序的执行时间(最多5s)，直到活动任务被执行。</li>
+</ul>
+</li>
+<li><code>forking</code>：<code>ExecStart=</code>配置的进程会调用<code>fork()</code>来启动后台服务（Unix服务启动协议）。父进程在后台进程启动完成后退出，服务管理认为服务启动完成。==如果服务自身可以输出主进程ID到文件，则推荐使用<code>PIDFile=</code>选项==，使得<code>systemd</code>能够可靠地识别服务主进程从而判断服务状态 。如果未设置<code>PIDFile</code>，则<strong>默认</strong><code>GuessMainPID=yes</code>以尝试获取服务主进程ID，但如果服务存在多个守护进程，则不一定准确。</li>
+</ul>
+<p>对于长期运行服务，首先推荐使用简单且快速的<code>Type=simlpe</code>。但如果需要获取服务启动状态，或其他服务依赖此服务，则推荐使用<code>notify</code>或<code>dbus</code>；如果服务程序并不支持<code>notify</code>或<code>dbus</code>，则使用<code>forking</code>。对于==仅启动时执行一次==的服务，则可以使用<code>oneshot</code>。</p>
+</li>
+<li>
+<p><a href="https://man7.org/linux/man-pages/man5/systemd.exec.5.html">服务单元执行环境配置</a>：</p>
+<ol>
+<li>
+<p><code>RootDirectory=</code>(<code>chroot</code>)</p>
+</li>
+<li>
+<p><code>WorkingDirectory=</code></p>
+</li>
+<li>
+<p><code>User=, Group=</code></p>
+</li>
+<li>
+<p>进程资源限制<code>ulimit</code>：<code>LimitCPU/LimitFSIZE/LimitNOFILE...</code>；</p>
+</li>
+<li>
+<p>CPU调度策略：<code>CPUSchedulingPolicy/CPUAffinity...</code></p>
+</li>
+<li>
+<p><code>Environment=,EnvironmentFile=</code>：定义传递给服务的环境变量（定义不支持Shell变量替换，重复定义将替换之前的定义）；</p>
+<ul>
+<li><code>$PATH</code>：默认值<code>/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin</code>；</li>
+<li><code>$MAINPID</code>：服务主进程ID，用于管理服务控制进程的关闭和重载；</li>
+<li><code>$PIDFILE</code>：通过<code>PIDFile=</code>传递，用于服务守护进程写入进程ID；</li>
+</ul>
+</li>
+<li>
+<p><code>StandardInput=,StandardOutput=,StandardError=</code>：<code>inherit, null, tty, kmsg, journal+console, kmsg+console, socket or fd:name.</code></p>
+<ul>
+<li><code>journal</code>：发送到journal，输出日志通过<code>journalctl</code>查看</li>
+<li><code>syslog</code>：发送到系统的syslog服务和journal。</li>
+<li><code>file:path</code>(<code>v236+</code>), <code>append:path</code>(<code>v240+</code>), <code>truncate:path</code>：输出到指定文件（<a href="https://unix.stackexchange.com/a/479669/247982">219版本不支持</a>，对于不支持的版本使用文件重定向标准输出）。</li>
+</ul>
+<blockquote>
+<p><code>systemd</code>管理的服务产生的日志可通过<code>journalctl</code>查看。</p>
+<pre><code class="language-shell">journalctl [FIELD=VALUE...] \ # 未添加匹配条件则返回所有日志 systemd.journal-fields
+    --options
+</code></pre>
+</blockquote>
+</li>
+<li>
+<p><code>SyslogIdentifier=,SyslogFacility=,SyslogLevel=</code></p>
+</li>
+</ol>
+</li>
+<li>
+<p><code>ExecStart=</code>：服务启动命令。==除非是<code>oneshot</code>类型==，否则仅能给定一条命令。==命令必须以可执行程序的绝对路径开头==（对于其他<code>Exec</code>命令也一样）。</p>
+<blockquote>
+<p><code>systemd-path search-binaries-default</code>：如果返回路径，则表示支持直接使用位于路径的命令名。</p>
+</blockquote>
+<blockquote>
+<p>命令参数支持环境变量替换：<code>${VARIABLE}</code>始终解释为一个参数，<code>$VARIABLE</code>必须与命令行==其他内容使用空格分开==（否则不会展开），展开后会按空白分割为多个参数；</p>
+<p>支持Systemd定义的<code>%</code>特殊变量。</p>
+<pre><code class="language-shell">--opt1 $VARIABLE1  --opt2=${VARIABLE2}
+# --opt2=$VARIABLE3 无法完成变量替换
+</code></pre>
+<p>命令中不能包含重定向（<code>&lt;,&lt;&lt;,&gt;,&gt;&gt;</code>）、管道（<code>|</code>）和后台执行（<code>&amp;</code>）等Shell语法。显式使用<code>bash</code>命令</p>
+<pre><code class="language-shell">ExecStart=bash -c 'dmesg | tac'
+</code></pre>
+<p>命令前缀：</p>
+<ul>
+<li><code>-</code>：记非零错误返回，但处理行为等效于命令成功执行；</li>
+<li><code>:</code>：不替换命令行环境变量；</li>
+<li>&quot;<code>+</code>&quot;以完整权限执行，不受用户和分组设置限制；</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p><code>ExecStartPre=, ExecStartPost=</code>：类似于<code>ExecStart=</code>：，分别在<code>ExecStart=</code>：前后执行，并可指定多条命令。<code>ExecStart=</code>仅在<code>ExecStartPre=</code>执行成功的情况下执行，否则服务启动失败(<code>ExecStartPost=</code>类似)。<code>ExecStartPre=</code>不应用于启动长期运行程序（<code>ExecStartPre=</code>启动进程所创建的子进程会在服务程序执行前被终止）。任何<code>Exec*=</code>命令执行失败或超时，则会跳转到执行<code>ExecStopPost</code>（跳过<code>ExecStop=</code>）。</p>
+</li>
+<li>
+<p><code>ExecReload=</code>：服务重新加载配置的一条或多条命令（语法类似于<code>ExecStart=</code>）。</p>
+</li>
+<li>
+<p><code>ExecStop=,ExecStopPost=</code>：停止服务的一条或多条命令。如果未指定，则向服务发送``KillSignal=<code>或</code>RestartKillSignal=`指定的信号以终止服务进程。</p>
+</li>
+<li>
+<p><code>TimeoutSec=,RestartSec=,TimeoutStartSec=,TimeoutStopSec=</code>服务启动/停止超时期限。</p>
+</li>
+<li>
+<p><code>Restart=no|on-success|on-failure|on-abnormal|on-watchdog|on-abort|always</code></p>
+</li>
+<li>
+<p><code>SuccessExitStatus=TEMPFAIL 250 SIGKILL</code>：成功退出状态，默认包括<code>0</code>，<code>SIGHUP</code>，<code>SIGINT</code>，<code>SIGTERM</code>和<code>SIGPIPE</code>。</p>
+</li>
+<li></li>
+</ol>
+<p><a href="https://www.freedesktop.org/software/systemd/man/systemd.service.html">systemd.service (www.freedesktop.org)</a></p>
+<h5 id="服务沙盒"><a class="header" href="#服务沙盒">服务沙盒</a></h5>
+<p>以下选项用于屏蔽向服务进程暴露的系统资源（需要底层安全机制支持才开启，如<code>ProtectSystem</code>需要包含文件系统命名空间的内核）。</p>
+<pre><code class="language-ini">ProtectSystem=false|true|full|strict*
+ProtectHome=false|true|read-only|tmpfs
+PrivateTmp=false|true
+</code></pre>
+<blockquote>
+<p><code>*</code>：<code>strict</code>，<code>tmpfs</code>在<code>219</code>版本（CentOS 7）不可用。</p>
+</blockquote>
+<ul>
+<li>[Mastering systemd: Securing and sandboxing applications and services | Enable Sysadmin (redhat.com)](https://www.redhat.com/sysadmin/mastering-systemd#:~:text=Systemd provides a significant number of security features,this option to full also makes %2Fetc read-only.)</li>
+<li><a href="https://www.freedesktop.org/software/systemd/man/systemd.exec.html#Sandboxing">systemd.exec Sandboxing(www.freedesktop.org)</a></li>
+</ul>
+<p>问题：</p>
+<ul>
+<li>
+<p>开启<code>ProtectSystem</code>后无法对用户家目录进行写操作。</p>
+<p>如果使用普通用户运行服务，则不用担心该服务修改系统资源（无权限）。因此，可以关闭<code>ProctectSystem</code>选项。也可尝试将服务的写入目录修改为其他位置，例如<code>/tmp</code>或<code>/var</code>（适用于以<code>root</code>运行的服务）。</p>
+</li>
+</ul>
+<h5 id="挂载单元配置"><a class="header" href="#挂载单元配置">挂载单元配置</a></h5>
+<pre><code class="language-ini">[Mount]
+What=/dev/DEVNAME
+Where=/mnt/MOUNT_PATH
+Type=fs_type
+Options=
+DirectoryMode=0755  # 自动创建挂载点
+TimeoutSec=
+# Check systemd.exec(5) and systemd.kill(5) for more settings.
+</code></pre>
+<h5 id="定时单元器配置"><a class="header" href="#定时单元器配置">定时单元器配置</a></h5>
+<pre><code class="language-ini">[Timer]
+OnActiveSec/OnUnitActiveSec=   # 相对定时器(执行单元)上次触发时间设置定时器
+OnUnitInactiveSec=             # 相对定时器执行单元上次休眠时间设置定时器
+OnCalendar=                    # systemd.time(7) 
+Unit=                          # 定时器超时后触发的单元名称
+</code></pre>
+<h4 id="supervisor"><a class="header" href="#supervisor">supervisor</a></h4>
+<p><a href="http://supervisord.org/introduction.html">Introduction — Supervisor 4.2.2 documentation (supervisord.org)</a></p>
+<blockquote>
+<p>Supervisor is a client/server system that allows its users to control a number of processes on UNIX-like operating systems. It is not meant to be run as a substitute for <code>init</code> as “process id 1”. Instead it is meant to be used to ==control processes related to a project or a customer==,</p>
+<p><code>supervisord</code> starts processes as its subprocesses via <code>fork</code>/<code>exec</code> and subprocesses don’t daemonize. It always knows the true up/down status of its children. If supervisord is started as root, it is possible to allow “normal” users to control (“stop”, “start”, and “restart” ) such processes.</p>
+</blockquote>
+<p>client/server system</p>
+<p>delegation: Supervisorctl allows a very limited form of access to the machine, essentially allowing users to see process status and control supervisord-controlled subprocesses by emitting “stop”, “start”, and “restart” commands from a simple shell or web UI.</p>
+<p><code>/etc/supervisord.conf</code></p>
+<pre><code class="language-shell">supervisord -c conf_file
+            -n, --nodaemon
+            -q ,--childlogdir=PATH # must exist, for auto-mode child proocess
+            -k, --nocleanup  # prevent removal of old AUTO process log files    
+supervisorctl -c conf_file
+              -i,--interactive   # 启动交互式命令
+              -r,--history-file  # 记录输入命令(realine模块可用)
+              ACTION args...
+ACTION:
+  add/update NAME[:*]... # activate/update process/group config 
+  remove NAME ...        # deactivate process config
+  clear NAME ...         # clear process log 
+  pid [NAME]             # get pid of supervisord/subprocess
+  reload                 # restart remote supervisord
+  reread                 # reload daemon's config without restart
+  start NAME[:*]...      # start process/group (not reread configs)
+  restart NAME[:*]...    # restart process/group (not reread configs)
+  status [NAME[:*]...]   # 返回进程(组)状态
+  tail [-f] NAME [stdout|stderr] # 输出日志的最后部分
+</code></pre>
+<blockquote>
+<p><code>all</code>用于参数中表示所有进程和分组。</p>
+</blockquote>
+<h5 id="supervisord-as-a-system-service"><a class="header" href="#supervisord-as-a-system-service">supervisord as a <a href="https://github.com/Supervisor/initscripts">system service</a></a></h5>
+<pre><code class="language-ini"># supervisord service for systemd (CentOS 7.0+)
+[Unit]
+Description=Supervisor daemon
+[Service]
+Type=forking
+ExecStart=/usr/bin/supervisord
+ExecStop=/usr/bin/supervisorctl $OPTIONS shutdown
+ExecReload=/usr/bin/supervisorctl $OPTIONS reload
+KillMode=process
+Restart=on-failure
+RestartSec=42s
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<h5 id="supervisord"><a class="header" href="#supervisord"><code>supervisord</code></a></h5>
+<pre><code class="language-ini">[supervisord]
+logfile=$CWD/supervisord.log # (-l,--logfile=FILE)
+logfile_maxbytes=50MB  # rotate limit (-y,--logfile_maxbytes=BYTES)
+logfile_backups=10     # number of rotates (-z,--logfile_backups=NUM)
+loglevel=info          # (-e,--loglevel=LEVEL)
+pidfile=$CWD/supervisord.pid # (-j,--pidfile=FILE)
+directory=$PWD         # workdir of supervisord daemon (-d,--directory=PATH)
+environment=KEY=&quot;val&quot;,KEY2=&quot;val2&quot; # for all subprocess
+</code></pre>
+<p>信号处理：</p>
+<ul>
+<li><code>SIGTERM/SIGINT/SIGQUIT</code>：<code>supervisord</code>及其管理的子进程将会关闭。</li>
+<li><code>SIGHUP</code>：关闭所有进程，重新加载配置，并重启所有进程。</li>
+<li><code>SIGUSR2</code>：关闭并重新打开主日志以及子进程日志。</li>
+</ul>
+<h5 id="服务进程配置"><a class="header" href="#服务进程配置">服务进程配置</a></h5>
+<pre><code class="language-ini">[program:SERVICE_NAME]
+command=/path/to/programname  # relative is OK
+user=gary                     # 启动进程的用户
+numprocs=1
+priority=999                  # Lower priorities indicate programs that start first
+autostart=true                # start with supervisord
+autorestart=unexpected        # false, unexpected, or true
+startsecs=1                   # 0不检查是否进程在运行
+startretries=3
+exitcodes=0                   # 正常退出代码（,分隔）
+stopwaitsecs=10               # 进程停止等待时间（超时使用SIGKILL强制停止）
+stopasgroup=false             # 用于停止具有子进程的进程（如Flask调试模式）
+stdout_logfile=AUTO           # 进程的标准输出文件
+stdout_logfile_maxbytes=50MB  # 日志文件轮转大小
+stdout_logfile_backups=10     # 日志轮转数量限制
+stderr_logfile=AUTO           # stderr_logfile_maxbytes/stderr_logfile_backups
+stdout_syslog=10              # 使用进程名输出到syslog / stderr_syslog
+redirect_stderr=false         # 将进程的错误输出重定向到supervisord的输出
+environment=                  # 传递给进程的环境变量
+directory=                    # 进程运行的工作目录
+</code></pre>
+<blockquote>
+<p>服务进程本身不应该以守护进程模式运行。</p>
+<p>自动重启：如果<code>autorestart=unexpected</code>，则在非手动停止进程的情况下，如果进程退出代码非<code>exitcodes</code>列出的，则重启该进程。</p>
+<p><em><code>AUTO</code> log files and their backups will be deleted when <strong>supervisord</strong> restarts.</em></p>
+<p>输出文件名为可包含变量<code>group_name</code>, <code>host_node_name</code>, <code>process_num</code>, <code>program_name</code>和<code>here</code>的Python字符串表达式。</p>
+</blockquote>
+<img src="Linux配置和管理.assets/subprocess-transitions.png" alt="Subprocess State Transition Graph" style="zoom:50%;" />
+<p>服务分组：同类型服务；</p>
+<pre><code class="language-ini">[group:foo]
+programs=bar,baz
+priority=999
+</code></pre>
+<h5 id="supervisorctl访问supervisord"><a class="header" href="#supervisorctl访问supervisord"><code>supervisorctl</code>访问<code>supervisord</code></a></h5>
+<p><code>supervisorctl</code>可访问本地（UNIX套接字）或远程的<code>supervisord</code>服务（TCP/IP套接字）。</p>
+<pre><code class="language-ini">[supervisorctl]
+serverurl=unix:///tmp/supervisor.sock  # (-s,--serverurl URL)
+# serverurl=http://127.0.0.1:9001
+username=gary        # (-u,--username NAME)
+password=gang2019    # (-p,--password)
+prompt=mysupervisor  # 命令行提示符
+</code></pre>
+<h5 id="使用web访问supervisord"><a class="header" href="#使用web访问supervisord">使用Web访问<code>supervisord</code></a></h5>
+<pre><code class="language-shell">[inet_http_server]
+port=0.0.0.0:9001
+username=gary
+password=gang2019  # or passord hash: {SHA}82ab876d1387bfafe46cc1c8a2ef074eae50cb1d
+</code></pre>
+<blockquote>
+<p>重启<code>supervisor</code>（使用<code>systemctl</code>）。</p>
+</blockquote>
+<h5 id="xml-rpc接口"><a class="header" href="#xml-rpc接口"><a href="http://supervisord.org/api.html">XML-RPC接口</a></a></h5>
+<pre><code class="language-python">from xmlrpc.client import ServerProxy
+server = ServerProxy('http://localhost:9001/RPC2')
+server.supervisor.getState()
+server.system.listMethods()
+server.system.methodHelp('supervisor.shutdown')
+</code></pre>
+<h5 id="子配置文件"><a class="header" href="#子配置文件">子配置文件</a></h5>
+<pre><code class="language-ini">[include]
+files=/path/filename.conf /path/*.conf foo.conf config??.conf
+</code></pre>
+<p><a href="http://supervisord.org/api.html#xml-rpc">XML-RPC API Documentation — Supervisor 4.2.2 documentation (supervisord.org)</a></p>
+<p><a href="http://supervisord.org/index.html">Supervisor: A Process Control System — Supervisor 4.2.4 documentation (supervisord.org)</a></p>
+<h5 id="process-monitoring-and-events"><a class="header" href="#process-monitoring-and-events">Process Monitoring and Events</a></h5>
+<p>Supervisor continually emits event notifications, and the subscribed listener will be notified.</p>
+<p>provide a mechanism for code to be run (e.g. send an email, make an HTTP request, etc) when some condition related to subprocess state is met.</p>
+<p>The event notification protocol is based on communication via a subprocess’ stdin and stdout.</p>
+<p><a href="http://supervisord.org/events.html#example-event-listener-implementation">Example Event Listener Implementation</a></p>
+<h4 id="服务管理程序对比"><a class="header" href="#服务管理程序对比">服务管理程序对比</a></h4>
+<p><code>supervisord</code>主要用于管理用户服务进程，<code>systemd</code>处理服务管理外，还支持系统中其他对象如外部设备、套接字、定时器等的管理。</p>
+<p><code>systemd</code>具有启动依赖管理控制功能，可以实现有依赖关系的一组对象的正确启动和运行管理；<code>supervisord</code>仅支持进程分组，无依赖解析功能。<code>systemd</code>具有完善的进程资源控制和系统调度策略设置，<code>supervisor</code>可实现较为简单的资源控制。</p>
+<p><code>supervisord</code>提供网络访问接口并有可用的Web访问UI，可方便普通用户实现进程管理；<code>systemd</code>需要管理权限执行管理控制功能。</p>
+<p><code>superivord</code>发布于2004年，<code>systemd</code>发布于2010年。<code>systemd</code>现在为多数Linux发行版的<code>init</code>程序，因此开箱即用。<code>supervisord</code>需要以Python库或发行版软件仓库软件的方式进行安装。</p>
+<p>对于较为简单的服务进程配置管理，<code>supervisord</code>和<code>systemd</code>都能有效实现；对于有远程管理需求的场景，<code>supervisord</code>提供网络访问接口更适合。对于复杂的服务配置管控需求以及<code>supervisor</code>不支持的管控对象，使用<code>systemd</code>更加合适。</p>
+<h2 id="网络管理"><a class="header" href="#网络管理">网络管理</a></h2>
+<h3 id="网络管理工具"><a class="header" href="#网络管理工具">网络管理工具</a></h3>
+<p><code>net-tools</code>：包含<code>arp, ifconfig, netstat, rarp, nameif and route</code>。</p>
+<p><code>ip</code>：<em>show/manipulate routing, <a href="#%E7%BD%91%E7%BB%9C%E8%AE%BE%E5%A4%87">network devices</a>, interfaces and tunnels</em>，代替<code>net-tools</code>。</p>
+<p><code>NetworkManager</code>：包含<code>NetworkManager</code>服务和命令行工具<code>nmcli</code>、<code>nmtui</code>等。</p>
+<blockquote>
+<p>与使用<code>ip</code>的功能相同，使用<code>nmcli+NetworkManager</code>将管理功能与用户交互分离。</p>
+</blockquote>
+<h4 id="networkd"><a class="header" href="#networkd"><code>networkd</code></a></h4>
+<h4 id="networkmanager"><a class="header" href="#networkmanager">NetworkManager</a></h4>
+<p><code>NetworkManager</code>用于代替已有的配置工具<code>ifconfig</code>及其配置文件。<code>NetworkManager</code>作为<code>systemd</code>服务运行（服务的配置文件为<code>/etc/NetworkManager/NetworkManager.conf</code>）。</p>
+<p><code>udev</code>设备管理器发现系统新加入设备，通知<code>NetworkManager</code>通过D-Bus来检测和初始化配置网络设备实现即插即用（配置信息动态生成并存储于内存中）。</p>
+<p>永久配置文件检查（如果未找到配置文件，则尝试从DHCP服务器获取配置信息）：</p>
+<ul>
+<li>
+<p><code>etc/sysconfig/network-scripts/ifcfg-*</code>：后向兼容<code>ifconfig</code>配置文件；</p>
+</li>
+<li>
+<p><code>/etc/NetworkManager/system-connections/</code>：<code>NetworkManager</code>配置文件。</p>
+</li>
+</ul>
+<p><code>nmcli</code>是NetworkManger的命令行工具（客户端），<code>nmtui</code>是对应的终端图形界面工具。</p>
+<blockquote>
+<pre><code class="language-shell">yum install NetworkManaget-tui  # nmcli随NetworkManager安装
+</code></pre>
+</blockquote>
+<p>图形化配置接口：</p>
+<pre><code class="language-shell">nmtui edit &lt;ifname&gt;    # in CentOS
+</code></pre>
+<blockquote>
+<p>在修改配置时，不要修改设备（<code>00:0C:29:BD:83:63 (ens32)</code>）</p>
+</blockquote>
+<h3 id="网络状态"><a class="header" href="#网络状态">网络状态</a></h3>
+<h4 id="主机名和域名"><a class="header" href="#主机名和域名">主机名和域名</a></h4>
+<p><code>hostname</code>可以读取主机的主机名、域名和对应的IP地址（<code>/etc/hostname</code>）。</p>
+<ul>
+<li><code>-A</code>：所有主机名；<code>-s</code>返回一个短主机名；<code>-f</code>返回长主机名；</li>
+<li><code>-I</code>：所有IP地址；<code>-i</code>还首先读取IPv6地址；</li>
+<li><code>-d</code>：DNS域名；</li>
+</ul>
+<blockquote>
+<p>使用<code>hostnamectl</code>设置主机名。</p>
+</blockquote>
+<h5 id="域名地址映射"><a class="header" href="#域名地址映射">域名地址映射*</a></h5>
+<pre><code class="language-shell">dig [@dns_server] domain_name
+dig -x ip_addr   # reverse lookup
+nslookup &lt;domain&gt;
+</code></pre>
+<blockquote>
+<p>支持反向查询<code>nslookup &lt;ipaddr&gt;</code>，但查询到的域名不是通常使用的域名，也可能查不到结果。</p>
+</blockquote>
+<pre><code class="language-shell">whois &lt;ipaddr|domain&gt;     # sudo apt install whois
+</code></pre>
+<blockquote>
+<p>查询IP地址/域名==所有者==。</p>
+</blockquote>
+<h4 id="网络接口信息"><a class="header" href="#网络接口信息">网络接口信息</a></h4>
+<pre><code class="language-shell">nmcli   # 代替ifconfig
+netstat -i  # 输出网络接口设备的统计信息；
+        -ie # =&gt; ifconfig
+</code></pre>
+<p>使用<code>ip</code>工具列出设备参数(<code>type,mtu,qdisc,state,mode,qlen,mac</code>)：</p>
+<pre><code class="language-shell">ip link [show] [up|down] [dev eth0] [type bridge] [master br0] # 显示链路信息
+ip address ...   # 显示链路层以及网络地址信息
+</code></pre>
+<p>使用<code>nmcli</code>查看网络接口连接：</p>
+<pre><code class="language-shell">nmcli c[onnection] [show] --active # summary table
+# NAME  UUID                                  TYPE      DEVICE
+# eth0  cb149a11-edae-3f8f-9af1-7dc541e1ac5d  ethernet  ens32
+nmcli connection show &lt;name/id&gt;  # interface details
+</code></pre>
+<blockquote>
+<p>设备未知的接口通常是由于<a href="#%E7%BC%96%E8%BE%91%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%8F%A3%E9%85%8D%E7%BD%AE">配置文件</a>存在错误。</p>
+</blockquote>
+<p>查看网络设备信息：</p>
+<pre><code class="language-shell">nmcli d[evice] [show] # summary table
+# DEVICE  TYPE      STATE      CONNECTION
+# ens33   ethernet  connected  ens33
+# lo      loopback  unmanaged  --
+nmcli device show &lt;device&gt; # device details
+</code></pre>
+<h4 id="网络通信状态信息"><a class="header" href="#网络通信状态信息">网络通信状态信息</a></h4>
+<pre><code class="language-shell">netstat -a      # 列出tcp,udp和unix协议套接字连接(默认仅显示unix套接字连接) *
+        -{t|u}  # 只列出TCP/UDP连接
+        -l      # 只列出监听中的连接
+        -p      # 列出进程ID和命令名
+        -e      # 列出进程用户和进程文件的Inode编号
+        -n      # 禁用对IP地址/端口的反向域名解析，加快查询速度
+</code></pre>
+<blockquote>
+<p><code>*</code>：需要安装<code>net-tools</code>包。</p>
+</blockquote>
+<p>示例：</p>
+<pre><code class="language-sh">sudo netstat -anp | grep ESTABLISHED   # 打印active状态的连接
+sudo netstat -anp | grep apache2       # 查看指定服务是否正常运行
+</code></pre>
+<p>通过访问套接字获取连接信息：</p>
+<pre><code class="language-shell">ss -n   # 禁止解析服务名称
+   -r   # 尝试解析地址端口信息
+   -a/l # 显示所有/监听套接字信息 
+   -m   # 显示套接字内存占用
+   -p   # 显示使用套接字的进程
+   -e   # 显示扩展信息
+   -i   # 显示TCP内部信息
+   -s   # 打印汇总信息
+   -N,--net=NSNAME # 切换网络命名空间
+   -f,--family=unix/inet/inet6/link/netlink/vsock
+</code></pre>
+<p>由于网络连接（套接字）是特殊文件，因此可以使用<code>lsof</code>查看（<code>lsof</code>用于<a href="#%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E6%89%93%E5%BC%80%E8%B5%84%E6%BA%90">列举进程打开的文件</a>）。</p>
+<pre><code class="language-shell">lsof -i -P -n
+</code></pre>
+<blockquote>
+<ul>
+<li>
+<p><code>-i [addr]</code>：列出使用互联网地址的文件（套接字）；地址格式</p>
+<p><code>[46][protocol][@hostname|hostaddr][:service|port]</code></p>
+</li>
+<li>
+<p><code>-U</code> 筛选使用UNIX套接字的进程。</p>
+</li>
+<li>
+<p><code>-P</code>：禁止将端口号解析为服务名；</p>
+</li>
+<li>
+<p><code>-n</code>：禁止将IP地址解析为主机名或域名。</p>
+</li>
+</ul>
+</blockquote>
+<h5 id="网络协议统计信息"><a class="header" href="#网络协议统计信息">网络协议统计信息</a></h5>
+<pre><code class="language-shell">netstat -s
+</code></pre>
+<h5 id="监控网络通信状态"><a class="header" href="#监控网络通信状态">监控网络通信状态</a></h5>
+<pre><code class="language-shell">iftop   # apt|yum install iftop  =&gt; 主机间通信速率
+nload   # apt|yum install nload  =&gt; 网络接口通信统计
+bmon    # apt|yum install bmon   =&gt; 系统带宽监控
+nethogs # yum install nethogs    =&gt; 进程通信统计
+</code></pre>
+<blockquote>
+<p><a href="../%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6.html#%E7%B3%BB%E7%BB%9F%E7%9B%91%E6%8E%A7%E8%BD%AF%E4%BB%B6">系统监控工具</a>也可以监控网络通信状态的基本参数。</p>
+</blockquote>
+<h5 id="网络可达性检测"><a class="header" href="#网络可达性检测">网络可达性检测</a></h5>
+<p><code>ping</code>：<em>is part of <code>iputils</code> package</em>。</p>
+<pre><code class="language-shell">ping \             # ICMP ECHO_REQUEST
+     -4|6  \       # IPv4/IPv6
+     -c count \ 
+     -D            # print timestamp before each line
+     -I interface  # 设置源地址或源接口名称
+</code></pre>
+<p><code>tracepath</code>：<em>is part of <code>iputils</code> package.</em></p>
+<pre><code class="language-shell">tracepath -4|6 -n|b # n|b 仅打印IP地址/打印主机名和IP地址
+</code></pre>
+<h3 id="网络设备链路管理"><a class="header" href="#网络设备链路管理">网络设备链路管理</a></h3>
+<h4 id="网络配置数据"><a class="header" href="#网络配置数据">网络配置数据</a></h4>
+<p>系统中可能存在的网络设备和接口配置文件：</p>
+<ul>
+<li>
+<p><code>ifup/ifdown</code>（<code>/etc/network/interfaces</code>）</p>
+</li>
+<li>
+<p><code>networkd</code></p>
+<pre><code class="language-ini">[connection]
+id=br0_eno1
+uuid=ccfcb8fa-5f16-4407-ae6c-1af6c9117265
+type=bridge
+autoconnect=false
+interface-name=br0_eno1
+permissions=
+timestamp=1650420144
+[bridge]
+stp=false
+[ipv4]
+address1=172.28.76.22/24,172.28.76.234
+dns=172.28.28.28;223.5.5.5;
+dns-priority=100
+dns-search=
+method=manual
+[ipv6]
+addr-gen-mode=stable-privacy
+dns-priority=100
+dns-search=
+method=link-local
+[proxy]
+</code></pre>
+</li>
+<li>
+<p><code>ifconfig</code>（<code>etc/sysconfig/network-scripts/ifcfg-*</code>）</p>
+<pre><code class="language-ini">TYPE=Ethernet
+NAME=eth0                # 应该和配置文件后缀匹配
+DEVICE=ens33             # 绑定的设备名
+UUID=a016f249-6703-42eb-a207-e40f80de212f # 绑定的设备UUID
+HWADDR=84:16:f9:03:fd:85 # 绑定的设备MAC(old)
+IPADDR=192.168.2.203
+PREFIX=24                # &lt;-&gt; NETMASK
+GATEWAY=192.168.178.2
+DNS1=223.5.5.5
+DNS2=8.8.8.8
+ONBOOT=yes
+BOOTPROTO=static  # dhcp|bootp|none|static
+</code></pre>
+</li>
+<li>
+<p><code>NetworkManager</code>（<code>/etc/NetworkManager/system-connections</code>）</p>
+</li>
+</ul>
+<h5 id="netplan"><a class="header" href="#netplan">netplan</a></h5>
+<p><code>netplan</code>在系统启动早期将配置信息解析并提供给系统的网络管理服务（如<code>NetworkManager</code>）。</p>
+<ul>
+<li>默认由<code>systemd-networkd</code>管理网络设备，其他服务如<code>NetworkManager</code>可替代其功能。</li>
+</ul>
+<p><code>netplan</code>配置文件位于<code> /{lib,etc,run}/netplan/*.yaml</code>：</p>
+<ul>
+<li>对于不同目录下的同名配置文件，仅读取最高优先级目录下的文件（<code>/run&gt;/etc&gt;/lib</code>）；</li>
+<li>对于不同名文件，将按文件名字典顺序读取配置文件，并将新内容追加/覆盖已读取内容。</li>
+</ul>
+<p>配置文件格式（YAML）：</p>
+<pre><code class="language-yaml">network:  # 网络配置的根节点
+    renderer: networkd|NetworkManager  #  networking backend, 
+    ethernets:  # 设备分组, 如: ethernet, modem, wifi
+        ens33:  # 设备ID
+            dhcp4: false
+            dhcp6: true
+            addresses:
+                - 192.168.0.200/24 # IPv4
+                    lifetime: 0
+                    label: &quot;maas&quot;
+                - &quot;2001:1::1/64&quot;   # IPv6
+            gateway4: 192.168.0.1  #! deprecated
+            gateway6: &quot;2001:4::1&quot;  #! deprecated
+            routes:   # 静态路由*
+                - to: default # could be 0/0 or 0.0.0.0/0 optionally 默认路由
+                  via: 192.168.0.1  # 默认网关
+                  metric: 100
+                  on-link: true
+                - to: default # could be ::/0 optionally
+                  via: cf02:de:ad:be:ef::2
+            nameservers:  # 手动地址配置时设置
+                addresses: [ 223.5.5.5, &quot;FEDC::1&quot; ]
+                search: [lab, home]  #**
+            match:
+                macaddress: 52:54:00:6b:3c:58 
+            macaddress: 52:54:00:6b:3c:59  # 修改匹配设备的MAC地址
+            mtu: 1500   # 修改匹配设备的MAC地址
+            
+    version: 2
+</code></pre>
+<p>应用配置文件：</p>
+<pre><code class="language-shell">sudo netplan generate  # 生成后端配置文件
+sudo netplan apply     # 直接应用配置
+sudo netplan try       # validate the config and then apply
+</code></pre>
+<h4 id="物理链路管理"><a class="header" href="#物理链路管理">物理链路管理</a></h4>
+<h5 id="创建和删除链路"><a class="header" href="#创建和删除链路">创建和删除链路</a></h5>
+<pre><code class="language-shell">ip link add \     # 添加虚拟链路
+   link DEVICE \  # 指定物理设备(某些链路类型无物理设备，如IP-over-IP)
+   name NAME \    # 默认为物理设备名称
+   type TYPE \    # 链路类型：bridge,veth,vlan,macvlan,mactap,ip6tnl,gre,...
+   index ID       # 链路编号
+</code></pre>
+<blockquote>
+<p>其他参数包括：<code>mtu,address,broadcast,txqueuelen,numtxqueues,numrxqueues,... </code>。</p>
+<p>不同类型链路采用不同的数据链路层协议。</p>
+</blockquote>
+<pre><code class="language-shell">ip link delete {dev NAME|group GROUP} type TYPE
+</code></pre>
+<pre><code class="language-shell">nmcli connection add type &lt;type&gt; ifname &lt;ifname&gt; ... # 创建链路
+nmcli connection delete &lt;ifname&gt; 
+</code></pre>
+<h5 id="配置链路参数"><a class="header" href="#配置链路参数">配置链路参数</a></h5>
+<pre><code class="language-shell">ip link set [dev NAME] [group GROUP] prop VALUE 
+ip address {add|change|replace} IFADDR dev NAME  # 配置IP地址
+</code></pre>
+<p>如果指定了<code>group</code>则修改设备所属分组，如果未指定设备，则修改分组中所有设备的属性。配置了IP地址的链路能够使用IP协议进行通信。</p>
+<pre><code class="language-shell">nmcli connection modify &lt;ifname&gt; [+-]ipv4.addresses 192.168.0.58[/24]
+nmcli connection modify &lt;ifname&gt; [+-]ipv4.dns 114.114.114.114
+nmcli connection modify &lt;ifname&gt; [-]ipv4.gateway 192.168.0.2
+# ipv4.method manual must be supplied with address
+nmcli connection modify &lt;ifname&gt; ipv4.method manual \
+                                 ipv4.addresses 192.168.0.58/24 
+nmcli edit &lt;ifname/id&gt;  # 交互式编辑模式,查看和编辑配置项                                 
+</code></pre>
+<h5 id="启用和停用链路"><a class="header" href="#启用和停用链路">启用和停用链路</a></h5>
+<pre><code class="language-shell">nmcli c reload
+nmcli c up &lt;interface&gt;    # if interface exist
+</code></pre>
+<h4 id="虚拟网桥管理"><a class="header" href="#虚拟网桥管理">虚拟网桥管理</a></h4>
+<h5 id="创建和配置虚拟网桥"><a class="header" href="#创建和配置虚拟网桥">创建和配置虚拟网桥</a></h5>
+<pre><code class="language-shell">ip link add BRIDGE_NAME type bridge 
+brctl addbr BRIDGE_NAME
+nmcli connection add type bridge CONN_NAME BRIDGE_NAME ifname BRIDGE_NAME
+</code></pre>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_networking/configuring-a-network-bridge_configuring-and-managing-networking">Chapter 12. Configuring a network bridge Red Hat Enterprise Linux 8 | Red Hat Customer Portal</a></p>
+<h5 id="将网卡绑定至网桥"><a class="header" href="#将网卡绑定至网桥">将网卡绑定至网桥</a></h5>
+<pre><code class="language-shell">ip link set dev IFNAME master BRIDGE_NAME
+nmcli connection modify DEVICE_NAME master BRIDGE_NAME
+nmcli connection add type ethernet slave-type bridge CONN_NAME DEVICE_NAME ifname IF_NAME master bridge0
+</code></pre>
+<h4 id="虚拟网卡管理"><a class="header" href="#虚拟网卡管理">虚拟网卡管理</a></h4>
+<h5 id="tap网卡"><a class="header" href="#tap网卡">tap网卡</a></h5>
+<pre><code class="language-shell">ip tuntap add dev tap1 mode tap
+</code></pre>
+<p>Tap网卡创建是临时的，如果要永久生效，可将上述命令添加到开机启动命令（如<code>rc.local</code>）。</p>
+<p><a href="https://superuser.com/questions/854401/how-to-make-tap-interfaces-persistent-after-reboot">linux - How to make tap interfaces persistent after reboot? - Super User</a></p>
+<h3 id="防火墙"><a class="header" href="#防火墙">防火墙</a></h3>
+<p>Linux内核使用<a href="%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86.html#Netfilter/iptables">Netfilter/iptables</a>过滤包，其中<code>iptables</code>为用户交互接口（<code>iptable-services</code>）。</p>
+<h4 id="防火墙规则管理"><a class="header" href="#防火墙规则管理">防火墙规则管理</a></h4>
+<pre><code class="language-shell">iptables -t,--table TABLE -OP CHAIN rule_spec  # 链名为大写，表名为小写
+</code></pre>
+<p><code>-t TABLE</code>：指定访问的<a href="%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86.html#%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F-%E8%A1%A8">表</a>（省略则查看<code>filter</code>表）；</p>
+<p><code>-OP CHAIN</code>：指定访问的<a href="%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86.html#%E5%A4%84%E7%90%86%E4%BD%8D%E7%BD%AE-%E9%93%BE">链</a>（省略链名则查看所有链）及其操作（例如<code>-L FORWARD</code>）；</p>
+<h5 id="查询规则"><a class="header" href="#查询规则">查询规则</a></h5>
+<pre><code class="language-sh">iptables -t TABLE -L,--list CHAIN -v -n --line-number -x  # 列出所有规则
+iptables -t TABLE -C,--check CHAIN RULE_SPEC  # 检查指定规则是否存在
+</code></pre>
+<p><code>-n</code>：不反向解析IP地址（显示IP地址而非域名，加快速度）；
+<code>--line,--line-number</code>：显示规则编号；
+<code>-v</code>：显示更多信息（分组数、字节数等）；
+<code>-x</code>：显示精确的计数，而非经过单位转换的数据。</p>
+<h5 id="管理规则"><a class="header" href="#管理规则">管理规则</a></h5>
+<pre><code class="language-sh">iptables -I,--insert  CHAIN [NUM] RULE -j TARGET # 在表首部插入一条规则
+iptables -A,--append  CHAIN       RULE -j TARGET # 在表尾部插入一条规则
+iptables -R,--replace CHAIN  NUM  RULE -j TARGET # 替换指定编号的规则
+iptables -D,--delete  CHAIN       RULE -j TARGET # 删除匹配条件的规则
+iptables -D           CHAIN  NUM                 # 删除指定编号的规则
+iptables -F,--flush   CHAIN                      # 清空表中的规则
+</code></pre>
+<blockquote>
+<p>默认的表为<code>-t filter</code>。</p>
+</blockquote>
+<p>添加相同的规则不会覆盖已有规则，可用以下命令修改已有规则的动作：</p>
+<pre><code class="language-sh">iptables -t filter -R INPUT 2 &lt;rules&gt; -j &lt;traget&gt;  # 修改指定规则的动作
+</code></pre>
+<blockquote>
+<p>必须指定要修改规则的条件，否则该规则的条件将变为默认值（例如IP将变为<code>anywhere</code>）。</p>
+</blockquote>
+<p>修改默认策略</p>
+<pre><code class="language-sh">iptables -t filter -P FORWARD DROP
+</code></pre>
+<h5 id="黑白名单机制"><a class="header" href="#黑白名单机制">黑白名单机制</a></h5>
+<p>黑名单：将默认策略设置为<code>ACCEPT</code>；在规则中添加阻止策略。</p>
+<p>白名单：将默认策略设置为<code>DROP</code>，在规则中添加允许策略。</p>
+<blockquote>
+<p>默认策略设置为<code>DROP</code>的缺点：在对应的链中没有设置任何规则时，管理员也会把自己拒之门外；即使对应的链中存在放行规则，当不小心使用&quot;<code>iptables -F</code>&quot;清空规则时，放行规则被删除，则所有数据包都无法进入。所以，如果想要使用&quot;白名单&quot;的机制，最好将链的默认策略保持为&quot;<code>ACCEPT</code>&quot;，然后将&quot;拒绝所有请求&quot;这条规则放在链的尾部，将&quot;放行规则&quot;放在前面，这样做，既能实现&quot;白名单&quot;机制，又能保证在规则被清空时，管理员还有机会连接到主机。</p>
+</blockquote>
+<h5 id="自定义链"><a class="header" href="#自定义链">自定义链</a></h5>
+<p>自定义链仅对应一种类型的表，自定义链中规则配置方式与默认链相同。</p>
+<pre><code class="language-sh">iptables -t filter -N,--new-chain IN_WEB   # 创建用于filter表的自定义链
+iptables -E,--rename-chain IN_WEB WEB      # 重命名
+iptables -X,--delete-chain WEB             # 删除自定义链，需未被引用且不包含任何规则
+iptables -t filter -I INPUT RULE -j IN_WEB # 引用自定义链
+</code></pre>
+<h5 id="保存规则"><a class="header" href="#保存规则">保存规则</a></h5>
+<p>通过<code>iptables</code>对规则的修改并非永久生效，当重启<code>iptables</code>服务或者重启服务器以后规则便失效了。如果想要修改永久生效，必须使用<code>service iptables save</code>保存规则，如果误操作了规则但是并没有保存，那么使用<code>service iptables restart</code>命令重启<code>iptables</code>以后即恢复修改前的状态。</p>
+<blockquote>
+<p>目前的发现版多数已用防火墙软件（如<code>CentOS/firewall</code>、<code>Ubuntu/ufw</code>）代替了<code>iptable-services</code>了，因此使用上述方法需要安装该服务。</p>
+</blockquote>
+<pre><code class="language-sh">iptables-save     # 将防火墙规则导出到标准输出
+iptables-restore  # 从标准输入导入防火墙规则
+</code></pre>
+<h4 id="包匹配条件"><a class="header" href="#包匹配条件">包匹配条件</a></h4>
+<p>多个条件之间具有<code>AND</code>关系，使用<code>!</code>对条件取反。</p>
+<p><strong>基本匹配条件</strong>：</p>
+<pre><code class="language-sh"># IP地址
+-s sip1,sip2 -d dip1
+-s ip/mask
+# 协议类型
+-p tcp # all, tcp, udp, udplite, icmp, icmpv6,esp, ah, sctp, mh
+# 网卡接口
+-i eth0 -o eth1
+</code></pre>
+<blockquote>
+<p><code>-i</code>选项只能用于上图中的<code>PREROUTING</code>链、<code>INPUT</code>链、<code>FORWARD</code>链；<code>-o</code>选项只能用于<code>FORWARD</code>链、<code>OUTPUT</code>链、<code>POSTROUTING</code>链。</p>
+</blockquote>
+<p><strong>扩展匹配条件</strong>：由<code>netfilter</code>的扩展模块处理的条件。</p>
+<pre><code class="language-sh"># 端口
+-m tcp --sport 1:1024 --dport 22     # 需要指定扩展模块tcp, udp, icmp
+-m tcp --sport :1024 --dport 10000:  # 可省略一个端口边界参数
+-m multiport --dports 22,36,80:100
+# IP范围
+-m iprange --src-range 192.168.1.127-192.168.1.146  # --dst-range
+# 字符串：匹配报文中包含的字符串
+-m string --algo bm --string xyz
+# time
+-m time --datestart 2017-12-24 --datestop 2017-12-27
+-m time --timestart 09:00:00 --timestop 18:00:00
+-m time --weekdays 6,7 --monthdays 22,23
+</code></pre>
+<blockquote>
+<p>当扩展模块的名称与协议名称相同的情况下，如果已经指定了协议，则可以省略模块选项。</p>
+<p><code>--algo</code>指定字符串匹配算法，可选算法有<code>bm</code>与<code>kmp</code>。</p>
+</blockquote>
+<pre><code class="language-sh"># connlimit 限制连接数量
+-m connlimit --connlimit-above 2 --connlimit-mask 24 -j DROP
+</code></pre>
+<blockquote>
+<p><code>--connlimit-mask</code>表示对一个网段施加连接数限制（未指定时为对每个IP的连接数进行限制）</p>
+</blockquote>
+<pre><code class="language-sh"># limit 使用令牌桶限制报文速率
+-p icmp -m limit --limit 10/minute -j ACCEPT
+-p icmp -m limit --limit-burst 3 --limit 10/minute -j ACCEPT
+</code></pre>
+<blockquote>
+<p><code>--limit</code>：报文允许的速率（令牌的生成速率，单位可以是<code>second</code>,<code>minute</code>,<code>hour</code>,<code>day</code>）；
+<code>--limit-burst</code>：允许的突发流量（令牌桶的容量，默认值为5）；</p>
+<p>需要添加一条默认<code>DROP/REJECT</code>的规则，以丢弃超过速率限制的包。</p>
+</blockquote>
+<p>其他扩展条件：<code>tcp-flags</code>、<code>state</code></p>
+<p>http://www.zsythink.net/archives/1578</p>
+<h4 id="动作-1"><a class="header" href="#动作-1">动作</a></h4>
+<p><code>REJECT</code>可以附加发送一个ICMP响应报文。</p>
+<pre><code class="language-sh">-j REJCT --reject-with icmp-host-unreachable
+</code></pre>
+<pre><code class="language-sh">-j LOG --log-prefix &quot;logname&quot; --log-level alert
+</code></pre>
+<blockquote>
+<p><code>LOG</code>动作默认将报文的相关信息记录在<code>/var/log/message</code>文件中，通过修改<code>/etc/rsyslog.conf</code>（或<code>/etc/syslog.conf</code>），</p>
+<pre><code class="language-sh">kern.warning /var/log/iptables.log
+</code></pre>
+<p><code>--log-level</code>：<code>emerg</code>，<code>alert</code>，<code>crit</code>，<code>error</code>，<code>warning</code>，<code>notice</code>，<code>info</code>，<code>debug</code>。</p>
+</blockquote>
+<h4 id="端口管理"><a class="header" href="#端口管理">端口管理</a></h4>
+<pre><code class="language-sh">sudo vi /etc/sysconfig/iptables
+</code></pre>
+<h5 id="端口权限"><a class="header" href="#端口权限">端口权限</a></h5>
+<p>小于1024的端口号（特权端口）不允许非root用户打开，以防恶意程序占用这些端口建立恶意服务。</p>
+<p>如果用户需要使用这些端口，解决方法包括：</p>
+<ol>
+<li>
+<p>使用Apache或nginx作为代理服务器；</p>
+</li>
+<li>
+<p>使用iptables设置防火墙规则，<a href="https://confluence.atlassian.com/confkb/permission-denied-error-when-binding-a-port-290750651.html">使得低端口在内部自动转发至高端口</a>；</p>
+</li>
+<li>
+<p>jsvc</p>
+</li>
+<li>
+<p>authbind</p>
+</li>
+<li>
+<p><a href="https://superuser.com/questions/710253/allow-non-root-process-to-bind-to-port-80-and-443#">设置文件打开端口的权限</a></p>
+<pre><code class="language-shell">sudo setcap CAP_NET_BIND_SERVICE=+eip /path/to/binary
+</code></pre>
+</li>
+</ol>
+<h3 id="路由配置"><a class="header" href="#路由配置">路由配置</a></h3>
+<h4 id="转发功能"><a class="header" href="#转发功能">转发功能</a></h4>
+<p>开启防火墙的转发功能。</p>
+<pre><code class="language-sh">echo 1 &gt; /proc/sys/net/ipv4/ip_forward  # 设置为1开启转发，0关闭转发
+sysctl -w net.ipv4.ip_foward=1
+</code></pre>
+<p>上述方式为设置系统运行时变量，要永久生效需要修改系统配置。</p>
+<blockquote>
+<p>Ubuntu使用<code>ufw</code>管理防火墙规则，其配置文件在<code>/etc/ufw/sysctl.conf</code>，其中对应的配置项为：</p>
+<pre><code class="language-shell">net/ipv4/ip_forward=1
+net/ipv6/conf/default/forwarding=1
+net/ipv6/conf/all/forwarding=1
+</code></pre>
+<p>CentOS7中配置<code>/usr/lib/sysctl.d/00-system.conf</code>，并设置<code>net.ipv4.ip_forward=1</code>。</p>
+</blockquote>
+<p>设置<a href="%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86.html#%E5%86%85%E6%A0%B8%E9%98%B2%E7%81%AB%E5%A2%99">防火墙转发规则</a>：</p>
+<pre><code class="language-sh">iptables -I FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT
+</code></pre>
+<h4 id="nat"><a class="header" href="#nat">NAT</a></h4>
+<pre><code class="language-sh"># SNAT: 将源内网地址映射到公网地址
+iptables -t nat -A POSTROUTING -s 10.1.0.0/16 -o eth0 -j SNAT --to-source 192.168.1.146 
+# 动态SNAT: 动态将源内网地址映射到动态变化的公网地址
+iptables -t nat -A POSTROUTING -s 10.1.0.0/16 -o eth0 -j MASQUERADE 
+# DNAT: 将目的公网地址+端口映射到内网地址+端口
+iptables -t nat -I PREROUTING \
+  -d 192.168.1.146 -p tcp --dport 3389 -j DNAT --to-destination 10.1.0.6:3389
+</code></pre>
+<blockquote>
+<p>DNAT在理论上只配置DNAT规则即可，但是如果在测试时无法正常DNAT，可以尝试增加对应的SNAT，此处按照配置SNAT的流程进行。</p>
+<p>如果没有动态SNAT的需求，没有必要使用<code>MASQUERADE</code>，因为SNAT更加高效。</p>
+</blockquote>
+<h5 id="本机端口转发"><a class="header" href="#本机端口转发">本机端口转发</a></h5>
+<pre><code class="language-sh">iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8080 # INPUT
+iptables -t nat -A OUTPUT -p tcp --dport 80 -j REDIRECT --to-port 8080      # LOCAL
+iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 1186 -j DNAT --to-destination 127.0.0.1:1186
+</code></pre>
+<blockquote>
+<p>将访问本机80端口的请求重定向到本机的8080端口（修改目标端口）。</p>
+</blockquote>
+<p>如果要从外部访问本机<code>localhost</code>监听的端口，可使用DNAT将地址和端口映射到本机换回地址和相应端口（需要开启本地换回路由：<code>sysctl -w net.ipv4.conf.&lt;ifname&gt;.route_localnet=1</code> ，<code>ifname</code>为输入网络接口）。</p>
+<h4 id="路由表"><a class="header" href="#路由表">路由表</a></h4>
+<h5 id="获取路由信息"><a class="header" href="#获取路由信息">获取路由信息</a></h5>
+<pre><code class="language-shell">ip {r|route}
+#default via 192.168.178.2 dev ens32 proto static
+#default via 172.28.76.234 dev ens33 scope link metric 1
+#172.28.76.0/24 dev ens33 proto kernel scope link src 172.28.76.234
+#192.168.178.0/24 dev ens32 proto kernel scope link src 192.168.178.40
+</code></pre>
+<p>表格形式：</p>
+<pre><code class="language-shell">route [-nee]   
+#Destination    Gateway        Genmask       Flags  Metric ...  Iface
+#0.0.0.0        192.168.178.2  0.0.0.0        UG      0    ...  ens32
+#0.0.0.0        172.28.76.234  0.0.0.0        UG      1    ...  ens33
+#172.28.76.0    0.0.0.0        255.255.255.0  U       0    ...  ens33
+#192.168.178.0  0.0.0.0        255.255.255.0  U       0    ...  ens32
+netstat -r -n
+#Kernel IP routing table
+#Destination    Gateway        Genmask        Flags MSS Window irtt Iface
+#0.0.0.0        172.28.76.234  0.0.0.0        UG      0 0         0 ens33
+#172.28.76.0    0.0.0.0        255.255.255.0  U       0 0         0 ens33
+</code></pre>
+<blockquote>
+<p><code>ee</code>：显示更多信息。</p>
+</blockquote>
+<ul>
+<li>
+<p>路由类型</p>
+<p>主机路由：掩码为32位；
+网络路由：
+默认路由：目标为<code>0.0.0.0/0.0.0.0</code>。当主机不能在路由表中查找到目标主机的IP地址或网络路由时，数据包就被发送到默认路由（默认网关）上。</p>
+</li>
+<li>
+<p>Flags说明：
+<code>U</code> (route is up)：活动路由；
+<code>H</code> (target is host)：目的地址是主机；
+<code>G</code> (use gateway)： 需要网关转发；</p>
+</li>
+<li>
+<p><code>Metric</code>：路由距离，到达指定网络所需的中转数。</p>
+</li>
+<li>
+<p><code>Iface</code>: 当前路由会使用哪个接口来发送数据</p>
+</li>
+</ul>
+<h5 id="配置静态路由"><a class="header" href="#配置静态路由">配置静态路由</a></h5>
+<pre><code class="language-shell">route [add|del] [-net | -host] target [netmask Nm] [gw Gw] [[dev] If]
+route add default gw 192.168.1.1
+route add -net 5.0.0.0 netmask 255.0.0.0 reject # 设置到指定网络为不可达
+</code></pre>
+<blockquote>
+<p>没有修改已有路由的命令（例如修改metric），需要先删除再添加一条。</p>
+</blockquote>
+<p>上述命令仅在当前运行环境中有效，要永久保存需要将其添加至文件中。可直接在在<code>/etc/rc.local</code>中添加上述命令，则开机会自动添加静态路由，但如果开机状态下重启网络服务则不会再次执行<code>/etc/rc.local</code>，导致静态路由失效。</p>
+<p>另一种方式是编辑<code>/etc/sysconfig/static-routes</code>（CentOS/Fedora），该文件由网络服务自动加载。</p>
+<pre><code class="language-shell">any -net 192.56.76.0 netmask 255.255.255.0 dev eth0
+</code></pre>
+<blockquote>
+<p>由<code>any</code>开头的行将被解释为静态路由项。</p>
+<blockquote>
+<p>Ubuntu静态路由配置？</p>
+</blockquote>
+</blockquote>
+<p><code>ip</code>工具包用于替换<code>route</code>等管理工具：</p>
+<pre><code class="language-shell">ip route {add|del|change|append|replace} ROUTE
+#  ROUTE= [TYPE] NETWORK/MASK [via [FAMILY] GW_IP] [dev DEVICE] [weight NUM]
+ip route add default via 192.168.1.1 dev eth0  # 设置默认路由
+</code></pre>
+<p><code>TYPE</code>：路由类型，包括<code>unicast,mulitcast,broadcast,nat,local,...</code>；</p>
+<p><code>FAMILY</code>：协议族：<code> inet,inet6,mpls,bridge,link</code>；</p>
+<h3 id="本地网络代理"><a class="header" href="#本地网络代理">本地网络代理</a></h3>
+<p>可配置系统范围（<code>/etc/environment</code>）或用户范围（<code>~/.bashrc</code>或<code>~/.profile</code>）。</p>
+<pre><code class="language-shell">export http_proxy=&quot;http://USERNAME:PASSWORD@proxy.server.net:port/&quot;
+export https_proxy=&quot;http://proxy.server.net:port/&quot;
+export ftp_proxy=&quot;http://proxy.server.net:port/&quot;
+export no_proxy=&quot;localhost, 127.0.0.1, 192.168.178.4&quot;  #*
+</code></pre>
+<blockquote>
+<p><code>*</code>：<code>no_proxy</code>不支持通配符，如果要写一个网段，只能逐个地址列出。<a href="https://unix.stackexchange.com/questions/23452/set-a-network-range-in-the-no-proxy-environment-variable"><code>no_proxy</code>主要用于匹配域名后缀，而非IP地址（前缀）</a>。</p>
+</blockquote>
+<p>如果是系统范围代理，还需设置<code>/etc/sudoers.d/proxy</code>，避免环境变量被覆盖。</p>
+<pre><code class="language-shell">Defaults env_keep+=&quot;http_proxy https_proxy no_proxy&quot;
+</code></pre>
+<h3 id="网络服务"><a class="header" href="#网络服务">网络服务</a></h3>
+<pre><code class="language-sh">systemctl restart networking
+</code></pre>
+<h4 id="常用网络服务"><a class="header" href="#常用网络服务">常用网络服务</a></h4>
+<p>远程访问</p>
+<h4 id="x-window"><a class="header" href="#x-window">X-Window</a></h4>
+<p><a href="https://wiki.ubuntu.org.cn/%E7%90%86%E8%A7%A3_Xwindow">https://wiki.ubuntu.org.cn/%E7%90%86%E8%A7%A3_Xwindow</a></p>
+<h2 id="安全"><a class="header" href="#安全">安全</a></h2>
+<h3 id="内核强制访问控制"><a class="header" href="#内核强制访问控制">内核强制访问控制</a></h3>
+<p>Both SELinux and AppArmor supports the Type Enforcement security model, which is a type of mandatory access control, based on rules where <strong>subjects (processes or users) are allowed to access objects (files, directories, sockets, etc.)</strong>. </p>
+<p><a href="https://www.tecmint.com/mandatory-access-control-with-selinux-or-apparmor-linux/">Implementing Mandatory Access Control with SELinux or AppArmor in Linux (tecmint.com)</a></p>
+<h4 id="security-enhanced-linux"><a class="header" href="#security-enhanced-linux">Security Enhanced Linux</a></h4>
+<p>SELinux支持更强的访问控制。</p>
+<p>查看SELinux状态：</p>
+<pre><code class="language-sh">getenforce
+sestatus -v
+</code></pre>
+<p>临时关闭（设置成<code>permissive</code>模式，仅产生日志不进行控制）：</p>
+<pre><code class="language-sh">sudo setenforce 0	# setenforce 1 =&gt; enforcing mode 
+</code></pre>
+<p>永久关闭：</p>
+<pre><code class="language-sh"># sudo vi /etc/selinux/config
+SELINUX=disabled   # SELINUX=enforcing|permissive|disabled
+</code></pre>
+<h5 id="selinux策略"><a class="header" href="#selinux策略">SELinux策略</a></h5>
+<p>查看<code>boolean</code>策略状态：</p>
+<pre><code class="language-shell">getsebool -a [se_boolean_entry]
+</code></pre>
+<p>设置<code>boolean</code>策略：</p>
+<pre><code class="language-shell">setsebool -PV se_bool_entry value  # (1|true|on,0|false|off)
+</code></pre>
+<h4 id="apparmor"><a class="header" href="#apparmor">Apparmor</a></h4>
+<p>AppArmor是与SELinux类似的一个访问控制系统，通过它你可以指定程序可以读、写或运行哪些文件，是否可以打开网络端口等。</p>
+<p><a href="http://www.361way.com/linux-apparmor/3646.html">linux内核强制访问控制－－Apparmor - 运维之路 (361way.com)</a></p>
+<p><a href="http://www.361way.com/apparmor-selinux/3648.html">AppArmor与SELinux - 运维之路 (361way.com)</a></p>
+<h3 id="数字证书"><a class="header" href="#数字证书">数字证书</a></h3>
+<h4 id="安装证书"><a class="header" href="#安装证书">安装证书</a></h4>
+<p>系统信任证书目录位于<code>/usr/local/share/ca-certificates</code>。将证书文件置于该目录下，并将权限设置为<code>644</code>。</p>
+<pre><code class="language-shell">sudo apt install ca-certificates
+sudo update ca-certificates   # needs super user privilege
+</code></pre>
+<h4 id="生成证书和私钥"><a class="header" href="#生成证书和私钥">生成证书和私钥</a></h4>
+<p>OpenSSL是一个非常有用的开源命令行工具包，可用于 <a href="https://www.ssl.com/zh-CN/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BB%80%E4%B9%88%E6%98%AFx-509%E8%AF%81%E4%B9%A6/">X.509</a> 证书，证书签名请求（CSRs）和加密密钥。</p>
+<pre><code class="language-sh">openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365
+openssl x509 -in cert.pem -text -noout  # 查看证书结构信息
+</code></pre>
+<blockquote>
+<p><code>key.pem</code>为私钥；<code>cert.pem</code>为证书（包含公钥）；生成签名过程设置的密码是在使用密钥的时候使用。</p>
+<p>使用私钥和证书需要输入制作时设置的密码。</p>
+<p><a href="%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86.html#%E6%95%B0%E5%AD%97%E8%AF%81%E4%B9%A6">PEM格式</a>。</p>
+</blockquote>
+<h5 id="详细步骤"><a class="header" href="#详细步骤">详细步骤</a></h5>
+<p>Create an RSA Keypair：</p>
+<pre><code class="language-sh">sudo apt install openssl
+openssl genrsa -des3 -passout pass:PASSWORD -out keypair.key 2048
+</code></pre>
+<p>Extract the Private Key：</p>
+<pre><code class="language-sh">openssl rsa -passin pass:PASSWORD -in keypair.key -out private.key
+</code></pre>
+<p>Creating a “Certificate Signing Request” or <code>CSR</code> File：</p>
+<pre><code class="language-sh">openssl req -new -key private.key -out service.csr
+</code></pre>
+<p>Creating the Certificate “<code>.crt</code>” File：</p>
+<pre><code class="language-sh">openssl x509 -req -days 365 -in service.csr -signkey private.key -out service.crt
+</code></pre>
+<p>https://www.rosehosting.com/blog/how-to-generate-a-self-signed-ssl-certificate-on-linux/</p>
+<p>https://www.linux.com/tutorials/creating-self-signed-ssl-certificates-apache-linux/</p>
+<h3 id="ssltls"><a class="header" href="#ssltls">SSL/TLS</a></h3>
+<h2 id="权限管理"><a class="header" href="#权限管理">权限管理</a></h2>
+<h3 id="用户管理"><a class="header" href="#用户管理">用户管理</a></h3>
+<h4 id="创建用户"><a class="header" href="#创建用户">创建用户</a></h4>
+<pre><code class="language-shell">useradd -m -c &quot;FULL NAME&quot; -g GROUP USERNAME   # [lowlevel]
+adduser --home DIR --shell SHELL --ingroup GROUP USERNAME 
+</code></pre>
+<blockquote>
+<p><code>adduser</code>在Debian系发行版上重新封装了底层<code>useradd</code>命令，其他发行版上是<code>useradd</code>的别名。以下均为<code>useradd</code>选项。</p>
+<p>有效用户名模式：<code>[a-z_][a-z0-9_-]*[$]?</code>，长度不超过32。</p>
+<p><code>-c &quot;COMMENT&quot;</code>：通常用于设置用户名全称；</p>
+<p><code>-s,--shell SHELL</code> 用户的登录shell程序，<code>/etc/default/useradd#SHELL</code>（<code>chsh</code>）。</p>
+</blockquote>
+<h5 id="用户目录"><a class="header" href="#用户目录">用户目录</a></h5>
+<ul>
+<li><code>-b,--base-dir BASE_DIR</code>：用户主目录的根目录路径，默认值为<code>/etc/default/useradd#HOME=/home</code>；</li>
+<li><code>-d,--home-dir HOME_DIR</code>：用户主目录路径，默认值为<code>$BASE_DIR/USERNAME</code>；</li>
+<li>使用<code>-m,--create-home</code>保证创建用户目录；<code> -M,--no-create-home</code>不创建用户目录（通常用于运行系统服务的非登录用户）；</li>
+</ul>
+<h5 id="用户组"><a class="header" href="#用户组">用户组</a></h5>
+<ul>
+<li><code>-g,--gid GROUP</code>：用户的初始登录组（<em>primary group</em>：ID或名称，必须存在）。
+如果未指定该选项，默认（<code>/etc/login.defs#USERGROUPS_ENAB=yes</code>）会自动创建与用户名同名的组（等效于指定<code>-U,--create-user-group</code>选项）；如果<code>USERGROUPS_ENAB=no</code>，则新用户的主要组设置为<code>/etc/default/useradd#GROUP=100</code>。</li>
+<li><code>-G,--groups groupname[,...]</code>：将用户<a href="#%E7%BB%84%E7%AE%A1%E7%90%86">添加至组</a>（<em>supplementary groups</em>）；</li>
+</ul>
+<h5 id="账户和密码有效性"><a class="header" href="#账户和密码有效性">账户和密码有效性</a></h5>
+<ul>
+<li><code>-f,--inactive DAYS</code>：密码过期后账户被禁用前的天数。</li>
+<li><code>-e,--expiredate YYYY-MM-DD</code>：账户失效（禁用）日期，默认值为<code>/etc/default/useradd#EXPIRE=''</code>（不失效）；</li>
+</ul>
+<h4 id="修改用户"><a class="header" href="#修改用户">修改用户</a></h4>
+<p>使用<code>usermod</code>修改用户属性（多数属性对应的选项与<code>useradd</code>相同)。</p>
+<pre><code class="language-shell">usermod -a,--append -G GROUPNAME  # 将用户添加到supplementary groups
+usermod -l,--login NAME # 修改登录名 
+usermod -m,--move-home -d,--home HOME  # (移动)修改用户主目录
+</code></pre>
+<h5 id="设置账户有效期限"><a class="header" href="#设置账户有效期限">设置账户有效期限</a></h5>
+<pre><code class="language-shell">usermod -e,--expiredate YYYY-MM-DD/N/-1 USER # 设置失效日期*
+chage   -E,--expiredate YYYY-MM-DD/N/-1 USER  
+</code></pre>
+<blockquote>
+<p><code>*</code>：<code>N</code>表示自1970年1月1日的天数。</p>
+</blockquote>
+<p>此外，<a href="#%E5%AF%86%E7%A0%81%E6%9C%89%E6%95%88%E6%9C%9F%E9%85%8D%E7%BD%AE">账户密码失效</a>后账户也会处于失效状态。</p>
+<h5 id="设置和更新密码"><a class="header" href="#设置和更新密码">设置和更新密码</a></h5>
+<p>创建用户时默认禁用密码。使用<code>passwd</code>设置和更新密码（<code>root</code>账号可修改普通用户的密码，用户忘记密码可通过<code>root</code>帐号使用<code>passwd</code>指令来处理即可）。</p>
+<pre><code class="language-sh">passwd username
+usermod -p,--password ENCRYPT_PASSWORD
+passwd -d,--delete  # 删除(置空)用户密码
+</code></pre>
+<blockquote>
+<p>如果<code>root</code>帐号忘记了，可以进入单人维护模式，此时系统会给予提供<code>root</code>权限的<code>bash</code>接口，再用<code>passwd</code>修改密码；或者利用Live CD开机后挂载根目录去修改<code>/etc/shadow</code>，将<code>root</code>的密码删除，重新开机后再用<code>passwd</code>设置新密码。</p>
+</blockquote>
+<h5 id="密码有效期配置"><a class="header" href="#密码有效期配置">密码有效期配置</a></h5>
+<pre><code class="language-shell">passwd -e,--expire  # 立即使用户密码失效, 用户必须在下次登录时重设密码
+passwd -x,--maxdays  DAYS USER #-&gt;chage -M 密码有效期天数(99999/-1)*
+passwd -i,--inactive DAYS USER #-&gt;chage -I 密码失效后禁用账户前的天数(never)
+passwd -n,--mindays  DAYS USER #-&gt;chage -m 两次修改密码之间至少相隔的天数(0)
+passwd -w,--warndays DAYS USER #-&gt;chage -W 需要修改密码前向发送警告的天数(7)
+</code></pre>
+<blockquote>
+<p><code>*</code>：<code>chage</code>的长选项与<code>passwd</code>对应长选项一致。</p>
+</blockquote>
+<p>显示密码状态：</p>
+<pre><code class="language-shell">passwd -S &lt;user&gt;  # 使用-a代替&lt;user&gt;查看所有用户的密码状态。
+# gary P 06/02/2022  0 99999 7 -1
+chage -l &lt;user&gt;
+# Last password change                              : Jun 02, 2022
+# Password expires                                  : never
+# Password inactive                                 : never
+# Account expires                                   : never
+# Minimum number of days between password change    : 0
+# Maximum number of days between password change    : 99999
+# Number of days of warning before password expires : 7
+</code></pre>
+<h4 id="删除用户"><a class="header" href="#删除用户">删除用户</a></h4>
+<pre><code class="language-shell">userdel -f $USER     # deluser [Debian]
+rm -rf /home/$USER
+</code></pre>
+<h4 id="查看用户信息"><a class="header" href="#查看用户信息">查看用户信息</a></h4>
+<p>查系统中的<a href="%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86.html#%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF%E5%AD%98%E5%82%A8">用户信息</a>：</p>
+<pre><code class="language-shell">/etc/passwd  # User account information.
+/etc/shadow  # Secure user account information. [read by root only]
+</code></pre>
+<p>查看当前登录的所有用户：</p>
+<pre><code class="language-sh">w
+# 09:42:35 up 26 min,  3 users,  load average: 0.18, 0.12, 0.09
+#USER  TTY    FROM           LOGIN@   IDLE   JCPU   PCPU WHAT
+#root  pts/0  172.28.76.41   09:17    3.00s  0.13s  0.03s w
+#root  pts/1  172.28.76.239  09:19   22:45   0.02s  0.02s -bash
+</code></pre>
+<blockquote>
+<p><code>who</code>显示的信息没有<code>w</code>完整。<code>who</code>可以显示系统引导终端（<code>tty1</code>）。</p>
+</blockquote>
+<p>查看指定用户信息：</p>
+<pre><code class="language-shell">id $USER  
+# uid=1000(gary) gid=1000(gary) groups=1000(gary),...(secondary groups)
+groups $USER        # 查看用户所属组
+username=$(whoami)  # return user name
+sudo whoami         # -&gt; root
+</code></pre>
+<blockquote>
+<p><a href="https://linuxize.com/post/how-to-add-user-to-group-in-linux/">How to Add User to Group in Linux | Linuxize</a></p>
+</blockquote>
+<h3 id="组管理"><a class="header" href="#组管理">组管理</a></h3>
+<pre><code class="language-shell">groupadd groupname
+groupdel groupname
+addgroup [options] [--gid ID] group
+</code></pre>
+<pre><code class="language-shell">sudo usermod -g groupname username      # change user's primary group
+sudo usermod -a -G group[,...] username # add user to a secondary group
+adduser user group  # add user to grpup
+</code></pre>
+<blockquote>
+<p>If you omit the <code>-a</code> option, the user will be removed from any groups not listed after the <code>-G</code> option.</p>
+</blockquote>
+<pre><code class="language-shell">sudo gpasswd -d username groupname  # Remove a User From a Group
+</code></pre>
+<h5 id="查看组信息"><a class="header" href="#查看组信息">查看组信息</a></h5>
+<pre><code class="language-shell">/etc/group   # Group account information.
+/etc/gshadow # Secure group account information.
+</code></pre>
+<h3 id="访问权限控制"><a class="header" href="#访问权限控制">访问权限控制</a></h3>
+<h4 id="访问权限"><a class="header" href="#访问权限">访问权限</a></h4>
+<p>修改用户访问文件的权限：</p>
+<pre><code class="language-sh">chmod [ugoa][+-=][rwxXstugo],... FILE ...
+chmod OCTAL-MODE FILE ...
+</code></pre>
+<p><code>ugoa</code>分别代表文件所有用户，文件同组用户，其他用户和所有用户（省略则默认为<code>a</code>，umask？）；<code>+-=</code>表示增加、删除和设置权限。</p>
+<p>权限模式：<code>rwxXst</code>中的一个或多个，或<code>ugo</code>中的一个</p>
+<div class="table-wrapper"><table><thead><tr><th>标识</th><th>说明</th><th>标识</th><th>说明</th><th>标识</th><th>说明</th></tr></thead><tbody>
+<tr><td><code>r</code></td><td>读文件</td><td><code>w</code></td><td>写文件</td><td><code>x</code></td><td>访问/执行</td></tr>
+<tr><td><code>s</code></td><td>设置用户或组</td><td><code>t</code></td><td>限制删除</td><td><code>X</code></td><td>*</td></tr>
+<tr><td><code>u</code></td><td>授予所有者权限</td><td><code>g</code></td><td>授予组用户权限</td><td><code>o</code></td><td>授予其他组权限</td></tr>
+</tbody></table>
+</div>
+<blockquote>
+<p><code>*</code>：<code>X</code>表示仅当目标为目录或已经具有其他用户执行权限时，才设置该目标的访问/执行权限。</p>
+</blockquote>
+<p><code>OCTAL-MODE</code>为1~4数字（取值范围0~7，3bit），第一位代表（设置用户ID，设置组ID和限制删除），其余三位数字分别代表<code>ugo</code>对应的<code>rwx</code>权限。</p>
+<h4 id="ownership"><a class="header" href="#ownership">Ownership</a></h4>
+<p>获取对象的所有者信息：</p>
+<pre><code class="language-shell">ls -l /opt/360es/ | awk '{print $3,$4}'    # 根据字段位置确定
+ls -l /opt/360es/ | sed -n '2,$p' | awk '{printf &quot;user=%s,group=%s\n&quot;,$3,$4}'
+stat /path/file --format=&quot;user=%U group=%G&quot;
+</code></pre>
+<p>从外部（互联网）获取的文件（档案），其所有者信息非本机用户，因此导致本机用户无法正常访问文件，所以需要<strong>修改文件的所有者/组</strong>。</p>
+<pre><code class="language-sh">chown -hR owner[:group] FILE
+chgrp
+</code></pre>
+<blockquote>
+<p><code>--dereference</code>：影响符号链接指向的文件而非符号链接；<code>-h,--no-dereference</code>相反；
+<code>--from=CURRENT_OWNER:CURRENT_GROUP</code>：仅当文件的当前属性匹配才进行修改；
+<code>--reference=RFILE</code>：使用<code>RFILE</code>的属性作为修改后的属性；
+<code>-R</code>：递归修改。符号链接指向的文件夹的遍历规则根据以下选项决定：</p>
+<ul>
+<li><code>-H</code>：遍历命令行参数为符号链接锁指向的文件夹；</li>
+<li><code>-L</code>：遍历所有符号链接指向的文件夹；</li>
+<li><code>-P</code>：步遍历符号链接指向的文件夹（默认）。</li>
+</ul>
+</blockquote>
+<h4 id="提升权限"><a class="header" href="#提升权限">提升权限</a></h4>
+<h5 id="切换登录用户"><a class="header" href="#切换登录用户">切换登录用户</a></h5>
+<pre><code class="language-sh">su - username # switch user
+</code></pre>
+<blockquote>
+<p>不支持切换到非登录用户。</p>
+</blockquote>
+<h5 id="以管理员身份运行"><a class="header" href="#以管理员身份运行">以管理员身份运行</a></h5>
+<pre><code class="language-shell">sudo \
+    -u, --user=user \ # 指定用户执行输入的命令
+    -i,--login \      # 使用指定用户登录shell
+    [command]         # 运行命令（未指定则切换终端用户）
+</code></pre>
+<p>当前多数发行版默认禁用<code>root</code>账户，并以安装系统期间创建的账户作为管理员。管理员需要使用<code>sudo</code>命令并提供密码以暂时获得<code>root</code>账户<a href="#%E6%8F%90%E5%8D%87%E6%9D%83%E9%99%90">权限</a>（使用<code>sudo</code>命令创建的文件其所属用户和组为<code>root</code>）。将其他用户加入<code>sudo</code>用户组使其具有运行<code>sudo</code>的权限。如果要恢复<code>root</code>账户（不推荐），为其设置密码：</p>
+<pre><code class="language-shell">sudo passwd root
+</code></pre>
+<h2 id="帮助文档"><a class="header" href="#帮助文档">帮助文档</a></h2>
+<h5 id="linux-manual"><a class="header" href="#linux-manual">Linux Manual</a></h5>
+<ol>
+<li>可执行程序和Shell命令；</li>
+<li>系统调用函数文档；</li>
+<li>库函数文档；</li>
+<li>特殊设备文件（通常位于<code>/dev</code>）；</li>
+<li>系统内置文件格式和规范（如<code>/etc/passwd</code>）；</li>
+<li>游戏；</li>
+<li>其他，如<code>man(7)</code>；</li>
+<li>系统管理命令（管理员使用）；</li>
+<li>内核过程（非标准）。</li>
+</ol>
+<h2 id="急救模式"><a class="header" href="#急救模式">急救模式</a></h2>
+<p><em><strong>emergency mode</strong></em></p>
+<h3 id="进入急救模式"><a class="header" href="#进入急救模式">进入急救模式</a></h3>
+<ol>
+<li>
+<p>GRUB系统选择界面按<code>e</code>进入启动配置项编辑模式；</p>
+<pre><code class="language-shell">linux16 /vmlinuz-....   # 添加rd.break
+</code></pre>
+</li>
+<li>
+<p>按<code>Ctrl+X</code>进入急救模式。</p>
+</li>
+</ol>
+<h3 id="修复磁盘"><a class="header" href="#修复磁盘">修复磁盘</a></h3>
+<h5 id="修复xfs文件系统"><a class="header" href="#修复xfs文件系统"><a href="https://blog.csdn.net/heian_99/article/details/123380912">修复XFS文件系统</a></a></h5>
+<p>由于突然断电，导致XFS文件系统数据损坏。</p>
+<pre><code class="language-shell">ls -l /dev/mapper  # 找到dm-0对应的挂载点并卸载设备
+umount /dev/mapper/centos-root
+xfs_repair -L /dev/mapper/centos-root # 修复该设备
+init 6 # 成功修复后重启设备
+</code></pre>
+<h2 id="参考资料"><a class="header" href="#参考资料">参考资料</a></h2>
+<div class="footnote-definition" id="mount"><sup class="footnote-definition-label">1</sup>
+<p><a href="https://superuser.com/questions/663213/two-distinct-mount-points-with-one-device">linux - Two distinct mount points with one device - Super User</a>.
+<sup class="footnote-reference"><a href="#pid1">2</a></sup>:<a href="http://0pointer.de/blog/projects/systemd.html">Rethinking PID 1 (0pointer.de)</a>.</p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../笔记/正则表达式.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../Linux/Linux配置和管理.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../笔记/正则表达式.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../Linux/Linux配置和管理.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

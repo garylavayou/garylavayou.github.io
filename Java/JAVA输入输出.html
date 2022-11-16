@@ -1,0 +1,521 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>输入输出 - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html" class="active">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="输入输出"><a class="header" href="#输入输出">输入输出</a></h1>
+<p><a href="https://www.journaldev.com/942/java-io-tutorial">Java IO Tutorial - JournalDev</a></p>
+<h2 id="文件读写file-io"><a class="header" href="#文件读写file-io">文件读写（File IO）</a></h2>
+<p><code>open</code>：当程序需要从文件（例如数据文件、网络等）读取数据时，创建一个适当类型的输入流对象，建立与数据源的连接，然后调用该输入流对象的方法（<code>read</code>），来读取外设的数据。当程序需要输出数据时，应该创建一个输出流对象来完成对文件的连接，然后利用输出流对象的<code>write</code>方法将数据顺序写入到目标。</p>
+<p><code>close</code>：完成读写后关闭对应的流，释放占用的资源。</p>
+<h3 id="输入输出流"><a class="header" href="#输入输出流">输入输出流</a></h3>
+<h4 id="流的类型"><a class="header" href="#流的类型">流的类型</a></h4>
+<p>Java提供两类基本输入输出方式，即基于字节的（<code>InputStream</code>/<code>OutputStream</code>）和基于字符的（<code>Reader</code>/<code>Writer</code>对应了C的文件打开方式<code>b</code>和<code>t</code>）。</p>
+<p>根据数据源的区别，可以将流分为：</p>
+<ul>
+<li>节点流：直接与输入输出目标相连的流；</li>
+<li>过滤流（基于<code>FilterInputStream</code>/<code>FilterOutputStream</code>）：与另一个流相连的流。使用过滤流需要注意，当关闭过滤流时，其所连接的源输入流会被自动关闭，变得不能再使用。而在使用过滤流时，也不能提前关闭其所依赖的源输入流。</li>
+</ul>
+<p><img src="assets/iostream2xx.png" alt="img" /></p>
+<h4 id="字节流输入输出"><a class="header" href="#字节流输入输出">字节流输入输出</a></h4>
+<h5 id="inputstream"><a class="header" href="#inputstream">InputStream</a></h5>
+<p>数据作为字节流输入，其提供的读取方法包括：</p>
+<pre><code class="language-java">int read()
+int read(byte[] b)
+int read(byte[] b,int off,int len)
+</code></pre>
+<blockquote>
+<p>(1)读取1byte数据并返回读取数据值；如果读取到流的末端则返回-1；该方法发生阻塞直到流的数据可用、检测到已经到达流的结束或抛出异常。
+(2) 将数据读入字节数组，返回实际读取的字节数（阻塞）；
+(3) 从数组off下标开始的位置写入，并指定最大读取的字节数<code>len</code>。</p>
+</blockquote>
+<p>定位：</p>
+<pre><code class="language-java">long skip(long n)
+void mark(int readlimit)
+void reset()
+</code></pre>
+<blockquote>
+<p><code>skip</code>使位置指针从当前位置向后跳过<code>n</code>个字节，返回实际跳过的字节数。
+<code>mark</code>标记当前位置，以备reset方法使用，标记以最后一次调用<code>mark</code>为准。
+<code>reset</code>将位置指针移动到标记的位置处。</p>
+</blockquote>
+<p>基于<code>InputStream</code>实现的类型包括：</p>
+<ul>
+<li>
+<p><code>ByteArrayInputStream</code>：以字节数组作为输入的数据源；</p>
+</li>
+<li>
+<p><code>FileInputStream</code>：以数据文件作为数据源。</p>
+<blockquote>
+<pre><code class="language-java">InputStream f = new FileInputStream(path);	// path string
+InputStream f = new FileInputStream(file);	// file object
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<p>基于<code>InputStream</code>的过滤流类型包括：</p>
+<ul>
+<li><code>BufferedInputStream</code>：<em>增加了输入缓冲区功能，支持mark和reset，显著提高了输入效率。</em></li>
+<li><code>DataInputStream</code>：实现了<code>DataInput</code>接口中定义的独立于具体机器的带格式的读操作，从而实现了针对不同类型数据的字节读取，例如：<code>readByte</code>、<code>readBoolean</code>、<code>readShort</code>、<code>readChar</code>、<code>readInt</code>、<code>readLong</code>、<code>readFloat</code>、<code>readDouble</code>、<code>readLine</code>、<code>readUTF</code>等。<strong>注意</strong>：这种读取方式适合读取二进制文件、而不适合读取控制台的标准输入和文本文件后者应该使用<code>Reader</code>类。</li>
+</ul>
+<h5 id="outputstream"><a class="header" href="#outputstream">OutputStream</a></h5>
+<pre><code class="language-java">void write(int b)
+void write(byte[] b)
+void write(byte[] b,int off,int len)
+</code></pre>
+<blockquote>
+<p>(1) 向输出流写入一个字节，该字节为参数<code>b</code>的低8位，其余24位忽略。
+(2) 将字节数组<code>b</code>的内容按字节写入流。
+(3) 将字节数组从下标<code>off</code>开始的数据逐字节写入流，并指定要写入流的字节数。如果<code>len+off</code>大于数组的长度，则会引起<code>IndexOutOfBoundsException</code>。</p>
+</blockquote>
+<pre><code class="language-java">void flush()
+</code></pre>
+<p>将输出流缓冲区的数据立即输出到目标文件。</p>
+<p>基于<code>OutputStream</code>的子类：</p>
+<ul>
+<li>
+<p><code>ByteArrayOutputStream</code>：将数据输出到内存中的一个无名数组中。如果想获取无名数组中的数据，可以利用该输出流的以下方法</p>
+<pre><code class="language-java">byte[] toByteArray()
+String toString()
+</code></pre>
+</li>
+<li>
+<p><code>FileOutputStream</code>：输出至文件。</p>
+<blockquote>
+<pre><code class="language-java">OutputStream f = new FileOutputStream(path)  // path string
+OutputStream f = new FileOutputStream(new File(path));
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<p>基于<code>OutputStream</code>的过滤流类：</p>
+<ul>
+<li>
+<p><code>DataOutputStream</code>：提供了针对不同类型数据的写方法，如：<code>writeByte</code>、<code>writeBoolean</code>、<code>writeShort</code>、<code>WriteChar</code>、<code>WriteInt</code>、<code>WriteLong</code>、<code>WriteFloat</code>、<code>WriteDouble</code>、<code>WriteChars</code>等。需要注意写入目的地的数据是数据的二进制形式而非字符形式。</p>
+</li>
+<li>
+<p><code>PrintStream</code>：<strong>即可作为过滤流，也可以作为节点流</strong>（直接以文件作为输出）。该输出流不产生IOException、具有自动刷新功能等特点。</p>
+<pre><code class="language-java">PrintStream(String fileName) // option-args: encoding
+PrintStream(File file)
+PrintStream(OutputStream out) // out is an underlay output stream
+</code></pre>
+<p>该输出流提供了类似于一般高级语言的输出语句，例如：</p>
+<pre><code class="language-java">print(int i);
+println(String x);
+</code></pre>
+<p><em>在标准输出和文件输出，都输出数据的字符形式</em>，适合于写文本文档。</p>
+<p><em>直接从File或文件名创建输出流默认未覆盖模式，需要使用底层输出流支持追加模式。</em></p>
+</li>
+</ul>
+<h4 id="字符流输入输出"><a class="header" href="#字符流输入输出">字符流输入输出</a></h4>
+<h5 id="reader"><a class="header" href="#reader">Reader</a></h5>
+<p>数据作为编码后的字符流输入，Java使用Unicode字符编码。</p>
+<ol>
+<li>
+<p>读取</p>
+<pre><code class="language-java">int read()
+int read(char[] cbuf)
+</code></pre>
+<blockquote>
+<p>(1) 从输入流读取并返回一个字符。
+(2) 从输入流中读取字符，并写入字符数组，返回实际读取的字符数。</p>
+</blockquote>
+</li>
+<li>
+<p>定位</p>
+<pre><code class="language-java">long skip(long n)
+void mark(int readAheadLimit)
+void reset()
+</code></pre>
+<blockquote>
+<p>以字符为单位进行定位。</p>
+<p><code>mark</code>标记当前位置，并规定能返回当前位置的最大读取字符数<code>readAheadLimit</code>，当从当前位置读取的字符数超过这个上限，使用<code>reset</code>函数将不能返回标记位置。并不是所有输入字符流都支持标记功能。</p>
+</blockquote>
+</li>
+</ol>
+<p>基于<code>Reader</code>的子类：</p>
+<ul>
+<li><code>CharArrayReader</code>：</li>
+<li><code>StringReader</code>：</li>
+<li><code>FileReader</code>：</li>
+</ul>
+<p>基于<code>Reader</code>的过滤流类型：</p>
+<ul>
+<li>
+<p><code>BufferedReader</code>：以一个<code>Reader</code>类对象为数据源，加入了缓冲功能，提供了读字符、数组和行的功能。</p>
+</li>
+<li>
+<p><code>InputStreamReader</code>：<strong>该类型提供从字节流到字符流的桥梁</strong>。它可以从字节输入流获得数据，然后转换为字符数据交给程序。<code>InputStreamReader</code>虽然将字节流转换为字符流，但是没有提供更多的<code>read</code>方法，不方便文本的读取，例如：将<code>FileInputStream</code>和<code>InputStreamReader</code>联合使用，其效果相当于<code>FileReader</code>。如果要实现更方便的读功能，就要在字符流的基础上增加<code>BufferedReader</code>，即：</p>
+<pre><code class="language-java">br = new BufferedReader(new InputStreamReader(new FileInputStream(...)))
+br = new BufferedReader(new FileReader(...))
+</code></pre>
+</li>
+</ul>
+<h5 id="writer"><a class="header" href="#writer">Writer</a></h5>
+<ol>
+<li>
+<p>写入</p>
+<pre><code class="language-java">void write(char[] cbuf)
+void write(String str)
+void write(String str, int off,int len)  
+</code></pre>
+</li>
+<li>
+<p>刷新缓冲区</p>
+<pre><code class="language-java">void flush()
+</code></pre>
+</li>
+</ol>
+<p>基于<code>Writer</code>的子类：</p>
+<ul>
+<li>
+<p><code>CharArrayWriter</code>：该字符输出流的目的地是内存中的无名数组，其方式类似于<code>ByteArrayOutputStream</code>。</p>
+</li>
+<li>
+<p><code>FileWriter</code>：</p>
+<pre><code class="language-java">FileWriter(String fileName, ...)
+FileWriter(File file, boolean append) // [append=False]
+FileWriter(File file, Charset charset, boolean append)
+</code></pre>
+<blockquote>
+<p>如果文件不存在，自动创建；默认为覆盖模式。 </p>
+</blockquote>
+</li>
+</ul>
+<p>基于<code>Writer</code>的过滤流子类：</p>
+<ul>
+<li>
+<p><code>BufferedWriter</code>：参看<code>BufferedReader</code>。</p>
+</li>
+<li>
+<p><code>OutputStreamWriter</code>：参看<code>InputStreamReader</code>。</p>
+</li>
+<li>
+<p><code>PrintWriter</code>：类似于<code>PrintStream</code>。</p>
+<pre><code class="language-java">PrintWriter(String fileName)		// auto-create and overwrite
+PrintWriter(File file)
+PrintWriter(OutputStream out)
+PrintWriter(Writer out)
+</code></pre>
+</li>
+</ul>
+<h4 id="标准输入输出"><a class="header" href="#标准输入输出">标准输入输出</a></h4>
+<p>标准输入/输出是<code>System</code>类中的两个静态成员字段（<code>System</code>类中所有字段和方法都是静态的）<code>System.in</code>和<code>System.out</code>。</p>
+<p><code>System.in</code>是<code>InputStream</code>类的子类对象。使用<code>read</code>方法需要注意一下几点：</p>
+<ol>
+<li>
+<p><code>System.in.read()</code><em>语句必须包含在<code>try</code>语句块中，且其后必须有一个可接收<code>IOException</code>的<code>catch</code>语句块</em>；</p>
+</li>
+<li>
+<p>执行该语句虽然只读取一个字节的数据，但返回的是16bit的整型量，只有低8位的数据是真正的输入数据，高8位为0。</p>
+</li>
+<li>
+<p>作为<code>InputStream</code>类的对象，<code>System.in</code>只能从键盘读取字节数据，要实现复杂输入，可以将<code>System.in</code>作为源，使用上述的过滤流（<code>BufferedReader</code>）来实现。</p>
+<blockquote>
+<p>java.util.Scanner 是 Java5 的新特征，我们可以通过 Scanner 类来获取用户的输入。</p>
+<pre><code class="language-java">Scanner s = new Scanner(System.in);
+</code></pre>
+</blockquote>
+</li>
+<li>
+<p><em>标准输入时，无论是字节流或字符流，若将数据输入到数组中，会将<code>Enter</code>键也算入输入，并且相当于&quot;回车(13,<code>\r</code>)&quot;和&quot;换行(<code>\n</code>,10)&quot;，所以在使用输入数据时应该去掉这两个字节（字符）的数据。当使用记事本等程序打开文件时，<code>\r\n</code>，<code>\r</code>，<code>\n</code>出现时，识别为一个换行。</em></p>
+</li>
+<li>
+<p>当键盘缓冲区没有数据时，执行<code>System.in.read()</code>会引起阻塞。</p>
+</li>
+</ol>
+<p><code>System.out</code>是<code>PrintStream</code>类的对象。</p>
+<h3 id="日志"><a class="header" href="#日志">日志</a></h3>
+<p><a href="https://www.journaldev.com/977/logger-in-java-logging-example">Logger in Java - Java Logging Example - JournalDev</a></p>
+<h2 id="网络编程"><a class="header" href="#网络编程">网络编程</a></h2>
+<h3 id="基本元素"><a class="header" href="#基本元素">基本元素</a></h3>
+<h5 id="ip地址和端口号"><a class="header" href="#ip地址和端口号">IP地址和端口号</a></h5>
+<p><code>InetAddress</code>封装了IP地址，端口号使用整数表示。</p>
+<pre><code class="language-java">InetAddress.getByName(&quot;127.0.0.1&quot;);   // or domain.name
+InetAddress.getLocalHost();
+InetAddress.getHostAddress();  // return IP text
+</code></pre>
+<p><code>SocketAddress</code>封装了IP地址和端口号。</p>
+<h5 id="udp通信"><a class="header" href="#udp通信">UDP通信</a></h5>
+<p><code>DatagramSocket</code>类封装了UDP通信的服务端和客户端。</p>
+<pre><code class="language-java">udp_conn = new DatagramSocket(); // client
+udp_conn = new DatagramSocket(port[, inet_addr]); //server
+udp_conn.send(packet);			// DatagramPacket
+udp_conn.receive(packet);
+sql_conn.getInetAddress();
+ip_addr = udp_conn.getLocalAddress();
+sql_conn.getPort()
+port = udp_conn.getLocalPort();
+sock_addr = sql_conn.getLocalSocketAddress();
+sql_conn.getRemoteSocketAddress();  # return null if not connected
+</code></pre>
+<h6 id="数据报分组"><a class="header" href="#数据报分组">数据报分组</a></h6>
+<p><code>DatagramPacket</code>封装了UDP协议分组，该类型包含一个数据缓存（<code>byte[]</code>）的引用，可通过构造函数或<code>setData</code>设置分组的数据缓存。</p>
+<pre><code class="language-java">send_packet = new DatagramPacket(msg.getBytes(), msg.length(), server_addr, server_port);  // msg (String) convert to byte array.
+send_packet = new DatagramPacket(msg.getBytes(), msg.length(), socket_addr);
+send_packet.setData(msg.getBytes(), offset, msg.length());
+byte[] recv_buffer = new byte[128];
+recv_packet = new DatagramPacket(recv_buffer, recv_buffer.length);
+</code></pre>
+<p>待发送的分组需要设置目标套接字地址，接收到的分组可以读取远端的套接字地址。</p>
+<pre><code class="language-java">send_packet.setAddress(inet_addr);
+send_packet.setPort(port);
+send_packet.setSocketAddress(inet_addr);
+client_addr = recv_packet.getAddress();
+client_port = recv_packet.getPort();
+client_addr = recv_packet.getSocketAddress();
+</code></pre>
+<h3 id="tcp通信"><a class="header" href="#tcp通信">TCP通信</a></h3>
+<p><code>ServerSocket</code>类代表服务器端。</p>
+<pre><code class="language-java">ServerSocket([int port[, int backlog[, InetAddress address]]]) 
+             throws IOException
+Socket accept() throws IOException
+void bind(SocketAddress host, int backlog)
+</code></pre>
+<p><code>Socket</code>类代表TCP客户端。</p>
+<pre><code class="language-java">Socket()
+Socket(String host, int port) throws UnknownHostException, IOException
+Socket(InetAddress host, int port) throws IOException
+Socket(String host, int port, InetAddress localAddress, int localPort) throws IOException
+Socket(InetAddress host, int port, InetAddress localAddress, int localPort) throws IOException
+void connect(SocketAddress host, int timeout) throws IOException
+InputStream getInputStream() throws IOException
+OutputStream getOutputStream() throws IOException
+void close() throws IOException
+</code></pre>
+<h2 id="数据序列化"><a class="header" href="#数据序列化">数据序列化</a></h2>
+<h3 id="对象序列化"><a class="header" href="#对象序列化">对象序列化</a></h3>
+<p>一个对象可以被表示为一个字节序列，该字节序列包括该对象的数据、有关对象的类型的信息和存储在对象中数据的类型。将序列化对象写入文件之后，可以从文件中读取出来，并且对它进行反序列化。</p>
+<blockquote>
+<p>当序列化一个对象到文件时， 按照 Java 的标准约定是给文件一个<code>.ser</code>扩展名。</p>
+</blockquote>
+<p>类<code>ObjectInputStream</code>和<code>ObjectOutputStream</code>是高层次的数据流，它们包含反序列化和序列化对象的方法。</p>
+<pre><code class="language-java">final void writeObject(Object x) throws IOException  // ObjectOutputStream
+final Object readObject() throws IOException, 		  // ObjectInputStream
+                                 ClassNotFoundException
+</code></pre>
+<p>对于 JVM 可以反序列化对象，它必须是能够找到字节码的类。</p>
+<p>一个类的对象要实现序列化功能，必须：</p>
+<ul>
+<li>实现<code>java.io.Serializable</code>对象。</li>
+<li>所有字段是可序列化的或<a href="#%E5%AD%97%E6%AE%B5"><code>transient</code>的</a>。</li>
+</ul>
+<h3 id="json"><a class="header" href="#json">JSON</a></h3>
+<p><code>org.json</code>提供处理JSON数据的方法。</p>
+<pre><code class="language-xml">&lt;!-- https://mvnrepository.com/artifact/org.json/json --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.json&lt;/groupId&gt;
+    &lt;artifactId&gt;json&lt;/artifactId&gt;
+    &lt;version&gt;20190722&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>JSON的数据类型主要分为两类，即</p>
+<ol>
+<li>
+<p>对象<code>JSONObject</code>：包含一个或多个<code>key-value</code>（可以是<code>JSONArray</code>）的字典；</p>
+<pre><code class="language-java">import org.json.JSONObject;
+JSONObject jo = new JSONObject(); // creating empty JSONObject 
+JSONObject jo = new JSONObject(JSON_String); // Parse from string 
+jo.put(key, value);  // add or modify elements
+jo.getString(key);	// throw exception if key not exist
+jo.optString(key);  // return empty string if key not exist
+jo.optString(key,default_value); // return default if key not exist
+jo.getLong(key);   // get Numerical type
+jo.optLong(key);
+</code></pre>
+<pre><code class="language-Java">jo.toString();		// convert to string
+</code></pre>
+<blockquote>
+<p>转换为字符串时，特殊字符将使用转义字符执行逆向转换。</p>
+</blockquote>
+</li>
+<li>
+<p>数组<code>JSONArray</code>：包含<code>value</code>（可以是<code>JSONObject</code>）一个序列。<code>JSONArray</code>的方法与<code>JSONObject</code>类似，但没有<code>key</code>参数。</p>
+</li>
+</ol>
+<p>https://www.geeksforgeeks.org/parse-json-java/</p>
+<p>https://stackoverflow.com/questions/2591098/how-to-parse-json-in-java</p>
+<h3 id="xml"><a class="header" href="#xml">XML</a></h3>
+<p><a href="https://www.tutorialspoint.com/java_xml/java_xml_parsers.htm">Java XML - Parsers</a></p>
+<p><a href="../%E6%95%B0%E6%8D%AE%E4%BA%A4%E6%8D%A2%E8%AF%AD%E8%A8%80/XML.html#Java%E5%AE%9E%E7%8E%B0">XML解析</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../Java/JAVA数据类型.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../Java/JAVA系统编程.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../Java/JAVA数据类型.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../Java/JAVA系统编程.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

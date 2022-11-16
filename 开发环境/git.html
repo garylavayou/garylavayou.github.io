@@ -1,0 +1,474 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Git - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html" class="active">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="--fast-version-control"><a class="header" href="#--fast-version-control"><img src="git.assets/logo@2x.png" alt="Git" style="zoom:50%;" />--fast-version-control</a></h1>
+<h2 id="concept"><a class="header" href="#concept">Concept</a></h2>
+<img src="git.assets/clip_image001.png" alt="Remote  pull  checkout  fetch/clone  workspace  Repository  Index  push " style="zoom: 67%;" />
+<h3 id="仓库结构"><a class="header" href="#仓库结构">仓库结构</a></h3>
+<p>git仓库信息包含本地仓库(Repository)和远程仓库(<code>remote</code>)，两者具有相同结构。</p>
+<p><img src="git.assets/clip_image002.png" alt="index  READ " /></p>
+<p>Your local repository consists of three &quot;trees&quot; maintained by git:</p>
+<ol>
+<li>
+<p><strong>Working Directory</strong>: which holds the actual files (file system);</p>
+</li>
+<li>
+<p><strong>Index</strong>: which acts as a <strong>staging area</strong>;</p>
+<blockquote>
+<p><em>Git uses its hash algorithm to index <strong>everything</strong> in your repo. Each file has a SHA that reflects the contents of that file. Each directory, in turn, is hashed. If a file in that directory changes, then the SHA of the directory changes too.</em></p>
+</blockquote>
+</li>
+<li>
+<p><strong>HEAD</strong>: which points to the last commit you've made.</p>
+<blockquote>
+<p><em>Each commit contains the SHA of the top-level directory in your repo along with some <a href="https://gist.github.com/masak/2415865">other info</a>.</em> </p>
+</blockquote>
+</li>
+</ol>
+<p>由于远程仓库可能由多人参与维护，因此其版本与本地仓库版本（<code>HEAD</code>）可能不同。因此，将本地仓库推送到远程之前，需要首先将远程仓库拉取(<code>fetch</code>)到本地，并保证本地提交版本未落后于远程版本。否则，需要暂存本地更改，并使用远程版本更新本地版本，再恢复本地更改后提交。强制提交本地落后的版本可能会产生文件内容冲突。</p>
+<h3 id="repository"><a class="header" href="#repository">repository</a></h3>
+<h3 id="alias"><a class="header" href="#alias">alias</a></h3>
+<h3 id="bookmark"><a class="header" href="#bookmark">bookmark</a></h3>
+<h3 id="workflow"><a class="header" href="#workflow"><a href="http://rogerdudler.github.io/git-guide/">Workflow</a></a></h3>
+<h4 id="operations"><a class="header" href="#operations">Operations</a></h4>
+<h5 id="stage"><a class="header" href="#stage">stage</a></h5>
+<h5 id="commit"><a class="header" href="#commit">commit</a></h5>
+<h5 id="使用git的原则"><a class="header" href="#使用git的原则">使用git的原则</a></h5>
+<ul>
+<li>
+<p>Only put <em>source</em> files into version control, never <em>generated</em> files.</p>
+</li>
+<li>
+<p>Commit binary files with caution and strongly avoid committing large files.</p>
+</li>
+<li>
+<p><strong>never</strong> put confidential information into a repo, especially one you might share publicly. </p>
+</li>
+</ul>
+<h4 id="status"><a class="header" href="#status">Status</a></h4>
+<h5 id="trackedun-tracked"><a class="header" href="#trackedun-tracked">tracked/un-tracked</a></h5>
+<h5 id="modified"><a class="header" href="#modified">modified</a></h5>
+<h5 id="stagedun-staged"><a class="header" href="#stagedun-staged">staged/un-staged</a></h5>
+<h5 id="committed"><a class="header" href="#committed">committed</a></h5>
+<h2 id="安装git"><a class="header" href="#安装git">安装git</a></h2>
+<h3 id="git配置"><a class="header" href="#git配置">git配置</a></h3>
+<pre><code class="language-shell">git config --global init.defaultBranch &lt;name&gt;
+git config --global --edit  # 打开git配置文件并编辑
+</code></pre>
+<p>添加<code>--global</code>将设置应用于当前系统用户下的所有仓库的默认配置。</p>
+<h5 id="配置文件位置"><a class="header" href="#配置文件位置">配置文件位置</a></h5>
+<div class="table-wrapper"><table><thead><tr><th>选项</th><th>说明</th><th>配置文件路径</th></tr></thead><tbody>
+<tr><td><code>--system</code></td><td>默认配置</td><td><code>/etc/gitconfig</code></td></tr>
+<tr><td><code>--global</code></td><td>用户全局配置</td><td><code>~/.gitconfig</code> or <code> ~/.config/git/config</code></td></tr>
+<tr><td><code>--local</code></td><td>仓库配置</td><td><code>.git/config</code></td></tr>
+</tbody></table>
+</div>
+<p>列出所有配置：</p>
+<pre><code class="language-sh">git config -l,--list
+</code></pre>
+<p><code>.gitignore</code>：声明忽略仓库目录下的未追踪文件。</p>
+<h5 id="git用户配置"><a class="header" href="#git用户配置">git用户配置</a></h5>
+<p>使用git提交代码前需要配置<code>git</code>用户信息（用户名和邮箱）。</p>
+<pre><code class="language-sh">git config user.name &quot;John Doe&quot;
+git config user.email &quot;you@emal.com&quot;
+</code></pre>
+<h5 id="输出格式配置"><a class="header" href="#输出格式配置">输出格式配置</a></h5>
+<pre><code class="language-shell">git config color.ui true    # 使用彩色输出
+git config color.ui auto
+</code></pre>
+<h4 id="git图形界面"><a class="header" href="#git图形界面">git图形界面</a></h4>
+<p><code>gitk</code></p>
+<h2 id="管理仓库"><a class="header" href="#管理仓库">管理仓库</a></h2>
+<h3 id="创建仓库"><a class="header" href="#创建仓库">创建仓库</a></h3>
+<pre><code class="language-sh">git init [project-name]        # 默认在当前目录下创建仓库
+git clone [url] [local_path]
+</code></pre>
+<p>在远程服务器创建仓库：</p>
+<pre><code class="language-sh">git remote add origin &lt;server&gt;
+</code></pre>
+<h3 id="查看状态"><a class="header" href="#查看状态">查看状态</a></h3>
+<p>列出仓库目录下的待提交的已更改文件以及未加入仓库的新文件。</p>
+<pre><code class="language-sh">git status [-s | --short]
+</code></pre>
+<p><code>-s</code>：输出简洁信息。</p>
+<p>对比文件的更改：</p>
+<pre><code class="language-sh">git diff [--staged | --cached] [file] 
+</code></pre>
+<p>图形用户界面。</p>
+<pre><code class="language-sh">git difftool [--tool-help]
+</code></pre>
+<h4 id="记录"><a class="header" href="#记录">记录</a></h4>
+<p>查看当前分支的历史记录</p>
+<pre><code class="language-shell">git log --author=bob --pretty=oneline
+git log --name-status                       # 显示修改过的文件名
+git log --graph --oneline --decorate --all  # 查看分支树
+git show [commit]
+</code></pre>
+<h3 id="管理仓库内容"><a class="header" href="#管理仓库内容">管理仓库内容</a></h3>
+<h4 id="添加文件"><a class="header" href="#添加文件">添加文件</a></h4>
+<p>将未加入仓库的文件加入仓库以追踪更改；或者将已加入仓库的文件暂存（<code>stage</code>）等待提交（<code>commit</code>）。</p>
+<pre><code class="language-sh">git add -i [file/dir]   # 'git add .' adding the current directory 
+</code></pre>
+<p><code>-i</code>：交互式添加文件。</p>
+<blockquote>
+<p>Marking merge-conflicted files as resolved.</p>
+</blockquote>
+<h4 id="编辑文件"><a class="header" href="#编辑文件">编辑文件</a></h4>
+<p>直接使用文件系统命令移动文件，<code>git</code>可能无法检测重命到移动行为（可能任务先删除一个文件并创建另一个文件）。使用<code>git mv</code>更改文件名（移动文件）：</p>
+<pre><code class="language-sh">git mv [file-original] [file-renamed]
+</code></pre>
+<p>如果被改名的文件已经做了修改，则修改和重命名记录都能被保留。</p>
+<p>优先提交(commit)文件名修改。</p>
+<blockquote>
+</blockquote>
+<h4 id="移除文件"><a class="header" href="#移除文件">移除文件</a></h4>
+<p>从仓库中移除文件。</p>
+<pre><code class="language-sh">git rm [-rf][--cached][file]
+</code></pre>
+<p><code>-f</code>：如果一个文件被修改过，则需要<code>-f</code>选项强制移除。该选项避免了意外数据丢失。</p>
+<p><code>--cached</code>：保留本地文件。</p>
+<h3 id="提交更改"><a class="header" href="#提交更改"><a href="https://git-scm.com/docs/git-commit">提交更改</a></a></h3>
+<p>将本地仓库的更改保存为本地的最新版本（<code>HEAD</code>）。</p>
+<pre><code class="language-sh">git commit [options] [files]
+</code></pre>
+<p>==默认提交暂存的文件==，如果命令列出文件，则忽略现阶段暂存的文件，直接提交列出的文件。</p>
+<ul>
+<li><code>-m 'message'</code>：提交信息。未提供选项则默认会弹出文本编辑器保存提交信息。</li>
+<li><code>--dry-run</code>：列出提交的概览信息而不执行提交。</li>
+<li><code>--amend</code>：追加内容，替换之前的提交（而不产生新的<code>commit ID</code>）。</li>
+<li><code>-a</code>: 直接将所有修改过的已追踪的（包括未暂存的）文件提交，删除所有从工作树移除的文件。</li>
+<li><code>--interactive</code>: 交互式决定每个文件是否要提交。</li>
+</ul>
+<p>最小化提交代码原则：每次提交包含单一的问题修复、功能更新，从而便与按主题追踪代码更改。</p>
+<h5 id="提交信息书写规范"><a class="header" href="#提交信息书写规范">提交信息书写规范</a></h5>
+<h3 id="推送更改"><a class="header" href="#推送更改">推送更改</a></h3>
+<pre><code class="language-shell">git push origin &lt;branch&gt;   # 默认分支为master
+</code></pre>
+<p>如果本地仓库并非从远程复制过来，则需要首先连接到远程服务器：</p>
+<pre><code class="language-shell">git remote add origin &lt;server&gt;
+</code></pre>
+<h3 id="替换本地修改"><a class="header" href="#替换本地修改">替换本地修改</a></h3>
+<p>用最近提交版本还原工作目录下修改过的文件：</p>
+<pre><code class="language-sh">git checkout -- &lt;filename&gt;
+</code></pre>
+<p>其他文件的修改不会受影响。</p>
+<p>用服务器的版本替代本地的==修改和提交==：</p>
+<pre><code class="language-sh">git fetch origin
+git reset --hard origin/master
+</code></pre>
+<p><code>--hard</code>：删除所有比加载版本新的版本。</p>
+<h3 id="过滤仓库内容"><a class="header" href="#过滤仓库内容">过滤仓库内容</a></h3>
+<p>忽略已经提交到仓库的文件的最新更改：</p>
+<pre><code class="language-sh">git update-index --assume-unchanged &lt;file&gt;
+</code></pre>
+<p>停止忽略：</p>
+<pre><code class="language-sh">git update-index --no-assume-unchanged &lt;file&gt;
+</code></pre>
+<p>https://docs.microsoft.com/en-us/vsts/git/tutorial/ignore-files?view=vsts&amp;tabs=visual-studio</p>
+<p>显示忽略的文件：</p>
+<pre><code class="language-sh">git ls-files --other --ignored --exclude-standard
+</code></pre>
+<h3 id="分支branching"><a class="header" href="#分支branching">分支（Branching）</a></h3>
+<p>如果有多项功能需要并行开发，可以使用分支来管理代码的多个版本。当功能开发测试完成，再将该分支合并回主线版本（<code>master</code>）。</p>
+<blockquote>
+<p><em>Branches are used to develop features isolated from each other. The <code>master</code> branch is the &quot;default&quot; branch when you create a repository. Use other branches for development and merge them back to the master branch upon completion.</em></p>
+<p>新增或修改功能在分支进行，待测试完成后合并到主线版本；Bug修复在主线版本进行。</p>
+</blockquote>
+<p><img src="git.assets/clip_image003.png" alt="branch" /></p>
+<h4 id="创建分支"><a class="header" href="#创建分支">创建分支</a></h4>
+<p>从当前状态创建并切换到一个新的分支<code>feature_x</code>：</p>
+<pre><code class="language-sh">git checkout -b feature_x
+</code></pre>
+<blockquote>
+<p>do commit before checkout to avoid data loss.</p>
+</blockquote>
+<p>仅创建分支：</p>
+<pre><code class="language-shell">git branch [old_branch] new_branch  # 默认从当前分支创建分支
+</code></pre>
+<p>仅切换分支：</p>
+<pre><code class="language-sh">git checkout &lt;branch_name&gt;  # e.g. master
+</code></pre>
+<p>为了使分支在远程仓库可用，需要将分支<a href="#%E6%8E%A8%E9%80%81%E6%9B%B4%E6%94%B9">推送到远程仓库</a>。</p>
+<h4 id="分支信息"><a class="header" href="#分支信息">分支信息</a></h4>
+<p>列出分支：</p>
+<pre><code class="language-shell">git branch [--list]
+</code></pre>
+<h4 id="删除分支"><a class="header" href="#删除分支">删除分支</a></h4>
+<p>删除一个分支。</p>
+<pre><code class="language-sh">git branch -d,--delete feature_x
+</code></pre>
+<h3 id="更新与合并"><a class="header" href="#更新与合并"><a href="https://stackoverflow.com/q/292357/6571140">更新与合并</a></a></h3>
+<p>获取远程仓库内容（稍后手动合并）：</p>
+<pre><code class="language-shell">git fetch    # 仅更新本地HEAD，不合并工作目录
+</code></pre>
+<p>获取远程仓库内容，并与本地分支/工作目录合并：</p>
+<pre><code class="language-sh">git pull [url] [branch]  # fetch + merge
+</code></pre>
+<p>当前目录下有更改而未保存时，不能使用远程目录覆盖当前内容，否则当前内容被远程覆盖导致数据丢失。如果直接尝试执行<code>git merge</code>或直接执行<code>git pull</code>将产生错误。为了将远程更新与本地更改合并：</p>
+<ul>
+<li>使用<code>git stash [push]</code>命令暂存本地更改，使本地<code>index</code>状态最新；</li>
+<li>然后使用<code>git pull</code>或<code>git merge</code>将远程与本地仓库合并；</li>
+<li>然后<code>git stash pop</code>恢复本地更改，待本地工作完成后再将本地更改提交到仓库。</li>
+</ul>
+<p>暂存最近更改：</p>
+<pre><code class="language-sh">git stash push -m,--message &lt;message&gt;
+</code></pre>
+<p>需要预先<a href="#%E4%BB%93%E5%BA%93%E9%85%8D%E7%BD%AE">配置用户身份</a>。</p>
+<pre><code class="language-shell">git stash list      # 列出暂存的更改版本
+git stash show [id] # 列出对应版本和当前状态的变更信息
+git stash pop       # 恢复最近更改
+git stash drop      # 丢弃最近更改（需要先暂存）
+</code></pre>
+<p>如果本地提交和远程提交本版不同：</p>
+<pre><code>hint: You have divergent branches and need to specify how to reconcile them.
+hint: You can do so by running one of the following commands sometime before
+hint: your next pull:
+hint: 
+hint:   git config pull.rebase false  # merge (the default strategy)
+hint:   git config pull.rebase true   # rebase
+hint:   git config pull.ff only       # fast-forward only
+</code></pre>
+<h4 id="分支合并"><a class="header" href="#分支合并">分支合并</a></h4>
+<p>将当前分支与另一个分支合并：</p>
+<pre><code class="language-sh">git merge &lt;branch&gt;
+</code></pre>
+<p>合并工具：</p>
+<pre><code class="language-sh">git mergetool
+</code></pre>
+<h4 id="冲突与消除"><a class="header" href="#冲突与消除">冲突与消除</a></h4>
+<p><code>git</code>尝试自动合并，当通常会产生冲突。用户需要手动编辑冲突文件来消除冲突。手动编辑完成后，使用：</p>
+<pre><code class="language-shell">git add &lt;conflicted_file&gt;
+</code></pre>
+<p>以确认完成合并。在开始合并前，可以对比两个分支：</p>
+<pre><code class="language-sh">git diff &lt;source_branch&gt; &lt;target_branch&gt;
+</code></pre>
+<p>https://git-scm.com/docs/git-mergetool</p>
+<p>https://git-scm.com/docs/git-merge</p>
+<h2 id="发布"><a class="header" href="#发布">发布</a></h2>
+<h3 id="tagging"><a class="header" href="#tagging">tagging</a></h3>
+<pre><code class="language-sh">git tag 1.0.0 &lt;short_commit_id&gt;   # commit id 前10位
+</code></pre>
+<h2 id="github"><a class="header" href="#github">GitHub</a></h2>
+<h2 id="gitlab"><a class="header" href="#gitlab">GitLab</a></h2>
+<h5 id="squash-and-merge-free"><a class="header" href="#squash-and-merge-free">Squash and merge (FREE)</a></h5>
+<blockquote>
+<p>As you work on a feature branch, you often create small, self-contained commits. These small commits help describe the process of building a feature, but can clutter your Git history after the feature is finished. As you finish features, you can combine these commits and ensure a cleaner merge history in your Git repository by using the <em>squash and merge</em> strategy.</p>
+<ul>
+<li>Small commits are joined together, making it simpler to revert all parts of a change.</li>
+<li>When the single commit merges into the target branch, it retains the full commit history.</li>
+<li>Your base branch remains clean, and contains meaningful commit messages.</li>
+</ul>
+<p>Each time a branch merges into your base branch, up to two commits are added:</p>
+<ul>
+<li>The single commit created by squashing the commits from the branch.</li>
+<li>A merge commit, unless you have enabled fast-forward merges in your project. Fast-forward merges disable merge commits.</li>
+</ul>
+<p>By default, squashed commits contain the following metadata:</p>
+<ul>
+<li>Message: Description of the squash commit, or a customized message</li>
+<li>Author: User that created the merge request</li>
+<li>Committer: User who initiated the squash</li>
+</ul>
+<p>Project owners can create new default messages for all squash commits and merge commits.</p>
+</blockquote>
+<h3 id="角色与权限管理"><a class="header" href="#角色与权限管理">角色与权限管理</a></h3>
+<h5 id="分支合标签保护"><a class="header" href="#分支合标签保护">分支合标签保护</a></h5>
+<p>设置参与人员修改分支的权限。</p>
+<pre><code class="language-ini">[Branch]
+branch=&quot;master*&quot;
+allow to merge=&quot;Maintainers&quot;
+allow to push=&quot;Developers+Maintainers&quot;
+[Tag]
+tag=&quot;v-*&quot;
+allow to create=&quot;Maintainers&quot;
+</code></pre>
+<h2 id="参考资料"><a class="header" href="#参考资料">参考资料</a></h2>
+<ol>
+<li><a href="https://git-scm.com/docs">git Reference</a>.</li>
+<li><a href="http://book.git-scm.com/book/en/v2">Git - Book (git-scm.com)</a></li>
+<li><a href="https://ndpsoftware.com/git-cheatsheet.html#loc=workspace;">workspace :: Git Cheatsheet :: NDP Software</a></li>
+<li><a href="https://realpython.com/python-git-github-intro/#gitignore">Introduction to Git and GitHub for Python Developers – Real Python</a></li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../JavaScript/JS开发环境.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../笔记/正则表达式.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../JavaScript/JS开发环境.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../笔记/正则表达式.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

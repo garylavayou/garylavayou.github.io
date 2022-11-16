@@ -1,0 +1,25 @@
+	约束能自动强制数据完整性、过滤数据库中的数据。在某种意义上，约束是在进行INSERT、UPDATE、DELETE操作时，定义哪些数据值是有效的规则。当数据修改事务违反约束规则时，事务便会被拒绝。
+
+作用域
+列级约束（column level）
+	声明为列定义的一部分并且只约束该列。
+表级约束（table level）
+	独立于列定义以外的约束声明（一般是在CREATE TABLE语句的末尾）并且可以约束数据表中的一个或多个列。
+
+一般语法：
+CONSTRAINT [constraint_name] constraint_type [(column[,...])]
+[predicate] [constraint_deferment] [deferment_timing]
+
+UNIQUE约束
+	声明一列的值或多列值的组合必须是唯一的。有关规则：
+	唯一键内的字段不能包括：BLOB、CLOB、NCLOB或ARRAY数据类型。
+	如果唯一键有NULL值，那么只允许有单一的NULL值。
+	*唯一键内的字段不能与表中其他唯一键或主键中的任何字段相同。
+
+主键约束
+	声明一个或多个字段，其值可以唯一识别表中的每一条记录。它可以算作UNIQUE约束的特例。有关主键的规则：
+	数据表中一次只会出现一个主键；
+	主键的类型不能包括BLOB、CLOB、NCLOB或ARRAY类型；
+	可为单一字段定义列级的主键，如果主键由多字段组成，则可以定义表级主键；
+	主键的值必须是唯一的，并且不能是NULL；
+	多列主键又称为并置键（concatenated key），所有键值的组合都必须是唯一的，并且不能是NULL。	

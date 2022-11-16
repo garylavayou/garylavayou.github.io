@@ -1,0 +1,366 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>开发环境 - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html" class="active">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="开发环境"><a class="header" href="#开发环境">开发环境</a></h1>
+<h2 id="编辑器"><a class="header" href="#编辑器">编辑器</a></h2>
+<p><a href="https://code.visualstudio.com/">Visual Studio <em>Code</em></a> </p>
+<p>VIM </p>
+<h2 id="编译"><a class="header" href="#编译">编译</a></h2>
+<p><img src="%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83.assets/compile_single_file.png" alt="img" /></p>
+<h3 id="编译器"><a class="header" href="#编译器">编译器</a></h3>
+<h5 id="gccg"><a class="header" href="#gccg">gcc/g++</a></h5>
+<pre><code class="language-shell">sudo apt-get install -y g++
+sudo apt-get install -y build-essential
+</code></pre>
+<pre><code class="language-shell">g++ -std=c++17 -Wall -Wextra -Wpedantic input.cpp -o output
+</code></pre>
+<p><code>-g</code>：compile for debugging; avoid optimization level <code>-O1,-O2,-O3</code>, use <code>-O0, -Og</code> instead.</p>
+<p><code>-D MACRO</code>： 定义宏；</p>
+<p><code>-I path</code>：添加搜索路径；</p>
+<p><code>-l lib</code>：添加外部库；</p>
+<p><code>-L path</code>：外部库目录；</p>
+<blockquote>
+<p>The use of <code>gcc</code> does not add the C++ library.  <code>g++</code> is a program that calls <code>gcc</code> and automatically specifies linking against the C++ library.</p>
+<p><a href="https://www.cnblogs.com/samewang/p/4774180.html">GCC的gcc和g++区别</a>。</p>
+</blockquote>
+<h5 id="clangclang"><a class="header" href="#clangclang">clang/clang++</a></h5>
+<pre><code class="language-shell">sudo apt-get install -y clang
+sudo apt-get install -y build-essential
+</code></pre>
+<p>在规模较大的项目中，往往需要多个源程序文件，每个源程序文件称为一个<strong>编译单元。一个类的声明必须出现在所有使用该类的编译单元中。</strong></p>
+<h3 id="链接"><a class="header" href="#链接">链接</a></h3>
+<p>跨目标文件查找符号（变量、函数）并进行关联。</p>
+<p>默认的程序入口函数为<code>main</code>，可通过连接器选项指定。</p>
+<blockquote>
+<p><code>static</code>声明的函数只会在当前文件作用域被调用，因此当此函数未在该文件中被调用时，链接器不会尝试去链接该函数内部调用的其他函数。</p>
+</blockquote>
+<h4 id="静态链接"><a class="header" href="#静态链接">静态链接</a></h4>
+<h5 id="外部库的路径"><a class="header" href="#外部库的路径">外部库的路径</a></h5>
+<p>包含目录<code>$INCLUDE</code>：头文件的搜索路径；</p>
+<p>库目录<code>$LIB</code>：库文件的搜索路径；</p>
+<blockquote>
+<p><a href="#VC++%E9%A1%B9%E7%9B%AE%E5%B1%9E%E6%80%A7%E9%85%8D%E7%BD%AE">Visual Studio</a>: 在<code>c++</code>项目属性中配置Visual C++目录。</p>
+</blockquote>
+<h5 id="链接到外部库"><a class="header" href="#链接到外部库">链接到外部库</a></h5>
+<p>为连接器指定库文件。</p>
+<blockquote>
+<p>Visual Studio：在<code>c++</code>项目属性中配置“连接器/附加依赖项”，在给定库目录路径后，只需给出文件名即可。在同一解决方案下的库，可使用“添加/引用”的方式导入依赖库。</p>
+</blockquote>
+<p>静态链接可以执行链接优化。</p>
+<h4 id="动态链接"><a class="header" href="#动态链接">动态链接</a></h4>
+<p><code>xxxdll.lib</code></p>
+<p>将<code>xxx.dll</code>文件放置在可执行文件所在目录（或设置库目录）。</p>
+<h3 id="工具链"><a class="header" href="#工具链">工具链</a></h3>
+<h4 id="make"><a class="header" href="#make">make</a></h4>
+<p>先声明最后的输出文件（可执行文件）的构建命令，然后分别声明依赖文件的构建命令。<code>make</code>根据依赖关系决定是否继续查找后续目标，然后反向执行命令。</p>
+<pre><code class="language-makefile">prog: main.o dbl.o
+	g++ main.o dbl.o -o prog
+main.o : main.cpp
+	g++ -c main.cpp
+dbl.o : dbl.cpp
+	g++ -c dbl.cpp  # tab for indentation
+clean:
+	rm -rf *.o prog
+install:
+   install prog /usr/local/bin/
+</code></pre>
+<blockquote>
+<p>仅编译更新过的源文件、目标文件。</p>
+<p><a href="https://makefiletutorial.com/">Makefile Tutorial By Example</a></p>
+</blockquote>
+<h5 id="设置编译器选项cflags"><a class="header" href="#设置编译器选项cflags">设置编译器选项（CFLAGS）</a></h5>
+<pre><code class="language-sh"> ./configure CFLAGS='-g -O2 -w' CXXFLAGS='-g -O2 -w'
+ make CFLAGS='-g -O2 -w' CXXFLAGS='-g -O2 -w'
+</code></pre>
+<h5 id="编译项目"><a class="header" href="#编译项目">编译项目</a></h5>
+<pre><code class="language-shell">make &amp; make install # building project and install the software
+make clean			# cleaning the building output
+make uninstall		# uninstall the software from the configured location
+</code></pre>
+<h4 id="cmake"><a class="header" href="#cmake">cmake</a></h4>
+<p>https://cliutils.gitlab.io/modern-cmake。</p>
+<pre><code class="language-shell">sudo apt install cmake
+</code></pre>
+<p>https://https//github.com/lefticus/cpp_starter_project。</p>
+<pre><code class="language-cmake"># Makefile
+camke_minimum_required(VERSION 3.5)
+project (HelloWorld)
+set (CMAKE_CXX_FLAGS &quot;$CMAKE_CXX_FLAGS -Wall -Werror -std=c++11&quot;)
+set (source_dir &quot;$PROJECT_SOURCE_DIR/src/&quot;)
+file (GLOB source_files &quot;$source_dir/*.cpp&quot;)
+add_executable (HelloWorld $(source_files))
+</code></pre>
+<pre><code class="language-shell">Cmake -G &quot;Codelite - Unix Makefiles&quot; -DCMKAE_BUILD_TYPE=Debug
+</code></pre>
+<h4 id="msbuild"><a class="header" href="#msbuild">MSBuild</a></h4>
+<h4 id="build2"><a class="header" href="#build2">build2</a></h4>
+<h4 id="qmake"><a class="header" href="#qmake">QMake</a></h4>
+<h2 id="ide"><a class="header" href="#ide">IDE</a></h2>
+<h3 id="visual-studio"><a class="header" href="#visual-studio">Visual Studio</a></h3>
+<ul>
+<li>
+<p><a href="https://visualstudio.microsoft.com/free-developer-offers">Visual Studio Free Community Edition</a></p>
+<blockquote>
+<p>VisualAssist</p>
+</blockquote>
+<h5 id="vc项目属性配置"><a class="header" href="#vc项目属性配置">VC++项目属性配置</a></h5>
+<p>目录配置：使用宏（<code>例如$(SolutionDir)</code>）配置输出目录。</p>
+<p>配置类型：可执行文件（<code>.exe</code>）、静态库（<code>.lib</code>）、动态库（<code>.dll</code>）……。</p>
+<p>语言标准：</p>
+<p>C++/CLI属性</p>
+</li>
+<li>
+<p><a href="https://www.qt.io/qt-features-libraries-apis-tools-and-ide/#ide">Qt Creator</a> </p>
+</li>
+<li>
+<p><a href="https://codelite.org/">CodeLite</a></p>
+<blockquote>
+<h5 id="code-completion"><a class="header" href="#code-completion">Code Completion</a></h5>
+<ul>
+<li><strong>C++</strong> code completion: powerful and amazingly fast code completion based on our in-house parser (supports C++11 auto keyword, templates, inheritance etc)</li>
+<li><strong>clang</strong> based code completion for <strong>C++</strong> projects - based on the CLANG/LLVM project - this feature provides a compiler level code completion</li>
+<li>Parse and display doxygen comments in the code completion box (as a separated floating window)</li>
+</ul>
+<h5 id="compilers"><a class="header" href="#compilers">Compilers</a></h5>
+<ul>
+<li>Generic support for compilers with built-in support for GCC/clang/VC++</li>
+<li>Display errors as code annotations or as tooltip in the editor window</li>
+<li>Errors are clickable via the <strong>Build</strong> tab</li>
+</ul>
+<h5 id="lldb-support"><a class="header" href="#lldb-support">LLDB Support</a></h5>
+<h5 id="gdb-support"><a class="header" href="#gdb-support">GDB Support</a></h5>
+<ul>
+<li>Watches table - add persistent watches with a single click</li>
+<li>Quick Watch - right click on a variable to expand it</li>
+<li>Locals tree - automatically displays the current stack variables (also displays *this if available)</li>
+<li>Threads view - contains a list of currently-running threads; switch between them with a single click</li>
+<li>Breakpoint management - disable, enable, conditional, temporary</li>
+<li>Automatic <strong>tree</strong> like tooltips</li>
+<li>Memory view</li>
+<li>Tree View tooltips (auto de-references pointers)</li>
+<li>Allow modifying tooltips</li>
+</ul>
+<h5 id="refactoring"><a class="header" href="#refactoring">Refactoring</a></h5>
+<ul>
+<li>Rename symbol, local symbol</li>
+<li>Rename file (will also change all <code>#include</code> in the code)</li>
+<li>Generate setters / getters</li>
+<li>Implement inherited virtual functions</li>
+<li>Implement inherited pure-virtual functions</li>
+<li>Easily change function signature to match its header / implementation counterpart</li>
+<li>Move functions implementation to another source file</li>
+<li>Implement all unimplemented methods</li>
+<li>Implement method</li>
+</ul>
+<h5 id="source-control-plugins"><a class="header" href="#source-control-plugins">Source Control Plugins</a></h5>
+</blockquote>
+</li>
+</ul>
+<h2 id="标准库"><a class="header" href="#标准库">标准库</a></h2>
+<p>标准模板库（STL）。</p>
+<p>Microsoft 基础类 (MFC) 通过 Win32 提供面向 C++ 对象的包装，以便实现本机桌面应用程序的快速开发。 活动模板库 (ATL, ActiveX Template Library) 是一个包装库，它简化了 COM 开发，广泛用于创建 ActiveX 控件。</p>
+<h2 id="工具集"><a class="header" href="#工具集">工具集</a></h2>
+<p>命令行工具：</p>
+<div class="table-wrapper"><table><thead><tr><th>工具</th><th>命令</th><th>说明</th></tr></thead><tbody>
+<tr><td><code>hexdump</code></td><td><code>hexdump -C file</code></td><td>查看文件的十六进制编码</td></tr>
+<tr><td><code>readelf</code></td><td><code>readelf -aW file</code></td><td>查看ELF二进制文件结构</td></tr>
+<tr><td></td><td></td><td></td></tr>
+</tbody></table>
+</div>
+<h3 id="red-hat-developer-toolset"><a class="header" href="#red-hat-developer-toolset">Red Hat Developer Toolset</a></h3>
+<blockquote>
+<p><em><a href="https://access.redhat.com/documentation/en-us/red_hat_developer_toolset/10/html/user_guide/chap-red_hat_developer_toolset">Red Hat Developer Toolset does not replace the default system tools</a>.</em></p>
+<p>Enable Red Hat Developer Toolset by using Red Hat Subscription Management.</p>
+</blockquote>
+<pre><code class="language-shell">yum install devtoolset-10 # all development, debugging, and performance monitoring tools
+# devtoolset-10-toolchain
+# devtoolset-10-perftools
+</code></pre>
+<p>使用指定的工具</p>
+<pre><code class="language-shell">scl enable devtoolset-10 'gcc -o output_file source_file...'
+scl enable devtoolset-10 'bash' # 使开发工具集中的执行程序成为默认
+</code></pre>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/developing_c_and_cpp_applications_in_rhel_8">Developing C and C++ applications in RHEL 8 Red Hat Enterprise Linux 8 | Red Hat Customer Portal</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../CC++/Modern C++.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../CC++/C++容器.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../CC++/Modern C++.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../CC++/C++容器.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

@@ -1,0 +1,447 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>文件处理 - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html" class="active">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="文件处理工具"><a class="header" href="#文件处理工具">文件处理工具</a></h1>
+<h2 id="切割和拼接"><a class="header" href="#切割和拼接">切割和拼接</a></h2>
+<p>将一个文件分割为多块：</p>
+<pre><code class="language-shell">split [OPTION]... FILE PREFIX
+</code></pre>
+<p><code>PREFIX</code>：输出文件名前缀，输出文件名自动添加后缀编号，形如：<code>PREFIXaa</code>、<code>PREFIXab</code>、...。
+<code>FILE</code>：输入文件名，如果未提供或为<code>-</code>则从标准输入读取（管道）。</p>
+<p>选项：</p>
+<p><code>-a</code>：后缀长度；
+<code>-d</code>：使用数字编号，<code>--numeric-suffixes[=FROM]</code>允许指定起始编号；
+<code>-x</code>：使用十六进制编号，<code>--hex-suffix[=FROM]</code>；</p>
+<p><code>-b,--bytes=SIZE</code>：每个输出文件的长度（字节），<code>K,M,G,T,P,E,Z,Y</code> (1024)或<code>KB,MB,...</code> (1000)；
+<code>-l,--lines=NUMBER</code>：每个输出文件的行数；
+<code> -n,--number=CHUNKS</code>：指定输出文件的个数，<code>l/N</code>不在行内分割；<code>K/N</code>仅输出第<code>K</code>个分块到标准输出（<code>l/K/N</code>）；==<code>r/N</code>将文本文件内容按行轮流输出到<code>N</code>个分块中==。</p>
+<h5 id="合并文件"><a class="header" href="#合并文件">合并文件</a></h5>
+<pre><code class="language-shell">cat [OPTION] ... FILE ...
+</code></pre>
+<p>将文件拼接并输出到标准输出，或使用输出重定向将内容输出到新文件。如果<code>FILE</code>未提供或为<code>-</code>则从标准输入读取（管道）。</p>
+<h2 id="diff-and-patch"><a class="header" href="#diff-and-patch">diff and patch</a></h2>
+<h3 id="用法"><a class="header" href="#用法">用法</a></h3>
+<pre><code class="language-shell">diff [options] origin_filename changed_file
+diff [options] origin_dir/ updated_dir/      # 对比文件夹下的对应文件变更
+</code></pre>
+<p><code>diff</code>文件模式：默认模式仅记录改动的位置信息和改动内容；</p>
+<ul>
+<li>
+<p><code>-c</code>：copied context（补丁内容附带修改部分的前后内容，从而不仅依赖行号定位改动位置）；</p>
+<p><code>-C N</code>：指定上下文行数；</p>
+</li>
+<li>
+<p><code>-u</code>：unified context（修改内容直接对比，更加紧凑，<em>GNU diff and patch</em>）。</p>
+</li>
+<li>
+<p><code>-y</code>：side-by-side（输出两列对比）。<code>colordiff</code>不支持此模式的高亮。</p>
+</li>
+</ul>
+<p>空白对比处理：</p>
+<ul>
+<li><code>-b,--ignore-space-change</code></li>
+<li><code>-w, --ignore-all-space</code> </li>
+<li><code>-B, --ignore-blank-lines</code></li>
+</ul>
+<h3 id="升级补丁patch"><a class="header" href="#升级补丁patch">升级补丁(patch)</a></h3>
+<p><code>diff</code>输出内容可保存为补丁文件，利用<code>patch</code>程序可基于旧版本和补丁文件重建新文件。</p>
+<pre><code class="language-shell">patch originalfile -i patchfile.patch -o updatedfile #*
+patch -p 0 -i patchfile.patch  # -p N 仅处理&lt;=第N层子文件夹
+</code></pre>
+<blockquote>
+<p><code>*</code>：<code>yum install patch</code>；</p>
+</blockquote>
+<p>对于已分发文文件<code>v1.file</code>，如果要进行更新可选择生成补丁（<code>diff v1.file v2.file &gt; v12.patch</code>），从而减小传输带宽；在远程机器上将补丁应用于修改后的文件（<code>patch v1.file -i v12.patch -o v2.file</code>）。对于被修改过的远程文件<code>v1r.file</code>，则这种更新方式会失败，因为补丁信息与基础文件不能匹配，因此需要人工将<code>v1.file-&gt;v1r.file</code>中的修改内容合并到<code>v2.file</code>中。</p>
+<ol>
+<li><a href="https://acloudguru.com/blog/engineering/introduction-using-diff-and-patch">Introduction to Using Diff and Patch | A Cloud Guru</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2012/08/how_to_read_diff.html">读懂diff - 阮一峰的网络日志 (ruanyifeng.com)</a></li>
+</ol>
+<p><a href="https://www.gnu.org/software/diffutils/manual/html_mono/diff.html">Comparing and Merging Files (gnu.org)</a></p>
+<h3 id="高亮比较结果"><a class="header" href="#高亮比较结果">高亮比较结果</a></h3>
+<pre><code class="language-shell">diff origin changed | colordiff # =&gt; colordiff origin changed *
+diff origin changed | vim -R -  # 在Vim中显示diff结果
+vim -d origin changed           # =&gt; vimdiff 在Vim中显示对比结果，显著高亮行内不同部分。
+git diff --no-index --word-diff=color origin changed  # **
+</code></pre>
+<blockquote>
+<p><code>*</code>：<code>yum install colordiff</code>：高亮比较结果。</p>
+<p><code>**</code>：<code>--no-index</code>比较的文件不在git仓库中时使用。</p>
+</blockquote>
+<h2 id="归档"><a class="header" href="#归档">归档</a></h2>
+<pre><code class="language-shell">tar -[cruxt][z][v] -f path/archive.tar.gz \
+   -C /file/path \ # 更改操作目录
+   file1 file2 ...
+</code></pre>
+<h5 id="操作模式"><a class="header" href="#操作模式">操作模式</a></h5>
+<p><code>-c,--create</code>：从选定的文件创建新的档案（覆盖已有同名档案）；</p>
+<blockquote>
+<p>当不声明压缩格式选项<code>-z</code>时（且文件扩展名为<code>.tar</code>或添加<code>--no-auto-compress</code>选项），只进行归档而不执行压缩。</p>
+</blockquote>
+<p><code>-r,--append</code>：将选定文件追加文件至档案末尾（不会覆盖同名文件）；</p>
+<p><code>-u,--update</code>：追加文件至档案，覆盖档案中较旧的文件；</p>
+<p><code>-t,--list</code>：列出档案内容；</p>
+<p><code>-x,--extract</code>：提取档案中的文件（到当前目录），使用<code>-C</code>指定提取文件的存储目录；</p>
+<p><code>-A</code> ：追加<code>tar</code>文件合并至档案末尾（<code>--catenate, --concatenate</code>）；</p>
+<p><code>--delete</code>：从档案中删除文件；</p>
+<pre><code class="language-sh">tar -f archive.tar --delete test2.txt
+</code></pre>
+<h5 id="文件"><a class="header" href="#文件">文件</a></h5>
+<p><code>-f,--file=ARCHIVE</code>：选择操作的目标档案文件；<code>-T,--files-from=FILE</code>：从文件读取进行操作的文件列表。</p>
+<p><code>-C,--directory=DIR</code>：更改操作目录。对于归档操作，该选项影响后续源文件的根目录；对于提取操作，该选项影响提取内容的存储目录。</p>
+<p><code>-h,--dereference</code>：压缩时读取<strong>符号链接</strong>指向的目标文件内容==替换符号链接==；如果压缩时未指定<code>-h</code>，则保留符号链接信息，解压缩时还原为符号链接。（<em>相应地，<code>--hard-dereference</code>对于<code>hardlink</code>文件似乎没用</em>）。</p>
+<p><code>--strip-components=1</code>：移除档案中的目录层级（==为了修改根目录名而自行创建根目录==）；</p>
+<p><code>--add-file=FILENAME</code>：添加包含特殊字符的文件。</p>
+<p><code>--exclude=PATTERN</code>：排除文件的模式；<code>-X,--exclude-from=FILE</code>：从文件中读取排除文件的多个模式；</p>
+<pre><code class="language-shell">--exclude=&quot;*.pyc&quot; --exclude=&quot;*tmp/*&quot; --exclude=&quot;*model/*&quot; --exclude=&quot;*output/*&quot;
+</code></pre>
+<p><code>-N, --newer=DATE-OR-FILE, --after-date=DATE-OR-FILE</code>：仅存储比所给日期或文件更新的文件（包括所给定日期的文件）。</p>
+<p><code>-p,--preserve-permissions</code>：保留文件访问权限。</p>
+<h5 id="压缩"><a class="header" href="#压缩">压缩</a></h5>
+<p><code>-z</code>：等效于对归档后的文件/文件夹，使用<code>gzip</code>压缩或解压文件，输出文件扩展名为<code>.tar.gz</code>。</p>
+<pre><code class="language-sh">tar -cvf archive.tar FILES ...
+gzip --keep archive.tar # &gt;&gt; archive.tar.gz
+</code></pre>
+<h5 id="信息"><a class="header" href="#信息">信息</a></h5>
+<p><code>-v</code>：列出所处理的文件。</p>
+<h5 id="文件覆盖"><a class="header" href="#文件覆盖">文件覆盖</a></h5>
+<p><code>-k, --keep-old-files</code>：不覆盖文件，提示错误（<strong>默认为覆盖</strong>），<code>--skip-old-files</code>直接跳过，不产生错误。
+<code>--keep-newer-files</code> ：不覆盖本地更新的文件（本地存在相同时间或更新时间的同名文件时输出提示）。
+<code>--overwrite</code>：提取时覆盖已有文件。
+<code>--remove-files</code>：归档后删除原文件。</p>
+<p>https://www.rootusers.com/23-tar-command-examples-for-linux/</p>
+<h2 id="压缩解压"><a class="header" href="#压缩解压">压缩/解压</a></h2>
+<h3 id="gzip"><a class="header" href="#gzip">gzip</a></h3>
+<pre><code class="language-sh">gzip filename       # 压缩*
+     -c,--stdout    # 输出到标准输出, 保留源文件
+     -k,--keep      # 保留输入文件
+     -f,--force     # 强制覆盖输出文件  
+     -r,--recursive # 递归遍历文件，并分别执行压缩**
+     -1,--fast
+     -9,--best
+gzip -l,--list filename # 列出压缩内容的信息
+</code></pre>
+<blockquote>
+<p>如果未指定文件名，或文件名为<code>-</code>，从标准输入读取数据。</p>
+<p><code>*</code>：<code>gzip</code>默认进行压缩操作，指定<code>-d,--decompress</code>执行解压任务（等效于调用<code>gunzip</code>）。</p>
+<p><code>**</code>：<code>gzip</code> 只支持压缩文件，不支持文件夹；使用<code>-r</code>选项会对文件下的文件分别进行压缩；使用<code>tar</code>对文件夹归档后再进行压缩。</p>
+</blockquote>
+<h3 id="zip"><a class="header" href="#zip">zip</a></h3>
+<pre><code class="language-sh"># sudo apt install zip unzip
+zip [options] archive[.zip] INPATH1 INPATH2 ... 
+  # -可替代使用标准输入/输出分别代替输入(文件名)/输出(压缩内容), 
+  # 使用-代替输入会将输出定位到标准输出; -@则仍将压缩内容输出至文件; 
+  -r,--recurse-paths  # 默认至包括给定的目录/文件，不包含子目录内容
+  -x,--exclude file_pattern # 排除文件  -x@exclude.lst
+  -i,--incldue        # 指定输入
+  -y,--symlinks       # 存储符号链接而非其指向的文件
+  --out,--output-file # 不更新已有zip文件而是输出到新文件
+  -FS,--filesync      # 源和zip文件同步模式
+  -P,--password password
+  -du,--display-usize # Display the uncompressed size of each entry.
+  -z，--archive-comment # 从标准输入/文件(&lt;conmment_file)读取注释
+  -Z,--compression-method=store|deflate|bzip2 # 压缩方法
+  -N  # N=0-9 0表示不压缩(-Z store)
+zip add|update|freshen|delete|copy ...
+  # &quot;update&quot; (-u,--update)
+  # &quot;freshen&quot; (-f,--freshen) only update existed files, not add new files. 
+  # &quot;delete&quot; (-d,--delete)
+  # &quot;copy&quot; (-U,--copy-entries) 从zip文件中选取文件并输出到新的zip文件(--out)
+unzip -O GB2312 file.zip -d dir  
+      -l FILE # 仅列出包含的文件的信息
+      -z FILE # 仅列出压缩包的注释信息
+      -P password
+</code></pre>
+<blockquote>
+<p>如果出现文件名乱码：<code>-O</code>指定Windows压缩文件使用的编码方案；<code>-I</code>指定UNIX或其他系统下的编码方案。</p>
+<p><code>zip</code>在操作时会先创建一个临时文件，仅当</p>
+</blockquote>
+<p><code>zip</code>可对压缩文件进行分片，从而方便大文件的传输。<code>unzip</code>无法直接对分片的压缩文件进行解压，可首先将其拼接（<code>cat</code>）为一个文件再执行解压。</p>
+<pre><code class="language-shell">  A split archive is a standard zip archive split over multiple files.  (Note that split archives are not just archives split in to pieces, as the offsets of entries are now based on the start of each split. Concatenating the pieces together will invalidate these offsets, but unzip can usually deal with it. zip will usually refuse to process such a spliced archive unless the -FF fix option is used to fix the offsets.
+   When changing an existing zip archive, zip will write a temporary file with the new contents, and only replace the old one when the process of creating the  new  version  has  been completed without error.
+</code></pre>
+<pre><code class="language-shell">zip -s 700m ARCHIVE.zip --out ARCHIVE-SPLIT.zip   # 将字zip文件分片(-s,--split-size)
+# ARCHIVE-SPLIT.z01, ARCHIVE-SPLIT.z02, ..., ARCHIVE-SPLIT.zip.
+# k (kB), m (MB), g (GB), or t (TB) (the default is m)
+zip -s 0 input-split.zip --out input-unsplit.zip  # 将分片文件合并
+</code></pre>
+<blockquote>
+<p>还支持将一种分片容量的输入改变为另一种分片容量进行输出（中间过程可能需要恢复为完整文件）。</p>
+</blockquote>
+<h2 id="主机之间复制文件"><a class="header" href="#主机之间复制文件">主机之间复制文件</a></h2>
+<h3 id="scp"><a class="header" href="#scp">scp</a></h3>
+<p><code>scp</code>命令(secure copy)用于Linux之间复制文件和目录，是linux系统下基于<code>ssh</code>登录进行安全的远程文件拷贝命令。<code>scp</code>是加密的，<code>scp</code>是 <a href="https://www.runoob.com/linux/linux-comm-rcp.html"><code>rcp</code></a> (不加密的)加强版。</p>
+<pre><code class="language-sh">scp [options] file user@dest_host:file # local to remote
+scp [options] user@src_host:file file  # remote to local
+</code></pre>
+<blockquote>
+<p><code>-P</code>：指定远程服务器端口号。</p>
+<p><strong>注意</strong>：使用<code>scp</code>命令要确保使用的用户具有可读取远程服务器相应文件的权限，否则<code>scp</code>命令是无法起作用的。</p>
+</blockquote>
+<p><code>scp</code>可以在源与目的主机以外的第三台主机执行，只需保证源与目的主机间有相应地读写权限。</p>
+<h3 id="rsync"><a class="header" href="#rsync">rsync</a></h3>
+<p><code>rsync</code>常用于文件备份和镜像，支持本地和远程目标之间的文件传输。对于目标路径已有的文件，仅传输源和目标文件的差异部分；并且支持只更新较新的文件。<code>rsync</code>默认检测文件的修改时间和大小，如果未发生变化，则仅修改目标文件的相关属性信息。<code>rsync</code>会对传输文件按文件名排序。</p>
+<p>==目标目录如果不存在==，<code>rsync</code>会自动创建。</p>
+<blockquote>
+<p><code>rsync</code>支持两种模式：远程shell（如<code>ssh</code>,目标形如<code>user@host:path</code>）；<code>rsync daemon</code>（目标形如<code>user@host::path</code>或<code>rsync://</code>）。<code>rsync</code>==必须安装在收发两台机器==。</p>
+<p>启动<code>rsync daemon</code>：<code>man rsyncd.conf</code>。</p>
+</blockquote>
+<pre><code class="language-shell">rsync -rua srcfiles ... user@host:path  # files支持通配符
+rsync -ua --delete source/ target       # source-&gt;target同步
+</code></pre>
+<h5 id="文件路径格式"><a class="header" href="#文件路径格式">文件路径格式</a></h5>
+<ul>
+<li>==如果源路径为目录且以<code>/</code>结尾则只拷贝目录下的内容到目标目录；反之，将该目录拷贝到目目录下（目标目录后是否有<code>/</code>无影响）==；</li>
+<li>如果源路径为文件，目标路径为目录，则将该文件保存到目标目录下；如果目标路径为文件，则保存为目标文件。</li>
+</ul>
+<h4 id="文件传输控制"><a class="header" href="#文件传输控制">文件传输控制</a></h4>
+<blockquote>
+<p><code>-a,--archive</code>：归档模式，保证文件属性保留，等效于<code> -rlptgoD</code>。</p>
+<ul>
+<li><code>-r</code>：递归复制子目录内容，若未指定该选项，将跳过提供的文件夹；<code>-d,--dirs</code>只拷贝==当前目录==，不包含目录内容（除非目录名为<code>.</code>或以<code>/</code>结尾）；如果同时出现，<code>-r</code>优先级高于<code>-d</code>。</li>
+<li><code>-l,--links</code>符号链接不转换为实际文件；<code>-L,--copy-links</code>将符号链接转换为实际文件。</li>
+<li><code>-t,--times</code>：保留文件的时间信息。</li>
+<li><code>-g,--group;-o,--owner</code>：保留文件的用户信息。</li>
+<li><code>-D,--devices --specials</code>：传输字符或块设备文件和特殊文件（如明明套接字和FIFIO）。</li>
+</ul>
+<p><code>-v,--verbose</code>：打印传输过程信息，可叠加最多两个<code>-v</code>以增加输出信息量。</p>
+<p><code>--progress</code>：显示传输进度信息。</p>
+<p><code>-R,--relative</code>：保留源文件参数给出的路径并拼接到目标路径下。</p>
+<p><code>-c,--checksum</code>：使用文件大小和校验和（MD5）而非修改时间检查文件是否更改。由于收发两端都需要读取文件计算校验和，因此处理速度较慢。</p>
+<p><code>-z,--compress</code>：压缩传输内容；<code> --compress-level=NUM</code>。</p>
+<p><code>-b,--backup</code>：目标位置已存在的文件和目录将被重命名； <code>--backup-dir=DIR</code>, <code>--suffix=SUFFIX</code></p>
+<p><code>-n,--dry-run</code>：与<code>-v</code>或<code>-i</code>结合使用。</p>
+<p>如果未指定目标路径，则列出源文件（类似于<code>ls -l</code>，源也可以是远程）。如果源和目的都为本地路径，则在本地路径间进行复制。</p>
+</blockquote>
+<h5 id="目标文件权限控制"><a class="header" href="#目标文件权限控制">目标文件权限控制</a></h5>
+<ul>
+<li><code>-p,--perms</code>：目标文件的权限信息与源文件保持一致。如果未指定该选项：已有文件再更新时权限信息不变；新文件的普通权限标志位与源文件一致，其他的继承自接收目录的默认权限。</li>
+<li><code>-E,--executability</code>：在未启用<code>--perms</code>时，为普通文件添加可执行权限（启用时忽略该选项）。</li>
+<li><code>--chmod=u=rw,go=r,D+x</code>：该选项修改<strong>来自源文件的权限信息</strong>（而非已保存在本地的文件权限），因此未启用<code>--perms</code>，则对已有文件无影响。除<code>chmod</code>的权限声明方式外（也支持数字模式<code>--chomd=F644,D755</code>），可添加额外的前缀：<code>D</code>表示仅应用于目录，<code>F</code>表示仅应用于普通文件。</li>
+</ul>
+<h4 id="同步条件选项"><a class="header" href="#同步条件选项">同步条件选项</a></h4>
+<p><code>-u,--update</code>：跳过目标路径下修改时间比源文件新的文件。
+<code>--delete</code>：删除目标路径下，不存在于发送方的内容，与发送方保持一致（镜像）。
+<code>--existing, --ignore-non-existing</code>：只同步目标已存在的内容；
+<code>--ignore-existing</code>：只同步目标不存在的内容。
+<code>--exclude=PATTERN</code>：排除无需同步的文件（收发双方同时忽略），可多次使用该选项；<code>--exclude-from=FILE</code>从文件指定多个模式；文件中的空行、以<code>’;’</code>或<code>’#’</code>开头的行被忽略。</p>
+<pre><code class="language-shell">foo   # 包含foo的路径
+/foo  # 匹配传输目录下以foo开头的文件路径
+foo/  # 仅匹配目录
+*     # 匹配任何内容直到&quot;/&quot;
+**    # 匹配任何内容
+?     # 匹配除了&quot;/&quot;以外的字符
+[]    # 定义匹配字符集合
+</code></pre>
+<p><code>--include=PATTERN</code>和<code>--include-from=FILE</code>：指定要包括的文件，优先级高于<code>--exclude</code>。
+<code>--files-from=FILE</code>：确切指定要传输的文件。</p>
+<h4 id="增量备份"><a class="header" href="#增量备份">增量备份</a></h4>
+<p>第一次同步是全量备份，所有文件在基准目录里面同步一份。其后每次使用最近的备份目录作为基准目录，只同步源目录与基准目录之间有变动的部分并将其保存到新的目标目录；没有变动的文件都是指向基准目录文件的==硬链接==（不能生成软链接，否则后期对比时与源文件不同）。</p>
+<pre><code class="language-shell">rsync -a --delete --link-dest=COMPARE_DIR /source/path /target/path
+</code></pre>
+<blockquote>
+<p><code>--copy-dest=DIR</code>：直接从基准目录<code>DIR</code>复制未发生变化的文件（而非创建链接），减少网络传输量。通过复制而非创建硬链接保证对基准目录的修改不会影响目标目录内容。
+<code>--compare-dest=DIR</code>：仅复制与基准目录<code>DIR</code>相比发生变化的文件，并删除目标目录下已存在于<code>DIR</code>中未发生变化的文件。==利用该选项可以找出两个版本之间的差异文件（相当于文件级别的<code>diff</code>）==。</p>
+<pre><code class="language-shell">rsync -a --delete --compare-dest=LastVersion LastestVersion AddedFiles
+rsync -a --delete --compare-dest=LastestVersion LastVersion RemovedFiles
+</code></pre>
+</blockquote>
+<p><a href="http://www.ruanyifeng.com/blog/2020/08/rsync.html">rsync 用法教程 - 阮一峰的网络日志 (ruanyifeng.com)</a></p>
+<h4 id="cwrsync"><a class="header" href="#cwrsync">cwrsync</a></h4>
+<p>cwrsync是基于cgywin开发的rsync软件。<code>cwrsync 5.5</code> 包含<code>rsync 3.1.2</code>（与CentOS7.x rsync版本兼容），<code>cwrsync 6.2.4</code>包含<code>rsync 3.2.3</code>。</p>
+<h5 id="配置cwrsync执行脚本"><a class="header" href="#配置cwrsync执行脚本">配置cwrsync执行脚本</a></h5>
+<pre><code class="language-powershell">SET CWRSYNCHOME=C:\apps\cwRsync_5.5.0_x86_Free
+SET PATH=%CWRSYNCHOME%\bin;%PATH%
+</code></pre>
+<blockquote>
+<p>如果系统中未安装其他SSH客户端，可将<code>%CWRSYNCHOME%\bin</code>配置到用户路径中。</p>
+</blockquote>
+<h5 id="配置免密码远程访问"><a class="header" href="#配置免密码远程访问">配置免密码远程访问</a></h5>
+<p>如果系统已经使用Open-SSH客户端，并生成密钥且已配置远程SSH免密码访问。则将<code>~/.ssh/</code>目录下的<code>id_rsa</code>复制到<code>%CWRSYNCHOME%/home/%USERNAME%/.ssh</code>目录下，并将其访问权限设置为仅限当前用户。</p>
+<p>如果系统未使用Open-SSH客户端，则使用<code>cwrsync</code>自带SSH客户端程序<code>ssh-keygen</code>生成密钥并分发给远程机器。</p>
+<h5 id="文件访问权限配置"><a class="header" href="#文件访问权限配置">文件访问权限配置</a></h5>
+<p>由于Windows与Linux的文件访问权限设置方式不一致，容易导致向Linux系统同步时目标系统文件权限不正确。因此执行<code>rsync</code>命令时配置以下选项（关闭保持权限的选项，并显式设置目标系统的访问权限）：</p>
+<pre><code class="language-shell">rsync -urltDv --delete --chown USER:GROUP --chmod a+rX,u+w,go-w SOURCE TARGET
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../应用软件/文档生成软件.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../应用软件/协作办公软件.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../应用软件/文档生成软件.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../应用软件/协作办公软件.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

@@ -1,0 +1,13 @@
+解决rhythmbox的文件名乱码问题
+
+去ubuntu的preferance："Main Menu"，找到rhythmbox，然后更改它的属性为：
+env GST_ID3_TAG_ENCODING=GBK rhythmbox %U
+
+原来为
+rhythmbox %U
+
+须让Rhythmbox重新读取音乐文件的信息，我曾经试着先把音乐文件夹移动到别处，启动播放器
+后原来记录的文件信息确实不见了。但是，当我把文件夹移动回来后，依然是乱码！这并不是说
+这个方法没用，而是Rhythmbox偷懒了，它发现原来数据库记录的文件又出现了，结果就使用了
+原来的数据库。正确的方法是在家目录下删除Rhythmbox的数据库信息，可以通过删除
+~/.local/share/rhythmbox下的所有文件来实现。

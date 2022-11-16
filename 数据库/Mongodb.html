@@ -1,0 +1,383 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Mongodb - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html" class="active">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="mongodb"><a class="header" href="#mongodb">Mongodb</a></h1>
+<h2 id="安装"><a class="header" href="#安装">安装</a></h2>
+<h3 id="单机配置"><a class="header" href="#单机配置">单机配置</a></h3>
+<pre><code class="language-yml">storage:
+  dbPath: /var/lib/mongo
+net:
+  port: 27017
+  bindIp: 0.0.0.0
+replication:
+   replSetName: rs # 定义副本集的名称
+</code></pre>
+<p>启动服务：</p>
+<pre><code class="language-shell">systemctl enable --now mongod
+</code></pre>
+<p>默认服务端口为：<code>TCP/27017</code>和<code>UNIX/tmp/mongodb-27017.sock</code>。默认监听地址为<code>127.0..0.1</code>，可改为<code>0.0.0.0</code>以监听所有地址。</p>
+<h3 id="mongodb-shell"><a class="header" href="#mongodb-shell">MongoDB Shell</a></h3>
+<blockquote>
+<p><code>mongosh</code>：<em>a fully functional JavaScript and Node.js 14.x REPL environment.</em></p>
+</blockquote>
+<p>关键字为小写（大小写敏感）。</p>
+<p><a href="https://docs.mongodb.com/manual/reference/sql-comparison/">SQL to MongoDB Mapping Chart — MongoDB Manual</a></p>
+<h5 id="用户管理"><a class="header" href="#用户管理">用户管理</a></h5>
+<pre><code class="language-typescript">use admin
+db.createUser({   // =&gt; 创建用户
+  user: 'root',
+  pwd: '123456',
+  roles:[{ role: 'root', db: 'admin' }]
+})
+db.getUser(&quot;root&quot;)
+</code></pre>
+<blockquote>
+<p><code>db</code>是关键字，表示当前数据库；</p>
+</blockquote>
+<h5 id="常用命令"><a class="header" href="#常用命令">常用命令</a></h5>
+<pre><code class="language-typescript">db.auth(&quot;root&quot;,&quot;123456&quot;)  // 如果启用授权验证，则在进入shell后需要提供用户凭据
+db.stats()
+db.adminCommand({getParameter:&quot;*&quot;})
+db._adminCommand({getCmdLineOpts: 1})
+</code></pre>
+<h3 id="集群配置"><a class="header" href="#集群配置">集群配置</a></h3>
+<p>在集群每个节点安装Mongodb服务。</p>
+<h4 id="replica-set"><a class="header" href="#replica-set"><a href="https://docs.mongodb.com/manual/replication/">replica set</a></a></h4>
+<p><em><strong>replica set</strong></em>包含一组维护相同数据集的<code>mongod</code>实例，提供冗余和高可靠性，提高读取速率。</p>
+<img src="https://docs.mongodb.com/manual/images/replica-set-read-write-operations-primary.bakedsvg.svg" style="zoom: 67%;" />
+<p>一个集群仅包含一个主节点。数据需要从主节点写入，次级节点根据主节点的操作记录修改本地数据以与主节点保持一致。节点之间通过发送心跳信息检测可用性。当主节点失效，次级节点将发起竞选以产生新的主节点。</p>
+<h5 id="副本集配置"><a class="header" href="#副本集配置">副本集配置</a></h5>
+<p>启动Mongo Shell，执行以下命令==将当前节点设置为主节点==。如果返回结果显示<code>ok=1</code>，则集群配置成功。</p>
+<pre><code class="language-typescript">rs.initiate({
+    &quot;_id&quot;: &quot;rs&quot;,
+    &quot;members&quot;: [
+        { &quot;_id&quot;: 1, &quot;host&quot;: &quot;172.17.218.11:27017&quot; },
+        { &quot;_id&quot;: 2, &quot;host&quot;: &quot;172.17.218.12:27017&quot; },
+        { &quot;_id&quot;: 3, &quot;host&quot;: &quot;172.17.218.13:27017&quot; }
+    ]
+})
+</code></pre>
+<blockquote>
+<p>当节点配置使用replica set后，启动shell时会自动创建replica set管理对象<code>rs</code>，用于执行replica set得初始化和管理。</p>
+</blockquote>
+<p><a href="https://juejin.cn/post/6859163488200982542">MongoDB Replica Set副本集配置 - 掘金 (juejin.cn)</a></p>
+<h5 id="验证集群"><a class="header" href="#验证集群">验证集群</a></h5>
+<pre><code class="language-javascript">rs.status()  // 查看当前复制集的状态
+// {  &quot;set&quot;: &quot;rs&quot;,  &quot;members&quot;: [...], &quot;ok&quot;: 1 }
+rs.isMaster() // 返回当前节点是否为集群主节点得相关信息
+</code></pre>
+<h5 id="在线集群配置"><a class="header" href="#在线集群配置">在线集群配置</a></h5>
+<pre><code class="language-javascript">conf = rs.conf() 
+// 修改conf的属性
+rs.reconfig(conf)
+</code></pre>
+<h4 id="sharded-cluster"><a class="header" href="#sharded-cluster">Sharded Cluster</a></h4>
+<p><a href="https://docs.mongodb.com/manual/sharding/">Sharding — MongoDB Manual</a></p>
+<h3 id="docker配置"><a class="header" href="#docker配置">docker配置</a></h3>
+<h5 id="replica-set-1"><a class="header" href="#replica-set-1">replica set</a></h5>
+<p><a href="https://gist.github.com/harveyconnor/518e088bad23a273cae6ba7fc4643549">MongoDB Replica Set / docker-compose / mongoose transaction with persistent volume (github.com)</a></p>
+<h3 id="存储引擎"><a class="header" href="#存储引擎">存储引擎</a></h3>
+<p><a href="https://docs.mongodb.com/manual/core/storage-engines/">Storage Engines — MongoDB Manual</a></p>
+<h2 id="写入数据"><a class="header" href="#写入数据">写入数据</a></h2>
+<h3 id="数据模型"><a class="header" href="#数据模型">数据模型</a></h3>
+<p>同一个集合中的文档不需要具有相同的字段和数据类型；可以灵活更新文档的字段以及数据类型；</p>
+<p>可以在创建文档集合时声明JSON Schema以限制数据操作。</p>
+<pre><code class="language-typescript">db.createCollection(&quot;students&quot;, {
+   validator: {
+      $jsonSchema: {
+         bsonType: &quot;object&quot;,
+         required: [ &quot;name&quot;, &quot;year&quot;, &quot;major&quot;, &quot;address&quot; ],
+         properties: {
+            name: {
+               bsonType: &quot;string&quot;,
+               description: &quot;must be a string and is required&quot;
+            },
+            year: {
+               bsonType: &quot;int&quot;,
+               minimum: 2017,
+               maximum: 3017,
+               description: &quot;must be an integer in [ 2017, 3017 ] and is required&quot;
+            },
+            major: {
+               enum: [ &quot;Math&quot;, &quot;English&quot;, &quot;Computer Science&quot;, &quot;History&quot;, null ],
+               description: &quot;can only be one of the enum values and is required&quot;
+            },
+            //...
+         }
+      }
+   }
+}
+</code></pre>
+<p><a href="https://docs.mongodb.com/manual/reference/bson-types/">字段类型说明</a>。</p>
+<h4 id="文档结构"><a class="header" href="#文档结构">文档结构</a></h4>
+<p><img src="Mongodb.assets/image-20211230085728177.png" alt="image-20211230085728177" /></p>
+<p><a href="https://docs.mongodb.com/manual/core/data-modeling-introduction/">Data Modeling Introduction — MongoDB Manual</a></p>
+<h3 id="写入操作"><a class="header" href="#写入操作">写入操作</a></h3>
+<h5 id="插入单个文档"><a class="header" href="#插入单个文档">插入单个文档</a></h5>
+<pre><code class="language-typescript">db.collection.insertOne(
+   { item: &quot;canvas&quot;, qty: 100, tags: [&quot;cotton&quot;], size: { h: 28, w: 35.5, uom: &quot;cm&quot; } }
+)
+</code></pre>
+<h5 id="插入多个文档"><a class="header" href="#插入多个文档">插入多个文档</a></h5>
+<pre><code class="language-typescript">db.collection.insertMany([
+   { item: &quot;journal&quot;, qty: 25, tags: [&quot;blank&quot;, &quot;red&quot;], size: { h:14, w:21, uom:&quot;cm&quot; } },
+   { item: &quot;mat&quot;, qty: 85, tags: [&quot;gray&quot;], size: { h:27.9, w:35.5, uom:&quot;cm&quot; } },
+   { item: &quot;mousepad&quot;, qty: 25, tags: [&quot;gel&quot;, &quot;blue&quot;], size: { h:19, w:22.85, uom:&quot;cm&quot; } }
+])
+</code></pre>
+<p>如果文档不包含<code>_id</code>字段（主键），则自动为文档添加<code>_id</code>字段：<code>{&quot;_id&quot;: ObjectId(&quot;value&quot;)}</code>。如果指定了<code>_id</code>，则需要保证<code>_id</code>唯一，否则会产生异常。</p>
+<p>如果文档集合<code>collection</code>不存在，则自动创建集合；</p>
+<p><a href="https://docs.mongodb.com/manual/reference/insert-methods/">Insert Methods — MongoDB Manual</a></p>
+<h5 id="更新文档"><a class="header" href="#更新文档">更新文档</a></h5>
+<pre><code class="language-typescript">db.inventory.updateOne(  // updateMany(), replaceOne()
+   { item: &quot;paper&quot; },
+   {
+     $set: { &quot;size.uom&quot;: &quot;cm&quot;, status: &quot;P&quot; },
+     $currentDate: { lastModified: true }
+   }
+)
+</code></pre>
+<h5 id="删除文档"><a class="header" href="#删除文档">删除文档</a></h5>
+<pre><code class="language-typescript">db.collection.deleteMany(conditions)
+db.collection.deleteOne( conditions )
+</code></pre>
+<p><code>conditions</code>为空字典，则删除集合的所有文档。</p>
+<h5 id="批量写操作"><a class="header" href="#批量写操作">批量写操作</a></h5>
+<p>一次执行多个写操作。</p>
+<p><a href="https://docs.mongodb.com/manual/core/bulk-write-operations/">Bulk Write Operations — MongoDB Manual</a></p>
+<h2 id="查询"><a class="header" href="#查询">查询</a></h2>
+<pre><code class="language-javascript">show dbs
+use &lt;db_name&gt;
+show collections
+show users  // users of current database
+</code></pre>
+<h5 id="等式查询"><a class="header" href="#等式查询">等式查询</a></h5>
+<pre><code class="language-shell">db.inventory.find( {item:&quot;canvas&quot;} ) # =&gt; SELECT * FROM db.inventory WHERE item='canvas'
+</code></pre>
+<p><code>find()</code>的参数为查询条件构成的文档；如果字段为空，则返回所有文档。</p>
+<p>字段值可以是嵌套的子文档值；或者指定子文档字段：<code>field.nestfield</code>。</p>
+<p>数组字段查询：指定数组所有元素；<code>$all</code>运算符不限定数组元素顺序，指定单个元素查询数组字段是否包含该元素。</p>
+<h5 id="指定查询条件"><a class="header" href="#指定查询条件">指定查询条件</a></h5>
+<pre><code>{ &lt;field1&gt;: { &lt;operator1&gt;: &lt;value1&gt; }, ... }
+</code></pre>
+<p>比较运算符：<code>$in,$nin,$lt,$gt,$gte,$lte,$eq,$ne</code>；</p>
+<p>逻辑运算符：默认情况下，查询条件文档字段之间为<code>AND</code>连接；使用<code>$or</code>构造<code>OR</code>连接</p>
+<pre><code class="language-typescript">db.inventory.find( {
+     status: &quot;A&quot;,
+     $or: [ { qty: { $lt: 30 } }, { item: /^p/ } ]
+})
+</code></pre>
+<p>逻辑运算符可以嵌套使用，构造复杂查询条件。</p>
+<p><a href="https://docs.mongodb.com/manual/reference/operator/query/regex/#mongodb-query-op.-regex">正则表达式运算符</a>：<code>$regex</code>（MongDB使用PCRE）</p>
+<pre><code class="language-typescript">{ &lt;field&gt;: { $regex: 'pattern', $options: '&lt;options&gt;' } }
+{ &lt;field&gt;: /pattern/&lt;options&gt; }
+</code></pre>
+<h5 id="限定返回字段"><a class="header" href="#限定返回字段">限定返回字段</a></h5>
+<pre><code class="language-typescript">db.collection.find(condition, projection)
+</code></pre>
+<p><code>projection</code>指定返回的字段（为指定该参数返回所有字段），要返回字段名对应的值为1；默认返回<code>_id</code>字段。如果仅包含值为<code>0</code>的字段声明，则返回除声明字段外的字段。</p>
+<pre><code class="language-json">{ &quot;field1&quot;: 1, &quot;field2&quot;: 1, ..., &quot;_id&quot;: 0}
+</code></pre>
+<h2 id="python-api"><a class="header" href="#python-api">Python API</a></h2>
+<p>Python API语法<code>pymongo</code>基本和Mongo Shell一致。</p>
+<h5 id="连接"><a class="header" href="#连接">连接</a></h5>
+<pre><code class="language-python">from pymongo import MongoClient
+client = MongoClient(&quot;mongodb://root:passwd@server_name/db&quot;, authSource=&quot;admin&quot;)
+</code></pre>
+<h5 id="数据库信息"><a class="header" href="#数据库信息">数据库信息</a></h5>
+<pre><code class="language-python">db = client.get_database(name=None) # =&gt; client['db_name'] =&gt; client.db_name
+db.list_collections()               # -&gt; Iterator[collection]
+db.list_collection_names()          # -&gt; List[str]
+c = db.get_collection('collection') # =&gt; db['collection'] =&gt; db.collection
+</code></pre>
+<h5 id="写入"><a class="header" href="#写入">写入</a></h5>
+<pre><code class="language-python">db.collection.insert(dict_item)
+db.collection.insert_many([dict_item,...])
+</code></pre>
+<h5 id="查询-1"><a class="header" href="#查询-1">查询</a></h5>
+<pre><code class="language-python">db.collection.find({...})       # -&gt; Iterator(dict)
+db.collection.find_one({...})   # -&gt; dict
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../数据库/Elastic Datasource.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../数据库/GraphDatabase.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../数据库/Elastic Datasource.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../数据库/GraphDatabase.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

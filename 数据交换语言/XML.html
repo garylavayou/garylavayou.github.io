@@ -1,0 +1,436 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>XML - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html" class="active">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="xml"><a class="header" href="#xml">XML</a></h1>
+<h2 id="简介"><a class="header" href="#简介">简介</a></h2>
+<h5 id="xml与html"><a class="header" href="#xml与html">XML与HTML</a></h5>
+<ul>
+<li>XML被设计用来传输和存储数据，HTML被设计用来显示数据。</li>
+<li>XML标签没有被预定义，需要自行定义标签，XML 被设计为具有自我描述性； HTML中使用的标签（以及 HTML的结构）是预定义的，HTML文档只使用在HTML标准中定义过的标签（比如 <code>&lt;p&gt;</code> 、<code>&lt;h1&gt;</code> 等等）。</li>
+</ul>
+<h2 id="结构"><a class="header" href="#结构">结构</a></h2>
+<h3 id="命名空间"><a class="header" href="#命名空间">命名空间</a></h3>
+<p>XML 命名空间提供避免元素命名冲突的方法。（使用前缀来避免命名冲突）</p>
+<pre><code class="language-xml">xmlns:namespace-prefix=\&quot;namespaceURI\&quot;
+</code></pre>
+<p>用于标示命名空间的地址不会被解析器用于查找信息。其惟一的作用是赋予命名空间一个惟一的名称。不过，很多公司常常会作为指针来使用命名空间指向实际存在的网页，这个网页包含关于命名空间的信息。</p>
+<p>默认的命名空间（Default Namespaces）：为元素定义默认的命名空间可以让我们省去在所有的子元素中使用前缀的工作。</p>
+<pre><code class="language-xml">xmlns =\&quot;namespaceURI\&quot;
+</code></pre>
+<p>XML 文档形成了一种树结构，它从&quot;根部&quot;开始，然后扩展到&quot;枝叶&quot;。</p>
+<pre><code class="language-xml">&lt;bookstore&gt;
+&lt;book category=&quot;CHILDREN&quot;&gt;
+    &lt;title&gt;Harry Potter&lt;/title&gt; 
+    &lt;author&gt;J K. Rowling&lt;/author&gt; 
+    &lt;year&gt;2005&lt;/year&gt; 
+    &lt;price&gt;29.99&lt;/price&gt; 
+&lt;/book&gt;
+&lt;book category=&quot;WEB&quot;&gt;
+    &lt;title&gt;Learning XML&lt;/title&gt; 
+    &lt;author&gt;Erik T. Ray&lt;/author&gt; 
+    &lt;year&gt;2003&lt;/year&gt; 
+    &lt;price&gt;39.95&lt;/price&gt; 
+&lt;/book&gt;
+&lt;/bookstore&gt;
+</code></pre>
+<p>元素（Element）：从（且包括）开始标签直到（且包括）结束标签的部分。
+父元素，子元素；</p>
+<p>XML 文档必须有一个元素是所有其他元素的父元素。该元素称为根元素。</p>
+<p>标签（Tag）：XML 元素使用 XML 标签进行定义。XML 标签对大小写敏感。所有元素都必须有结束标签（声明不属于XML本身的组成部分。它不是XML 元素，也不需要关闭标签。）</p>
+<p>属性（Attribute）：键值对，值必须加引号（单引号和双引号均可使用，如果属性值本身包含双引号，那么有必要使用单引号包围它）。</p>
+<pre><code class="language-xml">\&lt;note date=\&quot;08/08/2008\&quot;\&gt;
+</code></pre>
+<p>因使用属性而引起的一些问题：</p>
+<ul>
+<li>属性无法包含多重的值（元素可以）</li>
+<li>属性无法描述树结构（元素可以）</li>
+<li>属性不易扩展（为未来的变化）</li>
+<li>属性难以阅读和维护</li>
+</ul>
+<p>在 XML 中，您应该尽量避免使用属性。元数据（有关数据的数据）应当存储为属性，而数据本身应当存储为元素。</p>
+<p>特殊字符</p>
+<div class="table-wrapper"><table><thead><tr><th>命令</th><th>特殊字符</th><th>意义</th></tr></thead><tbody>
+<tr><td><code>&amp;lt;</code></td><td>&lt;</td><td>小于</td></tr>
+<tr><td><code>&amp;gt;</code></td><td>&gt;</td><td>大于</td></tr>
+<tr><td><code>&amp;amp;</code></td><td>&amp;</td><td>和号</td></tr>
+<tr><td><code>&amp;apos;</code></td><td>'</td><td>单引号</td></tr>
+<tr><td><code>&amp;quot;</code></td><td>&quot;</td><td>引号</td></tr>
+</tbody></table>
+</div>
+<p>空格</p>
+<p>文档中的空格不会被缩减。</p>
+<p>注释</p>
+<pre><code class="language-xml">\&lt;!\-- This is a comment \--\&gt;
+</code></pre>
+<h2 id="xml验证"><a class="header" href="#xml验证">XML验证</a></h2>
+<p>XML DTD</p>
+<p>XML Schema：An XML schema language is used to describe the structure and content of an XML document. The one that currently rules the roost is the <em>W3C XML Schema Definition Language</em> typically abbreviated as XSD.</p>
+<p>如果 XML 文档存在错误，那么程序就不应当继续处理这个文档。</p>
+<h2 id="显示"><a class="header" href="#显示">显示</a></h2>
+<p>CSS</p>
+<p>XSLT 是首选的 XML 样式表语言。</p>
+<h2 id="xml解析"><a class="header" href="#xml解析">XML解析</a></h2>
+<h3 id="解析方法"><a class="header" href="#解析方法">解析方法</a></h3>
+<ol>
+<li>DOM 
+XML DOM (XML Document Object Model) 定义了访问和操作 XML文档的标准方法。 
+DOM 把 XML 文档作为树结构来查看。能够通过 DOM树来访问所有元素。可以修改或删除它们的内容，并创建新的元素。元素，它们的文本，以及它们的属性，都被认为是节点。</li>
+<li>SAX</li>
+</ol>
+<h3 id="xml解析器"><a class="header" href="#xml解析器">XML解析器</a></h3>
+<p>Tree Model-based APIs：把 XML 转换为 DOM对象。</p>
+<p>Cursor-based APIs</p>
+<p>Streaming APIs</p>
+<h4 id="net-framework实现"><a class="header" href="#net-framework实现">.NET Framework实现</a></h4>
+<ol>
+<li>
+<p><strong>XmlReader, XmlWriter</strong></p>
+</li>
+<li>
+<p><strong>System.Xml.XPath</strong><br />
+快速查询定位XML元素。</p>
+</li>
+</ol>
+<p>System.Xml.Xsl</p>
+<p>System.Xml.Schema</p>
+<p>System.Xml.Linq</p>
+<p>System.Xml.XmlDocument/XmlNode</p>
+<ul>
+<li>
+<p>Properties</p>
+<ul>
+<li>
+<p>Attributes</p>
+</li>
+<li>
+<p>DocumentElement：获取根元素。</p>
+</li>
+<li>
+<p>DocumentType：DOCTYPE</p>
+</li>
+<li>
+<p>ChildNodes</p>
+</li>
+<li>
+<p>FirstChild</p>
+</li>
+<li>
+<p>LastChild</p>
+</li>
+<li>
+<p>ParentNode</p>
+</li>
+<li>
+<p>Item[String]：获取为指定名称的第一个子节点。</p>
+</li>
+<li>
+<p>Name</p>
+</li>
+<li>
+<p>LocalName</p>
+<p>If the node does not have a prefix, LocalName is the same as
+Name.</p>
+</li>
+<li>
+<p>Value</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Methods</p>
+<ul>
+<li>AppendChild</li>
+</ul>
+</li>
+</ul>
+<p>XPathNavigator</p>
+<p>Namespace: System.Xml.XPath</p>
+<ol>
+<li>Assembly: System.Xml (in System.Xml.dll)</li>
+</ol>
+<p>Provides a cursor model for navigating and editing XML data.</p>
+<ol>
+<li>System.Xml.XmlReader</li>
+</ol>
+<p>Represents a reader that provides fast, noncached, forward-only access
+to XML data.</p>
+<h4 id="java实现"><a class="header" href="#java实现">Java实现</a></h4>
+<p><a href="https://www.journaldev.com/1240/java-xml-parser">Java XML Parser - JournalDev</a></p>
+<h4 id="python实现"><a class="header" href="#python实现">Python实现</a></h4>
+<p>Python有三种方法解析XML，SAX，DOM，以及ElementTree。ElementTree就像一个轻量级的DOM，具有方便友好的API。代码可用性好，速度快，消耗内存少。</p>
+<blockquote>
+<p>**注：**因DOM需要将XML数据映射到内存中的树，一是比较慢，二是比较耗内存，而SAX流式读取XML文件，比较快，占用内存少，但需要用户实现回调函数（handler）。</p>
+</blockquote>
+<h2 id="xpath查询语言"><a class="header" href="#xpath查询语言">XPath查询语言</a></h2>
+<p>XPath 是用于XML文档的查询语言，可以查询XML元素节点并计算相应的值。</p>
+<h3 id="简写语法abbreviated-syntax"><a class="header" href="#简写语法abbreviated-syntax">简写语法（Abbreviated syntax）</a></h3>
+<p>使用节点名，按XML树结构逐级限定查询节点位置。</p>
+<ol>
+<li>绝对路径</li>
+</ol>
+<pre><code>/tag1/tag2/.../tagn
+/tag1/tag2/.../@prop
+xxx//tag/...
+xxx/tag/*
+</code></pre>
+<p><code>//</code>查询指定范围内所有层级的节点。</p>
+<p><code>*</code>查询指定层级的所有节点。</p>
+<ol start="2">
+<li>相对路径</li>
+</ol>
+<pre><code>childname/...
+./childname
+../tag
+</code></pre>
+<p>使用节点名，根据当前节点位置指定查询节点。</p>
+<p>多个路径可以由<code>|</code>运算符连接，从而同时选择多个路径。</p>
+<h4 id="限定声明predicates"><a class="header" href="#限定声明predicates">限定声明（Predicates）</a></h4>
+<p>每一层级声明可以附加限定声明。</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">限定表达式</th><th style="text-align: left">结果</th></tr></thead><tbody>
+<tr><td style="text-align: left"><code>name[1]</code></td><td style="text-align: left">选取满足表达式条件的第一个元素。</td></tr>
+<tr><td style="text-align: left"><code>name[last()]</code></td><td style="text-align: left">选取满足表达式条件的最后一个元素。</td></tr>
+<tr><td style="text-align: left"><code>name[last()-n]</code></td><td style="text-align: left"></td></tr>
+<tr><td style="text-align: left"><code>name[position()&lt;n]</code></td><td style="text-align: left"></td></tr>
+<tr><td style="text-align: left"><code>name[@lang]</code></td><td style="text-align: left">选取满足表达式且具有<code>lang</code>属性的元素。</td></tr>
+<tr><td style="text-align: left"><code>name[@lang='en']</code></td><td style="text-align: left">选取满足表达式且<code>lang='en'</code>的元素</td></tr>
+<tr><td style="text-align: left"><code>name[@*]</code></td><td style="text-align: left">选取具有属性的节点。</td></tr>
+<tr><td style="text-align: left"><code>name[price&gt;100]</code></td><td style="text-align: left">选取满足表达式且其子元素<code>price&gt;100的</code>节点。</td></tr>
+</tbody></table>
+</div>
+<h3 id="完整语法full-syntax"><a class="header" href="#完整语法full-syntax">完整语法（Full Syntax）</a></h3>
+<p>使用路径表达式（Location Path）扩展简写语法：</p>
+<pre><code>/step1/step2/step3...
+step1/step2/...
+</code></pre>
+<p>每一级<code>step</code>由三部分组成（可省略）：</p>
+<pre><code>axis::test[predicates]
+</code></pre>
+<ul>
+<li>
+<p>轴（<code>axis</code>）: 指定基于当前节点的查询范围，简写语法中的轴总是<code>child</code>（省略）。</p>
+</li>
+<li>
+<p>节点测试（<code>test</code>）: 测试满足条件的节点，简写语法中总是<strong>节点名</strong>。</p>
+<p><code>text()</code>：获取节点的文本内容</p>
+<p><code>comment()</code>：获取节点内的注释内容</p>
+<p><code>node()</code>：获取节点。</p>
+</li>
+<li>
+<p>限定声明（<code>predicates</code>）：与简写语法一致。</p>
+</li>
+</ul>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">完整语法</th><th style="text-align: center">简写语法</th><th style="text-align: left">Notes</th></tr></thead><tbody>
+<tr><td style="text-align: left"><code>ancestor</code></td><td style="text-align: center"></td><td style="text-align: left">选取当前节点的<strong>所有</strong>先辈（父、祖父等）。</td></tr>
+<tr><td style="text-align: left"><code>ancestor-or-self</code></td><td style="text-align: center"></td><td style="text-align: left">选取当前节点及其<strong>所有</strong>先辈（父、祖父等）。</td></tr>
+<tr><td style="text-align: left"><code>attribute</code></td><td style="text-align: center"><code>@</code></td><td style="text-align: left"><code>@abc</code> is short for <code>attribute::abc</code></td></tr>
+<tr><td style="text-align: left"><code>child</code></td><td style="text-align: center"></td><td style="text-align: left"><code>xyz</code> is short for <code>child::xyz</code></td></tr>
+<tr><td style="text-align: left"><code>descendant</code></td><td style="text-align: center"></td><td style="text-align: left">选取当前节点的所有后代元素（子、孙等）。</td></tr>
+<tr><td style="text-align: left"><code>descendant-or-self</code></td><td style="text-align: center"><code>//</code></td><td style="text-align: left"><code>//</code> is short for <code>/descendant-or-self::node()/</code></td></tr>
+<tr><td style="text-align: left"><code>following</code></td><td style="text-align: center"></td><td style="text-align: left">选取文档中当前节点的结束标签之后的所有节点。</td></tr>
+<tr><td style="text-align: left"><code>following-sibling</code></td><td style="text-align: center"></td><td style="text-align: left">选取当前节点之后的所有同级节点。</td></tr>
+<tr><td style="text-align: left"><code>namespace</code></td><td style="text-align: center"></td><td style="text-align: left">选取当前节点的所有命名空间节点。</td></tr>
+<tr><td style="text-align: left"><code>parent</code></td><td style="text-align: center"><code>..</code></td><td style="text-align: left"><code>..</code> is short for <code>parent::node()</code></td></tr>
+<tr><td style="text-align: left"><code>preceding</code></td><td style="text-align: center"></td><td style="text-align: left">选取文档中当前节点的开始标签之前的所有节点。</td></tr>
+<tr><td style="text-align: left"><code>preceding-sibling</code></td><td style="text-align: center"></td><td style="text-align: left">选取当前节点之前的所有同级节点。</td></tr>
+<tr><td style="text-align: left"><code>self</code></td><td style="text-align: center"><code>.</code></td><td style="text-align: left"><code>.</code> is short for <code>self::node()</code></td></tr>
+</tbody></table>
+</div>
+<p><a href="http://www.w3school.com.cn/xpath/xpath_operators.asp">运算符</a></p>
+<p><a href="http://www.w3school.com.cn/xpath/xpath_examples.asp">实例</a></p>
+<pre><code class="language-python">//div[@class='tab-content-item']  # 查询所有指定类型的div节点
+div[@class='p-name p-name-type-2']/a/em//text() # 查询指定范围内所有层级的文本
+div[@class='p-operate']/a[1]/attribute::data-sku[1] # 查询指定节点的指定属性
+</code></pre>
+<h2 id="xslt"><a class="header" href="#xslt">XSLT</a></h2>
+<h2 id="xquery"><a class="header" href="#xquery">XQuery</a></h2>
+<p>XML Query</p>
+<h2 id="xlink和xpointer"><a class="header" href="#xlink和xpointer">Xlink和XPointer</a></h2>
+<h2 id="svg"><a class="header" href="#svg">SVG</a></h2>
+<h5 id="使用svg构造网站图标"><a class="header" href="#使用svg构造网站图标">使用SVG构造网站图标</a></h5>
+<pre><code class="language-xml">&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;&gt;
+    &lt;text y=&quot;0.9em&quot; font-size=&quot;90&quot;&gt;🍦&lt;/text&gt;
+&lt;/svg&gt;
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../数据交换语言/JSON and YAML.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../数据交换语言/HTML.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../数据交换语言/JSON and YAML.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../数据交换语言/HTML.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

@@ -1,0 +1,962 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>图数据库 - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html" class="active">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="图数据分析"><a class="header" href="#图数据分析">图数据分析</a></h1>
+<ul>
+<li>
+<p>图计算引擎：Apache Spark是一个横向扩展和以节点为中心的图计算引擎。</p>
+<p>GraphFrames是 Spark 的一个图处理库，于 2016 年替代 GraphX，但是它与核心Spark是分离的。</p>
+<p>Spark Graph项目是在Spark 3.0 版本中增加对DataFrame、Cypher 和基于DataFrame的算法的支持。</p>
+</li>
+<li>
+<p>图数据库：Neo4j图平台是图数据库和算法中心式处理紧密集成的典范，针对图进行了优化。</p>
+</li>
+<li>
+<p>兼用Spark和Neo4j进行图处理：将Spark用于大规模数据集的高层筛选与预处理以及数据集成，将Neo4j用于特定处理并且与基于图的应用集成。</p>
+</li>
+</ul>
+<h2 id="spark-graph"><a class="header" href="#spark-graph">Spark Graph</a></h2>
+<h2 id="dgraph"><a class="header" href="#dgraph">dgraph</a></h2>
+<h3 id="安装"><a class="header" href="#安装">安装</a></h3>
+<p>当前<a href="https://github.com/dgraph-io/dgraph/releases/tag/v21.03.2">稳定版本</a>为<code>21.03</code>。</p>
+<pre><code class="language-shell">export DGRAPH_HOME=/opt/dgraph-21.03
+export DGRAPH_DATA=$DGRAPH_HOME/data
+export PATH=$DGRAPH_HOME/bin:$PATH
+</code></pre>
+<pre><code class="language-shell">.
+├── bin
+│   ├── badger
+│   └── dgraph
+└── data
+</code></pre>
+<h4 id="系统架构"><a class="header" href="#系统架构">系统架构</a></h4>
+<p>运行Dgraph需至少包含以下类型节点：</p>
+<ul>
+<li>
+<p><em><strong>Alpha</strong></em>：数据库节点，包括数据存储、访问、管理和节点管理功能。</p>
+<p><a href="https://dgraph.io/docs/deploy/dgraph-alpha/">More about Dgraph Alpha - Deploy</a></p>
+</li>
+<li>
+<p><em><strong>Zero</strong></em>：管理节点，管理集群中的节点，自动在数据库节点间进行数据移动。</p>
+<p><a href="https://dgraph.io/docs/deploy/dgraph-zero/">More about Dgraph Zero - Deploy</a></p>
+</li>
+<li>
+<p><em><strong>Ratel</strong></em>：UI服务，支持DQL。<a href="https://github.com/dgraph-io/ratel/releases/">Releases · dgraph-io/ratel (github.com)</a>。</p>
+</li>
+</ul>
+<p>对于高可用集群，每类节点至少运行三个实例。</p>
+<h4 id="配置"><a class="header" href="#配置">配置</a></h4>
+<p><a href="https://dgraph.io/docs/deploy/config/">Configuration - Deploy (dgraph.io)</a></p>
+<h4 id="运行"><a class="header" href="#运行">运行</a></h4>
+<pre><code class="language-shell">dgraph zero --my=IPADDR:5080
+# Setting up grpc listener at: 0.0.0.0:5080
+# Setting up http listener at: 0.0.0.0:6080
+for ((i=0; i&lt;N; ++i)); do
+  dgraph alpha --my=IPADDR:7080 --zero=ZERO_IPADDR:5080 -o $i
+done
+# Sending member request to Zero: addr:&quot;192.168.0.200:7080&quot;
+# Worker listening at address: [::]:7080
+# Bringing up GraphQL HTTP admin API at 0.0.0.0:8080/admin
+# gRPC server started.  Listening on port 9080
+# CONN: Connecting to 192.168.0.200:5080
+# Connected to group zero. Assigned group: 1
+# Raft Id after connection to Zero: 0x1
+# Node ID: 0x1 with GroupID: 1
+# RaftContext: id:1 group:1 addr:&quot;192.168.0.200:7080&quot;
+ratel -addr &quot;http://192.168.0.200:8080&quot;
+# Listening on :8000...
+</code></pre>
+<h3 id="graphql"><a class="header" href="#graphql">GraphQL</a></h3>
+<h5 id="graphql-api接口"><a class="header" href="#graphql-api接口">GraphQL API接口</a></h5>
+<ul>
+<li>
+<p>查询接口：<code>http://alpha-server:8080/graphql</code>（启动服务时日志输出该地址）；</p>
+<pre><code class="language-shell">curl -XPOST alpha-server:8080/graphql \
+     --header='Content-Type: application/graphql'
+     --data '...' --data-binary '@file-path.graphql'
+curl -XGET alpha-server:8080/graphql?query={...}&amp;variables={...}&amp;operation=...
+</code></pre>
+<p><code>POST</code>请求的数据格式支持<code>graphql</code>或<code>json</code>，JSON格式的请求数据支持添加变量等（也可通过客户端分别添加查询语句和变量）。</p>
+<pre><code class="language-shell">curl -XPOST alpha-server:8080/graphql \
+     --header='Content-Type: application/json'
+     --data-binary '@file-path.json'
+</code></pre>
+<pre><code class="language-json">{
+   &quot;oeprationName&quot;: &quot;query_name&quot;,
+   &quot;query&quot;: &quot;query query_name(......&quot;,
+   &quot;variable&quot;: {
+      &quot;filter&quot;: { ... }
+   }
+}
+</code></pre>
+</li>
+<li>
+<p>管理接口：<code>http://alpha-server:8080/admin</code>（启动服务时日志输出该地址）；</p>
+<pre><code class="language-shell">curl -XPOST alpha-server:8080/admin/schema \
+     --header='Content-Type: application/graphql'
+     --data '...' --data-binary '@schema.graphql'
+</code></pre>
+</li>
+</ul>
+<blockquote>
+<p>返回信息：</p>
+<pre><code class="language-json">{&quot;data&quot;:{&quot;code&quot;:&quot;Success&quot;,&quot;message&quot;:&quot;Done&quot;}}
+</code></pre>
+<p>管理接口授权：</p>
+<p><code>&quot;resolving updateGQLSchema failed because unauthorized ip address</code>。</p>
+</blockquote>
+<p><strong>响应数据</strong>：总是以<code>JSON</code>格式返回，成功返回<code>data</code>和<code>extensions</code>字段，错误返回<code>errors</code>字段。</p>
+<h5 id="客户端"><a class="header" href="#客户端">客户端</a></h5>
+<ul>
+<li><a href="https://github.com/graphql/graphql-playground">graphql/graphql-playground: 🎮 GraphQL IDE for better development workflows (GraphQL Subscriptions, interactive docs &amp; collaboration) (github.com)</a></li>
+<li></li>
+</ul>
+<h4 id="schema"><a class="header" href="#schema">schema</a></h4>
+<p>schema定义了实体类型及其包含的属性。</p>
+<pre><code class="language-go">type Product {
+    productID: ID!
+    name: String @search(by: [term])
+    reviews: [Review] @hasInverse(field: about)
+}
+
+type Customer {
+    username: String! @id @search(by: [hash, regexp])
+    reviews: [Review] @hasInverse(field: by)
+}
+
+type Review@withSubscription { //*
+    id: ID!
+    about: Product!
+    by: Customer!
+    comment: String @search(by: [fulltext]) 
+    rating: Int @search
+}
+
+</code></pre>
+<blockquote>
+<p><code>*</code>：<code>@withSubscription</code>：启用<a href="#GraphQL%E8%AE%A2%E9%98%85">订阅</a>，当数据更新时，自动向订阅者发送查询结果。</p>
+</blockquote>
+<p><code>String! @id</code>：使用该字段作为ID；<code>ID!</code>自动生成ID。</p>
+<p>Dgraph将根据定义的schema自动生成访问数据的API，包括：</p>
+<pre><code class="language-go">getType(postID: ID!): Type
+queryType(filter: TypeFilter, order: TypeOrder, first: Int, offset: Int): [Type]
+aggregateType(filter: PostFilter): TypeAggregateResult
+</code></pre>
+<p>注释：</p>
+<ul>
+<li><code>&quot;&quot;&quot;xxx&quot;&quot;&quot;</code>内容在生成API时会被自动处理为文档。</li>
+<li><code>#...</code>会被自动忽略。</li>
+</ul>
+<h5 id="修改schema"><a class="header" href="#修改schema">修改Schema</a></h5>
+<p>通过API提交schema数据可更新schema。</p>
+<h5 id="数据类型"><a class="header" href="#数据类型">数据类型</a></h5>
+<ul>
+<li>
+<p><code>Int</code>、<code>Float</code>、<code>String</code>、<code>Boolean</code>、<code>Int64</code>、<code>DateTime</code>(RFC3389)。</p>
+</li>
+<li>
+<p>序列类似于无序集合不会存储重复值：<code>[Type]</code>。</p>
+</li>
+<li>
+<p><code>ID</code>：不能声明<code>ID</code>类型的序列，每个模式只能有一个<code>ID</code>类型字段。</p>
+</li>
+<li>
+<p>枚举</p>
+<pre><code class="language-go">enum Tag {
+   GraphQL
+   Database
+   Question
+}
+type Post {
+   tags: [Tag!]!
+}
+</code></pre>
+</li>
+<li>
+<p>自定义模式也可作为其他模式的类型声明。</p>
+</li>
+</ul>
+<h5 id="接口"><a class="header" href="#接口">接口</a></h5>
+<pre><code class="language-python">interface Post {
+    id: ID!
+    text: String
+    datePublished: DateTime
+}
+
+type Question implements Post {
+    title: String!
+}
+type Comment implements Post {
+    commentsOn: Post!
+}
+</code></pre>
+<p>在类型中重复声明接口中已有字段不会产生重复字段，必须具有相同类型及是否为空的条件，其他属性则继承接口声明。</p>
+<h5 id="联合"><a class="header" href="#联合">联合</a></h5>
+<pre><code>union HomeMember = Dog | Parrot | Human
+</code></pre>
+<h4 id="搜索和过滤"><a class="header" href="#搜索和过滤">搜索和过滤</a></h4>
+<p><code>@search</code>命令控制如何构建索引以及搜索类型，基于字段的搜索类型决定在查询时如何设置过滤表达式。</p>
+<h5 id="数值类型搜索"><a class="header" href="#数值类型搜索">数值类型搜索</a></h5>
+<p><code>Int</code>、<code>Float</code>和<code>DateTime</code>类型，<code>DateTime</code>类型支持设置时间查询单位（包括<code>year</code>、<code>month</code>、<code>data</code>、<code>hour</code>）。过滤条件支持的运算符包括<code>lt</code>、<code>le</code>、<code>eq</code>、<code>in</code>、<code>between</code>、<code>ge</code>、<code>gt</code>。</p>
+<pre><code class="language-shell">numLikes: Int @search
+querySomeType(filter: { numLikes: { gt: 50 }})
+datePublished: DateTime @search(by: [day])
+</code></pre>
+<h5 id="boolean类型搜索"><a class="header" href="#boolean类型搜索">Boolean类型搜索</a></h5>
+<pre><code class="language-go">isPublished: Boolean @search  // schema
+filter: { isPublished: true } // filter
+</code></pre>
+<h5 id="字符串类型搜索"><a class="header" href="#字符串类型搜索">字符串类型搜索</a></h5>
+<p>搜索类型及其对应的过滤运算符：</p>
+<ul>
+<li>
+<p><code>hash</code>：<code>eq</code>、<code>in</code>。</p>
+</li>
+<li>
+<p><code>exact</code>：过滤运算符与数值类型相同。</p>
+</li>
+<li>
+<p><code>regexp</code>：<code>regexp</code>。正则表达式必须置于<code>/.../</code>之间（类似于<code>sed</code>语法）。</p>
+<pre><code class="language-go">filter: { name: { regexp: &quot;/.*iggy.*/&quot; } }
+</code></pre>
+</li>
+<li>
+<p><code>term</code>：<code>allofterms</code>、<code>anyofterms</code>。</p>
+</li>
+<li>
+<p><code>fulltext</code>：<code>alloftext</code>、<code>anyoftext</code>。</p>
+</li>
+</ul>
+<p>支持为字符串类型字段设置多个搜索类型。</p>
+<h5 id="枚举类型搜索"><a class="header" href="#枚举类型搜索">枚举类型搜索</a></h5>
+<p>搜索类型及其对应的过滤运算符：</p>
+<ul>
+<li>未指定/<code>hash</code>：<code>eq</code>、<code>in</code>。</li>
+<li><code>exact</code>：过滤运算符与数值类型相同。</li>
+<li><code>regexp</code>：<code>regexp</code>。</li>
+</ul>
+<h5 id="地理位置"><a class="header" href="#地理位置"><a href="https://dgraph.io/docs/v21.03/graphql/schema/search/#geolocation">地理位置</a></a></h5>
+<h4 id="mutation"><a class="header" href="#mutation">mutation</a></h4>
+<pre><code class="language-go">mutation {
+  addProduct(input: [ // add an object of Product* 
+    { name: &quot;GraphQL on Dgraph&quot;},
+    { name: &quot;Dgraph: The GraphQL Database&quot;}
+  ]) {
+    product {
+      productID
+      name
+    }
+  }
+  addCustomer(input: [{ username: &quot;Michael&quot;}]) {
+    customer {
+      username
+    }
+  }
+}
+</code></pre>
+<blockquote>
+<p><code>*</code>操作名称基于对象类型和操作类型自动识别。</p>
+</blockquote>
+<pre><code class="language-shell">curl -XPOST localhost:8080/graphql \
+     --header &quot;Content-Type: application/graphql&quot;  \
+     --data-binary '@add-data.graphql'
+</code></pre>
+<h4 id="query"><a class="header" href="#query">query</a></h4>
+<pre><code class="language-go">query [query_name($variable: Type)]{ 
+  queryType(filter: { comment: {alloftext: &quot;easy to install&quot;}}) {
+    // 指定查询字段及其引用对象的字段
+    comment
+    by {
+      username
+    }
+    about {
+      name
+    }
+    posts(filter: {title: {allofterms: &quot;GraphQL&quot;}}) {
+      title
+      text
+      datePublished
+    }
+  }
+}
+</code></pre>
+<blockquote>
+<p>序列字段也可指定过滤表达式。</p>
+</blockquote>
+<p>查询操作可选择设置名称和传入的变量，如果仅包含一个查询操作，也可省略外侧<code>query</code>关键字。</p>
+<p>一个查询语句块中，可包含多个查询命令，返回结果将包含每个查询命令的返回数据。</p>
+<p>可以在查询请求中声明多个查询操作，但一次请求只能指定一个操作（通过<code>operationName</code>指定）。</p>
+<p><a href="https://dgraph.io/docs/v21.03/graphql/queries/search-filtering/">Search and Filtering - GraphQL (dgraph.io)</a></p>
+<h5 id="graphql订阅"><a class="header" href="#graphql订阅">GraphQL订阅</a></h5>
+<p><a href="https://dgraph.io/docs/v21.03/graphql/subscriptions/">GraphQL Subscriptions - GraphQL (dgraph.io)</a></p>
+<h3 id="dql"><a class="header" href="#dql">DQL</a></h3>
+<blockquote>
+<p><em>GraphQL couldn’t support many of the features required from a language meant to interact with Graph data, and we felt some of the features were unnecessary and complicated. So, we’ve created a simplified and feature rich version of GraphQL.</em></p>
+</blockquote>
+<h4 id="修改schema-1"><a class="header" href="#修改schema-1">修改schema</a></h4>
+<pre><code class="language-shell">curl -XPOST &quot;localhost:8080/alter&quot; --silent --data-binary @alter_schema.dql 
+</code></pre>
+<blockquote>
+<p><em>RDF文件中的数据字段名称最好添加前缀，避免与数据库中已有字段发生冲突。</em></p>
+</blockquote>
+<p>schema的定义语法与GraphQL一致。</p>
+<blockquote>
+<p>可通过Ratel UI修改Schema。</p>
+</blockquote>
+<h4 id="mutate"><a class="header" href="#mutate">mutate</a></h4>
+<pre><code class="language-shell">curl -XPOST &quot;localhost:8080/mutate?commitNow=true&quot; --silent \
+     --header  &quot;Content-Type: application/rdf&quot; \
+     --data-binary &quot;@starwars.rdf&quot;  
+     # --data 'rdf_data'
+</code></pre>
+<blockquote>
+<p>使用<code>--data-binary</code>将保留数据中的换行，因此数据中的注释内容能得到正确处理。</p>
+</blockquote>
+<h4 id="查询"><a class="header" href="#查询">查询</a></h4>
+<pre><code class="language-shell">curl -XPOST &quot;localhost:8080/query&quot; --silent \
+  --header &quot;Content-Type: application/dql&quot; \
+  --data $'{ me(func: has(starring)){ name }}'
+</code></pre>
+<h5 id="查询语法"><a class="header" href="#查询语法">查询语法</a></h5>
+<pre><code class="language-javascript">{
+  me(func: allofterms(name, &quot;Star Wars&quot;), orderasc: release_date) 
+    @filter(ge(release_date, &quot;1980&quot;)) {
+    name
+    release_date
+    revenue
+    running_time
+    director {
+     name
+    }
+    starring (orderasc: name) {
+     name
+    }
+  }
+}
+</code></pre>
+<p>返回数据为JSON（与GraphQL一致），<code>data</code>字段为图数据对象（与查询语句中命令对象<code>me</code>一致）。图数据包含节点（JSON对象）序列，==每个节点可嵌套JSON对象数组以表示与其他节点的关系==。</p>
+<p><a href="https://dgraph.io/docs/v21.03/clients/python/">Python - Clients (dgraph.io)</a>：<em>Official Dgraph client implementation for Python (<code>Python&gt;=v2.7 and &gt;=v3.5</code>), using gRPC.</em></p>
+<p><a href="https://dgraph.io/docs/v21.03/query-language/">Dgraph Query Language - Query language (dgraph.io)</a></p>
+<h3 id="图数据"><a class="header" href="#图数据">图数据</a></h3>
+<h4 id="链路"><a class="header" href="#链路">链路</a></h4>
+<p>在类型声明中包含指向另一类型的成员（标量或向量），则在实际声明数据时即创建了链路。</p>
+<pre><code class="language-shell">type Author {
+	posts: [Post] @hasInverse(field: author)
+}
+type Post {
+	author: Author
+}
+</code></pre>
+<h5 id="双向链路"><a class="header" href="#双向链路">双向链路</a></h5>
+<p>为了保证数据实例<code>A-&gt;B</code>有反向链路<code>B-&gt;A</code>，需要在<code>A</code>的外链成员声明后添加<code>hasInverse</code>属性。该属性保证在添加节点时自动更新其外链节点的属性。</p>
+<h2 id="neo4j"><a class="header" href="#neo4j">Neo4j</a></h2>
+<p><img src="GraphDatabase.assets/image-20220901174750558.png" alt="image-20220901174750558" /></p>
+<p><a href="https://neo4j.com/developer/neo4j-desktop/#what-is-neo4j-desktop">Neo4j Desktop User Interface Guide - Developer Guides</a></p>
+<p><a href="https://neo4j.com/labs/apoc/">Awesome Procedures On Cypher (APOC) - Neo4j Labs</a></p>
+<p><a href="https://neo4j.com/developer/graph-apps/">Graph Applications Overview - Developer Guides (neo4j.com)</a></p>
+<p><img src="Graph%20Database.assets/graph-data-science.svg" alt="graph data science" /></p>
+<p><a href="https://neo4j.com/developer/graph-data-science/">Neo4j Graph Data Science - Developer Guides</a></p>
+<h3 id="安装运行"><a class="header" href="#安装运行">安装运行</a></h3>
+<h4 id="安装-1"><a class="header" href="#安装-1">安装</a></h4>
+<h5 id="yum"><a class="header" href="#yum">yum</a></h5>
+<pre><code class="language-shell">rpm --import https://debian.neo4j.com/neotechnology.gpg.key
+cat &lt;&lt;EOF&gt;  /etc/yum.repos.d/neo4j.repo
+[neo4j]
+name=Neo4j Yum Repo
+baseurl=http://yum.neo4j.com/stable
+enabled=1
+gpgcheck=1
+EOF
+sudo yum install neo4j   # 社区版
+</code></pre>
+<h5 id="apt"><a class="header" href="#apt">apt</a></h5>
+<pre><code class="language-shell">wget -O - https://debian.neo4j.com/neotechnology.gpg.key | sudo apt-key add -
+echo 'deb https://debian.neo4j.com stable 4.0' | sudo tee /etc/apt/sources.list.d/neo4j.list
+sudo apt-get update
+</code></pre>
+<h5 id="手动安装"><a class="header" href="#手动安装">手动安装</a></h5>
+<pre><code class="language-shell">tar -xf neo4j-community-4.4.11-unix.tar.gz -C /opt
+ln -sf /opt/neo4j-community-4.4.11 /usr/local/neo4j
+export NEO4J_HOME=/usr/local/neo4j
+</code></pre>
+<h5 id="neo4j图算法库"><a class="header" href="#neo4j图算法库">Neo4j图算法库</a></h5>
+<p>Neo4j图算法库（<em><strong>Graph Data Science</strong></em>）以插件形式与数据库一起安装，提供了一个可通过Cypher查询语言执行的用户自定义程序集。提供了支持图分析和机器学习工作流程的并行算法。这些算法在基于任务的并行计算框架上执行，并针对 Neo4j平台进行了优化。</p>
+<h5 id="apoc库"><a class="header" href="#apoc库">APOC库</a></h5>
+<p>APOC（<em><strong>Awesome Procedures on Cypher</strong></em>）库用于辅助完成数据集成、数据转换和模型重构等常规任务。</p>
+<h5 id="cypher-shell"><a class="header" href="#cypher-shell">Cypher Shell</a></h5>
+<h4 id="配置-1"><a class="header" href="#配置-1">配置</a></h4>
+<p>Java版本：</p>
+<blockquote>
+<p><em>Please use Oracle(R) Java(TM) 11, OpenJDK(TM) 11 to run Neo4j.</em></p>
+</blockquote>
+<pre><code class="language-shell"># Paths of directories in the installation.
+dbms.default_database=neo4j
+dbms.default_listen_addres=0.0.0.0 # 默认监听localhost
+dbms.directories.data=/home/neo4j/data  #*
+dbms.directories.logs=/home/neo4j/logs  
+dbms.directories.run=/home/neo4j/run
+dbms.directories.transaction.logs.root=/home/neo4j/data/transactions  
+dbms.directories.import=/home/neo4j/import  # CSV文件加载源目录,注释取消限制
+</code></pre>
+<blockquote>
+<p><code>*</code>：如果运行Neo4j的用户没有Neo4j安装目录的写权限，应该修改输出目录，或修改默认目录的写权限。</p>
+</blockquote>
+<pre><code class="language-sh">NEO4J_ULIMIT_NOFILE=60000
+# edit: /etc/security/limits.conf
+neo4j   soft    nofile  40000
+neo4j   hard    nofile  40000
+</code></pre>
+<h4 id="运行-1"><a class="header" href="#运行-1">运行</a></h4>
+<h5 id="docker"><a class="header" href="#docker">docker</a></h5>
+<pre><code class="language-shell">docker run \
+    --publish=7474:7474 --publish=7687:7687 \
+    --volume=$HOME/neo4j/data:/data \
+    neo4j:4.3.5-community
+</code></pre>
+<h5 id="命令行"><a class="header" href="#命令行">命令行</a></h5>
+<p>将<code>neo4j</code>添加到<code>PATH</code>。</p>
+<pre><code class="language-shell">neo4j console
+neo4j start    # background
+</code></pre>
+<p>以<code>systemd</code>服务启动。</p>
+<pre><code class="language-ini">[Unit]
+After=network.target
+[Service]
+Environment=PATH=/usr/local/openjdk11jre/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin
+Environment=NEO4J_ULIMIT_NOFILE=60000
+Type=forking
+ExecStart=/usr/local/neo4j/bin/neo4j start
+PIDFile=/home/neo4j/run/neo4j.pid
+User=neo4j
+Group=neo4j
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<h4 id="交互命令"><a class="header" href="#交互命令">交互命令</a></h4>
+<p>访问数据库界面：<code>http://localhost:7474</code>，默认用户名和密码为<code>neo4j:neo4j</code>，首次登录需要修改密码。</p>
+<blockquote>
+<p>API端口：<code>7687</code>。</p>
+</blockquote>
+<p>数据库和服务器信息：</p>
+<pre><code class="language-shell">:server user list/add  # 列出/添加用户
+:server disconnect
+:dbs      # 列出服务器中的数据库
+:sysinfo  # 列出数据存储信息
+</code></pre>
+<h5 id="选择数据库"><a class="header" href="#选择数据库">选择数据库</a></h5>
+<pre><code class="language-shell">:use graph_db_name  # &quot;:&quot;是命令的一部分
+</code></pre>
+<h3 id="查询语言"><a class="header" href="#查询语言">查询语言</a></h3>
+<p>变量赋值表达式</p>
+<pre><code class="language-cypher">WITH &quot;URL&quot; AS base 
+WITH base + &quot;transport-nodes.csv&quot; AS uri
+</code></pre>
+<p>多条命令使用<code>;</code>分隔。</p>
+<h4 id="数据库管理"><a class="header" href="#数据库管理">数据库管理</a></h4>
+<pre><code class="language-cypher">SHOW DATABASES;
+SHOW DATABASE name;
+</code></pre>
+<p>企业版支持数据库创建和修改。</p>
+<pre><code class="language-cypher">CREATE DATABASE name [IF NOT EXISTS];  
+ALTER DATABASE name [IF EXISTS] SET ACCESS {READ ONLY | READ WRITE};
+START/STOP DATABASE name;
+DROP DATABASE name [IF EXISTS] [{DUMP|DESTROY} [DATA]];
+</code></pre>
+<h4 id="定义数据"><a class="header" href="#定义数据">定义数据</a></h4>
+<p>Neo4j的底层数据类型为<em>Directed Multi-Graph</em>，节点间可存在多条边（多种连接关系）。<strong>通过节点/边的标签或者其包含的属性，可获取其中的一个或多个子图用于分析</strong>。</p>
+<h5 id="添加节点"><a class="header" href="#添加节点">添加节点</a></h5>
+<p>节点类似于关系型数据库表的一条记录，但没有严格的Schema约束，即每个节点可任意添加属性。具有相同标签的节点通常具有相同的属性。</p>
+<pre><code class="language-cypher">CREATE (n:NodeLabel {name:'John'}) RETURN n;
+CREATE (:NodeLabel {name:'John'});
+CREATE ({name:'John'});
+</code></pre>
+<p>创建节点的可选参数（可在后续通过查询节点并补充设置相应参数）：</p>
+<ul>
+<li>
+<p><code>n</code>为当前创建节点的引用标识，用于当前语句后续命令引用（例如<code>RETURN n</code>）。</p>
+</li>
+<li>
+<p><code>NodeLabel</code>：<strong>标签/类型</strong>（可选，后续可设置），如果省略了节点标识，则需要保留<code>:NodeLabel</code>；</p>
+</li>
+<li>
+<p>属性列表：字典类型<code>{...}</code>（可选，后续可设置）。</p>
+<blockquote>
+<p><code>CREATE()</code>如果不接受任何属性，则会创建一个空节点。</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>注意</strong>：添加节点时无法检查是否有重复节点，用户需要首先根据属性查询是否有匹配节点再决定是否创建新节点。</p>
+<h5 id="添加或更新节点"><a class="header" href="#添加或更新节点">添加或更新节点</a></h5>
+<pre><code class="language-cypher">MERGE (n:Person {name: $value}) // 节点属性用于匹配已有节点
+ON CREATE SET n.created = timestamp() // 根据匹配结果：创建或更新节点属性
+ON MATCH SET
+  n.counter = coalesce(n.counter, 0) + 1,
+  n.accessTime = timestamp()
+</code></pre>
+<h5 id="在节点间添加关系"><a class="header" href="#在节点间添加关系">在节点间添加关系</a></h5>
+<p>仅在已有节点间添加关系，需要<strong>注意设置过滤条件，否则匹配的点对可能非常多</strong>。</p>
+<pre><code class="language-cypher">MATCH (a:Person {name:'Liz'}), (b:Person {name:'Mike'})
+MERGE (a)-[r:EdgeType {since:2001}]-&gt;(b);
+MATCH (a:Person {name:'Liz'})
+MERGE (a)-[r:EdgeType {since:2001}]-&gt;(b:Person {name:'Mike'}); //*
+</code></pre>
+<blockquote>
+<p><code>*</code>：匹配一个节点，新增一个节点。</p>
+</blockquote>
+<p><code>(a)-[r]-&gt;(b)</code>表示点之间的关系（边）：类似于节点表示，边也可以指定标签<code>Relation</code>和属性<code>{...}</code>（如果没有标签和属性，可完全省略<code>[r]</code>）。Neo4j仅支持创建有向边，即表达式中必须使用<code>--&gt;</code>或<code>&lt;--</code>，不支持<code>--</code>或<code>&lt;--&gt;</code>。</p>
+<blockquote>
+<p>自动创建节点和边。由于<strong>不会检测已存在节点或边</strong>，通常不使用这种方式添加关系，无法对已有数据进行修改，应该使用<code>MATCH</code>语句首先获取已有数据。</p>
+<pre><code class="language-cypher">CREATE (a:Person {name:'Todd'})-[r:Friends]-&gt;(b:Person {name:'Carlos'});
+CREATE (a)-[r:Relation {name: value}]-&gt;(b); //*
+</code></pre>
+<p><code>*</code>：由于未指定节点属性，因此将在所有已存在节点对之间添加边（不推荐）。</p>
+</blockquote>
+<h4 id="查询数据"><a class="header" href="#查询数据">查询数据</a></h4>
+<h5 id="查询满足条件的节点"><a class="header" href="#查询满足条件的节点">查询满足条件的节点</a></h5>
+<pre><code class="language-cypher">MATCH (a:Label {prop...}) RETURN a LIMIT 10;
+MATCH (a:Label) WHERE a.prop=value RETURN a.prop AS prop LIMIT 10;
+</code></pre>
+<p>节点/链路的标签和属性用于限定查询范围，可省略。</p>
+<p><code>AS</code>用于定义返回值的别名。</p>
+<h5 id="查询关系中的节点"><a class="header" href="#查询关系中的节点">查询关系中的节点</a></h5>
+<p>与一类节点有关系的节点，关系描述表达式可使用<code>--&gt;</code>和<code>&lt;--</code>来表示单向边，<code>--</code>或<code>&lt;--&gt;</code>表示具有任意方向的边（这种方式会遍历<code>a-&gt;b</code>和<code>b-&gt;a</code>返回重复数据，不推荐）。</p>
+<pre><code class="language-cypher">MATCH (a:LabelA{prop})-[r:LinkLabel{prop}]-&gt;(b:LabelB{prop}) RETURN b; // 
+MATCH (a)--&gt;(b) RETURN b; // 所有对外有关系的节点
+</code></pre>
+<h5 id="查询关系"><a class="header" href="#查询关系">查询关系</a></h5>
+<pre><code class="language-cypher">MATCH (a:Person)-[r:BornIn]-&gt;(b:Location {city:'Boston'}) RETURN a,b //查询满足条件的节点
+</code></pre>
+<p>返回数据为表格结构，每一列对应一个返回参数。节点对<code>(a,b)</code>，以及对应的关系<code>r</code>可用于可视化。</p>
+<p>通过查询也可以直接获取节点或关系的属性并返回，例如：</p>
+<pre><code class="language-cypher">MATCH (a)-[r]-&gt;(b) RETURN a.name, b.name, type(r)  //字段不存在返回null
+</code></pre>
+<h5 id="修改属性"><a class="header" href="#修改属性">修改属性</a></h5>
+<pre><code class="language-cypher">MATCH (a:Person {name:'Liz'}) SET a.age=34, a.title='',...
+        SET a += {...}
+        SET a = {...};
+MATCH (a:Person {name:'Liz'}) SET a:Student;     // 添加(不是替换)标签
+MATCH (a:Person {name:'Liz'}) SET a = {};        // 清空属性
+MATCH (a:Person {name:'Mike'}) REMOVE a.test;    // 移除属性
+MATCH (a:Person {name:'Mike'}) REMOVE a:Student; // 移除标签
+</code></pre>
+<h5 id="删除数据"><a class="header" href="#删除数据">删除数据</a></h5>
+<p>删除边：</p>
+<pre><code class="language-cypher">MATCH ()-[r]-&gt;() WHERE r.id = 123 DELETE r;
+</code></pre>
+<p>删除节点及其关联边：</p>
+<pre><code class="language-cypher">MATCH (n) DETACH DELETE n  // 删除所有节点
+MATCH (n)-[r]-() WHERE r.id = 123 AND n.id = 'abc' DELETE n, r //*
+MATCH (a:Location {city:'Portland'}) DELETE a
+</code></pre>
+<blockquote>
+<p><code>*</code>：如果节点还关联其他边，将无法删除（抛出错误）。</p>
+</blockquote>
+<h4 id="导入数据"><a class="header" href="#导入数据">导入数据</a></h4>
+<h5 id="导入节点数据"><a class="header" href="#导入节点数据">导入节点数据</a></h5>
+<pre><code class="language-cypher">LOAD CSV WITH HEADERS FROM uri AS row  // 支持通过HTTP/HTTPS/FTP读取数据
+MERGE (place:Place {id:row.id})        // 将CSV节点数据合并到图中
+SET place.latitude = toFloat(row.latitude),
+    place.longitude = toFloat(row.latitude),
+    place.population = toInteger(row.population)
+</code></pre>
+<p>本地数据通过<code> file:///</code>导入，仅能导入Neo4j数据库设置的导入目录中的数据。</p>
+<blockquote>
+<pre><code class="language-ini">dbms.security.allow_csv_import_from_file_urls=True
+dbms.directories.import=import
+</code></pre>
+</blockquote>
+<h5 id="导入链路数据"><a class="header" href="#导入链路数据">导入链路数据</a></h5>
+<pre><code class="language-cypher">LOAD CSV WITH HEADERS FROM &quot;file:///transport-relationships.csv&quot; AS row 
+MATCH (origin:Place {id: row.src})
+MATCH (destination:Place {id: row.dst})
+MERGE (origin)-[:EROAD {distance: toInteger(row.cost)}]-&gt;(destination)
+</code></pre>
+<h2 id="python-api"><a class="header" href="#python-api">Python API</a></h2>
+<h3 id="python-driver"><a class="header" href="#python-driver">Python Driver</a></h3>
+<p>连接数据库：</p>
+<pre><code class="language-python">from neo4j import GraphDatabase
+uri = &quot;neo4j://example.com:7687&quot;
+def write_func(tx, *args, **kwargs):
+    tx.run(query, **kwargs)   # 查询语句中使用占位符`$var`代替要传入的关键字参数
+def read_func(tx, *args, **kwargs):
+    result = tx.run(query, **kwargs) 
+    # 每条record对应查询语句返回的所有参数组成的一行记录。
+    return [record for record in result]
+
+with GraphDatabase.driver(uri, auth=(&quot;neo4j&quot;, &quot;password&quot;)) as driver:
+    with driver.session() as s:
+        # Auto-commit Transactions,
+        # support only one statement per transaction 
+        # and are not automatically retried on failure. 
+        s.run()  
+        # Explicit Transactions
+        with session.begin_transaction() as tx:
+            pass
+        # Managed Transactions
+        s.write_transaction(write_func, *args, *kwargs)
+        result = s.read_transaction(read_func, *args, *kwargs)
+        result.data()  # 将返回数据转换为字典。
+    # use the driver
+</code></pre>
+<blockquote>
+<p>使用上下文管理器代替相应的<code>close()</code>方法。</p>
+</blockquote>
+<h3 id="py2neo-client"><a class="header" href="#py2neo-client">Py2neo Client</a></h3>
+<blockquote>
+<p>使用<code>conda</code>安装<code>py2neo</code>可能缺失以下依赖项，需要指定。</p>
+<pre><code class="language-shell">conda install py2neo monotonic pansi
+</code></pre>
+</blockquote>
+<h4 id="查询节点"><a class="header" href="#查询节点">查询节点</a></h4>
+<p>使用<code>NodeMatcher</code>封装获取节点的Cypher查询语句。</p>
+<pre><code class="language-python">from py2neo import Graph
+from py2neo.matching import *
+g = Graph(uri, auth)
+nodes = NodeMatcher(g)
+nodes[identity]     # [raise KeyError] identity是由图数据库自动生成的*
+nodes.get(identity) # return None if not exist.
+</code></pre>
+<p><code>nodes</code>是所有节点的集合，可进行迭代或获取节点总数(<code>len(nodes)</code>)。通常会设置条件过滤后再获取节点。</p>
+<pre><code class="language-python">matches:NodeMatch = nodes.match(*labels, **properties)\
+                         .where('key=value',..., key=value,...)\
+                         .limit(count)\
+                         .skip(count)\
+                         .order_by(*fields)
+# MATCH (n:labels {properties}) RETURN n;
+# 返回可迭代的节点集合
+matches.exists() # 判断匹配是否为空
+matches.first()
+matches.all()
+matches.count()
+for node in matches:
+    print(node)
+</code></pre>
+<h5 id="节点对象"><a class="header" href="#节点对象">节点对象</a></h5>
+<p>节点对象可在本地创建，或通过查询语句返回（与数据库绑定）。</p>
+<pre><code class="language-python">a = Node('Person', name='Alice')
+a.graph    # 节点绑定的远端图数据库
+a.identity # 节点标识号
+a.add_label('Employee')  # -&gt; a.labels, a.has_label, a.clear_label
+a.update_labels(lables)
+</code></pre>
+<p>如果节点与远端数据库绑定，则节点相等关系取决于数据库分配的ID（与属性或标签无关）；反之，节点仅与其自身相等。</p>
+<p>节点数据的访问方式类似于字典对象。节点数据也可转换为字典对象。</p>
+<pre><code class="language-python">a[prop] = value
+a.get(prop, default=None)
+del a[prop]
+a.clear() # 清除所有属性
+dict[a]   # 节点的所有属性组成的字典
+a.items(), a.keys(), a.values(), a.update(**kwargs)
+</code></pre>
+<h5 id="条件表达式"><a class="header" href="#条件表达式">条件表达式</a></h5>
+<p>除字符串形式的<code>WHERE</code>表达式外，可通过API构造表达式。</p>
+<pre><code class="language-python">from py2neo import AND, OR
+nodes.match(&quot;Person&quot;, born=ALL(GE(1964), LE(1966)))
+</code></pre>
+<p>运算符类型：</p>
+<ul>
+<li><code>null</code>检查：<code>IS_NULL</code>、<code>IS_NOT_NULL</code>；</li>
+<li>值比较：<code>EQ</code>、<code>NE</code>、<code>LT</code>、<code>LE</code>、<code>GT</code>、<code>GE</code>；</li>
+<li>字符串比较：<code>STARTS_WITH</code>、<code>ENDS_WITH</code>、<code>CONTAINS</code>、<code>LIKE</code>（正则表达式）；</li>
+<li>集合比较：<code>IN</code>；</li>
+<li>逻辑连接：<code>AND</code>、<code>OR</code>、<code>XOR</code>。</li>
+</ul>
+<h4 id="查询关系-1"><a class="header" href="#查询关系-1">查询关系</a></h4>
+<p>类似于节点查询接口。</p>
+<pre><code class="language-python">links = RelationshipMatcher(g)
+matches:RelationshipMatch = links.match(
+    nodes:List[Node]=None, r_type=None, **properties)
+</code></pre>
+<p><code>nodes</code>指定匹配关系的节点范围（<code>None</code>不限定节点）；<code>r_type</code>为关系类型。</p>
+<h5 id="关系对象"><a class="header" href="#关系对象">关系对象</a></h5>
+<pre><code class="language-python">KNOWS = Relationship.type(&quot;Knows&quot;)
+ab = KNOWS(a,b)
+ab.nodes # -&gt; (a,b)
+ab.start_node, ab.end_node
+</code></pre>
+<p>关系对象也可像节点对象一样设置和访问属性。</p>
+<h5 id="路径对象"><a class="header" href="#路径对象">路径对象</a></h5>
+<p>路径对象可通过查询或本地构造获取。<code>Path</code>构造方法的参数由节点对象和关系（关系对象或字符串）交替组成，路径遍历不固定方向，但关系对象的起点或终点必须是上一个节点参数。</p>
+<pre><code class="language-python">alice, bob, carol = Node(name=&quot;Alice&quot;), Node(name=&quot;Bob&quot;), Node(name=&quot;Carol&quot;)
+abc = Path(alice, &quot;KNOWS&quot;, bob, Relationship(carol, &quot;KNOWS&quot;, bob), carol)
+</code></pre>
+<h5 id="子图对象"><a class="header" href="#子图对象">子图对象</a></h5>
+<p>子图<code>Subgraph</code>是任意节点和关系的集合，也是<code>Node</code>、<code>Relationship</code>和<code>Path</code>的基类（子图可以和这些对象运算）。使用子图，可以在本地构造图对象，并与远端的图数据进行运算（创建、合并）。</p>
+<pre><code class="language-python">subgraph | other |... # 合并图(自动去重)
+subgraph &amp; other &amp;... # 图交集
+subgraph - other -... # 差集
+subgraph ^ other ^... # 对称差集(不在其中一个子图中对象)
+subgraph.keys()   # 所有对象使用过的属性名
+subgraph.labels() # 所有节点使用过的标签名
+subgraph.types()  # 所有关系使用过的标签名
+subgraph.nodes, subgraph.relationships
+</code></pre>
+<h4 id="修改图数据库"><a class="header" href="#修改图数据库">修改图数据库</a></h4>
+<p>修改图数据库可直接通过图数据库对象<code>Graph</code>，或通过图数据库对象创建的事务<code>Transaction</code>进行。</p>
+<pre><code class="language-python">with g.begin(readonly=False) as tx:
+    tx.exists(subgraph)
+    tx.match(nodes=None, r_type=None, limit=None)
+    tx.match_one(nodes=None, r_type=None)
+    tx.create(subgraph)
+    tx.merge(subgraph, label=None, *property_keys)
+    tx.delete(subgraph)
+    tx.delete_all()
+    tx.suparate(subgraph) # 删除数据库中的关系(保留节点)
+</code></pre>
+<p>当修改数据库查询返回对象并需要与数据库同步时，可通过<code>pull</code>和<code>push</code>方法。</p>
+<pre><code class="language-python">with g.begin(readonly=False) as tx:
+    tx.push(subgraph)  # 将本地修改回写到远端
+    tx.pull(subgraph)  # 从远端获取最新数据
+</code></pre>
+<h4 id="执行cypher原生查询"><a class="header" href="#执行cypher原生查询">执行Cypher原生查询</a></h4>
+<blockquote>
+<p>类似于<code>neo4j-python-driver</code>的查询接口。</p>
+</blockquote>
+<pre><code class="language-python">from py2neo import Cursor
+g = Graph(uri, auth)
+cs:Cursor = db.run('MATCH (a)-[r:Friends]-&gt;(b) RETURN a,b,r')
+cs.stats  # 命令执行状态
+cs.to_supgraph()
+</code></pre>
+<p><code>Cursor</code>是查询结果<code>Record</code>（一行记录）的迭代器，可使用<code>for</code>语句或调用<code>forward()/current()</code>或<code>next()</code>方法遍历查询记录。使用任何读取方法，都只能从迭代器获取一次数据。</p>
+<h5 id="访问记录"><a class="header" href="#访问记录">访问记录</a></h5>
+<p>通过编号或返回参数名访问<code>Record</code>（访问方法类似于<code>Cursor</code>，区别在于只包含一条记录）。</p>
+<h4 id="原始数据批量处理"><a class="header" href="#原始数据批量处理">原始数据批量处理</a></h4>
+<p><a href="https://py2neo.org/2021.1/bulk/index.html">py2neo.bulk – Bulk data operations — py2neo 2021.1</a></p>
+<p>导出<a href="#%E6%89%A7%E8%A1%8CCypher%E5%8E%9F%E7%94%9F%E6%9F%A5%E8%AF%A2">原生查询</a>结果。</p>
+<pre><code class="language-python">graph_data= cs.data(*keys)
+# 返回查询结果的字典序列，`keys`为`RETURN`语句指定的返回参数名（`cs.keys()`）。
+graph_df = cs.to_data_frame(index=None, columns=None)
+</code></pre>
+<h4 id="图对象映射ogm"><a class="header" href="#图对象映射ogm">图对象映射OGM</a></h4>
+<p><a href="https://py2neo.org/2021.1/ogm/index.html">py2neo.ogm – Object-Graph Mapping — py2neo 2021.1</a></p>
+<h3 id="图分析算法"><a class="header" href="#图分析算法">图分析算法</a></h3>
+<p>配置算法参数：</p>
+<pre><code class="language-cypher">:param limit =&gt; (null);
+:param config =&gt; ({
+  relationshipWeightProperty: null
+});
+:param startNode =&gt; ('Amsterdam');
+:param endNode =&gt; ('London');
+:param graphConfig =&gt; ({
+  nodeProjection: 'Place',
+  relationshipProjection: {
+    relType: {
+      type: 'EROAD',
+      orientation: 'UNDIRECTED',
+      properties: {}
+    }
+  }
+});
+:param communityNodeLimit =&gt; ( 10);
+:param generatedName =&gt; ('in-memory-graph-1662349638926');
+</code></pre>
+<p>创建和删除内存图实例：</p>
+<pre><code class="language-cypher">CALL gds.graph.project($generatedName, $graphConfig.nodeProjection, $graphConfig.relationshipProjection, {})
+</code></pre>
+<p>运行图算法：</p>
+<pre><code class="language-cypher">CALL db.propertyKeys() YIELD propertyKey MATCH (start) WHERE start[propertyKey] contains $startNode
+WITH start
+LIMIT 1
+CALL db.propertyKeys() YIELD propertyKey MATCH (end) WHERE end[propertyKey] contains $endNode
+WITH start, end
+LIMIT 1
+WITH $config AS config, start, end
+WITH config { .*, sourceNode: id(start), targetNode: id(end)} as config
+CALL gds.shortestPath.dijkstra.stream($generatedName, config)
+YIELD nodeIds, costs
+UNWIND range(0, size(nodeIds)-1) AS index
+RETURN gds.util.asNode(nodeIds[index]) AS node, costs[index] AS cost
+</code></pre>
+<p>删除内存图实例：</p>
+<pre><code class="language-cypher">CALL gds.graph.drop($generatedName)
+</code></pre>
+<h2 id="nebulagraph"><a class="header" href="#nebulagraph">NebulaGraph</a></h2>
+<p><a href="https://docs.nebula-graph.com.cn/3.2.1/">NebulaGraph Database 手册 (nebula-graph.com.cn)</a></p>
+<h2 id="apache-tinkerpop"><a class="header" href="#apache-tinkerpop">Apache TinkerPop</a></h2>
+<blockquote>
+<p><em>Apache TinkerPop™ is a graph computing framework for both graph databases (OLTP) and graph analytic systems (OLAP).</em></p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../数据库/Mongodb.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../服务器/分布式大数据处理.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../数据库/Mongodb.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../服务器/分布式大数据处理.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

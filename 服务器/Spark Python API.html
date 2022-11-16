@@ -1,0 +1,976 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Pyspark - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html" class="active">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="spark-python-api"><a class="header" href="#spark-python-api">Spark Python API</a></h1>
+<h2 id="基础类型"><a class="header" href="#基础类型">基础类型</a></h2>
+<h3 id="数据类型"><a class="header" href="#数据类型">数据类型</a></h3>
+<p><code>DataType</code>是具体数据类型的基类。</p>
+<div class="table-wrapper"><table><thead><tr><th>类型</th><th>Python类型</th><th>说明</th></tr></thead><tbody>
+<tr><td><code>BooleanType</code></td><td><code>bool</code></td><td></td></tr>
+<tr><td><code>ByteType</code></td><td></td><td></td></tr>
+<tr><td><code>IntegerType</code></td><td><code>int</code></td><td><code>ShortType/LongType</code></td></tr>
+<tr><td><code>DoubleType/FloatType</code></td><td><code>float</code></td><td></td></tr>
+<tr><td><code>DecimalType()</code></td><td></td><td><code>precision,scale</code>参数控制精度；</td></tr>
+<tr><td><code>StringType</code></td><td><code>str</code></td><td></td></tr>
+<tr><td><code>DateType</code></td><td><code>dt.date</code></td><td></td></tr>
+<tr><td><code>TimestampType</code></td><td><code>dt.datetime</code></td><td></td></tr>
+<tr><td><code>NullType</code></td><td><code>None</code></td><td></td></tr>
+<tr><td><code>BinaryType</code></td><td></td><td></td></tr>
+<tr><td><code>ArrayType(EType)</code></td><td><code>List[Type]</code></td><td><code>nullable=True</code></td></tr>
+<tr><td><code>MapType(KType,VType)</code></td><td><code>dict</code></td><td>必须声明确定的<code>key</code>和<code>value</code>类型（命名元组）。<br /><code>nullable=True</code></td></tr>
+<tr><td><code>StructType([fields])</code></td><td><code>dict</code></td><td><code>StructType</code>包含固定字段；而<code>MapType</code>可以有任意数量的key-value。</td></tr>
+<tr><td><code>StructField(name,DType)</code></td><td></td><td><code>nullable=True</code></td></tr>
+</tbody></table>
+</div>
+<p><a href="https://spark.apache.org/docs/latest/sql-ref-datatypes.html">Data Types - Spark 3.2.0 Documentation (apache.org)</a></p>
+<h3 id="数据结构"><a class="header" href="#数据结构">数据结构</a></h3>
+<h2 id="底层api"><a class="header" href="#底层api">底层API</a></h2>
+<pre><code class="language-python">from pyspark import SparkContext, SparkConf
+conf = SparkConf().setAppName(&quot;AppName&quot;).setMaster(master).set(...)
+sc = SparkContext(conf=conf)
+</code></pre>
+<p><code>master</code>表示集群的URL，或者<code>local[k]</code>。</p>
+<blockquote>
+<p>交互式环境（PySparkShell）中有一个默认的<code>SparkContext</code>对象<code>sc</code>。</p>
+</blockquote>
+<h3 id="输入"><a class="header" href="#输入">输入</a></h3>
+<h4 id="文件"><a class="header" href="#文件">文件</a></h4>
+<pre><code class="language-python">lines = sc.textFile(&quot;examples/src/main/resources/people.txt&quot;)
+</code></pre>
+<blockquote>
+<p>默认文件传输协议为<code>file://</code>；<em>使用Spark-on-Yarn</em>时，默认的文件传输协议为<code>hdfs://</code>，即文件应该存储在HDFS集群上。如果要在Client模式下使用主程序所在节点的文件，显式指定协议为<code>file://</code>。</p>
+<p>省略文件传输协议，且路径非<code>/</code>开头，则表示使用相对路径。</p>
+<p><code>local:/</code>不是有效的文件传输协议（<a href="%E5%88%86%E5%B8%83%E5%BC%8F%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86.html#Spark%E4%BB%BB%E5%8A%A1%E8%B7%AF%E5%BE%84%E5%92%8C%E6%96%87%E4%BB%B6">仅适用于Spark集群自身分发依赖库</a>）。</p>
+</blockquote>
+<h3 id="变换"><a class="header" href="#变换">变换</a></h3>
+<p><code>map()</code></p>
+<h3 id="输出"><a class="header" href="#输出">输出</a></h3>
+<p><code>first()</code></p>
+<h2 id="spark-sql"><a class="header" href="#spark-sql">Spark SQL</a></h2>
+<h3 id="spark会话"><a class="header" href="#spark会话">Spark会话</a></h3>
+<pre><code class="language-python">from pyspark.sql import SparkSession
+spark=SparkSession\
+        .builder\
+        .master(&quot;yarn&quot;)
+        .appName(&quot;PythonApp&quot;)\
+        .config(&quot;hive.metastore.uris&quot;, &quot;thrift://hadoop-master:9083&quot;)\
+        .enableHiveSupport()\
+        .getOrCreate()
+# 如果能定位SPARK_HOME下的配置文件，则可获得相应配置，否则需要通过代码指定
+spark.sparkContext.setLogLevel('WARN') # set log level to WARN after then
+</code></pre>
+<h3 id="数据类型-1"><a class="header" href="#数据类型-1">数据类型</a></h3>
+<p>输入数据以<code>pyspark.sql.DataFrame</code>表示。<code>DataFrame</code>相当于是基于<code>Row</code>组织的<code>RDD</code>，可与<code>RDD</code>相互转换。</p>
+<h4 id="spark-dataframe"><a class="header" href="#spark-dataframe">Spark DataFrame</a></h4>
+<p><code>spark.createDataFrame(data[,schema][,samplingRatio],verifySchema=True)</code></p>
+<p>基于<code>Row</code>序列（本地或分布式<code>RDD</code>类型）创建，</p>
+<pre><code class="language-python">data = [Row(a=1, b=2., c='string1', d=date(2000, 1, 1)),
+        Row(a=2, b=3., c='string2', d=date(2000, 2, 1)),
+        Row(a=4, b=5., c='string3', d=date(2000, 3, 1))]
+# data = spark.sparkContext.parallelize(data) -&gt; RDD
+df = spark.createDataFrame(data)  # 自动推测数据类型
+</code></pre>
+<p>基于Python序列（本地或分布式<code>RDD</code>类型）创建，由于序列没有列名信息，需要指定<code>schema</code>。</p>
+<pre><code class="language-python">data = [(1, 2., 'string1', date(2000, 1, 1)),
+        (2, 3., 'string2', date(2000, 2, 1)),
+        (4, 5., 'string3', date(2000, 3, 1))]
+# data = spark.sparkContext.parallelize(data) -&gt; RDD
+df = spark.createDataFrame(data, schema='a long, b double, c string, d date')
+</code></pre>
+<h5 id="spark-row类型"><a class="header" href="#spark-row类型">Spark Row类型</a></h5>
+<p><code>Row</code>表示Spark DataFrame中的一行数据，可以使用字典、元组的方式访问其元素，也可以将元素名称作为成员名来访问该元素（类似于命名空间成员的访问方式）。</p>
+<pre><code class="language-shell">from pyspark.sql import Row
+row = Row(name=&quot;Alice&quot;, age=11)
+'name' in row
+row.age, row['name'], row[1]
+Person = Row(&quot;name&quot;, &quot;age&quot;)
+Person(&quot;Alice&quot;, 11)  # Row(name='Alice', age=11)
+</code></pre>
+<h5 id="数据格式声明"><a class="header" href="#数据格式声明">数据格式声明</a></h5>
+<p><code>schema</code>可以以字符串形式简单描述（类型可省略，根据数值采样自动推测）或使用<code>StructType</code>完整描述。</p>
+<pre><code class="language-python">schema = StructType([StructField(&quot;a&quot;, StringType(), True),
+                     StructField(&quot;b&quot;, DoubleType(), False),
+                     StructField(&quot;c&quot;, StringType(), True),
+                     StructField(&quot;d&quot;, DateType(),   False)])
+</code></pre>
+<p>还可以基于<code>pandas.DataFrame</code>创建。由于<code>pandas.DataFrame</code>已知数据类型，无需指定Schema。</p>
+<pre><code class="language-python">pd.DataFrame(pandas_df)
+</code></pre>
+<h4 id="读取文件"><a class="header" href="#读取文件">读取文件</a></h4>
+<p><code>reader:DataFrameReader = spark.read</code>：获取读取接口，可通过以下方式对该接口进行配置：<code>reader.format(&lt;FORMAT&gt;) -&gt;reader.&lt;FORMAT&gt;</code>：支持的文件格式包括Text、CSV、Parquet、OCR、JSON等。</p>
+<pre><code class="language-python">df = spark.read.json(FILE_PATH)
+df = spark.read.format(&quot;JSON&quot;).load(FILE_PATH)
+</code></pre>
+<p><code>reader.option(key, value)/options(**options)</code>：设置输入选项；</p>
+<h5 id="csv读取参数"><a class="header" href="#csv读取参数">csv读取参数</a></h5>
+<ul>
+<li>
+<p><a href="#%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E5%A3%B0%E6%98%8E">数据格式</a></p>
+<ul>
+<li><code>schema</code>：<code>StructType</code>或文本<code>col0 INT, col1 DOUBLE</code>；</li>
+<li><code>header=False</code>；</li>
+<li><code>inferSchema=False</code>：推断数据格式，需要读取两次数据；</li>
+<li><code>samplingRatio=1.0</code>：推断数据格式所需读取的记录比例；</li>
+<li><code>enforceSchema=True</code>：默认强制应用指定的或推断的数据格式被数据源所有文件，CSV文件中的头部被忽略；反之，仅验证CSV文件的头部字段（推荐禁用该选项以避免意外错误）。</li>
+<li><code>maxColumns=20480</code>：限制读取的列数；</li>
+<li><code>multiLine=False</code>：数据记录跨行；</li>
+</ul>
+<p><code>csv</code>不支持仅读取部分数据，可在读取后执行<code>limit()</code>方法返回部分数据</p>
+</li>
+<li>
+<p>文本编码：<code>encoding='UTF-8'</code>；</p>
+</li>
+<li>
+<p>特殊字符：</p>
+<ul>
+<li><code>sep=','</code>；</li>
+<li><code>quote='&quot;'</code>：用于包含分隔符的字段；</li>
+<li><code>escape='\'</code>：用于转义已经使用引号的字段中的引号，即<code>\&quot;</code>；</li>
+<li><code>charToEscapeQuoteEscape='\'</code>；用于转义引号字段中的转义字符，即<code>\\</code>；</li>
+<li><code>comment=None</code>（数据中的注释行开头字符）；</li>
+<li><code>ignoreLeadingWhiteSpace/ignoreTrailingWhiteSpace=False</code>：忽略空白；</li>
+</ul>
+</li>
+<li>
+<p>特殊值：</p>
+<ul>
+<li><code>nullValue=''</code>：文件中的缺失值形式；</li>
+<li><code>emptyValue='&quot;&quot;'</code>：文件中空字符串的形式；</li>
+<li><code>nanValue='NaN'</code>：文件中无效数值的表示形式；</li>
+<li><code>positiveInf/negativeInf='Inf'</code>：文件中无穷大的表示形式；</li>
+</ul>
+</li>
+<li>
+<p>数值格式：</p>
+<ul>
+<li><code>dateFormat='yyyy-MM-dd'</code>：文件中日期表示形式；</li>
+<li><code>timestampFormat=&quot;yyyy-MM-dd'T'HH:mm:ss.SSSXXX&quot;</code>：文件中时间表示形式；</li>
+<li><code>maxCharsPerColumn=-1</code>：限制每个字段读取字符数量（默认无限制）；</li>
+</ul>
+</li>
+<li>
+<p>错误处理：</p>
+<ul>
+<li><code>mode='PERMISSIVE'</code>：发现坏记录将其存储在名为<code>columnNameOfCorruptRecord</code>的列（需要用户在数据格式中设置该列，否则丢弃该列），并将其他列设置为<code>null</code>；当记录字段比数据格式的列少，则缺少的列设置为<code>null</code>；反之，丢弃多余的列。<code>DROPMALFORMED</code>忽略整条坏记录。<code>FAILFAST</code>直接抛出异常。</li>
+<li><code>columnNameOfCorruptRecord=spark.sql.columnNameOfCorruptRecord</code>：</li>
+</ul>
+</li>
+</ul>
+<h4 id="hive"><a class="header" href="#hive">Hive</a></h4>
+<pre><code class="language-python">df = spark.sql(&quot;select * from pokes limit 10&quot;)
+</code></pre>
+<h5 id="hive数据源格式"><a class="header" href="#hive数据源格式">Hive数据源格式</a></h5>
+<p>CSV文件：为了保证Spark能正确推测Hive数据的数据类型，Hive数据源的文件存储中不要包含表头（Spark不识别Hive的表格选项<code>skip.header.line.count</code>），否则Spark将表头视为数据，由于表头为字符串类型，导致自动推导数据类型失败。对于具有表头的数据文件，可直接存储在HDFS上，并通过Spark提供的CSV文件读取接口读取数据。</p>
+<h4 id="数据表视图"><a class="header" href="#数据表视图">数据表视图</a></h4>
+<pre><code class="language-python">df.createOrReplaceTempView(&quot;people&quot;) # createTempView(name)
+df = spark.sql(&quot;SELECT * FROM people&quot;)
+df.createGlobalTempView(&quot;people&quot;)    # createOrReplaceGlobalTempView()
+df = spark.sql(&quot;SELECT * FROM global_temp.people&quot;)
+df = spark.table('global_temp.people')
+</code></pre>
+<h3 id="dataframe-api"><a class="header" href="#dataframe-api">DataFrame API</a></h3>
+<p><code>df.cache()</code>：持久化数据（<code>MEMORY_AND_DISK</code>）；<code>df.persist([storageLevel])</code>设置持久化存储等级；</p>
+<p><code>df.unpersist([blocking])</code>：释放持久化存储资源；</p>
+<p><code>df.coalesce(numPartitions)</code>：重新分片；</p>
+<p><code>df.withColumnRenamed(existing, new)</code>：重命名列；对于为暂未计算的抽象列<code>Column</code>调用其<a href="#%E5%88%97%E5%90%8D%E8%B0%83%E7%94%A8%E5%8F%98%E6%8D%A2%E6%96%B9%E6%B3%95"><code>alias</code>方法</a>修改随后返回的数据的列名。</p>
+<p><code>df.columns</code>：返回列名组成的列表。</p>
+<p><code>df.dtypes-&gt;List[(name,type)]</code></p>
+<p><code>df.schema-&gt;StructType</code></p>
+<p><code>df.isStreaming</code>：该数据集是否是流数据；</p>
+<p><code>df.rdd-&gt;RDD(List[Row])</code></p>
+<p><code>df.toJSON(use_unicode=True)-&gt;RDD(List[str])</code></p>
+<h3 id="变换-1"><a class="header" href="#变换-1">变换</a></h3>
+<ol>
+<li>
+<p><code>df.select(col:Column,...)</code>：从<code>DataFrame</code>选择列并执行变换，<code>select</code>执行的操作类似于<code>map</code>。可以提供<strong>序列类型或可变长参数列表</strong>作为参数。<code>Column</code>类用于表示==基于列的变换过程的声明式对象==，包括以下声明方式：</p>
+<ul>
+<li>
+<p><code>'col_name'|col/column(col_name)|df['col_name']|df.col_name</code>：使用列名读取该列不做其他变换；仅提供列名默认引用当前查询的数据集的列；</p>
+<pre><code class="language-python">from pyspark.sql.functions import col,column  # col&lt;-&gt;column
+</code></pre>
+<p>可使用<code>df.columns[i:j]</code>选择数据的一个分片。</p>
+<p>对于结构数据字段可通过路径对象来返回嵌套字段值：</p>
+<pre><code class="language-python">df.select(&quot;name.firstname&quot;,&quot;name.lastname&quot;).show(truncate=False)
+</code></pre>
+</li>
+<li>
+<p><code>df.col_name+1</code>：基于列的数值运算、逻辑运算（<code>+,-,*,/...</code>）等；</p>
+<blockquote>
+<p>参与运算的数值不能是<code>numpy</code>类型的数值，否则会出错：<em><code>'numpy.int32' object has no attribute '_get_object_id'</code></em>；应该将此类型转换为兼容的Python内置类型。</p>
+</blockquote>
+</li>
+<li>
+<p><code>df.col_name.func()</code>，<code>df['col_name'].func()</code>或<code>col('col_name').func()</code>：使用<a href="%E5%88%97%E5%90%8D%E8%B0%83%E7%94%A8%E5%8F%98%E6%8D%A2%E6%96%B9%E6%B3%95">列名调用内置的变换方法</a>；</p>
+</li>
+<li>
+<p><code>sqlfunc(col('col_name'))</code>或<code>sqlfunc(df['col_name'])</code>：使用<a href="#%E5%88%97%E5%8F%98%E6%8D%A2">SQL函数库</a>或或<a href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%98%E6%8D%A2%E5%87%BD%E6%95%B0">自定义变换函数</a>。SQL函数可能不接受字符串列名。</p>
+<pre><code class="language-python">from pyspark.sql.functions import sqlfunc; # 从内置SQL函数库导入变换方法
+pysaprk.sql.functions import udf;          # 通过udf,用户可自定义变换函数
+</code></pre>
+</li>
+<li>
+<p><code>expr(&quot;EXPR&quot;)</code>：由于表达式文本在运行时构造，这种方式==可动态生成查询语句==；</p>
+<pre><code class="language-python">from pyspark.sql.functions import expr
+df.select(expr('a*2+1'))
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><code>df.selectExpr(*expr)</code>：使用表达式代文本替<code>df.select()</code>的列声明（<code>df.select('col_name')</code>的扩展，等效于<code>df.select(expr(&quot;EXPR&quot;))</code>），这种方式无法通过列声明对象调用内置方法（如列重命名）。</p>
+<pre><code class="language-python">df.selectExpr(&quot;age * 2&quot;, &quot;abs(age)&quot;)
+</code></pre>
+</li>
+<li>
+<p>SQL查询语句：通过构造<a href="#%E6%95%B0%E6%8D%AE%E8%A1%A8%E8%A7%86%E5%9B%BE">数据表视图</a>并利用<code>spark.sql(...)</code>方法传入包含<a href="https://spark.apache.org/docs/latest/sql-ref-functions.html">SQL变换方法</a>的原生SQL查询语句进行数据变换。</p>
+<pre><code class="language-python">df.createOrReplaceTempView('data')
+spark.sql('SELECT a, FUNC(a) FROM data').show()
+</code></pre>
+</li>
+<li>
+<p><code>df.transform(func)</code>：<code>func</code>可包含一系列<code>select</code>变换；</p>
+</li>
+<li>
+<p>条件变换：<code>when</code>相当于是一个条件选择函数的简化形式。</p>
+<pre><code class="language-python">from pysaprk.sql.functions import when
+df.select(when(df.col==1,df.col+1).otherwise(0).alias(&quot;result&quot;))
+</code></pre>
+</li>
+</ol>
+<h4 id="通过列声明调用变换方法"><a class="header" href="#通过列声明调用变换方法">通过列声明调用变换方法</a></h4>
+<p><code>Column.cast/astype(TYPE)</code>：列数据类型变换，<code>TYPE</code>可以是文本类型描述或<code>DataType</code>的子类对象。</p>
+<p><code>Column.alias/name</code>：修改列名，默认列名为该列的变换表达式；</p>
+<p><code>Column.asc/asc_nulls_first/asc_nulls_last/desc/desc_nulls_first/desc_nulls_last(col)</code>：参考对应的SQL函数；</p>
+<p><code>Column.bitwiseAND/bitwiseOR/bitwiseXOR</code></p>
+<p><code>Column.between(lower,upper)</code>：判断列值是否在上下界之间；</p>
+<p><code>Column.startswith/endswith(other)</code></p>
+<p><code>Column.contains(other)</code></p>
+<p><code>Column.isin(*cols)</code>：当前列的值是否在其他列中；</p>
+<p><code>Column.dropFields(*fields)/getField(name)/withField(name,value)</code>：提取/丢弃/修改<code>StructType</code>字段；</p>
+<p><code>Column.getItem(idx_or_key)</code>：从序列或字典中提取元素或字段；</p>
+<p><code>Column.eqNullSafe(other)</code>：<em><code>NaN = NaN</code> returns true.</em></p>
+<p><code>Column.isNull/isNotNull()</code></p>
+<p><code>Column.like/rlike(other)</code>：模糊匹配/正则匹配；</p>
+<p><code>Column.substr(startPos,length)</code>：获取子串（<code>functions.substring</code>）；</p>
+<h4 id="sql变换函数"><a class="header" href="#sql变换函数">SQL变换函数</a></h4>
+<p>Sspark定义了大量内置的变换函数以及自定变换函数的接口。</p>
+<pre><code class="language-python">import pyspark.sql.functions as sqlfunc
+</code></pre>
+<h5 id="自定义变换函数"><a class="header" href="#自定义变换函数">自定义变换函数</a></h5>
+<pre><code class="language-python">from pyspark.sql.functions import udf 
+@udf(returnType=ArrayType(StringType()))
+def str_2_array(x: str):
+    if x is None: return []
+    elif x.startswith('[') and x.endswith(']'): return eval(x)
+    else: return [x]
+df.select(str_2_array(df.a)).show()
+</code></pre>
+<h5 id="pandas变换函数"><a class="header" href="#pandas变换函数">Pandas变换函数</a></h5>
+<pre><code class="language-python">from pyspark.sql.functions import pandas_udf
+@pandas_udf(returnType='long', functionType=None)
+def pandas_plus_one(series: pd.Series) -&gt; pd.Series:
+    return series+1
+df.select(pandas_plus_one(df.a)).show()
+def filter_func(iterator):
+    for pdf in iterator:  # iterator over pandas DataFrames
+        yield pdf[pdf.id == 1] # return iterator of pandas DataFrames
+df.mapInPandas(filter_func, df.schema).show()  # [3.0]
+</code></pre>
+<pre><code class="language-python">def plus_mean(pandas_df):
+    return pandas_df.assign(v1=pandas_df.v1 - pandas_df.v1.mean())
+df.applyInPandas(plus_mean, schema=df.schema).show()
+</code></pre>
+<h4 id="sparkml变换方法"><a class="header" href="#sparkml变换方法">SparkML变换方法</a></h4>
+<p>SparkML提供了基于数值特征的变换方法<code>fit/transoform()</code>，==支持拟合变换过程中的参数；相比之下，基于<code>select()</code>和SQL变换函数，需要自己实现参数拟合的方法==。此外，SparkML提供的变换类，支持同时处理多个列；SQL变换函数的输入为一列，需要自己实现多列处理逻辑并记录对应参数。</p>
+<p>SparkML的变换方法的输入要求==将每一行数据参与变换的特征列拼接为向量<code>Vector</code>==（SQL函数库中的<code>array</code>函数实现的拼接与变换方法的输入类型不一致），可以使用<code>VectorAssembler</code>实现此变换。</p>
+<pre><code class="language-python">from pyspark.ml.feature import VectorAssembler
+assembler = VectorAssembler(inputCols=[&quot;x&quot;, &quot;y&quot;, &quot;z&quot;], outputCol=&quot;features&quot;)
+x = assembler.transform(x)
+some_transformer = SomeTransformer(*,inputCol='features',outputCol='_features')
+model = some_transformer.fit(x)  # -&gt; SomeTransformerModel
+x = model.transform(x).drop('features').withColumnRenamed('_features', 'features')
+</code></pre>
+<p>变换后的数据包含原有数据列，以及变换后新增的<code>features</code>列（<code>DenseVector</code>）。为了方便后续分别处理各特征列的数据，需要将<code>features</code>[拆分为多列](# 将字典或序列转换为多列)。</p>
+<pre><code class="language-shell">@udf(returnType=ArrayType(DoubleType()))  # from pyspark.sql.functions import udf
+def vector_2_array(x: DenseVector):
+    return [ float(i) for i in x ]
+y:SparkColumn = vector_2_array(x['features']).alias('features')
+y = {col: y.getItem(i).alias(col) for i, col in enumerate(_columns)}
+x = x.select(*x.columns, *y.columns)  # 此处需要处理变换后的重名列(drop or rename)
+</code></pre>
+<blockquote>
+<p>Spark 3.0 <code>pyspark.ml</code>模块自带<code>vector_to_array()</code>方法。</p>
+</blockquote>
+<h4 id="列变换"><a class="header" href="#列变换">列变换</a></h4>
+<p>内置变换方法来自<code>pyspark.sql.functions</code>（SQL函数）和<code>pyspark.ml.feature</code>（变换类）等模块。</p>
+<blockquote>
+<p><code>broadcast(df)</code></p>
+<p><code>bucket(numBuckets, col)</code></p>
+<p><code>coalesce(*cols)</code>：返回第一个不为<code>null</code>的列；</p>
+</blockquote>
+<h5 id="生成列"><a class="header" href="#生成列">生成列</a></h5>
+<p><code>input_file_name()</code>：获取当前任务的文件名；</p>
+<p><code>current_date/current_timestamp()</code>：返回当前日期，同一个查询中的调用返回相同值。</p>
+<p><code>lit(VALUE)</code>：创建常量列；</p>
+<p><code>monotonically_increasing_id()</code>：</p>
+<p><code>rand(seed=None)/randn([seed])</code>：生成<code>[0,1)</code>区间均匀分布/标准正态分布随机数；</p>
+<p><code>sequence(col_start,col_stop[,col_step])</code>：生成等差数列数组，输入参数为列名或常量列(<code>lit</code>）；</p>
+<p><code>spark_partition_id()</code>：</p>
+<h5 id="无效值处理"><a class="header" href="#无效值处理">无效值处理</a></h5>
+<p><code>isnan/isnull(col)</code>：判断值是否为<code>NaN</code>/<code>null</code>；</p>
+<p><code>nanvl(col1, col2)</code>：如果<code>col1!=NaN</code>，返回<code>col1</code>；否则返回<code>col2</code>；</p>
+<p><code>df.fillna(value[,subset])</code></p>
+<h5 id="数值计算函数"><a class="header" href="#数值计算函数">数值计算函数</a></h5>
+<p><code>abs/exp/expm1/sqrt/cbrt/log/log10/log1p/log2(col)/pow(x,y)</code>：<code>cbrt</code>三次方根，<code>expm1-&gt;</code>$e^x-1$；</p>
+<p><code>greatest/least(*cols)</code>：返回多个列元素中的最大/小值；</p>
+<p><code>factorial(col)</code>：阶乘；</p>
+<p><code>ceil/floor/rint(col)</code>：近似；</p>
+<p><code>round/bround(col[,scale])</code>：<em><code>HALF_UP/HALF_EVEN</code> rounding mode</em>，整数<code>scale</code>控制近似精度，负数表示整数部分精度。</p>
+<p><code>degrees/radians(col)</code>：弧度和角度转换；</p>
+<p><code>cos/sin/tan/acos/asin/atan(col)/atan2(y,x)</code>：三角/反三角函数；</p>
+<p><code>sinh/cosh/tanh/acosh/asinh/atanh</code>：双曲/反双曲函数；</p>
+<p><code>bitwise_not(col)</code>：</p>
+<p><code>shiftleft/shiftright/shiftrightunsigned(col,numBits)</code></p>
+<p><code>exists(col,f)</code>：返回指定判断函数的真值；</p>
+<p><code>hypot(x,y)</code>：<code>sqrt(a^2+b^2)</code></p>
+<p><strong>数值特征处理</strong></p>
+<p><code>MinMaxScaler</code>：$(0,1)$规范化；</p>
+<h5 id="字符串计算函数"><a class="header" href="#字符串计算函数">字符串计算函数</a></h5>
+<p><code>length(col)</code>：字符串或字节序列的长度；</p>
+<p><code>levenshtein(left, right)</code>：两个字符串的Levenshtein距离；</p>
+<p><code>sentences(string,language=None,country=None)</code>：将字符串拆分为语句数组，语句拆分为单词数组。</p>
+<h6 id="字符串变换"><a class="header" href="#字符串变换">字符串变换</a></h6>
+<p><code>initcap/lower/upper(col)</code>：</p>
+<p><code>translate(srcCol,matching,replace)</code>：对<code>srcCol</code>出现在<code>matching</code>中的字符替换为<code>replace</code>相应位置上的字符，例如<code>matching='123',replace='ZYX'</code>，则替换规则为<code>1-&gt;Z,2-&gt;Y,3-&gt;X</code>；</p>
+<p><code>ascii(col)</code>：计算字符串的首字符ASCII码数值；</p>
+<p><code>lpad/rpad(col,len,pad)</code></p>
+<p><code>trim/ltrim/rtrim(col)</code></p>
+<p><code>repeat(col, n)</code>：复制字符串<code>n</code>次构成新值；</p>
+<p><code>reverse(col)</code>：反转字符串（或数组）；</p>
+<p><code>split(str,pattern,limit[3.0])</code>：按指定模式（<code>Java</code>正则表达式）拆分字符串；</p>
+<h6 id="查找替换"><a class="header" href="#查找替换">查找替换</a></h6>
+<p><code>instr(col,substr)/locate(substr,col,pos=0)</code>：查找子串；</p>
+<p><code>substring(col,pos,len)</code>：获取子串；<code>substring_index(str,delim,count)</code>查找分隔符出现<code>count</code>次之前的子串（如果<code>count</code>为负数则反向查找）。</p>
+<p><code>overlay(src,replace,pos,len=-1)</code>：从<code>src</code>的指定位置<code>pos</code>（位置从1开始），用<code>replace</code>的内容替换<code>src</code>内容，最大替换长度为<code>len</code>；</p>
+<p><code>regexp_extract(str, pattern, idx)</code>：抽取<code>idx</code>指定的捕获组，如果模式未匹配或指定捕获组未匹配，返回空字符串。</p>
+<p><code>regexp_replace(str, pattern, replacement)</code></p>
+<h6 id="编码"><a class="header" href="#编码">编码</a></h6>
+<p><code>base64/unbase64(col)</code>：BASE64编码/解码；</p>
+<p><code>crc32(col)</code>：计算二进制序列的CRC32校验值返回<code>bigint</code>；</p>
+<p><code>hash/xxhash64(*col)</code>：计算输入列元素的HASH整数值/长整数值；</p>
+<p><code>md5/sha1(col)/sha2(col,numBits)</code>：返回输入列的MD5/SHA-1/SHA-2xx十六进制编码字符串；</p>
+<p><code>bin(col)</code>：二进制数据的字符串表示；</p>
+<p><code>hex/unhex(col)</code>：字符串/整数的十六进制字符串表示（字符串每个字符的ASCII码值映射为十六进制）；</p>
+<p><code>conv(col,fromBase,toBase)</code>：字符串表示的数值进行进制转换；</p>
+<p><code>decode/encode(col,charset)</code>使用指定编码方法将字节序列解码为字符串（将字符串编码为字节序列）；</p>
+<p><code>concat(*cols)/concat_ws(sep,*cols)</code>：将多个列字符串/字节序列拼接为新数据；</p>
+<p><code>format_string(format, *cols)</code>：<code>printf</code>模式输出新列；</p>
+<h5 id="日期计算函数"><a class="header" href="#日期计算函数">日期计算函数</a></h5>
+<p><code>year/quarter/month/hour/minute/second(col)</code></p>
+<p><code>add_months(start,months)/date_add/date_sub(start,days)</code></p>
+<p><code>next_day(date, dayOfWeek)</code>：返回下一个是指定<code>DayOfWeek</code>的日期（“<code>Mon</code>”, “<code>Tue</code>”, “<code>Wed</code>”, “<code>Thu</code>”, “<code>Fri</code>”, “<code>Sat</code>”, “<code>Sun</code>”）</p>
+<p><code>trunc(col_date,format)/date_trunc(format,col_timestamp)</code>：按给定格式舍弃末尾的时间值；<code>timestamp_seconds(col)</code>：<code>[3.1]</code>截取时间字段到秒；</p>
+<p><code>datediff(end,start)</code>：返回两个日期间相差的天数；<code>months_between(date1,date2[,roundOff])</code>计算两个日期间相差的月数（如果为月中同一天或最后一天返回整数，否则返回浮点数）；</p>
+<p><code>dayofmonth/dayofweek/dayofyear/weekofyear/last_day(col)</code>：<code>last_day</code>表示日期所在月的最后一天；</p>
+<p><code>date_format/to_date(col,format)</code>：将<code>date/timestamp/string</code>类型的日期<a href="https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html">按给定格式</a>（形如<code>yyyy-mm-dd</code>）转换为字符串。<code>to_date-&gt;col.cast(&quot;date&quot;)</code>。</p>
+<p><code>from_unixtime/to_timestamp/unix_timestamp(col,format=None)</code>：将时间戳（秒）转换为时间文本（<code>to_timestamp-&gt;col.cast(&quot;timestamp&quot;)</code>，<code>unix_timestamp</code>输入列如果为指定则返回当前时间）；</p>
+<p><code>from_utc_timestamp/to_utc_timestamp(timestamp, tz)</code>：可指定时区。</p>
+<h5 id="排序"><a class="header" href="#排序">排序</a></h5>
+<p><code>asc/asc_nulls_first/asc_nulls_last/desc/desc_nulls_first/desc_nulls_last(col)</code>：返回排序表达式。</p>
+<p><code>df.orderBy(*cols)/df.sort(*cols,ascending=True)</code>：使用上述UDF声明排序表达式。</p>
+<p><code>df.sortWithinPartitions(*cols,ascending=True)</code></p>
+<h5 id="集合类型处理函数"><a class="header" href="#集合类型处理函数">集合类型处理函数</a></h5>
+<h6 id="数组计算"><a class="header" href="#数组计算">数组计算</a></h6>
+<p><code>array(*cols)/array_repeat(col,count)</code>：将一个或多个列拼接成数组、将一列重复构成数组；</p>
+<p><code>array_join(col,delimiter[,null_replacement])</code>：将数组拼接为字符串；</p>
+<p><code>zip_with(left,right,f(l,r))</code>：合并两个序列，合并值基于两个序列相应元素通过<code>f</code>计算；</p>
+<p><code>flatten(col)</code>：拼接嵌套数组（指拼接第一层嵌套）；</p>
+<p><code>array_contains(col, value)</code></p>
+<p><code>forall(col,f)</code>：判断数组元素是否都满足判断条件<code>f</code>；</p>
+<p><code>transform(col,f)</code>：<code>[3.1]</code>对数组每个元素进行<code>f</code>变换，返回变换后的数组；</p>
+<p><code>element_at(col,idx)</code>：从数值提取指定索引的元素；</p>
+<p><code>slice(x,start,length)</code>：返回子数组；</p>
+<p><code>array_max/array_min(col)/array_position(col,value)</code>：查找元素；</p>
+<p><code>array_sort(col)/sort_array(col,asc=True)</code>：（升序）排序；</p>
+<p><code>array_remove(col,element)/array_distinct(col)</code>：移除指定元素；去除重复元素；</p>
+<p><code>array_except/array_intersect/array_union(col1,col2)</code>：集合操作（差集/交集/并集）；</p>
+<p><code>arrays_overlap(a1,a2)</code>：判断两个数组是否存在公共元素（如果无公共元素且都包含<code>null</code>返回<code>null</code>）。</p>
+<p><code>shuffle(col)</code>：随机置换序列元素。</p>
+<h6 id="字典计算"><a class="header" href="#字典计算">字典计算</a></h6>
+<p><code>create_map(*cols)</code>：使用输入列构建字典，输入列分别轮流作为字典的<code>key</code>和<code>value</code>值；</p>
+<p><code>map_concat(*cols)</code>：将多个输入的字典拼接为一个字典；</p>
+<p><code>map_from_arrays(col1, col2)</code>：将两列数据分别转换为字典的<code>key</code>和<code>value</code>，如果输入数据为数组，则返回的字典包含多个字段；</p>
+<p><code>map_zip_with(col1,col2,f(key,v1,v2))</code>：<code>[3.1]</code>合并两列字典，使用指定函数合并相同<code>key</code>对应的<code>value</code>；</p>
+<p><code>map_entries[3.0]/map_keys/map_values(col)&lt;-&gt;map_from_entries(col)</code>：将字典的<code>key</code>和<code>value</code>转换为一条记录<code>Row(key=,value=)</code>，并将所有记录拼接为数组返回（后续可通过<code>explode</code>将数组中的记录展开为数据表中的记录）。</p>
+<p><code>transform_keys/transform_values(col,f)</code>：对字段的<code>key/value</code>执行<code>f</code>变换、返回变换后的字典；</p>
+<p><code>map_filter(col, f(k,v))</code>：<code>[3.1]</code>过滤字典中不满足条件的字段；</p>
+<h6 id="结构体计算"><a class="header" href="#结构体计算">结构体计算</a></h6>
+<p><code>struct(*cols)</code>：基于列名和列类型生成<code>StructType</code>；</p>
+<h5 id="结构化数据处理"><a class="header" href="#结构化数据处理">结构化数据处理</a></h5>
+<h6 id="csv文本处理30"><a class="header" href="#csv文本处理30">CSV文本处理<code>[3.0]</code></a></h6>
+<p><code>from_csv(col,schema[,options])</code>：将CSV字符串转换为一行记录；</p>
+<p><code>to_csv(col[, options])</code>：将<code>StructType</code>转换为CSV字符串；</p>
+<p><code>schema_of_csv(col,options=None)</code>：从CSV字符串推测Schema；</p>
+<h6 id="json文本处理"><a class="header" href="#json文本处理">JSON文本处理</a></h6>
+<p><code>from_json(col,schema,options=None)</code>：将JSON文本转换为<code>Row</code>/<code>StructType</code>对象（可再<a href="#%E7%BB%93%E6%9E%84%E4%BD%93%E8%AE%A1%E7%AE%97">从结构体扩展为多列</a>）；使用<code>schema_of_json(json:str,options[3.0])</code>从==JSON文本==推测Schema并传递给<code>from_json</code>；</p>
+<p><code>get_json_object(col,path)</code>：使用JSON Path从==JSON文本==提取字段，例如<code>&quot;$.field&quot;</code>；</p>
+<p><code>json_tuple(col,*fields)</code>：从==JSON文本==的根节点提取一个或多个字段<code>fields</code>；==由于<code>get_json_object</code>和<code>json_tuple</code>没有指定Schema，返回数据转换为字符串（默认类型）==。</p>
+<p><code>to_json(col,options=None)</code>将<code>StructType</code>、<code>ArrayType</code>或<code>MapType</code>转换为JSON文本；</p>
+<h4 id="按元素变换"><a class="header" href="#按元素变换">按元素变换</a></h4>
+<p><code>df.replace(to_replace[, value, subset])</code></p>
+<h4 id="过滤"><a class="header" href="#过滤">过滤</a></h4>
+<h5 id="行过滤"><a class="header" href="#行过滤">行过滤</a></h5>
+<p><code>filter(col,f)</code>：行过滤；</p>
+<p><code>df.filter/where(col_expr)</code>：数据集过滤；<code>df.toDF(*cols)</code>基于列名过滤；</p>
+<p><code>df.limit(num)-&gt;DataFrame</code>：保留<code>num</code>行数据；</p>
+<p><code>df.sample([withReplacement, …])</code></p>
+<p><code>df.dropna(how='any',thresh=None,subset=None)</code>：<code>how=any|all</code>，<code>thresh</code>指定<code>null</code>的比例，<code>subset</code>指定检查的列；</p>
+<p><code>df.distinct()/df.drop_duplicates([subset])</code>：保留唯一行。</p>
+<h5 id="列过滤"><a class="header" href="#列过滤">列过滤</a></h5>
+<p><code>df.select(*cols)</code>或<code>df.select(df.columns[i:j])</code>：按列名或列编号选择列；</p>
+<p><code>df.drop(*cols)</code>或<code>df.drop(df.columns[i:j])</code>：按列名或列编号丢弃列；</p>
+<p><code>df.colRegex(colNamePattern)-&gt;Column</code>：选择列名与模式匹配的列；</p>
+<h4 id="插入和扩展"><a class="header" href="#插入和扩展">插入和扩展</a></h4>
+<h5 id="插入新列"><a class="header" href="#插入新列">插入新列</a></h5>
+<p><code>df.withColumn(colName, col)</code>：添加或替换一列数据；添加的数据列仅能为<strong>常量或基于当前<code>DataFrame</code>声明的列变换</strong>（从而保存分布式数据结构计算的兼容性）。</p>
+<h5 id="将集合类型扩展为多列"><a class="header" href="#将集合类型扩展为多列">将集合类型扩展为多列</a></h5>
+<h6 id="将字典或序列转换为多列"><a class="header" href="#将字典或序列转换为多列">将字典或序列转换为多列</a></h6>
+<p>使用列的<code>getItem()</code>函数可按位置或键名获取集合类型的元素，从而实现一列到多列的变换。由于字典或序列长度可能不统一，导致无法合并并行处理结果，必须预先给定固定数量的列或列名。</p>
+<pre><code class="language-python">col_names = ['a', 'b', 'c']
+cols = [df['map_col'].getItem(col).alias(col) for col in col_names]
+cols = [df['list_col'].getItem(i).alias(str(i)) for i,_ in enumerate(col_names)]
+df_new = df.select(*cols)
+</code></pre>
+<p>如果实际已知<code>MapType</code>具有固定数量且相同的字段，则可以：</p>
+<pre><code class="language-shell">col_names = list(df.first().asDict()[col_name].keys())
+</code></pre>
+<h6 id="将结构体转换为多列"><a class="header" href="#将结构体转换为多列"><a href="https://stackoverflow.com/questions/38753898/how-to-flatten-a-struct-in-a-spark-dataframe">将结构体转换为多列</a></a></h6>
+<p>由于结构体具有固定字段，所以能够并行处理：</p>
+<pre><code class="language-python">df.select(&quot;struct_col.*&quot;)  
+df.select([df['struct_col'].getField(f) for in fields])
+</code></pre>
+<h5 id="将集合类型扩展为多行"><a class="header" href="#将集合类型扩展为多行">将集合类型扩展为多行</a></h5>
+<p><code>explode/explode_outer/posexplode/posexplode_outer()</code>：将输入列（序列/字典）扩展为多行记录；其中字典的<code>key</code>和<code>value</code>分别映射为两列（后者保留<code>null</code>元素）。<code>pos-</code>函数为返回值增加位置编号字段（表示其在源数据中的顺序，默认为<code>pos</code>）。</p>
+<h4 id="数据集运算"><a class="header" href="#数据集运算">数据集运算</a></h4>
+<p><code>df.join(other[, on, how])</code></p>
+<p><code>df.crossJoin(other)</code></p>
+<p><code>df.exceptAll(other)</code>：数据集列差集，返回在当前数据集但不在另一个数据集的列；</p>
+<p><code>df.intersect/intersectAll(other)</code>：返回两个数据集都存在的行（<code>intersectAll</code>保留重复）；</p>
+<p><code>df.subtract(other)</code>：返回在此数据集但不在另一个数据集的行。</p>
+<p><code>df.union/unionAll(other)</code>：==纵向拼接==（不去重，使用<code>df.distinct()</code>去重）；</p>
+<p><code>df.unionByName(other, allowMissingColumns=False)</code>：根据列名对应拼接；</p>
+<h4 id="聚合"><a class="header" href="#聚合">聚合</a></h4>
+<p>聚合内置函数：<code>aggregate(col, initialValue, merge[, finish])</code></p>
+<pre><code class="language-python">df.agg(count_distinct(df.age, df.name).alias('c'))
+</code></pre>
+<p>分组聚合：<code>df.groupBy(col:Column,...).agg_func()</code></p>
+<pre><code class="language-python">agg(*expr)
+apply(udf)
+applyInPandas(func, schema)
+# avg/count/max/min/mean/sum... =&gt; 存在等效的UDF
+</code></pre>
+<p>时间窗口聚合：</p>
+<pre><code class="language-python">w = df.groupBy(window(&quot;date&quot;, &quot;5 seconds&quot;)).agg(sum(&quot;val&quot;).alias(&quot;sum&quot;))
+col.over(window)
+</code></pre>
+<h5 id="统计量"><a class="header" href="#统计量">统计量</a></h5>
+<p><code>avg/count/max/min/mean/sum(col)</code>：</p>
+<p><code>stddev/stddev_samp/stddev_pop(col)</code>：样本/总体标准差（<code>stddev-&gt;stddev_samp</code>）；</p>
+<p><code>variance/var_samp/var_pop(col)</code>：样本/总体方差<code>=&gt;df.cov(col1,col2)</code>；</p>
+<p><code>corr/covar_pop/covar_samp(col1,col2)</code>：计算两列的相关系数/总体协方差/样本协方差；<code>=&gt;df.corr(col1,col2[,method])</code></p>
+<p><code>approx_count_distinct(col[, rsd])</code>：近似统计列的不同值数量。</p>
+<p><code>count_distinct/sum_distinct(*cols)</code>：统计不相同元素的数量/求和；</p>
+<h5 id="累积数值运算"><a class="header" href="#累积数值运算">累积数值运算</a></h5>
+<p><code>product(col)</code>：累计运算；</p>
+<h5 id="合并拼接"><a class="header" href="#合并拼接">合并拼接</a></h5>
+<p><code>collect_list/collect_set(col)</code>：将列数据合并为序列或集合；</p>
+<h5 id="采样"><a class="header" href="#采样">采样</a></h5>
+<p><code>first/last(col[,ignorenulls])</code>：获取分组的第一个元素；</p>
+<h5 id="窗口操作"><a class="header" href="#窗口操作">窗口操作</a></h5>
+<p><code>lag/lead(col[,offset,default])</code>：返回当前行的前/后第<code>offset</code>行的值；</p>
+<p><code>nth_value(col, offset[, ignoreNulls])</code>：返回当前窗口中第<code>offset</code>行（从1开始）的值；</p>
+<h3 id="输出-1"><a class="header" href="#输出-1">输出</a></h3>
+<p>在Driver侧输出<code>DataFrame</code>的数据信息：</p>
+<pre><code class="language-python">df.printSchema()
+df.explain()     # Prints the (logical and physical) plans
+df.count()
+df.show(vertical=False)
+</code></pre>
+<p>在Driver侧收集<code>DataFrame</code>数据：</p>
+<pre><code class="language-python">df.collect()         # -&gt; List[Row] 
+df.take(num)         # -&gt; List[Row]
+df.head/tail(n=NUM)  # -&gt; List[Row]
+df.first()           # -&gt; Row &lt;=&gt; df.head()
+df.toPandas()        # -&gt; pandas.DataFrame
+df.to_pandas_on_spark([index_col])
+</code></pre>
+<blockquote>
+<p>注意，上述方法与<code>df.limit()</code>不同，后者输出未Spark <code>DataFrame</code>。</p>
+</blockquote>
+<pre><code class="language-python">df.foreach(f(Row))
+df.foreachPartition(f(List[Row]))
+</code></pre>
+<p><code>df.toLocalIterator(prefetchPartitions=False)</code>：将每个分区逐次取到本地进行处理；</p>
+<pre><code class="language-python">for part in df.toLocalIterator(prefetchPartitions=False):
+   # do processing in client
+   # part is a Local DataFrame
+</code></pre>
+<h4 id="存储方法"><a class="header" href="#存储方法">存储方法</a></h4>
+<p><code>writer=df.write-&gt;DataFrameWriter</code>：</p>
+<p><code>writer.format(&lt;source&gt;)</code>：输出格式包括：<code>csv,json,jdbc,parquet,...</code>，等效调用<code>writer.&lt;source&gt;</code>；</p>
+<p><code>df.writeStream</code></p>
+<h5 id="csv存储参数"><a class="header" href="#csv存储参数">CSV存储参数</a></h5>
+<ul>
+<li>存储方法
+<ul>
+<li>模式<code>mode='append'|'overwrite'|'ignore'|'error'</code>；</li>
+<li>压缩<code>compression=None|'bzip2'|'gzip'|'lz4'|'snappy'|'deflate'</code>：CSV读取不止解压缩方法，因此如果还要将存储数据读出来则选择不压缩输出。</li>
+</ul>
+</li>
+<li>数据格式：
+<ul>
+<li><code>header=False</code>：将数据的字段名写入文件的首行；</li>
+</ul>
+</li>
+<li>特殊字符，参考<a href="#CSV%E8%AF%BB%E5%8F%96%E5%8F%82%E6%95%B0">CSV读取参数</a>；
+<ul>
+<li><code>escapeQuotes=True</code>：默认将包含引号的字段使用引号包围并对其中的引号转义；</li>
+<li><code>quoteAll=False</code>：将所有字段使用引号包含；</li>
+</ul>
+</li>
+<li>数值格式，参考<a href="#CSV%E8%AF%BB%E5%8F%96%E5%8F%82%E6%95%B0">CSV读取参数</a>；</li>
+</ul>
+<h4 id="分区"><a class="header" href="#分区">分区</a></h4>
+<pre><code class="language-python">df.repartition(numPartitions, *cols)
+writer.partitionedBy(days(&quot;ts&quot;))
+</code></pre>
+<h5 id="分区方法"><a class="header" href="#分区方法">分区方法</a></h5>
+<p><code>years/months/days/hours(col)</code>：按天分区；</p>
+<p><a href="https://spark.apache.org/docs/latest/sql-getting-started.html">Spark SQL Guide: Getting Started - Spark 3.2.0 Documentation (apache.org)</a></p>
+<p><a href="https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql.html">Spark SQL API Reference — PySpark 3.2.0 documentation (apache.org)</a></p>
+<p>用于从Hive读取数据生成<code>DataFrame</code>或<code>DataSet</code>。</p>
+<h3 id="spark-pandas-api"><a class="header" href="#spark-pandas-api">Spark Pandas API</a></h3>
+<h4 id="pandas-dataframe-32"><a class="header" href="#pandas-dataframe-32">Pandas DataFrame [3.2]</a></h4>
+<p><a href="https://spark.apache.org/docs/latest/sql-programming-guide.html#datasets-and-dataframes">Spark SQL and DataFrames - Spark 3.2.0 Documentation (apache.org)</a></p>
+<p><a href="https://spark.apache.org/docs/latest/api/python/getting_started/quickstart_ps.html">Quickstart: Pandas API on Spark — PySpark 3.2.0 documentation (apache.org)</a></p>
+<p><a href="https://spark.apache.org/docs/latest/api/python/user_guide/pandas_on_spark/index.html">Pandas API on Spark User Guide — PySpark 3.2.0 documentation (apache.org)</a></p>
+<p><a href="https://spark.apache.org/docs/latest/api/python/reference/pyspark.pandas/index.html">Pandas API on Spark Reference — PySpark 3.2.0 documentation (apache.org)</a></p>
+<h2 id="spark-streaming"><a class="header" href="#spark-streaming">Spark Streaming</a></h2>
+<p>可扩展、高吞吐、可容错的实时数据流处理。</p>
+<img src="Spark Python API.assets/streaming-arch.png" alt="Spark Streaming" style="zoom: 33%;" />
+<p>内部数据流</p>
+<img src="Spark Python API.assets/streaming-flow.png" alt="Spark Streaming" style="zoom: 50%;" />
+<blockquote>
+<p>将数据流拆分为小批次（<em>discretized stream</em> or <em>DStream</em>，a sequence of <a href="#RDD">RDDs</a>）。每一次处理程序调用时，接收到的数据在Spark上生成一个RDD对象。</p>
+</blockquote>
+<img src="Spark Python API.assets/image-20211221180224813.png" alt="image-20211221180224813" style="zoom: 35%;" />
+<p>数据源：kafka、TCP socket、……</p>
+<p>算法API：map、reduce、join、window；可将机器学习算法和图处理算法应用于数据流；</p>
+<p>输出：文件、数据库、仪表板</p>
+<ul>
+<li>
+<p><a href="https://spark.apache.org/docs/latest/streaming-programming-guide.html">Spark Streaming Programming Guide - Spark 3.2.0 Documentation (apache.org)</a></p>
+</li>
+<li>
+<p><a href="https://spark.apache.org/docs/latest/streaming-programming-guide.html#deploying-applications">Deploying Applications</a></p>
+</li>
+</ul>
+<h3 id="流处理程序框架"><a class="header" href="#流处理程序框架">流处理程序框架</a></h3>
+<p>以Kafka作为数据源的流处理程序框架：</p>
+<pre><code class="language-python">sc = SparkContext(conf=conf)   # 创建Spark连接上下文
+stream_context = StreamingContext(sc, batchDuration=5)  # 创建Kafka流处理上下文
+# 设置Kafka消费者订阅参数
+zookeeper = 'node1:2181,node2:2181,node3:2181'
+group_id = 'spark-streaming-consumer'
+topics = {'noah.unix': 1}
+# 创建Kafka数据流: 需要根据数据源的编码格式指定对应的解码方法
+kafkaStream = KafkaUtils.createStream(
+   stream_context, zookeeper, group_id, topics,valueDecoder=msgpack.loads)
+# 流处理过程：KafkaDStream/TransformedDStream变换方法
+results = kafkaStream.map(func1).reduce(func2)...
+# 输出过程
+kafkaStream.foreachRDD(proc_rdd)  # 定义每一批数据的处理函数
+stream_context.start()             # 启动流处理任务
+stream_context.awaitTermination()  # 等待流处理结束或中断，防止程序提前退出
+</code></pre>
+<blockquote>
+<p>在上述框架中添加的普通Python程序（例如打印语句）仅会被执行一次，只有流处理相关代码才会在流数据处理每次触发执行时被执行。当流处理启动后，不能再修改处理过程。程序同一时间仅能有一个有效的<code>StreamingContext</code>，一个<code>StreamingContext</code>可以创建多个数据流。</p>
+</blockquote>
+<h5 id="数据源"><a class="header" href="#数据源">数据源</a></h5>
+<pre><code class="language-python">stream_context.socketTextStream(&quot;localhost&quot;, 9999) # TCP socket数据源
+stream_context.textFileStream(dataDirectory)  # python仅支持文本文件(HDFS)
+</code></pre>
+<h4 id="kafka连接模式"><a class="header" href="#kafka连接模式">Kafka连接模式</a></h4>
+<h5 id="reciever模式"><a class="header" href="#reciever模式">Reciever模式</a></h5>
+<p>上述框架采用Reciever模式。<code>Receiver</code>接收的数据储存在Spark执行器中，Spark流处理任务处理接收的数据。如果任务出错可能导致数据丢失，需要启用Write Ahead Logs将接收数据写到分布式存储以在必要时恢复。</p>
+<blockquote>
+<p>Receiver要占用Spark应用的一个任务线程，因此分配给执行器的<code>cores</code>总数要大于1。</p>
+</blockquote>
+<h5 id="直连模式"><a class="header" href="#直连模式">直连模式</a></h5>
+<pre><code class="language-python">kafkaStream = KafkaUtils.createDirectStream(
+    kafka_context, list(topics.keys()), 
+    {&quot;metadata.broker.list&quot;: &quot;node1:9092,node2:9092,node3:9092&quot;},
+    valueDecoder=msgpack.loads
+)
+</code></pre>
+<h4 id="流处理过程"><a class="header" href="#流处理过程">流处理过程</a></h4>
+<p>处理过程以<code>RDD</code>作为处理对象，针对当前批次数据<code>RDD</code>执行<code>map</code>、<code>reduce</code>等分布式变换处理操作，返回<code>TransformedDStream</code>处理结果。</p>
+<blockquote>
+<p>流处理过程是在执行器上分布式执行的，因此在Driver侧无法查看这些处理过程中的输出。</p>
+</blockquote>
+<p><code>map(func)</code>：对当前批次数据的每一条记录执行运算并返回结果；传递给<code>func</code>的数据为RDD中每一条记录（普通Python对象）。</p>
+<p><code>mapPartitions(func)</code>：对当前批次数据的每个分片执行<code>map</code>操作，传递给<code>func</code>的数据是一个分片。该变换的效果和<code>map</code>相同，返回结果都是包含每条记录的<code>RDD</code>。使用该方法代替<code>map()</code>的场景为减少变换方法需要反复执行的初始化操作。</p>
+<blockquote>
+<p>因为无法通过数据序列化将特殊对象从Driver传递给执行器（例如数据库连接），因此需要在变换方法中反复调用初始化方法，造成较大开销。利用<code>mapPartitions</code>仅需为每个分片在对应的执行器上执行一次初始化。</p>
+</blockquote>
+<pre><code class="language-python">def func_partition_map(data:Iterable):
+   for data in Iterable:
+      yield func_map(data)
+</code></pre>
+<blockquote>
+<p><a href="https://stackoverflow.com/questions/26741714/how-does-the-pyspark-mappartitions-function-work">变换函数返回一个处理后数据的迭代器</a>，<a href="../Python/Python%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80.html#%E8%BF%AD%E4%BB%A3%E5%99%A8">可使用<code>yield</code>（减少创建对象最高效）、<code>iter()</code>或直接返回<code>Iterable</code></a>。</p>
+</blockquote>
+<p><code>flatMap(split_func)</code>：一对多映射，将一条记录拆分为序列，并将其转换为多条记录。</p>
+<p><code>transform(trans_func)</code>：将一批数据<code>RDD</code>整体进行变换，可定义任意针对<code>RDD</code>的变换方法。可以在<code>trans_func</code>中将<code>RDD</code>转换为<code>DataFrame</code>。</p>
+<p><code>filter(func)</code>：仅返回<code>func</code>值为<code>true</code>的记录。</p>
+<h5 id="统计聚合"><a class="header" href="#统计聚合">统计聚合</a></h5>
+<p><code>count()-&gt;TransformedDStream</code>：返回当前批次数据的数量（标量<code>RDD</code>）。</p>
+<p><code>countByValue()</code>：统计不同记录的数量（<code>groupby-count</code>），返回包含<code>(record, num)</code>的数据流。</p>
+<p><code>reduce(redfunc)</code>：对当前批次数据执行<code>reduce</code>运算，并返回标量<code>RDD</code>。<code>redfunc</code>应该满足结合律和交换律从而支持并行计算。</p>
+<p><code>reduceByKey(func, numPartitions=None)</code>：(<code>groupby-aggregate</code>)对于数据结构为<code>(key,value)</code>的数据流，按<code>key</code>分组，并对<code>value</code>进行聚合。<code>numPartitions</code>指定分组任务的并行数量（即RDD的分片数量，集群模式默认值为<code>spark.default.parallelism</code>）。</p>
+<p><code>updateStateByKey(func_update_state)</code>：数据记录内部状态维护。对于数据<code>(key,value)</code>，针对每个<code>key</code>维护一个状态变量（可定义任意数据类型）。当处理一批数据时，会将每个<code>key</code>对应的值构成序列传递给状态更新函数，基于该值序列可计算更新状态。</p>
+<pre><code class="language-python">def func_update_state(values, state):
+   if state is None:
+      # init_state
+   # state_update &lt;- values
+   # state &lt;- state + state_update
+   return state
+</code></pre>
+<h5 id="时间窗操作"><a class="header" href="#时间窗操作">时间窗操作</a></h5>
+<img src="Spark Python API.assets/streaming-dstream-window.png" alt="Spark Streaming" style="zoom: 50%;" />
+<p>窗口操作时间参数：1）<code>windowDuration</code>：时间窗长度；2）<code>slideDuration</code>：滑动时长；均为处理周期的整数倍。</p>
+<p><code>window(...) </code>：获取时间窗口中的所有数据。</p>
+<p><code>countByWindow(...)</code>：获取时间窗口中的所有数据的计数。</p>
+<p><code>reduceByKeyAndWindow(func,[invFunc],...,numPartitions=None,filterFunc=None)</code>：记录滑动窗口中每个批次数据的聚合结果<code>reduceByKey</code>，通过<code>func</code>将新加入窗口的批量数据的聚合结果合并到窗口聚合结果中，利用<code>invFunc</code>从窗口聚合结果中移除离开活动窗口的批量数据的聚合结果。如果未提供<code>invFunc</code>（某些合并结果可能也不支持反向移除），那么每次要对聚合窗口中的每个批次的聚合结果做合并，因此效率较低。<code>filterFunc</code>基于数据<code>(key,value)</code>进行过滤，仅对满足条件的数据聚合。</p>
+<blockquote>
+<p><code>countByValueAndWindow()</code>基于<code>countByValue</code>结果；<code>reduceByWindow()</code>基于<code>reduce</code>结果。</p>
+</blockquote>
+<h5 id="内部变换"><a class="header" href="#内部变换">内部变换</a></h5>
+<p><code>repartition(numPartitions)</code>：将<code>RDD</code>重新分片。</p>
+<h5 id="多数据流处理"><a class="header" href="#多数据流处理">多数据流处理</a></h5>
+<p><code>union(otherStream)</code>：和其他数据流合并。</p>
+<p><code>join(otherStream,numPartitions=None)</code>：合并数据流，<code>(K,V)+(K,W)-&gt;(K,(V,W))</code>；还可以指定合并方式：<code>leftOuterJoin,rightOuterJoin,fullOuterJoin</code>。</p>
+<p><code>cogroup(otherStream,numPartitions=None)</code>：合并数据流，将每个数据流相同键值的数据聚合为一个序列再进行拼接，<code>(K,V1)+(K,V2)...+(K,W1)+(K,W2)+...-&gt;(K,(V1,V2,...),(W1,W2,...))</code>。</p>
+<h4 id="输出过程"><a class="header" href="#输出过程">输出过程</a></h4>
+<p>针对当前批次数据执行输出操作（标准输出、文件、数据库、流引擎……），无返回数据。==流处理流程需要以输出过程来触发处理过程执行，否则系统会直接丢弃数据而不会执行变换处理操作==。</p>
+<p><code>pprint: (num=10)</code>：输出当前批次数据<code>RDD</code>中前<code>num</code>条记录；如果<code>RDD</code>为序列类型则输出为序列，如果为标量，则输出标量。</p>
+<p><code>saveAsTextFiles(prefix, [suffix])</code>：输出文件名称格式<code>prefix-TIME_IN_MS[.suffix]</code>（PythonAPI仅支持文本文件）。</p>
+<p><code>foreachRDD(proc_rdd)</code>：对当前批次数据进行自定义处理。可在处理逻辑中添加输出方法。<code>proc_rdd</code>是==运行在Driver侧==的方法（<a href="https://spark.apache.org/docs/latest/streaming-programming-guide.html#design-patterns-for-using-foreachrdd">不要将连接对象传递给执行器</a>），因此可以将数据输出到终端、保存到Driver节点的文件系统、输出到数据库或HDFS。也可将<code>RDD</code>转换为<code>DataFrame</code>再执行输出处理。</p>
+<pre><code class="language-python">def proc_rdd(data: RDD):
+   data = rdd.map(...).reduce(...) # 进一步分布式操作
+   print(data)  # 输出到driver终端
+   pd.DataFrame.from_records(data).to_parquet(FILEPATH) # 输出到文件
+</code></pre>
+<h3 id="checkpointing容错机制"><a class="header" href="#checkpointing容错机制">Checkpointing容错机制</a></h3>
+<p><a href="https://spark.apache.org/docs/latest/streaming-programming-guide.html#how-to-configure-checkpointing">How to configure Checkpointing</a></p>
+<h3 id="性能优化"><a class="header" href="#性能优化">性能优化</a></h3>
+<p><a href="https://spark.apache.org/docs/latest/streaming-programming-guide.html#performance-tuning">Performance Tuning</a></p>
+<h2 id="structured-streaming"><a class="header" href="#structured-streaming">Structured Streaming</a></h2>
+<p>结构化流处理是基于Spark SQL引擎的可扩展、高容错流处理引擎。可以使用Dataset/DataFrame API来描述数据处理过程。</p>
+<p>容错机制：checkpointing and Write-Ahead Logs。</p>
+<p>处理模式：</p>
+<ul>
+<li><em><strong>micro-batch processing</strong></em>：最少延迟100ms（默认）；</li>
+<li><em><strong>continuous processing</strong></em>：最少1ms延迟（Spark 2.3+）。</li>
+</ul>
+<h3 id="流处理程序框架-1"><a class="header" href="#流处理程序框架-1">流处理程序框架</a></h3>
+<pre><code class="language-python">stream_df = spark\
+    .readStream\
+    .format(&quot;kafka&quot;)\
+    .trigger(processingTime=None,...)\ # 流处理周期
+    .option(&quot;kafka.bootstrap.servers&quot;, &quot;node1:9092,node2:9092,node3:9092&quot;)\
+    .option(&quot;subscribe&quot;, &quot;tpoics&quot;)\  
+    .load()
+# &quot;topic1,topic2&quot; | &quot;topic.*&quot; 
+query = stream_df.select(...)\
+                 .writeStream.foreachBatch(batch_func)\
+                 .start()
+query.awaitTermination()
+</code></pre>
+<p>流处理程序必须以流式<code>DataFrame</code>进程传递，最后调用<code>writeStream</code>进行输出。</p>
+<blockquote>
+<p>变换过程必须返回流式<code>DataFrame</code>，否则产生*<code>Queries with streaming sources must be executed with writeStream.start();</code>*</p>
+</blockquote>
+<h5 id="流处理周期"><a class="header" href="#流处理周期">流处理周期</a></h5>
+<p>可设置一项触发选项，指定处理周期。</p>
+<pre><code class="language-python">reader.trigger(processingTime='5 seconds',once=None,continuous='1 minute')
+</code></pre>
+<p><a href="https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html">Structured Streaming Programming Guide - Spark 3.2.0 Documentation (apache.org)</a></p>
+<p><a href="https://spark.apache.org/docs/latest/api/python/reference/pyspark.ss.html">Structured Streaming API Reference — PySpark 3.2.0 documentation (apache.org)</a></p>
+<h3 id="输入-1"><a class="header" href="#输入-1">输入</a></h3>
+<p>可使用与批量处理<a href="#%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6">相同的接口读取文件</a>，此外还可指定流数据源（如Kafka）。</p>
+<blockquote>
+<p>Kafka输入流数据可能是以字节序列存储，需要在接收数据后自行进行反序列化（解码）。</p>
+</blockquote>
+<h3 id="变换处理"><a class="header" href="#变换处理">变换处理</a></h3>
+<p>由于数据流以结构化的流式<code>DataFrame</code>组织，因此Spark SQL的DataFrame API都适用于流数据的处理。</p>
+<blockquote>
+<p>Kafka数据流除了数据字段<code>value</code>，还包含元数据字段，包括<code>key</code>，<code>topic</code>，<code>partition</code>，<code>offset</code>，<code>timestamp</code>，<code>timestampType</code>，<code>headers</code>。实际处理开始前，需要首先从<code>value</code>字段（例如JSON文本）中<a href="#JSON%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86">将数据字段提取出来并结构化</a>为新的<code>DataFrame</code>。</p>
+</blockquote>
+<h3 id="输出-2"><a class="header" href="#输出-2">输出</a></h3>
+<p><code>writer.outputMode('append|complete|update')</code>：</p>
+<p><code>writer.queryName('streaming_query')</code>：指定处理流程的名称（<code>query.name</code>）；</p>
+<h4 id="外部存储"><a class="header" href="#外部存储">外部存储</a></h4>
+<p>参考<a href="#%E5%AD%98%E5%82%A8%E6%96%B9%E6%B3%95">批量处理的输出方式</a>，仅支持<code>append</code>模式。</p>
+<h4 id="输出至kafka"><a class="header" href="#输出至kafka">输出至Kafka</a></h4>
+<h4 id="自定义处理"><a class="header" href="#自定义处理">自定义处理</a></h4>
+<h5 id="foreach"><a class="header" href="#foreach"><a href="https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html#foreach">foreach</a></a></h5>
+<pre><code class="language-python">def proc_row(row):
+   # ......
+class ForeachWriter:
+   def open(self, partition_id, epoch_id): # 创建到目标的writer连接
+   def process(self, row): # 处理和写入数据
+   def close(self, error): # 关闭writer连接
+df_stream = writeStream.foreach(proc_row).start()  # Append,Update,Complete
+</code></pre>
+<h5 id="foreachbatch"><a class="header" href="#foreachbatch">foreachBatch</a></h5>
+<pre><code class="language-python">def batch_print(df: DataFrame, epoch_id: int):
+    print(f&quot;_________________ {epoch_id} ____________________&quot;)
+    df.persist()    # 防止重复计算
+    df.printSchema()
+    df.show()
+df_stream = writeStream.foreachBatch(batch_func).start() # Append,Update,Complete
+</code></pre>
+<blockquote>
+<p>不支持连续模式，使用<code>foreach</code>。</p>
+</blockquote>
+<h4 id="调试输出"><a class="header" href="#调试输出">调试输出</a></h4>
+<h5 id="console"><a class="header" href="#console">console</a></h5>
+<pre><code class="language-python">writeStream.format('console')\
+           .option('numRows', 20)\
+           .option('truncate', True)\
+           .start()                    # Append,Update,Complete
+</code></pre>
+<h5 id="memory"><a class="header" href="#memory">memory</a></h5>
+<pre><code class="language-python">writeStream.format(&quot;memory&quot;).queryName(&quot;tableName&quot;).start()  # Append,Complete
+</code></pre>
+<h2 id="图分析算法"><a class="header" href="#图分析算法">图分析算法</a></h2>
+<h3 id="graphframe"><a class="header" href="#graphframe">GraphFrame</a></h3>
+<p>GraphFrame库用于在Spark上基于<code>DataFrame</code>表示图数据，并封装了图分析算法。</p>
+<pre><code class="language-shell">conda create -n graph -c conda-forge pyspark graphframes
+</code></pre>
+<p>在代码中引用GraphFrame库：</p>
+<pre><code class="language-python">from graphframes import *
+spark = SparkSession.builder\
+        .appName('Spark Graph')\
+        .config('spark.jars.packages', 'graphframes:graphframes:0.8.1-spark3.0-s_2.12')\
+        .getOrCreate()
+</code></pre>
+<p>或通过命令行（<code>spark-submit</code>或<code>pyspark</code>）参数添加引用：</p>
+<pre><code class="language-shell">pyspark --packages graphframes:graphframes:0.7.0-spark2.4-s_2.11 #*
+</code></pre>
+<blockquote>
+<p><code>*</code>：根据实际安装的Spark版本，从<a href="https://mvnrepository.com/artifact/graphframes/graphframes">Maven仓库</a>选择对应版本的库。</p>
+</blockquote>
+<p>通过分别表示图的节点和边的<code>DataFrame</code>构造图对象，通过<code>edges</code>和<code>vertices</code>访问图的边和节点。</p>
+<pre><code class="language-python">g = GraphFrame(v, e)
+g.vertices
+ .filter(&quot;population &gt; 100000 and population &lt; 300000&quot;)
+ .sort(&quot;population&quot;)
+</code></pre>
+<h4 id="图分析算法-1"><a class="header" href="#图分析算法-1">图分析算法</a></h4>
+<pre><code class="language-python">from_expr = &quot;id='Den Haag'&quot;
+to_expr = &quot;population &gt; 100000 and population &lt; 300000 and id &lt;&gt; 'Den Haag'&quot;
+result = g.bfs(from_expr, to_expr)
+</code></pre>
+<h3 id="graphx"><a class="header" href="#graphx">GraphX</a></h3>
+<h2 id="mllib"><a class="header" href="#mllib">MLlib</a></h2>
+<p><a href="https://spark.apache.org/docs/latest/ml-guide.html">MLlib: Main Guide - Spark 3.2.0 Documentation (apache.org)</a></p>
+<p><a href="https://spark.apache.org/docs/latest/api/python/reference/pyspark.ml.html">MLlib (DataFrame-based) API Reference — PySpark 3.2.0 documentation (apache.org)</a></p>
+<blockquote>
+<p><a href="http://www.scalanlp.org/">Breeze</a>, which depends on <a href="https://github.com/fommil/netlib-java">netlib-java</a></p>
+<p>native BLAS such as <a href="https://software.intel.com/en-us/mkl">Intel MKL</a>, <a href="http://www.openblas.net/">OpenBLAS</a>, can use multiple threads in a single operation, which can conflict with Spark’s execution model.</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../服务器/CDH6大数据集群离线安装.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../服务器/流数据处理.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../服务器/CDH6大数据集群离线安装.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../服务器/流数据处理.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

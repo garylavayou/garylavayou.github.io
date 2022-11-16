@@ -1,0 +1,8 @@
+1. kill
+ 	kill [ -signal | -s signal ] pid ...
+    kill [ -L | -V, --version ]
+    kill -l  [ signal ]
+	默认的信号是TERM。使用“-l”或“-L”选项查看可用的信号。信号的表达方式有
+三种，例如：-9、-SIGKILL、-KILL。pid为负值表示进程组，pid为-1表示所有除了
+kill和init之外的所有进程。
+	

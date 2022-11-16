@@ -1,0 +1,844 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>数值计算 - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html" class="active">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="数学运算"><a class="header" href="#数学运算">数学运算</a></h1>
+<h2 id="python内置运算符和计算库"><a class="header" href="#python内置运算符和计算库">Python内置运算符和计算库</a></h2>
+<h3 id="运算符"><a class="header" href="#运算符">运算符</a></h3>
+<h4 id="算术运算符"><a class="header" href="#算术运算符">算术运算符</a></h4>
+<p><code>+</code>、<code>-</code>、<code>*</code>：</p>
+<p><code>/</code>：在python 2.x中对于整数除法，只返回整数部分；在python 3.x都返回浮点数；</p>
+<p><code>x**y</code> ：幂运算，返回$x^y$；</p>
+<p><code>//</code>：取整除 - 返回商的整数部分；<code>%</code> ：取模 - 返回除法的余数。</p>
+<h4 id="比较运算符"><a class="header" href="#比较运算符">比较运算符</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>运算符</th><th>描述</th><th>运算符</th><th>描 述</th></tr></thead><tbody>
+<tr><td><code>==</code></td><td>==比较对象的值是否相等==</td><td><code>!=</code> ：</td><td>不等于，比较对象的值</td></tr>
+<tr><td><code>&gt;</code></td><td></td><td><code>&lt;</code></td><td></td></tr>
+<tr><td><code>&gt;=</code></td><td></td><td><code>&lt;=</code></td><td></td></tr>
+</tbody></table>
+</div>
+<blockquote>
+<p><code>&lt;&gt;</code>在Python3中不是合法的“不等于”运算符。</p>
+</blockquote>
+<p>使用<code>is</code>运算符确定是否引用相同对象。<code>==</code>和<code>!=</code>运算符的默认行为与<code>is</code>一致，但多数==内置类型覆盖了默认行为，提供值比较功能==，包括：内置数值类型、字符串、序列类型（同类型）、字典、集合。</p>
+<blockquote>
+<p>由同一字面值构造的字符串引用同一对象，某些字符串运算（如切片）得到的字串将产生新的对象（即使具有相同值）。因此比较字符串是否相等应该使用<code>==/!=</code>。</p>
+<p><code>bool</code>值在系统中为常量，因此引用<code>True/False</code>的变量为相同对象（使用<code>is</code>和<code>==</code>等价）。较小的整数值（测试256以内）在系统也为常量，但大整数不是常量，因此应该同一使用<code>==</code>进行比较。</p>
+<p><code>None</code>在程序中具有唯一引用，可使用<code>is</code>或<code>==</code>与之进行比较，但某些符合数据类型（如<code>pd.DataFrame</code>）重载了比较运算符用于比较元素而非对象，使用<code>==</code>时需要注意场景。</p>
+</blockquote>
+<blockquote>
+<p>&quot;<code>x &lt; y &lt;= z</code>&quot; is equivalent to &quot;<code>x &lt; y and y &lt;= z</code>&quot;</p>
+</blockquote>
+<h4 id="赋值运算符"><a class="header" href="#赋值运算符">赋值运算符</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>运算符</th><th>描述</th><th>运算符</th><th>描述</th><th>运算符</th><th>描述</th></tr></thead><tbody>
+<tr><td><code>=</code></td><td></td><td><code>+=</code></td><td></td><td><code>-=</code></td><td></td></tr>
+<tr><td><code>*=</code></td><td></td><td><code>/=</code></td><td></td><td><code>%=</code></td><td>取模赋值</td></tr>
+<tr><td><code>**=</code></td><td>幂运算赋值</td><td><code>//=</code></td><td>整除赋值</td><td></td><td></td></tr>
+</tbody></table>
+</div>
+<h4 id="二进制数值运算符"><a class="header" href="#二进制数值运算符">二进制数值运算符</a></h4>
+<p>整数位运算按<code>bit</code>进行，<code>bool</code>类型按逻辑关系运算。注意运算符优先级。
+| 运算符 | 描述 | 运算符 | 描述   | 运算符 | 描述   |
+| ------ | ---- | ------ | ------ | ------ | ------ |
+| <code>&amp;</code>    |      | <code>|</code>  |        | <code>~</code>    | 非     |
+| <code>^</code>    | 异或 | <code>&lt;&lt;</code>   | 左移位 | <code>&gt;&gt;</code>   | 右移位 |</p>
+<blockquote>
+<p>整数的二进制表示（补码）有符号前缀位（0表示整数，1表示负数）。前缀也会参与执行位运算。</p>
+<p><code>|</code>的优先级比<code>==</code>高，因此使用<code>|</code>连接两个比较表达式时应该使用<code>()</code>保证优先计算比较表达式。</p>
+</blockquote>
+<h3 id="数学函数"><a class="header" href="#数学函数">数学函数</a></h3>
+<p><code>math</code>包集成了常用的数学函数，包括三角函数、双曲函数、近似运算、指数、对数等。</p>
+<p><code>cmath</code></p>
+<h3 id="时间日期"><a class="header" href="#时间日期">时间日期</a></h3>
+<h4 id="时间差"><a class="header" href="#时间差">时间差</a></h4>
+<p><code>timedelta</code>：时间增量，可与<code>datetime</code>或<code>date</code>类型进行运算（与<code>date</code>类型运算时时，时间字段无效）；<code>timedelta</code>自身也可以与数值进行运算，内部存储转换为按天、秒和微妙计数。</p>
+<blockquote>
+<p><code>date</code>对象仅与<code>timedelta</code>对象的日期部分运算。</p>
+</blockquote>
+<pre><code class="language-python">delta = dt.timedelta(days=1,hours=0,...)  # 构造时间差
+delta = day2 - day1                       # 计算时间差
+day = day + delta                         # 和时间对象运算
+y = delta2/delta1                         # 时间差对象可进行除法，结果为实数
+delta = delta2%delta1                     # 求余数运算，结果仍为时间差
+</code></pre>
+<blockquote>
+<p><code>pd.Timedelta</code>具有类似功能。</p>
+</blockquote>
+<p><code>Offset</code>：时间偏移量，具有固定单位；不同于<code>timedelta</code>，==支持年、月等非固定周期==。</p>
+<pre><code class="language-python">offset = pd.offsets.Day(5)  # offset.delta is &lt;Timedelta&gt;
+offset.n                    # =&gt; number of unit e.g., 5
+offset.name                 # =&gt; name of unit, e.g., 'D'
+day = day + offset          # python时间对象也可以和pandas.Offset进行计算
+</code></pre>
+<blockquote>
+<p><code>MonthBegin/MonthEnd</code>偏移指定月份，并定位起始日期到月初/月末；<code>YearBegin/YearEnd</code>等同理。</p>
+</blockquote>
+<h4 id="时间周期"><a class="header" href="#时间周期">时间周期</a></h4>
+<p><code>Period</code>可与数值、时间增量、时间偏移进行运算，实现周期平移。</p>
+<pre><code class="language-python">p = pd.Period(...)
+p = p + 1                     # 起始时间增加一个周期
+p = p + dt.timedelta(days=1)  # =&gt; pd.Timedelta
+p = p + offset                # 起始时间增加一定偏移量
+</code></pre>
+<blockquote>
+<p>时间周期与时间偏移计算时，时间偏移的单位<code>offset.name</code>应该不小于时间周期的单位<code>p.freq.name</code>；类似地，<code>timedelta</code>的最小增量单位应该不小于时间周期的单位。</p>
+</blockquote>
+<p>比较大小：</p>
+<pre><code class="language-python">tf = p2 &gt; p1       # MUST have the same freq
+</code></pre>
+<p>计算偏移：</p>
+<pre><code class="language-python">offset = p2 - p1  # =&gt; pd.Offset
+p1.freq           # =&gt; pd.Offset
+</code></pre>
+<p><strong>对齐时间周期</strong>：调整其中一个时间周期对象，使两个时间周期相差整数倍的周期偏移：</p>
+<pre><code class="language-python">offset = p_align - p_base
+n_offset = offset.n - offset.n % p_align.freq.n  
+offset = pd.offsets.Day(n_offset)   # 假设周期单位为Day
+p_align = p_base + p_align
+</code></pre>
+<h2 id="矩阵"><a class="header" href="#矩阵">矩阵</a></h2>
+<h3 id="查找筛选"><a class="header" href="#查找筛选">查找筛选</a></h3>
+<pre><code class="language-python">indices = np.where(bool_expr[, x, y])
+</code></pre>
+<p>返回表达式<code>boo_expr</code>（例如<code>x==b</code>）的值为真的元素的下标，按行评估元素的值。返回类型为<code>tuple</code>，<code>indices[i]</code>为所有值为真的元素的第<code>i</code>维下标构成的<code>1D</code>向量。==当提供三个参数时，根据<code>bool_expr</code>的真值决定返回<code>x</code>或<code>y</code>的元素==（三个参数的维度需要兼容）。</p>
+<blockquote>
+<pre><code class="language-python"># 将返回值转换为每个元素对应的坐标对
+idx_pair = np.array(indices).transpose() 
+</code></pre>
+</blockquote>
+<p>查找非零元素：</p>
+<pre><code class="language-python">idx_pair = np.argwhere(a)  # 即使a是一维向量，仍返回二维矩阵
+</code></pre>
+<p>返回一个二维矩阵，矩阵的每一行对应一个元素的坐标。</p>
+<blockquote>
+<pre><code class="language-python">idx_pair = np.argmax()		# see argwhere()
+idx_pair = np.argmin()		# see argwhere()
+</code></pre>
+<p>返回元素的坐标分量单独保存：</p>
+<pre><code class="language-python">indices = np.where(a!=0)   # 各维度坐标分别返回为一维向量
+indices = a.nonzero()	     # =&gt; np.where(a!=0) 
+</code></pre>
+</blockquote>
+<p>从矩阵中查找指定元素：</p>
+<pre><code class="language-python">indices = np.where(x==a0)
+idx_pair = np.argwhere(x==a0)
+</code></pre>
+<blockquote>
+<p>对于一维向量，可以转换为Python序列（<code>list</code>），使用<code>index()</code>方法查找。</p>
+</blockquote>
+<p>从矩阵中筛选满足条件的元素：</p>
+<pre><code class="language-python">a0 = np.extract(bool_expr,a)  # b = a[bool_expr]
+</code></pre>
+<h3 id="计算"><a class="header" href="#计算">计算</a></h3>
+<p>矩阵计算方法通常通过<code>np</code>模块访问，矩阵对象<strong>主要</strong>提供面向矩阵元素的数值计算方法。</p>
+<h4 id="运算符-1"><a class="header" href="#运算符-1">运算符</a></h4>
+<p>按元素计算：<code>+(add),-(substract),*(multiply),/(divide)</code>，<code>**(pow)</code>（幂），<code>%</code>（余数），<code>//</code>（向下取整整除），<code>+=,-=,...</code>（自运算符），<code>-(negative)</code>（一元取反运算符），<code>&gt;,&lt;,&gt;=,&lt;=,==,~=</code>；执行按元素计算时，如果运算数的维度不同，则会尝试自动扩展为维度相同的矩阵后进行计算（如行向量与列向量运算）。</p>
+<pre><code class="language-python">y=x**a  # =&gt; y=np.pow(x,a)
+</code></pre>
+<p>位运算符及其函数形式：<code>&amp;(bitwise_and), |(bitwise_or), ^(bitwise_xor), ~(invert), &gt;&gt;(leftshift) &lt;&lt;(right_shift)</code>。</p>
+<p><strong>广播机制</strong>：矩阵/表格可以和维度兼容的序列类型进行运算（此时重载的是矩阵/表格的运算符而非序列类型运算符）。</p>
+<p>矩阵运算规则（如矩阵乘法）计算。注意：<code>matrix</code>和稀疏矩阵的运算符<code>*</code>代表矩阵乘法，而非元素乘法。</p>
+<pre><code class="language-python">X=A@B		# 矩阵乘法 A.dot(B)
+</code></pre>
+<h4 id="计算函数"><a class="header" href="#计算函数">计算函数</a></h4>
+<pre><code class="language-python">np.absolute(a) # fabs(a)
+np.divmod(a,b) # 返回商和余数
+np.pow(a,x)    # exp(a), sqrt(a), square(a)
+np.exp(x)      # e^x, exp2: 2^x, expm1: (e^x)-1
+np.log(x)      # log2 log10
+np.log1p(x)    # log(1+x)
+np.logaddexp() # log(sum(exp()))
+</code></pre>
+<h4 id="复数运算"><a class="header" href="#复数运算">复数运算</a></h4>
+<pre><code class="language-python">np.angle(c)
+np.real(c)
+np.imag(c)
+np.conj(c)   # conjugate(x), complex conjugate
+</code></pre>
+<h4 id="比较运算"><a class="header" href="#比较运算">比较运算</a></h4>
+<p><code>&lt;</code>，<code>&lt;=</code>，<code>&gt;</code>，<code>&gt;=</code>，<code>==</code>，<code>!=</code></p>
+<pre><code class="language-python">np.maximum(a,b) # minimum(a,b), find max/min among a,b; preserve nan
+np.fmax(a,b)    # fmin(a,b), drop nan
+</code></pre>
+<blockquote>
+<p>上述方法用于比较两个对象，返回两者之中较大（小）的元素组成的对象。</p>
+</blockquote>
+<p><code>NaN</code>（<code>float('nan')</code>和<code>np.nan</code>）与任何数值计算都返回<code>np.nan</code>；且<code>NaN!=NaN</code>，要比较两个<code>NaN</code>值，可以首先使用<code>np.isnan(x)</code>判断数值（矩阵）是否为<code>NaN</code>。</p>
+<blockquote>
+<p><code>np.isnan()</code>不能用于非数值类型（如字符串）的矩阵。</p>
+</blockquote>
+<h4 id="近似"><a class="header" href="#近似">近似</a></h4>
+<pre><code class="language-python">round(decimal)
+floor
+fix
+ceil
+trunc
+</code></pre>
+<h4 id="三角和双曲线函数"><a class="header" href="#三角和双曲线函数">三角和双曲线函数</a></h4>
+<pre><code class="language-python">np.sin(a)
+</code></pre>
+<h4 id="特征值"><a class="header" href="#特征值">特征值</a></h4>
+<pre><code class="language-python">e,v = np.linalg.eig(array) 
+scipy.linalg.eig(array,...)
+e,v = scipy.linalg.eigh(array, subset_by_index=[n-3,n-1])
+</code></pre>
+<p>返回特征值以升序排列。</p>
+<h4 id="稀疏矩阵运算"><a class="header" href="#稀疏矩阵运算">稀疏矩阵运算</a></h4>
+<p>为了防止运算破坏矩阵的稀疏性，稀疏矩阵运输算不支持：</p>
+<ul>
+<li>广播机制，因此必须保证参与运算的矩阵维数相同（广播机制容易）。</li>
+<li>与标量进行加/减运算。</li>
+</ul>
+<p>稀疏矩阵与普通矩阵运算结果为普通矩阵（<code>matrix</code>）。</p>
+<h3 id="统计"><a class="header" href="#统计">统计</a></h3>
+<pre><code class="language-python">np.sum(a, axis, keepdims=None) 
+np.cumsum(a)
+np.max(a, axis)   # a.min(), find max/min in a
+np.mean(a)
+np.var(a)
+np.std(a)
+np.prod(a)
+np.cumprod(a)
+np.all(a, axis)	# return true if all is true
+np.any(a, axis) # return true if any is true
+np.count_nonzero(a, axis)
+</code></pre>
+<p>数值计算函数通常不仅能用于<code>ndarray</code>，也支持<code>list</code>等序列类型以及==表格类型==<code>pd.DataFrame</code>，因此使用<code>np.func(obj)</code>的调用方式比<code>array.func()</code>更加通用。</p>
+<p><code>axis=None</code>：默认对数组所有元素执行运算；如果设置为数值$i$，则对第$i$个维度方向的所有元素执行运算。对于矩阵，<code>0</code>代表行索引方向（即对一列数据进行运算），<code>1</code>代表列索引方向（对一行数据进行运算）。==<code>axis</code>对应数组的维度顺序（即<code>0</code>总是代表最前维度），与数组元素存储方式（<code>order='C'|'F'</code>）无关。==</p>
+<p><code>keepdims=True</code>：将保持计算结果维数不变（计算方向上长度为1）。</p>
+<blockquote>
+<p>Python自带<code>max</code>、<code>min</code>等函数是对序列类型元素或参数列表进行比较。</p>
+</blockquote>
+<p>如果返回值为<code>True|False</code>，其类型为<code>numpy.bool_</code>而非Python内置<code>bool</code>类型，因此需要使用<code>==</code>而非<code>is</code>进行<a href="#%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6">比较</a>。</p>
+<h5 id="向量矩阵差分"><a class="header" href="#向量矩阵差分">向量矩阵差分</a></h5>
+<pre><code class="language-python">np.diff(a, n=1, axis=-1, prepend=None, append=None)
+</code></pre>
+<p><code>n</code>：每<code>n</code>个点进行差分，如果<code>n=0</code>则返回原数据；
+<code>axis</code>：默认沿最后一个坐标轴进行差分；
+<code>prepend|append</code>：添加默认元素，以保证所有输入数据完成差分。如果未指定，==则输出结果将根据差分距离<code>n</code>减少==（默认不会包含<code>NaN</code>）；反之，指定值的维度需要与除差坐标轴外的其他维度一致，坐标轴方向长度至少为<code>n</code>；特别地，如果输入为向量，且<code>n=1</code>，则可以指定输入为标量。</p>
+<h4 id="频数和概率密度"><a class="header" href="#频数和概率密度">频数和概率密度</a></h4>
+<pre><code class="language-python">hist, bin_edges = np.histogram(data, bins=10, range=None, weights=None, density=None)
+</code></pre>
+<p><code>range</code>手动指定数据的边界（默认为<code>data.min(), data.max()</code>）。<code>density=True</code>计算概率密度函数（在指定区间上积分为1）。<code>bin_edges</code>为每个分区的边界（分组数+1）。</p>
+<blockquote>
+<p>不分维度，计算所有数据的统计信息。</p>
+</blockquote>
+<h4 id="排序"><a class="header" href="#排序">排序</a></h4>
+<p>沿指定坐标轴排序，修改当前矩阵。</p>
+<pre><code class="language-python">a.sort(axis=-1,kind='quicksort')
+</code></pre>
+<blockquote>
+<p>若<code>axis=-1</code>，则沿最后一维坐标轴排序；<code>kind</code>表示排序算法，包括 <code>'quicksort', 'mergesort', 'heapsort', 'stable'</code>。</p>
+</blockquote>
+<p>==该方法对所有行或列分别进行排序==。若要基于某一行/列对矩阵整体排序，将其转换为<code>Pandas.DataFrame</code>的<a href="#%E8%A1%A8%E6%A0%BC%E6%8E%92%E5%BA%8F">排序方法</a>。</p>
+<h3 id="线性代数"><a class="header" href="#线性代数">线性代数</a></h3>
+<h3 id="其他"><a class="header" href="#其他">其他</a></h3>
+<pre><code class="language-python">convolve(a,b)		# 卷积
+a.clip(min,max)		#将取值裁剪到[min,max]之间
+</code></pre>
+<h2 id="随机数"><a class="header" href="#随机数">随机数</a></h2>
+<p>随机数发生器由<code>BitGenerator</code>和<code>Generator</code>两部分组成：<code>BitGenerator</code>负责生成随机字节序列，而<code>Generator</code>负责将字节序列转换为服从相应分布的随机数。</p>
+<blockquote>
+<p>推荐使用随机数生成器提供的方法代替<code>np.random</code>模块中方法。</p>
+</blockquote>
+<p>获取随机数发生器：</p>
+<pre><code class="language-python">from numpy.random import default_rng
+rng = default_rng()   # 使用默认BitGenerator（PCG64）
+rng = default_rng(seed)
+rng = Generator(PCG64(12345))  #指定并初始化序列发生器
+</code></pre>
+<p>产生随机数：</p>
+<pre><code class="language-python">rng.random(size=[m,n],dtype=np.float64)  # [0.0, 1.0)均匀分布浮点随机数
+rng.integers(low,high,dtype,endpoint=True)  #整数随机数
+rng.standard_normal(10)  # 标准正态分布
+</code></pre>
+<blockquote>
+<p><a href="https://numpy.org/doc/stable/reference/random/generator.html#distributions">支持的分布</a>包括：<code>exponential</code>、<code>logistic</code>、<code>lognormal</code>、<code>normal</code>、<code>poisson</code>等分布。</p>
+</blockquote>
+<p>随机置换：</p>
+<pre><code class="language-python">array = rng.permutaiton(x, axis=0)
+rng.shuffle(x, axis=0)    # 置换输入数组
+</code></pre>
+<blockquote>
+<p>如果<code>x</code>为整数，则随机置换（<code>range(x)</code>），<code>axis</code>指定随机置换的方向。</p>
+</blockquote>
+<p>随机排列一个序列，或<code>range</code>对象（如果<code>x</code>是整数）。</p>
+<p>随机采样：</p>
+<pre><code class="language-python">rng.choice(a, size, replace,...)   #从a中随机抽样并组成新数组
+</code></pre>
+<pre><code class="language-python">rng.bytes(length)  #返回随机序列
+</code></pre>
+<h2 id="数据表运算"><a class="header" href="#数据表运算">数据表运算</a></h2>
+<h3 id="缺失数据"><a class="header" href="#缺失数据">缺失数据</a></h3>
+<p>Pandas读取数据源时，默认使用<code>np.nan</code>代替缺失数据。</p>
+<p>判断数据是否为有效数据（ 数值矩阵中<code>NaN</code> , 对象矩阵中<code>None</code> 或 <code>NaN</code>，日期中<code>NaT</code>）：</p>
+<pre><code class="language-python">df_tf = pd.isna(df)   # ==&gt; df.isna()
+df_tf = pd.notna(df)  # ==&gt; df.notna()
+</code></pre>
+<blockquote>
+<p>静态方法还支持除Panda内置数据以外的类型，例如<code>ndarray</code>、<code>list</code>等，且返回类型与输入类型。==按元素比较，实例类型返回值类型与实例一致==。</p>
+<p><code>isnull</code>是<code>isna</code>的别名；<code>notnull</code>是<code>notna</code>的别名。</p>
+</blockquote>
+<p>丢弃缺失数据的行：</p>
+<pre><code class="language-python">df1.dropna(how='any')
+</code></pre>
+<p>填充缺失数据：</p>
+<pre><code class="language-python">df1.fillna(value=5)
+</code></pre>
+<p>如果某一列数据为<code>category</code>，则需要将填充的值添加到类别中。</p>
+<pre><code class="language-python">df.col_name = df.col_name.cat.add_categories(&quot;D&quot;)
+df.col_name.fillna(&quot;D&quot;)
+</code></pre>
+<h3 id="比较大小"><a class="header" href="#比较大小">比较大小</a></h3>
+<p>按元素比较，类似与<code>np.ndarray</code>：</p>
+<pre><code class="language-python">df.gt(df2) #  eq, ne, lt, gt, le, and ge
+df == val  # =&gt; df.eq(val) 比较维度兼容的标量、序列、数组、Series/DataFrame
+</code></pre>
+<blockquote>
+<p>当两个表格比较时，其行列标签必须相等（否则出错）。</p>
+</blockquote>
+<p>整体比较：判断两个表格的数据是否完全相等。</p>
+<pre><code class="language-python">tf_equal = df.equals(df2)  
+tf_equal = (df1==df2).all(axis=None)  # 此处axis用法与np.ndarray一致
+</code></pre>
+<p><code>equals()</code>比较两个对象是否具有完全相同的元素（对象类型相同，即同为<code>DataFrame</code>/<code>Series</code>，数据类型相同，表头的数据类型不需要相同）；与按元素比较不同的是，对应的<code>NaN</code>元素被视为相等。</p>
+<blockquote>
+<p><code>==</code>和<code>!=</code>是<code>DataFrame</code>的元素比较，<code>df.equals</code>是元素比较后的汇总结果，而<code>is</code>和<code>is not</code>运算符则是判断是否引用为同一对象。</p>
+<pre><code class="language-python">x1=np.array(['dos', 'normal'])
+x2 = pd.Series(x1)
+x1 == x2
+# 0    True
+# 1    True
+x2.equals(x1)  # False
+</code></pre>
+</blockquote>
+<h3 id="矩阵计算"><a class="header" href="#矩阵计算">矩阵计算</a></h3>
+<p>表格兼容<code>numpy</code>的矩阵运算方式，函数名称与<code>numpy</code>保持一致。在元素处理规则方面：1) 由于表格每一列数据类型可能不同，因此沿<code>axis=1</code>方向的运算可能不可用。2) <code>numpy</code>默认对所有元素执行计算，<code>pandas</code>默认对列执行计算。</p>
+<pre><code class="language-python">df.add(other, fill_value=None) #  element-wise add, sub, mul, div, mod, pow
+</code></pre>
+<p><code>other</code>：标量、矩阵、序列等数值运算规则兼容的类型。</p>
+<p>==对于索引不同的表格，默认将索引对齐进行运算，计算结果的索引将按序排列==，可能产生非预料的结果（为对齐索引产生缺失元素，其参与运算使结果变为<code>NaN</code>）。如果要忽略索引可以使用<code>reset_index</code>或将其中至少一个转换为<code>ndarray</code>（<code>to_numpy()</code>）。</p>
+<h4 id="差分"><a class="header" href="#差分">差分</a></h4>
+<p><code>df.diff</code>仅包含默认的差分设置，使==运算前后表格维度不变==，可使用<a href="#%E5%90%91%E9%87%8F%E7%9F%A9%E9%98%B5%E5%B7%AE%E5%88%86"><code>np.diff</code>进行自定义</a>。</p>
+<pre><code class="language-python">df.diff(periods=1, axis=0)  # ss.diff
+</code></pre>
+<blockquote>
+<p>前<code>peirods</code>行/列对应的差分值为<code>NaN</code>。</p>
+</blockquote>
+<h3 id="统计-1"><a class="header" href="#统计-1">统计</a></h3>
+<p>总体统计信息：</p>
+<pre><code class="language-python">df.describe(percentiles=None, include=None, exclude=None)		
+</code></pre>
+<p>获取数据表中的统计特征：<code>sum</code>、<code>mean</code>、<code>median</code>、 <code>cumsum</code> 、<code>cumprod</code>、<code>max</code>、<code>min</code>、<code>idmax</code>、<code>idmin</code>、<code>any</code>、<code>all</code>等。</p>
+<pre><code class="language-python">df.max(axis=0, skipna=True, level=None, numeric_only=only)
+ss.max(...)
+</code></pre>
+<p><code>axis</code>：仅支持行/列统计（<code>axis=0|1</code>），不支持全局统计。</p>
+<blockquote>
+<p>执行数值运算时（求和、均值等），缺失数据默认按<code>0</code>处理；<code>skipna=True</code>跳过<code>NaN</code>元素。</p>
+<p>如果指定了<code>level</code>，则分别对不同索引值对应的数据进行统计，等效于<code>df.groupby(level,sort=False).max()</code>；</p>
+<p>如果<code>numeric_only=True</code>，则只返回数值列的统计结果。</p>
+<p>字符串运算：可以比较大小，求和与累加为字符串拼接，其他运算未定义。==字符串与数值混合的列默认不会包含在统计结果中==。</p>
+<p>累计运算：计算结果的第一个值为原数据的第一个元素。</p>
+</blockquote>
+<p>按列/行统计有效数值（<code>non-NA</code>）的数量：</p>
+<pre><code class="language-python">ss = df.count(axis=0)
+</code></pre>
+<p><strong>统计非零值</strong>：可直接比较后求和，或使用<code>np.count_nonzero()</code>（返回标量或<code>ndarray</code>）。</p>
+<h5 id="boolean-reduction"><a class="header" href="#boolean-reduction">Boolean Reduction</a></h5>
+<pre><code class="language-python">df.all(axis=[0,1,None])  # see also df.any()
+df.isna().all(axis=0)  # 判断列是否全为Nan
+</code></pre>
+<h5 id="查找唯一项"><a class="header" href="#查找唯一项">查找唯一项</a></h5>
+<p><code>Series</code>可以判断序列是否唯一，或返回唯一元素组成的矩阵（<code>nx1 np.ndarray</code>）。</p>
+<pre><code class="language-python">tf = ss.is_unique
+array = df[col_name].unique()		# return ndarray
+</code></pre>
+<p><code>DataFrame</code>的<code>groupby</code>方法可以通过分组后的组名确定唯一项（参考列的值），同时确定唯一项对应的行索引/下标。</p>
+<p>统计频数：</p>
+<pre><code class="language-python">df.value_counts(subset=None,normalize=False,sort=True,ascending=False)
+ss.value_counts(normalize=False,sort=True,ascending=False,bins=None,dropna=True)
+</code></pre>
+<ul>
+<li><code>normalize</code>：将结果归一化为比例；</li>
+<li><code>bins</code>：分区间计数而非按值计数（仅适用于数值类型）。</li>
+</ul>
+<blockquote>
+<p><code>df.value_counts</code>可统计多列联合的频数（等效于使用<code>groupby(by=cols).size()</code>）。<code>pd.value_counts</code>用法与<code>ss.value_counts</code>相同，且支持非Pandas序列类型。</p>
+</blockquote>
+<h5 id="直方图"><a class="header" href="#直方图">直方图</a></h5>
+<pre><code class="language-python">hist = df.hist(bins=3)  
+</code></pre>
+<p><code>DataFrame</code>和<code>Series</code>提供<code>hist()</code>方法<a href="Python%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA.html#Pandas">绘制直方图</a>，但不会返回直方图的数据。使用<code>np.histogram</code>计算统计信息。</p>
+<h5 id="相关系数"><a class="header" href="#相关系数">相关系数</a></h5>
+<p>计算特征列间的相关系数：</p>
+<pre><code class="language-python">df.corr(method='pearson')
+</code></pre>
+<p><code>method='pearson'|'kendall'|'spearman'|callable</code>：相关系数计算方法：</p>
+<blockquote>
+<p>计算离散类型的相关性。</p>
+<p>https://blog.csdn.net/sky88088/article/details/51737136</p>
+</blockquote>
+<h3 id="采样"><a class="header" href="#采样">采样</a></h3>
+<h4 id="随机抽样"><a class="header" href="#随机抽样">随机抽样</a></h4>
+<pre><code class="language-python">df.sample(n=None, frac=None, random_state=None, axis=None, replace=False)
+</code></pre>
+<p><code>n</code>和<code>frac</code>：采样个数或比列，两者不能同时设置。当<code>frac</code>未设置时，<code>n=1</code>。</p>
+<h3 id="自定义数值计算"><a class="header" href="#自定义数值计算">自定义数值计算</a></h3>
+<h4 id="applymap"><a class="header" href="#applymap">Apply/Map</a></h4>
+<pre><code class="language-python">x=df.apply(func, axis=0, raw=False, args=(), **kwds)
+x=df.apply(np.sqrt)
+x=df.apply(np.sum, axis=0)		# 将执作为计算单元
+def f(x,a,b=0):
+  return x + a + b
+x=df.apply(lambda x: f(x, a, b), axis=1) # 将行作为计算单元
+x=df.apply(f, axis=1, args=(a,), b=10) # 将行作为计算单元
+</code></pre>
+<p>将数据表的==每一行（<code>axis=1</code>）/每一列（<code>axis=0</code>，默认）==提供给<code>func</code>执行计算（对于<code>Series</code>则直接按元素计算）并返回结果。</p>
+<ul>
+<li>如果<code>func</code>的计算结果为标量，则<code>apply</code>返回值为<code>Series</code>（索引与<code>axis</code>遍历方向一致）；</li>
+<li>计算结果为<code>Series</code>，则<code>apply</code>返回值为<code>DataFrame</code>（索引与<code>axis</code>遍历方向一致）；</li>
+</ul>
+<blockquote>
+<p>利用<code>apply</code>可以实现<code>1-&gt;n</code>行变换，特别地，将<code>Series</code>扩展为<code>DataFrame</code>，或将<code>DataFrame</code>汇总为一列<code>Series</code>。</p>
+</blockquote>
+<p><code>args</code>和<code>kwds</code>可分别向计算函数传递除计算对象以外的位置参数和键值参数。</p>
+<blockquote>
+<p><code>apply</code>/<code>applymap</code>会对第一行/列调用函数两次，以确定是否能快速执行代码。</p>
+<p>通常存在向量化的函数，因此应该优先调用向量化函数，而非<code>apply</code>/<code>applymap</code>。</p>
+</blockquote>
+<p><code>applymap</code>和<code>transform</code>保持源数据维度不变。<code>applymap</code>专门用于按元素计算（<code>Series</code>不提供<code>applymap</code>，其与使用<code>apply</code>效果一致）。<code>transform</code>仍传递行或列给<code>func</code>，可以进行行列内变换，但返回值需要与输入<code>DataFrame</code>保持一致，即<code>func</code>不改变输入行列的维度。可为不同列指定不同的<a href="#Aggregate(Reduce)">变换方法</a></p>
+<pre><code class="language-python">applymap(self, func, na_action = 'ignore')
+df.transform(func, axis=0, *args, **kwargs)  #DataFrame
+</code></pre>
+<h4 id="aggregatereduce"><a class="header" href="#aggregatereduce">Aggregate(Reduce)</a></h4>
+<p><em><strong>Aggregate</strong></em>方法将数据进行统计汇总，使数据的维度降低。</p>
+<ul>
+<li>计算对象为<code>Series</code>且聚合函数只有一个，则返回标量；</li>
+<li>对象为<code>Series</code>且汇聚函数有多个，返回以函数名索引的<code>Series</code>；</li>
+<li>对象为<code>DataFrame</code>且汇聚函数只有一个，则返回以列名索引的<code>Series</code>；</li>
+<li>对象为<code>DataFrame</code>且而汇聚函数有多个，返回<code>DataFrame</code>，函数名作为行索引<code>index</code>，列名作为列索引。</li>
+</ul>
+<pre><code class="language-python">df = df.aggregate(func:[func|list_func|dict_func], axis=0,...)   # agg
+</code></pre>
+<p>使用给定的聚合函数<code>func</code>对每个分组进行汇总计算，并将计算结果汇聚到同一个表格。支持的函数参数：</p>
+<ul>
+<li>函数，函数名或函数和函数名的列表（混合）：将函数应用到数据的每一列，返回各个函数的计算结果（==组成函数名和列名索引的表格==）。</li>
+<li>列名和函数/函数名/列表组成的字典，对==不同列应用不同的函数==，返回结果中没有应用某函数的列的值设置为<code>nan</code>。</li>
+<li>如果计算对象为<code>Series</code>，输入多个聚合函数，则默认输出列名为函数名；如果输入字典，则以字典的<code>key</code>作为输出列名。</li>
+</ul>
+<h3 id="分组计算"><a class="header" href="#分组计算">分组计算</a></h3>
+<h4 id="离散值分组"><a class="header" href="#离散值分组">离散值分组</a></h4>
+<p>根据列的值（或多列值的组合）进行分组：</p>
+<pre><code class="language-python">grouped = df.groupby(by=col_names)        # -&gt; &lt;DataFrameGroupBy&gt; object
+grouped = ss.groupby(by=sequence)         # -&gt; &lt;SeriesGroupBy&gt; object
+grouped = df.groupby(level=[l1,l2,...])   # by index (number or )
+</code></pre>
+<h5 id="参数说明"><a class="header" href="#参数说明">参数说明</a></h5>
+<p><code>by=func|dict|series|ndarray|label|[labels,...]</code>：</p>
+<ul>
+<li>函数，则作用于对象的索引，计算结果作为分组参考；</li>
+<li><code>dict</code>或<code>Series</code>，将其值作为对应数据行的分组依据；</li>
+<li><code>ndarray</code>，将每行作为对应数据行的分组依据；</li>
+<li>标签或标签列表，使用待分组对象的对应==数据列或索引列==的数值作为分组依据；数据和索引不能存在同名。</li>
+</ul>
+<blockquote>
+<p>对<code>Series</code>分组时，根据传入<code>sequence</code>的值进行分组，并应用到<code>Series</code>上。因此，对自身的值进行分组：<code>ss.groupby(by=ss)</code>。</p>
+</blockquote>
+<p><code>level={0,1,...}|name</code>：指定级别的索引作为分组依据；</p>
+<p><code>sort=True</code>：对返回分组排序按分组列进行==排序==（==关闭该选项可提高性能==）；</p>
+<p><code>dropna=True</code>：默认将分组列值为<code>Nan</code>的丢弃，如果希望分组后的计算返回结果<strong>与原表格一一对应</strong>，应将该参数设置为<code>False</code>。</p>
+<p>通过遍历分组对象迭代器，可迅速获得分组中的数据条目：</p>
+<pre><code class="language-python">for group_label, subframe in gs:
+	group_idx = gs.groups[group_label]   # group_label -&gt; index *
+	sub_group = df.loc[group_idx]	     # == group_frame
+	group_iloc = gs.indices[group_label] # group_label -&gt; location
+	sub_group = df.iloc[group_iloc]      # == group_frame
+</code></pre>
+<blockquote>
+<p><code>subframe</code>是分组对象内部数据，对其进行修改不会影响原数据。</p>
+</blockquote>
+<p>分组的组名由参考列的值或参考列的值构成的<code>tuple</code>，分组对象的属性包括：</p>
+<ul>
+<li>
+<p><code>groups</code>：组名和**组内记录的行索引<code>Index</code>**组成的字典；</p>
+</li>
+<li>
+<p><code>indices</code>：组名和分组所属元素的行下标<code>Array</code>组成的字典；</p>
+<blockquote>
+<p>如果基于<code>MultiIndex</code>进行分组且其中包含<code>NaN</code>值，则<code>indices</code>中不包含<code>NaN</code>值索引（==待测试==）。</p>
+</blockquote>
+</li>
+<li>
+<p><code>size()</code>：返回各组的记录数量（等效于对任意一列使用<code>count()</code><a href="#%E5%AF%B9%E5%88%86%E7%BB%84%E7%9A%84%E8%AE%A1%E7%AE%97">运算</a>。）</p>
+</li>
+</ul>
+<h5 id="对分组的计算"><a class="header" href="#对分组的计算">对分组的计算</a></h5>
+<p>通过<code>groupby</code>返回的分组结果<code>grouped</code>，可以同时对各个分组的每列进行统计聚合（<code>max, min, hist...</code>）<a href="#Reduce/Aggregate">自定义聚合运算</a> 或<a href="#Apply/Map">自定义映射运算</a>（<code>apply</code>）。应优先调用用<code>aggregate/transform</code>等内置函数。</p>
+<pre><code class="language-python">grouped.mean()   # count, max, avg, min, sum, ... on each column
+grouped.aggregate({
+ {'A': 'max', 'B': 'count', ...} # customied func on specified columns
+})  # customized reduce computation
+</code></pre>
+<pre><code class="language-python">grouped.apply(func, axis=0)                 # customized map computation
+grouped.transform(func, *args, engine=None) # return a same size DataFrame
+</code></pre>
+<blockquote>
+<p>如果运算规约到标量（<code>reduce</code>），则返回结果以分组名作为索引；如果运算不改变规模（<code>map</code>），则返回结果与原数据表的索引结构一致。</p>
+<p>在<code>transform</code>中，如果<code>func</code>返回值==降维，则将返回值复制到组内每一行记录==；反之，输出与输入对应。</p>
+</blockquote>
+<p>或单独对某列进行统计：</p>
+<pre><code class="language-python">grouped.col_name.count()  
+grouped['colname'].count()
+grouped.aggregate({'col_name': 'count'})
+</code></pre>
+<p><strong>注意</strong>：==如果使用索引进行分组==，即使在分组时添加<code>dropna=False</code>，如果直接调用聚合函数，结果仍会忽略包含<code>NaN</code>的组。通过<code>grouped.groups</code>查看分组信息发现分组结果包含<code>NaN</code>组，因此仍可显式对各分组进行汇聚计算。</p>
+<h4 id="二维分组"><a class="header" href="#二维分组">二维分组</a></h4>
+<p>将指定列数据映射到二维表格(<em><strong>pivot table</strong></em>)：指定为<code>index</code>的列的值作为新表格的行名，指定为<code>columns</code>的列的值作为新表格的列名，指定为<code>values</code>的列的值作为新表格中对应行列的值。</p>
+<img src="Python数值计算.assets/image-20211223211731600.png" alt="image-20211223211731600" style="zoom:60%;" />
+<blockquote>
+<p>类似于：$\mathrm{df}(m, [i,j,k]) \rightarrow \mathrm{df}_{pivot}(\mathrm{df}(m,i),\mathrm{df}(m,j))=\mathrm{df}(m,k)$。</p>
+</blockquote>
+<pre><code class="language-python">df_pivote = df.pivot(index=cols1, columns=cols2, values=cols3)
+</code></pre>
+<blockquote>
+<p>可以为<code>index</code>/<code>columns/values</code>指定多个列，从而生成表格的索引为<code>MultiIndex</code>。</p>
+</blockquote>
+<p>当行列索引值对应多条表格行时，将产生<code>ValueError</code>。此时，应选择<code>pivot_table</code>，都重复记录进行聚合。</p>
+<pre><code class="language-python">df.pivot_table(index='name', columns='ctg', values=None, aggfunc='mean', 
+               fill_value=None, dropna=True)
+</code></pre>
+<blockquote>
+<p><code>fill_value</code>为结果中不存在的元素填充值；<code>dropna</code>丢弃输入数据中<code>NaN</code>。如果<code>columns=None</code>，可为<code>aggfunc</code>单独指定每列的聚合函数（等效于<code>aggregate()</code>）。</p>
+</blockquote>
+<h4 id="时序分组"><a class="header" href="#时序分组">时序分组</a></h4>
+<p>对以时间（<code>DatetimeIndex</code>，<code>PeriodIndex</code>以及<code>TimedeltaIndex</code>）为索引的数据按时间维度进行分组。基于分组结果可进行统计等运算，从而生成时序特征数据。</p>
+<pre><code class="language-python">rs = df.resample(rule, axis=0, closed='left', label='left', kind=None, 
+                 on, level, origin='start_day', offset = None) -&gt; Resampler
+</code></pre>
+<blockquote>
+<p><code>rule</code>：<code>DateOffset</code>, <code>Timedelta</code>或==使用字符串类型表示<a href="#Python%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.md#%E6%97%B6%E9%97%B4%E7%B4%A2%E5%BC%95">采样周期</a>==；根据指定的周期以及数据的时间粒度，采样方式可能是下采样或上采样。
+<code>origin</code>：调整分组起始时间点，可在此基础上再增加<code>offset</code>。可设置为：</p>
+<ul>
+<li><code>epoch</code>：<code>1970-01-01 00:00:00</code>；</li>
+<li><code>start|end</code>：数据第一个/最后一个点的时间；</li>
+<li><code>start_day|end_day</code>：数据第一个（最后一个）点当天（次日）的零点（<code>1.3</code>新增，<code>end_day</code>用于反向采样）；</li>
+<li><code>str|timestamp</code>：表示时间的字符串或时间戳。</li>
+</ul>
+<p><code>closed={'left|right'}</code>：指定==下采样==的闭合边界；<code>closed='right'</code>相当于逆时间轴==反向采样==。
+<code>label={'left'|'right'}</code>：指定==下采样==后的数据标签为原始数据的左/右边界；
+<code>on</code>：指定采样的列代替索引（<a href="./Python%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html#%E6%97%B6%E9%97%B4%E7%B4%A2%E5%BC%95">构造方法参考时间索引</a>）；<code>level</code>：指定采样使用的索引列；
+<code>kind={'timestamp'|'period'}</code>：<code>timestamp</code>将采样指定列转换为<code>DateTimeIndex</code>；<code>period</code>将采样指定列转换为<code>PeriodIndex</code>。</p>
+</blockquote>
+<h5 id="下采样"><a class="header" href="#下采样">下采样</a></h5>
+<p>每个周期分组内包含多个原始数据的样本（参考<code>groupby</code>对每个分组进行迭代）。</p>
+<ul>
+<li>
+<p>对采样后的各个区间数据的各列进行汇总（不含缺失数据）：</p>
+<pre><code class="language-python">rs.sum/count/nunique/first/last/max/min/mean/median/ohlc/prod/size()
+rs.sem() # standard error
+rs.std/var() # standard deviation of groups
+</code></pre>
+<p>也可仅对给定的列汇总：</p>
+<pre><code class="language-python">rs[['A','B']].sum()
+</code></pre>
+</li>
+<li>
+<p>自定义采样后的计算（参考<code>groupby, aggregate</code>）：</p>
+<pre><code class="language-python">df.resample('3T').apply(func)
+rs[&quot;A&quot;].agg([np.sum, np.mean, np.std])  # =&gt; aggregate
+</code></pre>
+</li>
+</ul>
+<h5 id="上采样"><a class="header" href="#上采样">上采样</a></h5>
+<p>如果输入时序数据的数据点间的周期要高于采样周期，则发生上采样。</p>
+<pre><code class="language-python">df.resample('3T', convention='start') 
+</code></pre>
+<p><img src="Python数值计算.assets/image-20210724151531134.png" alt="image-20210724151531134" style="float:right; zoom:40%;" />上采样后，原数据的一个点映射到新数据的多个点，<code>convention</code>指定原数据如何映射到新数据中（分配给起点或终点<code>'start'|'end'</code>）。<code>convention</code>仅用于采样指定的时间序列为<code>PeriodIndex</code>的情况。</p>
+<blockquote>
+<p>上采样后的聚合不能直接采用<code>rs.func</code>的方式；需要调用<code>rs[cols].aggregate(func_list|func_dict)</code>（注意：调用单个函数的形式<code>.agg(func)</code>等效于<code>rs.func</code>）。</p>
+</blockquote>
+<p>使用非零点的值填充上采样后缺失信息，可限制每个周期填充的点数：</p>
+<pre><code class="language-python">rs.fillna(method, limit=None) # method=ffill|bfill|nearest...
+rs.ffill(limit=None)  # 前向填充缺失值，limit限制填充点数===rs.pad()
+rs.bfill(limit=None)  # === backfill()
+rs.nearest(limit=None)# 使用最近有效数据填充缺失值
+</code></pre>
+<p>也可采用插值函数进行填充：</p>
+<pre><code class="language-python">rs.interpolate(method='linear',...)
+</code></pre>
+<h5 id="反向采样r13"><a class="header" href="#反向采样r13">反向采样（<code>R1.3</code>）</a></h5>
+<p>将<code>origin</code>设置为<code>end|end_day</code>，则默认以结束时间/结束日期的次日零点为原点，反向计算分组区间（默认左开右闭，即<code>closed=right</code>）。</p>
+<h2 id="图运算"><a class="header" href="#图运算">图运算</a></h2>
+<h3 id="networkx"><a class="header" href="#networkx">NetworkX</a></h3>
+<p><a href="https://networkx.org/documentation/stable/tutorial.html#graph-generators-and-graph-operations">Tutorial — NetworkX 2.5 documentation</a></p>
+<h2 id="加速运算"><a class="header" href="#加速运算">加速运算</a></h2>
+<h3 id="向量运算"><a class="header" href="#向量运算">向量运算</a></h3>
+<p>安装<code>numexpr</code>和<code>bottleneck</code>库：</p>
+<blockquote>
+<p><code>numexpr</code>库使用smart chunking, caching, and multiple cores ；</p>
+<p><code>bottleneck</code>库使用<code>cpython</code>库的方法加速具有<code>nan</code>值的矩阵。</p>
+</blockquote>
+<p>支持整数/boolean类型数据的某些二元运算加速。</p>
+<ol>
+<li><a href="https://developer.ibm.com/technologies/python/articles/ba-accelerate-python/">Accelerating Python for scientific research - Optimize your Python code for research</a>.</li>
+<li></li>
+</ol>
+<h3 id="dask"><a class="header" href="#dask">dask</a></h3>
+<h4 id="应用场景"><a class="header" href="#应用场景">应用场景</a></h4>
+<h5 id="简单并行运算"><a class="header" href="#简单并行运算">简单并行运算</a></h5>
+<ul>
+<li>
+<p>按元素算术运算</p>
+<p><code>map_partitions(func, *args, **kwargs)</code>：以分区为计算单元输入执行<code>map</code>操作，再将返回结果合并。</p>
+</li>
+<li>
+<p>按行运算：<code>df[df.x&gt;0]</code></p>
+</li>
+<li>
+<p>切片：<code>df.loc[1:10]</code></p>
+</li>
+<li>
+<p>统计聚合：<code>df.max()</code></p>
+</li>
+<li>
+<p>查找：<code>df[df.x.isin([1,2,3])]</code></p>
+</li>
+<li>
+<p>时间日期：<code>df.timestamp.month</code></p>
+</li>
+</ul>
+<h5 id="智能并行运算"><a class="header" href="#智能并行运算">智能并行运算</a></h5>
+<ul>
+<li>
+<p>groupby-aggregate：<code>df.groupby('x').y.max()</code></p>
+<p><code>apply-concat-apply</code></p>
+</li>
+<li>
+<p>groupby-apply on index：</p>
+<blockquote>
+<p>common groupby operations like <code>df.groupby(columns).reduction()</code> for known reductions like <code>mean, sum, std, var, count, nunique</code> are all quite fast and efficient.</p>
+</blockquote>
+</li>
+<li>
+<p>统计计数：<code>df.x.value_counts()</code></p>
+</li>
+<li>
+<p>去重： <code>df.x.drop_duplicates()</code></p>
+<blockquote>
+<p>对整个表格去重会很慢，因为需要交换大量数据以及进行比较。</p>
+</blockquote>
+</li>
+<li>
+<p>Join on index, join with small Pandas DataFrames/single partition Dask DataFrame</p>
+<pre><code class="language-python"># Large join small
+small = small.repartition(npartitions=1)
+result = big.merge(small)
+# Join on index
+left = left.set_index('id').persist()
+left.merge(right_one, left_index=True, ...)
+</code></pre>
+</li>
+<li>
+<p>分区/列之间的按元素计算：<code>df.x+df.y</code></p>
+</li>
+<li>
+<p>相关系数：<code>df[['col1', 'col2']].corr()</code></p>
+</li>
+</ul>
+<h5 id="需要shuffle的运算除非在index上否则较慢"><a class="header" href="#需要shuffle的运算除非在index上否则较慢">需要shuffle的运算（除非在index上，否则较慢）</a></h5>
+<ul>
+<li>groupby-apply not on index：需要设置索引</li>
+<li>Join not on the index：需要设置索引</li>
+</ul>
+<blockquote>
+<p>https://docs.dask.org/en/latest/dataframe-groupby.html</p>
+</blockquote>
+<h4 id="方法"><a class="header" href="#方法">方法</a></h4>
+<h5 id="汇聚"><a class="header" href="#汇聚">汇聚</a></h5>
+<pre><code class="language-python">df.apply(func, axis=1, meta=('name', type))
+</code></pre>
+<p><strong>返回值类型推断</strong>：需要通过<code>meta</code>关键字提供输出的元信息：根据返回对象类型，提供相应的空对象进行类型推断；快捷设置方式，==如果计算对象是<code>DataFrame</code>，则<code>meta</code>可以是字典或元组列表；如果是<code>Series</code>，则<code>meta</code>是元组==。如果没有声明<code>meta</code>，则Dask将尝试根据数据推断类型（可能导致非预期结果）。</p>
+<p><code>DataFrame</code>仅支持<code>axis=1</code>（按行计算）。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../Python/Python编程应用.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../Python/Python系统编程.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../Python/Python编程应用.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../Python/Python系统编程.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

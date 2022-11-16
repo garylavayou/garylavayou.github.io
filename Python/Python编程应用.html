@@ -1,0 +1,1091 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>编程应用 - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html" class="active">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="python编程应用"><a class="header" href="#python编程应用">Python编程应用</a></h1>
+<p>Python应用框架和编程接口。</p>
+<h2 id="命令行工具"><a class="header" href="#命令行工具">命令行工具</a></h2>
+<h3 id="click"><a class="header" href="#click">click</a></h3>
+<p>Command Line Interface Creation Kit (click)</p>
+<ul>
+<li>命令嵌套</li>
+<li>自动生成帮助文档</li>
+<li>支持运行时懒加载子命令</li>
+<li>Unix/POSIX命令行约定</li>
+</ul>
+<p>https://click.palletsprojects.com/en/7.x/quickstart/</p>
+<pre><code class="language-shell">pip install click 
+</code></pre>
+<h4 id="应用模板"><a class="header" href="#应用模板">应用模板</a></h4>
+<pre><code class="language-python">import click
+@click.group(help=&quot;group info.&quot;)   # 创建命令组，可以添加子命令
+def cli():
+   pass
+
+@click.command(name='init', help='command info.', eplilog)
+def initdb():
+    click.echo('Initialized the database')
+cli.add_command(initdb)  # 添加子命令
+
+@cli.command(name='drop')   # 添加子命令
+@click.option('-c','--count', default=1, help='number of greetings') # 添加选项
+@click.argument('name')  # 添加位置参数
+def dropdb(count, name):
+    click.echo('Dropped the database')
+      
+if __name__ == '__main__':
+    cli()  # 调用定义的任意命令或分组
+</code></pre>
+<h5 id="分组和子命令"><a class="header" href="#分组和子命令">分组和子命令</a></h5>
+<p>使用<code>@click.command()</code>定义程序所需处理的命令行参数及其对应的处理函数；如果程序具有多个子命令，则需要使用<code>@click.group()</code>定义统一入口，以访问子命令。此外，通过<code>@Group.group()</code>可以嵌套定义子命令集合。</p>
+<blockquote>
+<p>主程序只能调用一个<code>click</code>对象（返回后程序结束），因此必须将子命令的处理方法组织到一个分组中。否则主程序只能调用其中一个子命令的处理方法。</p>
+</blockquote>
+<p>除了根分组外，子命令和子分组的名称默认为对应处理函数名，也可通过<code>name</code>参数指定。</p>
+<h5 id="参数分类"><a class="header" href="#参数分类">参数分类</a></h5>
+<ul>
+<li>
+<p><strong>位置参数</strong>：使用<code>@click.argument()</code>定义，第一个参数为参数名，并对应作为Python变量名。</p>
+</li>
+<li>
+<p><strong>选项参数</strong>：使用<code>@click.option()</code>定义，参数列表<code>*args</code>用于定义多个长/短选项名（例如<code>&quot;-n&quot;,&quot;--name&quot;,&quot;name&quot;</code>）。</p>
+<ul>
+<li>
+<p>其中如果包含没有短划线前缀的名称，则作为该选项的变量名传递给修饰的函数；反之，</p>
+</li>
+<li>
+<p>第一个长选项用于推导选项变量名（移除前缀并将名称中出现的短划线转换为<code>_</code>以构成合法变量名）；</p>
+</li>
+<li>
+<p>没有长选项时，使用第一个短选项作为变量名。</p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><a href="https://click.palletsprojects.com/en/7.x/quickstart/#switching-to-setuptools">setuptools integration</a></p>
+</blockquote>
+<p>通过装饰器声明的参数，必须在对应的处理函数的输入参数中声明。</p>
+<h5 id="参数数据类型"><a class="header" href="#参数数据类型">参数数据类型</a></h5>
+<p><code>str</code>（默认类型），<code>int</code>，<code>float</code>，<code>bool</code></p>
+<p><code>click.DateTime</code></p>
+<p>如果未指定类型，则根据默认值<code>default</code>推导（如果未提供<code>default</code>，则默认为<code>str</code>）。</p>
+<h4 id="选项参数"><a class="header" href="#选项参数">选项参数</a></h4>
+<pre><code class="language-python">@click.option('-c', '--count', default=1, help='number of greetings')
+</code></pre>
+<blockquote>
+<p><code>help</code>：设置文档的帮助信息；<code>metavar</code>：帮助文档中用于表示选项的值。</p>
+</blockquote>
+<h5 id="强制选项"><a class="header" href="#强制选项">强制选项</a></h5>
+<p>选项通常时可选的，如果需要强制某选项提供，则令<code>required=True</code>；</p>
+<h5 id="标识选项"><a class="header" href="#标识选项">标识选项</a></h5>
+<ul>
+<li>
+<p><strong>真值标识选项</strong>：<code>is_flag=True</code>：如果选项名称中包含<code>/</code>，则定义真值开关的两个选项（变量名为前者）。</p>
+<pre><code class="language-python">@click.option('--shout/--no-shout', default=False)
+</code></pre>
+</li>
+<li>
+<p><strong>切换标识选项</strong>：<code>flag_value=value</code>，多个选项定义一个变量，其中一个设置为<code>True</code>。</p>
+<pre><code class="language-python">@click.option('--upper', 'transformation', flag_value='upper', default=True)
+@click.option('--lower', 'transformation', flag_value='lower')
+</code></pre>
+</li>
+</ul>
+<h5 id="多值选项"><a class="header" href="#多值选项">多值选项</a></h5>
+<ul>
+<li>一个选项如果要接受多个参数，使用<code>nargs=k</code>声明，该选项变量将保存为<code>tuple</code>；也可以通过直接定义多个参数的类型<code>type=(str,int)</code>表明选项接受的参数个数。</li>
+<li>可重复使用的选项<code>multiple=True</code>：每次使用选项指定的值都被添加到序列对象；</li>
+<li><strong>计数选项</strong>：<code>count=True</code>：选项的值为选项声明的次数。</li>
+</ul>
+<h5 id="取值受限的选项"><a class="header" href="#取值受限的选项">取值受限的选项</a></h5>
+<p>根据选项配置，对输入值进行校验。</p>
+<ul>
+<li>
+<p><strong>单选选项</strong>：</p>
+<pre><code class="language-python">@click.option('--hash-type', 
+              type=click.Choice(['MD5', 'SHA1'], 
+              case_sensitive=False))
+</code></pre>
+</li>
+<li>
+<p><strong>数值范围选项</strong>：<code>IntRange</code>/<code>FloatRange</code>（默认为闭区间，可通过<code>min_open</code>/<code>max_open</code>设置开区间）。</p>
+<pre><code class="language-python">@click.option('--count', type=click.IntRange(0, 20, clamp=True)) #*
+@click.option('--digit', type=click.IntRange(0, 10))
+</code></pre>
+<blockquote>
+<p><code>*</code>：<code>clamp=True</code>对于超出范围的输入参数，将其修改为设定的边界。</p>
+</blockquote>
+</li>
+<li>
+<p><strong>密码选项</strong>：</p>
+<pre><code class="language-python">@click.password_option()  # equivalent password
+@click.option('--password', prompt=True, hide_input=True, confirmation_prompt=True)
+</code></pre>
+</li>
+</ul>
+<h5 id="交互式选项与回调函数"><a class="header" href="#交互式选项与回调函数">交互式选项与回调函数</a></h5>
+<p><code>prompt=Ture|message</code>：当命令行未提供该选项的值，弹出消息提示用户输入该选项的值。</p>
+<p>根据用户输入决定程序的后续处理流程：</p>
+<pre><code class="language-python">@click.confirmation_option(prompt='Are you want to continue?')
+</code></pre>
+<blockquote>
+<p>等价实现方式：</p>
+<pre><code class="language-python">def abort_if_flase(ctx, param, value):
+   if not value:  # value of 'yes'
+      ctx.abort()
+@click.option('--yes','-y', is_flag=True, callback=abort_if_false, 
+              expose_value=False,  # 不向处理流函数传递该参数
+              prompt='Are you want to continue?')
+</code></pre>
+</blockquote>
+<h5 id="选项默认值"><a class="header" href="#选项默认值">选项默认值</a></h5>
+<p>通过<code>default</code>参数设置选项默认值。默认值可以是固定编码值，可以从配置文件或系统环境变量读取。</p>
+<pre><code class="language-python">@option('username', 
+        default=lambda: os.environ.get('USER',''), 
+        show_default='current user', prompt=True)
+</code></pre>
+<p><code>default</code>如果为函数，则可同时与<code>prompt</code>结合使用；反之，如果设置了<code>default</code>则不会再弹出交互信息。使用<code>show_default</code>在文档中显示默认值信息。</p>
+<p><code>auto_envvar_prefix='PREFIX'</code>：自动读取指定前缀环境变量<code>PREFIX_COMMAND_OPTION</code>（命令名中的<code>-</code>使用<code>_</code>替换）；</p>
+<p>手动指定环境变量：</p>
+<pre><code class="language-python">@click.option('username', envvar='USERNAME')
+</code></pre>
+<p><strong>从一个环境变量中读取多个值</strong>。在命令行利用<code>multiple=True</code>可重复使用一个选项以读入多个值；对于从环境变量读取，则尝试将环境变量分割为多个部分（默认使用空白分割，对于<code>File</code>和<code>Path</code>类型的选项值，则使用平台相关分隔符）。</p>
+<p><code>default_map</code>：</p>
+<h5 id="优先处理选项"><a class="header" href="#优先处理选项">优先处理选项</a></h5>
+<pre><code class="language-python">@click.version_option()
+</code></pre>
+<blockquote>
+<p>实现方式：使用<code>eager</code>选项以优先处理该参数。</p>
+<pre><code class="language-python">def print_version(ctx, param, value):
+   if not value or ctx.resilient_parsing: # value of 'version'
+      return
+   ctx.echo('version 1.0')
+   ctx.exit()
+@click.option('--version','-V', is_flag=True, callback=print_version, 
+              expose_value=False, eager=True)
+</code></pre>
+</blockquote>
+<p><a href="https://click.palletsprojects.com/en/7.x/options/#multiple-values-from-environment-values">Multiple Values from Environment Values</a></p>
+<p><a href="https://click.palletsprojects.com/en/7.x/options/#callbacks-for-validation">Callbacks for Validation</a></p>
+<h5 id="位置参数"><a class="header" href="#位置参数">位置参数</a></h5>
+<p>参数接受的值的个数：</p>
+<pre><code class="language-python">@click.argument('src', nargs=-1)  # 接受任意数量的值（只能由一个此类型）
+@click.argument('dst', nargs=1)
+</code></pre>
+<blockquote>
+<p><code>required=True</code>，可变数量参数至少包括一个参数（不能为空）。</p>
+</blockquote>
+<p><a href="https://click.palletsprojects.com/en/7.x/arguments/#file-arguments">File Arguments</a></p>
+<p><code>click.File</code></p>
+<p><a href="https://click.palletsprojects.com/en/7.x/arguments/#file-path-arguments">File Path Arguments</a></p>
+<p><code>click.Path</code></p>
+<h5 id="命令嵌套"><a class="header" href="#命令嵌套">命令嵌套</a></h5>
+<p>https://click.palletsprojects.com/en/7.x/commands/</p>
+<p>子命令的方法运行时父命令的方法也被执行。</p>
+<p><a href="https://click.palletsprojects.com/en/7.x/commands/#group-invocation-without-command">Group Invocation Without Command</a></p>
+<h5 id="生成文档"><a class="header" href="#生成文档">生成文档</a></h5>
+<p>https://click.palletsprojects.com/en/7.x/documentation/</p>
+<h5 id="自动补全"><a class="header" href="#自动补全">自动补全</a></h5>
+<blockquote>
+<p>Completion is only available if a script is installed and invoked through an entry point, not through the <code>python</code> command. See <a href="https://click.palletsprojects.com/en/7.x/setuptools/#setuptools-integration">Setuptools Integration</a>.</p>
+</blockquote>
+<h4 id="交互式程序中的应用"><a class="header" href="#交互式程序中的应用">交互式程序中的应用</a></h4>
+<p>在Python脚本主模块中，调用<code>click</code>定义的任意命令或分组，即可实现相应命令的自动解析处理。</p>
+<p>通过上述方式，执行命令后程序将自动退出。对于不自动退出的交互式程序，需要在程序中显式调用该命令行框架并将所需处理的命令行参数传入。</p>
+<pre><code class="language-python">cli.main(['add', '--help'], standalone_mode=False)
+</code></pre>
+<p><code>standalone_mode=False</code>：在命令执行完成后继续执行程序，反之直接退出程序。</p>
+<blockquote>
+<p><em>问题：<code>click</code>捕获<code>SystemExit</code>，使得注册的退出处理函数不会被触发。</em></p>
+</blockquote>
+<p>next：https://click.palletsprojects.com/en/7.x/complex/。</p>
+<h3 id="typer"><a class="header" href="#typer">Typer</a></h3>
+<p><a href="https://typer.tiangolo.com/">Typer (tiangolo.com)</a></p>
+<h2 id="http"><a class="header" href="#http">HTTP</a></h2>
+<h3 id="http客户端"><a class="header" href="#http客户端">HTTP客户端</a></h3>
+<h4 id="python-httpclient模块"><a class="header" href="#python-httpclient模块">Python <code>http.client</code>模块</a></h4>
+<p><a href="https://docs.python.org/3.7/library/http.client.html#module-http.client"><code>http.client</code></a> is a low-level HTTP protocol client; implement the client side of the HTTP and HTTPS protocols. It is normally not used directly — the module <a href="https://docs.python.org/3.7/library/urllib.request.html#module-urllib.request"><code>urllib.request</code></a> uses it to handle URLs that use HTTP and HTTPS.</p>
+<blockquote>
+<p><a href="https://docs.python.org/3.7/library/http.html#module-http"><code>http</code></a> is a package that collects several modules for working with the HyperText Transfer Protocol:</p>
+<ul>
+<li><code>http.client</code>;</li>
+<li><a href="https://docs.python.org/3.7/library/http.server.html#module-http.server"><code>http.server</code></a> contains basic HTTP server classes based on <a href="https://docs.python.org/3.7/library/socketserver.html#module-socketserver"><code>socketserver</code></a></li>
+<li><a href="https://docs.python.org/3.7/library/http.cookies.html#module-http.cookies"><code>http.cookies</code></a> has utilities for implementing state management with cookies</li>
+<li><a href="https://docs.python.org/3.7/library/http.cookiejar.html#module-http.cookiejar"><code>http.cookiejar</code></a> provides persistence of cookies</li>
+</ul>
+</blockquote>
+<pre><code class="language-python">http.client.HTTPConnection(host, port=None, timeout=None)
+HTTPConnection.request(method, url, body=None, headers={})
+HTTPConnection.getresponse()
+# HTTPSConnection
+</code></pre>
+<h4 id="python-urllibrequest模块"><a class="header" href="#python-urllibrequest模块">Python <code>urllib.request</code>模块</a></h4>
+<blockquote>
+<p><em>Extensible library  of high level API for opening URLs.</em></p>
+</blockquote>
+<pre><code class="language-python">r = urllib.request.urlopen(url_or_request, data=None, timeout=None)
+urllib.request.Request(url, data=None, headers={}, method=None)
+r.url
+r.headers
+r.response
+r.read(length)  # read response body
+</code></pre>
+<blockquote>
+<p><em>This function always returns an object which can work as a context manager and has the properties url, headers, and status.</em></p>
+<p><em>The default method is 'GET' if data is None or 'POST' otherwise.</em></p>
+</blockquote>
+<h4 id="urllib3"><a class="header" href="#urllib3">urllib3</a></h4>
+<p><a href="https://urllib3.readthedocs.io/en/latest/">Home - urllib3 2.0.0.dev0 documentation</a></p>
+<h5 id="请求"><a class="header" href="#请求">请求</a></h5>
+<pre><code class="language-python">response = urllib3.request(METHOD, url)
+http = urllib3.PoolManager()
+response = http.request(METHOD, url,headers=hdr_dict, fields=query_dict)
+resp = http.request(
+  &quot;POST&quot;, url,
+  fields={&quot;hello&quot;: &quot;world&quot;}, # form data
+  body=encoded_data  # JSON string or something else
+)
+</code></pre>
+<h5 id="响应"><a class="header" href="#响应">响应</a></h5>
+<pre><code class="language-python">response.status
+response.headers
+response.data
+</code></pre>
+<h4 id="requests"><a class="header" href="#requests">requests</a></h4>
+<p><a href="https://docs.python-requests.org/en/master/">Requests: HTTP for Humans™ — Requests 2.25.1 documentation (python-requests.org)</a></p>
+<blockquote>
+<p><em>Requests allows you to send HTTP/1.1 requests extremely easily. There’s no need to manually add query strings to your URLs, or to form-encode your POST data. Keep-alive and HTTP connection pooling are 100% automatic, thanks to <a href="https://github.com/urllib3/urllib3">urllib3</a>.</em></p>
+</blockquote>
+<h5 id="请求-1"><a class="header" href="#请求-1">请求</a></h5>
+<pre><code class="language-python">response = requests.get(
+  url, 
+  params=query_dict, 
+  headers=hdr_dict, 
+  cookies=cookie_dict_or_jar, # jar = requests.cookies.RequestsCookieJar(),
+  allow_redirects=True,       # HEAD默认为False
+  timeout=0.001
+)
+response = requests.post(
+  url, 
+  data = payload_str_or_dict, # data/files优先级高于json
+  files = file_dict,
+  json = payload_dict # Content-Type: application/json
+)
+files = {
+  'file': (
+    'report.xls', 
+    open('report.xls', 'rb'), 
+    'application/vnd.ms-excel', 
+    {'Expires': '0'}
+  )
+}
+</code></pre>
+<blockquote>
+<p>其他HTTP方法：<code>put, delete, head, options, ...</code></p>
+</blockquote>
+<h5 id="响应-1"><a class="header" href="#响应-1">响应</a></h5>
+<pre><code class="language-python">response.status_code
+response.raise_for_status()  # 抛出异常
+response.headers  # HTTP headers (Header names are case-insensitive)
+response.request.headers
+response.cookies  # 
+response.text     # 响应体
+response.encoding # 响应体编码，设置编码以获得正确解码的text
+response.content  # 原始响应体（binary，已解压缩），用于接收非文本数据
+response.json     # 将JSON响应体解码为JSON对象
+response.raw      # HTTP原始响应（未经处理的接收数据）
+with open(filename, 'wb') as fd:
+    for chunk in r.iter_content(chunk_size=128):
+        fd.write(chunk)
+</code></pre>
+<h5 id="重定向"><a class="header" href="#重定向">重定向</a></h5>
+<pre><code class="language-python">response.history
+</code></pre>
+<h5 id="异常"><a class="header" href="#异常">异常</a></h5>
+<p><code>ConnectionError</code>：网络问题；</p>
+<p><code>HttpError</code>：HTTP返回非成功响应码；</p>
+<p><code>Timeout</code>：响应的超时；</p>
+<p><code>TooManyRedirects</code>：重定向次数超过限制；</p>
+<p><code>RequestException</code>：所有引发的异常的基类。</p>
+<h5 id="会话对象"><a class="header" href="#会话对象">会话对象</a></h5>
+<p>HTTP持久连接，重用TCP连接。</p>
+<pre><code class="language-python">session = requests.Session()  # 通过session使用requests接口
+</code></pre>
+<h3 id="flask"><a class="header" href="#flask">Flask</a></h3>
+<p>The “micro” in microframework means Flask aims to keep the core simple but extensible.</p>
+<p>Flask has many configuration values, with sensible defaults, and a few conventions when getting started. By convention, templates and static files are stored in subdirectories within the application’s Python source tree, with the names <code>templates</code> and <code>static</code> respectively.</p>
+<p>Flask itself just bridges to Werkzeug to implement a proper WSGI application and to Jinja2 to handle templating. It also binds to a few common standard library packages such as logging. Everything else is up for extensions.</p>
+<p>Flask supports Python 3.6 and newer. <code>async</code> support in Flask requires Python 3.7+ for <code>contextvars.ContextVar</code>.</p>
+<pre><code class="language-shell">conda create -n flask python=3.7 flask
+</code></pre>
+<p><a href="https://flask.palletsprojects.com/en/2.0.x/quickstart/">Quickstart — Flask Documentation (2.0.x) (palletsprojects.com)</a></p>
+<h4 id="flask-app"><a class="header" href="#flask-app">Flask App</a></h4>
+<h5 id="project-layout"><a class="header" href="#project-layout">Project Layout</a></h5>
+<pre><code class="language-shell">flaskproject/
+├── flaskproject/
+│   ├── __init__.py
+│   ├── db.py
+│   ├── schema.sql
+│   ├── auth.py
+│   ├── blog.py
+│   ├── templates/
+│   │   ├── base.html
+│   │   ├── auth/
+│   │   │   ├── login.html
+│   │   │   └── register.html
+│   │   └── blog/
+│   │       ├── create.html
+│   │       ├── index.html
+│   │       └── update.html
+│   └── static/
+│       └── style.css
+├── tests/
+│   ├── conftest.py
+│   ├── data.sql
+│   ├── test_factory.py
+│   ├── test_db.py
+│   ├── test_auth.py
+│   └── test_blog.py
+├── venv/
+├── .gitignore
+├── setup.py
+└── MANIFEST.in
+</code></pre>
+<p><a href="https://flask.palletsprojects.com/en/latest/tutorial/layout/">Project Layout — Flask Documentation (2.1.x) (palletsprojects.com)</a></p>
+<p><a href="https://flask.palletsprojects.com/en/latest/tutorial/factory/">Application Setup — Flask Documentation (2.1.x) (palletsprojects.com)</a></p>
+<p><a href="https://flask.palletsprojects.com/en/latest/deploying/#self-hosted-options">Deployment Options — Flask Documentation (2.1.x) (palletsprojects.com)</a></p>
+<p><a href="https://jinja.palletsprojects.com/en/3.0.x/templates/">Template Designer Documentation — Jinja Documentation (3.0.x) (palletsprojects.com)</a></p>
+<h5 id="app-layout"><a class="header" href="#app-layout">App Layout</a></h5>
+<pre><code class="language-python">from flask import Flask, request
+app = Flask(__name__)
+app.config['JSON_SORT_KEYS'] = False    # 响应JSON数据不对字段排序
+@app.route(&quot;/url_path/&lt;name&gt;&quot;, methods=['GET', 'POST'])
+def route_process(name=&quot;test&quot;):
+  req = request.get_data(as_text=True)
+  return &quot;success&quot;
+if __name__ == '__main__':
+    app.run(host='127.0.0.1', port=5000, debug=False,load_dotenv=True,**wsgi_options)
+</code></pre>
+<blockquote>
+<p><code>load_dotenv=True</code>：加载<code>.env</code>或<code>.flaskenv</code>中定义的环境变量。</p>
+</blockquote>
+<h5 id="调试运行flask-app"><a class="header" href="#调试运行flask-app">调试运行Flask App</a></h5>
+<p>如果Python代码中包含<code>__main__</code>代码块，且其中调用了<code>app.run()</code>方法，则可以直接运行该代码文件或模块启动Flask程序。反之，通过<code>flask run</code>命令自动调用指定Python模块<code>$FLASK_APP</code>（默认为<code>app</code>）中的<code>Flask</code>实例（通常是<code>app=Flask(__name__)</code>）的<code>run()</code>方法。</p>
+<pre><code class="language-shell">export FLASK_APP=hello
+export FLASK_ENV=development
+flask run --host=0.0.0.0 --port=5000  --cert=PATH --key=FILE  # =&gt; python -m flask run
+</code></pre>
+<blockquote>
+<p>这种方式不会执行Flask程序中的<code>__main__</code>代码块，因此不能将额外参数传递给要执行的程序。</p>
+</blockquote>
+<p><strong>调试模式</strong>：如果配置环境变量<code>FLASK_ENV=development</code>或运行时参数<code>debug=True</code>，将启用调式模式，在代码发生变化时服务器会<strong>自动加载</strong>且在发生异常时在终端显示交互式的调试器（使用<code>use_evalex=False</code>禁用调试器，使用<code>use_reloader=False</code>禁用自动加载），并在前端显示异常的追踪信息页面。未启用调试模式时，Flask会忽略任意处理过程产生的错误，仅返回通用的错误页面。==不推荐在启用自动加载的情况下通过代码调用<code>run()</code>方法（支持不好），而是使用<code>flask run</code>的方式==。大规模生产环境部署需要使用专门的WSGI服务器。</p>
+<p><a href="https://code.visualstudio.com/docs/python/tutorial-flask">使用VS Code调试Flask App</a>。</p>
+<h4 id="处理请求"><a class="header" href="#处理请求">处理请求</a></h4>
+<h5 id="路由绑定"><a class="header" href="#路由绑定">路由绑定</a></h5>
+<pre><code class="language-python">@app.route(&quot;PATH&quot;, methods=['POST','GET',...],)
+</code></pre>
+<p><strong>路径</strong>：客户端请求通过装饰器声明的路径规则进行分发，路径规则：</p>
+<ul>
+<li><code>/path</code>：路径以“<code>/</code>”结尾代表目录，请求省略<code>/</code>会被自动重定向到对应目录；反之，代表文件，如果请求包含“<code>/</code>”则无法找到相应资源（返回<code>404 Not Found</code>）。</li>
+<li><code>/path/&lt;ARGUMENT&gt;</code>：<code>ARGUMENT</code>作为响应函数的参数。</li>
+<li><code>/path/&lt;int:ARGUMENT&gt;</code>：限定参数数据类型。</li>
+</ul>
+<p>一个响应方法可添加多个路径声明。</p>
+<p><code>url_for()</code>方法用于测试当前已声明的处理方法对应的URL。</p>
+<pre><code class="language-python">with app.test_request_context():
+    print(url_for('index'))
+    print(url_for('login'))   # &quot;index&quot; and &quot;login&quot; 是已定义的处理方法 
+</code></pre>
+<h5 id="获取请求信息"><a class="header" href="#获取请求信息">获取请求信息</a></h5>
+<pre><code class="language-python">from flask import request      # context local object
+request.url                    # request.base_url, request.host_url, request.root_url
+request.args                   # -&gt; dict: URL查询参数 -&gt; request.query_string
+request.method
+data = request.data            # binary data
+request.get_data(as_text=True) # text data
+request.get_json()             # json object -&gt; request.is_json
+</code></pre>
+<p>为了避免用户请求数据中包含的注入攻击脚本被执行，使用<code>escape</code>将请求数据转换为纯文本。</p>
+<pre><code class="language-shell">from markupsafe import escape
+@app.route(&quot;/&lt;name&gt;&quot;)
+def hello(name):
+    return f&quot;Hello, {escape(name)}!&quot;
+</code></pre>
+<h5 id="构造响应消息"><a class="header" href="#构造响应消息">构造响应消息</a></h5>
+<p>处理方法必须提供返回值（不能返回<code>None</code>），响应消息可以是纯文本、JSON对象、HTML文本等类型。</p>
+<h5 id="重定向和错误处理"><a class="header" href="#重定向和错误处理">重定向和错误处理</a></h5>
+<pre><code class="language-python">from flask import abort, redirect, url_for
+redirect(url_for('static', filename=subpath))
+abort(404)
+</code></pre>
+<h5 id="会话"><a class="header" href="#会话">会话</a></h5>
+<p>除了处理单次请求外，Flask为每个会话提供了会话上下文<code>session</code>。<a href="https://flask.palletsprojects.com/en/2.0.x/quickstart/#sessions">处理方法可在会话上下文中记录用户的登录状态</a>，从而连续处理用户的不同请求。</p>
+<h5 id="日志"><a class="header" href="#日志">日志</a></h5>
+<pre><code class="language-python">app.logger.warning('A warning occurred (%d apples)', 42)  # logging.Logger
+</code></pre>
+<h4 id="静态文件"><a class="header" href="#静态文件">静态文件</a></h4>
+<p>静态文件位于Flask程序的工作目录下<code>static/</code>目录中。这些文件可以根据用户请求的URL（如<code>/static/style.css</code>）被自动响应。</p>
+<h4 id="html模板"><a class="header" href="#html模板">HTML模板</a></h4>
+<p>利用指定模板（Jinja2）和输入参数自动生成HTML响应。模板文件位于程序目录下的<code>templates/</code>目录下。</p>
+<pre><code class="language-python">from flask import render_template
+return render_template('hello.html', name=name)
+</code></pre>
+<h4 id="文件上传"><a class="header" href="#文件上传">文件上传</a></h4>
+<h4 id="cookies"><a class="header" href="#cookies">Cookies</a></h4>
+<h4 id="部署flask应用"><a class="header" href="#部署flask应用">部署Flask应用</a></h4>
+<blockquote>
+<p><em>While lightweight and easy to use, Flask’s built-in server is not suitable for production as it doesn’t scale well. You can deploy your Flask application to a WSGI server, where your <code>Flask</code> application object is the actual WSGI application.</em></p>
+</blockquote>
+<p>Flask实现了一个简易的HTTP WSGI服务器，方便开发者调试运行Flask程序而无须安装专门的WSGI服务器。但内置WSGI服务器功能简单，性能扩展能力差，因此可能无法胜任生产环境大规模服务请求。</p>
+<p><a href="https://zhuanlan.zhihu.com/p/269456318">花了两个星期，我终于把 WSGI 给搞明白了 - 知乎用户的文章 - 知乎</a></p>
+<p>WSGI服务器包括：Gunicorn、<a href="https://uwsgi-docs.readthedocs.io/en/latest/#">uWSGI</a>、</p>
+<h5 id="run-flask-with-gunicorn"><a class="header" href="#run-flask-with-gunicorn">Run Flask with Gunicorn</a></h5>
+<pre><code class="language-shell">gunicorn -w 4 -b 0.0.0.0:5000 your_project:app # serve your app with 4 workers on port 5000
+</code></pre>
+<p><code>app</code>是模块中可调用的Flask应用实例，或者提供创建实例的函数<code>myproject:create_app()</code>。</p>
+<p>使用gevent（<code>-k gevent</code>）或<a href="https://eventlet.net/">eventlet</a>（<code>-k eventlet</code>）提供工作线程的异步支持。</p>
+<blockquote>
+<p><em><a href="http://www.gevent.org/">gevent</a> is a coroutine -based Python networking library that uses greenlet to provide a high-level synchronous API on top of the libev or libuv event loop.</em></p>
+</blockquote>
+<h5 id="nginx代理wsgi服务器"><a class="header" href="#nginx代理wsgi服务器">Nginx代理WSGI服务器</a></h5>
+<pre><code class="language-nginx">server {
+  location /flask {
+    proxy_pass         http://127.0.0.1:8000/;
+    proxy_redirect     off;
+    proxy_set_header   Host                 $host;
+    proxy_set_header   X-Real-IP            $remote_addr;
+    proxy_set_header   X-Forwarded-For      $proxy_add_x_forwarded_for;
+    proxy_set_header   X-Forwarded-Proto    $scheme;
+  }
+}
+</code></pre>
+<h3 id="fastapi"><a class="header" href="#fastapi">FastAPI</a></h3>
+<p><a href="https://fastapi.tiangolo.com/">FastAPI (tiangolo.com)</a></p>
+<pre><code class="language-shell">conda create --name fastapi python=3.7
+pip install fastapi uvicorn[standard]
+</code></pre>
+<h2 id="数据库"><a class="header" href="#数据库">数据库</a></h2>
+<p>SQLAlchemy由Core和ORM两套API组成，其中ORM基于Core构建。</p>
+<ul>
+<li>
+<p>Core：数据库工具集的基础架构，包括管理数据库连接、处理查询和响应、构建SQL查询语句。</p>
+</li>
+<li>
+<p>ORM：提供Python对象到数据库表的映射以及对象持久化机制。</p>
+<blockquote>
+<p>对象关系映射（<em><strong>Object Relational Mapping</strong></em>，ORM）模式使用描述对象和数据库之间映射的元数据，实现程序中的对象与数据库中的记录的同步与持久化存储。</p>
+</blockquote>
+</li>
+</ul>
+<pre><code class="language-python">import sqlalchemy as sqa
+print(sqa.__version__)    # -&gt; 1.4.20
+</code></pre>
+<h3 id="数据库连接管理"><a class="header" href="#数据库连接管理">数据库连接管理</a></h3>
+<pre><code class="language-python">db_url='dialect[+driver]://user:password@[host]/dbname[?key=value..],'
+engine = sqa.create_engine(db_url, encoding='utf-8', echo=False, future=True)
+</code></pre>
+<ul>
+<li>
+<p><code>echo</code>：回显执行的SQL命令（如果为<code>&quot;debug&quot;</code>，还将输出返回结果）；也可通过<code>logging</code>模块调整输出信息的级别。</p>
+</li>
+<li>
+<p><code>future=True</code>：完全使用2.0风格API。</p>
+</li>
+</ul>
+<blockquote>
+<p>数据库连接：需要首先安装相应数据的驱动包（DBAPI）。</p>
+<ul>
+<li>SQLite：<code>&quot;sqlite+pysqlite:///:memory:&quot;</code></li>
+<li>PostgreSQL：<code>&quot;postgresql+psycopg2://user:passwd@/dbname?host=/var/run/postgresql&quot;</code></li>
+<li>MySQL：<code>&quot;mysql+pymysql://root:gang2019wsl@/test?unix_socket=/var/run/mysqld/mysqld.sock&quot;</code></li>
+</ul>
+</blockquote>
+<h5 id="连接"><a class="header" href="#连接">连接</a></h5>
+<p><code>Engine</code>对象用于管理数据库连接<code>Connection</code>，从而实现对数据库的并发访问。当连接关闭时，连接的资源实际返回给<code>Engine</code>所管理的连接池，同时调用<code>.rollback()</code>释放未完成的事务以及锁从而使之能够被再次使用。</p>
+<pre><code class="language-python">with engine.connect() as connection:
+    result = connection.execute(sql_command)
+</code></pre>
+<h5 id="事务"><a class="header" href="#事务">事务</a></h5>
+<p>事务用于保证数据操作过程的正确性和完整性，如果在事务执行过程中发生异常，则可以回退到初始状态，防止对数据库产生非预期操作。<code>Engine.begin()</code>或<code>Connection.begin()</code>会创建一个事务<code>Transaction</code>对象，使用上下文管理器来自动提交事务<code>.commit()</code>和处理异常回退<code>·.rollback()</code>（不使用上下文则需要手动提交和进行异常回退）。</p>
+<pre><code class="language-python">with engine.begin() as conn:  # -&gt; Transaction
+     result = conn.execute(sql_command)
+# equals to =&gt;
+#     with engine.connect() as connection:
+#         with connection.begin():
+#             result = connection.execute(sql_command) 
+</code></pre>
+<h3 id="数据库元数据"><a class="header" href="#数据库元数据">数据库元数据</a></h3>
+<p>SQLAlchemy的<strong>查询和对象映射</strong>需要<strong>数据库元数据</strong>（<em>database metadata</em>）支持。元数据以Python对象的形式描述表格和其他Schema层次的对象（SQLAlchemy使用<em><strong>schema name</strong></em>来区分表格所属命令空间）。</p>
+<blockquote>
+<p>PostgreSQL的默认命名空间为<code>public</code>。</p>
+</blockquote>
+<h4 id="构造数据库元数据"><a class="header" href="#构造数据库元数据">构造数据库元数据</a></h4>
+<p>元数据存储对象<code>MetaData</code>用于保存一个数据相关的元数据。</p>
+<pre><code class="language-python">from sqlalchemy import MetaData
+metadata_obj = MetaData(bind=engine, schema=&quot;default_schema&quot;)
+</code></pre>
+<blockquote>
+<p><code>engine</code>可不提供，在实际执行操作时通过相关接口传入覆盖初始配置。当指定<code>schema</code>时，表格将显式通过<code>schema</code>来引用。如果需要通过元数据对数据执行实际操作，则==数据库中必须已经存在相应的命名空间==。</p>
+</blockquote>
+<p>向元数据存储中添加表格定义（描述数据类型及其他属性）：</p>
+<pre><code class="language-python">from sqlalchemy.schema import Table,Column,ForeignKey,Sequence
+from sqlalchemy import Integer, String
+user = Table('user',metadata_obj,
+    Column('id', Integer, primary_key=True),
+    Column('name', String(16), nullable=False),
+    schema='user' 
+)
+</code></pre>
+<p>访问元数据存储的表格定义：</p>
+<pre><code class="language-python">for n in metadata_obj.tables:  # &lt;-&gt; metadata_obj.sorted_tables
+    table:Table = metadata_obj.tables[n]
+    print(n)        # -&gt; print(table) -&gt; print(table.name)   
+    table.metadata  # a runtime property of MetaData
+    table.bind      # bound Engine/Connection
+</code></pre>
+<p>访问表格列信息：</p>
+<pre><code class="language-python">col = user.columns.id  # -&gt; user.c.id -&gt; user['id']
+col.name  # col.{type,nullable,primary_key,foreign_keys}
+col.table # 反向引用列所属的表
+for col in user.c:
+    print(col)
+for primary_key in employees.primary_key:
+    print(primary_key)
+for fkey in employees.foreign_keys:
+    print(fkey)
+</code></pre>
+<h4 id="获取数据库元数据"><a class="header" href="#获取数据库元数据">获取数据库元数据</a></h4>
+<p>使用SQLAlchemy提供的反射机制（<em>reflection</em>）从数据库自动加载元数据。</p>
+<h5 id="使用metadata"><a class="header" href="#使用metadata">使用MetaData</a></h5>
+<p><a href="https://docs.sqlalchemy.org/en/14/core/reflection.html#reflecting-all-tables-at-once"><code>MetaData</code></a>可自动返回连接数据库的所有数据表的元数据对象。</p>
+<pre><code class="language-python">from sqlalchemy import MetaData
+metadata_obj = MetaData()
+metadata_obj.reflect(bind=engine,**kwargs)
+metadata_obj.tables  # 所有表组成的字典
+</code></pre>
+<p>使用<code>Table</code>可返回指定数据表（及其外键引用的数据表）的元数据。</p>
+<pre><code class="language-python">user = Table('user', metadata_obj, autoload_with=engine)
+</code></pre>
+<h5 id="使用inspector"><a class="header" href="#使用inspector">使用Inspector</a></h5>
+<p><code>Inspector</code>提供更加底层的接口获取数据库表的元数据。</p>
+<pre><code class="language-python">from sqlalchemy import inspect
+from sqlalchemy.engine.reflection import Inspector
+inspector:Inspector = inspect(engine)
+for table in inspector.get_table_names():  # 获取表名
+    for column in inspector.get_columns(table): # 获取列定义(字典)*
+    	print(column['name'])
+</code></pre>
+<blockquote>
+<p><code>*</code>：列定义包含<code>name</code>、<code>type</code>、<code>nullable</code>、<code>default</code>、<code>autoincrement</code>、<code>comment</code>等属性。</p>
+</blockquote>
+<p>检查表格是否存在：</p>
+<pre><code class="language-python">tf = sqa.inspect(sql_engine).has_table(table_name)
+</code></pre>
+<h5 id="使用sql命令"><a class="header" href="#使用sql命令">使用SQL命令</a></h5>
+<p>使用<a href="../%E6%95%B0%E6%8D%AE%E5%BA%93/PostgreSQL.html#%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BF%A1%E6%81%AF">SQL语句从数据库的元数据表中获取</a>，具体命令与数据库类型相关。不支持PostgreSQL的<code>pgsql</code>命令行工具的快捷命令，如<code>\dt</code>。</p>
+<h4 id="创建和删除数据表"><a class="header" href="#创建和删除数据表">创建和删除数据表</a></h4>
+<p>使用元数据定义（批量）创建表。</p>
+<pre><code class="language-python">metadata_obj.create_all(engine, checkfirst=True)
+metadata_obj.drop_all(bind=engine)
+table.create(bind=engine, checkfirst=True)
+table.drop(bind=engine)
+</code></pre>
+<blockquote>
+<p><code>checkfirst=True</code>：如果表格存在则不执行操作。</p>
+</blockquote>
+<h3 id="sql查询api"><a class="header" href="#sql查询api">SQL查询API</a></h3>
+<h4 id="api用法"><a class="header" href="#api用法">API用法</a></h4>
+<p>查询语句的构造方式分为两类：1) 构造SQL命令的文本对象；2) 通过API调用构造命令；</p>
+<pre><code class="language-python">from sqlalchemy.sql import column, select, table  #*
+sql_query = text(&quot;select x, y from some_table where y &gt; :y&quot;) # 文本模式
+t = table(&quot;some_table&quot;, column('x'), column('y'))  
+sql_query = select(column('x'), column('y'))\
+           .select_from(t)\
+           .where(t.c.y &gt; bindparam('y'))  # API构造模式
+result = conn.execute(sql_query, {'y':'100'})
+result.rowcount  # 查看查询/修改记录的行数
+</code></pre>
+<p>虽然SQL命令文本更加简洁，但是通过API调用可在程序更加灵活地参数化构造SQL查询命令（无需关注SQL语法细节）。</p>
+<h5 id="查询对象构建"><a class="header" href="#查询对象构建">查询对象构建</a></h5>
+<p>查询过程中的列和表都需要构造为语句对象而不能使用字符串文本直接表示，可用文本模式或API模式构建对象。</p>
+<pre><code class="language-python">col_a, table_x = text('col_a'), text('table_x')    # 文本模式
+col_a, table_x = column('col_a'), table('table_x', schema='public') # API模式
+</code></pre>
+<p>API模式支持对列或表做更多参数配置（如为表指定所属的schema）。<code>column</code>，<code>table</code>分别是<code>ColumnClause</code>和<code>TableClause</code>类型构造方法的封装。区别于元数据定义中使用的<code>Column</code>和<code>Table</code>类，后者不仅继承前者，还扩展了与数据类型、属性和数据库后端相关的接口。</p>
+<blockquote>
+<p>文本模式如果指定<code>schema_name.table_name</code>作为表名无法工作，因为该形式会被整体视为默认schema中的表名<code>public.&quot;schema_name.table_name&quot;</code>。</p>
+</blockquote>
+<h5 id="参数传递"><a class="header" href="#参数传递">参数传递</a></h5>
+<p>在执行<code>execute()</code>方法时，SQL语句中的绑定参数通过<code>execute()</code>方法的<code>*multiparams, **params</code>参数传递。对于单次执行的命令，使用<code>execute()</code>方法的<code>**params</code>参数传递SQL语句中对应的绑定参数：</p>
+<pre><code class="language-python">conn.execute(sql, key1=value1, key2=value2)
+</code></pre>
+<p>对于无返回值的SQL命令（如<code>INSERT</code>、<code>UPDATE</code>等，即未添加<code>RETURNING</code>表达式），可以批量执行SQL命令，则需要使用<code>*multiparams</code>参数（可以==合并为一个字典对象的序列传递==，方便<a href="Python%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html#%E4%BB%A5%E5%AD%97%E5%85%B8%E6%88%96%E5%88%97%E8%A1%A8%E5%88%9D%E5%A7%8B%E5%8C%96">从<code>pandas.DataFrame</code>传递数据</a>），批量接收绑定参数对应的参数数据。SQL命令将根据每个字典对象中的参数执行一次查询（底层数据库API也可能对批量查询提供优化）。</p>
+<pre><code class="language-python">conn.execute(
+    table.insert(), 
+    {'key1': value1, 'key2': value2},
+    {'key1': value3, 'key2': value4},
+    # ...
+) # [{'key1': v1, 'key2': v2}, {'key1': v3, 'key2': v4},...]
+</code></pre>
+<h5 id="输出sql命令"><a class="header" href="#输出sql命令">输出SQL命令</a></h5>
+<p>可将通过API构造的SQL命令编译为文本形式并输出，从而方便验证是否正确调用相关API。</p>
+<pre><code class="language-python">stmt: ClauseElement = select(t).where(t.c.id == 5)
+print(stmt)
+sql: Compiled = stmt.compile(literal_binds=True)
+print(sql)
+</code></pre>
+<p><code>literal_binds=True</code>：将构造命令中的字面值嵌入表达式（反之在表达式中将以自动生成的绑定参数代替，执行时再使用字面值代替绑定参数）。</p>
+<h5 id="表达式参数绑定"><a class="header" href="#表达式参数绑定">表达式参数绑定</a></h5>
+<p>文本命令模式：使用<code>:arg_name</code>在SQL命令中嵌入运行时参数。</p>
+<p>API构造模式：使用<code>bindparam()</code>设置运行时参数，其构造结果与文本造模式一致。对于参数为常量的表达式，SQLAlchemy也会将其转换为<strong>自动命名参数</strong>（基于列名和数字编号），并将常量作为参数的默认值在运行时传递给SQL语句。</p>
+<h5 id="条件语句"><a class="header" href="#条件语句">条件语句</a></h5>
+<p>逻辑连接：<code>and_(*exprs)</code>、<code>or_(*exprs)</code>和<code>not_(expr)</code>。支持使用相应的Python运算符<code>&amp;</code>、<code>|</code>和<code>~</code>，但注意使用<code>()</code>限定每个表达式的范围。</p>
+<h5 id="比较运算符"><a class="header" href="#比较运算符">比较运算符</a></h5>
+<pre><code class="language-python">column('x').is_(None)               # [is_/is_not] -&gt; x IS NULL
+column('x').in_([1, 2, 3])          # [in_/not_in]
+                                    # any_()/all_()
+                                    # between
+column('x').like('word')            # like/ilike/notlike/notilike*
+column('x').startswith('word')      # startswith/endswith/contains
+                                    # match
+column('name').regexp_match('word') # dialect specific
+</code></pre>
+<blockquote>
+<p><code>*</code>：需要添加通配符<code>%</code>以模糊匹配。</p>
+</blockquote>
+<h4 id="读取数据"><a class="header" href="#读取数据">读取数据</a></h4>
+<p>通过<code>SELECT</code>命令或<code>select()</code>API调用读取数据。</p>
+<pre><code class="language-python">from sqlalchemy import select
+select(table).where(cond_expr)  
+select(table.c.name, table.c.fullname)
+select(name, fullname).select_from(table)
+table.select().where(expr)  #*
+</code></pre>
+<blockquote>
+<p><code>*</code>：此方式不再支持传入列名以选择数据表中的列；同时，仅返回已定义的表对象中的列（<code>SELECT</code>命令会自动包含所定义的列）。</p>
+</blockquote>
+<h5 id="选择数据源的所有列"><a class="header" href="#选择数据源的所有列">选择数据源的所有列</a></h5>
+<pre><code class="language-python">sql = select(text('*')).select_from(table)
+</code></pre>
+<h5 id="排序和分组统计"><a class="header" href="#排序和分组统计">排序和分组统计</a></h5>
+<pre><code class="language-python">from sqlalchemy import asc,desc,func
+select(user).order_by(asc(user.c.name))  # -&gt; user.c.name.asc()
+select(user.name, func.count(user.id).label(&quot;count&quot;))\
+      .group_by(user.name)\
+      .having(func.count(user.id) &gt; 10)  # HIVAING是对分组结果进行过滤
+</code></pre>
+<h5 id="sql函数"><a class="header" href="#sql函数">SQL函数</a></h5>
+<p>提取字段：<code>extract(&quot;YEAR&quot;, t.c.date_created)</code>；</p>
+<p>SQL统计函数：<code>func.FUNCNAME()</code>：将对应的函数调用<code>FUNCNAME()</code>转换为SQL函数表达式。</p>
+<h5 id="连接-1"><a class="header" href="#连接-1">连接</a></h5>
+<p>连接两个表并返回查询结果。默认根据两个表的外键字段进行连接；可通过<code>join_from</code>的第三个参数（<code>join</code>的第二个参数）指定连接条件，如<code>user.c.id == address.c.user_id</code>。</p>
+<pre><code class="language-python">select(user.c.name, address.c.email_address)\ 
+     .join_from(user, address, isouter=False, full=False) #*
+select(user.c.name, address.c.email_address).join_from(address,**kwargs) #**
+</code></pre>
+<blockquote>
+<p><code>*</code>：指定<code>OUTER</code>和<code>FULL</code>连接方式。</p>
+<p><code>**</code>：<code>join()</code>方法只指定连接运算的右侧表（左侧根据查询推测）。</p>
+</blockquote>
+<h5 id="获取执行结果"><a class="header" href="#获取执行结果">获取执行结果</a></h5>
+<pre><code class="language-python">result:CursorResult = connection.execute(sql_query)
+for row in result: # -&gt; CursorResult: DBAPI cursor
+  print(f&quot;x: {row.x}  y: {row.y}&quot;)
+for row in result:  # 将行数据返回为对象: 可通过下标或属性访问数据
+  x = row[0]
+  y = row.y
+for x, y in result: # 直接将序列对象展开为列元素
+    # ...
+for dict_row in result.mappings(): # 将行数据返回为字典
+    x = dict_row['x']
+    y = dict_row['y']
+</code></pre>
+<p>当返回的<code>CursorResult</code>被读取完后，DBAPI游标将被自动关闭（因此无法重复读取一个返回结果）。</p>
+<p><a href="https://docs.sqlalchemy.org/en/14/tutorial/data_select.html">Selecting Rows with Core or ORM — SQLAlchemy 1.4 Documentation</a></p>
+<h4 id="修改记录"><a class="header" href="#修改记录">修改记录</a></h4>
+<h5 id="插入"><a class="header" href="#插入">插入</a></h5>
+<pre><code class="language-python">from sqlalchemy import insert
+stmt = insert(user_table)\ # -&gt; user_table.insert()
+      .values(name='name', fullname='Full Name')\
+result = conn.execute(sql_query, records_data)  # 数据包含name,fullname字段
+</code></pre>
+<p><code>Insert.values()</code>方法对绑定参数进行了简化，如果未显式调用<code>bindparam()</code>方法，则==SQL命令的参数名称与<code>values</code>方法的关键字参数名称相同==。</p>
+<blockquote>
+<p>需要注意：<code>values()</code>关键字参数中定义的列必须包含在操作的数据表的列定义中（适用于<code>insert()</code>和<code>update()</code>方法），否则出错*<code>CompileError: Unconsumed column names: xxx</code>*。</p>
+</blockquote>
+<h5 id="更新"><a class="header" href="#更新">更新</a></h5>
+<p>根据匹配条件更新数据。如果未发生匹配则不会更改任何数据，如果未指定任何条件，则对所有数据都进行更新。</p>
+<pre><code class="language-python">update(user_table)\  # -&gt; user_table.update()
+      .where(user_table.c.name == 'patrick')\
+      .values(fullname='Patrick the Star') # values类似于insert()
+</code></pre>
+<blockquote>
+<p><code>where()</code>和<code>values()</code>方法中的列名不能重复，否则出错*<code>CompileError: Bind parameter 'xxx' conflicts with unique bind parameter of the same name.</code>*。已经出现在<code>where()</code>语句中的列是不需要执行更新操作的，因此无须再出现在<code>values()</code>中。</p>
+</blockquote>
+<h5 id="删除记录"><a class="header" href="#删除记录">删除记录</a></h5>
+<pre><code class="language-python">delete(user_table)\  # -&gt; user_table.delete()
+      .where(user_table.c.name == 'patrick')
+</code></pre>
+<h5 id="返回修改记录的信息"><a class="header" href="#返回修改记录的信息">返回修改记录的信息</a></h5>
+<pre><code class="language-python">stmt.returning(user.c.id, user.c.name)
+</code></pre>
+<p>在上述修改数据记录的相关命令后，调用<code>returning</code>将返回修改数据的指定字段（==调用<code>returning</code>后，执行命令时将不支持批量传递数据==）。根据这些字段可判断对应的数据是否按预期完成操作（某些插入操作可能存在主键重复，或是更新和删除操作存在多个匹配项或未发现匹配项等）。</p>
+<h3 id="orm-api"><a class="header" href="#orm-api">ORM API</a></h3>
+<p><a href="https://docs.sqlalchemy.org/en/14/orm/quickstart.html">ORM Quick Start — SQLAlchemy 1.4 Documentation</a></p>
+<h5 id="定义数据模型"><a class="header" href="#定义数据模型">定义数据模型</a></h5>
+<p><a href="https://docs.sqlalchemy.org/en/14/orm/mapping_styles.html#orm-mapping-styles">ORM Mapped Class Overview — SQLAlchemy 1.4 Documentation</a></p>
+<p>声明式定义：</p>
+<pre><code class="language-python">from sqlalchemy import Column,ForeignKey,Integer,String
+from sqlalchemy.orm import declarative_base,relationship
+Base = declarative_base()  # 创建ORM对象存储
+class User(Base):
+    __tablename__ = &quot;user_account&quot;
+    id = Column(Integer, primary_key=True)
+    name = Column(String(30))
+    fullname = Column(String)
+    addresses = relationship(
+        &quot;Address&quot;, back_populates=&quot;user&quot;, cascade=&quot;all, delete-orphan&quot;
+    )
+    def __repr__(self):
+        return f&quot;User(id={self.id!r}, name={self.name!r}, fullname={self.fullname!r})&quot;
+
+class Address(Base):
+    __tablename__ = &quot;address&quot;
+    id = Column(Integer, primary_key=True)
+    email_address = Column(String, nullable=False)
+    user_id = Column(Integer, ForeignKey(&quot;user_account.id&quot;), nullable=False)
+    user = relationship(&quot;User&quot;, back_populates=&quot;addresses&quot;)
+    def __repr__(self):
+        return f&quot;Address(id={self.id!r}, email_address={self.email_address!r})&quot;
+</code></pre>
+<p>命令式定义：类的字段可动态设置。</p>
+<pre><code class="language-python">from sqlalchemy import Table, Column, Integer, String, ForeignKey
+from sqlalchemy.orm import registry
+
+mapper_registry = registry()
+user_table = Table(
+    'user',
+    mapper_registry.metadata,
+    Column('id', Integer, primary_key=True),
+    Column('name', String(50)),
+    Column('fullname', String(50)),
+    Column('nickname', String(12))
+)
+class User:
+    pass
+  
+mapper_registry.map_imperatively(User, user_table)
+</code></pre>
+<p>数据模型可用于创建数据对象。</p>
+<pre><code class="language-shell">squidward = User(name=&quot;squidward&quot;, fullname=&quot;Squidward Tentacles&quot;)
+krabs = User(name=&quot;ehkrabs&quot;, fullname=&quot;Eugene H. Krabs&quot;)
+</code></pre>
+<h5 id="orm会话"><a class="header" href="#orm会话">ORM会话</a></h5>
+<p>会话用于记录数据库与程序对象间的映射实例。通过上下文管理器实现数据的自动同步。</p>
+<pre><code class="language-python">with Session(engine) as session, session.begin():
+  session.execute(select(User))  # 获取数据
+  session.add(squidward)         # 修改数据
+  session.add(krabs)
+# equals to =&gt;
+#     with Session(engine) as session:
+#         with session.begin():
+#             session.add(some_object)
+#             session.add(some_other_object)
+</code></pre>
+<p><a href="https://docs.sqlalchemy.org/en/14/orm/session_basics.html#what-does-the-session-do">Session Basics — SQLAlchemy 1.4 Documentation</a></p>
+<h3 id="常见问题"><a class="header" href="#常见问题">常见问题</a></h3>
+<h5 id="查询语句中存在特殊字符"><a class="header" href="#查询语句中存在特殊字符">查询语句中存在特殊字符</a></h5>
+<ul>
+<li>
+<p><code>URL</code>字段中如果存在特殊字符，使用<code>urllib.parse.quote_plus</code>进行转义；或者使用<code>sqa.engine.url.URL.create()</code>创建URL对象。</p>
+</li>
+<li>
+<p><code>%</code>序列在SQL查询语句中会由SQLAlchemy再次执行变量替换，为了防止替换，使用<code>%%</code>代替<code>%</code>或将查询语句置于<code>sqlalchemy.text()</code>避免变量替换。</p>
+<blockquote>
+<p>可能出现错误提示：<em><code>ValueError: unsupported format character (...) at index ...</code></em></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="latex文档"><a class="header" href="#latex文档">$\LaTeX$文档</a></h2>
+<h3 id="生成latex代码"><a class="header" href="#生成latex代码">生成$\LaTeX$代码</a></h3>
+<h4 id="文档对象"><a class="header" href="#文档对象">文档对象</a></h4>
+<h5 id="document"><a class="header" href="#document"><code>Document</code></a></h5>
+<pre><code class="language-python">doc=Document(
+   default_filepath='default_filepath',
+   documentclass='article', 
+   document_options=[&quot;12pt&quot;],   # 文档类的选项列表
+   fontenc='T1', inputenc='utf8', 
+   font_size=&quot;normalsize&quot;, 
+   lmodern=True, textcomp=True, page_numbers=True, indent=None, 
+   geometry_options={&quot;margin&quot;: &quot;2.5cm&quot;}, 
+   data=None
+)
+doc.preamble.append(Command('title', 'Awesome Title'))
+doc.preamble.append(Command('author', 'Gary Wang'))
+doc.preamble.append(Command('date', NoEscape(r'\today')))
+doc.append(NoEscape(r'\maketitle')) # from pylatex.utils import NoEscape
+</code></pre>
+<blockquote>
+<p><code>NoEscape</code>将字符串直接添加到文档内容中，不会对其进行转义解释。</p>
+</blockquote>
+<p><code>generate_pdf</code> </p>
+<h5 id="章节"><a class="header" href="#章节">章节</a></h5>
+<p>使用<code>doc.append(item)</code>向章节中添加内容，添加内容不会自动包含切换换段落。</p>
+<pre><code class="language-python">from pylatex import Section,Subsection,Subsubsection
+with doc.create(Section('A section')):
+    doc.append('Some regular text and some ') # 添加段落
+    doc.append(italic('italic text. '))       # from pylatex.utils import italic
+    with doc.create(Subsection('A subsection')):
+        doc.append('Also some crazy characters: $&amp;#{}')
+</code></pre>
+<h5 id="文本内容"><a class="header" href="#文本内容">文本内容</a></h5>
+<p>文本中的特殊字符会在生成的$\LaTeX$文档中被还原未转义序列（例如，<code>&quot;\&quot;-&gt;&quot;\textbackslash&quot;</code>）。如果不需要转换使用<code>NoEscape(text)</code>。</p>
+<h5 id="图表"><a class="header" href="#图表">图表</a></h5>
+<pre><code class="language-python">with doc.create(Table(position='!htbp')):
+   with doc.create(Center()):
+      with doc.create(Tabular('rccl')) as table:
+         table.add_hline()
+         table.add_row((1, 2, 3, 4))
+         table.add_hline(1, 2)
+         table.add_empty_row()
+         table.add_row((4, 5, 6, 7))
+         table.add_hline()
+</code></pre>
+<h5 id="数学环境"><a class="header" href="#数学环境">数学环境</a></h5>
+<p>数学公式内容需要放在数学环境对象中。</p>
+<pre><code class="language-python">doc.append(Math(data=[r'2\times\alpha=9'], escape=False))
+</code></pre>
+<p><code>Alignat</code>封装<code>align</code>环境，支持多行公式、编号等功能。</p>
+<pre><code class="language-python">with doc.create(Alignat(aligns=2, escape=False)):
+   doc.append(r'c^2&amp;=a^2+b^2\\')
+   doc.append(r'x&amp;=\frac{a}{b}')
+</code></pre>
+<p>矩阵对象<code>Matrix</code>可以基于<code>numpy</code>==二维数组==构造，可作为公式环境中的内容：</p>
+<pre><code class="language-python">a = np.array([[100, 10, 20]]).T
+M = np.matrix([[2, 3, 4], [0, 0, 1], [0, 0, 2]])
+with doc.create(Alignat(aligns=2, numbering=False)):
+   doc.append(Matrix(M))
+   doc.append(Matrix(a))
+   doc.append('=')
+   doc.append(Matrix(M*a))
+</code></pre>
+<h5 id="列表"><a class="header" href="#列表">列表</a></h5>
+<pre><code class="language-python">with doc.create(Itemize()) as itemize:
+   itemize.add_item(&quot;the first item&quot;)
+   itemize.append(Command(&quot;ldots&quot;))
+with doc.create(Enumerate(enumeration_symbol=r&quot;\arabic*)&quot;,
+                          options={'start': 20})) as enum:
+   enum.add_item(&quot;the first item&quot;)
+</code></pre>
+<h4 id="格式"><a class="header" href="#格式">格式</a></h4>
+<h5 id="对齐"><a class="header" href="#对齐">对齐</a></h5>
+<p><code>Center</code>对象定义居中对齐环境（<code>\begin{center}...\end{center}</code>）。</p>
+<h4 id="命令对象"><a class="header" href="#命令对象">命令对象</a></h4>
+<pre><code class="language-python">Command(command=None, arguments=None, options=None, packages=None)
+# \usepackage{packages}
+# \command[options]{arguments}
+</code></pre>
+<pre><code class="language-python">doc.append(Command(&quot;maketitle&quot;))
+doc.append(NoEscape(r'\maketitle'))
+</code></pre>
+<h4 id="生成源码"><a class="header" href="#生成源码">生成源码</a></h4>
+<pre><code class="language-python">doc.generate_tex(filepath=None)  # 将源码保存未tex文件
+tex = doc.dumps()                # 将源码输出为字符串
+</code></pre>
+<h3 id="编译文档"><a class="header" href="#编译文档">编译文档</a></h3>
+<pre><code class="language-python">doc.generate_pdf(
+   filepath=None,      
+   clean=True,         # 是否删除编译生成的辅助文件
+   clean_tex=True,     # 是否删除生成的tex文件
+   compiler=None,      # 编译引擎名，默认依次尝试latexmk和pdflatex
+   compiler_args=None, # 编译引擎选项
+   silent=True         # 是否输出编译日志
+)
+</code></pre>
+<blockquote>
+<p>如果要使用<code>latexmk/xelatex</code>编译，需要指定编译选项<code>-xelatex</code>（检测到<code>latexmkrc</code>配置没有生效）。</p>
+</blockquote>
+<h2 id=""><a class="header" href="#"></a></h2>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../Python/Python输入输出.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../Python/Python数值计算.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../Python/Python输入输出.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../Python/Python数值计算.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

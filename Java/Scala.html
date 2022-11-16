@@ -1,0 +1,677 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Scala - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html" class="active">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="scala"><a class="header" href="#scala">Scala</a></h1>
+<blockquote>
+<p><em>The name Scala comes from the word <strong>scalable</strong>, and true to that name, the Scala language is used to power busy websites and analyze huge data sets.</em></p>
+</blockquote>
+<p>Scala特性：</p>
+<ul>
+<li>
+<p>高级语言：无需处理底层概念，如指针和内存管理；</p>
+</li>
+<li>
+<p>面向对象和函数式编程：函数也能当成值来使用，定义匿名函数，支持高阶函数，允许嵌套多层函数；支持函数式和面向对象混合编程。</p>
+<blockquote>
+<ul>
+<li><em>Functions for the logic</em></li>
+<li><em>Objects for the modularity</em></li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>静态类型（编译时检查），具有表达性强的类型系统（可自动推测类型，而无需为<a href="#%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E">变量声明</a>固定类型）；</p>
+</li>
+<li>
+<p>Scala源代码被编译成Java字节码运行在Java虚拟机上，可以无缝与现有的Java类库交互。</p>
+</li>
+<li>
+<p>并发性：Scala使用Actor作为其并发模型，Actor是类似线程的实体，通过邮箱发收消息。</p>
+</li>
+<li>
+<p>应用：服务、大数据应用、浏览器（Scala.js）。</p>
+</li>
+</ul>
+<h2 id="安装"><a class="header" href="#安装">安装</a></h2>
+<h3 id="使用coursier"><a class="header" href="#使用coursier">使用<a href="#Coursier%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7">Coursier</a></a></h3>
+<h3 id="使用系统软件仓库或安装包"><a class="header" href="#使用系统软件仓库或安装包">使用系统软件仓库或安装包</a></h3>
+<p>不推荐：不能一次性安装所有工具。</p>
+<h4 id="ubuntu-scala-211"><a class="header" href="#ubuntu-scala-211">Ubuntu (scala-2.11)</a></h4>
+<pre><code class="language-shell">apt install scala  # 包括scalac、scala、fsc、scaladoc
+</code></pre>
+<h5 id="安装sbt"><a class="header" href="#安装sbt">安装sbt</a></h5>
+<pre><code class="language-shell">echo &quot;deb https://repo.scala-sbt.org/scalasbt/debian all main&quot; | sudo tee /etc/apt/sources.list.d/sbt.list
+echo &quot;deb https://repo.scala-sbt.org/scalasbt/debian /&quot; | sudo tee /etc/apt/sources.list.d/sbt_old.list
+curl -sL &quot;https://keyserver.ubuntu.com/pks/lookup?op=get&amp;search=0x2EE0EA64E40A89B84B2DF73499E82A75642AC823&quot; | sudo apt-key add
+sudo apt update &amp;&amp; sudo apt install sbt
+</code></pre>
+<h3 id="windows"><a class="header" href="#windows">Windows</a></h3>
+<pre><code class="language-powershell">winget install scala
+winget install sbt
+</code></pre>
+<h2 id="scala程序"><a class="header" href="#scala程序">Scala程序</a></h2>
+<h3 id="交互式编程"><a class="header" href="#交互式编程">交互式编程</a></h3>
+<h3 id="脚本"><a class="header" href="#脚本">脚本</a></h3>
+<pre><code class="language-scala">// class definition similar to JAVA
+object ExampleClass {   // object is singleton class
+   def main(args: Array[String]) {
+      println(&quot;Hello, world!&quot;) // 输出 Hello World
+   }
+}
+@main def main(args:Array[String]) = {...}  // scala3
+</code></pre>
+<h3 id="基本语法"><a class="header" href="#基本语法">基本语法</a></h3>
+<p>语句可以用分号（;）结束或换行符。</p>
+<h3 id="包"><a class="header" href="#包">包</a></h3>
+<pre><code class="language-scala">package com.runoob  // java package style
+class HelloWorld
+</code></pre>
+<pre><code class="language-scala">package com.runoob{ // c# Namespace style
+	class HelloWorld    
+}
+</code></pre>
+<p>导入依赖包：使用<code>_</code>代表包中所有可导入内容。</p>
+<pre><code class="language-scala">import java.util.*		
+import org.apache.spark.sla._
+
+import scala.jdk.CollectionConverters.*
+val scalaList: Seq[Integer] = JavaClass.getJavaList().asScala.toSeq
+</code></pre>
+<h4 id="流行的scala库"><a class="header" href="#流行的scala库">流行的Scala库</a></h4>
+<ul>
+<li><a href="https://www.playframework.com/">Play Framework</a>：Web应用服务；</li>
+<li><a href="https://www.lagomframework.com/">Lagom</a>：微服务架构；</li>
+<li><a href="https://spark.apache.org/">Apache Spark</a>：分布式大数据处理。</li>
+<li><a href="https://www.scala-js.org/">Scala.js</a>：Web前端应用。</li>
+<li><a href="https://github.com/lauris/awesome-scala">其他Scala应用</a>。</li>
+</ul>
+<h3 id="数据类型"><a class="header" href="#数据类型">数据类型</a></h3>
+<p>Scala与Java有着相同的数据类型，scala没有java中的原生类型。空值是 scala.Null 类型。</p>
+<h4 id="变量"><a class="header" href="#变量">变量</a></h4>
+<h5 id="变量声明"><a class="header" href="#变量声明">变量声明</a></h5>
+<pre><code class="language-scala">var myVar [: String] = &quot;Foo&quot;  // 变量
+val myVal [: String] = &quot;Foo&quot;  // 常量
+</code></pre>
+<p>类型推断：根据初始化值推断变量类型，而无需指定变量类型。</p>
+<h5 id="类型转换"><a class="header" href="#类型转换">类型转换</a></h5>
+<p><code>Int</code>和<code>Long</code>不能自动类型转换（<code>ClassCastException</code>），需要使用强制类型转换：</p>
+<pre><code class="language-scala">v.asInstanceOf[Type]
+</code></pre>
+<blockquote>
+<p><code>Any</code>类型只向其实际类型转换，不能直接转换为其他类型；必须还原实际类型后执行强制转换。</p>
+</blockquote>
+<h5 id="运算符"><a class="header" href="#运算符">运算符</a></h5>
+<ul>
+<li>算术运算符：<code>+,-,*,/,%</code></li>
+<li>比较运算符：<code>==,!=,&gt;,&lt;,&gt;=,&lt;=</code></li>
+<li>逻辑运算符：<code>&amp;&amp;,||,!</code></li>
+<li>位运算符：<code>&amp;,|,^,~,&lt;&lt;,&gt;&gt;,&gt;&gt;&gt;</code>（<code>&gt;&gt;&gt;</code>右移补零）</li>
+<li>赋值运算符：<code>=,+=,-=,...</code></li>
+<li></li>
+</ul>
+<h4 id="类"><a class="header" href="#类">类</a></h4>
+<p>Scala中的类不声明为<code>public</code>，一个Scala源文件中可以有多个类。</p>
+<pre><code class="language-scala">class Point(xc: Int, yc: Int)  extends baseclass(args) {
+   var x: Int = xc
+   var y: Int = yc
+   def move(dx: Int, dy: Int) {   }
+}
+</code></pre>
+<p>所有类继承自<code>Any</code>，其子类包括<code>AnyVal</code>（值类型）和<code>AnyRef</code>（引用类型，类似于Java）。</p>
+<h5 id="traits"><a class="header" href="#traits">Traits</a></h5>
+<p>Traits(特征) 相当于Java的接口。与接口不同的是，它还可以定义属性和方法的实现。</p>
+<blockquote>
+<p>使用<code>new</code>关键字创建对象。</p>
+</blockquote>
+<h4 id="数组array"><a class="header" href="#数组array">数组（Array）</a></h4>
+<pre><code class="language-scala">import Array._
+var array:Array[String] = new Array[String](3)
+var array = new Array[String](3)
+var myMatrix = ofDim[Int](3,3)  // 二维数组
+var x = range(1,10,2)  //start stop step   Range
+</code></pre>
+<blockquote>
+<p>下标访问符为<code>()</code>，而非<code>[]</code>。</p>
+<p>泛型类型声明符为<code>[]</code>，而非<code>&lt;&gt;</code>（容器类型）。</p>
+</blockquote>
+<h4 id="容器collection"><a class="header" href="#容器collection">容器（Collection）</a></h4>
+<p><img src="Scala.assets/2fjoA.png" alt="enter image description here" /></p>
+<h5 id="不可变对象"><a class="header" href="#不可变对象">不可变对象</a></h5>
+<p>Scala默认使用不可变对象（<code>scala.collection.immutable</code>）。可以导入<code>collection.mutable</code>包使用可变对象版本。</p>
+<pre><code class="language-scala">import scala.collection.mutable
+var s = mutable.Set()
+</code></pre>
+<p>修改对象的操作返回新对象。</p>
+<p>List</p>
+<blockquote>
+<p><code>Nil</code>表示空列表。</p>
+<p><code>Seq</code>是List继承的特征（trait）。</p>
+</blockquote>
+<p>Set</p>
+<blockquote>
+<p><code>set(val)</code>判断值是否在集合中。</p>
+<p>无法按下标返回元素。</p>
+</blockquote>
+<p>Map</p>
+<pre><code class="language-scala">var A:Map[Char,Int] = Map()
+A += ('I' -&gt; 1)  // add key-value
+val colors = Map(&quot;red&quot; -&gt; &quot;#FF0000&quot;, &quot;azure&quot; -&gt; &quot;#F0FFFF&quot;)
+println(colors(&quot;red&quot;))
+for (c &lt;- colors){
+  println(c)  // iterate c is (key,value) tuple
+}
+</code></pre>
+<p>Tuple</p>
+<blockquote>
+<p>使用<code>t._idx</code>访问元组的元素（<code>idx 1-based</code>）；</p>
+<p>目前 Scala 支持的元组最大长度为 22。</p>
+</blockquote>
+<p>Option</p>
+<p>Iterator</p>
+<h5 id="运算符-1"><a class="header" href="#运算符-1">运算符</a></h5>
+<p><code>:</code>用于声明运算符与相邻对象的结合关系。</p>
+<pre><code class="language-scala">var a = List(1,2,3), c = List(4,5,6), item = 10
+val b = a:+item  // append a with item
+val b = item+:a  // prepend a with item: item::a
+val b = a++c     // appended c to a
+val b = a++:c    // prepend a to c: also a:::c
+</code></pre>
+<blockquote>
+<p><code>+</code>运算符用于字符串（<code>String</code>）拼接。</p>
+<p><code>:++</code> error.</p>
+</blockquote>
+<h5 id="java容器"><a class="header" href="#java容器">Java容器</a></h5>
+<h3 id="访问修饰符"><a class="header" href="#访问修饰符">访问修饰符</a></h3>
+<h3 id="方法和函数"><a class="header" href="#方法和函数">方法和函数</a></h3>
+<p>Scala 方法是类的一部分，而函数是一个对象可以赋值给一个变量。</p>
+<h4 id="方法定义语法"><a class="header" href="#方法定义语法">方法定义语法</a></h4>
+<p>方法声明中，可以选择指定参数类型、参数默认值、返回值类型。</p>
+<pre><code class="language-scala">def sum(x: Int, y: Int = 0)[: Int]= x + y  // expression style
+@Transaction
+@throws(classOf[IOException])
+def methodName ([arg1:Int, arg2 Double])[: Double] = // method style
+{
+   statements
+   return [expr]
+}
+def matchState(x): Int=x match{...} // methods with single match
+</code></pre>
+<blockquote>
+<p>公开方法需要声明返回类型，局部或私有方法可以省略返回类型声明（<code>: Int</code>）。</p>
+<p>无返回值，则声明<code>: Unit</code>（类似于 <code>void</code>）。</p>
+<p>类似于Java，可以声明标注（Annotations），包括抛出异常（Java使用关键字<code>throws</code>抛出异常）。</p>
+</blockquote>
+<h5 id="method-style"><a class="header" href="#method-style">method style</a></h5>
+<p>与多数编程语言类似，使用<code>{}</code>代码块表示函数体。</p>
+<h5 id="expression-style"><a class="header" href="#expression-style">expression style</a></h5>
+<p>使用<code>=</code>运算符连接单句表达式作为函数体（类似于Lambda表达式）。</p>
+<h5 id="match表达式"><a class="header" href="#match表达式">match表达式</a></h5>
+<h4 id="函数对象"><a class="header" href="#函数对象">函数对象</a></h4>
+<p>函数对象保存一个<strong>匿名函数</strong>定义，<code>=&gt;</code>运算符用于分隔参数列表和函数体。</p>
+<pre><code class="language-scala">val f1 = (a: Int, b: Int) =&gt; a + b
+val f2 = { (a: Int, b: Int) =&gt;
+  val sum = a + b
+  sum  // return sum
+}
+</code></pre>
+<h5 id="闭包"><a class="header" href="#闭包">闭包</a></h5>
+<p>匿名函数及其引用的外部作用域中的对象组成闭包。</p>
+<pre><code class="language-scala">factor = 5
+val multiplier = (i:Int) =&gt; i * factor
+</code></pre>
+<blockquote>
+<p>注意函数返回值使用<code>=</code>，方法返回值使用<code>=&gt;</code>。</p>
+</blockquote>
+<h4 id="map-and-reduce"><a class="header" href="#map-and-reduce">Map and Reduce</a></h4>
+<p>传递（匿名）函数对象作为<code>map</code>和<code>reduce</code>的参数。</p>
+<pre><code class="language-scala">val l = List(2, 5, 3, 6, 4, 7)
+val sum = l.reduce((x, y) =&gt; x+y)
+val sqrt = l.map(x =&gt; x*x)
+</code></pre>
+<h4 id="模式匹配switch-case"><a class="header" href="#模式匹配switch-case"><a href="https://www.runoob.com/scala/scala-pattern-matching.html">模式匹配</a>（switch-case）</a></h4>
+<pre><code class="language-scala">def matchTest(x: Any): Any = x match {
+      case 1 =&gt; &quot;one&quot;
+      case &quot;two&quot; =&gt; 2
+      case y: Int =&gt; &quot;scala.Int&quot;
+      case _ =&gt; &quot;many&quot;
+   }
+</code></pre>
+<h4 id="正则表达式"><a class="header" href="#正则表达式">正则表达式</a></h4>
+<pre><code class="language-scala">import scala.util.matching.Regex
+</code></pre>
+<h3 id="流程控制"><a class="header" href="#流程控制">流程控制</a></h3>
+<h4 id="条件"><a class="header" href="#条件">条件</a></h4>
+<pre><code class="language-scala">y = x match {
+  case hd :: tail =&gt; hd + sum(tail)
+  case Nil =&gt; 0
+}
+</code></pre>
+<h4 id="循环"><a class="header" href="#循环">循环</a></h4>
+<pre><code class="language-scala">for ( x &lt;- iterable ){
+  println(x)
+}
+</code></pre>
+<h4 id="异常处理"><a class="header" href="#异常处理">异常处理</a></h4>
+<pre><code class="language-scala">try {
+    val f = new FileReader(&quot;input.txt&quot;)
+} catch {
+    case ex: FileNotFoundException =&gt;{
+        println(&quot;Missing file exception&quot;)
+    }
+    case ex: IOException =&gt; {
+        println(&quot;IO Exception&quot;)
+    }
+} finally {
+    println(&quot;Exiting finally...&quot;)
+}
+</code></pre>
+<h3 id="输入输出"><a class="header" href="#输入输出">输入输出</a></h3>
+<p>Scala 进行文件写操作，直接用的都是 java中 的 I/O 类 （<strong>java.io.File</strong>)。</p>
+<ol>
+<li><a href="https://www.scala-lang.org/">The Scala Programming Language</a>.</li>
+<li></li>
+</ol>
+<p>Java的标准输入输出已经导入运行环境，可以直接调用函数如<code>print</code>、<code>println</code>，无需添加包名（<code>System.out</code>）。</p>
+<h2 id="scala项目"><a class="header" href="#scala项目">Scala项目</a></h2>
+<p><code>sbt</code>是首选的Scala项目管理工具，其他工具包括<code>ant</code>、<code>gradle</code>、<code>maven</code>……</p>
+<h3 id="sbt项目"><a class="header" href="#sbt项目">sbt项目</a></h3>
+<h4 id="创建项目"><a class="header" href="#创建项目">创建项目</a></h4>
+<pre><code class="language-shell">sbt new scala/hello-world.g8  # Scala 3 project
+sbt new scala/scala3.g8       # Scala 2 project
+</code></pre>
+<blockquote>
+<p>需要下载运行环境（包括从Maven仓库下载依赖库，视网络环境可能占用一定时间）。</p>
+</blockquote>
+<h5 id="项目结构"><a class="header" href="#项目结构">项目结构</a></h5>
+<pre><code class="language-shell">project-name
+├── build.sbt  # sbt项目配置
+├── project
+│   └── build.properties
+└── src
+    └── main
+        └── scala
+            └── Main.scala  # 入口程序
+</code></pre>
+<h4 id="项目配置"><a class="header" href="#项目配置">项目配置</a></h4>
+<p><code>build.sbt</code>：</p>
+<pre><code class="language-ini">name := &quot;HelloWorld&quot;
+version := &quot;1.0&quot;
+scalaVersion := &quot;2.13.8&quot;  # *
+</code></pre>
+<blockquote>
+<p><code>*</code>：项目可指定Scala版本而无需使用全局Scala版本。</p>
+</blockquote>
+<h2 id="开发环境"><a class="header" href="#开发环境">开发环境</a></h2>
+<h3 id="coursier管理工具"><a class="header" href="#coursier管理工具">Coursier管理工具</a></h3>
+<p>Coursier命令行工具用于安装Scala应用程序和设置开发环境<sup class="footnote-reference"><a href="#coursier">1</a></sup>。</p>
+<h4 id="安装coursier"><a class="header" href="#安装coursier">安装Coursier</a></h4>
+<p>==如果安装过程无法下载数据，首先检查网络状况，可能需要<a href="#Coursier%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE">设置代理</a>。==</p>
+<h5 id="linux"><a class="header" href="#linux">Linux</a></h5>
+<pre><code class="language-shell">CS_URL=https://github.com/coursier/launchers/raw/master/cs-x86_64-pc-linux.gz
+curl -fL $CS_URL | gzip -d &gt; cs &amp;&amp; chmod +x cs &amp;&amp; ./cs [options] setup [options]
+</code></pre>
+<p>将安装<code>coursier</code>(<code>cs</code>)到默认位置，以及安装以下<strong>全局</strong>命令行工具和JVM（安装过程会提示是否更新用户配置文件（<code>.profile</code>）中的环境变量，从而使相应工具全局可用）：</p>
+<ul>
+<li><code>scala-cli</code>, a <a href="https://scala-cli.virtuslab.org/">convenient tool to compile / run / package Scala code</a></li>
+<li><code>scala</code>, the Scala REPL</li>
+<li><code>scalac</code>, the Scala compiler</li>
+<li><code>sbt</code> and <code>sbtn</code>, the <a href="https://www.scala-sbt.org/">sbt build tools</a></li>
+<li><code>ammonite</code>, <a href="https://ammonite.io/">an enhanced REPL</a> for Scala</li>
+<li><code>scalafmt</code>, the <a href="https://scalameta.org/scalafmt/">Scala code formatter</a></li>
+</ul>
+<p>安装完成后可移除下载的<code>cs</code>文件，使用安装版本的<code>couriser/cs</code>进行管理。</p>
+<pre><code class="language-shell">cs setup \
+   --apps sbt-launcher,ammonite \ # 安装额外的命令行工具 
+   --install-dir ~/.local/scala \ # 修改安装目录*
+   --yes                          # 使用默认选项,取消交互
+</code></pre>
+<blockquote>
+<p><code>*</code>：<code>--install-dir</code>仅适用于<code>cs</code>以及<code>scala</code>工具，不适用于JVM安装路径。</p>
+</blockquote>
+<h5 id="windows-1"><a class="header" href="#windows-1">Windows</a></h5>
+<pre><code class="language-powershell">$Uri=&quot;https://github.com/coursier/launchers/raw/master/cs-x86_64-pc-win32.zip&quot;
+Invoke-WebRequest -Uri $Uri -OutFile &quot;cs-x86_64-pc-win32.zip&quot;
+Expand-Archive -Path &quot;cs-x86_64-pc-win32.zip&quot;
+.\cs-x86_64-pc-win32.exe setup
+get-command cs  # 重新打开终端执行
+</code></pre>
+<p>安装完成后，将自动添加<code>Coursier</code>目录<code>C:\Users\USER\AppData\Local\Coursier\data\bin</code>到路径环境变量中（如果未添加，可手动添加；如果不需要全局启用，可通过PowerShell <code>$Profile</code>设置）。</p>
+<pre><code class="language-shell">$env:JAVA_HOME=&quot;C:\Users\gary\AppData\Local\Coursier\cache\arc\https\github.com\AdoptOpenJDK\openjdk8-binaries\releases\download\jdk8u292-b10\OpenJDK8U-jdk_x64_windows_hotspot_8u292b10.zip\jdk8u292-b10&quot;
+$env:PATH=&quot;$env:JAVA_HOME\bin;C:\tools\scala;$env:PATH&quot;
+</code></pre>
+<h4 id="配置coursier"><a class="header" href="#配置coursier">配置Coursier</a></h4>
+<h5 id="coursier网络代理配置"><a class="header" href="#coursier网络代理配置"><a href="https://get-coursier.io/docs/other-proxy">coursier网络代理配置</a></a></h5>
+<p>Coursier的JVM不会自动使用系统的代理配置，需要将代理配置通过Java选项传递给JVM。</p>
+<pre><code class="language-shell">coursier '-J-Dhttps.proxyHost=127.0.0.1' '-J-Dhttps.proxyPort=7890' [args] #*
+sbt '-Dhttps.proxyHost=…' '-Dhttps.proxyPort=…' [args]  #**
+</code></pre>
+<blockquote>
+<p>传递给<code>java.net.HttpURLConnection</code>的代理属性，HTTP同理。</p>
+<p><code>*</code>：PowerShell会将<code>-XX</code>解释为PowerShell命令的选项，需要使用<code>''</code>将其视为普通参数传递。</p>
+<p><code>**</code>：在环境变量<code>JAVA_OPTS</code>中配置（仅适用于<code>sbt</code>，不适用于<code>coursier</code>）：</p>
+<pre><code class="language-shell">export JAVA_OPTS=&quot;$JAVA_OPTS -Dhttp.proxyHost= -Dhttp.proxyPort= ...&quot;
+</code></pre>
+</blockquote>
+<h5 id="仓库配置"><a class="header" href="#仓库配置">仓库配置</a></h5>
+<p>仓库列表：<code>~/.sbt/repositories</code>文件（不存在则手动创建）记录所有可用仓库列表。</p>
+<pre><code class="language-ini">[repositories]
+local          
+maven-central   
+</code></pre>
+<blockquote>
+<p>模板配置文件：<a href="https://github.com/delta-io/delta/blob/master/build/sbt-config/repositories">delta/repositories at master · delta-io/delta (github.com)</a></p>
+</blockquote>
+<p>默认仓库为：</p>
+<ul>
+<li><code>ivy2local</code>：Ivy2本地仓库，位于<code>~/.ivy2/local</code>；</li>
+<li><code>central</code>：Maven中央仓库，即<code>https://repo1.maven.org/maven2</code>；</li>
+</ul>
+<p>上述默认配置可通过环境变量<code>COURSIER_REPOSITORIES</code>修改（使用镜像仓库代替Maven中央仓库<code>central</code>）。或通过命令行选项<code>-r,--repository</code>指定额外仓库（可指定多次以包含多个仓库）。提供<code>--no-default</code>将不使用默认或通过环境变量配置的仓库。</p>
+<pre><code class="language-shell">export COURSIER_REPOSITORIES=&quot;ivy2Local|central|sonatype:releases|jitpack|http://&quot;
+</code></pre>
+<p><a href="https://www.scala-sbt.org/1.x/docs/Proxy-Repositories.html#sbt+Configuration">sbt Reference Manual — Proxy Repositories sbt Configuration</a></p>
+<p><a href="https://www.scala-sbt.org/1.x/docs/Launcher-Configuration.html#3.+Repositories+Section">sbt Reference Manual — sbt Launcher Configuration 3. Repositories Section</a></p>
+<p>相应地，可在项目配置文件（优先级更高）中添加：</p>
+<pre><code class="language-scala">resolvers += &quot;central&quot; at &quot;http://maven.aliyun.com/nexus/content/groups/public/&quot;
+externalResolvers :=
+ Resolver.withDefaultResolvers(resolvers.value, mavenCentral = false)
+</code></pre>
+<p>镜像配置：<code>sbt</code>默认使用Maven中央仓库下载依赖，因此速度很慢。<code>~/.config/coursier/mirror.properties</code>（Linux）中配置代理转发规则（类似于Maven配置的<code>mirrorOf</code>）。</p>
+<pre><code class="language-shell">central.from=https://repo1.maven.org/maven2
+central.to=https://mirrors.huaweicloud.com/repository/maven  #*
+</code></pre>
+<blockquote>
+<p><code>*</code>：阿里云/163中央仓库镜像缺少部分Scala插件包，<a href="http://mirrors.cloud.tencent.com/nexus/repository/maven-public">腾讯云</a>下载文件可能校验和不一致，实测<a href="https://mirrors.huaweicloud.com/repository/maven">华为云</a>镜像更新安装时不会报错。</p>
+<p>该配置文件路径可通过<code>COURSIER_MIRRORS</code>环境变量或命令行选项<code>-Dcoursier.mirrors=</code>指定。</p>
+</blockquote>
+<h5 id="缓存路径"><a class="header" href="#缓存路径">缓存路径</a></h5>
+<p>缓存用于存放不经常发生变化的依赖库，<a href="https://get-coursier.io/docs/cache#default-location">默认路径</a>为<code>~/.cache/coursier/v1</code>（Linux），配置<code>COURSIER_CACHE</code>环境变量或<code>coursier.cache</code>Java选项覆盖默认路径。</p>
+<ul>
+<li><code>coursier</code>使用的缓存路径：传递<code>--cache</code>选项覆盖上述配置；</li>
+<li><code>sbt</code>使用的缓存路径：其位置可在<code>sbt</code>交互环境中使用<code>show csrCacheDirectory</code>查看。通过或传递<code>-Dsbt.coursier.home</code>选项来更改缓存路径。</li>
+</ul>
+<p><strong>缓存声明周期</strong>：以<code>-SNAPSHOT</code>结尾的包、Maven元数据等具有缓存周期（TTL，默认为24小时）。</p>
+<h4 id="管理scala命令行应用程序"><a class="header" href="#管理scala命令行应用程序">管理Scala命令行应用程序</a></h4>
+<pre><code class="language-shell">cs install &lt;app:version&gt; --install-dir DIR  # -&gt; cs setup --apps &lt;app:version&gt;
+cs list|update|uninstall|search &lt;app:version&gt;
+</code></pre>
+<p>默认安装位置：<code>~/.local/share/coursier/bin</code>，可通过配置修改；需要将安装位置加入<code>PATH</code>以便通过命令名启动应用。环境变量<code>COURSIER_BIN_DIR|COURSIER_INSTALL_DIR</code>以及Java属性<code>coursier.install.dir</code>可覆盖上述默认位置（优先级由高到低）。==命令行选项<code>--dir,--install-dir</code>具有最高优先级==。</p>
+<h5 id="管理jvm"><a class="header" href="#管理jvm">管理JVM</a></h5>
+<pre><code class="language-shell">cs java --available                # 列出可用Java版本
+cs java --installed                # 列出已安装Java版本
+cs setup --jvm 11                  # 安装Java环境*
+cs java --jvm 11 --env             # 输出设置Java环境变量的语句，可调用eval执行
+cs java --jvm 11 [options] args... # 使用指定Java(不存在则自动下载安装)**
+cs java --jvm VER --setup          # 设置默认Java版本
+cs java-home [--jvm ver]...        # 显示指定环境的JAVA_HOME
+</code></pre>
+<blockquote>
+<p><code>cs</code>会首先检查系统是否自带Java并尝试使用该版本；如果没有，则自动安装AdoptOpenJDK 1.8。通过<code>--jvm</code>指定的Java即使与自带版本相同（如<code>1.8</code>）还是会额外下载安装，如果版本仅指定数字，默认安装Adoptium发布的JDK（<code>adoptium</code>，与AdoptOpenJDK标识<code>adopt</code>不同）。安装后会提示是否更新环境变量，环境变量决定命令行工具依赖的Java版本。</p>
+<p>如果使用指定版本Java执行命令时，该版本不存在，则<code>cs</code>会自动下载安装相应版本Java。</p>
+<p>Adoptium OpenJDK是从GitHub下载，可能需要<a href="#%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE">使用代理</a>。</p>
+<p><code>*</code>：<em><code>--jvm-dir</code>（指定Java安装路径）不可用</em>。JVM安装路径可通过<code>COURSIER_JVM_CACHE</code>或<code>coursier.jvm.cache</code><a href="#%E5%90%AF%E5%8A%A8Scala%E5%BA%94%E7%94%A8">Java系统属性</a>设置。</p>
+</blockquote>
+<h5 id="启动scala应用"><a class="header" href="#启动scala应用">启动Scala应用</a></h5>
+<p><code>install</code>命令会将安装的应用存放在上述路径下，因此通过命令名启动应用程序则是最近安装的版本。</p>
+<pre><code class="language-shell">app [options] args...        # 启动默认版本
+</code></pre>
+<p>如果要启动其他版本，使用<code>cs launch</code>命令。</p>
+<pre><code class="language-shell">cs launch &lt;app:version&gt; [cs_options] -- [app_args...] # app未经安装则直接从仓库源拉取
+# cs launch scala:2.12.15
+cs launch org.scalameta::scalafmt-cli:2.4.2
+   -M,--main-class                       # 如果指定的库找不到主类，可通过该选项指定
+   -java-opt -Dfoo=bar --java-opt -Xmx2g # 传递Java参数给应用
+</code></pre>
+<blockquote>
+<p>应用程序支持接收<a href="JAVA%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80.html#Java%E7%B3%BB%E7%BB%9F%E5%B1%9E%E6%80%A7">Java运行时参数</a>，如<code>&quot;-J-Xmx2g&quot;</code>；或通过环境变量设置，两种可混合使用。</p>
+<pre><code class="language-shell">export JAVA_OPTS=&quot;-Xmx2g -Dfoo=bar&quot;
+</code></pre>
+</blockquote>
+<p><code>bootstrap</code>将从指定的依赖库构造可执行的应用程序文件。</p>
+<pre><code class="language-shell">cs bootstrap org.scalameta::scalafmt-cli:2.4.2 -o scalafmt
+</code></pre>
+<blockquote>
+<p><a href="https://get-coursier.io/docs/cli-bootstrap">bootstrap · Coursier (get-coursier.io)</a></p>
+</blockquote>
+<h5 id="配置应用程序通道"><a class="header" href="#配置应用程序通道">配置应用程序通道</a></h5>
+<p>默认使用主通道，即<code>io.get-coursier:apps</code>。</p>
+<pre><code class="language-shell">cs install --contrib app  # io.get-coursier:apps-contrib*
+           --channel &lt;custom-channel&gt;
+</code></pre>
+<blockquote>
+<p><code>*</code>：<code>app</code>和<code>io.get-coursier:apps-contrib</code>是官方维护的仓库通道。</p>
+</blockquote>
+<h4 id="管理maven依赖项"><a class="header" href="#管理maven依赖项">管理Maven依赖项</a></h4>
+<h5 id="解析依赖项"><a class="header" href="#解析依赖项">解析依赖项</a></h5>
+<pre><code class="language-shell">cs resolve io.circe::circe-generic:0.12.3
+</code></pre>
+<h5 id="下载依赖项"><a class="header" href="#下载依赖项">下载依赖项</a></h5>
+<pre><code class="language-shell">cs fetch io.circe::circe-generic:0.12.3
+         --classpath    # 输出依赖包的CLASSPATH,而不是仅列出下载路径
+         --source       # 下载源码包而非标准包
+         --javadoc      # 下载文档而非标准包
+         --default=true # 同时下载标准包
+</code></pre>
+<h5 id="scala依赖库和应用程序"><a class="header" href="#scala依赖库和应用程序">Scala依赖库和应用程序</a></h5>
+<ol>
+<li>
+<p><a href="https://github.com/lauris/awesome-scala">lauris/awesome-scala: A community driven list of useful Scala libraries, frameworks and software. (github.com)</a></p>
+</li>
+<li>
+<p><a href="https://index.scala-lang.org/">Scaladex (scala-lang.org)</a></p>
+</li>
+</ol>
+<h3 id="命令行工具"><a class="header" href="#命令行工具">命令行工具</a></h3>
+<h4 id="编译工具"><a class="header" href="#编译工具">编译工具</a></h4>
+<pre><code class="language-shell">sbt     # 进入sbt交互环境
+[~]run  # 使用&quot;~&quot;可在文件发生更改时自动重新执行, 输入exit退出
+sbt run # 直接编译运行
+</code></pre>
+<h3 id="集成开发环境"><a class="header" href="#集成开发环境">集成开发环境</a></h3>
+<p>集成开发环境可使用<a href="https://www.jetbrains.com/help/idea/managing-plugins.html">IntelliJ</a>或VSCode。</p>
+<h4 id="vscodemetals"><a class="header" href="#vscodemetals"><em>VSCode+Metals</em></a></h4>
+<h5 id="开发环境设置"><a class="header" href="#开发环境设置">开发环境设置</a></h5>
+<p>设置下Metals语言服务器依赖库的仓库源。</p>
+<pre><code class="language-json">{
+    &quot;metals.customRepositories&quot;: [
+        &quot;https://maven.aliyun.com/repository/central&quot;
+    ]
+}
+</code></pre>
+<h5 id="metal项目设置"><a class="header" href="#metal项目设置">Metal项目设置</a></h5>
+<p><code>bloop</code></p>
+<h2 id="scala3"><a class="header" href="#scala3">Scala3</a></h2>
+<h3 id="新特性"><a class="header" href="#新特性">新特性</a></h3>
+<h5 id="new-in-scala-3--scala-documentation-scala-langorg"><a class="header" href="#new-in-scala-3--scala-documentation-scala-langorg"><a href="https://docs.scala-lang.org/scala3/new-in-scala3.html">New in Scala 3 | Scala Documentation (scala-lang.org)</a></a></h5>
+<h2 id="参考资料"><a class="header" href="#参考资料">参考资料</a></h2>
+<div class="footnote-definition" id="scalabook"><sup class="footnote-definition-label">2</sup>
+<p><a href="https://docs.scala-lang.org/scala3/book/introduction.html">Introduction | Scala 3 — Book | Scala Documentation (scala-lang.org)</a>
+<sup class="footnote-reference"><a href="#scalaref">3</a></sup>: <a href="https://docs.scala-lang.org/scala3/reference/index.html">Scala 3 Reference (scala-lang.org)</a>
+<sup class="footnote-reference"><a href="#scalafeat">4</a></sup>: <a href="https://docs.scala-lang.org/scala3/book/scala-features.html">Scala 3 Features | Scala 3 — Book | Scala Documentation (scala-lang.org)</a></p>
+</div>
+<div class="footnote-definition" id="coursier"><sup class="footnote-definition-label">1</sup>
+<p><a href="https://get-coursier.io/docs/overview">Coursier is the Scala application and artifact manager</a>.</p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../Java/JAVA系统编程.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../Java/ScalaFrameworks.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../Java/JAVA系统编程.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../Java/ScalaFrameworks.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

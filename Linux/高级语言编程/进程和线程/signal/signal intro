@@ -1,0 +1,354 @@
+						信号 —— signal
+简介
+	信号机制是进程之间相互传递消息的一种方法，信号全称为软中断信号。Linux
+同时提供POSIX可靠信号（之后称为“标准信号”）以及POSIX实时信号。
+
+信号处理方式
+	每个信号都有一个信号处理方式，由此决定了当一个进程收到一个信号时将做出
+何种动作。
+	下表给出了每个信号的默认处理方式：
+	Term	终止进程
+	Ign		忽略信号
+	Core	终止进程以及dump core
+	Stop	停止进程
+	Cont	如果当前进程处于停止状态，则继续执行进程
+	进程可以使用sigaction()或signal()改变信号的处理方式。（当要建立信号
+处理程序时，后者的可移植性较差）使用这些系统调用，则在信号到达时，进程
+可以选择以下几种方式：
+	* 执行默认处理方式；
+	* 忽略信号；
+	* 使用信号处理程序捕获信号，用户定义的函数将被调用。
+	信号处理方式是进程内部属性：在多线程程序中，一个信号的处理方式在每个
+线程中都一样。通过fork()创建的子进程继承了父进程的信号处理方式。当执行
+execve()时，被设置了处理程序的信号的处理方式被重置为默认方式，而忽略处理
+的信号处理方式不改变。
+
+发送信号
+	以下系统调用和库函数允许调用者发送信号：
+	kill()			向指定的进程，指定的进程组的所有成员，向系统的所有进程发送
+							信号
+	killpg()		向指定的进程组发送信号
+	pthread_kill()	向调用进程中指定的POSIX线程发送信号
+	tgkill()		向指定进程的指定线程发送信号（用于实现pthread_kill()）
+	raise()			向调用进程发送一个信号；
+	sigqueue()	向指定的进程发送实时信号以及附带的数据
+
+等待捕获信号
+	下列系统调用使正在执行的进程或线程暂停执行直到捕获信号（或未处理的信号终止进程）：
+	pause()			暂停执行直至捕获到任何信号
+	sigsuspend()	暂时改变signal mask，暂停进程（或线程）的执行直到一个未被屏蔽的信号被捕获
+
+同步接收一个信号
+	不通过信号处理程序来异步接收一个信号，也可以同步接收信号，即阻塞进程或线程的执行直到接收到信号。当接收到信号，系统内核返回给调用者该信号的信息。有两中方式来完成操作：
+	sigwaitinfo(),sigtimedwait()和sigwait() 使进程阻塞，直到指定集合中的一个信号被收到，每个调用都返回收到信号的信息。
+	signalfd()返回一个文件描述符，该描述符可以用于读取接收到信号的信息。每个对该描述符执行的read()调用都会阻塞直到收到由signalfd()指定的集合中的信号，read()返回的缓冲区包含了一个描述信息的结构体。
+	
+信号屏蔽和Pending Signal
+	当信号处于被生成和被发送到目标之间，信号所处状态被称为挂起状态
+（pending）。一个信号可以被阻塞，即使该信号继续保持挂起状态，直到目标进程
+解除对该信号的阻塞。
+	sigset_t是用于存储信号的集合，被定义为：
+	#define _SIGSET_NWORDS	(1024 / (8 * sizeof (unsigned long int)))
+	typedef struct{
+    	unsigned long int __val[_SIGSET_NWORDS];
+  	}
+	该结构一共是1024bit，每个信号占用一个比特，代表是否被屏蔽。
+	通常与以下函数配合使用：
+	int sigemptyset(sigset_t *set);
+	初始化信号集合，将集合置为空，将所有信号排除出集合。
+	int sigfillset(sigset_t *set);
+	将集合填满，即包含所有信号；
+	int sigaddset(sigset_t *set, int signum);
+	int sigdelset(sigset_t *set, int signum);
+	向集合添加或删除指定的信号。
+	int sigismember(const sigset_t *set, int signum);
+	测试一个信号是否包含在一个集合中。
+
+	进程中的每个线程都有独立的信号屏蔽策略，用于指示线程当前所要阻塞的信号的集合。线程可以使用pthread_sigmask()来管理其信号屏蔽策略。在传统的单线程程序中，sigprocmask()来管理。
+	int pthread_sigmask(int how, const sigset_t *set, sigset_t *oldset);
+	int sigprocmask(int how, const sigset_t *set, sigset_t *oldset);
+	该函数用于获取或修改调用线程的信号屏蔽集合。成功返回0，失败返回-1。该函数调用的行为取决与参数how，如下所示：
+	SIG_BLOCK	阻塞信号集合是当前集合以及参数set的并集。
+	SIG_UNBLOCK	从当前集合中移除set参数指定的集合，允许对未阻塞的信号解除阻塞。
+	SIG_SETMASK	将set作为屏蔽集合。
+	不能够设置阻塞SIGKILL，SIGSTOP，尝试这样做将会被忽略掉。
+	如果set为NULL，则信号屏蔽集合不发生改变，但是当前集合无论怎样都将通过oldset返回。如果oldset不为NULL，则先前的信号掩码存储到oldset中。
+	在多线程中,sigprocmask()的行为不确定。
+	
+	一个信号可能是为整个进程生成的（and thus pending）（当使用kill()发送信号时），或者只为一个指定的线程生成（某些信号如SIGSEGV和SIGFPE，使用pthread_kill()发送指向线程的信号）。一个指向进程的信号可能会被发送至进程中任意一个线程，只要该线程没有阻塞该信号。如果有多于一个线程没有阻塞该信号，则内核将选择任意的一个线程接收该信号。
+	一个线程可以通过调用sigpending()获得现在正处于pending状态的信号。该集合由发向进程的信号集合的组合以及发向调用线程的信号的集合构成。
+	由fork创建的子线程初始只有一个空的pending signal集合，经过执行execve()该集合仍然保留。
+	
+标准信号
+	Linux支持以下列表所列举的标准信号。某些信号的编号是architecture-dependent的，在value一栏中表示。（给出了三个值的地方，第一个对于alpha和sparc是有效的，第二个用于ix86，ia64，ppc，s390，arm和sh，最后一个用于mips。“-”表示该信号在该平台上没有。）
+	POSIX.1-1990标准中描述的信号：
+       Signal     Value     Action   Comment
+    ──────────────────────────────────────────────────────────────────────
+       SIGHUP        1       Term    Hangup detected on controlling terminal
+                                     or death of controlling process
+       SIGINT        2       Term    Interrupt from keyboard
+       SIGQUIT       3       Core    Quit from keyboard
+       SIGILL        4       Core    Illegal Instruction
+       SIGABRT       6       Core    Abort signal from abort(3)
+       SIGFPE        8       Core    Floating point exception
+       SIGKILL       9       Term    Kill signal
+       SIGSEGV      11       Core    Invalid memory reference
+       SIGPIPE      13       Term    Broken pipe: write to pipe with no
+                                     readers
+       SIGALRM      14       Term    Timer signal from alarm(2)
+       SIGTERM      15       Term    Termination signal
+       SIGUSR1   30,10,16    Term    User-defined signal 1
+       SIGUSR2   31,12,17    Term    User-defined signal 2
+       SIGCHLD   20,17,18    Ign     Child stopped or terminated
+       SIGCONT   19,18,25    Cont    Continue if stopped
+       SIGSTOP   17,19,23    Stop    Stop process
+       SIGTSTP   18,20,24    Stop    Stop typed at tty
+       SIGTTIN   21,21,26    Stop    tty input for background process
+       SIGTTOU   22,22,27    Stop    tty output for background process
+	信号SIGKILL和SIGSTOP不能被捕获、阻塞和忽略。
+	未在POSIX.1-1990标准中，但在SUSv2和POSIX.1-2001中描述的信号：
+       Signal       Value     Action   Comment
+      ────────────────────────────────────────────────────────────────────
+       SIGBUS      10,7,10     Core    Bus error (bad memory access)
+       SIGPOLL                 Term    Pollable event (Sys V).
+                                       Synonym for SIGIO
+       SIGPROF     27,27,29    Term    Profiling timer expired
+       SIGSYS      12,31,12    Core    Bad argument to routine (SVr4)
+       SIGTRAP        5        Core    Trace/breakpoint trap
+       SIGURG      16,23,21    Ign     Urgent condition on socket (4.2BSD)
+       SIGVTALRM   26,26,28    Term    Virtual alarm clock (4.2BSD)
+       SIGXCPU     24,24,30    Core    CPU time limit exceeded (4.2BSD)
+       SIGXFSZ     25,25,31    Core    File size limit exceeded (4.2BSD)
+	直到Linux 2.2,SIGSYS,SIGXCPU,SIGXFSZ和（除了SPARC和MIPS）SIGBUS的默认动作是终止进程（没有core dump）。（在某些UNIX系统中SIGXCPU和SIGXFSZ的默认动作是不带code dump终止进程）Linux 2.4遵循了POSIX.1-2001对这些信号的要求，终止进程时带有code dump。
+	以下是其他信号。
+       Signal       Value     Action   Comment
+      ────────────────────────────────────────────────────────────────────
+       SIGIOT         6        Core    IOT trap. A synonym for SIGABRT
+       SIGEMT       7,-,7      Term
+       SIGSTKFLT    -,16,-     Term    Stack fault on coprocessor (unused)
+       SIGIO       23,29,22    Term    I/O now possible (4.2BSD)
+       SIGCLD       -,-,18     Ign     A synonym for SIGCHLD
+       SIGPWR      29,30,19    Term    Power failure (System V)
+       SIGINFO      29,-,-             A synonym for SIGPWR
+       SIGLOST      -,-,-      Term    File lock lost
+       SIGWINCH    28,28,20    Ign     Window resize signal (4.3BSD, Sun)
+       SIGUNUSED    -,31,-     Core    Synonymous with SIGSYS
+	（Signal 29 在alpha平台上是SIGINFO/SIGPWR，但在SPARC平台上是SIGLOST。）
+	SIGEMT 没有在POSIX.1-2001中声明，但是出现在大多数其他UNIX系统中，其默认的行为是带core dump的终止进程。
+	SIGPER（没有在POSIX.1-2001中声明）在其他UNIX系统上典型的动作是被忽略。
+	SIGIO（没有在POSIX.1-2001中声明）在其他UNIX系统中被忽略。
+	SIGUNUSED和SISYS在大多数架构中是同义的。
+	
+实时信号
+	Linux支持最初定义在POSIX.1b实时扩展（现在在POSIX.1-2001）中的实时信号。
+实时信号的范围在SIGRTMIN到SIGRTMAX之间。
+	POSIX.1-2002要求至少支持_POSIX_RTSIG_MAX()实时信号。
+	Linux内核支持32种实时信号，编号从33至64。但是glibc的POSIX线程实现在内部
+使用两（NPTL）或三（LinuxThreads）种实时信号，将SIGRTMIN的值做了调整
+（到34或35）。由于可用的实时信号的范围随glibc线程实现而变化，因此实时信号
+的范围在不同UNIX系统上是变化的，程序中不应该使用信号的硬编码值，而应该使
+用SIGRTMIN+n的记法，同时包含对SIGRTMIN+n是否超过SIGRTMAX的检查。
+	与标准信号不同，实时信号没有预定义的意义：整个实时信号集合都可以由程序来定义用途。
+	一个未处理的实时信号的默认动作是终止接收进程。
+	实时信号的不同之处：
+	1.实时信号的多个实例可以加入队列缓存。与之相反，如果标准信号的多个实例要被传输，但信号被阻塞，则最终只有一个实例被加入队列。
+	2.如果该信号使用sigqueue()发送，则可以随信号发送一个附带的值。如果接受进程在调用sigaction()时使用SA_SIGINFO标志来建立事件处理程序，那么该进程可以通过传递给事件处理程序的第二个参数siginfo_t的si_value成员获得该附带的值。另外si_pid和si_uid字段可以获得发送信号进程的PID和用户ID。
+	3.实时信号以确定的顺序传送。同一类型的信号实例的传送顺序取决于它们的发送顺序。如果不同的信号发送到一个进层，则编号小的信号先传递（编号小的信号具有高优先级）。反之，多个标准信号要传递给同一进层，发送的顺序是不确定的。
+	如果标准信号和实时信号都要传递给一个进程，POSIX标准未规定传输的顺序。Linux等的实现方式是，标准信号的优先级高于实时信号。
+	根据POSIX，一个实现至少要允许_POSIX_SIGQUEUE_MAX（）个实时信号能被放在发送到一个进程的队列中。但是，Linux则不同。直到内核2.6.7，linux对置于队列中发送给所有进程的实时信号的数目，做了系统范围的限制。该限制可以在/proc/sys/kernel/rtsig-max中查看和修改（如果有权限），另一个相关的文件/proc/sys/kernel/rtsig-nr可以用语找出当前有多少实时信号在队列中。在Linux 2.6.8中，/proc接口被RLIMIT_SIGPENDING资源限制所替代，RLIMIT_SIGPENDING指定为每个用户指定了一个入队列信号的限制。
+	
+异步信号安全函数
+	一个信号处理函数必须非常仔细，因为程序执行可能会在任何点上被中断执行。POSIX有“安全函数”的概念。信号处理程序调用了不安全的函数，而一个信号中断了
+这个不安全的函数的执行，则程序的行为将不确定。
+	POSIX.1-2004要求保证以下函数能在信号处理程序中被安全地调用：
+           _Exit()
+           _exit()
+           abort()
+           accept()
+           access()
+           aio_error()
+           aio_return()
+           aio_suspend()
+           alarm()
+           bind()
+           cfgetispeed()
+           cfgetospeed()
+           cfsetispeed()
+           cfsetospeed()
+           chdir()
+           chmod()
+           chown()
+           clock_gettime()
+           close()
+           connect()
+           creat()
+           dup()
+					 dup2()
+           execle()
+           execve()
+           fchmod()
+           fchown()
+           fcntl()
+           fdatasync()
+           fork()
+           fpathconf()
+           fstat()
+           fsync()
+           ftruncate()
+           getegid()
+           geteuid()
+           getgid()
+           getgroups()
+           getpeername()
+           getpgrp()
+           getpid()
+           getppid()
+           getsockname()
+           getsockopt()
+           getuid()
+           kill()
+           link()
+           listen()
+           lseek()
+           lstat()
+           mkdir()
+           mkfifo()
+           open()
+           pathconf()
+           pause()
+           pipe()
+           poll()
+           posix_trace_event()
+					 pselect()
+           raise()
+           read()
+           readlink()
+           recv()
+           recvfrom()
+           recvmsg()
+           rename()
+           rmdir()
+           select()
+           sem_post()
+           send()
+           sendmsg()
+           sendto()
+           setgid()
+           setpgid()
+           setsid()
+           setsockopt()
+           setuid()
+           shutdown()
+           sigaction()
+           sigaddset()
+           sigdelset()
+           sigemptyset()
+           sigfillset()
+           sigismember()
+           signal()
+           sigpause()
+           sigpending()
+           sigprocmask()
+           sigqueue()
+           sigset()
+           sigsuspend()
+           sleep()
+           sockatmark()
+           socket()
+					 socketpair()
+           stat()
+           symlink()
+           sysconf()
+           tcdrain()
+           tcflow()
+           tcflush()
+           tcgetattr()
+           tcgetpgrp()
+           tcsendbreak()
+           tcsetattr()
+           tcsetpgrp()
+           time()
+           timer_getoverrun()
+           timer_gettime()
+           timer_settime()
+           times()
+           umask()
+           uname()
+           unlink()
+           utime()
+           wait()
+           waitpid()
+           write()
+	POSIX.1-2008移除了fpathconf(),pathconf()和sysconf（），并增加了以下
+函数：
+           execl()
+           execv()
+           faccessat()
+           fchmodat()
+           fchownat()
+           fexecve()
+           fstatat()
+           futimens()
+           linkat()
+           mkdirat()
+           mkfifoat()
+           mknod()
+           mknodat()
+           openat()
+           readlinkat()
+           renameat()
+           symlinkat()
+           unlinkat()
+           utimensat()
+           utimes()
+
+信号处理程序中断系统调用和库函数
+	只有阻塞的系统调用可以被中断，阻塞意味着调用正在等待某些不可预知来临
+时间的事件。如果一个系统调用或库函数调用被阻塞，而此时信号处理程序被触发，
+那么：
+	当信号处理程序返回后系统调用自动重新启动，
+	或系统调用失败并返回错误号EINTR。
+	以上两种情况的发生取决于接口和信号处理程序是否使用SA_RESTART标识创建。
+各UNIX系统的情况变化比较大，以下是Linux系统的处理方式：
+	如果以下阻塞调用被信号处理程序中断，如果使用了SA_RESTART标识，则调用会
+在信号处理函数返回后重新启动，否则函数调用失败并返回错误号EINTR。
+	read(),readv(),write(),writev()和ioctl()调用慢速设备。一个慢速设备是
+指I/O调用会阻塞一段不确定的时间，例如，终端、管道、套接字。（根据该定义，
+磁盘不属于慢速设备。）如果一个在慢速设备上的I/O调用在被信号处理函数中断时
+已经传输了一些数据，则该调用会返回成功状态（通常是成功传输的字节数）。
+	open()（如果可能发生阻塞。）
+	wait(),wait3(),wait4(),waitid(),waitpid()
+	套接字接口：accept(),connect(),recv(),recvfrom(),recvmsg(),send(),sendto(),aendmsg(),除非在套接字上设置了超时。
+	文件加锁接口：flock(),fcntl() F_SETLKW
+	POSIX消息队列接口：mq_receive(),mq_timedreceive(),
+mq_send(),mqtimedsend()
+	futex()
+	POSIX信号量接口：sem_swit()和sem_timedwait()。
+	以下接口无论是否使用了SA_RESTART标识，在中断后不会重新启动。被中断后总
+是返回错误号EINTR：
+	套接字接口，当使用setsockopt()设置了超时后。accept(),recv(),
+recvfrom()和recvmsg()设置了接收超时；connect(),send(),sendto()和
+sendmsg()设置了发送超时。
+	等待信号接口：pause(),sigsuspend(),sigtimedwait()和sigwaitinfo()
+	文件描述符复用接口：epoll_wait(),epoll_pwait(),poll(),ppoll(),
+select()和pselect()
+	SystemV IPC接口：msgrcv(),msgsend(),semop()和semtimedop()。
+	睡眠接口：clock_nanosleep(),nanosleep(),usleep()。
+	read() from an inotify() file descriptor.
+	io_getevents()
+	sleep()函数也不会在中断后重新启动，但是会返回成功：睡眠的剩余秒数。
+	并非所有阻塞的系统调用都能被中断，例如pthread_mutex_lock，它甚至在信号
+到达及其处理程序返回后仍继续等待。
+
+Stop信号中断系统调用和库函数调用
+	在Linux中，即使没有信号处理程序，当进程被收到的停止信号所停止，通过SIGCONT再恢复执行，某些阻塞接口还是会返回EINTR。该行为并不是POSIX.1的规定，也不出现在其他系统中。
+	具有这种行为的Linux接口函数：
+	接字接口，当使用setsockopt()设置了超时后。
+	epoll_wait(),epoll_pwait()
+	semop()和semtimedop()
+	sigtimedwait()和sigwaitinfo()
+	read() from an inotify() file descriptor.
+	(Linux 2.6.21以及之前)msgrecv(),msgsnd()。
+	(Linux 2.4之前)nanosleep。
+
+	

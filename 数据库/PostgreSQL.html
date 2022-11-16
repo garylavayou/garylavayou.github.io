@@ -1,0 +1,439 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>PostgreSQL - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html" class="active">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="postgresql"><a class="header" href="#postgresql">PostgreSQL</a></h1>
+<h2 id="安装"><a class="header" href="#安装">安装</a></h2>
+<h5 id="ubuntu"><a class="header" href="#ubuntu">Ubuntu</a></h5>
+<pre><code class="language-shell">sudo apt install postgresql postgresql-client
+</code></pre>
+<h5 id="centos"><a class="header" href="#centos">CentOS</a></h5>
+<pre><code class="language-shell">wget https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+yum install -y ./pgdg-redhat-repo-latest.noarch.rpm
+yum install -y postgresql12-server  # or postgresql-server
+</code></pre>
+<h5 id="docker"><a class="header" href="#docker">docker</a></h5>
+<pre><code class="language-yaml">version: &quot;3.1&quot;
+services:
+  db_postgres:
+    image: postgres:12
+    container_name: postgresql-server
+    environment:
+      - &quot;POSTGRES_PASSWORD=gang2019&quot;
+      # POSTGRES_PASSWORD_FILE=/run/secrets/postgres-passwd
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - pginit:/docker-entrypoint-initdb.d   # contains init-user-db.sh
+    ports:
+      - 5432:5432
+volumes: 
+  pgdata:
+    driver: local
+  pginit:
+    driver: local
+</code></pre>
+<blockquote>
+<p>可以和<code>adminer</code><a href="MySQL.html#%E4%BD%BF%E7%94%A8Docker%E5%AE%B9%E5%99%A8">部署</a>在同一集群，从而方便数据库管理。</p>
+</blockquote>
+<p><a href="https://www.postgresql.org/support/versioning/">PostgreSQL: Versioning Policy</a></p>
+<h3 id="配置"><a class="header" href="#配置">配置</a></h3>
+<h4 id="远程访问"><a class="header" href="#远程访问">远程访问</a></h4>
+<p>设置访问地址和端口（默认监听<code>localhost</code>）：</p>
+<pre><code class="language-shell"># edit: /var/lib/pgsql/12/data/postgresql.conf
+listen_addresses = '*'  # listen to all address
+port = 5432     
+</code></pre>
+<h5 id="网络访问规则"><a class="header" href="#网络访问规则">网络访问规则</a></h5>
+<p>用户访问时规则从上到下匹配，匹配到规则后按相应规则校验是否能访问数据库，不再使用后续规则。因此，匹配范围大的规则通常放在靠后位置。</p>
+<pre><code class="language-shell"># edit: /var/lib/pgsql/12/data/pg_hba.conf
+# IPv4 local connections:
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+  host    all           gary            0.0.0.0/0               md5  #*
+  host    all           all             127.0.0.1/32            ident
+</code></pre>
+<blockquote>
+<p><code>*</code>：密码认证方法，可使用<code>md5</code>或<code>scram-sha-256</code>（推荐）。对于已有用户切换密码验证方法，参考：<a href="https://www.modb.pro/db/40292">PostgreSQL中使用scram-sha-256认证 - 墨天轮 (modb.pro)</a>。</p>
+</blockquote>
+<p>设置防火墙规则：</p>
+<pre><code class="language-shell">sudo firewall-cmd --add-service=postgresql --permanent
+</code></pre>
+<h4 id="数据存储位置"><a class="header" href="#数据存储位置">数据存储位置</a></h4>
+<p>新的数据存储位置的所有者需要是数据库服务进程的用户（<code>postgres</code>），同时访问权限应该为<code>700/750</code>（即不能包含others访问权限）。如果已经经过初始化，则需要将原数据存储目录下的内容复制到新目录下（<code>cp -ra</code>）。</p>
+<h3 id="启动服务"><a class="header" href="#启动服务">启动服务</a></h3>
+<p>==初始化数据库==（CentOS）：</p>
+<pre><code class="language-shell">sudo /usr/pgsql-12/bin/postgresql-12-setup initdb  # or postgresql-setup initdb
+</code></pre>
+<p>启动数据库：</p>
+<pre><code class="language-shell">sudo service postgresql start  # =&gt; WSL2
+sudo systemctl enable --now postgresql-12
+</code></pre>
+<p>服务的日志数据位于：<code>/var/lib/pgsql/data/log/</code>。</p>
+<h2 id="命令行工具"><a class="header" href="#命令行工具">命令行工具</a></h2>
+<h3 id="访问数据库"><a class="header" href="#访问数据库">访问数据库</a></h3>
+<p>安装完毕后，会在系统中创建一个超级用户<code>postgres</code>（密码为空）。使用该用户管理据库。</p>
+<pre><code class="language-shell">sudo -i -u postgres
+</code></pre>
+<pre><code class="language-shell">psql \
+    -h,--host=PGHOST \    # 服务器地址或UNIX套接字地址：/var/run/postgresql*
+    -p,--port=PGPORT \    # 端口：5432
+    -U,--username=NAME \  # 用户名：postgres，使用相应地系统账号登录
+    -w,--no-password \    # 不提供密码
+    -W,--password \       # 输入密码提示
+    [dbname]              # 默认：与用户名同名的数据库
+</code></pre>
+<blockquote>
+<p><code>*</code>：如果未指定主机IP地址，则默认连接本地套接字地址。</p>
+</blockquote>
+<p>查看数据库服务版本：</p>
+<pre><code class="language-sql">SELECT version();
+</code></pre>
+<p>使用<code>\q</code>退出数据库终端。</p>
+<p><a href="https://stackoverflow.com/a/12721020/6571140">Peer authentication and password authentication.</a></p>
+<p>本地账号默认使用<code>peer</code>方式登录，即使用当前系统用户的身份凭据作为数据库的身份凭据。如果要在当前系统用户登录其他账户，应该采用密码认证模式，将认证方式从<code>peer</code>改为<code>md5</code>。针对默认账户<code>postgres</code>，首先使用<code>peer</code>模式登录系统后为其设置密码<code>\password postgres</code>。</p>
+<pre><code class="language-shell"># edit: /etc/postgresql/12/main/pg_hba.conf
+# TYPE  DATABASE   USER      ADDRESS  METHOD
+  local   all      postgres            md5
+</code></pre>
+<blockquote>
+<p><code>local</code>代表UNIX域套接字。</p>
+</blockquote>
+<h5 id="导入导出数据"><a class="header" href="#导入导出数据">导入导出数据</a></h5>
+<pre><code class="language-shell">pg_dump -h src_host -U src_user src_db &gt; table-to-copy.sql
+        -f,--filename=FILENAME  # 代替重定向命令输出
+        -a,--data-only          # 仅导出数据(不包含模式)
+        -s,--schema-only        # 仅导出表结构定义
+        -C,--create             # 包含创建数据库的命令
+        -n,--schema=SCHEMA      # 只导出指定名称的模式
+        -N,--exclude-schema=SCHEMA # 不导出指定名称的模式
+        -t,--table=TABLE        # 仅导出指定名称的表
+        
+psql -h dst_host -U dst_user -d dst_db -f table-to-copy.sql
+</code></pre>
+<blockquote>
+<p>可多次使用<code>-t</code>选项一次性导出多个表。</p>
+</blockquote>
+<h3 id="用户管理"><a class="header" href="#用户管理">用户管理</a></h3>
+<p>命令行模式：</p>
+<pre><code class="language-shell">createuser -h localhost USERNAME -P  # 最后需要输入postgres的密码*
+</code></pre>
+<blockquote>
+<p><code>*</code>：如果使用密码登录，则需在数据库访问规则中添加<a href="#%E7%BD%91%E7%BB%9C%E8%AE%BF%E9%97%AE%E8%A7%84%E5%88%99">密码访问规则</a>（<code>md5</code>）。</p>
+</blockquote>
+<p>显示用户信息：</p>
+<pre><code class="language-sql">\du -- lists all user
+</code></pre>
+<h4 id="授权"><a class="header" href="#授权">授权</a></h4>
+<p>使用管理员账户登录为用户授权。</p>
+<p>授权数据库访问权限：</p>
+<pre><code class="language-sql">GRANT CREATE ON DATABASE database_name TO [GROUP] role_name;
+</code></pre>
+<p>权限声明包括：<code>CREATE,CONNECT,TEMPORARY,TEMP</code>或全部权限<code>ALL [PRIVILEGES]</code>。</p>
+<p>授权表的访问权限：</p>
+<pre><code class="language-sql">\c DB_NAME  # use ngsoc
+GRANT SELECT ON TABLE table_name TO [GROUP] role_name;
+GRANT ... ON ALL TABLES IN SCHEMA schema_name TO [GROUP] role_name;
+</code></pre>
+<p>权限声明包括一个或多个：<code>SELECT,INSERT,UPDATE,DELETE,TRUNCATE,REFERENCES,TRIGGER</code>或使用<code>ALL</code>表示所有权限。</p>
+<p><a href="https://www.postgresql.org/docs/9.0/sql-grant.html">PostgreSQL: Documentation: 9.0: GRANT</a></p>
+<h3 id="执行sql脚本"><a class="header" href="#执行sql脚本">执行SQL脚本</a></h3>
+<pre><code class="language-shell">psql obejctrocket [options] -d db_name -f test.sql
+</code></pre>
+<p>在交互式环境下执行SQL脚本：</p>
+<pre><code class="language-postgresql">\c db_name
+\i /path/TO/file_name.sql
+</code></pre>
+<h2 id="数据库管理命令"><a class="header" href="#数据库管理命令">数据库管理命令</a></h2>
+<h3 id="database管理"><a class="header" href="#database管理">Database管理</a></h3>
+<pre><code class="language-sql">\l               -- list databases
+\c db_name       -- use database
+select * from pg_catalog.pg_collation;               -- show collation
+</code></pre>
+<blockquote>
+<p><em>Basically, <a href="https://www.postgresql.org/docs/9.1/static/information-schema.html">information schema is a set of views of pg_catalog</a>.</em></p>
+</blockquote>
+<p>PostgreSQL supports the standard SQL types <code>int</code>, <code>smallint</code>, <code>real</code>, <code>double precision,</code> <code>char(N)</code>, <code>varchar(N)</code>, <code>date</code>, <code>time</code>, <code>timestamp</code>, and <code>interval</code>, as well as other types of general utility and a rich set of geometric types. PostgreSQL can be customized with an arbitrary number of user-defined data types. </p>
+<p>Constants that are not simple numeric values usually must be surrounded by single quotes (').</p>
+<h4 id="创建database"><a class="header" href="#创建database">创建database</a></h4>
+<p>使用<a href="SQL%20DDL.html#%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93">SQL语句</a>创建数据库。或使用数据库命令行工具，创建：</p>
+<pre><code class="language-shell">createdb mydb  # &lt;-&gt; CREATE DATABASE mydb
+</code></pre>
+<h4 id="删除database"><a class="header" href="#删除database">删除database</a></h4>
+<pre><code class="language-shell">dropdb mydb    # DROP DATABASE mydb
+</code></pre>
+<h3 id="schema管理"><a class="header" href="#schema管理">Schema管理</a></h3>
+<h4 id="获取命名空间信息"><a class="header" href="#获取命名空间信息">获取命名空间信息</a></h4>
+<p>命名空间（schema）是一个数据库所包含数据表的逻辑分组。</p>
+<pre><code class="language-postgresql">SELECT catalog_name,schema_name,schema_owner
+  FROM information_schema.schemata;
+SELECT nspname,nsponwer,nspacl FROM pg_catalog.pg_namespace;
+</code></pre>
+<blockquote>
+<p><code>schema_name</code>和<code>nspname</code>是一一对应的。</p>
+</blockquote>
+<h4 id="创建schema"><a class="header" href="#创建schema">创建Schema</a></h4>
+<pre><code class="language-mysql">CREATE SCHEMA [IF NOT EXISTS] schema_name [AUTHORIZATION user_name] 
+    [schema_element [...]];
+DROP SCHEMA schema_name;
+</code></pre>
+<p><em><code>schema_name</code>：defaults to <code>user_name</code>.</em> </p>
+<p><code>user_name</code>：the new schema's owner, defaults to the current user.</p>
+<p><code>schema_element</code>：Schema中需要创建的内容（包括<code>TABLE, VIEW, INDEX, GRANT</code>等），也可在创建Schema之后创建内容。</p>
+<h4 id="切换schema"><a class="header" href="#切换schema">切换Schema</a></h4>
+<pre><code class="language-postgresql">set search_path to schema_name;
+</code></pre>
+<h3 id="table管理"><a class="header" href="#table管理">Table管理</a></h3>
+<h4 id="获取数据表"><a class="header" href="#获取数据表">获取数据表</a></h4>
+<p><code>pgsql</code>命令：</p>
+<pre><code class="language-postgresql">\d[+]            -- show tables [and schema]
+-- Schema |      Name      |       Type        |  Owner
+-- -------+----------------+-------------------+----------
+-- public | pokemon        | partitioned table | postgres
+-- public | pokemon_gen_01 | table             | postgres
+\dn -- show user created schema
+</code></pre>
+<p>SQL语句：</p>
+<pre><code class="language-sql">SELECT schemaname,tablename,tableowner,* 
+  FROM pg_catalog.pg_tables
+  WHERE schemaname != 'pg_catalog' 
+    AND schemaname != 'information_schema';
+SELECT table_schema,table_name
+  FROM information_schema.tables
+  WHERE table_schema = 'public';
+</code></pre>
+<h4 id="获取数据表详细信息"><a class="header" href="#获取数据表详细信息">获取数据表详细信息</a></h4>
+<p><code>pgsql</code>命令：</p>
+<pre><code class="language-postgresql">\d[+] table_name -- -&gt; DESC table: '+'显示更多列和分区定义
+</code></pre>
+<p>SQL语句：</p>
+<pre><code class="language-sql">SELECT column_name,data_type 
+  FROM information_schema.columns
+  WHERE table_schema = 'table_name';
+</code></pre>
+<h4 id="创建数据表"><a class="header" href="#创建数据表"><a href="SQL%20DDL.html#%E5%88%9B%E5%BB%BA%E8%A1%A8%E6%A0%BC">创建数据表</a></a></h4>
+<p>If a schema name is given (for example, <code>CREATE TABLE myschema.mytable ...</code>) then the table is created in the specified schema. Otherwise it is created in the current schema. Temporary tables exist in a special schema, so a schema name cannot be given when creating a temporary table. The name of the table must be distinct from the name of any other table, sequence, index, view, or foreign table in the same schema.</p>
+<h5 id="复制数据表"><a class="header" href="#复制数据表"><a href="SQL%20DDL.html#%E6%A0%B9%E6%8D%AE%E5%85%B6%E4%BB%96%E8%A1%A8%E6%A0%BC%E5%88%9B%E5%BB%BA">复制数据表</a></a></h5>
+<h5 id="跨数据库复制数据表"><a class="header" href="#跨数据库复制数据表">跨数据库复制数据表</a></h5>
+<p>不支持直接跨数据库复制表格，需要首先将数据<a href="#%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA%E6%95%B0%E6%8D%AE">从一个数据库导出，再导入另一个数据库</a>。</p>
+<h4 id="修改表格"><a class="header" href="#修改表格">修改表格</a></h4>
+<pre><code class="language-mysql">ALTER TABLE [IF EXISTS] name RENAME TO new_name
+ALTER TABLE [IF EXISTS] name SET SCHEMA new_schema
+ALTER TABLE [IF EXISTS] name RENAME [COLUMN] column_name TO new_column_name
+</code></pre>
+<h4 id="数据表分区"><a class="header" href="#数据表分区">数据表分区</a></h4>
+<blockquote>
+<p><em>The partitioned table itself is a “virtual” table having no storage of its own. Instead, the storage belongs to partitions, which are otherwise-ordinary tables associated with the partitioned table. Each partition stores a subset of the data as defined by its partition bounds. All rows inserted into a partitioned table will be routed to the appropriate one of the partitions based on the values of the partition key column(s). Updating the partition key of a row will cause it to be moved into a different partition if it no longer satisfies the partition bounds of its original partition.</em></p>
+</blockquote>
+<p>分区引用的列使用<code>PARTITION BY</code>声明。</p>
+<pre><code class="language-mysql">CREATE TABLE table_name (column1 data_type, column2 data_type, …)     
+  PARTITION BY RANGE(col_name1,...);
+CREATE TABLE table_part_xx PARTITION OF table_name
+  FOR VALUES FROM ('2006-02-01') TO ('2006-03-01');
+</code></pre>
+<blockquote>
+<p>每个分区被存储为一个目录。</p>
+</blockquote>
+<pre><code class="language-mysql">INSERT INTO TABLE table_name 
+  PARTITION (partition1='partition1_val', partition2='partition2_val', ...)
+  VALUES (col1_val, col2_val, …, partition1_val, partition2_val, …);
+</code></pre>
+<p>必须在创建时定义分区，创建分区表后，仅能添加或移除分区。</p>
+<pre><code class="language-mysql">ALTER TABLE [ IF EXISTS ] name
+    ATTACH PARTITION partition_name { FOR VALUES partition_bound_spec | DEFAULT }
+ALTER TABLE [IF EXISTS] name DETACH PARTITION partition_name
+</code></pre>
+<p>不支持分区和分解和合并，可以将相关分区先移出父表，再修改分区定义，并将移出的子表格数据写回父表。</p>
+<h2 id="数据类型"><a class="header" href="#数据类型">数据类型</a></h2>
+<p><a href="https://www.runoob.com/postgresql/postgresql-data-type.html">PostgreSQL 数据类型 | 菜鸟教程 (runoob.com)</a></p>
+<h2 id="继承"><a class="header" href="#继承">继承</a></h2>
+<pre><code class="language-sql">CREATE TABLE cities (
+ name text,
+ population real,
+ elevation int -- (in ft)
+);
+CREATE TABLE capitals (
+ state char(2) UNIQUE NOT NULL
+) INHERITS (cities);   -- 继承表的定义并进行扩展
+</code></pre>
+<p><code>ONLY</code></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../数据库/MySQL.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../数据库/HiveSQL.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../数据库/MySQL.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../数据库/HiveSQL.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

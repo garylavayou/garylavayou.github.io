@@ -1,0 +1,494 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>数学函数 - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html" class="active">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="数学函数"><a class="header" href="#数学函数">数学函数</a></h1>
+<h2 id="基本数值计算"><a class="header" href="#基本数值计算">基本数值计算</a></h2>
+<pre><code class="language-c++">#include &lt;cmath&gt;
+double sqrt(double x)          // √x square root
+double pow(double a, double b) // a^b power
+double abs(double x)	       // |x| absolute value
+double sin(double x)           // sin(x) sine
+double cos(double x)           // cos(x) cosine
+double exp(double x)           // ex exponential
+double log(double x)           // log(x) logarithm
+double floor(double x)         // ⌊x⌋ next smaller integer
+double ceil(double x)          // ⌈x⌉ next larger integer
+double fmod(double x, double y)// remainder of x/y
+</code></pre>
+<h2 id="随机数"><a class="header" href="#随机数">随机数</a></h2>
+<h3 id="随机数生成器"><a class="header" href="#随机数生成器">随机数生成器</a></h3>
+<p>随机数生成器：<code>分布+发生器</code>。</p>
+<pre><code class="language-c++">#include &lt;random&gt;
+auto urng = std:mt19937{}; // Mersenne Twister
+urng.seed(1001);
+auto dist = std:uniform_int_distribution&lt;int&gt;{1,6};
+int x = dist(urng);  // 生成随机数
+dist = std:uniform_real_distribution&lt;float&gt;{1.0,6.0};
+</code></pre>
+<blockquote>
+<h3 id="rand-srand-rand_r"><a class="header" href="#rand-srand-rand_r">rand, srand, rand_r</a></h3>
+<pre><code class="language-c">#include &lt;stdlib.h&gt;
+int rand(void);
+void srand(unsigned int seed);
+int rand_r(unsigned int * seedp);
+</code></pre>
+<p><code>rand()</code>返回一个[0,<code>RAND_MAX</code>]之间的伪随机数。<code>RAND_MAX</code>的值可能是平台相关的，在Linux下<code>RAND_MAX=0x7FFFFFFF</code>，Windows下<code>RAND_MAX=0x7FFF</code>。<code>srand()</code>用于设置rand()产生随机数的种子。如果没有调用srand()函数，则默认的随机数种子为1。因为<code>rand()</code>使用隐藏的state来连续产生随机数，因此每次调用<code>rand()</code>获得的结果都是不相同，除非调用<code>srand()</code>重置了随机数种子，而<code>rand()</code>也不是线程安全的，同一进程的多个线程应该是共享同一个随机数state的。</p>
+<p><code>rand_r()</code>使用独立的变量（<code>seedp</code>指向的变量）存储随机数的状态。因此可以并发调用<code>rand_r()</code>，而互不影响各自序列的生成。但由于<code>seedp</code>所指变量只能提供很小的状态数，因此产生的序列的随机性可能较差。（<code>drand48_r</code>）</p>
+<blockquote>
+<p><code>rand()</code>使用的状态和<code>rand_r()</code>使用的状态是无关的。</p>
+</blockquote>
+<h3 id="random-srandominitstatesetstate"><a class="header" href="#random-srandominitstatesetstate">random, srandom,initstate,setstate</a></h3>
+<pre><code class="language-c">#include &lt;stdlib.h&gt;
+long int random(void);
+void srandom(unsigned int seed);
+char *initstate(unsigned int seed, char *state, size_t n);
+char *setstate(char *state);
+</code></pre>
+<p><code>random()</code>产生[0,<code>RAND_MAX</code>]之间的随机数，<code>random()</code>使用的随机数发生器的周期非常长。<code>srandom()</code>用于设置<code>random()</code>产生随机数的种子。相同的种子将产生相同的随机数（序列），默认的随机数种子是<code>1</code>。</p>
+<p><code>initstate()</code>用于初始化<code>random()</code>函数用于保存状态的空间。<code>state</code>是保存状态的数组的首地址，<code>n</code>则表示数组的长度，<code>n</code>越大，则保存的状态越复杂，产生的序列随机性也越好，<code>n</code>的取值至少应该为8，少于8字节的空间会导致函数调用错误，当前“最优的”取值包括8、32、64、128和256，其他值将会被缩小为之前述的几个值。<code>setstate()</code>用于改变<code>random()</code>所使用的保存状态的空间，<code>state</code>必须是经过<code>initstate()</code>初始化过的，或先前调用<code>setstate()</code>的返回值。如果调用成功，则<code>initstate()</code>和<code>setstate()</code>都返回先前使用的存储状态的空间的指针。如果失败，<code>setstate()</code>函数返回NULL。</p>
+<p>为了保证产生的结果互不影响，<code>random()</code>同样是不能用于多线程的。</p>
+<h3 id="reentrant-random-generator"><a class="header" href="#reentrant-random-generator">reentrant random generator</a></h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+int random_r(struct random_data * buf, int32_t *result);
+int srandom_r(unsigned int seed, struct random_data * buf);
+int initstate_r(unsigned int seed, char * statebuf,
+size_t statelen, struct random_data * buf);
+int setstate_r(char * statebuf, struct random_data * buf);
+</code></pre>
+<p>这些函数是适合于多线程程序使用的可再入的函数，可在多个线程中产生相同的随机序列。这些函数与1.2的区别在于，使用指定的<code>buf</code>存储随机数发生器的状态，而非存储在原来的一个全局变量中。</p>
+<p><code>random_r()</code>将生成的随机数通过参数result返回。所有函数在成功执行后返回0，否则返回-1。</p>
+<blockquote>
+<p><em>this functions are nonstandard glib extensions</em></p>
+</blockquote>
+</blockquote>
+<h2 id="算法"><a class="header" href="#算法">算法</a></h2>
+<h5 id="cs-standard-algorithms-are"><a class="header" href="#cs-standard-algorithms-are">C++'s Standard Algorithms are</a></h5>
+<ul>
+<li><strong>operating on (iterator) ranges</strong> of elements and implemented as free-standing functions: allows algorithms to be implemented independent from container types (<strong>generic</strong>).</li>
+<li>functions as parameters: many are <strong>customizable</strong> with function(object)s / lambdas</li>
+<li><strong>well-tested</strong> and <strong>efficient</strong></li>
+</ul>
+<pre><code class="language-c++">#include &lt;algorithm&gt;
+#include &lt;memory&gt;
+</code></pre>
+<p>Non-Modifying Queries</p>
+<ul>
+<li>
+<p>finding elements / existence queries</p>
+<pre><code class="language-c++">using namespace std;
+tf = all_of(@begin, @end, tf_func_check);
+tf = any_of(@begin, @end, tf_func_check);
+tf = none_of(@begin, @end, tf_func_check);
+</code></pre>
+<blockquote>
+<p>==<code>c++20</code>在<code>ranges</code>中封装了支持容器作为参数的同名函数，下同。==</p>
+<pre><code class="language-c++">tf = ranges::all_of(container, check);
+</code></pre>
+</blockquote>
+<pre><code class="language-c++">tf = count(@begin, @end, value);
+tf = count_if(@begin, @end, tf_func_check);
+</code></pre>
+<pre><code class="language-c++">@pos = find(@begin, @end, value); // return end() if not find
+@pos = find_if(@begin, @end, tf_check); // return end() if not find
+</code></pre>
+<blockquote>
+<p><code>find_if_not()</code>。</p>
+</blockquote>
+<p>从备选集合中查找元素：</p>
+<pre><code class="language-c++">@pos = find_first_of(@sbegin, @send, @wbegin, @wend);
+@pos = find_first_of(container, candidates);  // c++20，下同
+</code></pre>
+<p>查找子序列：</p>
+<pre><code class="language-c++">@pos = search(@sbegin, @send, @wbegin, @wend);   // find 1st occurance
+@pos = find_end(@sbegin, @send, @wbegin, @wend); // find last occurance
+</code></pre>
+<p>查找连续出现元素：</p>
+<pre><code class="language-c++">@pos = adjacent_find(@begin, @end, cmp=&lt;);
+@pos = search_n(@begin, @end, n, tf_func_equal);  // 连续出现n个相同元素
+</code></pre>
+</li>
+<li>
+<p>minimum / maximum</p>
+<pre><code class="language-c++">using namespace std;
+x = min(a,b, cmp=&lt;);          // same for max,minmax
+x = min({x1,x2,...}, cmp=&lt;);  // C++11
+@min = min_element(@first, @last, cmp=&lt;);// also max_element, minmax_element
+</code></pre>
+<blockquote>
+<p><code>minmax</code>：返回包括最小值和最大值的元组（<code>pair</code>）。<code>minmax_element</code>返回对应迭代器组成的元组。</p>
+</blockquote>
+</li>
+<li>
+<p>comparing ranges of elements</p>
+<pre><code class="language-c++">tf = equal(@begin1, @end1, @begin2, @end2, tf_func_equal);
+pair = mismatch(@begin1, @end1, @begin2, @end2, tf_func_equal);
+</code></pre>
+<blockquote>
+<p><code>mismatch</code>返回两个序列中不匹配位置的迭代器组成的元组。</p>
+</blockquote>
+</li>
+<li>
+<p>binary search of sorted ranges</p>
+</li>
+</ul>
+<p>Modifying Operations</p>
+<ul>
+<li>
+<p>copying / moving elements</p>
+<p><code>copy</code>：目标必须具有足够空间容纳源数据。</p>
+<pre><code class="language-c++">@cp_end = copy(@begin, @end, @tgt_begin);   // .resize(n)
+@cp_end = copy_n(@begin, n, @tgt_begin);
+@cp_first = copy_backward(@begin, @end, @tgt_end); // 向目标容器中反向复制 
+@cp_end = copy_if(@begin, @end, @tgt_begin, tf_func_check);
+</code></pre>
+<blockquote>
+<p><code>ranges::copy(src, begin(tgt))</code>。</p>
+</blockquote>
+<pre><code class="language-c++">reverse(@begin, @end);
+@cp_end = reverse_copy(@begin, @end, @tgt_begin);  // 将源数据反向复制到目标容器
+</code></pre>
+<p>移位：</p>
+<img src="hackingcpp/shift_left_thumb.svg" style="zoom:50%;" align="left"/>
+<img src="hackingcpp/shift_right_thumb.svg" style="zoom:50%;" align="left" />
+<blockquote>
+<p>移位后原位置上的元素值不改变。</p>
+</blockquote>
+<p>循环移位：将开始区间移至末尾。</p>
+<img src="hackingcpp/rotate_thumb.svg" style="zoom: 45%;" align="left" />
+<blockquote>
+<pre><code class="language-c++">rotate_copy(@begin, @new_first, @end, @target); 
+</code></pre>
+</blockquote>
+<p>随机采样：</p>
+<pre><code class="language-c++">#include &lt;random&gt;
+auto rgen = std::mt19937{}; // 32 bit mersenne twister engine
+sample(@begin, @end, @tgt, n, rgen);
+</code></pre>
+<p>随机打乱：</p>
+<pre><code class="language-c++">shuffle(@begin, @end, random_engine);
+</code></pre>
+<p>排列：</p>
+<pre><code class="language-c++">next_permutation(begin(v),end(v));
+prev_permutation(begin(v),end(v));
+is_permutation(begin(v1), end(v1), begin(v2));  // c++11
+</code></pre>
+<p>排序：</p>
+<pre><code class="language-c++">sort(@begin, @end, cmp=&lt;);
+stable_sort(@begin, @end, cmp=&lt;);
+tf = is_sorted(@begin, @end, cmp=&lt;);
+</code></pre>
+<p>分割：根据条件将区间元素分为两个部分。分割后区间前半部分<code>tf_func=true</code>，后半部分<code>tf_func=false</code>。</p>
+<pre><code class="language-c++">@true_end = partition(@begin, @end, tf_func);
+partition_copy(@begin, @end, @out1, @out2, tf_func);
+@true_end = stable_partition(@begin, @end, tf_func);
+tf = is_partitioned(@begin, @end, tf_func);
+@true_end = partition_point(@begin, @end, tf_func);
+</code></pre>
+</li>
+<li>
+<p>replacing / transforming elements</p>
+<pre><code class="language-c++">fill(@begin, @end, value);
+fill_n(@begin, n, value);
+</code></pre>
+<pre><code class="language-c++">auto generator = [i=0]() mutable { i += 2; return i; };
+generate(@begin, @end, generator);
+generate_n(@begin, n, generator);
+#include &lt;numeric&gt;
+iota(@begin, @end, value);  // 使用递增数列填充区间，起始值为value
+</code></pre>
+<img src="hackingcpp/transform_thumb.svg" style="zoom:45%;" align="left"/>
+<pre><code class="language-c++">replace(@begin, @end, old_value, new_value);
+replace_if(@begin, @end, f_condition, new_value);
+</code></pre>
+<blockquote>
+<p><code>replace_copy</code>， <code>replace_copy_if</code>。</p>
+</blockquote>
+<pre><code class="language-c++">remove(@begin, @end, value);
+remove_if(@begin, @end, f_condition);
+</code></pre>
+<blockquote>
+<p><code>remove_copy</code>， <code>remove_copy_if</code>。</p>
+</blockquote>
+<pre><code class="language-c++">@new_end = unique(@begin, @end);
+</code></pre>
+<blockquote>
+<p>仅清除连续的重复值，并将后续值向前移动，不会重新分配内存。可以在移除前首先对数据排序，以保证最终结果唯一。（<code>unique_copy</code>）</p>
+</blockquote>
+</li>
+<li>
+<p>removing elements</p>
+<pre><code class="language-c++">erase(container, value);  // c++20
+erase(container, f_condition);  // c++20
+</code></pre>
+</li>
+<li>
+<p>union/intersection/etc. of sorted ranges</p>
+</li>
+</ul>
+<pre><code class="language-c++">#include &lt;iterator&gt;
+n = distance(@first, @last);
+</code></pre>
+<h3 id="数值计算"><a class="header" href="#数值计算">数值计算</a></h3>
+<pre><code class="language-c++">#include &lt;numeric&gt;
+</code></pre>
+<h5 id="序列构造"><a class="header" href="#序列构造">序列构造</a></h5>
+<pre><code class="language-c++">iota(@begin, @end, Type start_value=1);  // iota stants for greek letter ι
+</code></pre>
+<h5 id="map-reduce"><a class="header" href="#map-reduce">map-reduce</a></h5>
+<pre><code class="language-c++">reduce(begin(v), end(v));    
+reduce(begin(v), end(v), w0); 
+reduce(begin(v), end(v), w0, func); // 默认运算为+
+</code></pre>
+<blockquote>
+<p>未提供初始值<code>w0</code>时，将区间的第一个值作为初始值。</p>
+</blockquote>
+<img src="hackingcpp/transform_reduce2_thumb.svg" style="zoom:50%;" align="left"/>
+<img src="hackingcpp/transform_reduce1_thumb.svg" style="zoom:50%;" align="left"/>
+<h5 id="差分"><a class="header" href="#差分">差分</a></h5>
+<pre><code class="language-c++">adjacent_difference(@begin, @end, @out, diff_func=-); //C++17: custom operator
+inclusive_scan(@begin, @end, @out, operator=+);
+</code></pre>
+<blockquote>
+<p><code>inclusive_scan</code>, <code>transform_inclusive_scan</code>：输入的第一个元素为输出结果的第一个元素（<code>c++17</code>）。</p>
+<p><code>exclusive_scan</code>, <code>transform_exclusive_scan</code>：输出第一个元素为0，最后一个输入元素不会参与运算。</p>
+</blockquote>
+<h3 id="有序序列"><a class="header" href="#有序序列">有序序列</a></h3>
+<p>查找有序序列：</p>
+<pre><code class="language-c++">tf = binary_search(@begin, @end, value, comp=&lt;);
+</code></pre>
+<blockquote>
+<p><code>@pos=lower_bound</code>(<code>upper_bound</code>)：查找不小（大）于指定值的第一个元素；</p>
+<p><code>&lt;@start,@end&gt;=equal_range()</code>：查找等于指定值的子序列；</p>
+<p><code>tf=includes(...)</code>：查找子序列；</p>
+</blockquote>
+<p>合并有序序列：</p>
+<pre><code class="language-c++">merge(@begin1, @end1, @begin2, @end2, @out);
+</code></pre>
+<img src="hackingcpp/inplace_merge_thumb.svg" style="zoom:45%;" align="left"/>
+<h3 id="集合运算"><a class="header" href="#集合运算">集合运算</a></h3>
+<pre><code class="language-c++">@end=set_union(@begin1, @end1, @begin2, @end2, @out, compare=&lt;);
+</code></pre>
+<blockquote>
+<p><code>set_intersection</code>、<code>set_difference</code>（在s1中而不在s2中）、<code>set_symmtric_difference</code>（仅在s1或s2中）。</p>
+</blockquote>
+<h3 id="函数对象"><a class="header" href="#函数对象">函数对象</a></h3>
+<h4 id="比较运算"><a class="header" href="#比较运算">比较运算</a></h4>
+<h6 id="include-functional"><a class="header" href="#include-functional"><code>#include &lt;functional&gt;</code></a></h6>
+<ul>
+<li>
+<p><code>std::equal_to</code></p>
+</li>
+<li>
+<p><code>std::not_equal_to</code></p>
+</li>
+<li>
+<p><code>std::greater</code></p>
+</li>
+<li>
+<p><code>std::less</code></p>
+</li>
+<li>
+<p><code>std::greater_equal</code></p>
+</li>
+<li>
+<p><code>std::less_equal</code></p>
+</li>
+<li>
+<p><a href="https://hackingcpp.com/tags/c++11.html">C++11</a>  must specify operand type explicitly: <code>std::greater&lt;Type&gt;{}</code></p>
+</li>
+<li>
+<p><a href="https://hackingcpp.com/tags/c++14.html">C++14</a>  no need for specifying operand type: <code>std::greater&lt;&gt;{}</code></p>
+</li>
+</ul>
+<h4 id="算术运算"><a class="header" href="#算术运算">算术运算</a></h4>
+<ul>
+<li><code>std::plus</code></li>
+<li><code>std::minus</code></li>
+<li><code>std::multiplies</code></li>
+<li><code>std::divides</code></li>
+<li><code>std::modulus</code></li>
+<li><code>std::negate</code></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../CC++/标准函数库.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../JavaScript/JavaScript.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../CC++/标准函数库.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../JavaScript/JavaScript.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

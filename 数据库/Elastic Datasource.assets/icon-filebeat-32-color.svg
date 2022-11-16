@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
+    <title>icon-filebeat-32-color</title>
+    <desc>Created with Sketch.</desc>
+    <g id="icon-filebeat-32-color" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="filebeat" transform="translate(2.000000, 0.000000)">
+            <rect id="Rectangle" fill="#00BFB3" x="6" y="18" width="16" height="2"></rect>
+            <rect id="Rectangle" fill="#00BFB3" x="6" y="13" width="9" height="2"></rect>
+            <rect id="Rectangle" fill="#00BFB3" x="6" y="23" width="16" height="2"></rect>
+            <path d="M19.41,0 L3,0 C1.34314575,0 0,1.34314575 0,3 L0,29 C0,30.6568542 1.34314575,32 3,32 L25,32 C26.6568542,32 28,30.6568542 28,29 L28,8.59 L19.41,0 Z M20,3.41 L24.59,8 L20,8 L20,3.41 Z M25,30 L3,30 C2.44771525,30 2,29.5522847 2,29 L2,3 C2,2.44771525 2.44771525,2 3,2 L18,2 L18,10 L26,10 L26,29 C26,29.5522847 25.5522847,30 25,30 Z" id="Shape" fill="#535966" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>

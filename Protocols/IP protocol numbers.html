@@ -1,0 +1,341 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>IP 承载协议 - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html" class="active">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="list-of-ip-protocol-numbers"><a class="header" href="#list-of-ip-protocol-numbers">List of IP protocol numbers</a></h1>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">Hex</th><th style="text-align: center">Protocol Number</th><th style="text-align: center">Keyword</th><th style="text-align: center">Protocol</th><th style="text-align: center">References/RFC</th></tr></thead><tbody>
+<tr><td style="text-align: center">0x00</td><td style="text-align: center">0</td><td style="text-align: center">HOPOPT</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/IPv6_Hop-by-Hop_Option">IPv6 Hop-by-Hop Option</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc8200">RFC 8200</a></td></tr>
+<tr><td style="text-align: center">0x01</td><td style="text-align: center">1</td><td style="text-align: center">ICMP</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol">Internet Control Message Protocol</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc792">RFC 792</a></td></tr>
+<tr><td style="text-align: center">0x02</td><td style="text-align: center">2</td><td style="text-align: center">IGMP</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Internet_Group_Management_Protocol">Internet Group Management Protocol</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc1112">RFC 1112</a></td></tr>
+<tr><td style="text-align: center">0x03</td><td style="text-align: center">3</td><td style="text-align: center">GGP</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Gateway-to-Gateway_Protocol">Gateway-to-Gateway Protocol</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc823">RFC 823</a></td></tr>
+<tr><td style="text-align: center">0x04</td><td style="text-align: center">4</td><td style="text-align: center">IP-in-IP</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/IP_in_IP">IP in IP</a> (encapsulation)</td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc2003">RFC 2003</a></td></tr>
+<tr><td style="text-align: center">0x05</td><td style="text-align: center">5</td><td style="text-align: center">ST</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Internet_Stream_Protocol">Internet Stream Protocol</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc1190">RFC 1190</a>, <a href="https://tools.ietf.org/html/rfc1819">RFC 1819</a></td></tr>
+<tr><td style="text-align: center">0x06</td><td style="text-align: center">6</td><td style="text-align: center">TCP</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol">Transmission Control Protocol</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc793">RFC 793</a></td></tr>
+<tr><td style="text-align: center">0x07</td><td style="text-align: center">7</td><td style="text-align: center">CBT</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Core-based_trees">Core-based trees</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc2189">RFC 2189</a></td></tr>
+<tr><td style="text-align: center">0x08</td><td style="text-align: center">8</td><td style="text-align: center">EGP</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Exterior_Gateway_Protocol">Exterior Gateway Protocol</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc888">RFC 888</a></td></tr>
+<tr><td style="text-align: center">0x09</td><td style="text-align: center">9</td><td style="text-align: center">IGP</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Interior_Gateway_Protocol">Interior Gateway Protocol</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x0A</td><td style="text-align: center">10</td><td style="text-align: center">BBN-RCC-MON</td><td style="text-align: center">BBN RCC Monitoring</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x0B</td><td style="text-align: center">11</td><td style="text-align: center">NVP-II</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Network_Voice_Protocol">Network Voice Protocol</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc741">RFC 741</a></td></tr>
+<tr><td style="text-align: center">0x0C</td><td style="text-align: center">12</td><td style="text-align: center">PUP</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/PARC_Universal_Packet">Xerox PUP</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x0D</td><td style="text-align: center">13</td><td style="text-align: center">ARGUS</td><td style="text-align: center">ARGUS</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x0E</td><td style="text-align: center">14</td><td style="text-align: center">EMCON</td><td style="text-align: center">EMCON</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x0F</td><td style="text-align: center">15</td><td style="text-align: center">XNET</td><td style="text-align: center">Cross Net Debugger</td><td style="text-align: center">IEN 158[<a href="https://en.wikipedia.org/wiki/List_of_IP_protocol_numbers#cite_note-2">2]</a></td></tr>
+<tr><td style="text-align: center">0x10</td><td style="text-align: center">16</td><td style="text-align: center">CHAOS</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Chaosnet">Chaos</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x11</td><td style="text-align: center">17</td><td style="text-align: center">UDP</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/User_Datagram_Protocol">User Datagram Protocol</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc768">RFC 768</a></td></tr>
+<tr><td style="text-align: center">0x12</td><td style="text-align: center">18</td><td style="text-align: center">MUX</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Multiplexing">Multiplexing</a></td><td style="text-align: center">IEN 90[<a href="https://en.wikipedia.org/wiki/List_of_IP_protocol_numbers#cite_note-3">3]</a></td></tr>
+<tr><td style="text-align: center">0x13</td><td style="text-align: center">19</td><td style="text-align: center">DCN-MEAS</td><td style="text-align: center">DCN Measurement Subsystems</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x14</td><td style="text-align: center">20</td><td style="text-align: center">HMP</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Host_Monitoring_Protocol">Host Monitoring Protocol</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc869">RFC 869</a></td></tr>
+<tr><td style="text-align: center">0x15</td><td style="text-align: center">21</td><td style="text-align: center">PRM</td><td style="text-align: center">Packet Radio Measurement</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x16</td><td style="text-align: center">22</td><td style="text-align: center">XNS-IDP</td><td style="text-align: center">XEROX NS IDP</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x17</td><td style="text-align: center">23</td><td style="text-align: center">TRUNK-1</td><td style="text-align: center">Trunk-1</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x18</td><td style="text-align: center">24</td><td style="text-align: center">TRUNK-2</td><td style="text-align: center">Trunk-2</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x19</td><td style="text-align: center">25</td><td style="text-align: center">LEAF-1</td><td style="text-align: center">Leaf-1</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x1A</td><td style="text-align: center">26</td><td style="text-align: center">LEAF-2</td><td style="text-align: center">Leaf-2</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x1B</td><td style="text-align: center">27</td><td style="text-align: center">RDP</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Reliable_Data_Protocol">Reliable Data Protocol</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc908">RFC 908</a></td></tr>
+<tr><td style="text-align: center">0x1C</td><td style="text-align: center">28</td><td style="text-align: center">IRTP</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=Internet_Reliable_Transaction_Protocol&amp;action=edit&amp;redlink=1">Internet Reliable Transaction Protocol</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc938">RFC 938</a></td></tr>
+<tr><td style="text-align: center">0x1D</td><td style="text-align: center">29</td><td style="text-align: center">ISO-TP4</td><td style="text-align: center">ISO Transport Protocol Class 4</td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc905">RFC 905</a></td></tr>
+<tr><td style="text-align: center">0x1E</td><td style="text-align: center">30</td><td style="text-align: center">NETBLT</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=Bulk_Data_Transfer_Protocol&amp;action=edit&amp;redlink=1">Bulk Data Transfer Protocol</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc998">RFC 998</a></td></tr>
+<tr><td style="text-align: center">0x1F</td><td style="text-align: center">31</td><td style="text-align: center">MFE-NSP</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=MFE_Network_Services_Protocol&amp;action=edit&amp;redlink=1">MFE Network Services Protocol</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x20</td><td style="text-align: center">32</td><td style="text-align: center">MERIT-INP</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=MERIT_Internodal_Protocol&amp;action=edit&amp;redlink=1">MERIT Internodal Protocol</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x21</td><td style="text-align: center">33</td><td style="text-align: center">DCCP</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Datagram_Congestion_Control_Protocol">Datagram Congestion Control Protocol</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc4340">RFC 4340</a></td></tr>
+<tr><td style="text-align: center">0x22</td><td style="text-align: center">34</td><td style="text-align: center">3PC</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=Third_Party_Connect_Protocol&amp;action=edit&amp;redlink=1">Third Party Connect Protocol</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x23</td><td style="text-align: center">35</td><td style="text-align: center">IDPR</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=Inter-Domain_Policy_Routing_Protocol&amp;action=edit&amp;redlink=1">Inter-Domain Policy Routing Protocol</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc1479">RFC 1479</a></td></tr>
+<tr><td style="text-align: center">0x24</td><td style="text-align: center">36</td><td style="text-align: center">XTP</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Xpress_Transport_Protocol">Xpress Transport Protocol</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x25</td><td style="text-align: center">37</td><td style="text-align: center">DDP</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Datagram_Delivery_Protocol">Datagram Delivery Protocol</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x26</td><td style="text-align: center">38</td><td style="text-align: center">IDPR-CMTP</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=IDPR_Control_Message_Transport_Protocol&amp;action=edit&amp;redlink=1">IDPR Control Message Transport Protocol</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x27</td><td style="text-align: center">39</td><td style="text-align: center">TP++</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=TP%2B%2B_Transport_Protocol&amp;action=edit&amp;redlink=1">TP++ Transport Protocol</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x28</td><td style="text-align: center">40</td><td style="text-align: center">IL</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/IL_(network_protocol)">IL Transport Protocol</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x29</td><td style="text-align: center">41</td><td style="text-align: center">IPv6</td><td style="text-align: center">IPv6 Encapsulation</td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc2473">RFC 2473</a></td></tr>
+<tr><td style="text-align: center">0x2A</td><td style="text-align: center">42</td><td style="text-align: center">SDRP</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=Source_Demand_Routing_Protocol&amp;action=edit&amp;redlink=1">Source Demand Routing Protocol</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc1940">RFC 1940</a></td></tr>
+<tr><td style="text-align: center">0x2B</td><td style="text-align: center">43</td><td style="text-align: center">IPv6-Route</td><td style="text-align: center">Routing Header for <a href="https://en.wikipedia.org/wiki/IPv6">IPv6</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc8200">RFC 8200</a></td></tr>
+<tr><td style="text-align: center">0x2C</td><td style="text-align: center">44</td><td style="text-align: center">IPv6-Frag</td><td style="text-align: center">Fragment Header for <a href="https://en.wikipedia.org/wiki/IPv6">IPv6</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc8200">RFC 8200</a></td></tr>
+<tr><td style="text-align: center">0x2D</td><td style="text-align: center">45</td><td style="text-align: center">IDRP</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=Inter-Domain_Routing_Protocol&amp;action=edit&amp;redlink=1">Inter-Domain Routing Protocol</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x2E</td><td style="text-align: center">46</td><td style="text-align: center">RSVP</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Resource_Reservation_Protocol">Resource Reservation Protocol</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc2205">RFC 2205</a></td></tr>
+<tr><td style="text-align: center">0x2F</td><td style="text-align: center">47</td><td style="text-align: center">GREs</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Generic_Routing_Encapsulation">Generic Routing Encapsulation</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc2784">RFC 2784</a>, <a href="https://tools.ietf.org/html/rfc2890">RFC 2890</a></td></tr>
+<tr><td style="text-align: center">0x30</td><td style="text-align: center">48</td><td style="text-align: center">DSR</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Dynamic_Source_Routing">Dynamic Source Routing</a> Protocol</td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc4728">RFC 4728</a></td></tr>
+<tr><td style="text-align: center">0x31</td><td style="text-align: center">49</td><td style="text-align: center">BNA</td><td style="text-align: center">Burroughs Network Architecture</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x32</td><td style="text-align: center">50</td><td style="text-align: center">ESP</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Encapsulating_Security_Payload">Encapsulating Security Payload</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc4303">RFC 4303</a></td></tr>
+<tr><td style="text-align: center">0x33</td><td style="text-align: center">51</td><td style="text-align: center">AH</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Authentication_Header">Authentication Header</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc4302">RFC 4302</a></td></tr>
+<tr><td style="text-align: center">0x34</td><td style="text-align: center">52</td><td style="text-align: center">I-NLSP</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=Integrated_Net_Layer_Security_Protocol&amp;action=edit&amp;redlink=1">Integrated Net Layer Security Protocol</a></td><td style="text-align: center">TUBA</td></tr>
+<tr><td style="text-align: center">0x35</td><td style="text-align: center">53</td><td style="text-align: center">SwIPe</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/SwIPe_(protocol)">SwIPe</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc5237">RFC 5237</a></td></tr>
+<tr><td style="text-align: center">0x36</td><td style="text-align: center">54</td><td style="text-align: center">NARP</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=NBMA_Address_Resolution_Protocol&amp;action=edit&amp;redlink=1">NBMA Address Resolution Protocol</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc1735">RFC 1735</a></td></tr>
+<tr><td style="text-align: center">0x37</td><td style="text-align: center">55</td><td style="text-align: center">MOBILE</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Mobile_IP">IP Mobility</a> (Min Encap)</td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc2004">RFC 2004</a></td></tr>
+<tr><td style="text-align: center">0x38</td><td style="text-align: center">56</td><td style="text-align: center">TLSP</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Transport_Layer_Security_Protocol">Transport Layer Security Protocol</a> (using Kryptonet key management)</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x39</td><td style="text-align: center">57</td><td style="text-align: center">SKIP</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Simple_Key-Management_for_Internet_Protocol">Simple Key-Management for Internet Protocol</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc2356">RFC 2356</a></td></tr>
+<tr><td style="text-align: center">0x3A</td><td style="text-align: center">58</td><td style="text-align: center">IPv6-ICMP</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/ICMPv6">ICMP for IPv6</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc4443">RFC 4443</a>, <a href="https://tools.ietf.org/html/rfc4884">RFC 4884</a></td></tr>
+<tr><td style="text-align: center">0x3B</td><td style="text-align: center">59</td><td style="text-align: center">IPv6-NoNxt</td><td style="text-align: center">No Next Header for <a href="https://en.wikipedia.org/wiki/IPv6">IPv6</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc8200">RFC 8200</a></td></tr>
+<tr><td style="text-align: center">0x3C</td><td style="text-align: center">60</td><td style="text-align: center">IPv6-Opts</td><td style="text-align: center">Destination Options for <a href="https://en.wikipedia.org/wiki/IPv6">IPv6</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc8200">RFC 8200</a></td></tr>
+<tr><td style="text-align: center">0x3D</td><td style="text-align: center">61</td><td style="text-align: center"></td><td style="text-align: center">Any host internal protocol</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x3E</td><td style="text-align: center">62</td><td style="text-align: center">CFTP</td><td style="text-align: center">CFTP</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x3F</td><td style="text-align: center">63</td><td style="text-align: center"></td><td style="text-align: center">Any local network</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x40</td><td style="text-align: center">64</td><td style="text-align: center">SAT-EXPAK</td><td style="text-align: center">SATNET and Backroom EXPAK</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x41</td><td style="text-align: center">65</td><td style="text-align: center">KRYPTOLAN</td><td style="text-align: center">Kryptolan</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x42</td><td style="text-align: center">66</td><td style="text-align: center">RVD</td><td style="text-align: center">MIT <a href="https://en.wikipedia.org/w/index.php?title=Remote_Virtual_Disk_Protocol&amp;action=edit&amp;redlink=1">Remote Virtual Disk Protocol</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x43</td><td style="text-align: center">67</td><td style="text-align: center">IPPC</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=Internet_Pluribus_Packet_Core&amp;action=edit&amp;redlink=1">Internet Pluribus Packet Core</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x44</td><td style="text-align: center">68</td><td style="text-align: center"></td><td style="text-align: center">Any distributed file system</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x45</td><td style="text-align: center">69</td><td style="text-align: center">SAT-MON</td><td style="text-align: center">SATNET Monitoring</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x46</td><td style="text-align: center">70</td><td style="text-align: center">VISA</td><td style="text-align: center">VISA Protocol</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x47</td><td style="text-align: center">71</td><td style="text-align: center">IPCU</td><td style="text-align: center">Internet Packet Core Utility</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x48</td><td style="text-align: center">72</td><td style="text-align: center">CPNX</td><td style="text-align: center">Computer Protocol Network Executive</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x49</td><td style="text-align: center">73</td><td style="text-align: center">CPHB</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=Computer_Protocol_Heart_Beat&amp;action=edit&amp;redlink=1">Computer Protocol Heart Beat</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x4A</td><td style="text-align: center">74</td><td style="text-align: center">WSN</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=Wang_Span_Network&amp;action=edit&amp;redlink=1">Wang Span Network</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x4B</td><td style="text-align: center">75</td><td style="text-align: center">PVP</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=Packet_Video_Protocol&amp;action=edit&amp;redlink=1">Packet Video Protocol</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x4C</td><td style="text-align: center">76</td><td style="text-align: center">BR-SAT-MON</td><td style="text-align: center">Backroom SATNET Monitoring</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x4D</td><td style="text-align: center">77</td><td style="text-align: center">SUN-ND</td><td style="text-align: center">SUN ND PROTOCOL-Temporary</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x4E</td><td style="text-align: center">78</td><td style="text-align: center">WB-MON</td><td style="text-align: center">WIDEBAND Monitoring</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x4F</td><td style="text-align: center">79</td><td style="text-align: center">WB-EXPAK</td><td style="text-align: center">WIDEBAND EXPAK</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x50</td><td style="text-align: center">80</td><td style="text-align: center">ISO-IP</td><td style="text-align: center">International Organization for Standardization Internet Protocol</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x51</td><td style="text-align: center">81</td><td style="text-align: center">VMTP</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/V_(operating_system)">Versatile Message Transaction Protocol</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc1045">RFC 1045</a></td></tr>
+<tr><td style="text-align: center">0x52</td><td style="text-align: center">82</td><td style="text-align: center">SECURE-VMTP</td><td style="text-align: center">Secure Versatile Message Transaction Protocol</td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc1045">RFC 1045</a></td></tr>
+<tr><td style="text-align: center">0x53</td><td style="text-align: center">83</td><td style="text-align: center">VINES</td><td style="text-align: center">VINES</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x54</td><td style="text-align: center">84</td><td style="text-align: center">TTP</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Time-Triggered_Protocol">TTP</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x54</td><td style="text-align: center">84</td><td style="text-align: center">IPTM</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=Internet_Protocol_Traffic_Manager&amp;action=edit&amp;redlink=1">Internet Protocol Traffic Manager</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x55</td><td style="text-align: center">85</td><td style="text-align: center">NSFNET-IGP</td><td style="text-align: center">NSFNET-IGP</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x56</td><td style="text-align: center">86</td><td style="text-align: center">DGP</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=Dissimilar_Gateway_Protocol&amp;action=edit&amp;redlink=1">Dissimilar Gateway Protocol</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x57</td><td style="text-align: center">87</td><td style="text-align: center">TCF</td><td style="text-align: center">TCF</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x58</td><td style="text-align: center">88</td><td style="text-align: center">EIGRP</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/EIGRP">EIGRP</a></td><td style="text-align: center">Informational <a href="https://tools.ietf.org/html/rfc7868">RFC 7868</a></td></tr>
+<tr><td style="text-align: center">0x59</td><td style="text-align: center">89</td><td style="text-align: center">OSPF</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Open_Shortest_Path_First">Open Shortest Path First</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc2328">RFC 2328</a></td></tr>
+<tr><td style="text-align: center">0x5A</td><td style="text-align: center">90</td><td style="text-align: center">Sprite-RPC</td><td style="text-align: center">Sprite RPC Protocol</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x5B</td><td style="text-align: center">91</td><td style="text-align: center">LARP</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=Locus_Address_Resolution_Protocol&amp;action=edit&amp;redlink=1">Locus Address Resolution Protocol</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x5C</td><td style="text-align: center">92</td><td style="text-align: center">MTP</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=Multicast_Transport_Protocol&amp;action=edit&amp;redlink=1">Multicast Transport Protocol</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x5D</td><td style="text-align: center">93</td><td style="text-align: center">AX.25</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/AX.25">AX.25</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x5E</td><td style="text-align: center">94</td><td style="text-align: center">OS</td><td style="text-align: center">KA9Q NOS compatible IP over IP tunneling</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x5F</td><td style="text-align: center">95</td><td style="text-align: center">MICP</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=Mobile_Internetworking_Control_Protocol&amp;action=edit&amp;redlink=1">Mobile Internetworking Control Protocol</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x60</td><td style="text-align: center">96</td><td style="text-align: center">SCC-SP</td><td style="text-align: center">Semaphore Communications Sec. Pro</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x61</td><td style="text-align: center">97</td><td style="text-align: center">ETHERIP</td><td style="text-align: center">Ethernet-within-IP Encapsulation</td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc3378">RFC 3378</a></td></tr>
+<tr><td style="text-align: center">0x62</td><td style="text-align: center">98</td><td style="text-align: center">ENCAP</td><td style="text-align: center">Encapsulation Header</td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc1241">RFC 1241</a></td></tr>
+<tr><td style="text-align: center">0x63</td><td style="text-align: center">99</td><td style="text-align: center"></td><td style="text-align: center">Any private encryption scheme</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x64</td><td style="text-align: center">100</td><td style="text-align: center">GMTP</td><td style="text-align: center">GMTP</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x65</td><td style="text-align: center">101</td><td style="text-align: center">IFMP</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=Ipsilon_Flow_Management_Protocol&amp;action=edit&amp;redlink=1">Ipsilon Flow Management Protocol</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x66</td><td style="text-align: center">102</td><td style="text-align: center">PNNI</td><td style="text-align: center">PNNI over IP</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x67</td><td style="text-align: center">103</td><td style="text-align: center">PIM</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Protocol_Independent_Multicast">Protocol Independent Multicast</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x68</td><td style="text-align: center">104</td><td style="text-align: center">ARIS</td><td style="text-align: center">IBM's ARIS (Aggregate Route IP Switching) Protocol</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x69</td><td style="text-align: center">105</td><td style="text-align: center">SCPS</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Space_Communications_Protocol_Specifications">SCPS (Space Communications Protocol Standards)</a></td><td style="text-align: center">SCPS-TP[<a href="https://en.wikipedia.org/wiki/List_of_IP_protocol_numbers#cite_note-4">4]</a></td></tr>
+<tr><td style="text-align: center">0x6A</td><td style="text-align: center">106</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/QNX">QNX</a></td><td style="text-align: center">QNX</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x6B</td><td style="text-align: center">107</td><td style="text-align: center">A/N</td><td style="text-align: center">Active Networks</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x6C</td><td style="text-align: center">108</td><td style="text-align: center">IPComp</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/IP_Payload_Compression_Protocol">IP Payload Compression Protocol</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc3173">RFC 3173</a></td></tr>
+<tr><td style="text-align: center">0x6D</td><td style="text-align: center">109</td><td style="text-align: center">SNP</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=Sitara_Networks_Protocol&amp;action=edit&amp;redlink=1">Sitara Networks Protocol</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x6E</td><td style="text-align: center">110</td><td style="text-align: center">Compaq-Peer</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=Compaq_Peer_Protocol&amp;action=edit&amp;redlink=1">Compaq Peer Protocol</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x6F</td><td style="text-align: center">111</td><td style="text-align: center">IPX-in-IP</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=IPX_in_IP&amp;action=edit&amp;redlink=1">IPX in IP</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x70</td><td style="text-align: center">112</td><td style="text-align: center">VRRP</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Virtual_Router_Redundancy_Protocol">Virtual Router Redundancy Protocol</a>, <a href="https://en.wikipedia.org/wiki/Common_Address_Redundancy_Protocol">Common Address Redundancy Protocol</a> (not <a href="https://en.wikipedia.org/wiki/Internet_Assigned_Numbers_Authority">IANA</a> assigned)</td><td style="text-align: center">VRRP:<a href="https://tools.ietf.org/html/rfc3768">RFC 3768</a></td></tr>
+<tr><td style="text-align: center">0x71</td><td style="text-align: center">113</td><td style="text-align: center">PGM</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Pragmatic_General_Multicast">PGM Reliable Transport Protocol</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc3208">RFC 3208</a></td></tr>
+<tr><td style="text-align: center">0x72</td><td style="text-align: center">114</td><td style="text-align: center"></td><td style="text-align: center">Any 0-hop protocol</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x73</td><td style="text-align: center">115</td><td style="text-align: center">L2TP</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/L2TPv3">Layer Two Tunneling Protocol Version 3</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc3931">RFC 3931</a></td></tr>
+<tr><td style="text-align: center">0x74</td><td style="text-align: center">116</td><td style="text-align: center">DDX</td><td style="text-align: center">D-II Data Exchange (DDX)</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x75</td><td style="text-align: center">117</td><td style="text-align: center">IATP</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=Interactive_Agent_Transfer_Protocol&amp;action=edit&amp;redlink=1">Interactive Agent Transfer Protocol</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x76</td><td style="text-align: center">118</td><td style="text-align: center">STP</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=Schedule_Transfer_Protocol&amp;action=edit&amp;redlink=1">Schedule Transfer Protocol</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x77</td><td style="text-align: center">119</td><td style="text-align: center">SRP</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=SpectraLink_Radio_Protocol&amp;action=edit&amp;redlink=1">SpectraLink Radio Protocol</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x78</td><td style="text-align: center">120</td><td style="text-align: center">UTI</td><td style="text-align: center">Universal Transport Interface Protocol</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x79</td><td style="text-align: center">121</td><td style="text-align: center">SMP</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=Simple_Message_Protocol&amp;action=edit&amp;redlink=1">Simple Message Protocol</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x7A</td><td style="text-align: center">122</td><td style="text-align: center">SM</td><td style="text-align: center">Simple Multicast Protocol</td><td style="text-align: center"><a href="http://tools.ietf.org/html/draft-perlman-simple-multicast-03">draft-perlman-simple-multicast-03</a></td></tr>
+<tr><td style="text-align: center">0x7B</td><td style="text-align: center">123</td><td style="text-align: center">PTP</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=Performance_Transparency_Protocol&amp;action=edit&amp;redlink=1">Performance Transparency Protocol</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x7C</td><td style="text-align: center">124</td><td style="text-align: center">IS-IS over IPv4</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/IS-IS">Intermediate System to Intermediate System (IS-IS) Protocol</a> over <a href="https://en.wikipedia.org/wiki/IPv4">IPv4</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc1142">RFC 1142</a> and <a href="https://tools.ietf.org/html/rfc1195">RFC 1195</a></td></tr>
+<tr><td style="text-align: center">0x7D</td><td style="text-align: center">125</td><td style="text-align: center">FIRE</td><td style="text-align: center">Flexible Intra-AS Routing Environment</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x7E</td><td style="text-align: center">126</td><td style="text-align: center">CRTP</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=Combat_Radio_Transport_Protocol&amp;action=edit&amp;redlink=1">Combat Radio Transport Protocol</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x7F</td><td style="text-align: center">127</td><td style="text-align: center">CRUDP</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=Combat_Radio_User_Datagram&amp;action=edit&amp;redlink=1">Combat Radio User Datagram</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x80</td><td style="text-align: center">128</td><td style="text-align: center">SSCOPMCE</td><td style="text-align: center">Service-Specific Connection-Oriented Protocol in a Multilink and Connectionless Environment</td><td style="text-align: center"><a href="http://www.itu.int/rec/T-REC-Q.2111-199912-I">ITU-T Q.2111 (1999)</a></td></tr>
+<tr><td style="text-align: center">0x81</td><td style="text-align: center">129</td><td style="text-align: center">IPLT</td><td style="text-align: center"></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x82</td><td style="text-align: center">130</td><td style="text-align: center">SPS</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=Secure_Packet_Shield&amp;action=edit&amp;redlink=1">Secure Packet Shield</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x83</td><td style="text-align: center">131</td><td style="text-align: center">PIPE</td><td style="text-align: center">Private IP Encapsulation within IP</td><td style="text-align: center"><a href="http://www.watersprings.org/pub/id/draft-petri-mobileip-pipe-00.txt">Expired I-D draft-petri-mobileip-pipe-00.txt</a></td></tr>
+<tr><td style="text-align: center">0x84</td><td style="text-align: center">132</td><td style="text-align: center">SCTP</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Stream_Control_Transmission_Protocol">Stream Control Transmission Protocol</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc4960">RFC 4960</a></td></tr>
+<tr><td style="text-align: center">0x85</td><td style="text-align: center">133</td><td style="text-align: center">FC</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Fibre_Channel">Fibre Channel</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x86</td><td style="text-align: center">134</td><td style="text-align: center">RSVP-E2E-IGNORE</td><td style="text-align: center">Reservation Protocol (RSVP) End-to-End Ignore</td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc3175">RFC 3175</a></td></tr>
+<tr><td style="text-align: center">0x87</td><td style="text-align: center">135</td><td style="text-align: center">Mobility Header</td><td style="text-align: center">Mobility Extension Header for IPv6</td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc6275">RFC 6275</a></td></tr>
+<tr><td style="text-align: center">0x88</td><td style="text-align: center">136</td><td style="text-align: center">UDPLite</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/UDP_Lite">Lightweight User Datagram Protocol</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc3828">RFC 3828</a></td></tr>
+<tr><td style="text-align: center">0x89</td><td style="text-align: center">137</td><td style="text-align: center">MPLS-in-IP</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Multiprotocol_Label_Switching">Multiprotocol Label Switching</a> Encapsulated in IP</td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc4023">RFC 4023</a>, <a href="https://tools.ietf.org/html/rfc5332">RFC 5332</a></td></tr>
+<tr><td style="text-align: center">0x8A</td><td style="text-align: center">138</td><td style="text-align: center">manet</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Mobile_ad_hoc_network">MANET</a> Protocols</td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc5498">RFC 5498</a></td></tr>
+<tr><td style="text-align: center">0x8B</td><td style="text-align: center">139</td><td style="text-align: center">HIP</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Host_Identity_Protocol">Host Identity Protocol</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc5201">RFC 5201</a></td></tr>
+<tr><td style="text-align: center">0x8C</td><td style="text-align: center">140</td><td style="text-align: center">Shim6</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Site_Multihoming_by_IPv6_Intermediation">Site Multihoming by IPv6 Intermediation</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc5533">RFC 5533</a></td></tr>
+<tr><td style="text-align: center">0x8D</td><td style="text-align: center">141</td><td style="text-align: center">WESP</td><td style="text-align: center"><a href="https://en.wikipedia.org/w/index.php?title=Wrapped_Encapsulating_Security_Payload&amp;action=edit&amp;redlink=1">Wrapped Encapsulating Security Payload</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc5840">RFC 5840</a></td></tr>
+<tr><td style="text-align: center">0x8E</td><td style="text-align: center">142</td><td style="text-align: center">ROHC</td><td style="text-align: center"><a href="https://en.wikipedia.org/wiki/Robust_Header_Compression">Robust Header Compression</a></td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc5856">RFC 5856</a></td></tr>
+<tr><td style="text-align: center">0x8F</td><td style="text-align: center">143</td><td style="text-align: center">Ethernet</td><td style="text-align: center">IPv6 Segment Routing (TEMPORARY - registered 2020-01-31, expires 2021-01-31)</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0x90-0xFC</td><td style="text-align: center">144-252</td><td style="text-align: center">Unassigned</td><td style="text-align: center"></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0xFD-0xFE</td><td style="text-align: center">253-254</td><td style="text-align: center">Use for experimentation and testing</td><td style="text-align: center"><a href="https://tools.ietf.org/html/rfc3692">RFC 3692</a></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">0xFF</td><td style="text-align: center">255</td><td style="text-align: center">Reserved</td><td style="text-align: center"></td><td style="text-align: center"></td></tr>
+</tbody></table>
+</div>
+<blockquote>
+<p>IGP: any private interior gateway (used by Cisco for their IGRP)</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../Protocols/端口分配.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../Protocols/RPC.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../Protocols/端口分配.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../Protocols/RPC.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

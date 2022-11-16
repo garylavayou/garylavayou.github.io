@@ -1,0 +1,34 @@
+头文件
+	unistd.h —— 是POSIX标准定义的unix类系统定义符号常量的头文件，包含了许多UNIX系统服务
+的函数原型。
+	stdlib.h —— stdlib 头文件即standard library标准库头文件，stdlib 头文件里包含了C/C++语言的最常用的系统函数。
+	time.h	 ——	时间
+进程相关的函数
+	_pid_t fork ();		创建进程。
+	_pid_t等效于int型，如果创建进程成功，为父进程返回大于0的值（子进程号），为子进程返回0.
+如果创建进程失败，则为父进程返回-1。
+	_pid_t getpid();	返回调用该函数的进程的PID。
+	_pid_t getppid();	返回调用该函数的进程的父进程的PID。
+	pid_t gettid(void);	返回调用线程的ID。如果是单线程进程，则threadID==processID（return by getpid()）。在多线程进程中，，所有线程具有相同的PID，但是具有不同的TID。该函数返回的值与POSIX thread ID不同（即不是pthread_self()返回的值）。 
+	void exit(int status);		终止进程，并返回一个状态。
+	pid_t wait(int *stat_loc)	等待子进程推出，子进程的状态将存储在stat_loc所指的位置。 
+启动新进程
+	int system(char *command)	运行一个脚本命令
+	
+2.5. 进程休眠
+2.5.1 sleep
+	#include <unistd.h>
+    unsigned int sleep(unsigned int seconds);
+	使调用线程休眠，直到设定的时间到达或未被线程忽略的信号到达。
+	如果休眠时间结束，则返回0，如果休眠被signal handler中断，则返回剩下的
+休眠时间。
+
+2.5.2. usleep（deprecated）
+	#include <unistd.h>
+	int usleep(useconds_t usec);
+	使调用线程休眠，使用比sleep()更精确的时间控制。
+	成功返回0，失败返回-1。
+	EINTR	被信号中断；
+	EINVAL	usec不小于1000000。（在认为这样会出错的系统上）
+
+2.5.3.nanosleep

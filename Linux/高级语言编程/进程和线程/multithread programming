@@ -1,0 +1,213 @@
+1.数据结构
+1.1. pthread_t
+
+1.2. pthread_attr_t
+	该结构应该被当作是不透明的，任何未通过相关函数对对象的访问将被视作
+不可移植的并会产生为定义结果。
+
+1.3. pthread_mutex_t
+
+
+2.线程函数
+2.1. pthread_create
+	int pthread_create(
+		pthread_t *thread, 
+		const pthread_attr_t *attr,
+        void *(*start_routine) (void *), 
+		void *arg
+	);
+	pthread_creat()在调用进程中启动一个新线程，新线程的入口地址是
+start_routine(),arg是作为传入start_routine的参数，用于传递自定义参数，
+如果传入的参数是动态分配的，则应该在调用线程或新线程的适当地方释放参数。
+	参数attr指向一个pthread_attr_t结构，用于在创建线程时确定新线程的属性。
+该结构题使用pthread_attr_init()等相关函数进行初始化。如果attr=NULL，则
+新线程使用默认线程属性进行创建。
+	在函数返回之前，如果成功调用，则新线程的ID将储存在thread指向的空间，
+该ID用于其他pthread函数引用该线程。
+	如果成功调用，pthread_create()返回0，否则返回一个错误号，且*thread的值
+是不确定的。
+	新线程可以以以下方式中止：
+	* 线程调用pthread_exit();
+	* 新线程从start_routine()中返回，和调用pthread_exit()作用相同；
+	* 线程被取消（pthread_cancel()）；
+	* 进程中的任意一个线程调用exit()，或者主线程在主函数中返回，将导致进程
+中的所有线程终止。
+	新线程继承了创建线程的信号掩码。
+	如果没有使用实时调度策略，则在pthread_create()调用之后，是调用线程还是
+新建线程执行是不确定的。
+	一个线程可以是“可连接的（joinable）”或“分离的（detached）”.如果一个线程
+是可合并的，则另一个线程可以调用pthread_join()来等待该线程中止并获取该线程
+返回的状态。只有当一个可合并的线程已经被合并，其占用的资源才全部返回给系统。
+当一个分离的线程中止，其所占用的资源自动释放：不可能与分离线程合并来获取其
+返回状态。默认情况下，新建线程为可连接状态，除非将sttr修改为创建分离状态线
+程。
+
+2.2. pthread_self
+	pthread_t pthread_self(void);
+	返回调用线程的ID。
+	POSIX.1允许线程标识符的实现方式有多种，例如使用数值类型或结构体。因此，不能使用“==”来判断ID是否相等，而应该使用pthread_equal()。
+	pthread_self()返回的ID与gettid()返回的内核线程ID是不一样的。
+
+2.3. pthread_join
+	int pthread_join(pthread_t thread, void **retval);
+	调用线程等待thread指定的线程中止，如果指定的线程已经中止，则该函数立即返回。指定的线程必须是可连接的。
+	如果retval!=NULL，则该函数将指定线程的返回状态拷贝到retval指向的空间，返回的数据是由目标线程动态分配的，因此需要调用线程释放。如果线程被取消了，则PTHREAD_CANCEL被储存在*retval中。
+	如果多个线程同时尝试与同一个线程合并，则结果是未定的。如果调用pthread_join()的线程被取消了，则目标线程仍然是可连接的。
+	如果成功，返回0，否则返回一个错误码。
+	错误码：
+	EDEADLK		检测到死锁（两个线程互相等待合并），或thread指定的是调用线程。
+	EINVAL		thread不是可连接的。
+	EINVAL		已经有另外一个线程在等待连接。
+	ESRCH		thread不存在。
+	
+2.4. pthread_exit
+	void pthread_exit(void *retval);
+	pthread_exit()中止调用线程，通过retval返回一个值用于其它调用pthread_join()的线程（如果本线程是可连接的），retval必须是动态分配的，而不应该占用线程的栈空间，因为线程中止后，栈空间将被释放。
+	任何由pthread_cleanup_push()建立的并还未弹出的清理处理程序将被弹出
+（按与加入顺序相反的顺序）并执行。如果该线程具有任何线程特定的数据，则在
+清理函数执行之后，对应的析构函数将会以不确定顺序执行。
+	当一个线程中止时，进程共享资源（互斥、条件变量、信号量以及文件描述符）不会被释放，使用atexit()注册的函数不会被调用。
+	当进程中的最后一个线程中止时，进程调用exit(0)中止，进程共享资源被释放,
+使用atexit()注册的函数被调用。
+	在非主线程的线程函数中调用return，结果是隐式调用pthread_exit()，使用返回值作为线程退出状态。为了使其他线程能继续执行，主线程应该调用pthread_exit()来中止而非exit()或自然退出。
+
+2.5. pthread_cancel
+	int pthread_cancel(pthread_t thread);
+	向指定线程thread发送取消请求。目标线程是否以及何时响应取消请求取决于
+线程的的性质：cancelability state and type。
+	cancelability state由pthread_setancelstate()决定，可以开启或关闭（
+新线程默认为开启）。如果线程设置取消状态为关闭，则取消请求将被排队直到
+线程将取消状态设置为打开。如果取消状态为打开，则取消类型决定线程须消何时
+发生。
+	cancellation type由pthread_setcanceltype()决定，可能是asynchronous或
+deferred（默认为deferred）。异步取消表示线程能在任何时间被取消（通常是
+立即取消，但系统不保证）。推迟取消表示取消将被推迟到线程调用一个是取消点
+（cancellation point，参考POSIX thread introduction）的函数。
+	当取消请求被响应，线程将进行以下处理（按顺序）：
+	1. 退出清理处理程序被弹出且被执行（see pthread_cleanup_push）。
+	2. 线程特定的数据析构函数以不确定的顺序被调用
+		（see pthread_key_create）。
+	3. 线程被终止（see pthread_exit）
+	以上步骤的发生与pthread_cancel调用是异步的，pthread_cacel的返回值仅仅
+表示取消请求是否被成功排队。
+	当被取消的线程终止，对该线程执行pthread_join将获得线程的返回状态为
+PTHREAD_CANCELED（连接一个线程是知道取消操作完成的唯一方法）。
+	成功执行返回0，错误返回非零错误号。
+	ESRCH		找不到线程ID为thread的线程。
+	在Linux上取消是通过信号实现的。NPTL线程实现使用第一个实时信号。
+
+2.6.1. 设置取消状态和类型
+	int pthread_setcancelstate(int state, int *oldstate);
+	int pthread_setcanceltype(int type, int *oldtype);
+	pthread_setcancelstate将调用线程的取消状态设置为state，以前的取消状态
+保存在oldstate（如果不为NULL）指向的缓存。state参数必须取以下值：
+	PTHREAD_CANCEL_ENABLE
+		线程是可取消的。这是所有新线程的默认取消状态，包括初始线程。
+	PTHREAD_CANCEL_DISABLE
+		线程不可取消。如果收到取消请求，则该请求会被阻塞直到取消状态设置为
+		可取消。
+	pthread_setcanceltype设置调用线程的取消类型为type，并将以前的取消类型
+存入oldtype（如果oldtype不为NULL）指向的缓冲区。type必须取以下值：
+	PTHREAD_CANCEL_DEFERRED
+		取消请求将被延迟，直到线程下一次调用一个为取消点的函数。这是所有新线
+		程的默认取消类型，包括初始线程。
+	PTHREAD_CANCEL_ASYNCHRONOUS
+		线程能在任何时候被取消。（通常会在接收到取消请求后，立即被取消，但是
+		系统不提供保证。）
+	以上操作是原子操作。
+	成功执行，以上函数返回0，否则返回非零错误号。
+	EINVAL	state/type为无效参数。
+	Linux的线程实现允许oldstate和oldtype的值为NULL，这样就不返回以前的值。
+很多其他实现也允许传递NULL，但是POSIX.1-2001并未声明这一点，因此可移植程
+序应该总是传递一个非NULL的参数。
+
+2.6.2. 线程取消清理
+	void pthread_cleanup_push(void (*routine)(void *),void *arg);
+	void pthread_cleanup_pop(int execute);
+	清理程序是当线程被取消时（或以下描述的其他情况）调用的函数，用于
+释放线程占用的资源（如互斥锁）。
+	pthread_cleanup_push函数将routine加入清理程序栈的栈顶，当routine被
+调用时，参数arg会作为routine的参数。
+	pthread_cleanup_pop从清理程序栈的移除栈顶的清理程序。如果execute不为0，
+则自动执行弹出的清理程序。
+	以下情况，取消清理处理程序将从栈中弹出并执行：
+	1. 线程被取消，所有清理程序都被弹出并以与加入顺序相反的顺序执行。
+	2. 当线程调用pthread_exit()，所有清理程序将按照1所述方式执行。（如果
+在线程函数中调用return终止线程，则清理程序不会被执行。）
+	3. 线程调用pthread_cleanup_pop并传入非0参数。
+
+	POSIX.1允许pthread_cleanup_push和pthread_cleanup_pop以宏定义的方式
+实现，其展开的表示可能各自包含“{”和“}”，因此调用者必须保证在同一个函数
+的同一嵌套级别中成对调用这两个函数。这也说明生命在这两个函数之间的变量的
+作用于只在这两个函数之间。POSIX.1称在pthread_cleanup_push和
+pthread_cleanup_pop之间调用 return，break，continue 或 goto 的作用未定
+义，可移植程序应该避免这样做。
+
+3.线程同步与互斥
+3.1.互斥
+3.1.1.pthread_mutex_init()
+	int pthread_mutex_init(pthread_mutex_t *mutex, 
+    const pthread_mutexattr_t *attr);
+	初始化互斥锁。
+
+3.1.2.pthread_mutex_lock ()
+	int pthread_mutex_lock(pthread_mutex_t *mutex);
+	锁住互斥锁。如果互斥锁已经被锁定，则调用线程阻塞直到互斥锁可用。
+	成功执行返回0，否则返回错误号。
+	如果互斥锁类型为PTHREAD_MUTEX_NORMAL，则不提供死锁检测，在线程中尝试
+重复加锁将造成死锁。如果线程企图对未被线程加锁或已解锁的互斥锁进行解锁，
+其行为未定义。
+	如果互斥锁的类型为PTHREAD_MUTEX_ERRORCHECK，则提供错误检测。如果线程
+线程尝试对互斥锁进行重复加锁，将会返回错误。如果线程企图对未被线程加锁或
+已解锁的互斥锁进行解锁，将会返回错误。
+	如果互斥锁的类型为PTHREAD_MUTEX_RECURSIVE，则互斥锁记录一个计数。当
+线程成功获得互斥锁时，该计数设置为1，线程每次重新对该互斥锁加锁，该计数都
+会增加1；每次解锁，该计数减少1，当该计数减少为0时，该互斥锁即可被其他线程
+访问。如果线程企图对未被线程加锁或已解锁的互斥锁进行解锁，将会返回错误。
+	如果互斥锁的类型为PTHREAD_MUTEX_DEFAULT，在线程中尝试重复加锁，将导致
+未定义行为。如果线程企图对未被线程加锁或已解锁的互斥锁进行解锁，将导致未
+定义行为。
+	如果在线程处于等待互斥锁的状态时收到信号，在信号处理函数返回后，该线程
+继续等待互斥锁。
+
+3.1.3.pthread_mutex_trylock
+	int pthread_mutex_trylock(pthread_mutex_t *mutex);
+	与pthread_mutex_lock行为一致，除了当互斥锁已经被锁定的情况，该函数立即
+返回，而不是阻塞。
+
+3.1.4.pthread_mutex_unlock()
+	int pthread_mutex_unlock(pthread_mutex_t *mutex);
+	释放互斥锁。成功执行返回0，否则返回错误号。
+	保证程序每条执行路径都能执行unlock，否则会造成资源浪费。
+
+3.1.5. 死锁
+	进程状态：futex_wait_queue_me -- deadlock
+
+4. 线程属性
+4.1. pthread_attr_init/pthread_attr_destroy
+	int pthread_attr_init(pthread_attr_t *attr);
+   int pthread_attr_destroy(pthread_attr_t *attr);
+	pthread_attr_init()函数使用默认值初始化attr指向的线程属性对象。在该
+函数调用之后，可使用相关函数来设置单独的属性，然后该属性对象可被
+pthread_create()用于创建线程。
+	对已初始化的线程属性对象再调用pthread_attr_init()的行为未定义。
+	当线程属性对象不再需要时，应该调用pthread_attr_destroy()来销毁该对象。
+销毁线程属性对象不会对已创建的线程造成影响。
+	线程属性对象被销毁后，可以调用pthread_attr_init()函数再次进行初始化。
+其他使用已销毁线程属性对象的结果未定义。
+	成功返回0，错误返回一个错误号。（on linux,always succeed）
+	ENOMEM	pthread_attr_init
+
+4.2. pthread_attr_setdetachstate/pthread_attr_setdetachstate
+	int pthread_attr_setdetachstate(
+			pthread_attr_t *attr, int detachstate);
+   int pthread_attr_getdetachstate(
+			pthread_attr_t *attr, int *detachstate);
+	detach state attribute：决定线程是否可连接。
+	PTHREAD_CREATE_DETACHED
+	PTHREAD_CREATE_JOINABLE(default)
+	
+
+5. 编译程序
+	使用POSIX thread线程编写的程序，需要使用头文件<pthread.h>，连接时需要
+使用<-L/usr/lib/i386-linux-gnu -lpthread>选项。

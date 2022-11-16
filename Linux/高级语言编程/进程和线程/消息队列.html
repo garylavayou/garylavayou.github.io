@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<META NAME="Keywords" CONTENT="linux,Linux环境进程间通信（三）  消息队列">
+<meta name="description" content="文章标题：Linux环境进程间通信（三）  消息队列。Linux是中国IT实验室的一个技术频道。包含桌面应用，Linux系统管理，内核研究，嵌入式系统和开源等一些基本分类">
+<meta name="classification" content="Information Technology and Scientice">
+<meta name="robots" content="ALL">
+<meta name="distribution" content="Global">
+<meta name="rating" content="General">
+<meta name="author" content="http://www.chinaitlab.com/">
+<meta name="language" content="chinese">
+<meta name="resource-type" content="document">
+<meta http-equiv="pragma" content="no-cache">
+<link rel="SHORTCUT ICON" href="http://www.chinaitlab.com/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="http://linux.chinaitlab.com/style_new.css">
+<title>Linux环境进程间通信（三）  消息队列-Linux频道-中国IT实验室</title>
+<style type="text/css">
+.STYLE1 a:link,.STYLE1 a:visited,.STYLE1 a:active{
+	COLOR: #ff0000; TEXT-DECORATION: none; font-family: "宋体"; font-size: 15px; font-weight:bold; padding-left:12px; padding-top:5px;
+}
+.STYLE1 a:hover{
+	COLOR: #000000; TEXT-DECORATION: underline; font-family: "宋体"; font-size: 15px; font-weight:bold;padding-left:12px; padding-top:5px;
+}
+.STYLE1 {
+	color: #000000;
+	font-weight: bold;padding-left:12px;
+	 padding-top:7px;
+}
+</style>
+<script language="JavaScript">
+<!--
+//改变图片大小
+function resizepic(thispic)
+{
+if(thispic.width>700) thispic.width=700;
+}
+//无级缩放图片大小
+function bbimg(o)
+{
+  //var zoom=parseInt(o.style.zoom, 10)||100;
+  //zoom+=event.wheelDelta/12;
+  //if (zoom>0) o.style.zoom=zoom+'%';
+  return true;
+}
+-->
+</script>
+</head>
+<body>
+<table cellSpacing=0 cellPadding=0 width=960 align=center border=0>
+  <tr> 
+    <td height=53><div style="TEXT-ALIGN: left; LINE-HEIGHT: 23px; WIDTH: 100%; FONT-FAMILY: 宋体; BACKGROUND: #fafafa; FONT-SIZE: 12px"><A title=中国IT实验室LOGO href="http://www.chinaitlab.com/" target=_blank><IMG style="FLOAT: left; MARGIN-RIGHT: 5px" border=0 alt=中国IT实验室LOGO src="http://www.chinaitlab.com/cms/images/logo_top.gif" width=145 height=42></A> <A title=中国IT实验室首页 href="http://www.chinaitlab.com/" target=_blank>首页</A> | <A title=互联网频道首页 href="http://internet.chinaitlab.com/" target=_blank>互联网</A> | <A title=IT动态频道首页 href="http://news.chinaitlab.com/" target=_blank>IT动态</A> | <A title=IT培训频道首页 href="http://edu.chinaitlab.com/" target=_blank><FONT color=#ff0000>IT培训</FONT></A> | <A title=Cisco频道首页 href="http://cisco.chinaitlab.com/" target=_blank>Cisco</A> | <A title=Windows频道首页 href="http://windows.chinaitlab.com/" target=_blank>Windows</A> | <A title=Linux频道首页 href="http://linux.chinaitlab.com/" target=_blank>Linux</A> | <A title=Java频道首页 href="http://java.chinaitlab.com/" target=_blank>Java</A> | <A title=.Net频道首页 href="http://dotnet.chinaitlab.com/" target=_blank>.Net</A> | <A title=Oracle频道首页 href="http://oracle.chinaitlab.com/" target=_blank>Oracle</A> | <A title=软件测试频道首页 href="http://softtest.chinaitlab.com/" target=_blank>软件测试</A> | <A title=C/C++频道首页 href="http://c.chinaitlab.com/" target=_blank>C/C++</A> | <A title=嵌入式开发频道首页 href="http://embed.chinaitlab.com/" target=_blank><FONT color=#ff0000>嵌入式</FONT></A> | <A title=存储世界频道首页 href="http://www.storworld.com/" target=_blank>存储世界</A><A title=服务器频道首页 href="http://www.idcquan.com/" target=_blank><FONT color=#ff0000></FONT></A><A href="http://server.chinaitlab.com/" target=_blank>服务器</A> | <A title=华为频道首页 href="http://huawei.chinaitlab.com/" target=_blank>华为</A> | <A title=网络设备频道首页 href="http://network.chinaitlab.com/" target=_blank>网络设备</A> | <A title=IDC频道首页 href="http://www.idcquan.com/" target=_blank>IDC</A> | <A title=安全频道首页 href="http://live.chinaitlab.com/" target=_blank></A><A href="http://security.chinaitlab.com/" target=_blank>安全</A> | <A title=21世纪人才网首页 href="http://www.21itjob.com/" target=_blank><FONT color=#ff0000>求职招聘</FONT></A> | <A title=数字网校首页 href="http://school.chinaitlab.com/" target=_blank>数字网校</A> | <A title=北大青鸟首页 href="http://edu.chinaitlab.com/special/bdqn/Index.html" target=_blank>北大青鸟</A> | <A title=技术专题首页 href="http://special.chinaitlab.com/" target=_blank>技术专题</A> | <A title=电子书下载频道首页 href="http://download.chinaitlab.com/" target=_blank>电子书下载</A> | <A title=视频教学首页 href="http://download.chinaitlab.com/video.html" target=_blank>教学视频</A> | <A title=源码下载首页 href="http://down.idcquan.com/" target=_blank><FONT color=#ff0000>源码下载</FONT></A> | <A title=中国IT实验室技术文章搜索 href="http://search.chinaitlab.com/" target=_blank>搜索</A> | <A title=中国IT实验室技术博客 href="http://blog.chinaitlab.com/" target=_blank>博客</A> | <A title=活动沙龙首页 href="http://salon.chinaitlab.com/" target=_blank>活动沙龙</A> | <A title=中国IT实验室技术论谈 href="http://bbs.chinaitlab.com/" target=_blank>论坛</A></div></td>
+  </tr>
+  <tr> 
+    <td><!-- 广告位：LINUX文章页第一通栏 -->
+<script type="text/javascript" >BAIDU_CLB_SLOT_ID = "54228";</script>
+<script type="text/javascript" src="http://cbjs.baidu.com/js/o.js"></script></td>
+</table>
+<!--频道导航代码段-->
+<div class=tong><table border=0 cellSpacing=0 cellPadding=0 width=960 align=center>
+    <tr>
+      <td width=223><A title=欢迎光临中国IT实验室Linux频道 href="http://linux.chinaitlab.com/" target=_blank><IMG border=0 alt=中国IT实验室Linux频道 src="http://linux.chinaitlab.com/images/00.gif" width=224 height=49></A></td>
+      <td vAlign=center background=http://linux.chinaitlab.com/images/02.gif width=724>
+        <table border=0 cellSpacing=0 cellPadding=0 width="100%" height=32>
+          <tr>
+            <td height=28 vAlign=bottom width=389><SCRIPT LANGUAGE="JavaScript" src=http://float2006.tq.cn/floatcard?adminid=8369877&sort=0></SCRIPT><IMG style="BACKGROUND: none transparent scroll repeat 0% 0%; CURSOR: pointer" id=tq_kefu_main onclick=TQKF.kefuimg.Distrabute() version="20100823"></td>
+            <td height=26 vAlign=bottom width=315 noWrap align=middle>
+              <table border=0 cellSpacing=0 cellPadding=0 width=300>
+                <tr>
+<FORM id=cse-search-box action=http://www.google.com.hk/cse target=_blank>
+<div>
+  <Input value=partner-pub-8985212780093870:x1p2o758mwk type=hidden name=cx> 
+  <Input value=GB2312 type=hidden name=ie> 
+  <Input size=24 name=q> 
+  <Input value=搜索 type=submit name=sa> </div></FORM>
+<script type="text/javascript
+" src="http://www.google.cn/cse/brand?form=cse-search-box&lang=zh-Hans"></script> 
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td width=13><IMG src="http://linux.chinaitlab.com/images/01.gif" width=13 height=49></td>
+    </tr>
+  </table>
+  <table border=0 cellSpacing=0 cellPadding=0 width=960 align=center>
+    <tr>
+      <td width=11><IMG src="http://linux.chinaitlab.com/images/03.gif" width=12 height=38></td>
+      <td background=http://linux.chinaitlab.com/images/04.gif width=935>
+        <table border=0 cellSpacing=0 cellPadding=0 width="100%" height=24>
+          <tr align=middle>
+            <td height=24><A class=DHbnr title=中国IT实验室Linux频道首页 href="http://linux.chinaitlab.com/" target=_blank>首页</A></td>
+            <td><IMG src="http://linux.chinaitlab.com/images/07.gif" width=3 height=38></td>
+            <td><A class=DHbnr title=新手入门 href="http://linux.chinaitlab.com/List_97.html" target=_blank>入门</A></td>
+            <td><IMG src="http://linux.chinaitlab.com/images/07.gif" width=3 height=38></td>
+            <td><A class=DHbnr title=Linux编程 href="http://linux.chinaitlab.com/List_122.html" target=_blank>Linux编程</A></td>
+            <td><IMG src="http://linux.chinaitlab.com/images/07.gif" width=3 height=38></td>
+            <td><A class=DHbnr title=微软认证 href="http://linux.chinaitlab.com/List_103.html" target=_blank>系统管理</A></td>
+            <td><IMG src="http://linux.chinaitlab.com/images/07.gif" width=3 height=38></td>
+            <td><A class=DHbnr title=网络管理 href="http://linux.chinaitlab.com/List_112.html" target=_blank>网络管理</A></td>
+            <td><IMG src="http://linux.chinaitlab.com/images/07.gif" width=3 height=38></td>
+            <td><A class=DHbnr title=Linux认证 href="http://linux.chinaitlab.com/List_92.html" target=_blank>Linux认证</A></td>
+            <td><IMG src="http://linux.chinaitlab.com/images/07.gif" width=3 height=38></td>
+            <td><A class=DHbnr title=Unix/BSD href="http://linux.chinaitlab.com/List_93.html" target=_blank>Unix/BSD</A></td>
+            <td><IMG src="http://linux.chinaitlab.com/images/07.gif" width=3 height=38></td>
+            <td><A class=DHbnr title=Linux数据库 href="http://linux.chinaitlab.com/List_118.html" target=_blank>Linux数据库</A></td>
+            <td><IMG src="http://linux.chinaitlab.com/images/07.gif" width=3 height=38></td>
+            <td><A class=DHbnr title=Linux集群 href="http://linux.chinaitlab.com/List_1978.html" target=_blank>Linux集群</A></td>
+            <td><IMG src="http://linux.chinaitlab.com/images/07.gif" width=3 height=38></td>
+            <td><A class=DHbnr title=Linux手册 href="http://linux.chinaitlab.com/manual.htm" target=_blank>Linux手册</A></td>
+            <td><IMG src="http://linux.chinaitlab.com/images/07.gif" width=3 height=38></td>
+            <td><A class=DHbnr title=Linux下载 href="http://download.chinaitlab.com/system/list/85_1.html" target=_blank>Linux下载</A></td>
+            <td><IMG src="http://linux.chinaitlab.com/images/07.gif" width=3 height=38></td>
+            <td><A class=DHbnr title=Linux手册 href="http://linux.chinaitlab.com/Special/Ubuntu/Index.html" target=_blank>Ubuntu</A></td>
+            <td><IMG src="http://linux.chinaitlab.com/images/07.gif" width=3 height=38></td>
+            <td><A class=DHbnr title=Linux论坛 href="http://bbs.chinaitlab.com/index.php?gid=275&sid=DkrDDa" target=_blank>论坛</A></td>
+            <td><IMG src="http://linux.chinaitlab.com/images/07.gif" width=3 height=38></td>
+            <td><A class=DHbnr title=Linux专题 href="http://special.chinaitlab.com/List_1933.html" target=_blank>专题</A></td>
+            <td><IMG src="http://linux.chinaitlab.com/images/07.gif" width=3 height=38></td>
+            <td><A class=DHbnr title=RSS阅读 href="http://linux.chinaitlab.com/rss.xml" target=_blank><FONT color=#ff0000>RSS</FONT></A></td>
+          </tr>
+        </table>
+      </td>
+      <td width=13><IMG src="http://linux.chinaitlab.com/images/05.gif" width=13 height=38></td>
+    </tr>
+  </table> 
+</div>
+<div class=blank>
+</div>
+<div class=tong>
+<div class="Prt_left border_kuang">
+<div class=WeiZhi><IMG height=30 src="http://www.chinaitlab.com/images/f02.gif" width=9 border=0>您现在的位置：&nbsp;<a class='LinkPath' href='http://www.chinaitlab.com'>中国IT实验室</a>&nbsp;>>&nbsp;<a class='LinkPath' href='http://Linux.chinaitlab.com/Index.html'>Linux</a>&nbsp;>>&nbsp;<a class='LinkPath' href='http://Linux.chinaitlab.com/List_97.html'>新手入门</a>&nbsp;>>&nbsp;<a class='LinkPath' href='http://Linux.chinaitlab.com/List_102.html'>软件使用</a>&nbsp;>>&nbsp;正文 
+</div>
+<H1 class=Article_tle>Linux环境进程间通信（三）  消息队列 </H1>
+<div class=Ud_tle><SPAN style="BORDER-RIGHT: #cccccc 1px dashed; FLOAT:left;width:230px">
+<script language='javascript' src='http://linux.chinaitlab.com/JS/tech_title_rencai.js'></script> </SPAN><SPAN style="FLOAT: left; WIDTH: 52%">
+<script language='javascript' src='http://linux.chinaitlab.com/JS/und_title02.js'></script> 
+<script language='javascript' src='http://linux.chinaitlab.com/JS/tech_title_s3.js'></script> </SPAN>
+</div>
+<div class=infor><IMG height=16 alt=文章来源 src="http://cisco.chinaitlab.com/images/source.gif" width=15><a href='http://www.chinaitlab.com/ShowCopyFrom.asp?ChannelID=1003&SourceName=中国IT实验室收集整理'>中国IT实验室收集整理</a> <IMG height=15 alt=作者 src="http://cisco.chinaitlab.com/images/author.gif" width=14>佚名 <IMG height=16 alt=更新时间 src="http://cisco.chinaitlab.com/images/time.gif" width=14>2012-3-8 10:53:31 <IMG height=16 alt=保存本文 src="http://cisco.chinaitlab.com/images/save.gif" width=16><A href="javascript:window.external.AddFavorite('http://cisco.chinaitlab.com/soft/877600.html','Linux环境进程间通信（三）  消息队列|中国IT实验室')" target=_top>保存本文</A> <IMG height=16 alt=推荐给好友 src="http://cisco.chinaitlab.com/images/tuijian.gif" width=20><A onclick="javascript:window.open('http://www.chinaitlab.com/www/news/sendfriend.asp?id1=32580&location1='+document.all.location1.value)" href="http://cisco.chinaitlab.com/soft/877600.html">推荐给好友</A> <IMG height=15 alt=收藏本页 src="http://cisco.chinaitlab.com/images/faver.gif" width=14><A href="javascript:window.external.AddFavorite('http://www.chinaitlab.com','中国IT实验室')" target=_top>收藏本页</A> 
+</div>
+
+<div class=Article_content><div class="STYLE1"><a href="http://bbs.chinaitlab.com" target="_blank" class="STYLE1">欢迎进入Linux社区论坛，与200万技术人员互动交流  >>进入</a></div><P>&nbsp;&nbsp;&nbsp; 消息队列（也叫做报文队列）能够克服早期unix通信机制的一些缺点。作为早期unix通信机制之一的信号能够传送的信息量有限，后来虽然 POSIX 1003.1b在信号的实时性方面作了拓广，使得信号在传递信息量方面有了相当程度的改进，但是信号这种通信方式更像"即时"的通信方式，它要求接受信号的进程在某个时间范围内对信号做出反应，因此该信号最多在接受信号进程的生命周期内才有意义，信号所传递的信息是接近于随进程持续的概念（process-persistent），见 附录 1;管道及有名管道及有名管道则是典型的随进程持续IPC,并且，只能传送无格式的字节流无疑会给应用程序开发带来不便，另外，它的缓冲区大小也受到限制。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 消息队列就是一个消息的链表。可以把消息看作一个记录，具有特定的格式以及特定的优先级。对消息队列有写权限的进程可以向中按照一定的规则添加新消息；对消息队列有读权限的进程则可以从消息队列中读走消息。消息队列是随内核持续的（参见 附录 1）。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 目前主要有两种类型的消息队列：POSIX消息队列以及系统V消息队列，系统V消息队列目前被大量使用。考虑到程序的可移植性，新开发的应用程序应尽量使用POSIX消息队列。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 在本系列专题的序（深刻理解Linux进程间通信（IPC））中，提到对于消息队列、信号灯、以及共享内存区来说，有两个实现版本：POSIX的以及系统V的。Linux内核（内核2.4.18）支持POSIX信号灯、POSIX共享内存区以及POSIX消息队列，但对于主流 Linux发行版本之一redhad8.0（内核2.4.18），还没有提供对POSIX进程间通信API的支持，不过应该只是时间上的事。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 因此，本文将主要介绍系统V消息队列及其相应API. 在没有声明的情况下，以下讨论中指的都是系统V消息队列。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 一、消息队列基本概念<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 系统V消息队列是随内核持续的，只有在内核重起或者显示删除一个消息队列时，该消息队列才会真正被删除。因此系统中记录消息队列的数据结构（struct ipc_ids msg_ids）位于内核中，系统中的所有消息队列都可以在结构msg_ids中找到访问入口。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 消息队列就是一个消息的链表。每个消息队列都有一个队列头，用结构struct msg_queue来描述（参见 附录 2）。队列头中包含了该消息队列的大量信息，包括消息队列键值、用户ID、组ID、消息队列中消息数目等等，甚至记录了最近对消息队列读写进程的ID.读者可以访问这些信息，也可以设置其中的某些信息。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 下图说明了内核与消息队列是怎样建立起联系的：<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 其中：struct ipc_ids msg_ids是内核中记录消息队列的全局数据结构；struct msg_queue是每个消息队列的队列头。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 从上图可以看出，全局数据结构 struct ipc_ids msg_ids 可以访问到每个消息队列头的第一个成员：struct kern_ipc_perm;而每个struct kern_ipc_perm能够与具体的消息队列对应起来是因为在该结构中，有一个key_t类型成员key,而key则唯一确定一个消息队列。 kern_ipc_perm结构如下：<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; struct kern_ipc_perm{ //内核中记录消息队列的全局数据结构msg_ids能够访问到该结构；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; key_t key; //该键值则唯一对应一个消息队列<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; uid_t uid;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; gid_t gid;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; uid_t cuid;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; gid_t cgid;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; mode_t mode;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; unsigned long seq;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 二、操作消息队列<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 对消息队列的操作无非有下面三种类型：<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 1、 打开或创建消息队列<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 消息队列的内核持续性要求每个消息队列都在系统范围内对应唯一的键值，所以，要获得一个消息队列的描述字，只需提供该消息队列的键值即可；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 注：消息队列描述字是由在系统范围内唯一的键值生成的，而键值可以看作对应系统内的一条路经。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 2、 读写操作<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 消息读写操作非常简单，对开发人员来说，每个消息都类似如下的数据结构：<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; struct msgbuf{ long mtype; char mtext[1]; };<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; mtype成员代表消息类型，从消息队列中读取消息的一个重要依据就是消息的类型；mtext是消息内容，当然长度不一定为1.因此，对于发送消息来说，首先预置一个msgbuf缓冲区并写入消息类型和内容，调用相应的发送函数即可；对读取消息来说，首先分配这样一个msgbuf缓冲区，然后把消息读入该缓冲区即可。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 3、 获得或设置消息队列属性：<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 消息队列的信息基本上都保存在消息队列头中，因此，可以分配一个类似于消息队列头的结构（struct msqid_ds,见 附录 2），来返回消息队列的属性；同样可以设置该数据结构。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 消息队列API<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 1、文件名到键值<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; #include &lt;sys/types.h&gt;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; #include &lt;sys/ipc.h&gt;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; key_t ftok （char*pathname, char proj）<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 它返回与路径pathname相对应的一个键值。该函数不直接对消息队列操作，但在调用ipc（MSGGET,…）或msgget（）来获得消息队列描述字前，往往要调用该函数。典型的调用代码是：<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; key=ftok（path_ptr, 'a'）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; ipc_id=ipc（MSGGET, （int）key, flags,0,NULL,0）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; …<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 2、<a class="channel_keylink" href="http://linux.chinaitlab.com/" target="_blank">linux</a>为操作系统V进程间通信的三种方式（消息队列、信号灯、共享内存区）提供了一个统一的用户界面：<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; int ipc（unsigned int call, int first, int second, int third, void * ptr, long fifth）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 第一个参数指明对IPC对象的操作方式，对消息队列而言共有四种操作：MSGSND、MSGRCV、MSGGET以及MSGCTL,分别代表向消息队列发送消息、从消息队列读取消息、打开或创建消息队列、控制消息队列；first参数代表唯一的IPC对象；下面将介绍四种操作。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; int ipc（ MSGGET, intfirst, intsecond, intthird, void*ptr, longfifth）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 与该操作对应的系统V调用为：int msgget（ （key_t）first,second）。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; int ipc（ MSGCTL, intfirst, intsecond, intthird, void*ptr, longfifth）<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 与该操作对应的系统V调用为：int msgctl（ first,second, （struct msqid_ds*） ptr）。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; int ipc（ MSGSND, intfirst, intsecond, intthird, void*ptr, longfifth）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 与该操作对应的系统V调用为：int msgsnd（ first, （struct msgbuf*）ptr, second, third）。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; int ipc（ MSGRCV, intfirst, intsecond, intthird, void*ptr, longfifth）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 与该操作对应的系统V调用为：int msgrcv（ first,（struct msgbuf*）ptr, second, fifth,third），<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 注：本人不主张采用系统调用ipc（），而更倾向于采用系统V或者POSIX进程间通信API.原因如下：<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 虽然该系统调用提供了统一的用户界面，但正是由于这个特性，它的参数几乎不能给出特定的实际意义（如以first、second来命名参数），在一定程度上造成开发不便。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 正如ipc手册所说的：ipc（）是<a class="channel_keylink" href="http://linux.chinaitlab.com/" target="_blank">linux</a>所特有的，编写程序时应注意程序的移植性问题；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 该系统调用的实现不过是把系统V IPC函数进行了封装，没有任何效率上的优势；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 系统V在IPC方面的API数量不多，形式也较简洁。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 3.系统V消息队列API<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 系统V消息队列API共有四个，使用时需要包括几个头文件：<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; #include &lt;sys/types.h&gt;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; #include &lt;sys/ipc.h&gt;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; #include &lt;sys/msg.h&gt;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 1）int msgget（key_t key, int msgflg）<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 参数key是一个键值，由ftok获得；msgflg参数是一些标志位。该调用返回与健值key相对应的消息队列描述字。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 在以下两种情况下，该调用将创建一个新的消息队列：<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 如果没有消息队列与健值key相对应，并且msgflg中包含了IPC_CREAT标志位；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; key参数为IPC_PRIVATE;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 参数msgflg可以为以下：IPC_CREAT、IPC_EXCL、IPC_NOWAIT或三者的或结果。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 调用返回：成功返回消息队列描述字，否则返回-1.<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 注：参数key设置成常数IPC_PRIVATE并不意味着其他进程不能访问该消息队列，只意味着即将创建新的消息队列。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 2）int msgrcv（int msqid, struct msgbuf *msgp, int msgsz, long msgtyp, int msgflg）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 该系统调用从msgid代表的消息队列中读取一个消息，并把消息<a class="channel_keylink" href="http://www.storworld.com/" target="_blank">存储</a>在msgp指向的msgbuf结构中。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; msqid为消息队列描述字；消息返回后<a class="channel_keylink" href="http://www.storworld.com/" target="_blank">存储</a>在msgp指向的地址，msgsz指定msgbuf的mtext成员的长度（即消息内容的长度），msgtyp为请求读取的消息类型；读消息标志msgflg可以为以下几个常值的或：<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; IPC_NOWAIT 如果没有满足条件的消息，调用立即返回，此时，errno=ENOMSG<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; IPC_EXCEPT 与msgtyp&gt;0配合使用，返回队列中第一个类型不为msgtyp的消息<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; IPC_NOERROR 如果队列中满足条件的消息内容大于所请求的msgsz字节，则把该消息截断，截断部分将丢失。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; msgrcv手册中详细给出了消息类型取不同值时（&gt;0; &lt;0; =0），调用将返回消息队列中的哪个消息。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; msgrcv（）解除阻塞的条件有三个：<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 消息队列中有了满足条件的消息；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; msqid代表的消息队列被删除；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 调用msgrcv（）的进程被信号中断；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 调用返回：成功返回读出消息的实际字节数，否则返回-1.<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 3）int msgsnd（int msqid, struct msgbuf *msgp, int msgsz, int msgflg）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 向msgid代表的消息队列发送一个消息，即将发送的消息存储在msgp指向的msgbuf结构中，消息的大小由msgze指定。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 对发送消息来说，有意义的msgflg标志为IPC_NOWAIT,指明在消息队列没有足够空间容纳要发送的消息时，msgsnd是否等待。造成msgsnd（）等待的条件有两种：<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 当前消息的大小与当前消息队列中的字节数之和超过了消息队列的总容量；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 当前消息队列的消息数（单位"个"）不小于消息队列的总容量（单位"字节数"），此时，虽然消息队列中的消息数目很多，但基本上都只有一个字节。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; msgsnd（）解除阻塞的条件有三个：<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 不满足上述两个条件，即消息队列中有容纳该消息的空间；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; msqid代表的消息队列被删除；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 调用msgsnd（）的进程被信号中断；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 调用返回：成功返回0,否则返回-1.<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 4）int msgctl（int msqid, int cmd, struct msqid_ds *buf）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 该系统调用对由msqid标识的消息队列执行cmd操作，共有三种cmd操作：IPC_STAT、IPC_SET 、IPC_RMID.<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; IPC_STAT:该命令用来获取消息队列信息，返回的信息存贮在buf指向的msqid结构中；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; IPC_SET:该命令用来设置消息队列的属性，要设置的属性存储在buf指向的msqid结构中；可设置属性包括：msg_perm.uid、msg_perm.gid、msg_perm.mode以及msg_qbytes,同时，也影响msg_ctime成员。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; IPC_RMID:删除msqid标识的消息队列；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 调用返回：成功返回0,否则返回-1.<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 三、消息队列的限制<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 每个消息队列的容量（所能容纳的字节数）都有限制，该值因系统不同而不同。在后面的应用实例中，输出了redhat 8.0的限制，结果参见 附录 3.<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 另一个限制是每个消息队列所能容纳的最大消息数：在redhad 8.0中，该限制是受消息队列容量制约的：消息个数要小于消息队列的容量（字节数）。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 注：上述两个限制是针对每个消息队列而言的，系统对消息队列的限制还有系统范围内的最大消息队列个数，以及整个系统范围内的最大消息数。一般来说，实际开发过程中不会超过这个限制。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 四、消息队列应用实例<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 消息队列应用相对较简单，下面实例基本上覆盖了对消息队列的所有操作，同时，程序输出结果有助于加深对前面所讲的某些规则及消息队列限制的理解。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; #include &lt;sys/types.h&gt;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; #include &lt;sys/msg.h&gt;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; #include &lt;unistd.h&gt;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; void msg_stat（int,struct msqid_ds ）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; main（）<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; {<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; int gflags,sflags,rflags;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; key_t key;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; int msgid;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; int reval;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; struct msgsbuf{<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; int mtype;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; char mtext[1];<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; }msg_sbuf;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; struct msgmbuf<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; {<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; int mtype;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; char mtext[10];<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; }msg_rbuf;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; struct msqid_ds msg_ginfo,msg_sinfo;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; char* msgpath="/unix/msgqueue";<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; key=ftok（msgpath,'a'）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; gflags=IPC_CREAT|IPC_EXCL;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; msgid=msgget（key,gflags|00666）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; if（msgid==-1）<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; {<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; printf（"msg create error\n"）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; return;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; //创建一个消息队列后，输出消息队列缺省属性<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; msg_stat（msgid,msg_ginfo）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; sflags=IPC_NOWAIT;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; msg_sbuf.mtype=10;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; msg_sbuf.mtext[0]='a';<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; reval=msgsnd（msgid,&amp;msg_sbuf,sizeof（msg_sbuf.mtext），sflags）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; if（reval==-1）<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; {<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; printf（"message send error\n"）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; //发送一个消息后，输出消息队列属性<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; msg_stat（msgid,msg_ginfo）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; rflags=IPC_NOWAIT|MSG_NOERROR;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; reval=msgrcv（msgid,&amp;msg_rbuf,4,10,rflags）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; if（reval==-1）<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; printf（"read msg error\n"）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; else<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; printf（"read from msg queue %d bytes\n",reval）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; //从消息队列中读出消息后，输出消息队列属性<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; msg_stat（msgid,msg_ginfo）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; msg_sinfo.msg_perm.uid=8;//just a try<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; msg_sinfo.msg_perm.gid=8;//<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; msg_sinfo.msg_qbytes=16388;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; //此处验证超级用户可以更改消息队列的缺省msg_qbytes<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; //注意这里设置的值大于缺省值<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; reval=msgctl（msgid,IPC_SET,&amp;msg_sinfo）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; if（reval==-1）<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; {<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; printf（"msg set info error\n"）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; return;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; msg_stat（msgid,msg_ginfo）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; //验证设置消息队列属性<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; reval=msgctl（msgid,IPC_RMID,NULL）；//删除消息队列<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; if（reval==-1）<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; {<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; printf（"unlink msg queue error\n"）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; return;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; void msg_stat（int msgid,struct msqid_ds msg_info）<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; {<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; int reval;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; sleep（1）；//只是为了后面输出时间的方便<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; reval=msgctl（msgid,IPC_STAT,&amp;msg_info）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; if（reval==-1）<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; {<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; printf（"get msg info error\n"）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; return;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; printf（"\n"）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; printf（"current number of bytes on queue is %d\n",msg_info.msg_cbytes）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; printf（"number of messages in queue is %d\n",msg_info.msg_qnum）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; printf（"max number of bytes on queue is %d\n",msg_info.msg_qbytes）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; //每个消息队列的容量（字节数）都有限制MSGMNB,值的大小因系统而异。在创建新的消息队列时，//msg_qbytes的缺省值就是MSGMNB<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; printf（"pid of last msgsnd is %d\n",msg_info.msg_lspid）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; printf（"pid of last msgrcv is %d\n",msg_info.msg_lrpid）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; printf（"last msgsnd time is %s", ctime（&amp;（msg_info.msg_stime）））；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; printf（"last msgrcv time is %s", ctime（&amp;（msg_info.msg_rtime）））；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; printf（"last change time is %s", ctime（&amp;（msg_info.msg_ctime）））；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; printf（"msg uid is %d\n",msg_info.msg_perm.uid）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; printf（"msg gid is %d\n",msg_info.msg_perm.gid）；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 程序输出结果见 附录 3.<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 小结：<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 消息队列与管道以及有名管道相比，具有更大的灵活性，首先，它提供有格式字节流，有利于减少开发人员的工作量；其次，消息具有类型，在实际应用中，可作为优先级使用。这两点是管道以及有名管道所不能比的。同样，消息队列可以在几个进程间复用，而不管这几个进程是否具有亲缘关系，这一点与有名管道很相似；但消息队列是随内核持续的，与有名管道（随进程持续）相比，生命力更强，应用空间更大。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 附录 1: 在参考文献[1]中，给出了IPC随进程持续、随内核持续以及随文件系统持续的定义：<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 随进程持续：IPC一直存在到打开IPC对象的最后一个进程关闭该对象为止。如管道和有名管道；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 随内核持续：IPC一直持续到内核重新自举或者显示删除该对象为止。如消息队列、信号灯以及共享内存等；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 随文件系统持续：IPC一直持续到显示删除该对象为止。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 附录 2:<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 结构msg_queue用来描述消息队列头，存在于系统空间：<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; struct msg_queue {<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; struct kern_ipc_perm q_perm;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; time_t q_stime; /* last msgsnd time */<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; time_t q_rtime; /* last msgrcv time */<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; time_t q_ctime; /* last change time */<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; unsigned long q_cbytes; /* current number of bytes on queue */<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; unsigned long q_qnum; /* number of messages in queue */<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; unsigned long q_qbytes; /* max number of bytes on queue */<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; pid_t q_lspid; /* pid of last msgsnd */<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; pid_t q_lrpid; /* last receive pid */<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; struct list_head q_messages;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; struct list_head q_receivers;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; struct list_head q_senders;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; };<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 结构msqid_ds用来设置或返回消息队列的信息，存在于用户空间；<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; struct msqid_ds {<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; struct ipc_perm msg_perm;<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; struct msg *msg_first; /* first message on queue,unused */<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; struct msg *msg_last; /* last message in queue,unused */<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; __kernel_time_t msg_stime; /* last msgsnd time */<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; __kernel_time_t msg_rtime; /* last msgrcv time */<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; __kernel_time_t msg_ctime; /* last change time */<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; unsigned long msg_lcbytes; /* Reuse junk fields for 32 bit */<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; unsigned long msg_lqbytes; /* ditto */<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; unsigned short msg_cbytes; /* current number of bytes on queue */<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; unsigned short msg_qnum; /* number of messages in queue */<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; unsigned short msg_qbytes; /* max number of bytes on queue */<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; __kernel_ipc_pid_t msg_lspid; /* pid of last msgsnd */<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; __kernel_ipc_pid_t msg_lrpid; /* last receive pid */<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; };<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; //可以看出上述两个结构很相似。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 附录 3: 消息队列实例输出结果：<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; current number of bytes on queue is 0<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; number of messages in queue is 0<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; max number of bytes on queue is 16384<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; pid of last msgsnd is 0<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; pid of last msgrcv is 0<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; last msgsnd time is Thu Jan 1 08:00:00 1970<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; last msgrcv time is Thu Jan 1 08:00:00 1970<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; last change time is Sun Dec 29 18:28:20 2002<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; msg uid is 0<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; msg gid is 0<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; //上面刚刚创建一个新消息队列时的输出<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; current number of bytes on queue is 1<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; number of messages in queue is 1<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; max number of bytes on queue is 16384<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; pid of last msgsnd is 2510<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; pid of last msgrcv is 0<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; last msgsnd time is Sun Dec 29 18:28:21 2002<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; last msgrcv time is Thu Jan 1 08:00:00 1970<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; last change time is Sun Dec 29 18:28:20 2002<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; msg uid is 0<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; msg gid is 0<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; read from msg queue 1 bytes<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; //实际读出的字节数<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; current number of bytes on queue is 0<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; number of messages in queue is 0<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; max number of bytes on queue is 16384 //每个消息队列最大容量（字节数）<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; pid of last msgsnd is 2510<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; pid of last msgrcv is 2510<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; last msgsnd time is Sun Dec 29 18:28:21 2002<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; last msgrcv time is Sun Dec 29 18:28:22 2002<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; last change time is Sun Dec 29 18:28:20 2002<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; msg uid is 0<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; msg gid is 0<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; current number of bytes on queue is 0<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; number of messages in queue is 0<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; max number of bytes on queue is 16388 //可看出超级用户可修改消息队列最大容量<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; pid of last msgsnd is 2510<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; pid of last msgrcv is 2510 //对操作消息队列进程的跟踪<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; last msgsnd time is Sun Dec 29 18:28:21 2002<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; last msgrcv time is Sun Dec 29 18:28:22 2002<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; last change time is Sun Dec 29 18:28:23 2002 //msgctl（）调用对msg_ctime有影响<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; msg uid is 8<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; msg gid is 8<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 参考资料<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; UNIX网络编程第二卷：进程间通信，作者：W.Richard Stevens,译者：杨继张，清华大学出版社。对POSIX以及系统V消息队列都有阐述，对Linux环境下的程序开发有极大的启发意义。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; linux内核源代码情景分析（上），毛德操、胡希明着，浙江大学出版社，给出了系统V消息队列相关的源代码分析。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; <A href="http://www.fanqiang.com/a4/b2/20010508/113315.html">http://www.fanqiang.com/a4/b2/20010508/113315.html</A>,主要阐述linux下对文件的操作，详细介绍了对文件的存取权限位，对IPC对象的存取权限同样具有很好的借鉴意义。<BR>&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; msgget、msgsnd、msgrcv、msgctl手册</P></p> <div align=right style="margin:3px 0;">
+<span style="border:1px dashed #cccccc; margin:3px;">
+<script type="text/javascript"><!--
+google_ad_client = "pub-8985212780093870";
+/* 468x60, 创建于 10-9-21 */
+google_ad_slot = "4499687408";
+google_ad_width = 468;
+google_ad_height = 60;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</span>
+<A title="Linux频道
+中国IT实验室" href="http://Linux.chinaitlab.com/" target=_blank><IMG 
+
+height=14 src="http://www.chinaitlab.com/cms/images/logo14.gif" width=14 
+
+border=0></A>【责编:eric】<script language='javascript' src='http://www.chinaitlab.com/adjs/200605/88.js'></script></div> 
+</div>
+<div class=blank>
+</div>
+<div class=Fushu style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px">
+<div class=F_lst style="FLOAT: left">
+<div class=F_tle><IMG height=7 src="http://cisco.chinaitlab.com/images/f06.gif" width=9 border=0>相关文章
+</div>
+<div style="MARGIN: 5px 10px; WIDTH: 90%"><a class='LinkArticleCorrelative' href='http://Linux.chinaitlab.com/Python/878184.html' title='文章标题：Python抓取中文网页
+作&nbsp;&nbsp;&nbsp;&nbsp;者：佚名
+更新时间：2012-3-8 10:23:38' target="_self">Python抓取中文网页</a><br><a class='LinkArticleCorrelative' href='http://Linux.chinaitlab.com/soft/878170.html' title='文章标题：LINUX中断机制与信号
+作&nbsp;&nbsp;&nbsp;&nbsp;者：佚名
+更新时间：2012-3-8 9:27:02' target="_self">LINUX中断机制与信号</a><br><a class='LinkArticleCorrelative' href='http://Linux.chinaitlab.com/unix/878169.html' title='文章标题：LINUX和UNIX的关系
+作&nbsp;&nbsp;&nbsp;&nbsp;者：佚名
+更新时间：2012-3-8 9:27:00' target="_self">LINUX和UNIX的关系</a><br><a class='LinkArticleCorrelative' href='http://Linux.chinaitlab.com/kernel/877603.html' title='文章标题：Linux程序设计殿堂的善意提醒
+作&nbsp;&nbsp;&nbsp;&nbsp;者：佚名
+更新时间：2012-3-7 10:56:24' target="_self">Linux程序设计殿堂的善意提醒</a><br><a class='LinkArticleCorrelative' href='http://Linux.chinaitlab.com/kfsc/877601.html' title='文章标题：一个通用Makefile详解
+作&nbsp;&nbsp;&nbsp;&nbsp;者：佚名
+更新时间：2012-3-7 10:53:36' target="_self">一个通用Makefile详解</a><br><a class='LinkArticleCorrelative' href='http://Linux.chinaitlab.com/driver/877491.html' title='文章标题：linux中的ioremap
+作&nbsp;&nbsp;&nbsp;&nbsp;者：佚名
+更新时间：2012-3-7 10:26:09' target="_self">linux中的ioremap</a><br><a class='LinkArticleCorrelative' href='http://Linux.chinaitlab.com/driver/877436.html' title='文章标题：Linux设备模型之input子系统
+作&nbsp;&nbsp;&nbsp;&nbsp;者：佚名
+更新时间：2012-3-7 7:55:24' target="_self">Linux设备模型之input子系统</a><br><a class='LinkArticleCorrelative' href='http://Linux.chinaitlab.com/soft/877435.html' title='文章标题：Linux批量建立主机信任关系
+作&nbsp;&nbsp;&nbsp;&nbsp;者：佚名
+更新时间：2012-3-7 7:52:59' target="_self">Linux批量建立主机信任关系</a><br><a class='LinkArticleCorrelative' href='http://Linux.chinaitlab.com/Python/877406.html' title='文章标题：Python日志输出——logging模块
+作&nbsp;&nbsp;&nbsp;&nbsp;者：佚名
+更新时间：2012-3-6 10:32:45' target="_self">Python日志输出——logging模块</a><br><a class='LinkArticleCorrelative' href='http://Linux.chinaitlab.com/kernel/877405.html' title='文章标题：linux下putty,psftp使用以及截图
+作&nbsp;&nbsp;&nbsp;&nbsp;者：佚名
+更新时间：2012-3-6 10:23:54' target="_self">linux下putty,psftp使用以及截图</a><br>
+</div>
+</div>
+<div class=F_lst style="FLOAT: right">
+<div class=F_tle><IMG height=7 src="http://cisco.chinaitlab.com/images/f06.gif" width=9 border=0>编辑推荐
+</div>
+  ·&nbsp;[<a class="" href="http://Linux.chinaitlab.com/List_100.html">常用命令</a>]<a class="" href="http://Linux.chinaitlab.com/command/867897.html" title="Linux基本常用命令" target="_blank">Linux基本常用命令</a><br />·&nbsp;[<a class="" href="http://Linux.chinaitlab.com/List_100.html">常用命令</a>]<a class="" href="http://Linux.chinaitlab.com/command/867685.html" title="linux&nbsp;top命令详解" target="_blank">linux&nbsp;top命令详解</a><br />·&nbsp;[<a class="" href="http://Linux.chinaitlab.com/List_102.html">软件使用</a>]<a class="" href="http://Linux.chinaitlab.com/soft/867569.html" title="Ubuntu下安装和使用Webmin软件" target="_blank">Ubuntu下安装和使用Webmin软件</a><br />·&nbsp;[<a class="" href="http://Linux.chinaitlab.com/List_115.html">网络管理</a>]<a class="" href="http://Linux.chinaitlab.com/administer/867478.html" title="linux下DHCP+PXE配置" target="_blank">linux下DHCP+PXE配置</a><br />·&nbsp;[<a class="" href="http://Linux.chinaitlab.com/List_111.html">内核技术</a>]<a class="" href="http://Linux.chinaitlab.com/kernel/866966.html" title="Linux&nbsp;Access函数实例应用详解" target="_blank">Linux&nbsp;Access函数实例应用详解</a><br />·&nbsp;[<a class="" href="http://Linux.chinaitlab.com/List_114.html">Linux安全</a>]<a class="" href="http://Linux.chinaitlab.com/safe/826400.html" title="让你的linux操作系统更加安全" target="_blank">让你的linux操作系统更加安全</a><br />·&nbsp;[<a class="" href="http://Linux.chinaitlab.com/List_109.html">系统管理</a>]<a class="" href="http://Linux.chinaitlab.com/administer/811248.html" title="Linux中patch文件的使用" target="_blank">Linux中patch文件的使用</a><br />·&nbsp;[<a class="" href="http://Linux.chinaitlab.com/List_109.html">系统管理</a>]<a class="" href="http://Linux.chinaitlab.com/administer/811247.html" title="Windows与Vmware下的Linux文件共享方式总结" target="_blank">Windows与Vmware下的Linux文件共享方式总结</a><br />·&nbsp;[<a class="" href="http://Linux.chinaitlab.com/List_111.html">内核技术</a>]<a class="" href="http://Linux.chinaitlab.com/kernel/811181.html" title="Linux下显示多核模式方法" target="_blank">Linux下显示多核模式方法</a><br />·&nbsp;[<a class="" href="http://Linux.chinaitlab.com/List_109.html">系统管理</a>]<a class="" href="http://Linux.chinaitlab.com/administer/811170.html" title="Linux通过脚本实现远程自动备份" target="_blank">Linux通过脚本实现远程自动备份</a><br /> 
+</div>
+</div>
+<div class=blank>
+</div>
+<div class=Fushu style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px"><IFRAME marginWidth=0 marginHeight=0 src="http://linux.chinaitlab.com/cio_new.html" frameBorder=0 width=660 scrolling=no height=213></IFRAME>
+</div>
+<div class=blank>
+</div>
+<div class=Fushu>
+<div class="title_line2 font14"><IMG height=29 src="http://windows.chinaitlab.com/images/f04.gif" width=7>相关产品和培训 
+</div>
+<IFRAME marginWidth=0 marginHeight=0 src="http://linux.chinaitlab.com/peixun_new.htm" frameBorder=0 width=660 scrolling=no height=159></IFRAME>
+</div>
+<div class=blank>
+</div>
+<div class=Fushu>
+<div class="title_line2 font14"><IMG height=29 src="http://cisco.chinaitlab.com/images/f04.gif" width=7>文章评论 
+</div>
+<IFRAME src="http://www.chinaitlab.com/CMS2006_Comment/Comment/ArticleComment.asp?ID=877600" frameBorder=0 width="100%" scrolling=yes height=330></IFRAME>
+</div>
+<div class=blank></div>
+<div class=tjtitle>　友情推荐链接</div>
+<div class=yqtj>
+<div class=yqtj_lf>·<A title=Asp源码 href="http://down.idcquan.com/download/asp/asp-1-1.html" target=_blank>Asp源码</A> <A title=PHP源码 href="http://down.idcquan.com/download/php/php-2-1.html" target=_blank>PHP源码</A><BR>·<A title=CGI源码 href="http://down.idcquan.com/download/cgi/cgi-5-1.html" target=_blank>CGI源码</A> <A title=JSP源码 href="http://down.idcquan.com/download/jsp/jsp-3-1.html" target=_blank>JSP源码</A><BR>·<A title=书籍教程 href="http://down.idcquan.com/download/book/book-6-1.html" target=_blank>建站书籍教程</A><BR>·<A title=服务器软件 href="http://down.idcquan.com/download/soft/soft-8-1.html" target=_blank>服务器软件</A> <A title=.net源码 href="http://down.idcquan.com/download/dotnet/dotnet-4-1.html" target=_blank>.net源码</A><BR>·<A title=工具软件 href="http://down.idcquan.com/download/tool/tool-9-1.html" target=_blank>建站工具软件</A><BR></div>
+<div class=yqtj_rt>·<A href="http://www.idcquan.com/2007idcpages/" target=_blank>IDC资讯大全</A><BR>·<A href="http://www.idcquan.com/2007idcsurvey/" target=_blank>机房品质万里行</A><BR>·<A href="http://www.idcquan.com/" target=_blank>IDC托管必备知识</A><BR>·<A href="http://www.idcquan.com/" target=_blank>全国IDC报价</A><BR>·<A href="http://www.idcquan.com/" target=_blank>网站推广优化</A><BR></div></div> 
+<div class=blank>
+</div>
+</div>
+<div class=Prt_right style="HEIGHT: 220px"><!-- 广告位：LINUX文章页右侧画中画 -->
+<script type="text/javascript" >BAIDU_CLB_SLOT_ID = "54229";</script>
+<script type="text/javascript" src="http://cbjs.baidu.com/js/o.js"></script>
+</div>
+<table width="270" border="0" align="right">
+  <tr>
+    <td><table border=0 cellSpacing=0 cellPadding=0 width=265 height=180>
+    <tr>
+      <td height=5></td>
+    </tr>
+    <tr>
+      <td height=180><IFRAME height=195 marginHeight=0 src="http://edu.chinaitlab.com/extend/7.html" frameBorder=0 width=265 marginWidth=0 scrolling=no></IFRAME></td>
+    </tr>
+  </table></td>
+  </tr>
+</table>
+<div class="Prt_right border_kuang">
+<div class=title_line><IMG height=7 src="http://cisco.chinaitlab.com/images/f06.gif" width=9 border=0>　专题推荐
+</div>
+<A title="Linux&nbsp;快速入门" href="http://linux.chinaitlab.com/Special/linuxbase/index.html" target=_blank><img class='pic1' src='http://linux.chinaitlab.com/Special/linuxbase/image/120.jpg'  width='120' height='90' border='0'></A><A title="PHP之入门到精通" href="http://linux.chinaitlab.com/Special/PHP/Index.html" target=_blank><img class='pic1' src='http://linux.chinaitlab.com/Special/PHP/20110811.jpg'  width='120' height='90' border='0'></A><BR>　·<A title="网络直播：用postfix部署稳定、安全的高性能邮件系统" href="" target=_blank>网络直播：用postfix部署稳定、安全的高性能邮件系统</A><BR>　·<A title="Linux&nbsp;快速入门" href="http://linux.chinaitlab.com/Special/linuxbase/index.html" target=_blank>Linux&nbsp;快速入门</A><BR>　·<A title="PHP之入门到精通" href="http://linux.chinaitlab.com/Special/PHP/Index.html" target=_blank>PHP之入门到精通</A><BR>　·<A title="GNU详细解析" href="http://linux.chinaitlab.com/Special/GUN/Index.html" target=_blank>GNU详细解析</A><BR>　·<A title="Android平台开发指南" href="http://linux.chinaitlab.com/special/android/index.html" target=_blank>Android平台开发指南</A><BR>　·<A title="中国Linux内核开发者大会" href="http://linux.chinaitlab.com/special/kernel2009/Index.html" target=_blank>中国Linux内核开发者大会</A><BR>　·<A title="LDAP服务器运用专题" href="http://linux.chinaitlab.com/special/ldap/Index.html" target=_blank>LDAP服务器运用专题</A><BR>　·<A title="解密SELinux安全系统设计" href="http://linux.chinaitlab.com/special/selinux/Index.html" target=_blank>解密SELinux安全系统设计</A><BR>　·<A title="lvm-linux逻辑磁盘卷管理专题" href="http://linux.chinaitlab.com/special/lvmdisk/Index.html" target=_blank>lvm-linux逻辑磁盘卷管理专题</A><BR>　·<A title="从无到有--理解系统引导过程" href="http://linux.chinaitlab.com/special/systemload/index.html" target=_blank>从无到有--理解系统引导过程</A><BR> 
+</div>
+<div class="Prt_right" style="HEIGHT: 250px">
+<script language="javascript" src="http://www.chinaitlab.com/adjs/201105/274.js"></script></div>
+<div class="Prt_right border_kuang">
+<div class=title_line><IMG height=7 src="http://cisco.chinaitlab.com/images/f06.gif" width=9 border=0>　今日更新
+</div>
+<div class=right_lst>
+  ·&nbsp;<a class="" href="http://Linux.chinaitlab.com/SHELL/878615.html" title="SHELL心得-关于变量的使用" target="_blank">SHELL心得-关于变量的使用</a><br />·&nbsp;<a class="" href="http://Linux.chinaitlab.com/SHELL/878612.html" title="用SHELL脚本来防止暴力破解" target="_blank">用SHELL脚本来防止暴力破解</a><br />·&nbsp;<a class="" href="http://Linux.chinaitlab.com/soft/877600.html" title="Linux环境进程间通信消息队列" target="_blank">Linux环境进程间通信消息队列</a><br />·&nbsp;<a class="" href="http://Linux.chinaitlab.com/Python/878184.html" title="Python抓取中文网页" target="_blank">Python抓取中文网页</a><br />·&nbsp;<a class="" href="http://Linux.chinaitlab.com/soft/878170.html" title="LINUX中断机制与信号" target="_blank">LINUX中断机制与信号</a><br />·&nbsp;<a class="" href="http://Linux.chinaitlab.com/unix/878169.html" title="LINUX和UNIX的关系" target="_blank">LINUX和UNIX的关系</a><br />·&nbsp;<a class="" href="http://Linux.chinaitlab.com/kernel/877603.html" title="Linux程序设计殿堂的善意提醒" target="_blank">Linux程序设计殿堂的善意提醒</a><br />·&nbsp;<a class="" href="http://Linux.chinaitlab.com/kfsc/877601.html" title="一个通用Makefile详解" target="_blank">一个通用Makefile详解</a><br />·&nbsp;<a class="" href="http://Linux.chinaitlab.com/driver/877491.html" title="linux中的ioremap" target="_blank">linux中的ioremap</a><br />·&nbsp;<a class="" href="http://Linux.chinaitlab.com/PHP/877478.html" title="PHP中$_SERVER的详细参数与说明" target="_blank">PHP中$_SERVER的详细参数与说明</a><br />
+</div>
+</div>
+<div class="Prt_right border_kuang">
+<div class=title_line><IMG height=7 src="http://cisco.chinaitlab.com/images/f06.gif" width=9 border=0>　认证培训
+</div>
+<div class=right_lst>
+<script language="javascript" src="http://linux.chinaitlab.com/JS/linux_peixun.js"></script>
+</div>
+</div>
+<div class="Prt_right border_kuang">
+<div class=title_line><IMG height=7 src="http://cisco.chinaitlab.com/images/f06.gif" width=9 border=0>　频道精选
+</div>
+<div class=right_lst>· <a href=http://cisco.chinaitlab.com/CCNACCDA/725394.html target=_blank title="新版CCNA考试大纲 07年8月1日生效">新版CCNA考试大纲 07年8月1日生效</a><br \>
+· <a href=http://linux.chinaitlab.com/special/linuxcom/Index.html target=_blank title="新手学习宝典：Linux常用命令全集">新手学习宝典：Linux常用命令全集</a><br \>
+· <a href=http://windows.chinaitlab.com/Special/systemsafety/Index.html target=_blank title="知已知彼，深入了解系统安全知识">知已知彼，深入了解系统安全知识</a><br \>
+· <a href=http://java.chinaitlab.com/Special/shijian/Index.html target=_blank title="从入门到精通 java初学者实践系列教程">从入门到精通 java初学者实践系列教程</a><br \>
+· <a href=http://www.chinaitlab.com/www/techspecial/OracleBasic/ target=_blank title="共同学习——Oracle入门基础专题">共同学习——Oracle入门基础专题</a><br \>
+· <a href=http://dotnet.chinaitlab.com/ADONET/727687.html target=_blank title="ADO.net与PowerBuilder的综合比">ADO.net与PowerBuilder的综合比较</a><br \>
+· <a href=http://internet.chinaitlab.com/observe/729460.html target=_blank title="评论：中国互联网“钱”途何在？">评论：中国互联网“钱”途何在？</a><br \>
+· <a href=http://news.chinaitlab.com/ityw/729103.html target=_blank title="中科院：龙芯要成“中国奔腾” 能卖1亿颗">中科院：龙芯要成"中国奔腾" 能卖1亿颗</a><br \>
+</div>
+</div>
+<div class="Prt_right border_kuang">
+<div class=title_line><IMG height=7 src="http://cisco.chinaitlab.com/images/f06.gif" width=9 border=0>　Windows频道导航
+</div>
+<div class=right_lst><table cellSpacing=1 cellPadding=0 width="98%" align=center border=0>
+    <tr>
+      <td style="LINE-HEIGHT: 26px" colSpan=2>
+      <P><STRONG><A href="http://linux.chinaitlab.com/List_97.html" target=_parent>新手入门</A></STRONG><BR><A href="http://linux.chinaitlab.com/List_99.html" target=_blank>Linux安装</A>　<A href="http://linux.chinaitlab.com/List_100.html" target=_blank>常用命令</A>　<A href="http://linux.chinaitlab.com/List_102.html" target=_blank>软件使用</A><BR><STRONG><A href="http://linux.chinaitlab.com/List_103.html" target=_blank>系统管理</A></STRONG> <BR><A href="http://linux.chinaitlab.com/List_105.html" target=_blank>设备驱动</A>　<A href="http://linux.chinaitlab.com/List_107.html" target=_blank>Linux汉化</A>　<A href="http://linux.chinaitlab.com/List_109.html" target=_blank>系统管理</A><BR><A href="http://linux.chinaitlab.com/List_110.html" target=_blank>桌面应用</A>　<A href="http://linux.chinaitlab.com/List_111.html" target=_blank>内核技术</A><BR><STRONG><A href="http://linux.chinaitlab.com/List_112.html" target=_blank>网络管理</A></STRONG> <BR><A href="http://linux.chinaitlab.com/List_114.html" target=_blank>Linux安全</A>　<A href="http://linux.chinaitlab.com/List_115.html" target=_blank>网络管理</A>　<A href="http://linux.chinaitlab.com/List_116.html" target=_blank>Linux服务器</A><BR><STRONG><A href="http://linux.chinaitlab.com/List_118.html" target=_blank>Linux数据库</A></STRONG><BR><A href="http://linux.chinaitlab.com/List_119.html" target=_blank>MYSQL</A>　<A href="http://linux.chinaitlab.com/List_120.html" target=_blank>POSTGRE</A><BR><STRONG><A href="http://linux.chinaitlab.com/List_122.html" target=_blank>Linux编程</A></STRONG><BR><A href="http://linux.chinaitlab.com/List_123.html" target=_blank>CC++编程</A>　<A href="http://linux.chinaitlab.com/List_125.html" target=_blank>Python编程</A>　<A href="http://linux.chinaitlab.com/List_127.html" target=_blank>Perl编程</A> <BR><A href="http://linux.chinaitlab.com/List_128.html" target=_blank>PHP</A>　<A href="http://linux.chinaitlab.com/List_129.html" target=_blank>SHELL编程</A><BR><STRONG><A href="http://linux.chinaitlab.com/List_132.html" target=_blank>Linux下载</A></STRONG><BR><A href="http://linux.chinaitlab.com/List_134.html" target=_blank>系统管理</A>　<A href="http://linux.chinaitlab.com/List_135.html" target=_blank>游戏娱乐</A>　<A href="http://linux.chinaitlab.com/List_136.html" target=_blank>服务器类</A><BR><A href="http://linux.chinaitlab.com/List_138.html" target=_blank>开发工具</A>　<A href="http://linux.chinaitlab.com/List_139.html" target=_blank>X-windows</A>　<A href="http://linux.chinaitlab.com/List_140.html" target=_blank>参考手册</A><BR><A href="http://linux.chinaitlab.com/List_142.html" target=_blank>网络工具</A>　<A href="http://linux.chinaitlab.com/List_143.html" target=_blank>多媒体</A><BR><A href="http://linux.chinaitlab.com/List_1978.html" target=_blank><STRONG><FONT color=#ff0000>Linux集群</FONT></STRONG></A>　<A href="http://linux.chinaitlab.com/manual.htm" target=_blank><STRONG><FONT color=#0000ff>Linux手册</FONT></STRONG></A>　<STRONG><A href="http://linux.chinaitlab.com/List_92.html" target=_blank>Linux认证</A></STRONG><BR><STRONG><A href="http://linux.chinaitlab.com/List_93.html" target=_blank>Unix</A></STRONG>　<STRONG><A href="http://linux.chinaitlab.com/List_95.html" target=_blank>资讯动态</A></STRONG><BR><BR></P></td>
+    </tr>
+  </table>
+</div>
+</div>
+</div>
+<div class=blank>
+</div>
+<div class=tong><IFRAME marginWidth=0 marginHeight=0 src="http://www.chinaitlab.com/down.htm" frameBorder=0 width="100%" scrolling=no height=200></IFRAME>
+</div>
+<!-- 广告位：A专家级频道通用漂浮右下 -->
+<script type="text/javascript" >BAIDU_CLB_SLOT_ID = "136211";</script>
+<script type="text/javascript" src="http://cbjs.baidu.com/js/o.js"></script>
+<!-- tj -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F6ba3b0a89d6706a3868a9f5c81b0f319' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>

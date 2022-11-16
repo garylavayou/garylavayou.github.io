@@ -1,0 +1,387 @@
+					pthreads - POSIX threads
+	一个进程可以包含多个线程，所有线程都在同样的代码空间上执行。所有线程共享相同的全局存储空间（数据和堆空间），但是每个线程拥有自己的栈（自动变量）。
+	POSIX.1也要求线程一些其他属性（进程范围的）：
+	—— process ID
+	—— parent process ID
+	—— process group ID and session ID
+	—— controlling terminal
+	—— user and group IDs
+	—— open file descriptors
+	—— record locks (fcntl)
+	—— signal dispositions
+	—— file mode creation mask (umask)
+	—— current directory (chdir) and root directory (chroot)
+	—— interval timers (settimer) and POSIX timers (timer_create)
+	—— nice value
+	—— resource limits
+	—— measurements of the consumption of CPU time and resources
+	除了栈以外，POSIX.1还声明了每个线程自己的一些属性：
+	—— thread ID
+	—— signal mask (pthread_sigmask)
+	—— errno
+	—— alternate signal stack (sigaltstack)
+	—— real-time scheduling policy and priority
+	Linux声明的线程特征：
+	—— capabilities
+	—— CPU affinity
+	绝大多数pthread函数返回0表示成功，其他值表示失败的错误号（不能是EINTR，根据POSIX.1-2001）。pthread函数不能设置错误号。
+
+线程ID
+	进程中的每个线程都有一个唯一的线程标识符（使用pthread_t存储）。调用ptread_create()即返回新创建的线程的ID，线程也可以调用pthread_self()获取自己的线程ID。当线程执行返回或线程被终止后，线程ID便可以重用。所有引用线程ID的线程函数所指的线程都是同一进程中的线程。
+
+线程安全函数
+	线程安全函数是在多线程中能被同时调用的函数。
+
+异步取消安全函数
+	异步取消安全（async-cancel-safe）函数是当异步取消开启时，可以在程序中
+安全调用的函数（seepthread_setcancelstate）。
+	只有以下函数被POSIX.1-2001和POSIX.1-2008要求是异步取消安全的：
+		pthread_cancel()
+		pthread_setcancelstate()
+		pthread_setcanceltype()
+
+
+取消点
+	POSIX.1 声明了某些函数必须是，而某些函数可能是“取消点(cancel point)”。如果一个线程是可取消的，且取消的类型设置为延迟取消，则线程的取消请求将被挂起直至线程调用一个是取消点的函数。
+	POSIX.1-2001和POSIX.1-2008要求以下函数是取消点：
+					 accept()
+           aio_suspend()
+           clock_nanosleep()
+           close()
+           connect()
+           creat()
+           fcntl() F_SETLKW
+           fdatasync()
+           fsync()
+           getmsg()
+           getpmsg()
+           lockf() F_LOCK
+           mq_receive()
+           mq_send()
+           mq_timedreceive()
+           mq_timedsend()
+           msgrcv()
+           msgsnd()
+           msync()
+           nanosleep()
+           open()
+           openat() [Added in POSIX.1-2008]
+           pause()
+           poll()
+           pread()
+           pselect()
+           pthread_cond_timedwait()
+           pthread_cond_wait()
+           pthread_join()
+           pthread_testcancel()
+           putmsg()
+           putpmsg()
+           pwrite()
+           read()
+           readv()
+					 recv()
+           recvfrom()
+           recvmsg()
+           select()
+           sem_timedwait()
+           sem_wait()
+           send()
+           sendmsg()
+           sendto()
+           sigpause() [(moves to "may" list in POSIX.1-2008)]
+           sigsuspend()
+           sigtimedwait()
+           sigwait()
+           sigwaitinfo()
+           sleep()
+           system()
+           tcdrain()
+           usleep() [(function removed in POSIX.1-2008)]
+           wait()
+           waitid()
+           waitpid()
+           write()
+           writev()
+	根据POSIX.1-2001和POSIX.1-2008，以下函数可能是取消点：
+					 access()
+           asctime()
+           asctime_r()
+           catclose()
+           catgets()
+           catopen()
+           chmod() [Added in POSIX.1-2008]
+           chown() [Added in POSIX.1-2008]
+           closedir()
+           closelog()
+           ctermid()
+           ctime()
+           ctime_r()
+           dbm_close()
+           dbm_delete()
+           dbm_fetch()
+           dbm_nextkey()
+           dbm_open()
+           dbm_store()
+           dlclose()
+           dlopen()
+           dprintf() [Added in POSIX.1-2008]
+           endgrent()
+           endhostent()
+           endnetent()
+           endprotoent()
+           endpwent()
+           endservent()
+           endutxent()
+           faccessat() [Added in POSIX.1-2008]
+           fchmod() [Added in POSIX.1-2008]
+           fchmodat() [Added in POSIX.1-2008]
+           fchown() [Added in POSIX.1-2008]
+           fchownat() [Added in POSIX.1-2008]
+           fclose()
+					 fcntl() (for any value of cmd argument)
+           fflush()
+           fgetc()
+           fgetpos()
+           fgets()
+           fgetwc()
+           fgetws()
+           fmtmsg()
+           fopen()
+           fpathconf()
+           fprintf()
+           fputc()
+           fputs()
+           fputwc()
+           fputws()
+           fread()
+           freopen()
+           fscanf()
+           fseek()
+           fseeko()
+           fsetpos()
+           fstat()
+           fstatat() [Added in POSIX.1-2008]
+           ftell()
+           ftello()
+           ftw()
+           futimens() [Added in POSIX.1-2008]
+           fwprintf()
+           fwrite()
+           fwscanf()
+           getaddrinfo()
+           getc()
+           getc_unlocked()
+           getchar()
+           getchar_unlocked()
+           getcwd()
+					 getdate()
+           getdelim() [Added in POSIX.1-2008]
+           getgrent()
+           getgrgid()
+           getgrgid_r()
+           getgrnam()
+           getgrnam_r()
+           gethostbyaddr() [SUSv3 only (removed in POSIX.1-2008)]
+           gethostbyname() [SUSv3 only (removed in POSIX.1-2008)]
+           gethostent()
+           gethostid()
+           gethostname()
+           getline() [Added in POSIX.1-2008]
+           getlogin()
+           getlogin_r()
+           getnameinfo()
+           getnetbyaddr()
+           getnetbyname()
+           getnetent()
+           getopt() (if opterr is nonzero)
+           getprotobyname()
+           getprotobynumber()
+           getprotoent()
+           getpwent()
+           getpwnam()
+           getpwnam_r()
+           getpwuid()
+           getpwuid_r()
+           gets()
+           getservbyname()
+           getservbyport()
+           getservent()
+           getutxent()
+           getutxid()
+           getutxline()
+           getwc()
+					 getwchar()
+           getwd() [SUSv3 only (function removed in POSIX.1-2008)]
+           glob()
+           iconv_close()
+           iconv_open()
+           ioctl()
+           link()
+           linkat() [Added in POSIX.1-2008]
+           lio_listio() [Added in POSIX.1-2008]
+           localtime()
+           localtime_r()
+           lockf() [Added in POSIX.1-2008]
+           lseek()
+           lstat()
+           mkdir() [Added in POSIX.1-2008]
+           mkdirat() [Added in POSIX.1-2008]
+           mkdtemp() [Added in POSIX.1-2008]
+           mkfifo() [Added in POSIX.1-2008]
+           mkfifoat() [Added in POSIX.1-2008]
+           mknod() [Added in POSIX.1-2008]
+           mknodat() [Added in POSIX.1-2008]
+           mkstemp()
+           mktime()
+           nftw()
+           opendir()
+           openlog()
+           pathconf()
+           pclose()
+           perror()
+           popen()
+           posix_fadvise()
+           posix_fallocate()
+           posix_madvise()
+           posix_openpt()
+           posix_spawn()
+           posix_spawnp()
+           posix_trace_clear()
+					 posix_trace_close()
+           posix_trace_create()
+           posix_trace_create_withlog()
+           posix_trace_eventtypelist_getnext_id()
+           posix_trace_eventtypelist_rewind()
+           posix_trace_flush()
+           posix_trace_get_attr()
+           posix_trace_get_filter()
+           posix_trace_get_status()
+           posix_trace_getnext_event()
+           posix_trace_open()
+           posix_trace_rewind()
+           posix_trace_set_filter()
+           posix_trace_shutdown()
+           posix_trace_timedgetnext_event()
+           posix_typed_mem_open()
+           printf()
+           psiginfo() [Added in POSIX.1-2008]
+           psignal() [Added in POSIX.1-2008]
+           pthread_rwlock_rdlock()
+           pthread_rwlock_timedrdlock()
+           pthread_rwlock_timedwrlock()
+           pthread_rwlock_wrlock()
+           putc()
+           putc_unlocked()
+           putchar()
+           putchar_unlocked()
+           puts()
+           pututxline()
+           putwc()
+           putwchar()
+           readdir()
+           readdir_r()
+           readlink() [Added in POSIX.1-2008]
+           readlinkat() [Added in POSIX.1-2008]
+           remove()
+					 rename()
+           renameat() [Added in POSIX.1-2008]
+           rewind()
+           rewinddir()
+           scandir() [Added in POSIX.1-2008]
+           scanf()
+           seekdir()
+           semop()
+           setgrent()
+           sethostent()
+           setnetent()
+           setprotoent()
+           setpwent()
+           setservent()
+           setutxent()
+           sigpause() [Added in POSIX.1-2008]
+           stat()
+           strerror()
+           strerror_r()
+           strftime()
+           symlink()
+           symlinkat() [Added in POSIX.1-2008]
+           sync()
+           syslog()
+           tmpfile()
+           tmpnam()
+           ttyname()
+           ttyname_r()
+           tzset()
+           ungetc()
+           ungetwc()
+           unlink()
+           unlinkat() [Added in POSIX.1-2008]
+           utime() [Added in POSIX.1-2008]
+           utimensat() [Added in POSIX.1-2008]
+           utimes() [Added in POSIX.1-2008]
+					 vdprintf() [Added in POSIX.1-2008]
+           vfprintf()
+           vfwprintf()
+           vprintf()
+           vwprintf()
+           wcsftime()
+           wordexp()
+           wprintf()
+           wscanf()
+	一种实现可能会增加其他未列在标准中的函数为取消点。特别地，一种实现可能
+会将会产生阻塞的非标准函数设置为取消点。
+
+编译
+	在Linux中，使用Pthread API的程序需要增加使用-lpthread选项对程序进行编译。
+
+POSIX线程的Linux实现
+	到现在，共有两中线程实现方法在GNU C library中被提出：
+	LinuxThreads
+		最初的Pthread实现方法。从glibc 2.4开始，这种方法已经不再受支持了。
+	NPTL(Native POSIX Threads Library)
+		现在的Pthread实现方法。与LinuxThreads相比，NPTL提供与POSIX.1要求更
+	接近的性能，以及在创建大量线程时更好的性能。NPTL从glibc 2.3.2开始可用，并
+	要求Linux 2.6内核提供的特性。
+	两种实现都称为1：1实现，即每一个线程都映射到一个内核的调度实体。两者都使用Linux clone()系统调用。在NPTL中，线程同步机制（mutex,thread joining,etc）都使用Linux futex()系统调用实现。
+
+LinuxThreads
+	这种实现的特点：
+	--除了主线程以及使用pthread_create创建的线程，该实现还会创建一个“管理”
+线程。该线程处理线程创建和终止（如果该线程被意外关闭，则会出现问题）。
+	--该线程实现在内部使用了信号（see signal intro）。应用程序应避免使用这写
+内部使用的信号。
+	--线程不共享进程ID。（实际上，LinuxThreads是由进层实现的，这些进程比
+一般进程共享更多信息，但不共享公共的进程ID）LinuxThreads线程使用ps查看将
+显示为独立的进程。
+	LinuxThreads与POSIX.1声明的差别：
+	--在不同线程中调用getpid将返回不同值；
+	--在非主线程的线程中调用getppid将返回管理线程的进程ID。
+	--当一个线程调用fork创建子进程，任何线程应该都能在对该子进程调用wait。
+然而，实际上只有创建子进程的那个线程可以调用。
+	--当线程调用execve，所有其他线程都被终止（POSIX.1要求）。然而，得到的
+进程与调用execve的线程具有相同进程ID：实际上应该与主线程具有相同进程ID。
+	--线程不共享用户和组ID。
+	--线程不共享公共的会话ID和进程组ID。
+	--Threads do not share record locks created using fcntl(2)。
+	--由times和getrusage返回的信息是线程范围而不是进程范围。
+	--线程不共享内部计时器。
+	--线程不共享公共的nice value。
+	--POSIX.1区分发送给进程的信号以及发送给单个线程的信号。指向进程的信号应该
+信号随机选择的线程处理。LinuxThreads不支持指向进程的信号：信号可能只能发送
+给指定线程。
+	--Threads  have  distinct alternate signal stack settings.
+
+NPTL
+
+
+确定线程的实现方法
+	在终端输入以下命令：
+	getconf GNU_LIBPTHREAD_VERSION
+	或者对于较老版本的glibc，使用以下命令：
+	$( ldd /bin/ls | grep libc.so | awk '{print $3}' ) | \
+                           egrep -i 'threads|nptl'
+线程的栈大小
+ 	查看本地系统栈空间大小的限制：
+	>ulimit -s
+	 8192            # The stack size limit is 8 MB (0x80000 bytes)
+		

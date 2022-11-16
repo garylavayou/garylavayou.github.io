@@ -1,0 +1,795 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>编程基础 - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html" class="active">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html" class="active">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="java编程"><a class="header" href="#java编程">JAVA编程</a></h1>
+<p>Java语言不使用指针，而是引用。</p>
+<h2 id="java程序"><a class="header" href="#java程序">Java程序</a></h2>
+<h3 id="编写"><a class="header" href="#编写">编写</a></h3>
+<h4 id="代码结构"><a class="header" href="#代码结构">代码结构</a></h4>
+<p>一个<code>*.java</code>文件可以包含多个类的定义：</p>
+<ul>
+<li>只能有一个<code>public</code>类/接口，源文件名与<code>public</code>类名相同；</li>
+</ul>
+<h5 id="打包声明"><a class="header" href="#打包声明">打包声明</a></h5>
+<p>包用于描述代码的逻辑组织结构（类似于C#的命名空间）：</p>
+<ul>
+<li>
+<p>把功能相似或相关的类或接口组织在同一个包中，方便类的查找和使用</p>
+</li>
+<li>
+<p>并防止命名冲突。</p>
+</li>
+</ul>
+<p>如果一个public类要包含在某个包内，需要在代码的第一行使用<code>package</code>关键字进行声明。</p>
+<pre><code class="language-java">package org.develop.app;
+</code></pre>
+<p>在指定的源代码根目录下，<strong>层级的打包声明也对应源代码（编译输出字节码）文件树目录结构</strong>。</p>
+<blockquote>
+<p>不同类型项目的源文件根目录设置可能不同，例如<a href="https://stackoverflow.com/questions/3004710/what-is-the-advantage-of-the-src-main-java-convention">Maven项目的源代码根目录</a>为<code>src/main/java</code>，则上述源代码对应的路径为<code>src\main\java\org\develop\App.java</code>。</p>
+</blockquote>
+<h5 id="导入包声明"><a class="header" href="#导入包声明">导入包声明</a></h5>
+<p>为了使用外部代码（例如Java库），源文件文件中可以导入（<code>import</code>）外部依赖包的内容。</p>
+<p>导入语句位于打包语句之后。</p>
+<pre><code class="language-java">import java.io.*;		// import all
+import java.io.File;	// import single class
+</code></pre>
+<p>包具有层级嵌套结构，导入声明仅能引用当前层级包中的类，而不能引用下一层级的包中的类（需要单独声明）。</p>
+<h5 id="模块系统java-9"><a class="header" href="#模块系统java-9">模块系统（Java 9）</a></h5>
+<p>同一个<code>jar</code>文件中的<code>.class</code>文件并没有依赖关系限制；模块则附加依赖关系，还可包含二进制代码。</p>
+<pre><code class="language-shell">oop-module
+├── bin                           # 存放编译后的class文件
+├── build.sh
+└── src                           # 源码：按包名的目录结构存放
+    ├── com
+    │   └── hello
+    │       └── world
+    │           ├── Greeting.java
+    │           └── Main.java
+    └── module-info.java          # 模块的描述文件，包含依赖声明
+</code></pre>
+<p>在Java代码中仅能引用模块描述文件中声明的依赖库。</p>
+<pre><code class="language-java">module hello.world {
+   requires java.base;       // 可不写，任何模块都会自动引入java.base
+   requires java.xml;
+   exports com.hello.world;  // 只有声明导出的包，外部代码才能问。(进一步隔离了代码的访问权限)
+}
+</code></pre>
+<blockquote>
+<p><code>java --list-modules</code>显示JDK自带模块。
+<code>java -d,describe-module module_name</code>显示模块的描述信息。</p>
+</blockquote>
+<h3 id="执行java程序"><a class="header" href="#执行java程序">执行Java程序</a></h3>
+<h4 id="编译"><a class="header" href="#编译">编译</a></h4>
+<p>Java程序被<a href="Java%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83.html#%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7">编译</a>为字节码格式（<code>*.class</code>文件）。在运行时，Java平台中的Java解释器对这些字节码进行解释执行，执行过程中需要的类在联接阶段被载入到运行环境中。</p>
+<h4 id="运行"><a class="header" href="#运行">运行</a></h4>
+<p>Java应用程序是由若干类定义组成的独立的解释型程序，其中必须有一个包含Main方法的主类；执行Java应用程序时，需要使用Java解释器（<code>java.exe</code>）来执行这个主类的字节码文件（<code>.class</code>）。</p>
+<pre><code class="language-shell">java App.java                                  # 直接编译执行源文件
+java [options] -jar package-name.jar [args...] # 执行jar包中包含Main方法的class文件
+java [options] -cp &lt;classpath&gt; package.ClassName [args...] # 指定搜索路径下的class
+</code></pre>
+<p><code>package.ClassName</code>：程序执行时应该执行入口函数所在的类，解释器在<a href="#%E7%B1%BB%E6%90%9C%E7%B4%A2%E8%B7%AF%E5%BE%84">搜索路径</a>下寻找指定类。Java应用程序的入口函数为类中的名为<code>Main</code>的<a href="#%E6%96%B9%E6%B3%95">静态方法</a>。使用<code>-jar</code>选项执行时，<code>jar</code>包中需要在<code>manifest</code>中声明主类。</p>
+<blockquote>
+<p><code>--dry-run</code>：创建VM并加载主类，但不执行主方法。用于验证命令行参数是否有效。</p>
+<p>Java小程序（Java Applet）的源代码编辑与字节码编译生成过程与Java应用程序相同，但它不是一类可独立运行的程序。<strong>Applet程序的字节码</strong>文件必须嵌入到HTML文件中并由负责解释HTML文件的浏览器充当其解释器。将Java Applet引入HTML中，使得网页能够提供动态信息。Java小程序与Java应用程序最大不同在于Applet不需要<code>Main</code>方法，而要求程序中必须有且只有一个类是<code>Applet</code>类的子类。系统类<code>Applet</code>类中已经定义了许多成员，它们规定了<code>Applet</code>如何与执行它的解释器——浏览器配合工作。</p>
+</blockquote>
+<h4 id="java环境变量"><a class="header" href="#java环境变量">Java环境变量</a></h4>
+<pre><code class="language-shell">-D&lt;name&gt;=&lt;value&gt;  # 系统属性(system.Properties),传递应用程序
+-X                # 输出所有`-X`（extra）虚拟机选项的名称；
+</code></pre>
+<h5 id="java虚拟机选项"><a class="header" href="#java虚拟机选项">Java虚拟机选项</a></h5>
+<p><code>-Xms</code>：Java虚拟机的初始<a href="http://docs.oracle.com/cd/E13150_01/jrockit_jvm/jrockit/geninfo/diagnos/garbage_collect.html">堆内存分配量</a>，例如<code>-Xms256m</code>；单位包括：<code>k,m,g,...</code>。</p>
+<p><code>-Xmx</code>：JVM最大堆内存分配量，例如<code>-Xmx2048m</code>，通常默认值为<code>256m</code>；如果超过最大内存分配限制，程序将触发<code>java.lang.OutOfMemoryError</code>异常。</p>
+<h5 id="java系统属性"><a class="header" href="#java系统属性">Java系统属性</a></h5>
+<h4 id="路径"><a class="header" href="#路径">路径</a></h4>
+<h5 id="当前路径"><a class="header" href="#当前路径">当前路径</a></h5>
+<p>执行Java程序时所在的工作目录。</p>
+<h5 id="类搜索路径"><a class="header" href="#类搜索路径">类搜索路径</a></h5>
+<p>Java解释器需要在搜索路径<code>CLASSPATH</code>中寻找<code>.class</code>文件进行执行。==类文件（<code>*.class</code>）可能位于文件夹、<code>jar</code>文件或<code>zip</code>文件==，使用以下选项添加搜索路径。</p>
+<pre><code class="language-shell">-{cp,class-path,classpath} libpath1:libpath2/*:lib3.jar:...
+</code></pre>
+<p>特别地，==如果文件夹以<code>/*</code>结尾，那么该文件夹下的所有<code>jar/zip</code>文件都会被加入搜索路径==。</p>
+<blockquote>
+<p>JVM自带的标准库<code>rt.jar</code>不要写到<code>CLASSPATH</code>中，写了反而会干扰JVM的正常运行。<code>*</code>不能视为通配符，因此<code>*.jar</code>的写法将无效且造成错误。</p>
+</blockquote>
+<h5 id="连接动态库"><a class="header" href="#连接动态库">连接动态库</a></h5>
+<p>如果程序依赖共享库（JNI），而不能定位，则会引发<code>java.lang.UnsatisfiedLinkError</code>。</p>
+<p>使用<code>-Djava.library.path=/your/lib/path</code>选项指定。</p>
+<p>另一种方法是在执行程序之前（或加入<code>/etc/profit</code>）设置环境变量 <code>LD_LIBRARY_PATH</code>。</p>
+<blockquote>
+<p>不建议修改共享库搜索路径。如果使用的共享库在系统中存在其他版本，可能影响程序使用的共享库版本，使程序出错（<code>ImportError: tensorflow/python/_pywrap_tensorflow_internal.so: undefined symbol</code>）。</p>
+</blockquote>
+<pre><code class="language-shell">export LD_LIBRARY_PATH=:~/Workspace/lib/java/tensorflow/
+</code></pre>
+<h5 id="模块搜索路径"><a class="header" href="#模块搜索路径">模块搜索路径</a></h5>
+<pre><code class="language-shell">-p,--module-path &lt;module path&gt; path1:path2:...
+</code></pre>
+<h2 id="语法"><a class="header" href="#语法">语法</a></h2>
+<p>标识符大小写敏感。命名规则：</p>
+<ul>
+<li>类名：单词首字母大写；</li>
+<li>方法名：首字母小写，其余单词首字母大写；</li>
+</ul>
+<h3 id="注释和文档"><a class="header" href="#注释和文档">注释和文档</a></h3>
+<p>注释：</p>
+<ul>
+<li>使用<code>//</code>或<code>/*...*/</code>添加单行注释；</li>
+<li>使用<code>/*...*/</code>添加多行注释。</li>
+</ul>
+<h4 id="文档化注释"><a class="header" href="#文档化注释">文档化注释</a></h4>
+<pre><code class="language-java">/**
+* &lt;h1&gt;Find average of three numbers!&lt;/h1&gt; 
+* &lt;p&gt;The FindAvg program implements an application that 
+* simply calculates average of three integers and Prints 
+* the output on the screen. &lt;/p&gt;
+*
+* @param parameter_name description 	[Parameters” section]
+* @return description					[“Returns” section]
+* @exception ExceptionClass				[Throws subheading]
+* @author Author Name
+* @version version						[“Version” subheading]
+* @since release-date					[“Since” subheading]
+* @see reference 						[See Also” heading]
+* @deprecated Indicating Deprecated components
+* {@link package.class#member label}
+* {@code text}
+*/
+</code></pre>
+<p>使用<code>javadoc</code>生成格式化文档。</p>
+<pre><code class="language-sh">javadoc Program.java
+</code></pre>
+<p>https://www.geeksforgeeks.org/comments-in-java/</p>
+<p>https://www.oracle.com/technetwork/java/javase/documentation/index-137868.html</p>
+<h4 id="标注annotation"><a class="header" href="#标注annotation">标注（Annotation）</a></h4>
+<p>标注以<code>@</code>开始，用于辅助程序元素与元信息的关联，并控制编译器的行为，但对编译后的程序不起作用。</p>
+<pre><code class="language-java">@MarkerAnnotation
+@SingleValueAnnotation(&quot;info&quot;)
+@FullAnnotation(key1=&quot;value1&quot;,key2=&quot;value2&quot;)
+</code></pre>
+<p>预定义标注：</p>
+<pre><code class="language-java">import java.lang.annotations.*;
+@Deprecated		// indicate an oboslated declaration
+@Override		// must override a method from superclass
+@SuppressWarnings({&quot;checked&quot;, &quot;deprecation&quot;}) // 参数可为空
+@FunctionalInterface
+@SafeVarargs   // 标注的方法不会对可变参数执行不安全操作
+</code></pre>
+<p>标注可用于类、方法、语句等的开头（上一行），<code>for</code>语句等的条件语句的开头。</p>
+<p>自定义标注，类似于定义接口（使用<code>@interface</code>关键字），自定义标注本身还可添加标注信息（<em><strong>meta annotations</strong></em>）：</p>
+<pre><code class="language-java">@Documented                         // 添加所定义标注的元素信息文档化（javadoc etc.）
+@Target(ElementType.METHOD)         // 标注的目标TYPE, METHOD, FIELD...
+@Inherited                          // 子类是否继承父类元素的该标注
+@Retention(RetentionPolicy.RUNTIME) // === SOURCE,CLASS, RUNTIME
+@Repeatable                         // 该标注是否可重复声明
+public @interface MethodInfo{
+   String author() default &quot;gary&quot;;  // 方法不能包含参数
+   int revision() default 1;        // 方法返回值仅限基本类型
+}
+</code></pre>
+<p><a href="https://www.journaldev.com/721/java-annotations">Java Annotations - JournalDev</a></p>
+<p>https://www.geeksforgeeks.org/annotations-in-java/</p>
+<h3 id="变量声明"><a class="header" href="#变量声明">变量声明</a></h3>
+<p>变量在使用前必须声明：</p>
+<pre><code class="language-java">type var_name[ = value, var_name2[ = value]...];
+</code></pre>
+<p>变量根据作用域可分为：类变量（静态字段）、实列变量（<a href="#%E5%AD%97%E6%AE%B5">字段</a>）和局部变量。</p>
+<p>局部变量是<em>在栈上分配</em>的，在所在作用域（方法、代码块）被执行时创建，执行完即被销毁。</p>
+<p><strong>局部变量没有默认值，所以局部变量被声明后，必须经过初始化，才可以使用。</strong></p>
+<h3 id="流程控制"><a class="header" href="#流程控制">流程控制</a></h3>
+<h3 id="条件"><a class="header" href="#条件">条件</a></h3>
+<pre><code class="language-java">if(condition){
+  
+}else if (condition){
+  
+}else{
+  
+}
+</code></pre>
+<h4 id="循环"><a class="header" href="#循环">循环</a></h4>
+<h5 id="while"><a class="header" href="#while">while</a></h5>
+<pre><code class="language-java">while (condition){
+    do_something;
+}
+</code></pre>
+<p>赋值语句的返回值可作为条件语句，例如：<code>(line = reader.readLine()) != null</code>（<code>null</code>本身不能直接作为条件语句）。</p>
+<h5 id="do-while"><a class="header" href="#do-while">do-while</a></h5>
+<pre><code class="language-java">do{
+	do_something;
+}while(true);
+</code></pre>
+<h5 id="for"><a class="header" href="#for">for</a></h5>
+<pre><code class="language-java">for(int i=0; i&lt;len; ++i){
+    do_something;
+}
+</code></pre>
+<p>增强<code>for</code>循环，结合迭代器。</p>
+<pre><code class="language-java">for(String name : names){
+   do_something;
+}
+</code></pre>
+<h5 id="stream-api"><a class="header" href="#stream-api">Stream API</a></h5>
+<p>定义对元素的计算函数，由Stream框架执行内部迭代，从而实现并行计算、过滤、映射等功能特性。</p>
+<p><a href="https://www.journaldev.com/2774/java-8-stream">Java 8 Stream - Java Stream - JournalDev</a></p>
+<pre><code class="language-java">return list.stream().filter(x -&gt; x &gt; 10).mapToInt(x -&gt; x).sum();
+</code></pre>
+<h4 id="switch-case"><a class="header" href="#switch-case">switch-case</a></h4>
+<pre><code class="language-java">switch(expr){
+    case const_val1:
+        statements;
+        break;
+    case const_val2:
+    case const_val3:
+        statements;
+        break;
+    default:
+        statements;
+}
+</code></pre>
+<p>说明：</p>
+<ol>
+<li>变量类型可以是：<code>byte</code>、<code>short</code>、<code>int</code>、<code>char</code>以及<code>string</code>（Java 7）;</li>
+<li><code>case</code>语句的值为<strong>常量</strong>或<strong>字面值常量</strong>；</li>
+</ol>
+<h4 id="try-catch-finally"><a class="header" href="#try-catch-finally">try-catch-finally</a></h4>
+<p>用于<a href="#%E5%A4%84%E7%90%86%E5%BC%82%E5%B8%B8">处理程序异常</a>的控制结构。</p>
+<pre><code class="language-java">try {
+	do_something;
+} catch (ExceptionTypeA | ExceptionTypeB e) {
+	handle_exception;
+} finally {
+	clean_work;
+}
+</code></pre>
+<h4 id="try-with-resource"><a class="header" href="#try-with-resource">try-with-resource</a></h4>
+<p>简化资源关闭与异常处理流程（Java 7）。</p>
+<pre><code class="language-java">try (open_resources){
+	do_something;
+}
+catch(exception e){
+	handle_exception;
+}
+</code></pre>
+<p>为了能够配合<code>try-with-resource</code>，资源必须实现<code>AutoClosable</code>接口。</p>
+<h3 id="运算符"><a class="header" href="#运算符">运算符</a></h3>
+<h5 id="instanceof"><a class="header" href="#instanceof">instanceof</a></h5>
+<p>检查该对象是否是一个特定类型（类类型或接口类型）</p>
+<pre><code class="language-java">Object instanceof ClassName
+</code></pre>
+<h3 id="函数"><a class="header" href="#函数">函数</a></h3>
+<h4 id="lambda表达式匿名函数"><a class="header" href="#lambda表达式匿名函数">Lambda表达式（匿名函数）</a></h4>
+<p>使用Lambda表达式：可减少代码量，传递函数作为参数，在使用时定义函数。</p>
+<pre><code class="language-java">(args)-&gt;{statements} // 参数和方法内容均可省略，单语句可省略&quot;{}&quot;
+</code></pre>
+<blockquote>
+<p>无返回值的方法体以最后语句的返回值作为方法的返回值。</p>
+<p>参数类型可==同时==省略（自动推断）。</p>
+</blockquote>
+<h4 id="方法引用java-8"><a class="header" href="#方法引用java-8">方法引用（Java 8）</a></h4>
+<h2 id="面向对象的编程"><a class="header" href="#面向对象的编程">面向对象的编程</a></h2>
+<p>Java中所有内容均包含在类的定义中。</p>
+<h3 id="类与对象"><a class="header" href="#类与对象">类与对象</a></h3>
+<pre><code class="language-java">[public] [modifier] class ClassName [extends BaseClass][implements Interfaces,...]{
+   [protected] [modifier] int PropertyName [= value];
+   [public] ClassName(int param,...) throw exceptions{
+      super(param,...)
+         do_initialization;
+   }
+   [private] [modifer] void methodName(int param,...)throw exceptions{
+      statements;
+      this.another_method(param,...);
+      super.base_method(param,...);
+   }
+   public int static main(String[] args){
+      ClassName c = new ClassName(...);
+   }
+   protected class InternalClass{
+      class_definitions;
+   }
+}
+</code></pre>
+<p>使用<code>new</code>关键字创建对象。创建对象时将调用类的<a href="#%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95">构造方法</a>。</p>
+<p><strong>注意</strong>：类的实例都是通过引用来使用的，使用<code>new</code>创建的对象都会在内存中开辟独立的空间，两个对象即使内容相同，但是在内存中的地址不同，所以<strong>如果使用<code>==</code>进行比较，会得到<code>false</code>；但是使用类的方法<code>equals</code>比较两个实例的内容</strong>。使用对象相互赋值的方法，则只是复制了对象的引用，并没有开辟新空间，所以两者指向同样的区域。==对于字符串来说，如果直接将带引号的字符串赋值给两个字符串对象，则由于Java处理字符串的特性，两个对象将指向内存中的同一位置（内存中的特殊区域String Pool），使用==<code>==</code>==也会返回<code>true</code>==。</p>
+<p>类的成员包括方法和字段。在类内部可直接通过名称访问成员。当成员名称与参数名或局部变量重名时，使用<code>this</code>关键字访问成员。<em><code>this</code>还可用于在构造方法内部引用该类的其他构造方法（只能出现在构造方法内部的第一行，即只能调用一次）。</em></p>
+<h4 id="修饰符"><a class="header" href="#修饰符">修饰符</a></h4>
+<h5 id="访问控制"><a class="header" href="#访问控制">访问控制</a></h5>
+<ul>
+<li>
+<p><code>public</code>：这个类可以被其他所有类访问和引用，只能被定义在同名文件中。</p>
+</li>
+<li>
+<p><em>default</em>：即没有访问控制符修饰，这样的类只能被同一个包内的类引用，而对其他包内的类不可见。</p>
+</li>
+<li>
+<p><code>protected</code>：</p>
+</li>
+<li>
+<p><code>private</code>：只用于内部类。</p>
+</li>
+</ul>
+<h5 id="其他"><a class="header" href="#其他">其他</a></h5>
+<ul>
+<li><code>abstract</code>：抽象类，<strong>不能直接被实例化的类，但是可以声明对象的引用</strong>，只是声明的对象引用默认值都是<code>null</code>，必须使用可实例化的子类的构造函数对其赋值。抽象类内部可以包含任意个抽象方法，也可以包含构造方法、字段和实体方法。</li>
+<li><code>final</code>：不能被继承的类。</li>
+</ul>
+<h4 id="字段"><a class="header" href="#字段">字段</a></h4>
+<p>字段（Fields，属性Attributes）是类内部定义的<a href="#%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E">变量</a>。</p>
+<h5 id="访问控制修饰符"><a class="header" href="#访问控制修饰符">访问控制修饰符</a></h5>
+<ul>
+<li><code>public</code>: 允许任何位置对字段的访问。由于具有默认访问权限的类本身只能被同一包内的成员所访问，所以这种类中的成员即使具有<code>public</code>权限也只能被同一包内的其他类访问。</li>
+<li><em>default</em>：同一个包内的位置可对字段进行访问。</li>
+<li><code>protected</code>：允许该类及其子类中对该字段进行访问。</li>
+<li><code>private</code>：允许在该类内部对该字段进行访问。访问控制是针对类而言的，而并非针对具体实例而言，即同一个类的不同实例可以互相访问它们的私有成员。<em>而通过继承关系生成的子类，其新定义的方法则不能访问父类的私有成员，但继承自父类的成员函数因为本来可以访问父类成员，所以在子类中仍然可以访问父类成员。</em></li>
+</ul>
+<h5 id="其他修饰符"><a class="header" href="#其他修饰符">其他修饰符</a></h5>
+<ul>
+<li>
+<p><code>static</code>：同一个类所有的实例共享静态字段。</p>
+<p>静态成员不属于对象，所以推荐使用类名来访问静态成员（在类内部可直接使用字段名）。</p>
+<pre><code class="language-java">ClassName.StaticProperty;
+</code></pre>
+<p>由于静态字段从属于类，而不属于实例，所以不能用构造函数进行初始化。同时由于除了通过在声明字段时对字段赋初值，还可以通过<strong>静态代码块</strong>对静态字段进行初始化。</p>
+<pre><code class="language-java">static{ initialize-statements; }
+</code></pre>
+</li>
+<li>
+<p><code>final</code>：常量字段，通常用<strong>大写字母作为常量标识符</strong>。</p>
+</li>
+<li>
+<p><code>transient</code>：<a href="#%E5%AF%B9%E8%B1%A1%E5%BA%8F%E5%88%97%E5%8C%96">序列化</a>对象时，跳过该类变量。</p>
+</li>
+<li>
+<p><code>volatile</code>：在每次被线程访问时，都强制从共享内存中重新读取该成员变量的值。而且，当成员变量发生变化时，会强制线程将变化值回写到共享内存。这样在任何时刻，两个不同的线程总是看到某个成员变量的同一个值。</p>
+</li>
+</ul>
+<h4 id="方法"><a class="header" href="#方法">方法</a></h4>
+<p>方法的访问控制与字段一致。</p>
+<h5 id="修饰符-1"><a class="header" href="#修饰符-1">修饰符</a></h5>
+<ul>
+<li>
+<p><code>abstract</code>：只有函数声明（declaration/signature），而没有函数体。具有抽象方法的类即抽象类。抽象类的类必须重载这些抽象方法才能实例化，否则子类也必须声明为抽象类。</p>
+</li>
+<li>
+<p><code>final</code>：不能被类的子类重写。</p>
+</li>
+<li>
+<p><code>static</code>：静态方法，只能访问和修改类的静态成员，通过类名调用。</p>
+<pre><code class="language-java">ClassName.StaticMethod(args);
+</code></pre>
+<p>名为<code>main</code>的静态方法可作为Java程序的入口函数。</p>
+<pre><code class="language-java">public static void main(String[] args)   // args not contain program name
+</code></pre>
+<blockquote>
+<p>主函数无须返回值（<code>return</code>）。由于程序由<code>java</code>解释器执行，因此从主函数返回值并不能被shell接收。<code>java</code>解释器将获取由<code>System.exit(value)</code>返回的值，并返回给shell。</p>
+</blockquote>
+</li>
+<li>
+<p><code>synchronized</code>：方法同一时间只能被一个线程访问。</p>
+</li>
+</ul>
+<h5 id="方法重载overload"><a class="header" href="#方法重载overload">方法重载（Overload）</a></h5>
+<p>重载的方法必须拥有不同的参数列表。不能仅依据修饰符或者返回类型的不同来重载方法。</p>
+<h5 id="可变参数"><a class="header" href="#可变参数">可变参数</a></h5>
+<p>一个方法中只能指定一个可变参数，它必须是方法的最后一个参数，在参数类型后加一个省略号(...)。</p>
+<pre><code class="language-java">public static void printMax( double... numbers)
+</code></pre>
+<h4 id="命令行参数解析"><a class="header" href="#命令行参数解析">命令行参数解析</a></h4>
+<h5 id="picocli"><a class="header" href="#picocli">picocli</a></h5>
+<p>可以通过外部依赖或源代码（<code>CommandLine.java</code>）的方式使用。以下为通过Maven配置依赖项。</p>
+<pre><code class="language-xml">&lt;dependency&gt;
+  &lt;groupId&gt;info.picocli&lt;/groupId&gt;
+  &lt;artifactId&gt;picocli&lt;/artifactId&gt;
+  &lt;version&gt;4.2.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>启用<strong>Annotation Processor</strong>：</p>
+<pre><code class="language-xml">&lt;plugin&gt;
+  &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+  &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+  &lt;version&gt;3.5.0&lt;/version&gt; &lt;!-- 3.5 or higher --&gt;
+  &lt;configuration&gt;
+    &lt;annotationProcessorPaths&gt;
+      &lt;path&gt;
+        &lt;groupId&gt;info.picocli&lt;/groupId&gt;
+        &lt;artifactId&gt;picocli-codegen&lt;/artifactId&gt;
+        &lt;version&gt;4.2.0&lt;/version&gt;
+      &lt;/path&gt;
+    &lt;/annotationProcessorPaths&gt;
+    &lt;compilerArgs&gt;
+      &lt;arg&gt;-Aproject=${project.groupId}/${project.artifactId}&lt;/arg&gt;
+    &lt;/compilerArgs&gt;
+  &lt;/configuration&gt;
+&lt;/plugin&gt;
+</code></pre>
+<p>示例代码：</p>
+<pre><code class="language-java">@Command(name=&quot;App&quot;, version=&quot;v1.0.0&quot;, header=&quot;Example App.&quot;)
+class Tar {
+    @Option(names=&quot;-c&quot;, description=&quot;create a new archive&quot;)
+    boolean create;
+    @Option(names={&quot;-f&quot;,&quot;--file&quot;}, paramLabel=&quot;ARCHIVE&quot;, ...)
+    File archive;
+    @Parameters(paramLabel=&quot;FILES&quot;, description = &quot;one ore more files...&quot;)
+    File[] files;  // all positional arguments
+    @Option(names = { &quot;-h&quot;, &quot;--help&quot; }, usageHelp = true, ...)
+    private boolean helpRequested = false;
+    @Parameters(index = &quot;0&quot;)   // index=&quot;2-4&quot;, index=&quot;3-*&quot;
+    String command = &quot;save&quot;;   // first  positional arguments
+    public static void main(String args){
+        Tar tar = new Tar();
+        new CommandLine(tar).parseArgs(args);
+        if (tar.helpRequested){
+            CommandLine.usage(app, System.out);
+            System.exit(0);
+        }
+    }
+}
+</code></pre>
+<h5 id="commoncli"><a class="header" href="#commoncli">CommonCLI</a></h5>
+<p><a href="https://commons.apache.org/proper/commons-cli/index.html"><strong>Commons CLI</strong></a> https://commons.apache.org/proper/commons-cli/usage.html</p>
+<p><a href="https://picocli.info/"><strong>picocli</strong> - a mighty tiny command line interface</a></p>
+<p><a href="http://jcommander.org/">jcommander</a></p>
+<p><a href="https://stackoverflow.com/questions/367706/how-do-i-parse-command-line-arguments-in-java">How do I parse command line arguments in Java?</a></p>
+<h4 id="构造方法"><a class="header" href="#构造方法">构造方法</a></h4>
+<p>用于对类的成员变量进行初始化。</p>
+<p>构造方法的特点：方法名与类名相同；没有返回值。</p>
+<p>构造方法同一般方法一样，可以重载；如果一个类没有声明构造方法，则系统会为类添加一个默认构造方法，其方法体为空，访问权限与类相同；如果自己声明了构造方法，则系统就不再添加默认构造方法。</p>
+<h5 id="finalize"><a class="header" href="#finalize">finalize</a></h5>
+<p><code>finalize()</code>方法在对象被垃圾收集器析构(回收)之前调用，用来清除回收对象，确保一个对象打开的文件被关闭了。</p>
+<h4 id="内部类"><a class="header" href="#内部类">内部类</a></h4>
+<p>在某个类内部定义的类称为内部类。一个类如同使用其它类一样使用自己的内部类，包括创建内部类的对象并调用其方法。而<strong>内部类拥有对外层类所有字段和方法成员的访问权</strong>。</p>
+<p>内部类的访问权限除了默认权限和<code>public</code>外，还可以是<code>protected</code>和<code>private</code>。如果为<code>private</code>，则该内部只能在本类中使用；如果为protected，则外层类、处于同一包中的类及外层类的子类可以访问它。</p>
+<p><strong>内部类还可以定义在方法内部</strong>，其作用域仅限于该方法内部。内部类可以在使用的地方，声明的同时使用。</p>
+<h3 id="继承"><a class="header" href="#继承">继承</a></h3>
+<p>所有的类都是继承于<code>java.lang.Object</code>。当一个类没有声明继承，则默认继承<code>Object</code>。</p>
+<p>Java只能进行单继承。</p>
+<p>子类可以从父类那里继承非<code>private</code>成员：即子类可以直接访问父类的非private成员，private成员在子类中不可见，仅能通过父类提供的非<code>private</code>成员作为接口间接访问。</p>
+<p>子类不继承父类的构造方法。子类在构造方法中使用<code>super</code>关键字调用父类的构造方法对父类的成员进行初始化：</p>
+<pre><code class="language-java">super(args);  //出现在构造方法内部的第一行
+</code></pre>
+<p>如果子类的构造方法中不调用父类的构造方法，则系统会自动调用父类的默认构造方法（如果父类已经声明了构造方法，则需要显式添加默认构造方法，否则不能实现自动调用）。</p>
+<p>类成员的初始化过程：</p>
+<ol>
+<li>
+<p>分配内存空间，并将字段单元初始化；</p>
+</li>
+<li>
+<p>使用字段在声明时赋的值，对字段初始化；</p>
+</li>
+<li>
+<p>调用构造函数，在构造函数中，首先对父类进行初始化，再初始化子类字段。</p>
+</li>
+</ol>
+<h4 id="重写覆盖隐藏override"><a class="header" href="#重写覆盖隐藏override">重写/覆盖/隐藏（Override）</a></h4>
+<p>在子类中声明的成员与父类的成员完全一致，则父类的成员称为被子类成员隐藏。</p>
+<p>一般不推荐对父类的字段进行隐藏，这样会导致类的结构混乱。</p>
+<p>进行方法隐藏时，子类声明的方法必须和父类的方法原型一致，而且子类方法的访问限制不能比父类严格（否则就直接访问父类方法了）。</p>
+<p>子类不能直接访问到父类的同名方法，通过<code>super</code>关键字访问父类方法。</p>
+<p>规则：</p>
+<ul>
+<li>如果不能继承一个方法，则不能重写这个方法。</li>
+<li>访问权限不能比父类中被重写的方法的访问权限更低。</li>
+<li>回类型与被重写方法的返回类型可以不相同，但是必须是父类返回值的派生类。</li>
+<li>声明为<code>final</code>、<code>static</code>的方法不能被重写</li>
+</ul>
+<h4 id="抽象类"><a class="header" href="#抽象类">抽象类</a></h4>
+<p>使用<code>abstract</code>关键字声明的类（可能并不包含抽象方法）。</p>
+<p>如果一个类包含未实现方法，则该类必须被声明为抽象类：</p>
+<ul>
+<li>
+<p>继承的接口未实现的类；</p>
+</li>
+<li>
+<p>包含使用<code>abstract</code>关键字声明的抽象方法的类；</p>
+</li>
+</ul>
+<p>不能被继承的方法，如构造方法，静态方法，不能声明为抽象方法。</p>
+<h4 id="接口"><a class="header" href="#接口">接口</a></h4>
+<p>接口是<strong>包含若干抽象方法和常量</strong>的一个集合，提供对某一种功能的抽象，使实现接口的类具有统一的外部访问方式。</p>
+<pre><code class="language-java">public interface 接口名 [extends 父接口名列表]{
+    public static final int CONST_VAR = const_value;
+    public abstract [native] int methodName(params)[throw exceptions];
+}
+</code></pre>
+<p>实现接口：首先在类的声明中使用<code>implements</code>添加要实现的接口名，如<a href="#%E7%B1%BB">类的声明格式</a>所示；如果声明继承某接口的类，则接口的所有方法都必须实现，否则该类为抽象类；类在实现接口的方法时，必须保证方法原型与接口中声明的原型一致，否则就成了方法的重载。</p>
+<p><strong>接口的方法的访问限制符都限定为<code>public</code>，所以类在实现方法时，也必须使用public修饰符</strong>。</p>
+<p>与抽象类相似，不能声明不能被继承的方法，如静态方法；</p>
+<p>接口不能包含成员变量，除了<code>static final</code>变量。</p>
+<h5 id="标记接口"><a class="header" href="#标记接口">标记接口</a></h5>
+<p>标记接口是没有任何方法和字段的接口。</p>
+<ul>
+<li>向一个类添加数据类型：通过引用多态使该类对象可以作为接口类型引用，供其他代码来测试类型。</li>
+<li>建立公共的父接口。</li>
+</ul>
+<h5 id="函数接口"><a class="header" href="#函数接口">函数接口</a></h5>
+<p>An interface with exactly one abstract method is called <em><strong>Functional Interface</strong></em>（可使用<code>@FunctionInterface</code>对接口进行标注，以避免在该接口中声明多个方法）。</p>
+<p><code>java.util.function</code></p>
+<h3 id="对象引用多态"><a class="header" href="#对象引用多态">对象引用多态</a></h3>
+<p>对象引用的多态是指：声明对象的类型不由对象的引用类型（类似于指针）决定，而是由创建对象时调用的构造方法决定。虽然对象本身是确定的，但是因为子类对象可以作为父类对象来引用，所以可以实现对象引用的多态。</p>
+<p>引用多态的三个必要条件：继承、重写、父类引用子类对象。</p>
+<p>示例：</p>
+<pre><code class="language-java">SuperClass sc = new SuperClass();		//父类的引用实际表示父类对象
+SuperClass sc1 = new SubClass();			//父类的引用实际表示子类对象
+</code></pre>
+<h4 id="动态绑定"><a class="header" href="#动态绑定">动态绑定</a></h4>
+<p>==通过<strong>父类/接口</strong>引用子类对象的方法时，总是调用子类方法，而非父类同名方法==。区别于C++，C++中只有<strong>虚函数</strong>才具有此性质，否则使用父类指针将访问父类同名函数。也就是说Java中的成员方法具有C++虚函数的性质。如果 Java 中不希望某个方法具有虚函数特性，可以加上<code>final</code>关键字变成非虚函数。</p>
+<p>判断一个引用究竟指向那种类的对象可以使用<code>instanceof</code>运算符来进行判断。</p>
+<pre><code class="language-java">if (object instanceof ClassName){
+    do_something
+}
+</code></pre>
+<p>对象引用多态的使用情形：</p>
+<ol>
+<li>
+<p><strong>参数传递</strong>。当一个函数需要接收的参数可能是某个类的多个子类时，就可将参数声明为父类的引用，实际传参时，则传递实际的子类对象引用。</p>
+</li>
+<li>
+<p><strong>存储</strong>。在存储一系列不同子类的对象时，可以声明一个父类对象的数组进行存储，每个数组元素可以是具体的子类对象。</p>
+</li>
+<li>
+<p><strong>强制类型转换</strong>。虽然将各种子类统一使用父类引用进行管理非常方便，但使用父类的引用就只能访问到子类中父类的成员。如果要访问子类的成员，就需要将父类引用强制转换为子类引用，强制类型转换的前提是引用对象本身必须是转换目标所属的类，这时可以先使用<code>instanceof</code>先判断，再转换。</p>
+<pre><code class="language-java">Object [] list = {&quot;abc&quot;, &quot;def&quot;, &quot;ghi&quot;};
+for (String str : list){
+  // String str = (String)list[i];
+  do_some_things;
+}
+</code></pre>
+</li>
+</ol>
+<h3 id="反射"><a class="header" href="#反射">反射</a></h3>
+<p>https://www.journaldev.com/1789/java-reflection-example-tutorial#invoke-public-method</p>
+<p>Poor Performance：动态解析类型</p>
+<p><code>java.lang.Class</code>：类的元数据，用于查找类的属性以及创建新的实例。</p>
+<h3 id="泛型generic"><a class="header" href="#泛型generic">泛型（Generic）</a></h3>
+<p>泛型提供了编译时类型安全检测机制。泛型的本质是参数化类型，也就是说所操作的数据类型被指定为一个参数。Java编译器使用<strong>类型擦除</strong>将泛型类型替换为通用类型（例如<code>Object, Comparable</code>）并适当添加类型转换。</p>
+<blockquote>
+<p>不同于C++模板，编译器不会将泛型类型替换为具体类型，从而不会产生新的类型。</p>
+<p><a href="https://www.journaldev.com/1330/java-collections-interview-questions-and-answers#generics-sub-typing">泛型类型不支持类型转换，不能创建泛型数组</a>。</p>
+</blockquote>
+<h4 id="泛型方法"><a class="header" href="#泛型方法">泛型方法</a></h4>
+<pre><code class="language-java">public [static] &lt;T1,T2&gt; void methodName(T1[] data, GenericsType&lt;T2&gt; info)
+</code></pre>
+<ul>
+<li>类型参数声明：在在方法返回类型之前；</li>
+<li>类型参数声明可以包含多个类型参数，</li>
+<li>类型参数只能代表引用型类型，不能是基本类型。</li>
+</ul>
+<h5 id="有界类型参数"><a class="header" href="#有界类型参数">有界类型参数</a></h5>
+<p>限制被允许传递到一个类型参数的类型种类。</p>
+<pre><code class="language-java">public &lt;T extends Type[,...]&gt; void methodName(T[] data)
+</code></pre>
+<h4 id="泛型类"><a class="header" href="#泛型类">泛型类</a></h4>
+<p>在声明的类名后面添加了类型参数声明部分：</p>
+<pre><code class="language-java">[modifier] class ClassName &lt;T [extends Type][,...]&gt;{
+   public void methodName(T data)
+}
+</code></pre>
+<p>在类的定义中可以使用声明的类型参数来定义字段，或作为方法的参数类型。</p>
+<h4 id="类型通配符"><a class="header" href="#类型通配符">类型通配符</a></h4>
+<p>类型通配符一般是使用<code>?</code>代替泛型类的具体类型参数，<code>?</code>不需要放在类型参数声明列表中。</p>
+<pre><code class="language-java">public static void getData(List&lt;?&gt; data)
+public static void getUperNumber(List&lt;? extends Number&gt; data)
+public static void getUperNumber(List&lt;? super Number&gt; data)
+</code></pre>
+<p><code>extends</code>定义类型参数的上限（该类及其子类）；<code>super</code>定义类型的下限（该类及其父类）。</p>
+<p>在使用类型通配符具体化类型作为参数的方法中，仅使用泛型类提供的公共方法，而不使用具体类型相关的方法。</p>
+<p>https://docs.oracle.com/javase/tutorial/extra/generics/index.html.</p>
+<p><a href="https://www.journaldev.com/1663/java-generics-example-method-class-interface">Java Generics Example Tutorial - Generic Method, Class, Interface - JournalDev</a></p>
+<h3 id="java包简介"><a class="header" href="#java包简介">Java包简介</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>类库</th><th>简介</th></tr></thead><tbody>
+<tr><td><code>java.io</code></td><td>提供系统的输入输出，包括各类输入输出流。</td></tr>
+<tr><td><code>java.lang</code></td><td>Java语言的基础，包括对基本数据类型的封装，以及<code>Math</code>、<code>Process</code>、<code>Thread</code>等类。<code>java.lang</code>包默认加载到所有的Java程序的。</td></tr>
+<tr><td><code>java.net</code></td><td>提供Java访问网络的功能，包括对TCP/UDP套接字的封装以及对应用层协议的封装。</td></tr>
+<tr><td><code>java.util</code></td><td>包括了容器框架的接口和类，日期和时间的处理，事件模型以及其他功能（随机数发生、字符串格式化等）。</td></tr>
+<tr><td><code>java.applet</code></td><td>提供创建Java Applet程序所必要的类。</td></tr>
+<tr><td><code>java.awt</code></td><td>提供图形界面编程的类和接口。</td></tr>
+</tbody></table>
+</div>
+<h2 id="异常处理"><a class="header" href="#异常处理">异常处理</a></h2>
+<h3 id="异常分类"><a class="header" href="#异常分类">异常分类</a></h3>
+<p>所有的异常类是从<code>java.lang.Exception</code>类继承的子类。<code>Exception</code>类是<code>Throwable</code>类的子类。除了<code>Exception</code>类外，<code>Throwable</code>还有一个子类<code>Error</code>。</p>
+<p><img src="JAVA%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80.assets/exception-hierarchy.png.webp" alt="java exception hierarchy" /></p>
+<p><a href="https://www.journaldev.com/1696/exception-handling-in-java">Exception Handling in Java - JournalDev</a></p>
+<h3 id="处理异常"><a class="header" href="#处理异常">处理异常</a></h3>
+<p>使用<a href="#try-catch-finally">try-catch</a>语句捕获异常。</p>
+<p>使用捕获的异常对象，获取异常信息：</p>
+<pre><code class="language-java">String getMessage()   // 关于发生的异常的详细信息
+String toString()     // 返回异常类的名字
+Throwable getCause()  // 异常原因
+void printStackTrace() // 
+</code></pre>
+<p>抛出异常：</p>
+<p>如果一个方法存在未捕获的异常，则方法的声明需要使用<code>throws</code>关键字来给出未处理异常列表。</p>
+<pre><code class="language-java">public void method(···) throws XxxException, YyyException
+</code></pre>
+<p>在方法内部可以使用<code>throw</code>关键字抛出一个捕获到的异常或新实例化的异常。</p>
+<h3 id="自定义异常"><a class="header" href="#自定义异常">自定义异常</a></h3>
+<p>所有异常都必须是 Throwable 的子类。</p>
+<p>如果希望写一个<em>检查性异常类</em>，则需要继承 Exception 类。</p>
+<p>如果你想写一个<em>运行时异常类</em>，那么需要继承 RuntimeException 类。</p>
+<h2 id="设计模式"><a class="header" href="#设计模式">设计模式</a></h2>
+<p><a href="https://www.journaldev.com/1827/java-design-patterns-example-tutorial">==Java Design Patterns== - Example Tutorial - JournalDev</a></p>
+<h2 id="参考文献"><a class="header" href="#参考文献">参考文献</a></h2>
+<ol>
+<li><a href="https://docs.oracle.com/javase/specs/jls/se14/jls14.pdf">The Java Language Specification, Java SE 14 Edition</a>.</li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../Python/Python高级编程.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../Java/JAVA编程基础.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../Python/Python高级编程.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../Java/JAVA编程基础.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

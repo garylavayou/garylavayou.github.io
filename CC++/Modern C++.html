@@ -1,0 +1,1428 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Modern C++ - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html" class="active">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html" class="active">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="modern-c"><a class="header" href="#modern-c">Modern C++</a></h1>
+<h2 id="introducing-modern-c"><a class="header" href="#introducing-modern-c">Introducing Modern C++</a></h2>
+<h3 id="c标准"><a class="header" href="#c标准">C++标准</a></h3>
+<ul>
+<li>
+<p><code>C++98</code></p>
+</li>
+<li>
+<p><code>C++03</code></p>
+</li>
+<li>
+<p><code>C++11</code></p>
+</li>
+<li>
+<p><code>c++14</code></p>
+</li>
+<li>
+<p><code>C++17</code></p>
+</li>
+<li>
+<p><code>C++20</code></p>
+<blockquote>
+<p>Support in <code>gcc</code> is highly experimental, and will almost certainly change in incompatible ways in future releases.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="c特性"><a class="header" href="#c特性">C++特性</a></h3>
+<h4 id="c-vs-c"><a class="header" href="#c-vs-c">C++ v.s. C</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>C++</th><th>C</th></tr></thead><tbody>
+<tr><td></td><td><em>not</em> a <em>strict</em> subset of C++</td></tr>
+<tr><td>stronger type system</td><td>weak type system</td></tr>
+<tr><td>high-level abstractions</td><td>only low-level memory abstraction</td></tr>
+<tr><td>powerful custom types (<code>class</code>es)</td><td>only data aggregation (<code>struct</code>)</td></tr>
+<tr><td>use compiler as correctness checker</td><td>get the code to compile quickly</td></tr>
+<tr><td>if it compiles, it should be correct</td><td>debugging is the real work</td></tr>
+</tbody></table>
+</div>
+<h4 id="c-vs-java"><a class="header" href="#c-vs-java">C++ v.s. Java</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>C++</th><th>Java</th></tr></thead><tbody>
+<tr><td>==<a href="https://akrzemi1.wordpress.com/2012/02/03/value-semantics">value semantics</a> for all types==</td><td>==value semantics only for primitives (<code>int</code>, <code>float</code>,… )==</td></tr>
+<tr><td>optional reference semantics for all types</td><td>baked-in reference semantics for <code>class</code> types</td></tr>
+<tr><td>full control over memory (de-)allocation; <br/>no garbage collection</td><td>garbage collector; can degrade performance</td></tr>
+<tr><td>deterministic &amp; controllable object lifetime</td><td>no predictable object lifetime control</td></tr>
+<tr><td>⇒ memory frugal</td><td>⇒ high memory consumption</td></tr>
+<tr><td>aggressive inline can eliminate slow function calls</td><td>performance degradation due to un-devirtualizable, non-inlinable methods</td></tr>
+</tbody></table>
+</div>
+<h4 id="c-vs-python"><a class="header" href="#c-vs-python">C++ v.s. Python</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>C++</th><th>Python</th></tr></thead><tbody>
+<tr><td>almost always faster</td><td>almost always slower (in practice around 25-50 times)</td></tr>
+<tr><td>complex syntax and tons of features can be intimidating to newcomers</td><td>simple syntax; usually easy to comprehend</td></tr>
+<tr><td>statically typed</td><td>dynamically typed</td></tr>
+<tr><td>many types of bugs can be caught at compile time</td><td>many types of bugs will only manifest at runtime</td></tr>
+<tr><td>suited for safety-critical large-scale systems</td><td>hard to build reliable large-scale systems</td></tr>
+<tr><td>even simple, small-scope tasks can quickly require an expert knowledge of various arcane corner cases &amp; quirks</td><td>tends to be more beginner-friendly and small scripts are usually quickly written</td></tr>
+<tr><td>fairly small standard library but extensive ecosystem with libraries for nearly everything</td><td>==batteries included philosophy== with tons of libraries only one <code>import</code> away</td></tr>
+</tbody></table>
+</div>
+<p>https://isocpp.org/wiki/faq</p>
+<h2 id="数据类型"><a class="header" href="#数据类型">数据类型</a></h2>
+<h3 id="基础数据类型"><a class="header" href="#基础数据类型">基础数据类型</a></h3>
+<img src="Modern C++.assets/image-20210130230242900.png" alt="basic types" style="zoom:67%;" />
+<blockquote>
+<ul>
+<li><code>0</code> is always <code>false</code>；everything else is <code>true</code>。</li>
+</ul>
+</blockquote>
+<p>字符类型：<code>char</code>型（1字节），<code>wchar_t</code>型（长度与平台相关可能是2或4字节），<code>char16_t</code>（2字节）， <code>char32_t</code>（4字节）。</p>
+<h4 id="字面值"><a class="header" href="#字面值">字面值</a></h4>
+<p>字面值类型包括：整数常量、字符常量、浮点数常量、字符串常量。此处的常量均是指字面值常量。</p>
+<h5 id="整数常量"><a class="header" href="#整数常量">整数常量</a></h5>
+<p>整数常量可以声明为十进制、八进制、十六进制，有无符号，长或短整型。十进制数以非零数字开始，八进制以数字“<code>0</code>”为前导，十六进制以“<code>0x</code>”为前导。</p>
+<p>后缀“<code>u</code>”或“<code>U</code>”用于声明该数值为无符号数，未添加该后缀则表示有符号数。</p>
+<p>后缀“<code>L</code>”或“<code>l</code>”用于声明长整形。</p>
+<p>后缀“<code>i64</code>”或“<code>ll</code>”或“<code>LL</code>”用于声明64位整形。</p>
+<h5 id="浮点常量"><a class="header" href="#浮点常量">浮点常量</a></h5>
+<p>浮点常量中是必须包含小数点的定点数，还可以包含指数，还可以附加后缀用于声明类型。浮点数默认类型为<code>double</code>，当添加后缀“<code>F</code>”或“<code>f</code>”表示浮点型，“<code>L</code>”或“<code>l</code>”表示<code>long double</code>（<code>long double</code>和<code>double</code>的长度都是一样的，但是类型不相同）。</p>
+<p>定点数的表示方法：</p>
+<pre><code class="language-c++">double x = 18.46, y = 38. ;
+</code></pre>
+<p>指数表示方法：</p>
+<pre><code class="language-c++">double x = 18.46e0, y = 18.46E1 ;
+</code></pre>
+<p>指数部分可以是负数。当浮点数包含指数时，定点数部分可以不包含小数点。</p>
+<p>数值范围：</p>
+<pre><code class="language-c++">#include &lt;limits&gt;
+std::numeric_limits&lt;double&gt;::max()     // largest positive value
+std::numeric_limits&lt;double&gt;::min()     // smallest value &gt; 0
+std::numeric_limits&lt;double&gt;::lowest()  // smallest negative value
+std::numeric_limits&lt;double&gt;::epsilon() // smallest difference
+</code></pre>
+<p>一个整型类型可以转换成更宽位数的整型类型，这种转换称为整型提升。进行这种转换不改变数据的值。</p>
+<h5 id="字符常量"><a class="header" href="#字符常量">字符常量</a></h5>
+<p>字符常量是使用“<code>'</code>”包围的一个或多个字符。</p>
+<p>如果整型使用普通字符常量或宽字符常量声明，则不足位补零；如果普通字符或宽字符用多字符常量声明，则将丢弃高位（左边的）字符。超过四个字符的字符常量声明将出错。</p>
+<p>在字符声明中，具有特殊意义的字符（<code>\</code>、<code>'</code>、<code>&quot;</code>等）需要使用转义字符“<code>\</code>”消除特殊意义。转义序列有三种类型：</p>
+<ul>
+<li>
+<p>简单类型：<code>\'  \&quot;  \?  \\ \a  \b  \f  \n  \r  \t  \v</code>；</p>
+</li>
+<li>
+<p>八进制转义序列（转移字符之后最长三位八进制数，超过三位则第二个字符开始，或者从第一非八进制数字结束）：<code>\012</code>；</p>
+</li>
+<li>
+<p>十六进制转义字符：转义字符后接“<code>x</code>”，其后接十六进制数字，后接数字位数无限制，只能以非十六进制数字结束。十六进制转义字符首先去除多余的高位，然后将剩余的8位数字转换为整型，再将整型转换为字符，如果整形的无符号值大于255，则转换不能完成，编译时会出错。</p>
+<blockquote>
+<p>转移字符之后的字符如果不是特殊字符，则结果由具体的实现决定。</p>
+</blockquote>
+</li>
+</ul>
+<p>双引号在字符常量中可以不使用转义字符。</p>
+<blockquote>
+<p>Microsoft Specification：通常只能是ASCII字符，包括96个字符：空格、水平制表符、垂直制表符、换行符、Formfeed和26个大小写字符、10个数字、以及下列字符：</p>
+<p><code>_ { } [ ] # ( ) &lt; &gt; % : ; . ? * + - / ^ &amp; | ~ ! = , \ &quot; '</code></p>
+<p>对于转义字符之后的非特殊意义字符，非特殊字符将正常显示，而转义字符不会显示；编译时会出现警告“不可识别的字符转移序列”。</p>
+</blockquote>
+<h5 id="字符串常量"><a class="header" href="#字符串常量">字符串常量</a></h5>
+<p>一个字符串常量由0个或多个字符构成，有双引号所包围，字符串代表一个由“<code>null</code>”结尾的字符序列。字符串中可以包含所有字符常量允许使用的字符，以及使用转义字符。C++字符串包含两种类型：<code>char[]</code>，<code>wchar_t[]</code>。</p>
+<pre><code class="language-c++">wchar_t w[] = L&quot;wide string&quot;; 
+</code></pre>
+<blockquote>
+<p>声明<code>wchar_t</code>字符或字符串常量需要添加一个前缀“<code>L</code>”，类似地<code>u</code>用于<code>char16_t</code>类型字面值，<code>U</code>用于<code>char32_t</code>类型字面值。</p>
+<p>通过指向常量字符串的指针修改常量字符串是不允许的，结果未知。</p>
+</blockquote>
+<p>以空格分隔的字符串会被自动拼接为单个字符串（也可以在行末使用“<code>\</code>”连接两行。）。</p>
+<pre><code class="language-c++">const char* b = &quot;first&quot; &quot;second&quot; // ⇒ &quot;first second&quot;
+</code></pre>
+<p>原始字符转字面值：</p>
+<pre><code class="language-c++">char const * ch_array = R&quot;(raw &quot;C&quot;-string c:\users\joe )&quot;;  // c++11
+</code></pre>
+<blockquote>
+<p>Microsoft Specification：在一些情况下，声明的相同的字符串将被合并为一个字符串，在内存中使用同一段内存。</p>
+<p>字符串的字面值最大长度为2048字节，对于<code>char</code>和<code>wchar_t</code>都一样。</p>
+<p>如果定义了UNICODE，则<code>_T()</code>等效于前缀<code>L</code>。</p>
+</blockquote>
+<h4 id="枚举"><a class="header" href="#枚举">枚举</a></h4>
+<p>限定作用域枚举，使用枚举类型名访问枚举成员。</p>
+<pre><code class="language-c++">enum class day:short { mon, tue, wed, thu, fri, sat, sun };
+day d = day::mon;
+</code></pre>
+<p>非限定作用域枚举，不同的枚举类型不能包含相同名字的成员。</p>
+<pre><code class="language-c++">enum day { mon, tue, wed, thu, fri, sat, sun };
+day d = mon;
+</code></pre>
+<p>可以为枚举指定底层整数类型（<code>char, short, long,...</code>，默认为<code>int</code>）。可以将枚举强制转换为其底层类型。</p>
+<h3 id="引用"><a class="header" href="#引用">引用</a></h3>
+<p>引用声明以后就是绑定到变量的别名，对引用名再赋值等效于修改绑定变量的值，因此无法再修改引用本身（赋值）使之绑定到其他变量。由于引用是变量的别名，因此通过引用总是能访问有效的变量。</p>
+<pre><code class="language-c++">[const] ValueType [const] &amp; ref_name = VarName;
+</code></pre>
+<blockquote>
+<p><code>const</code>声明符可以位于类型的前面或后面，但后者与<a href="#%E5%B8%B8%E9%87%8F%E7%9B%B8%E5%85%B3%E6%8C%87%E9%92%88">指针类型声明</a>风格保持一致。</p>
+<p>references cannot be &quot;null&quot;, i.e., they must always refer to an object</p>
+</blockquote>
+<pre><code class="language-c++">int  i  = 2, k  = 3;
+int&amp; ri = i;    // reference to i
+ri = k;         // assign new value to ri(i)
+</code></pre>
+<p>如果引用声明为常量，则无法通过该引用修改变量的值。</p>
+<h4 id="引用的应用"><a class="header" href="#引用的应用">引用的应用</a></h4>
+<ul>
+<li>
+<p>作为函数、“<code>[]</code>”和“<code>=</code>”操作符的返回值，满足左操作数可以被赋值的要求（L-value）。</p>
+<p><strong>Dangling Reference</strong>：</p>
+<blockquote>
+<p>不要返回局部变量的引用；</p>
+<p>引用容器元素在修改容器后可能失效；</p>
+</blockquote>
+</li>
+<li>
+<p>作为函数参数，等价于使用指针进行参数传递，而无须复制实际参数。</p>
+</li>
+<li>
+<p>在迭代循环中使用</p>
+<pre><code class="language-c++">for(std::string &amp; s : v) { cin &gt;&gt; s; } // modify vector elements
+for(std::string const&amp; s : v) { cout &lt;&lt; s; } // read-only access
+for(auto &amp; s : v) { cin &gt;&gt; s; }
+for(auto const&amp; s : v) { cout &lt;&lt; s; }
+</code></pre>
+</li>
+<li>
+<p><a href="https://hackingcpp.com/cpp/lang/move_semantics.html">Move Semantics</a></p>
+</li>
+<li>
+<p>Avoid Output Parameters! 难以确定参数是否发生变化，参数是否仅作为输出或还作为输入。</p>
+</li>
+<li>
+<p><strong>Just take returned objects by value.</strong> This does not involve expensive copies for most functions and types in modern C++, especially in C++17 and above.</p>
+<blockquote>
+<p>使用引用绑定函数返回值将导致临时变量的生命周期变长。</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="引用绑定规则"><a class="header" href="#引用绑定规则">引用绑定规则</a></h4>
+<h5 id="rvalues-and-lvalues"><a class="header" href="#rvalues-and-lvalues"><em>R</em>values and <em>L</em>values</a></h5>
+<p><strong>左值（Lvalues）</strong>：expressions of which we <strong>can</strong> get memory address</p>
+<ul>
+<li>内存中可引用的对象</li>
+<li>具有名字的对象 (variables, function parameters, …)</li>
+</ul>
+<p><strong>右值（Rvalues）</strong>：expressions of which we <strong>can't</strong> get memory address</p>
+<ul>
+<li>字面值(<code>123</code>, <code>&quot;string literal&quot;</code>, …)（位于代码区）；</li>
+<li>运算的零时结果；</li>
+<li>函数返回的零时变量；</li>
+</ul>
+<p><strong>左值引用</strong>：<code>type&amp;</code>，仅能绑定到左值；<code>type const&amp;</code>可绑定到<code>const</code>左值和右值；</p>
+<p><strong>右值引用</strong>：<code>type&amp;&amp;</code>，仅能绑定到右值（涉及<a href="#%E7%B1%BB%E5%9E%8B%E6%8E%A8%E6%96%AD">类型推断</a>的除外）；</p>
+<p><strong>万能引用（转发引用）</strong>：根据类型推断的结果，可能为左值或右值引用。</p>
+<pre><code class="language-c++">auto&amp;&amp; ref = var;
+template&lt;typename T&gt; void f(T&amp;&amp; param);
+</code></pre>
+<blockquote>
+<p>类型推导是必要条件，被推导类型必须为<code>T&amp;&amp;</code>，其中<code>T</code>是模板类型参数。</p>
+</blockquote>
+<h3 id="类型语法"><a class="header" href="#类型语法">类型语法</a></h3>
+<h4 id="类型别名"><a class="header" href="#类型别名">类型别名</a></h4>
+<pre><code class="language-c++">using NewType = OldType;  // C++11
+typedef OldType NewType;  // C++98
+</code></pre>
+<h4 id="类型推断"><a class="header" href="#类型推断">类型推断</a></h4>
+<pre><code class="language-c++">auto variable = expression; // c++11
+</code></pre>
+<h4 id="类型转换"><a class="header" href="#类型转换">类型转换</a></h4>
+<p><code>static_cast(v)</code>：强制类型转换，编译器允许执行（但不一定是自动执行的）的任何转换都可以完成。避免发生精度损失时的警告。类似于C语法<code>type(var)</code>。</p>
+<p><code>const_cast(v)</code>：去除常量性质，是变量能够被修改。</p>
+<p><code>dynamic_cast(v)</code>：运行时动态识别类型。将基类类型的指针或引用安全地转换为派生类型的指针或引用。</p>
+<p><code>reinterpret_cast(v)</code>：对于编译器不允许的转换类型（如指针类型转换），可以使用<code>reinterpret_cast</code>进行强制转换而不产生编译期错误。 </p>
+<p><code>std:move(T&amp;&amp;)</code>将参数强制转换为右值；</p>
+<p><code>std:forward&lt;T&gt;(param)</code>：仅当实参为右值时，将形参转换为右值；</p>
+<h3 id="指针"><a class="header" href="#指针">指针</a></h3>
+<p>指针可以用于访问对象，且可以在运行期间改变其引用的对象（引用则不能修改）。指针的一个重要用途是函数参数传递，使用指针可以进行地址传递，则主函数和子函数可以访问同一段内存的变量。</p>
+<img src="Modern C++.assets/image-20210212200114257.png" alt="image-20210212200114257" style="zoom:40%;" />
+<h4 id="原始指针"><a class="header" href="#原始指针">原始指针</a></h4>
+<p>指针存储内存地址的整数变量。通过取地址运算符<code>&amp;</code>获取变量地址。</p>
+<pre><code class="language-c++">int a = 1;
+int* ptr = &amp;a;
+</code></pre>
+<p>或通过<a href="#%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D">动态内存分配</a>获取堆上创建的变量的地址。</p>
+<h5 id="指针运算"><a class="header" href="#指针运算">指针运算</a></h5>
+<p>指针可以进行赋值运算、算数运算、关系运算和解引用运算。</p>
+<p><code>*</code>：对象引用运算符；</p>
+<p><code>-&gt;</code>：对象成员引用运算符；</p>
+<pre><code class="language-c++">point *p = new point{1,2};
+cout &lt;&lt; p-&gt;x &lt;&lt; p-&gt;y &lt;&lt; *(p).x;
+</code></pre>
+<blockquote>
+<p>优先使用引用，语法更加简洁。</p>
+</blockquote>
+<h4 id="智能指针c11"><a class="header" href="#智能指针c11">智能指针（C++11）</a></h4>
+<img src="Modern C++.assets/image-20210212200441907.png" alt="image-20210212200441907" style="zoom: 40%;" />
+<h5 id="unique_ptr"><a class="header" href="#unique_ptr">unique_ptr</a></h5>
+<p>不能复制指针，但可以移动指针指向的对象到新的指针，原指针被置为<code>nullptr</code>。</p>
+<pre><code class="language-c++">#include &lt;memory&gt;
+auto p = make_unique&lt;Type&gt;(init_list);    // c++14, more safe
+std::unique_ptr&lt;Type&gt; p1(new Type(args));  // c++14
+auto p2 = move(p);  // 不能复制unique_ptr
+</code></pre>
+<blockquote>
+<p>仍然使用<code>-&gt;</code>运算符访问类型的成员。</p>
+</blockquote>
+<h5 id="shared_ptr"><a class="header" href="#shared_ptr">shared_ptr</a></h5>
+<pre><code class="language-c++">#include &lt;memory&gt;
+auto p = make_shared&lt;Type&gt;(init_list);     // c++14
+std::shared_ptr&lt;Type&gt; p1(new Type(args));  // c++14
+auto p2 = p;
+</code></pre>
+<p>引用计数：当最后引用对象的指针被销毁时，对象被销毁。</p>
+<p><code>weak_ptr</code>可以复制<code>shared_ptr</code>但不影响引用计数。</p>
+<h3 id="数组"><a class="header" href="#数组">数组</a></h3>
+<pre><code class="language-c++">type array[N];
+type array[N] = {1,2,3,...};
+</code></pre>
+<blockquote>
+<p>当初始化列表给定时，可省略数组长度参数。==数组长度？==</p>
+</blockquote>
+<p>动态创建数组：</p>
+<pre><code class="language-c++">type* ptr_array = new type[size];
+type* ptr_array = new type[size]{1,2,...};
+</code></pre>
+<p>多维数组：创建$M\times N\times\cdots$维数组。</p>
+<pre><code class="language-c++">type array[M][N]...[];
+type (*ptr)[N]... = new type[size][N]...;
+</code></pre>
+<p>仅有数组的最高维度是可以动态分配的，将其他维度整体看作一个整体（子数组）。</p>
+<blockquote>
+<p><code>K</code>维数组可以看成由<code>size</code>个维度为<code>K-1</code>的子数组构成的。分配一维数组，实际上是分配连续的<code>size</code>个基本变量；分配二维数组，实际上是连续分配<code>size</code>个一维数组，以此类推…… </p>
+<p>动态创建数组时只有<code>size</code>是变量，其他参数必须是编译期确定的常量（字面值或<code>constexpr</code>）。指向数组的指针进行“加减”运算，指针加减1实际对应的内存地址偏移量为对应子数组的内存占用长度。</p>
+</blockquote>
+<h4 id="指针数组"><a class="header" href="#指针数组">指针数组</a></h4>
+<p>即数组元素是指针类型。指针数组的声明：</p>
+<pre><code class="language-c++">type* ptr_array[L1][L2]...;
+type(*ptr_array[L1][L2]...)[M][N]...[P];
+</code></pre>
+<p>其中<code>[L1][L2]...</code>是指针数组本身的维度，而<code>type(*)[M][N]...[P]</code>代表最终指向的数据类型。如果带参数<code>[M][N]...[P]</code>，则代表指向的是数组（的维度）；如果没有该参数则为指向变量的指针（此时不省略<code>()</code>会生成警告）。</p>
+<h4 id="数组索引"><a class="header" href="#数组索引">数组索引</a></h4>
+<pre><code class="language-c++">array_name[index]；
+*(array_name+index)；
+</code></pre>
+<blockquote>
+<p>数组名相当于<a href="#%E5%B8%B8%E9%87%8F%E7%9B%B8%E5%85%B3%E6%8C%87%E9%92%88">指针常量</a>。</p>
+</blockquote>
+<p>高维数组在内存中实际上是按照线性方式存储数据的，所以实质上等效于是一个一维数组，所以仍然可以定义一维数组指针来访问数组元素。则指向第一个元素的一维数组指针的值应该是：</p>
+<pre><code class="language-c++">type *ptr =  array[M][N]...;    // 省略最后一维
+type *ptr = &amp;array[M][N]...[P]; // 或直接取元素地址
+</code></pre>
+<h3 id="类型修饰符"><a class="header" href="#类型修饰符">类型修饰符</a></h3>
+<h4 id="静态变量"><a class="header" href="#静态变量">静态变量</a></h4>
+<pre><code class="language-c++">static int x = 1; // 定义静态（文件作用域）变量
+extern int x;     // 引用全局（非静态）变量，不推荐使用全局变量
+</code></pre>
+<blockquote>
+<p>可以在<a href="#%E5%A4%B4%E6%96%87%E4%BB%B6">头文件中定义静态变量</a>，引用该头文件的源文件将分别生成独立的文件作用域静态变量。</p>
+</blockquote>
+<p><strong>局部静态变量</strong>：静态变量定义在非全局作用域（如函数内部）。该变量的生命周期为程序生命周期，但仅能在定义该变量的作用域中访问。==局部静态变量只会在定义位置被初始化一次==。</p>
+<blockquote>
+<p>全局变量构造器：在静态函数中返回静态变量的引用。</p>
+</blockquote>
+<h4 id="常量"><a class="header" href="#常量">常量</a></h4>
+<pre><code class="language-c++">Type const variable_name = value;
+const Type variable_name = value;
+</code></pre>
+<p>用<code>const</code>关键字可以代替<code>#define</code>宏，使用<code>const</code>关键字声明的常量在编译时可以进行类型检查，而使用<code>#define</code>宏定义的常量则不能。</p>
+<h5 id="常量表达式"><a class="header" href="#常量表达式">常量表达式</a></h5>
+<p>表达式的值在编译期间是确定的，其组成部分都是常量表达式。</p>
+<pre><code class="language-c++">constexpr int i = 2;       // OK '2' is a literal
+constexpr int cxf(int i) { return i*2; }
+constexpr int j = cxf(5);  // OK, cxf is constexpr 
+constexpr int k = cxf(i);  // OK, cxf and i are constexpr
+</code></pre>
+<blockquote>
+<p><code>c++14</code>：常量表达式函数内部可以包含多条语句；</p>
+</blockquote>
+<h4 id="常量相关指针"><a class="header" href="#常量相关指针">常量相关指针</a></h4>
+<p>常量指针：指针本身是常量，即不能更改指针本身（所存储的内存位置），但可以更改指针指向的内容。</p>
+<p>指向常量的指针：指针所指的内容必须是常量，不能修改指针所指的内容，但可以修改指针本身（所存储的内存地址）。可以用于函数参数，防止函数改变通过指针传入的参数。</p>
+<pre><code class="language-c++">type *const ptr;  // const pointer to variable of Type &lt;type&gt;
+type const *ptr;  // pointer to const variable of Type &lt;type&gt;
+</code></pre>
+<blockquote>
+<p><code>type const *const</code>：指针本身不能改变，指针所指的值也不允许改变。</p>
+</blockquote>
+<img src="Modern C++.assets/image-20210212201652844.png" alt="image-20210212201652844" style="zoom:30%;" />
+<blockquote>
+<p>从右到左解释类型声明。</p>
+</blockquote>
+<h3 id="内存模型"><a class="header" href="#内存模型">内存模型</a></h3>
+<p><strong>heap</strong>: used for objects of dynamic storage duration;</p>
+<blockquote>
+<p>空闲内存块列表。</p>
+</blockquote>
+<p><strong>stack</strong>: used for objects of automatic storage duration: local variables, function parameters, etc.</p>
+<blockquote>
+<p>栈分配通常从高地址到低地址。</p>
+</blockquote>
+<img src="Modern C++.assets/vector_of_ints.svg" alt="img" style="zoom:50%;" />
+<h4 id="内存占用"><a class="header" href="#内存占用">内存占用</a></h4>
+<p>基本数据类型的区别主要在于内存占用量。</p>
+<pre><code class="language-c++">sizeof(char)；  // 操作符： auto x = sizeof char
+</code></pre>
+<blockquote>
+<p>Integer Size Guarantees  <a href="https://hackingcpp.com/tags/C++11">C++11</a></p>
+<pre><code class="language-c++">#include &lt;cstdint&gt;
+</code></pre>
+<p>exact size: <code>int8_t</code>,   <code>int16_t</code>,   <code>int32_t</code>,   <code>int64_t</code>,   <code>unt8_t, …</code></p>
+</blockquote>
+<h4 id="动态内存分配"><a class="header" href="#动态内存分配">动态内存分配</a></h4>
+<p>C++使用<code>new</code>和<code>delete</code>关键字进行动态内存管理。当使用<code>new</code>关键字为变量在堆上分配内存并返回<a href="#%E5%8E%9F%E5%A7%8B%E6%8C%87%E9%92%88">内存地址</a>，并自动调用构造函数进行初始化。如果分配内存失败，<code>new</code>返回<code>nullptr</code>或抛出异常。</p>
+<blockquote>
+<p><code>nullptr</code>为指针默认值（转换为<code>false</code>，可以用于逻辑判断）。</p>
+</blockquote>
+<pre><code class="language-c++">type *ptr = new type(args); // type *ptr = new type{args};
+type *ptr = new type[const_num]{init_list};
+delete ptr;     // delete variable
+delete [] ptr;  // delete array
+</code></pre>
+<blockquote>
+<p>无法从指针类型判断其是只想单个变量或数组。</p>
+</blockquote>
+<p>使用<code>delete</code>关键字对值为<code>nullptr</code>的指针进行操作不会出错；但使用<code>delete</code>对不是用<code>new</code>分配的内存块（栈）的指针进行操作将会出现不可知的结果；在使用<code>delete</code>释放内存后，再使用指针将会出现未知结果或导致程序崩溃。</p>
+<blockquote>
+<p>In modern C++, manual allocation is actually only really necessary if you want to implement your own dynamic data structures / containers.</p>
+</blockquote>
+<h2 id="语法"><a class="header" href="#语法">语法</a></h2>
+<h3 id="定义变量"><a class="header" href="#定义变量">定义变量</a></h3>
+<pre><code class="language-c++">type varname;
+</code></pre>
+<p>定义可以与初始化结合。</p>
+<pre><code class="language-c++">type varname = value;
+type varname = {value};
+type varname{value}; // C++11: narrowing conversion ⇒ compiler warning
+</code></pre>
+<blockquote>
+<p>==基本数值类型变量在声明时不会被赋予默认值，其值是随机的。==</p>
+</blockquote>
+<p>聚合类型（结构体、类）的<a href="#%E5%88%9D%E5%A7%8B%E5%8C%96">初始化</a>由<a href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">构造函数</a>执行。</p>
+<pre><code class="language-c++">ClassName varname = ClassName(args);  // 调用构造函数初始化变量
+ClassName varname(args);              // 简洁写法
+ClassName varname = ClassName{args};  // c++11: narrow conversion
+ClassName varname{args};              // 简洁写法
+</code></pre>
+<p><a href="#%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D">动态分配的变量</a>返回变量的地址。</p>
+<h4 id="赋值"><a class="header" href="#赋值">赋值</a></h4>
+<p>赋值运算默认具有值语义，即显式复制对象的数据成员，避免在非期望情况下修改数据；</p>
+<ul>
+<li>
+<p>避免将聚合类型变量的定义和初始化分开，否则则首先会调用默认构造函数执行初始化再随后执行赋值操作，造成额外开销。</p>
+</li>
+<li>
+<p>==具有指针成员变量的类==应该重写赋值运算符和复制/移动构造函数，以处理动态分配对象的复制问题。否则，对已定义变量使用新构造对象赋值应注意，新构造对象仅具有临时生命周期，因此可能导致赋值后的变量中指针成员引用无效对象。</p>
+<pre><code class="language-c++">LinkedList l1;        // LinkedList.header是指针成员变量
+vector&lt;int&gt; v = {1, 2, 3, 4};
+l1 = LinkedList(v);   // 如果没有适当的赋值拷贝，由于临时创建对象释放，l1可能包含无效指针
+</code></pre>
+</li>
+</ul>
+<h5 id="引用语义"><a class="header" href="#引用语义">引用语义</a></h5>
+<p>值语义（<a href="https://akrzemi1.wordpress.com/2012/02/03/value-semantics">value semantics</a>）：<a href="#%E5%A4%8D%E5%88%B6%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">赋值运算默认为值传递方式</a>（包括函数输入输出参数）。</p>
+<blockquote>
+<p>更接近数学记法：输入参数不会被函数改变；</p>
+<p>we do not run into any memory management issues. No dangling references to nonexistent objects, no expensive and unnecessary free store allocation, no memory leaks, no smart or dumb pointers. </p>
+</blockquote>
+<p>引用语义（<em>reference semantics</em>）</p>
+<blockquote>
+<p>where you want to create an object, and let it live for a significant amount of time, and want different parties to modify the object, you need to pass by reference.</p>
+<p>This is the case for globals like <code>std::cout</code> that need to be accessible from different places in the code, and it always has to be this very object at this very address.</p>
+</blockquote>
+<p>指针：</p>
+<blockquote>
+<p>they are objects that store values which are addresses in memory <em>referring</em> to objects.</p>
+<p>at the higher level of abstraction passing and returning pointers to and from functions is usually considered passing by reference (reference semantics), even though technically you are passing values. </p>
+<p><em>the reason people often resort to allocating objects in free store (on the heap) and returning a (more or less) smart pointer to it, is that value semantics does not play well with OO techniques that require access to objects via references or pointers to enable virtual function calls.</em></p>
+</blockquote>
+<h3 id="运算符"><a class="header" href="#运算符">运算符</a></h3>
+<h4 id="自增自减"><a class="header" href="#自增自减">自增/自减</a></h4>
+<ul>
+<li>prefix expressions <code>++x</code> / <code>--x</code> returns new (incremented/decremented) value；</li>
+<li>postfix expression <code>x++</code> / <code>x--</code> increments/decrements value, but <em>returns old value</em>；</li>
+</ul>
+<h4 id="逻辑运算"><a class="header" href="#逻辑运算">逻辑运算</a></h4>
+<pre><code class="language-c++">bool c = a &amp;&amp; b;   // false    logical AND
+bool d = a || b;   // true     logical OR
+bool e = !a;       // false    logical NOT
+</code></pre>
+<p><strong>Short-circuit Evaluation</strong>: The second operand of a boolean comparison is not evaluated if the result is already known after evaluating the first operand.</p>
+<h4 id="移位运算"><a class="header" href="#移位运算">移位运算</a></h4>
+<p>只有整数类型能进行移位操作：</p>
+<pre><code class="language-c++">result = op1 &gt;&gt; op2  // 右移
+result = op1 &lt;&lt; op2  // 左移
+</code></pre>
+<p>其中<code>op1</code>是要进行移位的整数，<code>op2</code>是要偏移的位数。<code>op1</code>的值不会改变，移位的结果作为返回值，返回结果的类型与<code>op1</code>的类型相同（准确的说，返回类型应该是长整型，赋值的过程可以强制转换）。</p>
+<p>如果<code>op2=0</code>，则实际不对<code>op1</code>移位；如果<code>op2</code>为负数或达到整数类型的bit长度，则结果未定义。实际测试（Windows/Linux）可以发现，移位运算会先对<code>op2</code>进行求余处理，使移位范围不超过整数的bit长度，再进行移位。</p>
+<p>左移运算是逻辑移位，即右侧空出的位补零；如果<code>op1</code>是有符号数，则右移运算是算数移位，即左边空出的位填充符号位，如果<code>op1</code>是无符号数，则右移运算是逻辑移位，即左边空出的位补0。</p>
+<h3 id="控制流程"><a class="header" href="#控制流程">控制流程</a></h3>
+<blockquote>
+<p><strong>表达式（Expressions）</strong>: series of computations (operators + operands); may <strong>produce a result</strong>.</p>
+<p><strong>Statements</strong>: sequence of expressions; do not produce a result; delimited by <code>;</code> and grouped by <code>{ }</code>.</p>
+</blockquote>
+<h4 id="条件分支"><a class="header" href="#条件分支">条件分支</a></h4>
+<h5 id="if-else"><a class="header" href="#if-else">if-else</a></h5>
+<pre><code class="language-c++">if (condition1) {
+  // do this if condition1 is true
+}
+else {
+  // otherwise do this
+}
+// if(statement; condition) { … }  C++17
+</code></pre>
+<blockquote>
+<p><code>else if</code>是<code>if</code>嵌套在<code>else</code>语句块的结果。</p>
+<p>三元运算符：<code>condition ? true_statement : false_statement</code>。</p>
+</blockquote>
+<h5 id="switch"><a class="header" href="#switch">switch</a></h5>
+<pre><code class="language-c++">switch (m) {
+  case 0:   // do this if m is 0
+    break;
+  case 1:   
+  case 3:   // do this if m is 1 or 3
+    break;
+  default:  // do this if m is not 0, 1 or 3
+}
+// switch (statement; variable) { … }   C++17
+</code></pre>
+<h5 id="ternary-condition-operator"><a class="header" href="#ternary-condition-operator">Ternary Condition Operator</a></h5>
+<pre><code class="language-c++">Result = Condition ? If-Expression : Else-Expression
+</code></pre>
+<h4 id="循环"><a class="header" href="#循环">循环</a></h4>
+<pre><code class="language-c++">for (int i = 0; i &lt; 5; ++i) {
+  cout &lt;&lt; i &lt;&lt; ' ';
+}
+</code></pre>
+<pre><code class="language-c++">std::vector&lt;int&gt; v {1,2,3,4,5};
+for(auto i = begin(v); i != end(v); ++i) { cout &lt;&lt; *i; }
+for (int x : v)  { cout &lt;&lt; x &lt;&lt; '\n'; } // c++11
+</code></pre>
+<pre><code class="language-c++">while (j &lt; 10) {
+  cout &lt;&lt; j &lt;&lt; ' ';
+  ++j;
+}
+do { 
+  cout &lt;&lt; j &lt;&lt; ' ';
+  --j;
+} while (j &gt; 0);
+</code></pre>
+<h4 id="异常"><a class="header" href="#异常">异常</a></h4>
+<pre><code class="language-c++">try {...}
+catch(std::invalid_argument&amp;e){
+    throw;  //re-throw exception
+}catch(...){
+    // catch all exceptions
+}
+
+void funcname(...) noexcept {...}  // throw exception not allowed
+</code></pre>
+<h3 id="预处理命令"><a class="header" href="#预处理命令">预处理命令</a></h3>
+<h4 id="头文件"><a class="header" href="#头文件">头文件</a></h4>
+<p>头文件用于集中存放函数原型声明和类型定义。</p>
+<pre><code class="language-c++">#include &lt;filename&gt;
+</code></pre>
+<p>按照标准方式搜索要包含的文件（将文件内容添加到当前处理的源文件中），该文件位于C++系统目录的<code>include</code>子目录下，一般要包含系统提供的标准文件时这样使用。</p>
+<pre><code class="language-c++">#include &quot;filename&quot;
+</code></pre>
+<p>首先在当前目录下搜索要包含的文件，如果没有，再按照标准方式搜索，<em><strong>*对用户自己编辑的文件，采用这种方式*</strong></em>。</p>
+<h4 id="宏"><a class="header" href="#宏">宏</a></h4>
+<pre><code class="language-c++">#define	MACRO  // 定义宏
+#undef MACRO   // 删除由define定义的宏
+</code></pre>
+<h5 id="特殊宏"><a class="header" href="#特殊宏">特殊宏</a></h5>
+<pre><code class="language-c++">__LINE__;  // 行号
+__FILE__;  // 文件名
+__DATE__;
+__TIME__;
+__cplusplus;  // 值为最新支持的c++标准发布时间
+</code></pre>
+<h5 id="带参数的宏"><a class="header" href="#带参数的宏">带参数的宏</a></h5>
+<pre><code class="language-c++">#define LOG(x) std::cout &lt;&lt; x &lt;&lt; std::endl
+</code></pre>
+<h4 id="条件编译指令"><a class="header" href="#条件编译指令">条件编译指令</a></h4>
+<pre><code class="language-c++">#if constant_expression
+	statements;
+#elif constant_expression
+	statements;
+#else
+	statements;
+#endif
+
+#ifdef identifier
+    statements;
+#elif defined(identfier2)
+    statements;
+#else
+    statements;
+#endif
+
+#ifndef	identifier
+    statements;
+#else
+    statements;
+#endif
+</code></pre>
+<p><code>#ifdef</code>和<code>#ifndef</code>用于判断一个宏是否已经定义，这两个命令常组合起来使用，在头文件中加入以下结构，用于防止头文件的重复包含。</p>
+<pre><code class="language-c++">#ifndef identifier
+#define identifier
+header_file_contents
+#endif
+</code></pre>
+<blockquote>
+<p><code>#pragma once</code>：保证在源文件中只会包含该头文件一次，避免类型的重复定义。</p>
+</blockquote>
+<p>**注意：**不要在头文件中添加定义，因为该头文件如果被包含到不同源文件，在链接阶段会产生重复符号定义。</p>
+<ul>
+<li>将函数声明为<code>static</code>，但没有必要为每个源文件定义功能相同的函数；</li>
+<li>==将函数声明为<code>inline</code>，则编译时函数体被替换为代码块==。</li>
+</ul>
+<h4 id="兼容c语言"><a class="header" href="#兼容c语言">兼容C语言</a></h4>
+<p>​	使C++在编译C语言函数保持对C语言的兼容，在头文件中添加以下结构。</p>
+<pre><code class="language-c++">#ifdef __cplusplus
+	#if __cplusplus
+extern &quot;C&quot;{
+    #endif
+#endif
+    
+function-declare;
+    
+#ifdef __cplusplus
+    #if __cplusplus
+}
+	#endif
+#endif
+</code></pre>
+<h3 id="注释"><a class="header" href="#注释">注释</a></h3>
+<h4 id="文档"><a class="header" href="#文档">文档</a></h4>
+<h5 id="c-docstrings"><a class="header" href="#c-docstrings">C++ Docstrings</a></h5>
+<pre><code class="language-c++">/**
+ * Create a new Triangle object of side lengths 1, 1, and 1.
+ * @brief Triangle class used for triangle manipulations.
+ * @details 细节
+ * @param a The Length of triangle side a.
+ * @return The length of side a.
+ * @see Triangle(const double a, const double b, const double c)
+ * @file 文件名
+ * @todo todo things
+ */
+</code></pre>
+<pre><code class="language-c++">/**
+ * @mainpage Triangle Library Documentation
+ * @author 作者
+ * @version 版本号
+ * @date 年-月-日
+ * @section intro_sec Introduction
+ * Do somethings ...
+ * @subsection install_dependencies Installing Dependencies
+ */
+</code></pre>
+<h5 id="doxygen"><a class="header" href="#doxygen">doxygen</a></h5>
+<p>运行<a href="../%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/%E6%96%87%E6%A1%A3%E7%94%9F%E6%88%90%E8%BD%AF%E4%BB%B6.html#doxygen"><code>doxygen</code></a>生成文档。</p>
+<pre><code class="language-shell">doxygen –g Doxyfile
+</code></pre>
+<p><a href="https://leimao.github.io/blog/CPP-Documentation-Using-Doxygen/">Lei Mao's Log Book – C/C++ Documentation Using Doxygen</a></p>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=cschlosser.doxdocgen">Doxygen Documentation Generator - Visual Studio Marketplace</a></p>
+<h2 id="函数"><a class="header" href="#函数">函数</a></h2>
+<blockquote>
+<ul>
+<li>encapsulation of implementation details</li>
+<li>easier reasoning about correctness and testing by breaking down problems into separate functions</li>
+<li>avoids repeating code for common tasks</li>
+</ul>
+</blockquote>
+<p>返回类型推断：在编译期间可以确定返回类型。</p>
+<pre><code class="language-c++">auto foo (int i, double d) {
+  …
+  return i;
+}
+</code></pre>
+<p>默认参数：</p>
+<pre><code class="language-c++">double f (double a, double b = 1.5) {
+    return (a * b);
+}
+</code></pre>
+<p>函数声明（declaration）：</p>
+<ul>
+<li>告知编译器一个函数存在于某个源文件中。函数声明通常放置在头文件中，便于导入。</li>
+<li>作为函数参数，接受声明类型的函数对象<code>int cmp(int &amp;, int &amp;)</code>；</li>
+</ul>
+<h3 id="参数传递"><a class="header" href="#参数传递">参数传递</a></h3>
+<h4 id="传入参数"><a class="header" href="#传入参数">传入参数</a></h4>
+<img src="Modern C++.assets/pass_parameters_args.png" alt="pass parameters" style="zoom: 45%;" />
+<blockquote>
+<p>Read from cheaply copyable object (all fundamental types) ⇒ <strong>pass by value</strong>;</p>
+<p>Read from object with larger (&gt; 64bit) memory footprint ⇒ pass by <code>type const &amp;</code>;</p>
+<p>Write to function-external object ⇒ pass by <code>type &amp;</code>.</p>
+</blockquote>
+<h5 id="可变参数列表"><a class="header" href="#可变参数列表">可变参数列表</a></h5>
+<p>可变参数函数（如<code>printf</code>）的最后一个参数以“<code>...</code>”代替。</p>
+<pre><code class="language-c++">return_type func_name (param,...){...} 
+</code></pre>
+<p>使用在“<code>stdarg.h</code>”中定义的类型（<code>va_list</code>指针类型）和宏（<code>va_start</code>、<code>va_arg</code>、<code>va_end</code>和<code>va_copy</code>）访问参数列表。</p>
+<ul>
+<li>
+<p><em><code>va_start</code>：返回参数列表存储区的指针。使用可变参数列表必须至少提供一个占位的固定参数，这个参数可以不被函数使用。这样<code>va_start</code>才可以定位到参数列表的首地址。</em></p>
+<pre><code class="language-c++">va_list ptr_args = va_start(param, param1);
+for(;ptr_args!=nullptr; ++ptr_args){
+   var_name = va_arg(ptr_args, type);
+}
+</code></pre>
+</li>
+<li>
+<p><em><code>va_arg</code>：返回一个参数。</em></p>
+</li>
+<li>
+<p><em><code>va_end</code>：将参数列表指针设为<code>nullptr</code>，等效标记为end。</em></p>
+</li>
+<li>
+<p><em><code>va_copy</code>： 将参数列表指针，赋值给另一个指针。</em></p>
+</li>
+</ul>
+<p>参数列表并没有显式的结束标识，因此在传递参数时，需要使用固定参数指定可变参数个数，或者使用特殊参数值标识参数列表结束。</p>
+<h5 id="传递数组作为参数"><a class="header" href="#传递数组作为参数">传递数组作为参数</a></h5>
+<p>通过以上两种指针的定义及赋值，可以得知数组指针是有类型的，即数组指针的类型为：指明数组低维度长度的指针型变量，表示为：</p>
+<pre><code class="language-c++">type (*ptr_name)[N]...;
+</code></pre>
+<p>数组指针类型用于定义数组对象或==传递数组参数==。</p>
+<p>数组也可通过引用类型传递，但必须显式指定数组长度，传递的参数必须与声明长度相同（否则产生编译错误）。</p>
+<pre><code class="language-c++">void print_array_ref(int (&amp;array)[5]);
+</code></pre>
+<p>由于长度固定，难以通用。因此<a href="#%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92">传递数组参数</a>通常还是通过指针或容器对象（如<code>std::vector</code>和<code>std::array</code>）。</p>
+<h5 id="传递函数作为参数"><a class="header" href="#传递函数作为参数">传递函数作为参数</a></h5>
+<p><strong>函数指针</strong>：函数是特殊类型的对象，<strong>函数名是该对象的地址</strong>。可定义该函数类型的指针以引用该函数，并作为参数传递：</p>
+<pre><code class="language-c++">return_type (*ptr_func)(arg_types,...);  // 定义函数类型时不需要形参名
+ptr_func(arg_list);  // =&gt; (*ptr_func)(arg_list);
+</code></pre>
+<blockquote>
+<p>函数指针<a href="https://www.cprogramming.com/tutorial/function-pointers.html">可自动解引用</a>，因此可以不添加<code>*</code>运算符。</p>
+</blockquote>
+<p>为了在定义函数参数时简化语法，可以预先定义函数类型：</p>
+<pre><code class="language-c++">typedef return_type (* FunctionType)(arg_types);
+using FunctionType = return_type (*)(arg_types); // [c++11]
+call_func(FunctionType call_func);               // 传递函数参数
+</code></pre>
+<p><strong>函数对象</strong>：</p>
+<pre><code class="language-c++">std::function&lt;return_type (arg_types)&gt; func_obj; // [c++11]
+using func_type = std::function&lt;return_type (arg_types)&gt;;
+</code></pre>
+<h4 id="返回值"><a class="header" href="#返回值">返回值</a></h4>
+<img src="Modern C++.assets/pass_parameters_return.png" alt="pass parameters" style="zoom: 40%;" />
+<blockquote>
+<p>返回多值：</p>
+<ul>
+<li>
+<p>==使用结构体来构造多返回值结构==。</p>
+</li>
+<li>
+<p>使用<code>tuple</code>和自动展开；</p>
+<pre><code class="language-c++">std::make_pair(); // return tuple
+</code></pre>
+</li>
+<li>
+<p>使用数组<code>std::array</code>或向量<code>std::vector</code>（类型相同）；</p>
+</li>
+<li>
+<p>==使用引用或指针类型输入参数作为输出参数==（可能产生歧义）。</p>
+</li>
+</ul>
+</blockquote>
+<h4 id="可选参数"><a class="header" href="#可选参数">可选参数</a></h4>
+<pre><code class="language-c++">optional&lt;int&gt; x;
+if (x) {}  // x若未经初始化，则判断条件为false；代替传统使用空指针判断值是否可用。
+</code></pre>
+<h3 id="函数重载"><a class="header" href="#函数重载">函数重载</a></h3>
+<blockquote>
+<p>functions with the same name but different <strong>parameter lists</strong>.</p>
+</blockquote>
+<p>如果一组函数具有相同的名称，但具有不同的输入参数模式（参数类型，参数个数，参数顺序），则这些参数可以同时存在于同一命名空间。重载（overload）就是在编译时通过传入参数的类型，来选择相应的函数。</p>
+<p>不能通过访问权限、返回类型、抛出的异常进行重载。</p>
+<blockquote>
+<p>对于继承来说，如果某一方法在父类中是访问权限是<code>private</code>，那么就不能在子类对其进行重载，如果定义的话，也只是定义了一个新方法，而不会达到重载的效果。</p>
+</blockquote>
+<h4 id="运算符重载"><a class="header" href="#运算符重载">运算符重载</a></h4>
+<p>运算符重载是对已有运算符赋予多重含义，使同一个运算符作用于不同类型的数据时导致不同的行为。<strong>运算符重载的实质是函数重载。</strong></p>
+<p>运算符可重载为独立函数或类的<a href="#%E6%88%90%E5%91%98%E8%BF%90%E7%AE%97%E7%AC%A6">成员函数</a>。运算符声明可能需要在相应操作数类定义中<a href="#Friends">使用<code>friend</code>声明</a>以访问操作数的非公开成员。</p>
+<pre><code class="language-c++">[friend] type operator op (params) { /*statements*/ } 
+</code></pre>
+<blockquote>
+<p><code>op =&gt; +,-,*,/,[],++,--,... </code></p>
+</blockquote>
+<p>重载为成员函数时：</p>
+<ul>
+<li>对于单目运算符，则不需要参数；对于“++”和“--”，为了区分前置运算符和后置运算符，当重载为后置运算符是，增加一个整形参数，但该参数只用于区分，没有其它用途。</li>
+<li>对于双目运算符，还需要将另一个操作数作为参数传入函数；</li>
+</ul>
+<h5 id="输出运算符"><a class="header" href="#输出运算符">输出运算符</a></h5>
+<pre><code class="language-c++">ostream&amp; operator &lt;&lt; (ostream&amp; os, type T) 
+{ os &lt;&lt; T.x &lt;&lt; T.y; return os; }
+</code></pre>
+<h5 id="比较运算符"><a class="header" href="#比较运算符">比较运算符</a></h5>
+<p>C++使用值语义，因此比较运算符<code>==,!=</code>是比较对象的值。编译器不会自动为自定义类型生成比较运算符，需要自定义。</p>
+<pre><code class="language-c++">bool operator==(T1 const&amp;, T2 const&amp;)const=default; // c++20
+</code></pre>
+<blockquote>
+<p><code>=default</code>：自动生成默认比较运算符（递归比较所有成员变量），无需给出函数原型；</p>
+<p>不用重载<code>!=</code>运算符，编译器会自动根据<code>==</code>的定义生成<code>!=</code>运算符的定义。</p>
+<p><code>c++20</code>：compiler rewrites a call <code>a == b</code> as <code>b == a</code> if necessary。</p>
+</blockquote>
+<p><strong>双目运算符的交换问题</strong>：双目运算符的运算数类型如果不同，需要声明不同的操作符重载，以满足定义的交换律。</p>
+<h3 id="优化"><a class="header" href="#优化">优化</a></h3>
+<p><strong>Return Value Optimization (RVO)</strong>：在返回语句中构造对象时，将不会为返回值创建临时对象。</p>
+<pre><code class="language-c++">Type create_object(){
+  // ...
+  return Type(...)  // Performing RVO
+}
+Type a = create_object();  
+</code></pre>
+<blockquote>
+<p>由于类型在Stack上占用的空间在编译期间是确定的，因此编译器预先为返回值<code>a</code>在Stack上分配空间（==相当于调用一个空的默认构造函数==）。通过修改函数原型以及函数行为，将该空间地址通过指针传递给调用函数，在返回语句构造对象时使用传入地址指定的空间，而非重新在Stack上分配一段内存空间。当函数执行完成时，将上述预分配空间的地址绑定到返回值。整个过程仅执行一次对象构造，而为执行优化时，将执行一次构造函数和两次复制构造函数（从局部对象到临时对象，从临时对象到返回值，临时对象实际也是在调用对象前通过指针传入函数）。</p>
+<p><a href="https://en.wikipedia.org/wiki/Copy_elision#Return_value_optimization">Copy elision - Wikipedia</a>。</p>
+</blockquote>
+<p><strong>Named Return Value Optimization (NRVO)</strong>：在返回语句中返回局部对象，将不会为返回值创建临时对象。</p>
+<blockquote>
+<p>类似地，NRVO则是在要返回的局部变量在构造时，使用上层传入的Stack空间。</p>
+</blockquote>
+<p><strong>内联（inlining）</strong>：Calls to small/short functions are replaced with the code of the function.</p>
+<blockquote>
+<p><em>Inlining is a lot harder or sometimes impossible in many other languages like Java, C#, etc. with <strong>always-on polymorphism</strong> which means that all/most function/method calls can only be resolved at runtime.</em></p>
+</blockquote>
+<h3 id="主函数"><a class="header" href="#主函数">主函数</a></h3>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+int main (int argc, char* argv[]) {
+  for(int i = 0; i &lt; argc; ++i) {
+    std::cout &lt;&lt; argv[i] &lt;&lt; '\n';
+  }
+} // return 0 by default only for main function
+</code></pre>
+<blockquote>
+<ul>
+<li>names <code>argc</code> and <code>argv</code> are only a convention</li>
+<li><code>argv[0]</code> contains the program call</li>
+</ul>
+</blockquote>
+<h3 id="匿名函数"><a class="header" href="#匿名函数">匿名函数</a></h3>
+<h4 id="lambda-class"><a class="header" href="#lambda-class">lambda class</a></h4>
+<p>编译器自动生成的<a href="#%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1">函数对象</a>，用于需要提供函数作为参数的位置。</p>
+<pre><code class="language-c++">[](P const&amp; x, P const&amp; y){ return x.c &lt; y.c; }
+[](auto x){ ... }         // c++14
+[](auto const &amp; x){ ... }
+[](auto &amp;x){ ... }
+</code></pre>
+<blockquote>
+<p>输入参数为空则可以省略<code>()</code>。</p>
+</blockquote>
+<h5 id="closure"><a class="header" href="#closure">closure</a></h5>
+<p>instance of lambda class。</p>
+<p>保存外部作用域的变量：</p>
+<pre><code class="language-c++">[=](...){...}     // captures all by value
+[&amp;](...){...}     // captures all by reference
+[=x,&amp;y](...){...} // captures x by value and y by reference
+[= ,&amp;y](...){...} // captures all by value except y by reference
+</code></pre>
+<p>保存闭包：闭包类型由编译器确定，因此使用<code>auto</code>表示结果。</p>
+<pre><code class="language-c++">auto f = [...](...){...}
+</code></pre>
+<h2 id="聚合类型"><a class="header" href="#聚合类型">聚合类型</a></h2>
+<p>将多个基本类型变量组合成一个聚合类型，相当于一个简单类型，成员变量根据声明顺序在内存中连续存储。</p>
+<p>聚合类型是对逻辑上相关的函数和数据的封装，是对问题的抽象描述。提供成员访问限制，自定义初始化、解构、复制和赋值，成员函数；<a href="https://hackingcpp.com/cpp/lang/custom_type_basics.html">保证类行为的不变性、清晰性和正确性</a>。</p>
+<h5 id="结构体"><a class="header" href="#结构体">结构体</a></h5>
+<pre><code class="language-c++">struct point {
+  int x;  // ← &quot;member variable&quot;
+  int y; 
+};
+point p1 = {10, 5};
+point p2 {5, 10};    // c++11
+</code></pre>
+<blockquote>
+<ul>
+<li>semantic data grouping: <code>point</code>, <code>date</code>, …</li>
+<li>avoids many function parameters and thus, confusion</li>
+<li>can return multiple values from function with one dedicated type instead of multiple non-const reference output parameters</li>
+</ul>
+</blockquote>
+<h5 id="类"><a class="header" href="#类">类</a></h5>
+<pre><code class="language-c++">class ClassName: public classA,…, protected classB,…, private classC,… 
+{
+    public：				//外部接口
+    	//构造函数
+        ClassName()=default;
+        [explicit]ClassName(args1, arg2,...){ /*initialization;*/}
+        virtual ~ClassName()；//(虚)析构函数	
+        //数据成员；
+        using value_type = std::uint64_t;  //类型接口
+        //函数成员；
+        type func_name(params){}
+    private：
+    protected：//保护成员
+};
+</code></pre>
+<blockquote>
+<p>在C++中，<code>class</code>和<code>struct</code>关键字都可用于定义类，不同之处在于两者的默认访问权限不同（<code>class</code>是<code>private</code>，<code>struct</code>是<code>public</code>）。</p>
+<p><em>Do not use leading underscores or double underscores in names of types, variables, functions, private data members</em>.</p>
+</blockquote>
+<p><strong>继承语法</strong>：访问修饰符指明基类成员的访问方式，如果不显式给出，则默认为私有继承。</p>
+<p><strong>组合类</strong>：一个类的成员不仅包含基本数据类型，还包含其它<strong>类的对象</strong>。</p>
+<h3 id="成员变量"><a class="header" href="#成员变量">成员变量</a></h3>
+<h5 id="常量成员变量"><a class="header" href="#常量成员变量">常量成员变量</a></h5>
+<p>==如果对象被声明成常量，那么限定只能调用对象的常成员函数以防止对象被修改。==</p>
+<p>一般常量必须在声明时进行初始化，在C++的类中，常数据成员的初始化，在构造函数的初始化列表中完成，<em>而不能在声明时初始化</em>（C++11支持<a href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%99%A8">声明时初始化</a>），或在构造函数的函数体中进行初始化。</p>
+<h5 id="静态成员变量"><a class="header" href="#静态成员变量">静态成员变量</a></h5>
+<p>如果某个属性为整个类所共有，不属于任何一个具体对象，则采用<code>static</code>关键字声明为静态成员变量。静态成员在每个类中只有一个实例，实现同一类的不同对象之间的数据共享。</p>
+<p>类内部只是静态成员的声明，静态成员（包括常量）需要在程序的全局作用域的某个位置对其进行定义和初始化。</p>
+<blockquote>
+<p>由于类的静态成员变量在头文件中声明，其作用域为全局作用域而非文件作用域。因此需要将初始化放在某个源文件中，而不能放在头文件中；否则当头文件被多个源文件引用时，会分别执行多次定义产生符号冲突。</p>
+</blockquote>
+<pre><code class="language-c++">type class_name::static_var = value;
+</code></pre>
+<p><em>整数静态常量比较特别，可以在声明时进行初始化。</em></p>
+<h3 id="资源管理"><a class="header" href="#资源管理">资源管理</a></h3>
+<h4 id="构造函数"><a class="header" href="#构造函数">构造函数</a></h4>
+<p>构造函数的函数名与类名相同，且没有返回值，被声明为公有函数。如果类中没有声明构造函数，或给出了无参构造函数的声明但没有给出实现，则编译器会自动生成一个默认的构造函数，不做任何事情；如果用户自定义了构造函数，则不会再自动生成默认构造函数，如果没有另外声明无参构造函数，则必须在声明对象时，提供必要的参数完成初始化。</p>
+<blockquote>
+<p>尽可能避免书写特殊成员函数，除非需要资源分配。使用<a href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%99%A8">成员初始化器</a>可以执行默认初始化，使用智能指针、容器等可以尽量减少人工管理内存分配，从而避免自定义析构函数。</p>
+</blockquote>
+<h5 id="初始化列表构造函数"><a class="header" href="#初始化列表构造函数">初始化列表构造函数</a></h5>
+<p>初始化列表<code>initializer_list</code>是一种特殊可迭代容器，用于序列类型的初始化。</p>
+<pre><code class="language-c++">#include &lt;initializer_list&gt; // c++11
+ClassA{ ClassA(std::initializer_list&lt;int&gt; li){...} }
+ClassA a {1,3,4,5};   // {}调用初始化列表构造函数，而()调用其他构造函数
+</code></pre>
+<h5 id="复制构造函数"><a class="header" href="#复制构造函数">复制构造函数</a></h5>
+<p><strong>复制构造函数</strong>是一种特殊的构造函数，具有一般构造函数的所有特性，其<strong>形参是本类对象的引用</strong>，其作用是使用一个已经存在的对象，去初始化一个同类型的新对象。如果没有在类中定义复制构造函数，则编译器会生成<strong>默认的复制构造函数</strong>，其功能是：<strong>把参数对象的每个数据成员的复制到新建立的对象中</strong>（如果声明了复制构造函数，则复制功能由复制构造函数完成，类将不会自动复制相应的变量）。</p>
+<pre><code class="language-c++">ClassName(const ClassName &amp; obj);        //复制构造函数
+ClassName(const ClassName &amp; obj)=delete; //禁用复制构造函数
+</code></pre>
+<p><strong>浅拷贝</strong>：C++默认是<a href="#%E5%BC%95%E7%94%A8%E8%AF%AD%E4%B9%89">值语义</a>，因此进行赋值运算时，会复制类的所有成员，但使用原始指针引用的对象不会被复制（弱引用关系，不属于该类的成员）。==自定义复制构造函数和赋值运算符可以定义是否为指针引用的对象创建副本==。</p>
+<pre><code class="language-c++">Object(const Object&amp; other){ // 默认复制类的成员
+	memcpy(this, &amp;other,  sizeof(Object))   
+}
+</code></pre>
+<p>复制构造函数的调用情况：</p>
+<ol>
+<li>
+<p>当用类的一个对象去初始化该类的另一个对象。</p>
+</li>
+<li>
+<p>如果函数的形参是类的对象，调用函数时，用实参初始化形参。</p>
+</li>
+<li>
+<p>如果函数的返回值是类的对象，函数执行完返回时，为了完成从子函数到主函数的值传递，创建一个临时对象，初始化该对象。</p>
+</li>
+</ol>
+<p><strong>如果类不包含动态分配的资源，则一般使用默认的构造函数就足够了</strong>。
+一般情况，每个对象所拥有的资源应该是相互独立的，这样一个对象的操作才不会影响到另一个对象。
+但是使用默认复制构造函数，只能完成成员变量即相关资源的标识符的复制，而不能自动完成动态资源的分配。
+这时候就需要程序定义复制构造函数，来完成动态分配资源的分配和值的复制。</p>
+<p>“<code>=</code>”操作符的意义在于使用一个对象向另一个同类型对象赋值，这和初始化时使用一个对象对同类型对象进行初始化的原理基本相同。
+“<code>=</code>”操作符的处理==可能还需要先释放对象已分配的资源==，再申请新的资源。
+如果没有定义“<code>=</code>”操作符，则会自动生成一个与默认复制构造函数具有相同功能的操作符定义，因此，默认的“<code>=</code>”操作符并不能完成具有动态资源的对象的复制。
+<strong>通常，定义了复制构造函数也就意味着需要定义“<code>=</code>”操作符</strong>。</p>
+<pre><code class="language-c++">ClassName&amp; ClassName::operator = (ClassName const&amp;);
+</code></pre>
+<p>https://en.cppreference.com/w/cpp/language/copy_constructor</p>
+<h5 id="移动语义"><a class="header" href="#移动语义">移动语义</a></h5>
+<p>将对象在堆上的空间与新对象进行交换（新对象可能并未分配堆空间）。</p>
+<pre><code class="language-c++">std::swap(a,b);
+</code></pre>
+<h6 id="移动构造函数和移动赋值函数"><a class="header" href="#移动构造函数和移动赋值函数">移动构造函数和移动赋值函数</a></h6>
+<pre><code class="language-c++">ClassName(const ClassName &amp;&amp; obj); //移动构造函数
+ClassName&amp; ClassName::operator = (ClassName const&amp;&amp;); //移动赋值运算符
+</code></pre>
+<p>https://hackingcpp.com/cpp/lang/move_semantics.html</p>
+<h4 id="初始化"><a class="header" href="#初始化">初始化</a></h4>
+<blockquote>
+<p><u>R</u>esource <u>A</u>cquisition <u>I</u>s <u>I</u>nitialization (RAII)</p>
+<ul>
+<li>acquire some resource (memory, file handle, connection, …) when object is constructed</li>
+<li>release/clean up resource when object is destroyed (de-allocate memory, close connection, …)</li>
+</ul>
+</blockquote>
+<p>对象所占据的内存空间只是用于存放数据成员，函数成员不在每个对象中存储副本。但是如果该类包含<a href="#%E8%99%9A%E5%87%BD%E6%95%B0">虚函数</a>，则虚函数地址存放在虚函数表中，将占用内存空间。</p>
+<h5 id="成员初始化列表"><a class="header" href="#成员初始化列表">成员初始化列表</a></h5>
+<p>通过构造函数的初始化列表对成员变量进行初始化（构造）。==初始值可以来自构造函数的参数。====初始化列表也可以调用本类的其他构造函数代替单独变量初始化。==</p>
+<pre><code class="language-c++">class Foo {
+   int i_;     // 1st
+   double x_;  // 2nd
+public:    
+   Foo(): i_{10}, x_{3.14} { }  // same order: i_ , x_
+   Foo(int i, double x): i_(i), x_(x) {}
+};
+</code></pre>
+<blockquote>
+<p>成员初始化列表：使用<code>()</code>或<code>{}</code>（C++11: narrowing conversion）传递参数。</p>
+</blockquote>
+<p>初始化列表应首先给出父类的初始化声明，再给出当前类中成员变量的初始值（初始化顺序与成员的声明顺序保持一致）。构造函数执行的次序：</p>
+<ol>
+<li>
+<p>调用父类的构造函数初始化父类成员，顺序与继承声明一致（从左到右）；</p>
+</li>
+<li>
+<p>初始化基本类型或调用成员的构造函数，调用顺序与内嵌对象在类中声明的次序一致；</p>
+<blockquote>
+<p>当未在初始化列表给出成员的初始化声明，则会调用该类型的默认构造函数（此时该类型需要具有默认构造函数）。而如果在构造函数体内对该成员通过赋值进行初始化，则会重复执行构造，造成性能开销。==因此应该优先使用成员初始化列表。==</p>
+</blockquote>
+</li>
+<li>
+<p>执行构造函数体的内容。</p>
+</li>
+</ol>
+<h5 id="隐式类型转换"><a class="header" href="#隐式类型转换">隐式类型转换</a></h5>
+<p>只有一个参数的构造函数，其调用形式与强制类型转换的语法相同，因此，等效于同时重载了由指定类型到当前类型的<a href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E8%BF%90%E7%AE%97%E7%AC%A6">（隐式）类型转换运算符</a>。</p>
+<pre><code class="language-c++">type y;
+ClassName x = y; // =&gt; 隐式转换：className x = ClassName(y);
+</code></pre>
+<blockquote>
+<p>当构造函数被<code>explicit</code>关键字修饰时，则不会同时重载该运算符，因此上述代码不会进行隐式转换，从而赋值语句类型不兼容。</p>
+</blockquote>
+<h5 id="初始化器"><a class="header" href="#初始化器">初始化器</a></h5>
+<p>C++11支持在声明成员变量时给出默认初始值。</p>
+<pre><code class="language-c++">class Foo {
+  int i_ = 10;
+  double x_ = 3.14;
+};
+</code></pre>
+<h4 id="析构函数"><a class="header" href="#析构函数">析构函数</a></h4>
+<p><strong>析构函数</strong>与构造函数的作用基本相反，用来完成对象被删除前的一些清理工作，在对象的生命期即将结束时被自动调用。和构造函数不同的是，析构函数不接受任何参数，但可以是<strong>虚函数</strong>。声明虚析构函数必须给出实现（参考虚函数）。</p>
+<p>析构函数调用顺序由类的继承关系决定，与构造函数的调用顺序相反：即类本身的析构函数，类成员对象的析构函数，基类的析构函数。由于析构函数是自动调用的，因此无需显示调用父类析构函数。</p>
+<h3 id="成员函数"><a class="header" href="#成员函数">成员函数</a></h3>
+<p>成员函数可以在类的声明之外单独定义（使用作用域限定符），在类声明中仅给出声明。</p>
+<pre><code class="language-c++">type ClassName::func_name(params){}
+</code></pre>
+<blockquote>
+<p>代码量较小的函数应该尽量放置于类定义中，以方便“内联”优化。</p>
+</blockquote>
+<blockquote>
+<p><a href="https://hackingcpp.com/cpp/lang/custom_type_basics.html">How to</a> implement a feature / add new functionality?</p>
+<ul>
+<li>only need to access public data (e.g. via member functions) ⇒ implement as free standing function</li>
+<li>need to access private data ⇒ implement as member function</li>
+</ul>
+<p>==use &quot;action&quot; functions instead of just &quot;setters&quot;==：usually models problems better; more fine-grained control; better code readability / expression of intent</p>
+</blockquote>
+<p>在成员函数中访问成员变量/函数：</p>
+<h5 id="this指针"><a class="header" href="#this指针"><code>this</code>指针</a></h5>
+<p>非静态成员函数的参数隐含了当前实例的指针<code>this</code>。</p>
+<p>如果在<code>Class</code>的成员函数中没有可见的同名局部作用域标识符，那么在该函数内可以直接访问成员<code>Member</code>。反之，非静态成员需要通过<code>this</code>指针进行访问<code>this-&gt;Member</code>。</p>
+<blockquote>
+<p>也可以使用作用域限定符<code>::</code>访问类成员，通常作用域限定符用于<a href="#%E8%AE%BF%E9%97%AE%E9%9D%99%E6%80%81%E6%88%90%E5%91%98">访问静态成员</a>，而实例成员通过<code>this</code>指针访问。</p>
+</blockquote>
+<p>此外，<code>this</code>指针还可以用于在类内部调用需要该类指针的函数。</p>
+<h4 id="成员运算符"><a class="header" href="#成员运算符">成员运算符</a></h4>
+<p>当运算符的第一个参数是自定义类型，可将该运算符定义/重载为自定义类的成员。</p>
+<blockquote>
+<p>当第一个参数不是自定义类类型，则<a href="#%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD">重载为独立运算符</a>。也可将独立运算符在类内部以<code>friends</code>修饰以确保其能访问类的内部数据。</p>
+</blockquote>
+<h5 id="类型转换运算符"><a class="header" href="#类型转换运算符">类型转换运算符</a></h5>
+<p>类型转换函数用于自动==将类对象转换成其他兼容类型的对象==，从而实现类似基本数据类型隐式转换的功能。类型转换函数通过重载“<code>(...)</code>”操作符实现：</p>
+<pre><code class="language-c++">public operator type();   // 定义方法将当前类型转换为type
+</code></pre>
+<p>该函数原型比较特别，没有返回值，也不需要提供参数。但是函数结束前必须返回<code>type</code>类型的值。</p>
+<blockquote>
+<p><em>指针转换运算符是为了方便对自定义模板类的指针进行强制类型转换而重载的，因为系统不能直接把自定义类的指针强制转换成基本类型的指针。指针转换运算符的重载函数比较特殊，它没有返回值（连void也没有）。</em></p>
+</blockquote>
+<h5 id="函数对象"><a class="header" href="#函数对象">函数对象</a></h5>
+<p>重载<code>()</code>运算符的类。 ==函数对象可以通过私有变量保存内部状态==。</p>
+<pre><code class="language-c++">public type operator (args); // 注意函数原型与类型转换运算符的区别
+obj(args);                   // 调用()重载的函数。
+</code></pre>
+<h5 id="成员引用运算符"><a class="header" href="#成员引用运算符">成员引用运算符*</a></h5>
+<p>当一个类封装另一个类对象或指针时（例如智能指针），如果要透明访问被封装类的成员，可以重载<code>-&gt;</code>运算符（普通版本以及常量版本）：</p>
+<pre><code class="language-c++">InternalObject* operator-&gt;(){ return prt_obj;}
+ExternalObject* m = new ExternalObject();
+m-&gt;some_interal_member;
+</code></pre>
+<h5 id="和运算符"><a class="header" href="#和运算符">“<code>=</code>”和“<code>[]</code>”运算符</a></h5>
+<p>这两种运算符的适用场合，有可能作为表达式的左值出现，如</p>
+<pre><code class="language-c++">A[5]=2;
+(a=b)++;  
+</code></pre>
+<p>作为左值的量都必须是变量，否则无法进行赋值或自加等操作，这就要求在重载“<code>=</code>”和“<code>[]</code>”运算符时返回变量；由于<strong>函数的返回值是一个右值</strong>（<a href="#Rvalues-and-Lvalues">临时变量</a>），所以不满足要求。</p>
+<p>所以<strong>在重载这两个操作符时，返回值应该是引用类型</strong>。当然，<strong>由于局部变量在函数结束时就消失了，所以不能返回局部变量的引用，否则对引用的操作将出现错误。</strong></p>
+<p>“<code>=</code>”返回左操组数（上面例子中a）的引用；</p>
+<p>“<code>[]</code>”返回左操作数（上面例子的A）的索引对应项的引用。只能重载一维数组下标操作符（如何重载多维下标http://blog.sina.com.cn/s/blog_66ec4d660100mxq5.html）。</p>
+<h4 id="静态成员函数"><a class="header" href="#静态成员函数">静态成员函数</a></h4>
+<pre><code class="language-c++">static type static_function_declare();
+class_name::static_function();   // 调用静态成员函数
+</code></pre>
+<p>静态成员函数只能访问类的静态成员函数/变量。</p>
+<h4 id="常量成员函数"><a class="header" href="#常量成员函数">常量成员函数</a></h4>
+<pre><code class="language-c++">type member_function_declare() const;
+</code></pre>
+<blockquote>
+<p><code>const</code>可以用于修饰函数的返回值，表示对函数的返回值不可以做修改。</p>
+</blockquote>
+<p>使用<code>const</code>关键字修饰成员函数，意味着成员函数具有“只读”属性，而不能修改对象（<strong>实例成员变量</strong>）或者调用任何非常成员函数。</p>
+<blockquote>
+<p>使用<code>mutable</code>修饰的成员是例外，可以被<code>const</code>方法修改。</p>
+</blockquote>
+<p><code>const</code>可以用于成员函数的重载（在声明和定义处都需要使用<code>const</code>修饰），当对象被声明成常量时，则该实例只能访问使用<code>const</code>成员函数，因为只有这样才能保证类的成员变量不会被修改。</p>
+<blockquote>
+<p>对于一般对象，则常函数成员和非常函数成员都可以被调用。</p>
+<p>当对象是变量时，优先调用同名非常成员函数（当没有声明非常成员函数时，调用同名常成员函数）。</p>
+</blockquote>
+<p><code>const</code>-qualify all non-modifying member functions。</p>
+<h5 id="访问静态成员"><a class="header" href="#访问静态成员">访问静态成员</a></h5>
+<p>静态成员不与类的实例绑定，需要通过作用域限定符和类名进行访问。</p>
+<pre><code class="language-c++">ClassName::StaticMember;
+ClassName::StaticMemberFunction(args);
+</code></pre>
+<h3 id="访问限制"><a class="header" href="#访问限制">访问限制</a></h3>
+<p>在类内部，所有的数据成员的为其成员函数所共享；通过静态数据成员，实现同一类的不同对象之间的数据共享。</p>
+<p><strong>访问关系是针对于类而言的，并不是针对类的实例</strong>。即对象的成员函数可以访问同一类型对象的所有成员变量。</p>
+<blockquote>
+<p>访问控制的主要作用是限定代码的组织方式，对程序运行没有影响；实际上可以通过操纵指针绕过访问控制限制。</p>
+</blockquote>
+<img src="Modern C++.assets/access_control.png" style="zoom: 67%;" />
+<h4 id="friends"><a class="header" href="#friends">Friends</a></h4>
+<pre><code class="language-c++">class A{…… friend class B; …… }  // friend class
+class A{…… type function(args); …… } // friend function
+</code></pre>
+<p><strong>友元函数</strong>是在类中用关键字<code>friend</code>修饰的非成员函数，可以是普通函数也可以是其他类的成员函数，虽然它不是本类的成员函数，但是可以访问本类的私有和保护成员。</p>
+<p>**友元关系是不能传递的：**A是B的友元，B是C的友元，如果没有声明，A和C是没有友元关系的；</p>
+<p>**友元关系是单向的：**A是B的友元，如果没有声明，则B不是A的友元；</p>
+<p>**友元关系是不被继承的：**如果A是B的友元，但A的派生类，如果没有声明，则不是B的友元。</p>
+<h3 id="自定义类型"><a class="header" href="#自定义类型">自定义类型</a></h3>
+<p>https://hackingcpp.com/cpp/design/arithmetic_types.html</p>
+<p>https://hackingcpp.com/cpp/design/node_based_data_structures.html</p>
+<h2 id="程序结构"><a class="header" href="#程序结构">程序结构</a></h2>
+<h3 id="命名空间"><a class="header" href="#命名空间">命名空间</a></h3>
+<p><a href="https://en.cppreference.com/w/cpp/language/namespace">Namespaces - cppreference.com</a></p>
+<ul>
+<li>避免命名冲突；</li>
+<li>将内容分为不同的部分。</li>
+</ul>
+<blockquote>
+<p>命名空间仅用于防止命名冲突，不具有访问控制作用（访问控制修饰符修饰命名空间无效）。</p>
+</blockquote>
+<h5 id="定义"><a class="header" href="#定义">定义</a></h5>
+<pre><code class="language-c++">namespace my{
+    class vector {...};
+    namespace time{...}
+}
+</code></pre>
+<p>一个文件中可以定义多个命名空间；同时，一个命名空间也可以出现在多个文件中。</p>
+<p>命名空间可嵌套定义。</p>
+<h5 id="引入命名空间"><a class="header" href="#引入命名空间">引入命名空间</a></h5>
+<pre><code class="language-c++">my::vector v1;
+using my::vector;  // 单独引入命名空间中的定义
+vector v2;
+using my;   // 引入命名空间中的所有定义
+namespace mt = my::time;  // 定义命名空间别名简化书写
+</code></pre>
+<blockquote>
+<p>避免在头文件中引入命名空间：引入命名空间会导入其中所有的声明到头文件中。该头文件再被其他文件引用时，可能造成命名冲突。</p>
+</blockquote>
+<h3 id="标识符作用域"><a class="header" href="#标识符作用域">标识符作用域</a></h3>
+<ol>
+<li>
+<p>局部作用域：在代码块中声明的标识符，其作用域从声明处开始，一直到块结束的大括号为止。**具有局部作用域的变量也称为局部变量。**函数体、控制语句块，空语句块等都是局部作用域。</p>
+</li>
+<li>
+<p>类作用域：类<code>Class</code>的成员<code>Member</code>具有类作用域，其范围为类的定义。</p>
+</li>
+<li>
+<p>文件作用域：<strong>具有文件作用域的标识符其作用域开始于声明点，结束于文件尾。具有文件作用域的变量也称为全局变量。</strong></p>
+<p>命名空间将文件作用域进行了逻辑划分；</p>
+</li>
+</ol>
+<h4 id="可见性"><a class="header" href="#可见性">可见性</a></h4>
+<p>程序运行到某一点在，能够引用到的标识符就是该处可见的标识符。作用域可见性的规则：</p>
+<ol>
+<li>标识符声明在前，引用在后；</li>
+<li>在同一作用域中不能定义同名标识符；</li>
+<li>在没有互相包含关系的不同作用域中定义的同名标识符，互不影响；</li>
+<li>如果在两个或多个具有包含关系的作用域中声明了同名标识符，则外层标识符在内层不可见。</li>
+</ol>
+<h4 id="作用域限定符"><a class="header" href="#作用域限定符">作用域限定符</a></h4>
+<p>用于在默认规则不可见的位置访问某些标识符。</p>
+<ul>
+<li>访问命名空间中的成员（例如<code>std::cout</code>）；</li>
+<li>在类定义外部，定义函原型和初始化静态变量；</li>
+<li>访问静态成员；</li>
+<li>在类内部，识别多继承的同名成员；</li>
+</ul>
+<p><em>对于静态成员</em>，则通过作用域分辨符<code>::</code>进行访问：<code>ClassName::M</code>。</p>
+<p><em>多继承的父类成员可见性</em>。</p>
+<h4 id="前向声明"><a class="header" href="#前向声明">前向声明</a></h4>
+<p>​    两个类不能相互引用作为其定义的一部分，因为这样无法确定任何一个类的类型。但是两个类可以相互引用其指针作为定义的一部分。</p>
+<p>​    如果出现以上相互引用的情况下，一般地，应该互相包含其头文件，但这样又会造成头文件内容无法确定。为了解决这一问题，C++引入了前向声明，即==在定义类之前对类名进行声明==，则无需包含该类定义所在的头文件，即可定义该类的指针。</p>
+<pre><code class="language-c++">class c_a;
+class c_b{
+	c_a *p_a;
+}
+</code></pre>
+<h2 id="多态"><a class="header" href="#多态">多态</a></h2>
+<h3 id="继承"><a class="header" href="#继承">继承</a></h3>
+<p><strong>类的继承，是新类从已有类那里得到已有的特性。同时，从已有类产生新类的过程就是派生</strong>。由原有类产生新类时，新类便包含了原有类的特性，同时也可以加入自己所有的新特性。</p>
+<p>从对象的数据存储来看，组合类和派生的作用一样：如果把派生类的父类的实例都添加到一个新类的定义中，则派生类的这个新类有相同的数据成员，只是组织形式不同。但是组合类只能利用现有类提供的功能并在新类中定义新功能，而派生类在此基础上可以提供多态行为，即子类可以通过虚函数覆盖父类的同名函数。反之，如果不需要更改父类行为，使用组合类更简洁。</p>
+<h4 id="构造析构函数"><a class="header" href="#构造析构函数">构造/析构函数</a></h4>
+<p>根据构造函数调用规则，应该在子类的初始化列表中调用父类构造函数。</p>
+<h4 id="虚继承"><a class="header" href="#虚继承">虚继承</a></h4>
+<h3 id="成员函数重载"><a class="header" href="#成员函数重载">成员函数重载</a></h3>
+<p>运算符重载</p>
+<h3 id="覆盖"><a class="header" href="#覆盖">覆盖</a></h3>
+<p>具有相同函数原型（即相同的函数名与输入参数列表）的函数不满足重载的条件，不能存在于同一命名空间。但具有相同原型的函数可存在于父类（接口）与子类（实现）中。子类（实现）提供的具有相同原型的函数是对父类（接口）的相应函数进行重定义，以替换原有的功能，这种方式称为覆盖（override）。</p>
+<h5 id="隐藏"><a class="header" href="#隐藏">隐藏</a></h5>
+<p>当子类中定义与父类同名函数时，将无法直接访问父类的同名函数（即使非重载形式）。此时需要使用父类指针（在类外部）或作用域限定符（类内部）访问父类函数。</p>
+<blockquote>
+<p>多继承情况下，如果继承多个父类的同名函数，也会导致父类同名函数的隐藏。</p>
+</blockquote>
+<h4 id="虚函数"><a class="header" href="#虚函数">虚函数</a></h4>
+<p>对于从同一父类派生出的不同类的对象，如果使用==父类的指针==统一进行管理与访问，可以明显的简化程序。但使用父类指针引用子类对象只能访问到父类中定义的成员，而不能访问子类中的成员。<strong>如果需要使用父类的指针访问子类中的成员函数，就需要首先在父类中将该函数声明为虚函数（<strong>不能通过父类指针访问子类数据成员</strong>）</strong>。</p>
+<p><strong>虚函数是动态绑定的基础，虚函数必须是非静态的成员函数</strong>，虚函数经过派生后，在类族中就可以实现运行过程中的多态。虚函数的声明语法：</p>
+<pre><code class="language-c++">virtual type function_name(arg_list);   // in parent class
+type function_name（arg_list）override {statements} // in child class
+</code></pre>
+<blockquote>
+<p>[1] C++ 虚函数表解析. http://blog.csdn.net/haoel/article/details/1948051/。</p>
+</blockquote>
+<p>虚函数的修饰符只能出现在类中函数声明处，而不能在函数实现处。在子类中不需要显式地给出虚函数的声明，当子类的成员函数满足重载条件时就会自动确定为虚函数。被覆盖的父类函数，任然可以通过作用域标识符来访问。</p>
+<h5 id="虚函数的适用条件"><a class="header" href="#虚函数的适用条件">虚函数的适用条件</a></h5>
+<p><strong>当子类需要修改父类的行为时，就应该将父类的相应函数声明为虚函数</strong>。而父类中声明的非虚函数，通常代表那些不希望被子类改变的功能，也是不能实现多态的。因此一般不要重写继承而来的非虚函数（虽然语法没有限制）。</p>
+<p>在重写继承来的虚函数时，<strong>不能改变函数的默认形参值</strong>，因为：虽然虚函数是动态绑定的，但是默认形参值是静态绑定的。</p>
+<p>虚函数必须给出实现，否则应该声明为<a href="#%E7%BA%AF%E8%99%9A%E5%87%BD%E6%95%B0">纯虚函数</a>。</p>
+<h5 id="虚析构函数"><a class="header" href="#虚析构函数">虚析构函数</a></h5>
+<p>使用父类指针访问子类对象完成后，如果子类对象是动态分配的，这时存在的一个问题是：能否直接<code>delete</code>父类指针，完成子类对象的删除。在动态分配内存时，系统会记录下所分配的内存的首地址和分配长度，因此在执行删除操作时，无论指针指向的是父类对象还是子类对象，都能够正确的释放对象所占用的内存。</p>
+<p>但是如果动态创建的对象中还有指向动态分配的内存空间的指针成员，则这样的删除就是不完全的，因为这些指针成员指向的动态分配的内存空间并不能得到释放（如同深拷贝与浅拷贝的原理一样，在构造函数中，浅拷贝只会复制指针，而不会另外增加一份指针指向的内容，这时需要深拷贝手动完成内容的赋值）。</p>
+<p>动态空间的释放显然应该由析构函数来完成，其中父类的构造函数释放父类对象动态申请的内存空间，子类的构造函数释放子类对象动态申请的内存空间。当使用父类指针来实现多态时，由于通过父类指针只能直接访问父类成员，析构函数也是一样，这种情况下访问不到子类的析构函数（对象通过<code>delete</code>销毁获声明周期结束时，只会调用父类的构造函数），则不能完成子类动态分配空间的释放，因此要将父类的析构函数声明为虚函数。</p>
+<h3 id="抽象类"><a class="header" href="#抽象类">抽象类</a></h3>
+<p>抽象类用于抽象和设计接口。一个抽象类无法实例化，只能通过继承将抽象类改写为非抽象类，然后再实例化。可以定义抽象类的指针和引用，通过指针和引用，就可以访问子类的对象，实现多态性。</p>
+<h4 id="纯虚函数"><a class="header" href="#纯虚函数">纯虚函数</a></h4>
+<p>抽象类是带有纯虚函数的类。抽象方法、接口。</p>
+<pre><code class="language-c++">virtual tpye function_name(args...) = 0;
+</code></pre>
+<p>抽象类派生出新类后，如果子类中给出了所有纯虚函数的函数实现，这个子类就不再是抽象类，而可以实例化；反之，如果子类中没有完全给出所有纯虚函数的实现，那么这个子类就仍然是抽象类。</p>
+<h2 id="模板"><a class="header" href="#模板">模板</a></h2>
+<p>模板定义语法</p>
+<pre><code class="language-c++">template &lt;typename T,..., args&gt; declaration;  
+</code></pre>
+<p>其中，<code>declaration</code>可以表示函数或类的声明语法。模板参数包括：</p>
+<ol>
+<li>
+<p><strong>类型参数</strong>，使用类型定义关键字（<code>class</code>或<code>typename</code>）或者嵌套定义的类模板类型（<code>template &lt;typename T,...&gt;ClassName</code>）；</p>
+</li>
+<li>
+<p><strong>非类型参数</strong>，参数类型可以是整数，枚举，指针，引用或指向成员的指针，且==在编译时可以确定为常量==（类似于数组长度）。</p>
+</li>
+</ol>
+<blockquote>
+<p>模板参数可设置默认值。</p>
+</blockquote>
+<p><strong>编译器根据模板生成实际代码</strong>：定义模板并不定义实际类型或函数，只有在使用模板并传递相应的参数时，编译器才真正添加一个类型或函数。</p>
+<p><a href="../CSharp.NET/CSharp%E6%95%B0%E6%8D%AE%E5%AE%B9%E5%99%A8.html#%E6%B3%9B%E5%9E%8B%E5%92%8C%E9%9D%9E%E6%B3%9B%E5%9E%8B%E5%AE%B9%E5%99%A8">泛型</a>：<a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/generics/differences-between-cpp-templates-and-csharp-generics">C++ 模板和 C# 泛型之间的区别</a>。</p>
+<h3 id="函数模板"><a class="header" href="#函数模板">函数模板</a></h3>
+<p>函数模板的声明语法：</p>
+<pre><code class="language-c++">template &lt;typename T1, typename T2,...&gt;
+T2 function_name(T param,...){statements}  
+</code></pre>
+<p>类型参数用来指定函数模板的参数类型和返回值类型，以及声明函数中的变量类型等。</p>
+<h5 id="实例化"><a class="header" href="#实例化">实例化</a></h5>
+<pre><code class="language-c++">fucntion_name&lt;T&gt;(args);   // 可省略类型参数，当类型可由参数推导出
+</code></pre>
+<h3 id="类模板"><a class="header" href="#类模板">类模板</a></h3>
+<p>使用类模板使用户可以为类声明一种模式，使得类中的某些数据成员，某些成员函数的参数、返回值能取任意类型（包括系统预定义的和用户自定义的）。类模板的定义语法：</p>
+<pre><code class="language-c++">template &lt;typename T1, typename T2, ..., int n,...&gt;  
+class ClassName{member_declaration}  
+</code></pre>
+<p>在类模板内部定义成员的方法与普通类成员的定义语法一样，可能用到模板参数表中定义的类型或数值参数。模板类成员可以是静态或非静态，数据或函数成员。</p>
+<blockquote>
+<p>如果要在类模板定义范围以外定义其成员函数，则必须指定其所属的模板类，且模板类要指定相应的模板参数，即采用以下定义形式</p>
+<pre><code class="language-c++">template &lt; class T1,class T2, ..., int  n,...&gt;
+T2 ClassName&lt;T1,T2,...,n...&gt;::functionname(arg_list){statements}  
+</code></pre>
+<p>静态数据成员的定义方法也类似。</p>
+</blockquote>
+<p>类模板的成员函数也可作为函数模板来定义，即增加额外的模板参数，其声明和定义语法如下所示。</p>
+<pre><code class="language-c++">template &lt;typename A1,...&gt;
+class ClassName(args_list){
+   template&lt;typename T1,...&gt; 
+   T1 function_identifer(A1 param1, ...){statements}
+}  
+</code></pre>
+<p>==（在类中的声明形式与一般函数一致），而不能如普通类一样，将成员函数的实现放到源文件中（否则或出现链接错误，LINK2019/2001）==。</p>
+<h4 id="类模板实例化"><a class="header" href="#类模板实例化">类模板实例化</a></h4>
+<p>使用一个模板类建立对象时，应该按以下形式声明：</p>
+<pre><code class="language-c++">ClassTemplate&lt;T1,T2,...,n,...&gt;obj1;  
+</code></pre>
+<h3 id="完美转发"><a class="header" href="#完美转发">完美转发</a></h3>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../CSharp.NET/dotnet开发.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../CC++/Modern C++.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../CSharp.NET/dotnet开发.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../CC++/Modern C++.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

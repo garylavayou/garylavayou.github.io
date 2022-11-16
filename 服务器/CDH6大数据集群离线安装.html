@@ -1,0 +1,563 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>CDH6 安装教程 - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html" class="active">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="cdh6大数据集群离线安装"><a class="header" href="#cdh6大数据集群离线安装">CDH6大数据集群离线安装</a></h1>
+<h2 id="前言"><a class="header" href="#前言">前言</a></h2>
+<p><strong>为什么要用离线的方式安装CDH6大数据集群</strong></p>
+<p>CDH，全称Cloudera’s Distribution, including Apache Hadoop。是Hadoop众多分支中对应中的一种，由Cloudera维护，基于稳定版本的Apache Hadoop构建，提供了Hadoop的核心（可扩展存储、分布式计算），最为重要的是提供基于web的用户界面。</p>
+<p>CDH的优点：版本划分清晰，更新速度快，支持Kerberos安全认证，支持多种安装方式（如Yum、rpm等）。</p>
+<p>Cloudera公司最近在官网宣布：</p>
+<pre><code>从2021年1月31日开始，所有Cloudera软件都需要有效的订阅，并且只能通过付费墙进行访问。
+</code></pre>
+<p><img src="CDH6%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%9B%86%E7%BE%A4%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85.assets/202104151826512758.png" alt="在这里插入图片描述" /></p>
+<p>也就是说CDH各版本都不能免费获取了。很多以前的文章、书籍中提到CDH大数据平台，都是会引用Cloudera官网下载地址，例如：https://archive.cloudera.com/cm6/6.2.0/redhat7/yum/RPMS/x86_64/</p>
+<p>现在开始要输入账号密码认证了。用Cloudera的账号密码的话，会得到如下失败信息：</p>
+<pre><code>403 Forbidden (varnish) the provided credentials were incorrect
+</code></pre>
+<p>说明没有权限获取CDH了。在Cloudera官网社区里有很多讨论。</p>
+<p>解决办法如下：</p>
+<ol>
+<li>
+<p>使用开源的Hadoop、Spark、Hive等分别安装；</p>
+</li>
+<li>
+<p>使用自己或别人以前下载过的CDH安装包，共享使用，官网说的是CDH6.6以后收费，以前的还是可以使用。</p>
+</li>
+</ol>
+<p>链接: https://pan.baidu.com/s/1ION1DoWnqpfVO_sBx0GpeA 提取码: rqyi</p>
+<h2 id="下载安装包"><a class="header" href="#下载安装包">下载安装包</a></h2>
+<p>CDH分为Cloudera Manager管理平台和CDH parcel（parcel包含各种组件的安装包）。</p>
+<p>从共享的百度网盘链接将CDH安装包下载到本地工作机，如下所示：</p>
+<pre><code>~/workspace$ 
+tree CDH
+CDH
+├── CDH
+│  ├── CDH-6.3.2-1.cdh6.3.2.p0.1605554-el7.parcel
+│  ├── CDH-6.3.2-1.cdh6.3.2.p0.1605554-el7.parcel.sha1
+│  ├── CDH-6.3.2-1.cdh6.3.2.p0.1605554-el7.parcel.sha256
+│  └── manifest.json
+├── ClouderaManager
+├── cloudera-manager-agent-6.3.1-1466458.el7.x86_64.rpm
+├── cloudera-manager-daemons-6.3.1-1466458.el7.x86_64.rpm
+├── cloudera-manager-server-6.3.1-1466458.el7.x86_64.rpm
+├── cloudera-manager-server-db-2-6.3.1-1466458.el7.x86_64.rpm
+├── enterprise-debuginfo-6.3.1-1466458.el7.x86_64.rpm
+└── oracle-j2sdk1.8-1.8.0+update181-1.x86_64.rpm
+</code></pre>
+<h2 id="编辑映射文件"><a class="header" href="#编辑映射文件">编辑映射文件</a></h2>
+<pre><code>root@cdh001:~# vim /etc/hosts
+</code></pre>
+<p>在该文件中添加如下内容：</p>
+<pre><code>172.18.48.175  cdh001.gary.com    cdh001
+172.18.48.176  cdh002.gary.com    cdh002
+172.18.48.177  cdh003.gary.com    cdh003
+</code></pre>
+<h2 id="配置ssh免密登录"><a class="header" href="#配置ssh免密登录">配置SSH免密登录</a></h2>
+<p>1.执行以下命令，创建公钥和私钥。</p>
+<pre><code>ssh-keygen -t rsa
+</code></pre>
+<p>2.将公钥拷贝到要免密登录的目标机器上</p>
+<p>将公钥拷贝到本机</p>
+<pre><code>for node in cdh001 cdh002 ...; do 
+    ssh-copy-id -i ~/.ssh/id_rsa.pub $node
+done
+</code></pre>
+<h2 id="编写集群分发脚本"><a class="header" href="#编写集群分发脚本">编写集群分发脚本</a></h2>
+<p>1.需求：循环复制文件到所有节点的相同目录下
+2.需求分析：
+（a）期望脚本使用方法：</p>
+<pre><code>xsync &lt;要同步的文件路径&gt;
+</code></pre>
+<p>3.脚本实现
+（a）在/root目录下创建bin目录，并在bin目录下xsync创建文件，操作如下：在该文件中编写如下代码</p>
+<pre><code class="language-shell">#!/bin/bash
+#1获取输入参数个数，如果没有参数，直接退出
+pcount=$#
+if((pcount==0));then
+    echo no args;
+    exit;
+fi
+#2获取文件路径
+p1=$1
+fname=`basename $p1`
+echo fname=$fname
+#3获取上级目录到绝对路径
+pdir=`cd -P $(dirname $p1);pwd
+echo pdir=$pdir
+#4获取当前用户名称
+user=`whoami`
+#5循环
+for((num=2;num&lt;4;num++));do
+    host=$(printf &quot;%03d&quot; &quot;$num&quot;)
+    echo -------------------cdh$host--------------
+    rsync -rvl $pdir/$fname $user@cdh$host:$pdir
+done
+</code></pre>
+<p>（b）修改脚本xsync具有执行权限</p>
+<pre><code>chmod u+x xsync
+</code></pre>
+<p>（c）调用脚本形式：</p>
+<pre><code>xsync &lt;文件路径&gt;
+</code></pre>
+<p>（d）分发集群分发脚本</p>
+<pre><code>xsync /usr/local/bin/xsync
+</code></pre>
+<p>（e）分发映射文件</p>
+<pre><code>xsync /etc/hosts
+</code></pre>
+<h2 id="安装mysql主节点"><a class="header" href="#安装mysql主节点">安装MySQL(主节点)</a></h2>
+<h3 id="下载并安装mysql"><a class="header" href="#下载并安装mysql">下载并安装mysql</a></h3>
+<p>下载并安装</p>
+<pre><code class="language-shell">wget -i -c http://dev.mysql.com/get/mysql57-community-release-el7-10.noarch.rpm
+yum -y install mysql57-community-release-el7-10.noarch.rpm
+yum -y install mysql-community-server
+</code></pre>
+<p>启动服务</p>
+<pre><code>systemctl start mysqld
+</code></pre>
+<p>查看状态</p>
+<pre><code>systemctl status mysqld
+</code></pre>
+<p>查看mysql临时密码</p>
+<pre><code class="language-shell">grep &quot;password&quot; /var/log/mysqld.log
+# 2021-04-15T07:31:51.264538Z 1 [Note] A temporary password is generated for root@localhost: LeuhBAe2ai,u
+</code></pre>
+<h3 id="登录后修改密码"><a class="header" href="#登录后修改密码">登录后修改密码</a></h3>
+<p>尽量复杂一点，太简单了验证不通过，也可以查看如何关闭mysql校验规则</p>
+<pre><code>[root@cdh001 ~]# mysql -u root -p
+mysql&gt; set global validate_password_policy=0; 
+Query OK, 0 rows affected (0.00 sec)
+mysql&gt; set global validate_password_length=4;
+Query OK, 0 rows affected (0.00 sec)
+mysql&gt; ALTER USER 'root'@'localhost' IDENTIFIED BY 'Mysql@gang2019';
+Query OK, 0 rows affected (0.01 sec)
+mysql&gt; FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0.00 sec)
+</code></pre>
+<h3 id="重启服务并设置开机启动"><a class="header" href="#重启服务并设置开机启动">重启服务并设置开机启动</a></h3>
+<pre><code>systemctl enable mysqld &amp;&amp; systemctl restart mysqld
+</code></pre>
+<h3 id="下载并安装jdbc-驱动"><a class="header" href="#下载并安装jdbc-驱动">下载并安装JDBC 驱动</a></h3>
+<p>要求使用5.1.26以上版本的jdbc驱动，可点击这里直接下载mysql-connector-java-5.1.47.tar.gz</p>
+<pre><code class="language-shell">wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.47.tar.gz
+tar -xzf mysql-connector-java-5.1.47.tar.gz 
+mkdir -p /usr/share/java
+ln -s /usr/share/mysql-connector-java-5.1.47/mysql-connector-java-5.1.47-bin.jar /usr/share/java/mysql-connector-java.jar
+</code></pre>
+<h3 id="创建cdh所需要的数据库"><a class="header" href="#创建cdh所需要的数据库">创建CDH所需要的数据库</a></h3>
+<p>根据所需要安装的服务参照下表创建对应的数据库以及数据库用户，数据库必须使用utf8编码，创建数据库时要记录好用户名及对应密码：</p>
+<div class="table-wrapper"><table><thead><tr><th>服务名</th><th>数据库名</th><th>用户名</th><th>密码</th></tr></thead><tbody>
+<tr><td>Cloudera Manager Server</td><td><code>scm</code></td><td><code>scm</code></td><td><code>CDH@gang2019</code></td></tr>
+<tr><td>Activity Monitor</td><td><code>amon</code></td><td><code>amon</code></td><td><code>CDH@gang2019</code></td></tr>
+<tr><td>Reports Manager</td><td><code>rman</code></td><td><code>rman</code></td><td><code>CDH@gang2019</code></td></tr>
+<tr><td>Hue</td><td><code>hue</code></td><td><code>hue</code></td><td><code>CDH@gang2019</code></td></tr>
+<tr><td>Hive Metastore Server</td><td><code>metastore</code></td><td><code>hive</code></td><td><code>CDH@gang2019</code></td></tr>
+<tr><td>Sentry Server</td><td><code>sentry</code></td><td><code>sentry</code></td><td><code>CDH@gang2019</code></td></tr>
+<tr><td>Cloudera Navigator Audit Server</td><td><code>nav</code></td><td><code>nav</code></td><td><code>CDH@gang2019</code></td></tr>
+<tr><td>Cloudera Navigator Metadata Server</td><td><code>navms</code></td><td><code>navms</code></td><td><code>CDH@gang2019</code></td></tr>
+<tr><td>Oozie</td><td><code>oozie</code></td><td><code>oozie</code></td><td><code>CDH@gang2019</code></td></tr>
+</tbody></table>
+</div>
+<p>创建sql脚步文件</p>
+<pre><code>vim cdhinit.sql
+</code></pre>
+<p>添加内容如下：</p>
+<pre><code class="language-mysql"># scm
+CREATE DATABASE scm DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+GRANT ALL ON scm.* TO 'scm'@'%' IDENTIFIED BY 'CDH@gang2019';
+# amon
+CREATE DATABASE amon DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+GRANT ALL ON amon.* TO 'amon'@'%' IDENTIFIED BY 'CDH@gang2019';
+# rman
+CREATE DATABASE rman DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+GRANT ALL ON rman.* TO 'rman'@'%' IDENTIFIED BY 'CDH@gang2019';
+# hue
+CREATE DATABASE hue DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci; 
+GRANT ALL ON hue.* TO 'hue'@'%' IDENTIFIED BY 'CDH@gang2019';
+# hive
+CREATE DATABASE metastore DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+GRANT ALL ON metastore.* TO 'hive'@'%' IDENTIFIED BY 'CDH@gang2019';
+# sentry
+CREATE DATABASE sentry DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;  
+GRANT ALL ON sentry.* TO 'sentry'@'%' IDENTIFIED BY 'CDH@gang2019';
+# nav
+CREATE DATABASE nav DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;   
+GRANT ALL ON nav.* TO 'nav'@'%' IDENTIFIED BY 'CDH@gang2019';
+# navms
+CREATE DATABASE navms DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+GRANT ALL ON navms.* TO 'navms'@'%' IDENTIFIED BY 'CDH@gang2019';
+# oozie
+CREATE DATABASE oozie DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+GRANT ALL ON oozie.* TO 'oozie'@'%' IDENTIFIED BY 'CDH@gang2019';
+# flush
+FLUSH PRIVILEGES;
+SHOW DATABASES;
+</code></pre>
+<p>修改mysql密码校验策略</p>
+<pre><code>[root@cdh001 ~]# mysql -u root -p
+mysql&gt; set global validate_password_policy=LOW; 
+Query OK, 0 rows affected (0.00 sec)
+mysql&gt; set global validate_password_length=6;
+Query OK, 0 rows affected (0.00 sec)
+mysql&gt; SHOW VARIABLES LIKE 'validate_password%';
++--------------------------------------+-------+
+| Variable_name                        | Value |
++--------------------------------------+-------+
+| validate_password_check_user_name    |  OFF  |
+| validate_password_dictionary_file    |       |
+| validate_password_length             |   6   |
+| validate_password_mixed_case_count   |   1   |
+| validate_password_number_count       |   1   |
+| validate_password_policy             |  LOW  |
+| validate_password_special_char_count |   1   |
++--------------------------------------+-------+
+7 rows in set (0.00 sec)
+</code></pre>
+<p>运行脚本</p>
+<pre><code>mysql&gt; source /root/cdhinit.sql
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+Query OK, 0 rows affected (0.00 sec)
+.....
+13 rows in set (0.00 sec)
+</code></pre>
+<h2 id="配置cloudera-manager-yum库主节点"><a class="header" href="#配置cloudera-manager-yum库主节点">配置Cloudera Manager yum库（主节点）</a></h2>
+<p>首先安装httpd和createrepo：</p>
+<pre><code>yum -y install httpd createrepo
+</code></pre>
+<p>启动httpd服务并设置开机自启动：</p>
+<pre><code class="language-shell">systemctl enable --now httpd
+</code></pre>
+<p>将上传的CDH安装包移到httpd的html目录下:</p>
+<pre><code>mv CDH/ /var/www/html/
+</code></pre>
+<p>生成RPM元数据：</p>
+<pre><code class="language-shell">cd /var/www/html/CDH/ClouderaManager/
+createrepo .
+</code></pre>
+<p>接着再创建ClouderaManager的repo文件</p>
+<pre><code>vim /etc/yum.repos.d/cloudera-manager.repo
+</code></pre>
+<p>添加如下内容：</p>
+<pre><code class="language-ini">[cloudera-manager]
+name=Cloudera Manager 6
+baseurl=http://cdh001/CDH/ClouderaManager/
+gpgcheck=0
+enabled=1
+</code></pre>
+<p>分发</p>
+<pre><code>xsync /etc/yum.repos.d/cloudera-manager.repo
+</code></pre>
+<p>修改<code>/etc/httpd/conf/httpd.conf</code>配置文件：</p>
+<blockquote>
+<p>把第284行的<code> AddType application/x-gzip .gz .tgz</code> 修改为 <code>AddType application/x-gzip .gz .tgz .parcel</code>。</p>
+</blockquote>
+<p>重启httpd服务</p>
+<pre><code>systemctl restart httpd
+</code></pre>
+<h2 id="安装jdk所有节点"><a class="header" href="#安装jdk所有节点">安装JDK（所有节点）</a></h2>
+<pre><code class="language-shell">yum install oracle-j2sdk1.8
+</code></pre>
+<p>设置环境变量</p>
+<pre><code>vim /etc/profile.d/cdh.sh
+</code></pre>
+<p>添加如下内容：</p>
+<pre><code class="language-sh">#java
+export JAVA_HOME=/usr/java/jdk1.8.0_181-cloudera/
+export PATH=$JAVA_HOME/bin:$PATH
+export CLASSPATH=.:$JAVA_HOME/lib
+</code></pre>
+<p>环境变量生效</p>
+<pre><code>source /etc/profile.d/cdh.sh
+java -version
+</code></pre>
+<p>分发配置文件</p>
+<pre><code>xsync /etc/profile
+</code></pre>
+<h2 id="安装cloudera-manager"><a class="header" href="#安装cloudera-manager">安装Cloudera Manager</a></h2>
+<h5 id="安装cloudera-manager-server--主节点"><a class="header" href="#安装cloudera-manager-server--主节点">安装Cloudera Manager Server  (主节点)</a></h5>
+<pre><code class="language-shell">yum install cloudera-manager-server
+</code></pre>
+<h5 id="安装cloudera-manager-agent所有节点"><a class="header" href="#安装cloudera-manager-agent所有节点">安装Cloudera Manager Agent(所有节点)</a></h5>
+<pre><code class="language-shell">./sync_cluster.sh cmd &quot;yum install cloudera-manager-daemons cloudera-manager-agent -y&quot;
+</code></pre>
+<h5 id="修改agent配置指向server节点cdh001-所有节点"><a class="header" href="#修改agent配置指向server节点cdh001-所有节点">修改agent配置，指向Server节点cdh001 （所有节点）</a></h5>
+<pre><code>sed -i &quot;s/server_host=localhost/server_host=cdh01/g&quot; /etc/cloudera-scm-agent/config.ini
+xsync /etc/cloudera-scm-agent/config.ini
+</code></pre>
+<h5 id="启动-agent-服务所有节点"><a class="header" href="#启动-agent-服务所有节点">启动 agent 服务（所有节点）</a></h5>
+<pre><code class="language-sh">systemctl start cloudera-scm-agent
+</code></pre>
+<h3 id="初始化scm数据库"><a class="header" href="#初始化scm数据库">初始化scm数据库</a></h3>
+<pre><code class="language-sh">/opt/cloudera/cm/schema/scm_prepare_database.sh mysql scm scm 'CDH@gang2019'
+</code></pre>
+<h3 id="启动cloudera-manager-server主节点"><a class="header" href="#启动cloudera-manager-server主节点">启动Cloudera Manager Server(主节点)</a></h3>
+<pre><code class="language-sh">systemctl start cloudera-scm-server
+systemctl status cloudera-scm-server
+</code></pre>
+<p>查看启动日志</p>
+<pre><code>tail -f /var/log/cloudera-scm-server/cloudera-scm-server.log
+</code></pre>
+<p>看到下面的信息，说明启动完成</p>
+<pre><code>2021-04-15 16:11:08,771 INFO WebServerImpl:com.cloudera.server.cmf.WebServerImpl: Started Jetty server.
+</code></pre>
+<h2 id="安装cdh集群"><a class="header" href="#安装cdh集群">安装CDH集群</a></h2>
+<h3 id="通过浏览器访问cloudera-manager-web界面"><a class="header" href="#通过浏览器访问cloudera-manager-web界面">通过浏览器访问Cloudera Manager WEB界面</a></h3>
+<p>打开浏览器，访问地址：<code>http://&lt;server_host&gt;:7180</code>，默认账号和密码都为<code>admin</code>：
+<img src="CDH6%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%9B%86%E7%BE%A4%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85.assets/202104151826531523.png" alt="在这里插入图片描述" /></p>
+<h3 id="欢迎页面"><a class="header" href="#欢迎页面">欢迎页面</a></h3>
+<p>首先是Cloudera Manager的欢迎页面，点击页面右下角的【继续】按钮进行下一步：
+<img src="CDH6%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%9B%86%E7%BE%A4%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85.assets/202104151826539648.png" alt="在这里插入图片描述" /></p>
+<h3 id="接受条款"><a class="header" href="#接受条款">接受条款</a></h3>
+<p>勾选接受条款，点击【继续】进行下一步：</p>
+<h3 id="版本选择"><a class="header" href="#版本选择">版本选择</a></h3>
+<p>这里选择免费版：
+<img src="CDH6%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%9B%86%E7%BE%A4%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85.assets/202104151826548242.png" alt="在这里插入图片描述" /></p>
+<h3 id="第二个欢迎界面"><a class="header" href="#第二个欢迎界面">第二个欢迎界面</a></h3>
+<p>选择版本以后会出现第二个欢迎界面，不过这个是安装集群的欢迎页：
+<img src="CDH6%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%9B%86%E7%BE%A4%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85.assets/202104151826556835.png" alt="在这里插入图片描述" /></p>
+<h3 id="设置群集名称"><a class="header" href="#设置群集名称">设置群集名称</a></h3>
+<p><img src="CDH6%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%9B%86%E7%BE%A4%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85.assets/202104151826563554.png" alt="在这里插入图片描述" /></p>
+<h3 id="选择主机"><a class="header" href="#选择主机">选择主机</a></h3>
+<p>这一步是要选择用于安装CDH集群的主机：
+<img src="CDH6%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%9B%86%E7%BE%A4%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85.assets/202104151826570273.png" alt="在这里插入图片描述" /></p>
+<h3 id="选择存储库"><a class="header" href="#选择存储库">选择存储库</a></h3>
+<h4 id="cdh-and-other-software"><a class="header" href="#cdh-and-other-software">CDH and other software</a></h4>
+<p>点击更多选项添加远程Parcel存储库：<code>http://39.108.122.82/CDH/CDH/</code>
+<img src="CDH6%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%9B%86%E7%BE%A4%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85.assets/202104151826578710.png" alt="在这里插入图片描述" /></p>
+<blockquote>
+<p>Fix:
+在阿里云服务器上url应该改为http://cdh001/CDH/CDH/，采用公网ip会限速</p>
+</blockquote>
+<p>返回后会加载出CDH版本，确认无误后点击【继续】：
+<img src="CDH6%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%9B%86%E7%BE%A4%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85.assets/202104151826587011.png" alt="在这里插入图片描述" /></p>
+<h3 id="install-parcels"><a class="header" href="#install-parcels">Install Parcels</a></h3>
+<p><img src="CDH6%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%9B%86%E7%BE%A4%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85.assets/202104151826594199.png" alt="在这里插入图片描述" /></p>
+<h3 id="主机检查"><a class="header" href="#主机检查">主机检查</a></h3>
+<p>等待检查完成即可：
+<img src="CDH6%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%9B%86%E7%BE%A4%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85.assets/202104151827002167.png" alt="在这里插入图片描述" /></p>
+<h3 id="选择服务类型"><a class="header" href="#选择服务类型">选择服务类型</a></h3>
+<p>这里我选择Data Engineering
+Process, develop, and serve predictive models.
+服务: HDFS、YARN（含 MapReduce 2）、ZooKeeper、Oozie、Hive、Hue 和 Spark</p>
+<p><img src="CDH6%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%9B%86%E7%BE%A4%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85.assets/202104151827010761.png" alt="在这里插入图片描述" /></p>
+<h3 id="角色分配"><a class="header" href="#角色分配">角色分配</a></h3>
+<p>CDH会自动给出一个角色分配，如果觉得不合理，我们可以手动调整一下，注意角色分配均衡：</p>
+<p><img src="CDH6%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%9B%86%E7%BE%A4%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85.assets/202104151827018446.png" alt="在这里插入图片描述" /></p>
+<p>Gateway Roles https://docs.cloudera.com/documentation/enterprise/5-9-x/topics/cm_mc_managing_roles.html#managing_roles__section_scv_ywt_cn</p>
+<h3 id="数据库设置"><a class="header" href="#数据库设置">数据库设置</a></h3>
+<p><img src="CDH6%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%9B%86%E7%BE%A4%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85.assets/202104151827028783.png" alt="在这里插入图片描述" /></p>
+<h3 id="审核更改"><a class="header" href="#审核更改">审核更改</a></h3>
+<p><img src="CDH6%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%9B%86%E7%BE%A4%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85.assets/202104151827035673.png" alt="在这里插入图片描述" /></p>
+<h3 id="等待命令执行完成"><a class="header" href="#等待命令执行完成">等待命令执行完成</a></h3>
+<p><img src="CDH6%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%9B%86%E7%BE%A4%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85.assets/202104151827042548.png" alt="在这里插入图片描述" /></p>
+<h3 id="安装完成"><a class="header" href="#安装完成">安装完成</a></h3>
+<p><img src="CDH6%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%9B%86%E7%BE%A4%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85.assets/202104151827049423.png" alt="在这里插入图片描述" /></p>
+<h3 id="进入监控界面"><a class="header" href="#进入监控界面">进入监控界面</a></h3>
+<p><img src="CDH6%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%9B%86%E7%BE%A4%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85.assets/202104151827058173.png" alt="在这里插入图片描述" /></p>
+<h2 id="组件配置"><a class="header" href="#组件配置">组件配置</a></h2>
+<h3 id="spark"><a class="header" href="#spark">Spark</a></h3>
+<p>安装目录：</p>
+<pre><code class="language-shell">SPARK_HOME=/opt/cloudera/parcels/CDH-6.3.2-1.cdh6.3.2.p0.1605554/lib/spark
+</code></pre>
+<p>配置目录：</p>
+<pre><code class="language-shell">/etc/spark/conf                   # CDH分发配置目录
+$SPARK_HOME/../../etc/spark/conf  # 内置默认配置目录
+</code></pre>
+<h4 id="web配置"><a class="header" href="#web配置">Web配置</a></h4>
+<p>输入<code>spark-conf</code>过滤设置项，在展示的相应设置项中配置<code>spark-env.sh</code>和<code>spark-defaults.conf</code>中的选项。客户端配置在<code>Gateway Default Group</code>中。</p>
+<pre><code class="language-shell">export PYSPARK_PYTHON=/opt/miniconda3/envs/dataproc/bin/python
+export PYSPARK_DRIVER_PYTHON=/opt/miniconda3/envs/dataproc/bin/python
+</code></pre>
+<blockquote>
+<p>注意在最后一行添加换行，防止生成的配置文件格式不正确。export语句在一行，且worker上未生效。</p>
+</blockquote>
+<p>如果界面配置环境变量不生效，在代码中加入：</p>
+<pre><code class="language-python">import os
+os.environ[&quot;PYSPARK_PYTHON&quot;]='/opt/miniconda3/envs/dataproc/bin/python'
+</code></pre>
+<h4 id="kafka集成"><a class="header" href="#kafka集成">Kafka集成</a></h4>
+<p><code>spark-streaming-kafka</code>：离线环境默认缺少<a href="./%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97.html#Spark%E5%92%8CKafka%E7%89%88%E6%9C%AC%E9%80%89%E6%8B%A9"><code>spark-streaming-kafka-0-8-assembly</code>包</a>，手动添加到<code>SPARK_HOME</code>并在集群中同步。</p>
+<p><code>spark-sql-kafka</code>：</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../服务器/分布式大数据处理.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../服务器/Spark Python API.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../服务器/分布式大数据处理.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../服务器/Spark Python API.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

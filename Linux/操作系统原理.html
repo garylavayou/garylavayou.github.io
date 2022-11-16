@@ -1,0 +1,571 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>操作系统原理 - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html" class="active">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="操作系统原理"><a class="header" href="#操作系统原理">操作系统原理</a></h1>
+<h2 id="存储设备"><a class="header" href="#存储设备">存储设备</a></h2>
+<h3 id="磁盘分区"><a class="header" href="#磁盘分区">磁盘分区</a></h3>
+<p>MBR最多有四个主分区，使用扩展分区和逻辑分区最多可以划分15个分区，单个分区最大2TB。 </p>
+<p>GPT是UEFI标准的一部分，最多提供128个分区，使用GUID来识别每个磁盘和分区。与MBR存在单一故障 点不同，GPT 提供分区表信息的冗余。主GPT位于磁盘头部，而备份副本(次要GPT)位于磁盘尾部。GPT 使用校验和来检测GPT头和分区表中的错误与损坏。</p>
+<h3 id="磁盘阵列"><a class="header" href="#磁盘阵列">磁盘阵列</a></h3>
+<p>RAID 0：<em>breaking up data into chunks and striping it across the available disks. This means that each disk contains a portion of the data and that multiple disks will be referenced when retrieving information.</em></p>
+<p>RAID 1：<em>mirroring data across all available disks.</em></p>
+<p>RAID 5：<code>N</code> strips + <code>1</code> parity</p>
+<p>RAID 6：<code>N</code> strips + <code>2</code> parity</p>
+<p>RAID10：RAID 0 + RAID 1</p>
+<h3 id="文件系统"><a class="header" href="#文件系统">文件系统</a></h3>
+<h4 id="文件系统类型"><a class="header" href="#文件系统类型">文件系统类型</a></h4>
+<h5 id="vfat"><a class="header" href="#vfat">vfat</a></h5>
+<h5 id="ext4"><a class="header" href="#ext4">ext4</a></h5>
+<h5 id="btrfs"><a class="header" href="#btrfs">btrfs</a></h5>
+<h5 id="xfs"><a class="header" href="#xfs">xfs</a></h5>
+<p>无法调整已有分区。</p>
+<h5 id="tmpfs"><a class="header" href="#tmpfs">tmpfs</a></h5>
+<p>https://www.kernel.org/doc/html/latest/filesystems/tmpfs.html</p>
+<h5 id="devtmpfs"><a class="header" href="#devtmpfs">devtmpfs</a></h5>
+<h4 id="linux目录树"><a class="header" href="#linux目录树">Linux目录树</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>目录</th><th>简介</th><th>用途</th></tr></thead><tbody>
+<tr><td><code>/home</code></td><td>用户主目录</td><td>用户个人文件、用户配置文件</td></tr>
+<tr><td><code>/root</code></td><td>超级管理员目录</td><td>保留</td></tr>
+<tr><td><code>/usr</code></td><td>系统资源</td><td><strong>U</strong>nix <strong>S</strong>ystem <strong>R</strong>esources</td></tr>
+<tr><td><code>/usr/bin</code></td><td><strong>binary</strong></td><td>可执行程序（<code>/bin</code>）</td></tr>
+<tr><td><code>/usr/sbin</code></td><td><strong>system binary</strong></td><td>系统配置、维护和管理相关可执行程序<br />（<code>/sbin</code>）</td></tr>
+<tr><td><code>/usr/lib[xx]</code></td><td><strong>library</strong></td><td>库文件（<code>/lib[xx]</code>），<br/><code>/bin</code>和<code>/sbin</code>中的可执行程序共享的库文件</td></tr>
+<tr><td><code>/usr/local</code></td><td></td><td>==自编译或第三方程序==</td></tr>
+<tr><td><code>/usr/src</code></td><td></td><td>内核源代码、头文件和文档</td></tr>
+<tr><td><code>/usr/include</code></td><td></td><td>用于编译用户空间源代码的头文件</td></tr>
+<tr><td><code>/usr/share</code></td><td></td><td>与系统架构无关的共享文件</td></tr>
+<tr><td><code>/opt</code></td><td><strong>optional</strong></td><td>==第三方系统软件==</td></tr>
+<tr><td><code>/etc</code></td><td></td><td>系统范围配置文件</td></tr>
+<tr><td><code>/media</code></td><td></td><td>自动挂载的外部可移动设备（取代<code>/cdrom</code>）</td></tr>
+<tr><td><code>/mnt</code></td><td><strong>mount</strong></td><td>手动挂载外部设备的位置</td></tr>
+<tr><td><code>/dev</code></td><td><strong>device</strong></td><td>通过其中的文件访问设备</td></tr>
+<tr><td><code>/dev/sda</code></td><td></td><td>硬盘</td></tr>
+<tr><td><code>/dev/sda1</code></td><td></td><td>硬盘分区</td></tr>
+<tr><td><code>/dev/lp0</code></td><td></td><td>打印机</td></tr>
+<tr><td><code>/dev/mem</code></td><td></td><td>内存</td></tr>
+<tr><td><code>/dev/tty</code></td><td></td><td>终端</td></tr>
+<tr><td><code>/boot</code></td><td><strong>boot loader</strong></td><td><code>vmlinuz, grub</code></td></tr>
+<tr><td><code>/sys</code></td><td></td><td>与内核交互的虚拟文件系统；系统与组件信息</td></tr>
+<tr><td><code>/proc</code></td><td><strong>process</strong></td><td>虚拟文件系统：系统进程和资源信息</td></tr>
+<tr><td><code>/run</code></td><td></td><td>系统启动早期守护进程的运行数据</td></tr>
+<tr><td><code>/srv</code></td><td><strong>service</strong></td><td>服务数据</td></tr>
+<tr><td><code>/var</code></td><td><strong>variables</strong></td><td>系统运行时可变数据，例如系统日志、缓存、临时文件</td></tr>
+<tr><td><code>/var/log</code></td><td></td><td>系统和应用日志</td></tr>
+<tr><td><code>/tmp</code></td><td><strong>temporary</strong></td><td>临时文件（重启系统时清空）</td></tr>
+<tr><td><code>/snap</code></td><td><strong>snap packages</strong>*</td><td></td></tr>
+</tbody></table>
+</div>
+<blockquote>
+<p>*：<em>snap packages do not depend on any other packages, dependencies, or libraries. They are bundled with everything they need for proper functioning, and completely isolated from the rest of the system.</em></p>
+</blockquote>
+<p><a href="https://medium.com/swlh/linux-file-system-101-894141449257">Linux File System 101. Linux file system follows a tree-like… | by Saeed Mohajeryami | The Startup | Medium</a></p>
+<p>单独挂载分区到某些目录：<a href="https://unix.stackexchange.com/questions/685/why-put-things-other-than-home-to-a-separate-partition/812">linux - Why put things other than /home to a separate partition? - Unix &amp; Linux Stack Exchange</a></p>
+<h3 id="权限"><a class="header" href="#权限">权限</a></h3>
+<p>文件可以设置三种权限：</p>
+<ol>
+<li>
+<p>读(<code>r</code>)权限：可读取文件的内容；对于目录则是列举其中的内容；</p>
+</li>
+<li>
+<p>写(<code>w</code>)权限：可修改文件的内容；对于目录则是创建或删除其中的文件；</p>
+</li>
+<li>
+<p>执行(<code>x</code>)权限：对普通文件，文件内容可被装入内存直接运行或逐条解释执行；对于目录，则是可以读其中文件。</p>
+</li>
+</ol>
+<p>文件的用户分为三组：<code>owner</code>（所有者）、<code>group</code>（文件所在的用户组中的其他用户）、其他用户。文件在创建时被给定所有者（通常是当前用户）和用户组（文件所在的目录的用户组）；每组中都包含了<code>rwx</code>三种权限声明。不同的文件系统还可能具有其他一些权限，例如ACL，可压缩，可修改等。</p>
+<h4 id="权限描述"><a class="header" href="#权限描述">权限描述</a></h4>
+<p>新创建的文件及目录的缺省权限<code>umask</code>分别为：</p>
+<ul>
+<li>
+<p>文件：<code>-rw-r--r-- 644</code>；</p>
+</li>
+<li>
+<p>目录：<code>drwxr-xr-x 755</code>；</p>
+</li>
+</ul>
+<h2 id="操作系统的启动"><a class="header" href="#操作系统的启动">操作系统的启动</a></h2>
+<p>操作系统的启动分为两个阶段：</p>
+<ul>
+<li><strong>引导</strong>阶段开始于打开电源开关，结束于内核初始化完成和 <code>systemd</code>进程成功运行。</li>
+<li><strong>启动</strong>阶段接管剩余工作，直到操作系统进入可操作状态。</li>
+</ul>
+<h3 id="引导boot"><a class="header" href="#引导boot">引导（boot）</a></h3>
+<ol>
+<li>
+<p>BIOS上电自检：检验电脑硬件基本功能是否正常。</p>
+<p>自检成功后，BIOS产生一个中断<code>INT 13H</code>，指向某个接入的可引导设备的引导扇区。它所找到的包含有效的引导记录（主引导记录，MBR）的第一个引导扇区将被装载到内存中，并且<strong>控制权也将从BIOS转移到引导扇区代码</strong>。</p>
+<p>引导扇区是引导加载器的第一阶段。大多数 Linux 发行版本使用的引导加载器有三种：GRUB、GRUB2 和 LILO。GRUB2 是最新的，也是相对于其他老的同类程序使用最广泛的。</p>
+</li>
+<li>
+<p>GRUB2（GRand Unified BootLoader，Version 2）</p>
+<p>寻找操作系统内核并加载其到内存的程序。</p>
+<ul>
+<li>
+<p>阶段1：执行引导代码（引导镜像，<code>boot.img</code>）。</p>
+<p>引导代码必须非常小，因为它必须连同<strong>分区表</strong>放到硬盘的第一个 512 字节的扇区中，其中不包含设备的分区信息。由于引导记录必须非常的小，不能理解文件系统结构，因此阶段 1 的唯一功能就是定位并加载阶段1.5的代码，且该段代码必须位于<strong>引导记录与设备第一个分区之间的位置</strong>。</p>
+</li>
+<li>
+<p>阶段1.5：执行文件系统驱动程序</p>
+<p>在第一个分区的开始位置（扇区63）和MBR（扇区 0）之间有 62 个 512 字节的扇区（共 31744 字节），用于存储阶段1.5的代码镜像<code>core.img</code>文件。</p>
+<p>该空间足够容纳一些通用的<strong>文件系统驱动程序</strong>，如EXT、FAT、NTFS等。因此GRUB2的阶段2能够放在EXT文件系统内（<code>/boot/grub</code>，但不能放在逻辑卷内）。</p>
+</li>
+<li>
+<p>阶段2：定位和加载 Linux 内核到内存，并转移控制权到内核</p>
+<p>内核的相关文件位于 <code>/boot</code>目录下（其文件名均带有前缀 vmlinuz），以一种自解压的压缩格式存储以节省空间。</p>
+<pre><code class="language-sh">ls -la vmlinuz*
+</code></pre>
+</li>
+</ul>
+<p>GRUB2 通过 <code>/boot/grub/grub.cfg</code> 进行配置。该配置文件通常是利用工具自动生成的（ 例如在Ubuntu中，<code>grub-update</code>基于<code>/etc/default/grub</code>生成配置文件）。</p>
+</li>
+<li>
+<p>内核</p>
+<p>内核加载到内存后，首先必须从压缩格式解压自身。</p>
+<p>内核自解压完成后，则加载 <code>systemd</code>进程，并转移控制权到 <code>systemd</code>，结束引导过程。</p>
+</li>
+</ol>
+<h3 id="启动startup"><a class="header" href="#启动startup">启动（startup）</a></h3>
+<p>引导过程结束后，Linux 内核和 <code>systemd </code>处于运行状态，但是由于没有其他任何程序在执行，故其不能执行任何有关用户的功能性任务。</p>
+<p><code>systemd</code>是所有进程的父进程（代替旧式<code>init</code>程序），其功能包括：</p>
+<ol>
+<li>
+<p>挂载文件系统</p>
+<p><code>systemd</code>挂载在<code>/etc/fstab</code> 中配置的文件系统，包括内存交换文件或分区。</p>
+</li>
+<li>
+<p>决定系统启动的目标态</p>
+<p><a href="https://linux.cn/article-8807-1.html?pr">目标态（target）对应旧式的运行级别（runlevel）</a>，包括<code>graphical.target</code>（桌面系统，对应<code>runlevel 5</code>）、<code>multi-user.target</code>（服务器系统，对应<code>runlevel 3</code>）。</p>
+<p>根据配置文件<code>/etc/systemd/system/default.target</code>决定系统应该进入的目标态，<code>default.target</code>是一个链接文件，通常链接到描述文件<code>graphical.target</code>或<code>multi-user.target</code>。</p>
+<p>每个目标态有一个在其配置文件中描述的<strong>依赖集</strong>，<code>systemd</code>需要首先启动其所需依赖。<code>systemd</code>也会查看老式的systemV init目录中是否存在相关启动文件，若存在，则<code>systemd</code>根据这些配置文件的内容启动对应的服务。</p>
+<p><img src="%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86.assets/systemd-boot.jpg" alt="图 1：systemd 的启动流程" /></p>
+</li>
+</ol>
+<h2 id="用户管理"><a class="header" href="#用户管理">用户管理</a></h2>
+<h3 id="用户"><a class="header" href="#用户">用户</a></h3>
+<h3 id="群组"><a class="header" href="#群组">群组</a></h3>
+<p><em>The Primary group – When a user creates a file, the file’s group is set to the user’s primary group.</em></p>
+<p><em>Secondary or supplementary group - Useful when you want to grant certain file permissions to a set of users who are members of the group.</em></p>
+<p><em>Each user can belong to exactly one primary group and zero or more secondary groups.</em></p>
+<p><em>Only root or users with</em> <code>sudo</code> <em>access can add a user to a group.</em></p>
+<h3 id="用户信息存储"><a class="header" href="#用户信息存储">用户信息存储</a></h3>
+<p>群组ID（Group ID，<code>GID</code>）</p>
+<p>帐号信息存储在<code>/etc/passwd </code>文件中，每一行代表一个帐号，每行包含7部分内容：</p>
+<pre><code>用户名：密码(x)：UID：GID：用户信息说明：家目录：shell
+</code></pre>
+<p><code>UID</code>为用户编号（User ID），其分配规则为：</p>
+<ul>
+<li>
+<p>0：系统管理员；</p>
+</li>
+<li>
+<p>1～499：系统帐号；</p>
+</li>
+<li>
+<p>500～65535：一般用户。</p>
+</li>
+</ul>
+<p>账户信息中的密码使用“<code>x</code>”代替，没有任何密码。</p>
+<p>密码信息储存在<code>/etc/shadow</code>文件中，密码以加密后的密文存储。</p>
+<pre><code class="language-sh">用户名：经过加密的密码：密码改动的日期：密码不可被改动的天数：密码需要重新更改的天数：密码更改前进行提示的天数：密码过期后的宽限时间：帐号失效时间：保留
+</code></pre>
+<p>群组信息存储在<code>/etc/group</code>中，每一行代表一个群组，分为4个字段：</p>
+<pre><code>组名：群组密码（x）：GID：此群组包含的用户名称
+</code></pre>
+<p>用户名用&quot;<code>,</code>&quot;隔开，不能有额外的空格。</p>
+<p>在<code>/etc/passwd</code>中的<code>GID</code>是用户的<strong>初始群组</strong>，当用户登入系统后，就拥有了这个群组的权限。使用<code>groups</code>命令查看用户支持的群组，第一个输出的群组即为<strong>有效群组</strong>，在创建新文件时，档案的群组属性就是有效群组。使用<code>newfrp</code>切换有效群组，这时会在原本的shell中重新启动一个shell，其中用户的有效群组就是切换后的。当退出新的shell后，有效群组就恢复了。</p>
+<p>群组管理员信息保存在<code>/etc/shadow</code>中，</p>
+<pre><code class="language-sh">组名：密码：群管理员帐号：群包含的用户帐号
+</code></pre>
+<blockquote>
+<p>密码栏开头为“！”表示无合法密码，所以无群组管理员。</p>
+</blockquote>
+<p>群组管理员可以将帐号加入自己管理的群组中，而不许要<code>root</code>来进行管理，减少了<code>root</code>的工作量。现在由于有<code>sudo</code>命令，所以群管理员已经很少使用了。</p>
+<h5 id="有效身份与真实身份"><a class="header" href="#有效身份与真实身份">有效身份与真实身份</a></h5>
+<h3 id="用户登录过程"><a class="header" href="#用户登录过程">用户登录过程</a></h3>
+<p>用户输入用户名和密码后，系统在<code>/etc/passwd</code>里面寻找帐号。如果没有则跳出；如果有，则将对应的<code>UID</code>和<code>GID</code>一起读出来，另外该帐号的家目录和shell设定也一并读出。</p>
+<p>核对密码，系统进入<code>/etc/shadow</code>找到对应帐号与<code>UID</code>，然后核对输入的密码和里面的（加密）密码是否相同。</p>
+<p>如果密码正确，那么就启动用户的shell环境。</p>
+<h2 id="进程"><a class="header" href="#进程">进程</a></h2>
+<p>每个会话（session）拥有一个或者多个进程组（process group），每个进程组拥有一个或多个进程（process）。会话中的第一个进程就是这个会话的领导（session leader），会话标识（session id）就用它的进程标识（process id）。</p>
+<h3 id="用户态和内核态"><a class="header" href="#用户态和内核态">用户态和内核态</a></h3>
+<h3 id="同步原语"><a class="header" href="#同步原语">同步原语</a></h3>
+<h5 id="非递归锁"><a class="header" href="#非递归锁">非递归锁</a></h5>
+<p><em><strong>non-recursive lock</strong></em>：当一个进程获取到一个非递归锁后，尝试获取该锁的其他进程将阻塞直到该锁被释放。</p>
+<blockquote>
+<p><em><a href="https://www.gnu.org/software/libc/manual/html_node/File-Locks.html">Locks</a> are <strong>associated with processes</strong>. A process can only have one kind of lock set for each byte of a given file. When any file descriptor for that file is closed by the process, all of the locks that process holds on that file are released, even if the locks were made using other descriptors that remain open. Likewise, ==locks are released when a process exits==, and are ==not inherited by child processes== created using fork (see Creating a Process).</em></p>
+</blockquote>
+<h5 id="递归锁"><a class="header" href="#递归锁">递归锁</a></h5>
+<p><em><strong>recursive lock</strong></em>：同一个进程可多次获取一个递归锁，但也需要释放同样多次数。</p>
+<h5 id="信号量"><a class="header" href="#信号量">信号量</a></h5>
+<p><em><strong>semaphore</strong></em>：</p>
+<h2 id="网络"><a class="header" href="#网络">网络</a></h2>
+<h3 id="内核防火墙"><a class="header" href="#内核防火墙">内核防火墙</a></h3>
+<p><code>netfilter/iptables</code>组成Linux中的包过滤防火墙，完成数据包过滤、修改、重定向和网络地址转换等功能。<code>netfilter</code>位于内核空间，<code>iptables</code>位于用户空间。<code>iptables</code>将用户的安全设定执行到安全框架<code>netfilter</code>中。</p>
+<p><img src="%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86.assets/Netfilter-packet-flow.svg" alt="netfilter" /></p>
+<p>By Jan Engelhardt - Own work, Origin SVG PNG, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=8575254</p>
+<h5 id="处理位置-链"><a class="header" href="#处理位置-链">处理位置-链</a></h5>
+<p>网络层对分组处理可分为五个模块（Chain，链）。每个链上设置了一系列规则，匹配规则的数据包按对应的处理方式进行处理。</p>
+<ul>
+<li><code>PREROUTING</code>：</li>
+<li><code>FORWARD</code>：</li>
+<li><code>POSTROUTING</code>：</li>
+<li><code>INPUT</code>：</li>
+<li><code>OUTPUT</code>：</li>
+</ul>
+<h5 id="处理方式-表"><a class="header" href="#处理方式-表">处理方式-表</a></h5>
+<p>每个链按对分组的处理方式将相应地规则归入表中，按<strong>处理优先级</strong>由高到低依次为：</p>
+<ul>
+<li><code>raw</code>：</li>
+<li><code>mangle</code>：解析并修改报文；</li>
+<li><code>nat</code>：网络地址转换；</li>
+<li><code>filter</code>：过滤数据包；</li>
+<li><code>security</code>*（SELinux）。</li>
+</ul>
+<p>每个表由默认策略（policy）和若干条规则（rule）组成，如果没有任何规则与数据包匹配，则按默认策略处理数据包。</p>
+<p>根据数据包的转递场景，某些链中不完全包含四类表，具体情况如下：</p>
+<div class="table-wrapper"><table><thead><tr><th></th><th style="text-align: center"><code>PREROUTING</code></th><th style="text-align: center"><code>FORWARD</code></th><th style="text-align: center"><code>POSTROUTING</code></th><th style="text-align: center"><code>INPUT</code></th><th style="text-align: center"><code>OUTPUT</code></th></tr></thead><tbody>
+<tr><td><code>raw</code></td><td style="text-align: center">√</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center">√</td></tr>
+<tr><td><code>mangle</code></td><td style="text-align: center">√</td><td style="text-align: center">√</td><td style="text-align: center">√</td><td style="text-align: center">√</td><td style="text-align: center">√</td></tr>
+<tr><td><code>nat</code></td><td style="text-align: center">√</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center">〇</td><td style="text-align: center">√</td></tr>
+<tr><td><code>filter</code></td><td style="text-align: center"></td><td style="text-align: center">√</td><td style="text-align: center">√</td><td style="text-align: center">√</td><td style="text-align: center">√</td></tr>
+<tr><td><code>security</code></td><td style="text-align: center"></td><td style="text-align: center">√</td><td style="text-align: center"></td><td style="text-align: center">√</td><td style="text-align: center">√</td></tr>
+</tbody></table>
+</div>
+<p><img src="%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86.assets/021217_0051_6.png" alt="iptables概念" /></p>
+<h5 id="匹配条件"><a class="header" href="#匹配条件">匹配条件</a></h5>
+<p>根据指定的<a href="Linux%E9%85%8D%E7%BD%AE%E5%92%8C%E7%AE%A1%E7%90%86.html#%E5%8C%85%E5%8C%B9%E9%85%8D%E6%9D%A1%E4%BB%B6">匹配条件</a>来尝试匹配每个流经此处的包，并由指定的动作进行处理。</p>
+<h5 id="动作target"><a class="header" href="#动作target">动作（target）</a></h5>
+<ul>
+<li>
+<p><code>ACCEPT</code>：允许数据包通过。</p>
+</li>
+<li>
+<p><code>DROP</code>：直接丢弃数据包，不给任何回应信息。</p>
+</li>
+<li>
+<p><code>REJECT</code>：拒绝数据包通过，必要时会给数据发送端一个响应的信息，客户端刚请求就会收到拒绝的信息。</p>
+</li>
+<li>
+<p><code>SNAT</code>：源地址转换，解决内网用户用同一个公网地址访问外部服务的问题。</p>
+</li>
+<li>
+<p><code>MASQUERADE</code>：是<code>SNAT</code>的一种特殊形式，适用于动态的、临时会变的IP地址上。</p>
+</li>
+<li>
+<p><code>DNAT</code>：目标地址转换，外部请求或响应进入内网时执行。</p>
+</li>
+<li>
+<p><code>REDIRECT</code>：在本机做端口映射。</p>
+</li>
+<li>
+<p><code>LOG</code>：在<code>/var/log/messages</code>文件中记录日志信息，然后将数据包传递给下一条规则，也就是说除了记录以外不对数据包做任何其他操作，仍然让下一条规则去匹配。</p>
+</li>
+</ul>
+<h5 id="匹配顺序"><a class="header" href="#匹配顺序">匹配顺序</a></h5>
+<p>一个表格中的规则，如果一条规则被匹配上，则后续规则不再匹配；反之，继续匹配剩下的规则。</p>
+<p><strong>在没有顺序要求的情况下</strong>（匹配范围有包含关系的情况），匹配频率高的规则应该放在前面，以减少规则检查次数。</p>
+<h4 id="自定义链"><a class="header" href="#自定义链">自定义链</a></h4>
+<p>将符合同一规则的所有规则合并写入自定义链中，由默认链根据规则引用自定义链进行处理。自定义链还可以进一步引用其他自定义链。</p>
+<p>使用自定义链等效于将原来的一级规则匹配变换成了多级匹配。同时，将具有公共部分的规则合并到自定义链中有助于简化规则管理。</p>
+<h3 id="nat"><a class="header" href="#nat">NAT</a></h3>
+<p>当网络内部主机的报文经过路由器时，路由器会维护一张NAT表，表中记录了报文来自于哪个内部主机的哪个进程（内部主机IP+端口）。</p>
+<img src="操作系统原理.assets/051517_1411_1.png" alt="SNAT" style="zoom:80%;" />
+<p><strong>SNAT</strong>：当报文经过路由器时，路由器会将报文的内部主机源IP替换为路由器的IP地址，把源端口也映射为某个端口，NAT表会把这种对应关系记录下来。外部主机收到报文时，源IP与源端口显示的都是路由的IP与端口。当外部网络中的主机进行回应时，外部主机将响应报文发送给路由器，路由器根据NAT表中的映射，将响应报文中的目标IP与目标端口再改为内部主机的IP与端口号，然后再将响应报文发送给内部网络中的主机。整个过程中，外部主机都不知道内部主机的IP地址，内部主机还能与外部主机通讯，于是起到了隐藏网络内主机IP的作用。还能够让局域网内的主机共享公网IP，让使用私网IP的主机能够访问互联网。</p>
+<p><strong>DNAT</strong>：会话开始时使用DNAT，如公网中的客户端通过路由器向内网中的服务器发起请求，路由器将“目标IP+端口”映射到“内网IP+端口”。</p>
+<h3 id="lvs"><a class="header" href="#lvs">LVS</a></h3>
+<p>Linux Virtual Server</p>
+<p>LVS由两部分组成，<code>ipvs</code>与<code>ipvsadm</code>。</p>
+<ul>
+<li>
+<p><code>ipvsadm</code>：LVS管理工具，管理员通过<code>ipvsadm</code>定义或管理集群规则。</p>
+</li>
+<li>
+<p><code>ipvs</code>：LVS核心实现，根据定义好的集群规则进行工作。<code>ipvs</code>作为<code>netfilter</code>的模块存在。</p>
+</li>
+</ul>
+<img src="操作系统原理.assets/070617_0124_4.png" alt="ipvs" style="zoom:80%;" />
+<h4 id="lvs-nat"><a class="header" href="#lvs-nat">LVS-NAT</a></h4>
+<p>LVS主机作为内网中服务器集群的代理，通过NAT将来自客户端的请求转发给服务器集群。LVS通过调度模块<code>ipvs</code>来调节转发给集群各服务器的负载。</p>
+<p><img src="%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86.assets/070617_0124_2.png" alt="LVS-NAT" /></p>
+<p><code>VIP</code>：公网IP，客户端实际访问的IP；</p>
+<p><code>RIP</code>：集群中服务器的内网IP；</p>
+<p><code>DIP</code>：LVS主机链接集群的接口分配的内网IP。</p>
+<h2 id="输入输出"><a class="header" href="#输入输出">输入输出</a></h2>
+<h3 id="tcp-socket"><a class="header" href="#tcp-socket">TCP Socket</a></h3>
+<h4 id="connect-and-accept"><a class="header" href="#connect-and-accept">Connect and Accept</a></h4>
+<p>The <code>connect</code> and <code>accept</code> function  the <em>three-hand-shake</em> procedure.</p>
+<p><code>accept</code> will peak one connection request from the backlog queue, which has finished three-hand-shake procedure.</p>
+<blockquote>
+<p><a href="http://blog.csdn.net/tennysonsky/article/details/45622395">三次握手</a>的过程是由内核完成，不是<code>connect/connect</code>完成.</p>
+<p>https://www.cnblogs.com/pengyusong/p/6434788.html</p>
+</blockquote>
+<blockquote>
+<p>调用*<a href="http://linux.die.net/man/2/listen">listen</a>*系统调用时，socket状态会变为<strong>LISTEN</strong>，此时需要为这个socket指定一个<strong>backlog</strong>。backlog通常被用来指定队列能容下的链接的个数。</p>
+<p>在TCP建立连接的三路握手过程中，连接需要先经历<strong>SYN RECEIVED</strong>状态才能到达最终的<strong>ESTABLISHED</strong>状态，处于<strong>ESTABLISHED</strong>状态的连接才能被*<a href="http://linux.die.net/man/2/accept">accept</a>*系统调用返回给应用。正因为如此，TCP/IP协议栈通常有两种实现backlog queue的策略：</p>
+<ol>
+<li>使用一个队列，其大小由<em>listen</em>系统调用的<em>backlog</em>参数决定。当服务器收到<strong>SYN数据包</strong>后，会发送<strong>SYN/ACK数据包</strong>给客户端并将该连接入队列；当服务器收到客户端的ACK确认数据包后，连接状态变为<strong>ESTABLISHED</strong>，该连接可以被应用程序使用。这意味着这个队列会包含<strong>SYN RECEIVED</strong>和<strong>ESTABLISHED</strong>两种状态的连接，只是只有处于<strong>ESTABLISHED</strong>状态的连接才会返回给用户程序中的<em>accept</em>系统调用。</li>
+<li>使用两个队列，一个<strong>SYN 队列</strong>（或者说是未完成连接队列）和一个<strong>accept 队列</strong>（或者说是连接完成队列）。处于<strong>SYN RECEIVED</strong>状态的连接会被添加到SYN队列，然后，当这一连接状态变为<strong>ESTABLISHED</strong>后，其被移至accept队列。<code>accept系统调用只会从accept队列中消耗连接</code>。在这种策略中，<em>listen</em>系统调用的<em>backlog</em>参数决定的是<strong>accept 队列</strong>的大小。</li>
+</ol>
+<p>https://harveyqing.gitbooks.io/python-read-and-write/content/python_advance/how_to_use_linux_epoll.html</p>
+</blockquote>
+<h3 id="任务调度模式"><a class="header" href="#任务调度模式">任务调度模式</a></h3>
+<p><img src="%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86.assets/figure1.gif" alt="Simplified Matrix of Basic Linux I/O Models" /></p>
+<h5 id="io密集型和cpu密集型任务"><a class="header" href="#io密集型和cpu密集型任务">IO密集型和CPU密集型任务</a></h5>
+<h5 id="同步和异步"><a class="header" href="#同步和异步">同步和异步</a></h5>
+<p>根据用户程序与内核的交互方式，进程的运行方式可分为同步和异步：</p>
+<ul>
+<li>同步：用户程序向内核发起操作请求，并从内核空间中获取数据；</li>
+<li>异步：用户程序向内核发起操作请求，内核完成请求后将数据写入用户空间（通过信号处理函数或回调函数写入用户空间提前分配的内存）。</li>
+</ul>
+<h5 id="阻塞和非阻塞"><a class="header" href="#阻塞和非阻塞">阻塞和非阻塞</a></h5>
+<p>阻塞：用户程序等待内核操作结束；以输入为例，<code>read</code>系列方法将尝试读取指定字节数据、或读取直到指定字符（例如换行<code>\n</code>或文件结束<code>EOF</code>）。默认模式下，如果输入流还未满足返回条件，则方法将被阻塞。</p>
+<p>非阻塞：用户不等待内核操作结束，而是立即返回内核操作的状态。</p>
+<h4 id="同步阻塞模式"><a class="header" href="#同步阻塞模式">同步阻塞模式</a></h4>
+<blockquote>
+<p><em>The application blocks until the system call is complete. The calling application consumes no CPU and simply awaits the response, so it is efficient from a processing perspective.</em></p>
+<p><em>the read/write task is multiplexed with other work in the kernel.</em></p>
+</blockquote>
+<h4 id="同步非阻塞模式"><a class="header" href="#同步非阻塞模式">同步非阻塞模式</a></h4>
+<p>可读取的数据量不确定，可能会频繁从内核读取少量数据，增加上下文切换开销。</p>
+<blockquote>
+<p><em>low data throughput due to frequent system call with context switch.</em></p>
+</blockquote>
+<h4 id="异步阻塞通知模式"><a class="header" href="#异步阻塞通知模式">异步阻塞通知模式</a></h4>
+<blockquote>
+<p><strong>IO多路复用</strong>：<em>non-blocking I/O with <strong>asynchronous blocking</strong> notifications</em>。</p>
+<p>==不存在“异步阻塞IO”的模式==：如果用户程序阻塞等待内核操作完成，则“异步阻塞IO”与同步阻塞IO对于计算任务调度是相同效果，区别仅在于读取数据的方式。</p>
+</blockquote>
+<p>在同步IO模式下，若用户程序阻塞于一个IO操作，而此时其它文件已经准备好操作，则进程无法转去操作其他文件，导致进程的运行效率降低（CPU的利用率）。因此，应该将所有进行IO操作的文件进行统一管理，通过查询文件读写状态获取可操作的文件，并执行相应的操作。只要存在可执行的IO操作，则进程不会出现空闲状态，从而提高进程运行效率。</p>
+<p>Linux提供了<code>select</code>、<code>poll</code>、<code>epoll</code>接口监听文件描述符状态变化信息。<code>select</code>需要用户程序对发生状态变化的文件查询其发生的事件，而<code>poll</code>、<code>epoll</code>则由内核来设置文件描述符发生的事件。</p>
+<p>监听接口是<strong>异步阻塞</strong>模式（<em>依赖于内核<a href="#%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%E6%A8%A1%E5%9E%8B">事件通知</a></em>），直到存在文件描述符准备就绪。在该模式下，任何内核操作都应该立即返回结果而非发生阻塞（非阻塞IO模式），否则令监听机制失效（阻塞在内核操作处，而非阻塞在监听接口处）。</p>
+<blockquote>
+<p><code>select</code> <em>call can provide notification for many descriptors. A convenient model for asynchronous notification, <a href="#%E5%90%8C%E6%AD%A5%E9%9D%9E%E9%98%BB%E5%A1%9E%E6%A8%A1%E5%BC%8F">not advised for</a> high-performance I/O.</em> </p>
+</blockquote>
+<h4 id="异步非阻塞模式"><a class="header" href="#异步非阻塞模式">异步非阻塞模式</a></h4>
+<h5 id="多线程模型"><a class="header" href="#多线程模型">多线程模型</a></h5>
+<h5 id="线程池模型"><a class="header" href="#线程池模型">线程池模型</a></h5>
+<h5 id="事件驱动模型"><a class="header" href="#事件驱动模型">事件驱动模型</a></h5>
+<h4 id="参考文献"><a class="header" href="#参考文献">参考文献</a></h4>
+<ol>
+<li>Boost application performance using asynchronous I/O, Learn when and how to use the POSIX AIO API. https://developer.ibm.com/technologies/linux/articles/l-async/</li>
+<li></li>
+</ol>
+<h3 id="套接字"><a class="header" href="#套接字">套接字</a></h3>
+<p>对于套接字而言，<code>accept()</code>函数会一直阻塞，直到有来自客户端的连接；<code>recv()</code>函数会一直阻塞，直到接收到了客户端的数据（或者没有更多的可接收数据）；<code>send()</code>函数也会一直阻塞，直到发送给客户端的数据已经准备好了。</p>
+<p><strong>多线程（进程）阻塞模型</strong>：程序主线程包含了监听<code>socket</code>，这个监听<code>socket</code>接受来自众多客户端的连接；每当一个客户端连接进来时，将新创建的<code>socket</code>交给另外一个线程，由这个线程与客户端进行通信。因为每个线程只会与一个客户端通信，因此一个线程的阻塞并不会影响其它工作线程。使用多线程的阻塞<code>socket</code>写的代码逻辑上很简单直接，但这种模型<a href="http://www.virtualdub.org/blog/pivot/entry.php?id=62">有一些缺点</a>，比如多线程的数据同步和单CPU多线程的低效。</p>
+<p><strong>异步套接字</strong>：对异步socket的操作会立即返回成功或失败，程序可以通过返回来决定后续操作。因为异步socket是非阻塞的，所以不需要用多线程，所有任务可能都在一个线程中完成。</p>
+<p><strong>异步多线程模型</strong>：主线程负责网络，其它线程处理阻塞任务；</p>
+<h2 id="安全"><a class="header" href="#安全">安全</a></h2>
+<h3 id="数字证书"><a class="header" href="#数字证书">数字证书</a></h3>
+<p>PEM (originally “<strong>P</strong>rivacy <strong>E</strong>nhanced <strong>M</strong>ail”) is the most common format for <a href="https://www.ssl.com/faqs/what-is-an-x-509-certificate/">X.509</a> certificates, CSRs, and cryptographic keys. A PEM file is a text file containing one or more items in Base64 ASCII encoding, each with plain-text headers and footers (e.g. <code>-----BEGIN CERTIFICATE-----</code> and <code>-----END CERTIFICATE-----</code>). A single PEM file could contain an end-entity certificate, a private key, or multiple certificates forming a complete chain of trust. Most certificate files downloaded from SSL.com will be in PEM format.</p>
+<p><a href="https://www.ssl.com/guide/pem-der-crt-and-cer-x-509-encodings-and-conversions/">PEM files</a> are usually seen with the extensions <code>.crt</code>, <code>.pem</code>, <code>.cer</code>, and <code>.key</code> (for private keys), but you may also see them with different extensions. For example, the SSL.com CA bundle file available from the download table in a certificate order has the extension <code>.ca-bundle</code>.</p>
+<h2 id="binary文件"><a class="header" href="#binary文件">Binary文件</a></h2>
+<blockquote>
+<p>All ELF binaries need to have a few things in place in order for them to be interpreted by the Linux kernel properly. As with Windows EXEs, there’s a structure to the header that defines the overall layout of the binary.</p>
+</blockquote>
+<pre><code class="language-shell">readelf -a elf_file
+# -h --file-header       Display the ELF file header
+# -l --program-headers   Display the program headers
+# -S --section-headers   Display the sections' header
+# -s --syms              Display the symbol table
+# --dyn-syms             Display the dynamic symbol table
+</code></pre>
+<div class="table-wrapper"><table><thead><tr><th>工具</th><th>命令</th><th>说明</th></tr></thead><tbody>
+<tr><td><code>hexdump</code></td><td><code>hexdump -C execfile</code></td><td>查看文件的十六进制编码</td></tr>
+<tr><td></td><td><code>objdump -d execfile</code></td><td></td></tr>
+<tr><td><code>readelf</code></td><td><code>readelf -aW file</code></td><td>查看ELF二进制文件结构</td></tr>
+<tr><td></td><td><code>strip execfile</code></td><td></td></tr>
+</tbody></table>
+</div>
+<blockquote>
+<p><code>strip</code> reads a binary file, and removes a lot of the extra debug and compiler info that isn’t needed. </p>
+</blockquote>
+<h3 id="动态链接库"><a class="header" href="#动态链接库">动态链接库</a></h3>
+<p>查看可执行程序的动态链接库依赖信息</p>
+<pre><code class="language-shell">ldd -v /usr/bin/bash                 # -v 递归显示依赖关系(默认列出所有直接和简介依赖项)
+ldd /usr/bin/bash | awk '{print $1}' # 提取输出信息中的依赖项信息
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../Linux/Linux发行版.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../Windows/Windows配置管理.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../Linux/Linux发行版.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../Windows/Windows配置管理.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

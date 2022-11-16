@@ -1,0 +1,574 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>网络访问 - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html" class="active">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="网络访问软件"><a class="header" href="#网络访问软件">网络访问软件</a></h1>
+<h2 id="ssh"><a class="header" href="#ssh">SSH</a></h2>
+<p>SSH可以通过终端或<a href="../%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E8%BD%AF%E4%BB%B6.html#WebSSH">Web终端</a>远程访问Linux服务器，也可以使用X Window访问服务器的图形界面应用。使用SSH访问服务器需要在服务器上安装<code>openssh-server</code>。</p>
+<pre><code class="language-shell">ssh -p SSH_PORT [user@]host
+    -4/6   # ipv4/ipv6 only
+    -b ip_addr
+</code></pre>
+<p>通过中间节点登录远程主机：</p>
+<pre><code class="language-shell">ssh -J [user@]host[:port] user@host  # connect via a jump host
+</code></pre>
+<blockquote>
+<p>中间节点需要与目的节点建立连接，因此如果目的节点使用主机名，则需要在中间节点上配置目的节点的“主机名<code>&lt;-&gt;</code>IP地址”映射。</p>
+</blockquote>
+<h3 id="ssh客户端配置文件"><a class="header" href="#ssh客户端配置文件">SSH客户端配置文件</a></h3>
+<p>配置文件用于保存固定的SSH连接配置，以简化命令行输入参数。</p>
+<pre><code class="language-shell">HOST dev     # 远程地址匹配模式*
+   HostName dev.example.com
+   User gary
+</code></pre>
+<p>当SSH的目标非<code>user@host</code>形式，则客户端逐次匹配<code>HOST</code>指定的模式，并将匹配模式下的SSH连接配置应用于当前连接请求。如果有多个模式匹配成功，==重复出现的配置项被忽略==（先出现的配置项优先级高）。</p>
+<blockquote>
+<p><code>*</code>：可使用通配符<code>*</code>和<code>?</code>，可对模式添加前缀<code>!</code>表示反向匹配；</p>
+</blockquote>
+<h4 id="服务器身份记录"><a class="header" href="#服务器身份记录">服务器身份记录</a></h4>
+<p>当客户端尝试SSH连接远程服务器时，服务器会提供一个身份识别信息（ECDSA key指纹）让客户端确认。当客户端确认后，该服务器地址和对应的身份信息被保存到<code>.ssh/known_hosts</code>中。如果服务器发生变更导致其提供的身份识别信息发生变化，则会产生*<code>Host key verification failed</code>*错误。要解决此问题，只需从<code>.ssh/known_hosts</code>中删除对应服务器的记录（错误信息提示该记录所在的行号）。</p>
+<h4 id="ssh配置问题"><a class="header" href="#ssh配置问题">SSH配置问题</a></h4>
+<ul>
+<li>
+<p><code>root</code>账户无法通过SSH登录，其他账户可以。原因：SSH配置不允许<code>root</code>登录，修改配置（<code>/etc/ssh/sshd_config</code>）：</p>
+<pre><code class="language-shell">#PermitRootLogin prohibit-password
+#PubkeyAuthentication yes
+PermitRootLogin yes  #*
+</code></pre>
+<blockquote>
+<p><code>*</code>：允许<code>root</code>远程登录存在较大安全隐患，使用密码登录风险更大（已知密码可在任意可访问服务器的机器上登录）。将该选项设置为<code>prohibit-password</code>并设置使用公钥验证，则只有预先在远程机器上配置了客户端的公钥，才能在相应客户端上登录<code>root</code>账户。</p>
+</blockquote>
+</li>
+<li>
+<p>由于SELinux的安全策略，Fedora/CentOS<strong>非root账户</strong>仍无法自动登录，需要修改目标主机下的目录<code>.ssh</code>及文件<code>.ssh/authorized_keys</code>的权限。</p>
+<pre><code class="language-sh">chmod 0700 ~/.ssh                  # rwx------
+chmod 0600 ~/.ssh/authorized_keys  # rw-------
+</code></pre>
+</li>
+<li>
+<p>无法使用密码进行远程登录（出现<code>publickey</code>错误）。原因：<code>sshd</code>的配置未开启密码验证（各发行版的默认配置可能不同，此问题出现在<a href="../%E6%9C%8D%E5%8A%A1%E5%99%A8/%E8%99%9A%E6%8B%9F%E5%8C%96.html#Window_Sub-system_of_Linux" title="WSL">WSL</a>上）。</p>
+<pre><code class="language-shell">PasswordAuthentication yes
+ChallengeResponseAuthentication no
+UsePAM yes
+# 利用PAM管理使用者认证有很多好处，可以记录与管理。
+# 所以这里我们建议你使用 UsePAM 且 ChallengeResponseAuthentication 设定为 no 
+</code></pre>
+</li>
+<li>
+<p><em><a href="https://github.com/microsoft/terminal/issues/7467">blocked by Windows Terminal</a></em>；</p>
+</li>
+<li>
+<p><em><a href="https://superuser.com/a/1437891/771784">无法从Linux主机免密登录Windows主机</a></em>：Windows 10 v1809之后的OpenSSH服务器定义了以下配置，用于管理员用户登录。</p>
+<pre><code class="language-shell"># sshd_config
+Match Group administrators
+       AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys
+</code></pre>
+<p>解决方法：</p>
+<ol>
+<li>使用非管理员用户登录；</li>
+<li>注释上述配置项，恢复默认在用户目录下读取用户的公钥（<a href="https://superuser.com/a/1447229">推荐</a>）；</li>
+<li>将管理员用户的公钥添加到<code>%PROGRAMDATA%\ssh\administrators_authorized_keys</code>文件中。</li>
+</ol>
+</li>
+<li>
+<p><code>client_loop: send disconnect: Connection reset</code>，Windows终端长时间未操作自动断开与服务器的连接，<a href="https://superuser.com/questions/1591674/idle-ssh-connection-gets-reset-in-ubuntu-20-04-wsl-windows10">修改终端配置</a>。</p>
+<pre><code class="language-shell">ClientAliveInterval 60
+ClientAliveCountMax 5
+</code></pre>
+<p>如果错误信息为<code>Connection reset by peer</code>，则可尝试修改服务端的对应配置：</p>
+<pre><code class="language-shell">ServerAliveInterval 60
+ServerAliveCountMax 5
+</code></pre>
+</li>
+</ul>
+<h3 id="免密码登录"><a class="header" href="#免密码登录">免密码登录</a></h3>
+<p>在远程主机保存登录用户的公钥。</p>
+<pre><code class="language-sh">ssh-keygen  # 在本地生成SSH的登录密钥
+for node in '[user@]node1' 'node2' ...; do
+ ssh-copy-id -i ~/.ssh/id_rsa.pub $node
+done
+</code></pre>
+<blockquote>
+<h4 id="ssh-keygen选项"><a class="header" href="#ssh-keygen选项">ssh-keygen选项</a></h4>
+<p><code>-t rsa | dsa | ecdsa | ed25519</code>：指定创建的密钥类型；</p>
+<p><code>-b bits</code>：密钥的长度。RSA密钥最小长度为1024，默认为2048；DSA密钥长度为1024；ECDSA密钥长度为256、384或521（椭圆曲线）；Ed25519密钥长度为定值，该选项无效。</p>
+<p><code>-C comment</code>：添加注释。</p>
+<p><code>-f filename</code>：指定密钥文件（默认位于<code>~/.ssh</code>目录下）</p>
+<p><code>-h</code>：创建主机凭证而非用户凭证；</p>
+<p><code>-e</code>：读取一个OpenSSH公钥文件并以指定格式输出（<code>-m RFC4756|PKCS8|PEM</code>，默认格式为RFC4716）。</p>
+<p><code>-F hostname</code>：在<code>known_hosts</code>文件中搜索指定主机并列举。</p>
+<p><code>-l</code>：输出公钥文件的指纹，使用<code>-E md5|sha256</code>指定文件hash算法。</p>
+<p><code> -R hostname</code>：移除<code>known_hosts</code>中所有属于<code>hostname</code>的密钥。</p>
+</blockquote>
+<p>从Windows主机免密登录Linux主机：</p>
+<pre><code class="language-powershell"># Powershell at user home of Windows host
+cat ~/.ssh/id_rsa.pub | ssh user@HOST 'mkdir -p ~/.ssh &amp;&amp; cat &gt;&gt; ~/.ssh/authorized_keys'
+</code></pre>
+<h3 id="ssh远程执行命令"><a class="header" href="#ssh远程执行命令">SSH远程执行命令</a></h3>
+<pre><code class="language-sh">ssh user@remote_server &quot;command1; command2; ./script&quot;
+ssh user@remote_server &quot;command1;&quot; &quot;command2;&quot; &quot;./script&quot;
+</code></pre>
+<blockquote>
+<p>可以提供多条命令，分隔的命令会在远端重组。</p>
+</blockquote>
+<h4 id="提升远端管理员权限"><a class="header" href="#提升远端管理员权限">提升远端管理员权限</a></h4>
+<p>适用于Ubuntu等未开启<code>root</code>账号的系统，从远程执行管理命名需要提升管理员权限。此时需要使用<code>-t</code>选项使终端支持输入远程主机的密码。</p>
+<pre><code class="language-shell">ssh -t adminuser@host &quot;sudo command&quot;
+</code></pre>
+<p>远程执行命令时远程主机默认只提供基本环境变量（<code>non-interactive</code>，不会自动加载<code>~/.bashrc</code>文件）。为了自动加载<code>~/.bashrc</code>中的环境变量（<a href="../Linux/Linux-Shell.html#%E7%94%A8%E6%88%B7%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">不是<code>.bash_profile</code>或<code>.profile</code>文件</a>），在SSH配置文件<code>/etc/ssh/sshd_config</code>中启用：</p>
+<pre><code class="language-sh">sed -Ei 's/#(PermitUserEnvironment\s+)(no)/\1yes/' /etc/ssh/sshd_config
+</code></pre>
+<p>再次启动SSH会话后，新添加环境变量生效。</p>
+<blockquote>
+<p>在Ubuntu（20.04）的<code>.bashrc</code>的开头有判断，如果是非交互式shell的语句（例如通过<code>ssh</code>远程执行的命令），则直接跳过后续初始化，因此需要把需要暴露给远端用户的变量置于该判断条件之前。</p>
+<pre><code class="language-shell">if [[ ! $PATH = *java* ]]; then
+    export PATH=$PATH:$JAVA_HOME/bin
+fi
+</code></pre>
+</blockquote>
+<h4 id="允许root远程登录"><a class="header" href="#允许root远程登录">允许root远程登录</a></h4>
+<pre><code class="language-shell"># vi /etc/ssh/sshd_config
+PermitRootLogin yes
+# service sshd restart
+</code></pre>
+<h3 id="通过ssh进行安全端口转发"><a class="header" href="#通过ssh进行安全端口转发">通过SSH进行安全端口转发</a></h3>
+<p>本地通过SSH客户端与远程服务端口建立安全连接，利用SSH端口转发功能，用户只需访问本地SSH开放的端口即可访问远程服务。（使用前提是服务器开启SSH服务，且网络策略允许通过SSH访问服务器）</p>
+<h4 id="使用ssh建立隧道代理远端服务"><a class="header" href="#使用ssh建立隧道代理远端服务">使用SSH建立隧道代理远端服务</a></h4>
+<p><code>ssh</code>会在本地建立一个监听套接字<code>local_addr:local_port</code>以转发其接收的请求到远端的服务端口<code>r_addr:r_port</code>。</p>
+<pre><code class="language-shell">ssh -N -L [local_addr]:local_port:r_addr:r_port USER@HOST  
+# -N disables executing a remote shell
+</code></pre>
+<h4 id="将远端访问请求转发至本地服务端口"><a class="header" href="#将远端访问请求转发至本地服务端口">将远端访问请求转发至本地服务端口</a></h4>
+<pre><code class="language-shell">ssh -N -R [r_addr:]r_port:local_addr:local_port USER@HOST
+</code></pre>
+<p><code>r_addr</code>：远端地址，默认为环回地址，如果为空或<code>*</code>则表示所有地址。</p>
+<blockquote>
+<p><code>ssh</code>会在远端建立一个监听套接字以转发其接收的请求到本地。</p>
+</blockquote>
+<h4 id="常见问题"><a class="header" href="#常见问题">常见问题</a></h4>
+<ol>
+<li>
+<p>SSH登录等待时间太长。</p>
+<p>原因：可能是SSH服务所在主机配置了DNS服务器地址，但对应的服务器不可用，导致DNS解析等待。</p>
+<p>解决方法：查看<code>/etc/resolve.conf</code>查看是否存在不可用的DNS服务器地址。如果有，修改网络接口的DNS配置并重启网络服务。</p>
+</li>
+</ol>
+<h2 id="wget"><a class="header" href="#wget">wget</a></h2>
+<p>HTTP, HTTPS, FTP和FTPS下载。</p>
+<pre><code class="language-shell">wget [option]... [URL]...
+</code></pre>
+<p>选项：</p>
+<pre><code class="language-shell">-c, --continue # Continue getting a partially-downloaded file. 
+--limit-rate=amount  # Limit download speed
+--user=user, --password=password # user/password if necessary
+--ask-password
+-P prefix, --directory-prefix=prefix  # base directory
+-O --output-document=FILE # save download as FILE
+</code></pre>
+<p>如果所在网络的Web流量是经本地网络的代理转发的，需要<a href="https://www.techrepublic.com/article/how-to-use-wget-behind-a-proxy/">为<code>wget</code>配置本地代理</a>（系统<code>/etc/wgetrc</code>或用户<code>~/.wgetrc</code>）。</p>
+<pre><code class="language-ini">https_proxy = http://USERNAME:PASSWORD@proxy.server.net:port/
+http_proxy = http://proxy.server.net:port/
+ftp_proxy = http://proxy.server.net:port/
+</code></pre>
+<p>或者通过<a href="../Linux/Linux%E9%85%8D%E7%BD%AE%E5%92%8C%E7%AE%A1%E7%90%86.html">环境变量配置代理</a>。</p>
+<h2 id="curl"><a class="header" href="#curl">curl</a></h2>
+<pre><code class="language-shell">curl [optiosn] url
+</code></pre>
+<div class="table-wrapper"><table><thead><tr><th>选项</th><th>说明</th></tr></thead><tbody>
+<tr><td><code>-H HEADER</code></td><td>为请求添加头部信息</td></tr>
+<tr><td><code>-d, --data &lt;data&gt; </code></td><td>上传数据体<br/>JSON数据需要指定：<code>Content-Type: application/json</code></td></tr>
+<tr><td><code>-k,--insecure </code></td><td>允许非安全SSL</td></tr>
+<tr><td><code>-I,--head</code></td><td>仅返回响应头部</td></tr>
+<tr><td><code>-L,--location</code></td><td>跟踪重定向</td></tr>
+<tr><td><code>-o,--output file</code></td><td>输出内容到文件</td></tr>
+<tr><td><code>-x,--proxy addr</code></td><td>使用代理<code>[protocol://]host[:port]</code></td></tr>
+<tr><td><code>-0,--http1.0</code></td><td>HTTP 1.0，`http1.1</td></tr>
+<tr><td><code>-1,--tlsv1</code></td><td>使用TLS，`tlsv1.0</td></tr>
+<tr><td>`--ssl,-2</td><td>3`</td></tr>
+<tr><td><code>-u,--user user:password</code></td><td>提供服务器用户名和密码</td></tr>
+<tr><td><code>-E,--cert CERT</code></td><td><code>CERT=certificate[:password]</code></td></tr>
+<tr><td><code>-#,--progress-bar</code></td><td>传输进度显示为进度条</td></tr>
+<tr><td><code>-Z,--parallel</code></td><td>并发传输</td></tr>
+<tr><td>`-4</td><td>6,--ipv4</td></tr>
+</tbody></table>
+</div>
+<h3 id="信息展示"><a class="header" href="#信息展示">信息展示</a></h3>
+<p><code>-v,--verbose</code>：显示<code>curl</code>的处理过程；</p>
+<p><code>-s,--silent</code>：  ==不输出传输过程的状态信息（仅输出响应数据）==；</p>
+<p><code>-S,--show-error</code>：在安静模式下仍能输出错误信息；</p>
+<p><code>--trace dumpfile</code>：将传输过程中输出的信息和接收的数据（十六进制编码）输出到文件中，使用<code>-</code>代替文件名以输出到标准输出。</p>
+<p><code>--trace-ascii dumpfile</code>：将数据以ASCII码方式存储；</p>
+<p><code>--trace-time</code>：在输出信息/数据前显示时间<code>hours:minutes:seconds.microseconds</code>。</p>
+<p><code>-w,--write-out MSG</code>：在传输完成后输出信息，信息可以是简单字符串，文件内容<code>@filename</code>（标准输入<code>@-</code>），或是从接受数据中提取的<a href="https://everything.curl.dev/usingcurl/verbose/writeout#available-write-out-variables">字段</a><code>%{variable_name}</code>。</p>
+<h3 id="下载"><a class="header" href="#下载">下载</a></h3>
+<p><a href="https://everything.curl.dev/usingcurl/downloads">Downloads - Everything curl</a></p>
+<h3 id="上传"><a class="header" href="#上传">上传</a></h3>
+<p><a href="https://everything.curl.dev/usingcurl/uploads">Uploads - Everything curl</a></p>
+<h3 id="http"><a class="header" href="#http">HTTP</a></h3>
+<p><a href="https://everything.curl.dev/http">HTTP with curl - Everything curl</a></p>
+<h5 id="http方法"><a class="header" href="#http方法">HTTP方法</a></h5>
+<p>默认为<code>GET</code>，添加<code>-d,-F</code>选项则默认为<code>POST</code>，<code>-T</code>则默认为<code>HEAD</code>，<code>-T</code>默认为<code>PUT</code>。</p>
+<p><code>-X,--request COMMAND</code>：<code>COMMAND=GET|POST|...</code>。</p>
+<h2 id="netcat"><a class="header" href="#netcat">netcat</a></h2>
+<p>选项：</p>
+<pre><code class="language-shell">-s 10.1.2.3 # 指定源端IP
+-p 31337    # 指定源端本地端口
+-w 5        # 连接超时（秒）
+-u          # 建立UDP连接
+</code></pre>
+<h3 id="basic-client-server-model"><a class="header" href="#basic-client-server-model">basic client-server model</a></h3>
+<pre><code class="language-shell">nc -l [server_addr] port  # server
+nc server_addr port       # client
+</code></pre>
+<blockquote>
+<p>建立连接后可双向通信（通过标准输入输出进行通信）。</p>
+</blockquote>
+<h4 id="远程shell访问服务"><a class="header" href="#远程shell访问服务">远程Shell访问服务</a></h4>
+<pre><code class="language-shell">rm -f /tmp/f; mkfifo /tmp/f  # remove the FIFO file when finished
+cat /tmp/f | /bin/sh -i 2&gt;&amp;1 | nc -l 127.0.0.1 1234 &gt; /tmp/f
+</code></pre>
+<blockquote>
+<p><code>nc</code>从远程接收的数据被定向到管道；管道中的数据被<code>cat</code>读取作为<code>sh</code>的输入命令；执行命令的输出作为<code>nc</code>的输入由其转发给远端。（==该操作可让远端执行任何命令==）</p>
+</blockquote>
+<h4 id="数据传输"><a class="header" href="#数据传输">数据传输</a></h4>
+<pre><code class="language-shell"> nc -l 1234 &gt; filename.out
+ nc -N host.example.com 1234 &lt; filename.in
+</code></pre>
+<h4 id="访问基于文本协议的服务"><a class="header" href="#访问基于文本协议的服务">访问基于文本协议的服务</a></h4>
+<pre><code class="language-shell">printf &quot;GET / HTTP/1.1\r\n\r\n&quot; | nc www.baidu.com 80
+</code></pre>
+<h4 id="端口扫描"><a class="header" href="#端口扫描">端口扫描</a></h4>
+<pre><code class="language-shell">nc -zv host.example.com 20-30 http
+</code></pre>
+<h4 id="通过代理连接"><a class="header" href="#通过代理连接">通过代理连接</a></h4>
+<pre><code class="language-shell">nc -x10.2.3.4:8080 -Xconnect [-P&lt;username&gt;] host.example.com 42
+</code></pre>
+<h2 id="代理"><a class="header" href="#代理">代理</a></h2>
+<h3 id="v2ray"><a class="header" href="#v2ray">v2ray</a></h3>
+<p><a href="https://github.com/2dust/v2rayN">v2rayN</a></p>
+<h5 id="qv2ray"><a class="header" href="#qv2ray"><a href="https://github.com/Qv2ray/Qv2ray">Qv2ray</a></a></h5>
+<p>在==分组==中编辑订阅信息：</p>
+<img src="网络访问软件.assets/image-20220302162543149-16587251899603.png" alt="image-20220302162543149" style="zoom: 67%;" />
+<p>在分组的订阅设置中输入<strong>订阅地址</strong>并选择<strong>订阅类型</strong>。</p>
+<img src="网络访问软件.assets/image-20220302162622744-16587252296335.png" alt="image-20220302162622744" style="zoom:60%;" />
+<h3 id="clash"><a class="header" href="#clash">clash</a></h3>
+<h5 id="初始化配置"><a class="header" href="#初始化配置">初始化配置</a></h5>
+<pre><code class="language-shell">wget -O ~/.config/clash/config.yaml $SUBSCRIBE_URL
+COUNTRY_DB_URL=https://www.sub-speeder.com/client-download/Country.mmdb
+wget -O ~/.config/clash/Country.mmdb $COUNTRY_DB_URL
+</code></pre>
+<h5 id="配置前端web界面"><a class="header" href="#配置前端web界面">配置前端web界面</a></h5>
+<pre><code class="language-shell">git clone https://github.com/Dreamacro/clash-dashboard.git
+cd clash-dashboard
+git checkout -b gh-pages origin/gh-pages
+</code></pre>
+<p>编辑<code>clash</code>配置文件，设置界面的登录密码和网页资源地址。</p>
+<pre><code class="language-yaml">secret: gang2019
+external-ui: /home/gary/downloads/clash-dashboard
+</code></pre>
+<p>Clash的Web访问地址为：<code>http://127.0.0.1:9090/ui/</code>。</p>
+<h5 id="启动服务"><a class="header" href="#启动服务">启动服务</a></h5>
+<pre><code class="language-shell">clash -d /home/gary/.config/clash/
+</code></pre>
+<p>设置为系统服务：</p>
+<pre><code class="language-ini">[Unit]
+Description=Clash - a rule-based tunnel in Go.
+Documentation=https://github.com/Dreamacro/clash
+After=network.target network-online.target
+[Service]
+Type=simple
+User=clash
+Group=clash
+WorkingDirectory=/home/clash
+ExecStart=/usr/local/clash/clash -d /usr/local/clash/config
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=clash
+ProtectSystem=true
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<p>设置Crontab规则以周期更新配置文件中的订阅信息。</p>
+<pre><code class="language-shell">sudo crontab -e  # 进入编辑模式
+</code></pre>
+<pre><code class="language-shell">m  h  dom   mon dow  command
+30 4  1,15  *   *    bash /home/gary/bin/clash.sh init $URL
+</code></pre>
+<h2 id="软路由"><a class="header" href="#软路由">软路由</a></h2>
+<p>主机具有多个网络接口，其中一个连接WAN（假设为<code>eth0</code>），其他作为LAN接口（<code>eth1</code>, <code>eth2</code>, ...，使用<code>ifconfig</code>查看网络接口信息）<sup class="footnote-reference"><a href="#soft-router">1</a></sup>。</p>
+<blockquote>
+<p><strong>场景1</strong>：与可联网主机<code>host1</code>在同一网络的另一台设备<code>host2</code>无法认证上网。</p>
+</blockquote>
+<ol>
+<li>
+<p>编辑<a href="#%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%8F%A3%E9%85%8D%E7%BD%AE">网络接口配置</a></p>
+<p>根据网络状况分别设置WAN口的IP地址获取方式（手动配置或DHCP），LAN口设置固定IP地址。</p>
+</li>
+<li>
+<p>如果需要为LAN中的机器分配IP地址，则为LAN口配置DHCP服务器</p>
+<pre><code class="language-bash">sudo apt install isc-dhcp-server
+sudo nano /etc/default/isc-dhcp-server 
+# configure interfaces for DHCP server
+# INTERFACESv4=&quot;eth1&quot;	 # support multi-interfaces, &quot;eth0 eth1&quot;.
+sudo nano /etc/dhcp/dhcpd.conf  # configure DHCP server...
+# after editing, start DHCP server
+sudo systemctl restart isc-dhcp-server
+sudo systemctl enable isc-dhcp-server
+# check the status of DHCP server
+sudo systemctl status isc-dhcp-server
+</code></pre>
+<p>编辑DHCP服务器的配置文件（<code>dhcpd.conf</code>） </p>
+<pre><code class="language-shell">option domain-name &quot;whatever.you.want&quot;;
+option domain-name-servers 223.5.5.5, 223.6.6.6;
+default-lease-time 600;
+max-lease-time 7200;
+ddns-update-style none;
+authoritative;
+log-facility local7;
+subnet 192.168.1.0 netmask 255.255.255.0 {
+     range 192.168.1.101 192.168.1.200;
+     option subnet-mask 255.255.255.0;
+     option routers 192.168.1.1;
+     option broadcast-address 192.168.1.255;
+}
+</code></pre>
+<p>如果配置正确，则最后查看DHCP服务器状态，可以看到一行显示<code>active</code>。</p>
+</li>
+<li>
+<p>==启用防火墙==并配置转发规则。</p>
+<pre><code class="language-shell">sudo ufw enable		
+sudo vi /etc/rc.local
+sudo chmod 755 /etc/rc.local  # make it executable, executed at boot time
+</code></pre>
+<p>在<code>rc.local</code>中配置防火墙的转发规则。</p>
+<pre><code class="language-shell">#!/bin/bash
+LAN=eth1
+WAN=eth0
+# Default policy to drop all incoming packets.
+iptables -P INPUT DROP
+iptables -P FORWARD DROP
+# Accept incoming packets from localhost and the LAN interface.
+iptables -A INPUT -i lo -j ACCEPT
+iptables -A INPUT -i $LAN -j ACCEPT
+# Accept incoming packets from the WAN if the router initiated the connection.
+iptables -A INPUT -i $WAN -m conntrack \
+  --ctstate ESTABLISHED,RELATED -j ACCEPT
+# Forward LAN packets to the WAN.
+iptables -A FORWARD -i $LAN -o $WAN -j ACCEPT
+# Forward WAN packets to the LAN if the LAN initiated the connection.
+iptables -A FORWARD -i $WAN -o $LAN -m conntrack \
+  --ctstate ESTABLISHED,RELATED -j ACCEPT
+# NAT traffic going out the WAN interface.
+iptables -t nat -A POSTROUTING -o $WAN -j MASQUERADE
+exit 0  # rc.local needs to exit with 0
+</code></pre>
+</li>
+</ol>
+<h3 id="虚拟机解决方案"><a class="header" href="#虚拟机解决方案">虚拟机解决方案</a></h3>
+<p>如果物理主机仅有单个网络接口，可使用虚拟机进行软件路由，可为虚拟机配置两个接口，一个用于连接宿主机NAT网络访问WAN，另一个用于桥接物理网络（转发其他机器的流量）。</p>
+<blockquote>
+<ul>
+<li>为虚拟机<code>vm-router</code>设置两张网卡：<code>eth0</code>使用NAT连接至主机<code>host1</code>；<code>eth1</code>使用网桥连接至主机<code>host1</code>（与物理网络其他主机连通）；</li>
+<li>按上述方法配置软件路由；</li>
+<li>将<code>host2</code>的默认网关设置为<code>eth1</code>的IP地址；</li>
+<li>将<code>eth1</code>的默认网关设置为自己的IP地址（如果设置为物理网络的网关会导致<code>eth1</code>向<code>host2</code>发送网关重定向）。</li>
+</ul>
+</blockquote>
+<p>虚拟机的<a href="../Linux/Linux%E9%85%8D%E7%BD%AE%E5%92%8C%E7%AE%A1%E7%90%86.html#%E8%B7%AF%E7%94%B1%E8%A1%A8">路由表</a>内容如下：</p>
+<pre><code class="language-shell"># vm router的路由表
+Destination    Gateway        Genmask       ... Metric Iface
+0.0.0.0        192.168.178.2  0.0.0.0             0    eth0  # 默认路由网关
+172.28.76.0    0.0.0.0        255.255.255.0       0    eth1  # PHY net
+192.168.178.0  0.0.0.0        255.255.255.0       0    eth0  # NAT net
+</code></pre>
+<h3 id="路由失效解决方案"><a class="header" href="#路由失效解决方案">路由失效解决方案</a></h3>
+<ol>
+<li>主机无法访问通过软路由访问其他虚拟主机：可能是主机网络问题，重启虚拟机和主机。</li>
+</ol>
+<h2 id="参考资料"><a class="header" href="#参考资料">参考资料</a></h2>
+<div class="footnote-definition" id="soft-router"><sup class="footnote-definition-label">1</sup>
+<p><a href="https://www.ascinc.com/blog/linux/how-to-build-a-simple-router-with-ubuntu-server-18-04-1-lts-bionic-beaver/">How To: Build a Simple Router with Ubuntu Server 18.04.1 LTS (Bionic Beaver) - Ascinc.com</a>
+<sup class="footnote-reference"><a href="#curl">2</a></sup>: <a href="https://everything.curl.dev/usingcurl">Using curl - Everything curl</a></p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../应用软件/服务器管理软件.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../应用软件/网络服务软件.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../应用软件/服务器管理软件.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../应用软件/网络服务软件.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

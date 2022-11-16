@@ -1,0 +1,501 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>.NET 开发 - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html" class="active">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="net开发"><a class="header" href="#net开发">.NET开发</a></h1>
+<blockquote>
+<p><strong>C# 和 .NET 是截然不同的。</strong> C# 是一种编程语言语法。 作为语法的一部分，你可以引用和调用 .NET 代码库或程序集中定义的方法。 此外，还可以使用随 .NET SDK 一起安装的 C# 编译器从 C# 代码创建程序集。</p>
+</blockquote>
+<p><strong>应用程序框架</strong>合并了几个相关的库，以及初学者项目、文件模板、代码生成器和其他工具。 你可以使用这些资源为特定目的生成整个应用程序。 这些应用程序框架称为“应用模型”。 例如，常用的 .NET 应用程序框架可用于 Web 开发、桌面和移动开发，以及游戏开发等应用模型。</p>
+<p><img src="dotnet%E5%BC%80%E5%8F%91.assets/dotnet5_platform.png" alt="img" /></p>
+<h2 id="开发环境"><a class="header" href="#开发环境">开发环境</a></h2>
+<p>可以选择 Visual Studio 2019 或 Visual Studio Code和.NET 软件开发工具包 (SDK)。</p>
+<h3 id="net-sdk"><a class="header" href="#net-sdk">.NET SDK</a></h3>
+<h5 id="net-cli"><a class="header" href="#net-cli">.NET CLI</a></h5>
+<p>.NET CLI 概述：https://docs.microsoft.com/zh-cn/dotnet/core/tools/。</p>
+<pre><code class="language-shell">dotnet --info    # .NET install information
+</code></pre>
+<p>create app</p>
+<pre><code class="language-shell">dotnet new console -o myApp  # creat project with templates
+</code></pre>
+<p><code>-o</code>：创建指定目录以存储项目文件；</p>
+<p>可创建的项目类型可通过以下命令查看。</p>
+<pre><code class="language-powershell">dotnet new -l [&lt;name&gt;] 
+#    Templates           Short Name      Language         Tags
+# --------------------  ------------   ------------   --------------
+# Console Application   console        [C#], F#, VB   Common/Console
+# Class library         classlib       [C#], F#, VB   Common/Library
+# ......
+</code></pre>
+<p>运行应用：</p>
+<pre><code class="language-powershell">cd myApp
+dotnet run
+</code></pre>
+<h5 id="nuget-包管理器"><a class="header" href="#nuget-包管理器">NuGet 包管理器</a></h5>
+<p>NuGet 是适用于 .NET 的包管理器。 它使开发人员能够创建、共享和使用有用的 .NET 库。 NuGet 客户端工具可生成这些库并将其作为“包”。</p>
+<p>访问https://www.nuget.org/packages/查看包的详情。</p>
+<p>NuGet 文档：https://docs.microsoft.com/zh-cn/nuget/。</p>
+<blockquote>
+<ul>
+<li>若面向.NET Core或.NET Standard，请使用<code>dotnet</code> CLI（是SDK项目格式所必需的）。</li>
+<li>要面向.NET Framework（仅限非SDK样式项目），请使用<code>nuget.exe</code>CLI。</li>
+</ul>
+<p><em><code>NU1202: Package is not compatible with net50-windows</code></em>：<a href="https://stackoverflow.com/questions/65722395/nu1202-package-is-not-compatible-with-net50-windows">dotnet工具版本太低</a>，升级<code>dotnet</code> SDK。</p>
+</blockquote>
+<h5 id="配置nuget仓库"><a class="header" href="#配置nuget仓库">配置Nuget仓库</a></h5>
+<p><em>Nuget官方仓库未默认配置</em>（导致无法添加包），通过以下命令配置仓库源。</p>
+<pre><code class="language-powershell">dotnet nuget add source https://api.nuget.org/v3/index.json -n nuget.org
+dotnet nuget list source # 查看注册的软件源
+</code></pre>
+<p>其他软件源相关命令：<code>enable</code>，<code>disable</code>，<code>remove</code>，<code>update</code></p>
+<h5 id="向项目添加包"><a class="header" href="#向项目添加包">向项目添加包</a></h5>
+<p>Visual Studio 和 Visual Studio for Mac 中有一个内置的包管理器命令行和图形用户界面。 可手动向项目文件添加包引用。 也可通过命令行接口 (CLI) 工具（如 Paket 或 .NET Core CLI）进行安装。</p>
+<p>运行 <code>dotnet add package &lt;package name&gt;</code> 命令时将抓取和下载所有依赖项。安装的包在项目文件（<code>.csproj </code>）中列出。</p>
+<pre><code class="language-xml">&lt;ItemGroup&gt;
+  &lt;PackageReference Include=&quot;Humanizer&quot; Version=&quot;2.8.26&quot; /&gt;
+&lt;/ItemGroup&gt;
+</code></pre>
+<p>如果需要查看项目中的包，可以输入 </p>
+<pre><code class="language-powershell">dotnet list package [--include-transitive]
+</code></pre>
+<h5 id="net命令行工具"><a class="header" href="#net命令行工具">.NET命令行工具</a></h5>
+<p>使用 <code>dotnet tool install &lt;package name&gt;</code> 命令安装工具。</p>
+<blockquote>
+<p>A .NET tool is a special NuGet package that contains a console application.</p>
+<ul>
+<li>global tool: The tool binaries are installed in a default directory that is added to the PATH environment variable.</li>
+<li>global tool in a custom location</li>
+<li>local tool: The .NET CLI uses manifest files to keep track of which tools are installed as local to a directory.</li>
+</ul>
+<p>https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools</p>
+</blockquote>
+<p>使用 <code>dotnet new -i &lt;package name&gt;</code> 命令安装模板。</p>
+<h5 id="版本控制"><a class="header" href="#版本控制">版本控制</a></h5>
+<p>语义化版本控制的工作原理是确保包具有版本号，并且该版本号划分为以下部分：</p>
+<ul>
+<li><strong>主版本</strong>。 最左边的数字。 例如 1.0.0 中的 1。 此数字发生更改意味着代码可能出现中断性变更。 可能需要重写部分代码。</li>
+<li><strong>次要版本</strong>。 中间的数字。 例如 1.2.0 中的 2。 此数字发生更改意味着添加了新功能。 你的代码仍可正常工作。 接受更新通常是安全的。</li>
+<li><strong>修补程序版本</strong>。 最右边的数字。 例如 1.2.3 中的 3。 此数字发生更改意味着应用了一个更改，修复了代码中应正常工作的内容。 接受更新应是安全的。</li>
+</ul>
+<h6 id="查找和更新过时的包"><a class="header" href="#查找和更新过时的包">查找和更新过时的包</a></h6>
+<pre><code class="language-powershell">dotnet list package --outdated [--include-prerelease]
+</code></pre>
+<p>运行 <code>dotnet add package &lt;package name&gt; [--prerelease]</code>，它将尝试更新到最新版本，可选择传入 <code>--version=&lt;version number/range&gt;</code>。</p>
+<h3 id="生成项目"><a class="header" href="#生成项目">生成项目</a></h3>
+<pre><code class="language-powershell">dotnet build
+</code></pre>
+<h3 id="调试运行"><a class="header" href="#调试运行">调试运行</a></h3>
+<pre><code class="language-shell">dotnet App.dll &gt;App.log &amp;
+</code></pre>
+<blockquote>
+<p>可以直接启动动态链接库文件</p>
+</blockquote>
+<p>调试器所具有的两个最重要的功能是：</p>
+<ul>
+<li>控制程序执行。 你可以暂停程序并逐步运行它，以便查看执行了哪些代码及其对程序状态的影响。</li>
+<li>观察程序的状态。 例如，你可以在代码执行期间随时查看变量的值和函数参数。</li>
+</ul>
+<h4 id="日志记录"><a class="header" href="#日志记录">日志记录</a></h4>
+<ul>
+<li>
+<p>传统的调试器可能难以调试长期存在的问题。 通过日志，可以对较长的时间跨度进行详细的事后剖析。 与此相反，调试器限制为只能进行实时分析。</p>
+</li>
+<li>
+<p>多线程应用程序和分布式应用程序通常难以调试。 附加调试器往往会修改行为。 可以根据需要分析详细日志，以了解复杂的系统。</p>
+</li>
+<li>
+<p>分布式应用程序中的问题可能是由许多组件之间的复杂交互导致的。 将调试器连接到系统的每个部分可能并不合理。</p>
+</li>
+<li>
+<p>许多服务不应停止。 附加调试器往往会导致超时失败。</p>
+</li>
+<li>
+<p>问题并非总是可预见的。 日志记录和跟踪旨在降低开销，以便在出现问题的情况下可以始终记录程序。</p>
+</li>
+<li>
+<p><code>System.Console</code></p>
+<ul>
+<li>始终启用，并始终写入控制台。</li>
+<li>适用于客户可能需要在发行版中看到的信息。</li>
+<li>由于这是最简单的方法，所以常常用于临时调试。 此调试代码通常不会签入到源代码管理中。</li>
+<li>在非控制台应用程序中使用 <code>System.Console.WriteLine</code> 时，应慎重考虑。</li>
+</ul>
+</li>
+<li>
+<p><code>System.Diagnostics.Trace</code></p>
+<ul>
+<li>仅在定义 <code>TRACE</code> 时启用。</li>
+<li>写入附加侦听器，默认情况下为 DefaultTraceListener。</li>
+<li>创建将在大多数生成中启用的日志时，请使用此 API。</li>
+</ul>
+</li>
+<li>
+<p><code>System.Diagnostics.Debug</code></p>
+<ul>
+<li>仅在定义 <code>DEBUG</code> 时才启用（处于调试模式时）。</li>
+<li>写入附加调试器。</li>
+<li>创建仅在调试生成中启用的日志时，请使用此 API。</li>
+</ul>
+</li>
+</ul>
+<h5 id="定义-trace-和-debug-常数"><a class="header" href="#定义-trace-和-debug-常数">定义 TRACE 和 DEBUG 常数</a></h5>
+<p>在项目文件中添加<code>PropertyGroup</code>：</p>
+<pre><code class="language-xml">&lt;PropertyGroup Condition=&quot;'$(Configuration)|$(Platform)'=='Debug|AnyCPU'&quot;&gt;
+    &lt;DefineConstants&gt;DEBUG;TRACE&lt;/DefineConstants&gt;
+&lt;/PropertyGroup&gt;
+&lt;PropertyGroup Condition=&quot;'$(Configuration)|$(Platform)'=='Release|AnyCPU'&quot;&gt;
+    &lt;DefineConstants&gt;TRACE&lt;/DefineConstants&gt;
+&lt;/PropertyGroup&gt;
+</code></pre>
+<pre><code class="language-c#">Debug.Assert(n2 == 5, &quot;The return value is not 5 and it should be.&quot;);
+</code></pre>
+<h2 id="aspnet-core"><a class="header" href="#aspnet-core">ASP.NET Core</a></h2>
+<p>RESTful API: adding, viewing, modifying, and removing;</p>
+<p>HTTP action verbs : <strong>C</strong>reate, <strong>R</strong>ead, <strong>U</strong>pdate, <strong>D</strong>elete (CRUD).</p>
+<p>Entity Framework (EF) Core</p>
+<h3 id="概览"><a class="header" href="#概览">概览</a></h3>
+<p><img src="dotnet%E5%BC%80%E5%8F%91.assets/architecture.png" alt="app overview" /></p>
+<h4 id="api-specification"><a class="header" href="#api-specification">API Specification</a></h4>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">API</th><th style="text-align: left">Description</th><th style="text-align: left">Request body</th><th style="text-align: left">Response body</th></tr></thead><tbody>
+<tr><td style="text-align: left"><code>GET /api/Items</code></td><td style="text-align: left">Get all items</td><td style="text-align: left">None</td><td style="text-align: left">Array of items</td></tr>
+<tr><td style="text-align: left"><code>GET /api/Items/{id}</code></td><td style="text-align: left">Get item by ID</td><td style="text-align: left">None</td><td style="text-align: left">item</td></tr>
+<tr><td style="text-align: left"><code>POST /api/Items</code></td><td style="text-align: left">Add a new item</td><td style="text-align: left">To-do item</td><td style="text-align: left">item</td></tr>
+<tr><td style="text-align: left"><code>PUT /api/Items/{id}</code></td><td style="text-align: left">Update existing item</td><td style="text-align: left">To-do item</td><td style="text-align: left">None</td></tr>
+<tr><td style="text-align: left"><code>DELETE /api/Items/{id}</code></td><td style="text-align: left">Delete an item</td><td style="text-align: left">None</td><td style="text-align: left">None</td></tr>
+</tbody></table>
+</div>
+<h4 id="创建项目"><a class="header" href="#创建项目">创建项目</a></h4>
+<pre><code class="language-powershell">dotnet new webapi -o dotnet-webapi
+cd dotnet-webapi
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet add package Microsoft.EntityFrameworkCore.InMemory
+dotnet dev-certs https --trust  # Trust the HTTPS deve certificate
+code .
+</code></pre>
+<p>https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-5.0&amp;tabs=visual-studio-code</p>
+<h3 id="编程模型"><a class="header" href="#编程模型">编程模型</a></h3>
+<h4 id="mvc"><a class="header" href="#mvc">MVC</a></h4>
+<h5 id="model"><a class="header" href="#model">Model</a></h5>
+<p>Model classes can go anywhere in the project, but the <em>Models</em> folder is used by convention.</p>
+<pre><code class="language-c#">
+</code></pre>
+<p>The <em>database context</em> is the main class that coordinates Entity Framework functionality for a data model.</p>
+<pre><code class="language-c#">public class ContosoPetsContext : DbContext { /*...*/ }
+</code></pre>
+<h5 id="controllers-http-endpoints"><a class="header" href="#controllers-http-endpoints">Controllers (HTTP endpoints)</a></h5>
+<p>自动生成代码：</p>
+<ul>
+<li>
+<p>Marks the class with the ApiController attribute. This attribute indicates that the controller responds to web API requests.</p>
+</li>
+<li>
+<p>Uses DI to inject the database context (<code>TodoContext</code>) into the controller. The database context is used in each of the <a href="https://wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a> methods in the controller.</p>
+</li>
+</ul>
+<pre><code class="language-powershell">dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet tool install -g dotnet-aspnet-codegenerator
+dotnet aspnet-codegenerator controller -name TodoItemsController -async -api -m TodoItem -dc TodoContext -outDir Controllers
+</code></pre>
+<blockquote>
+<p><code>-m TodoItem -dc TodoContext</code>：指定了创建的Controller对象关联的数据模型和数据库上下文对象。</p>
+</blockquote>
+<p>Routing and URL Path</p>
+<pre><code class="language-c#">[Route(&quot;api/[controller]&quot;)]
+[ApiController]
+public class TodoItemsController : ControllerBase{}
+</code></pre>
+<p><a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/routing?view=aspnetcore-5.0#attribute-routing-with-httpverb-attributes">Routing to controller actions in ASP.NET Core</a>.</p>
+<pre><code class="language-c#">// GET: api/TodoItems/5
+[HttpGet(&quot;{id}&quot;)]
+public async Task&lt;ActionResult&lt;TodoItem&gt;&gt; GetTodoItem(long id){}
+</code></pre>
+<blockquote>
+<p>When <code>GetTodoItem</code> is invoked, the value of <code>&quot;{id}&quot;</code> in the URL is provided to the method in its <code>id</code> parameter.</p>
+</blockquote>
+<p>返回值：The return type of the <code>GetTodoItems</code> and <code>GetTodoItem</code> methods is <a href="https://docs.microsoft.com/en-us/aspnet/core/web-api/action-return-types?view=aspnetcore-5.0#actionresultt-type">ActionResult type</a>. ASP.NET Core automatically serializes the object to <a href="https://www.json.org/">JSON</a> and writes the JSON into the body of the response message. </p>
+<h6 id="post-api处理"><a class="header" href="#post-api处理">POST API处理</a></h6>
+<p>从HTTP请求中读取数据。</p>
+<h5 id="配置服务"><a class="header" href="#配置服务">配置服务</a></h5>
+<h6 id="注册服务"><a class="header" href="#注册服务">注册服务</a></h6>
+<p>Registers the custom <code>DbContext</code> class</p>
+<pre><code class="language-c#">// Startup.cs
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddDbContext&lt;ContosoPetsContext&gt;(options =&gt;
+        options.UseInMemoryDatabase(&quot;ContosoPets&quot;));
+    services.AddControllers();
+    // code omitted for brevity
+}
+</code></pre>
+<h3 id="测试"><a class="header" href="#测试">测试</a></h3>
+<h4 id="postman"><a class="header" href="#postman">Postman</a></h4>
+<p>https://www.postman.com/downloads/</p>
+<h2 id="entity-framework-core"><a class="header" href="#entity-framework-core">Entity Framework Core</a></h2>
+<p>The <code>Microsoft.EntityFrameworkCore.InMemory</code> package is required to use an EF Core in-memory database. </p>
+<h2 id="第三方库"><a class="header" href="#第三方库">第三方库</a></h2>
+<h3 id="terminalgui"><a class="header" href="#terminalgui">Terminal.GUI</a></h3>
+<pre><code class="language-powershell">dotnet add package Terminal.GUI
+</code></pre>
+<h4 id="模块"><a class="header" href="#模块">模块</a></h4>
+<h5 id="应用实例"><a class="header" href="#应用实例">应用实例</a></h5>
+<pre><code class="language-c#">Application.Init();
+Application.Shutdown ();
+</code></pre>
+<h4 id="视图"><a class="header" href="#视图">视图</a></h4>
+<p>应用程序中添加的UI元素组成<strong>视图</strong>（<em>Views</em>），视图负责处理显示、接收输入事件和参与聚焦机制。</p>
+<p>视图可包含任意数量的子视图（<em>Subviews</em>），<code>View.SuperView</code>是当前视图的容器。</p>
+<blockquote>
+<p><a href="https://gui-cs.github.io/Terminal.Gui/articles/views.html">Views provided by the Terminal.Gui library</a></p>
+</blockquote>
+<h5 id="toplevels"><a class="header" href="#toplevels">TopLevels</a></h5>
+<p><code>Toplevel</code>视图占用整个屏幕，不含可见的UI元素，通常需要在程序中向其中添加子视图或组件（如文本标签<code>Label</code>、菜单<code>MenuBar</code>、工作窗口<code>Window</code>等）。</p>
+<pre><code class="language-c#">TopLevel top = Application.Top; // 默认的视图
+top.add(label);
+Application.Run();  // 渲染顶层界面
+</code></pre>
+<blockquote>
+<p>自定义其他视图：</p>
+<pre><code class="language-c#">var top = new Toplevel(){ 
+    X=0, Y=0, Width=Dim.Fill(), Height = Dim.Fill() 
+};
+Application.Run(top); 
+</code></pre>
+</blockquote>
+<h5 id="windows"><a class="header" href="#windows">Windows</a></h5>
+<p><code>Window</code>（窗口）视图扩展<code>Toplevel</code>，将视图划为标题栏和画框（<em>frame</em>），屏幕上可同时存在多个窗口。</p>
+<h5 id="dialogs"><a class="header" href="#dialogs">Dialogs</a></h5>
+<p><code>Dialog</code>是位于屏幕中央的一类窗口，以模态方式运行。通过<code>AddButtion</code>可在底部增加按钮。</p>
+<pre><code class="language-c#">bool ok_pressed = false;
+var ok = new Button(&quot;Ok&quot;){
+    Clicked = () =&gt; { Application.RequestStop (); ok_pressed = true; }
+};
+var cancel = new Button(&quot;Cancel&quot;){
+    Clicked = () =&gt; Application.RequestStop(); 
+};
+var dialog = new Dialog(&quot;Quit&quot;, 60, 7, ok, cancel);
+Application.Run(dialog);
+if (ok_pressed){
+    Console.WriteLine (&quot;xxx&quot;);
+}
+</code></pre>
+<h4 id="布局"><a class="header" href="#布局">布局</a></h4>
+<p>UI元素的布局通过指定左上角位置和组件的尺寸确定。布局方案<code>View.LayoutStyle</code>包括绝对布局和动态布局。</p>
+<pre><code class="language-c#">var label2 = new Label (new Rect (1, 2, 20, 1), &quot;World&quot;); // 使用Rect定义绝对尺寸
+var label = new Label (&quot;Hello&quot;) {
+    X = 1,               //绝对值
+    Y = Pos.Center(),    //动态计算
+    Width = Dim.Fill(),  //动态计算
+    Height = 1           //绝对值
+};
+</code></pre>
+<h5 id="绝对布局"><a class="header" href="#绝对布局">绝对布局</a></h5>
+<p><code>View.Frame</code></p>
+<h5 id="动态布局"><a class="header" href="#动态布局">动态布局</a></h5>
+<p>位置计算方法：</p>
+<pre><code class="language-c#">view.X = Pos.Center () - 10;  
+view.Y = Pos.Percent (20);   //按比例布局
+//相对边界布局
+view.X = AnchorEnd(10);
+//相对其他组件布局
+view.X = Pos.X(super_view);
+view.Y = Pos.Bottom(another_view);
+</code></pre>
+<p>尺寸计算方法：</p>
+<pre><code class="language-c#">view.Width = Dim.Fill () - 10;
+view.Height = Dim.Percent(20) - 1;
+anotherView.Height = Dim.Height(view)+1;
+</code></pre>
+<h4 id="色彩样式"><a class="header" href="#色彩样式">色彩样式</a></h4>
+<h4 id="ui组件"><a class="header" href="#ui组件">UI组件</a></h4>
+<h5 id="工具栏"><a class="header" href="#工具栏">工具栏</a></h5>
+<h5 id="窗口"><a class="header" href="#窗口">窗口</a></h5>
+<h4 id="事件处理"><a class="header" href="#事件处理">事件处理</a></h4>
+<p><a href="https://gui-cs.github.io/Terminal.Gui/articles/mainloop.html">Event Processing and the Application Main Loop (gui-cs.github.io)</a></p>
+<h2 id="参考文献"><a class="header" href="#参考文献">参考文献</a></h2>
+<div class="footnote-definition" id="netstd"><sup class="footnote-definition-label">1</sup>
+<p><a href="https://devblogs.microsoft.com/dotnet/introducing-net-standard/">Introducing .NET Standard - .NET Blog (microsoft.com)</a>
+<sup class="footnote-reference"><a href="#netstd2">2</a></sup>: <a href="https://devblogs.microsoft.com/dotnet/the-future-of-net-standard/">The future of .NET Standard - .NET Blog (microsoft.com)</a></p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../CSharp.NET/CSharp数值计算.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../CC++/Modern C++.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../CSharp.NET/CSharp数值计算.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../CC++/Modern C++.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

@@ -1,0 +1,109 @@
+数据库字符集设置
+	MySQL的字符集和校对规则有四个级别的默认设置：服务器级、数据库级、表级和字段级。他们分别在不同地方设置，作用也不同。
+1.查看MySQL支持的字符集和校对规则
+1.1.查看所有可用字符集：
+	show character set;
++----------+-----------------------------+---------------------+--------+
+| Charset  | Description                 | Default collation   | Maxlen |
++----------+-----------------------------+---------------------+--------+
+| big5     | Big5 Traditional Chinese    | big5_chinese_ci     |      2 |
+| latin1   | cp1252 West European        | latin1_swedish_ci   |      1 |
+| ascii    | US ASCII                    | ascii_general_ci    |      1 |
+| gb2312   | GB2312 Simplified Chinese   | gb2312_chinese_ci   |      2 |
+| gbk      | GBK Simplified Chinese      | gbk_chinese_ci      |      2 |
+| utf8     | UTF-8 Unicode               | utf8_general_ci     |      3 |
+| ucs2     | UCS-2 Unicode               | ucs2_general_ci     |      2 |
+| utf16    | UTF-16 Unicode              | utf16_general_ci    |      4 |
+| utf32    | UTF-32 Unicode              | utf32_general_ci    |      4 |
+| binary   | Binary pseudo charset       | binary              |      1 |
++----------+-----------------------------+---------------------+--------+
+	上表中只列举了部分支持字符集，以及默认的校对规则。
+1.2.查看字符集支持的校对规则
+	每种字符集都支持多种校对规则，使用以下命令查看：
+	show collation like 'utf8%';
++-------------------------+---------+-----+---------+----------+---------+
+| Collation               | Charset | Id  | Default | Compiled | Sortlen |
++-------------------------+---------+-----+---------+----------+---------+
+| utf8_general_ci         | utf8    |  33 | Yes     | Yes      |       1 |
+| utf8_bin                | utf8    |  83 |         | Yes      |       1 |
+| utf8_unicode_ci         | utf8    | 192 |         | Yes      |       8 
++-------------------------+---------+-----+---------+----------+---------+
+	上表列出了常用的校对规则。
+
+2.服务器字符集和校对规则
+	服务器字符集和校对，在MySQL服务器启动的时候确定。
+2.1.在配置文件中指定
+	[mysqld]
+	character-set-server = latin1
+	collation-server = latin1_swedish_ci
+2.2.在mysql-workbench中配置
+	以管理员权限启动mysql-workbench，打开Server Administration，选择<CONFIGURATION/Options File/General>。勾选character-set-server和collation-server，然后分别填入字符集和校对规则。
+2.3.查看服务器当前字符集和校对规则
+	show variables like 'character_set_server';
+	show variables like 'collation_server';
+
+3.数据库字符集和校对规则
+	设置数据库字符集的规则：
+	*如果指定了字符集和校对规则，则使用指定的字符集和校对规则；
+	*如果指定了字符集没有指定校对规则，则使用指定字符集默认的校对规则；
+	*如果没有指定字符集和校对规则，则使用服务器字符集和校对规则；
+  	推荐在创建数据库的时候明确指定字符集和校对规则，以免受默认值影响。
+3.1.在创建数据时指定
+	CREATE DATABASE database_name
+	CHARACTER SET = charset_name 
+   	COLLATE = collation_name
+3.2.创建完后修改
+	ALTER DATABASE db_name
+	CHARACTER SET = charset_name
+   	COLLATE = collation_name
+3.3.在mysql-workbench中修改
+	启动mysql-workbench，打开SQL Development，在SCHEMA列表中选择数据库名称点击右键，选择“Alter Schema……”，修改字符集和校对规则。
+
+3.4.查看数据库当前的字符集和校对规则
+	show variables like 'character_set_database';
+	show variables like 'collation_database';
+
+4.表字符集和校对规则
+	设置表字符集的规则：
+	*如果指定了字符集和校对规则，则使用指定的字符集和校对规则；
+	*如果指定了字符集没有指定校对规则，则使用指定字符集默认的校对规则；
+	*如果没有指定字符集和校对规则，则使用数据库字符集和校对规则；
+	推荐在创建数据库的时候明确指定字符集和校对规则，以免受默认值影响。
+4.1.创建表时指定
+	创建表时在table_options中指定CHARACTER SET、COLLATE。
+4.2.修改表时指定
+	与创建表时一样，设置table_options。
+4.3.在mysql-workbench中修改
+	启动mysql-workbench，打开SQL Development，在SCHEMA列表中选择一个数据库的一张表，点击右键选择“Alter table……”，修改表的字符集和校对规则。
+
+5.字段的字符集和校对规则
+	设置字段字符集的规则：
+	*如果指定了字符集和校对规则，则使用指定的字符集和校对规则；
+	*如果指定了字符集没有指定校对规则，则使用指定字符集默认的校对规则；
+	*如果没有指定字符集和校对规则，则使用表字符集和校对规则；
+	一般来说单独修改列的字符集的情况比较少，通过mysql-workbench可以比较方便修改，操作方法与4.3.修改表的字符集和校对规则的方法一样。
+
+6.连接字符集和校对规则
+	客户端与服务器之间交互的字符集和校对规则。
+
+7.字符集的修改步骤
+	对于已经保存有数据的数据库，使用上述修改方法，虽然能够修改字符集，但是存储的数据不会自动更新。
+7.1.命令方式
+7.1.1.导出数据表的结构
+	mysqldump -u root -p --default-character-set=utf8 -d database_name table_name > create_table.sql
+	其中-d选项表示只导出表的结构。
+7.1.2.手工修改导出文件中的字符集
+7.1.3.导出表中的所有记录
+	mysqldump -u root -p --quick --no-create-info --extended-insert --default-character-set=utf8 database_name table_name > ./dumps/data.sql
+7.1.4.使用新的字符集创建新的数据库
+	CREATE TABLE database_name [DEFAULT] CHARSET charset;
+7.1.5.使用导出的create_table.sql创建新表
+	mysql -u root -p database_name < create_table.sql
+7.1.6.使用导出的data.sql向表中导入数据
+	mysql -u root -p dtabase_name < data.sql
+7.2.图形工具
+7.2.1.导出数据表
+	启动mysql-workbench，打开Server Administration，选择<DATA EXPORT/RESTORE>，选择<Data Export>，在<Object Selection>中选择要导出的数据库和数据表。然后导出数据库中的数据表,包含表结构和数据。
+7.2.2.手工修改导出文件中的字符集
+7.2.3.导入数据表
+	启动mysql-workbench，打开Server Administration，选择<DATA EXPORT/RESTORE>，选择<Data Import/Restore>，然后选择要导入的数据库和数据表。

@@ -1,0 +1,652 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>协作办公 - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html" class="active">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="协作办公软件"><a class="header" href="#协作办公软件">协作办公软件</a></h1>
+<h2 id="rocketchat"><a class="header" href="#rocketchat">Rocket.Chat</a></h2>
+<h3 id="安装"><a class="header" href="#安装">安装</a></h3>
+<p>可手动、使用容器或<a href="https://docs.rocket.chat/installing-and-updating/snaps">使用snap安装</a>。推荐使用snap安装，可避免多数配置。</p>
+<pre><code class="language-shell">sudo snap install rocketchat-server  # 安装后自动启动运行
+</code></pre>
+<p>可使用浏览器或下载客户端访问<code>http://&lt;host_addr&gt;:3000</code>并进行初始设置（默认仅支持<code>localhost</code>或IP地址访问，主机名或域名访问需要<a href="#%E9%85%8D%E7%BD%AE%E8%AE%BF%E9%97%AE%E4%BB%A3%E7%90%86">配置Caddy或其他代理服务</a>）。使用<a href="../Linux/Linux%E9%85%8D%E7%BD%AE%E5%92%8C%E7%AE%A1%E7%90%86.html#%E4%BD%BF%E7%94%A8snap%E6%9F%A5%E7%9C%8B%E8%BD%AF%E4%BB%B6%E4%BF%A1%E6%81%AF">snap可查看服务状态</a>。</p>
+<h5 id="离线安装snap版本"><a class="header" href="#离线安装snap版本">离线安装snap版本</a></h5>
+<p>在未安装过<code>snap</code>软件的机器上需要<a href="../Linux/Linux%E9%85%8D%E7%BD%AE%E5%92%8C%E7%AE%A1%E7%90%86.html#%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%87%E7%BA%A7snap%E8%BD%AF%E4%BB%B6">下载和安装</a><code>core18</code>和<code>snapd</code>依赖。</p>
+<h3 id="配置"><a class="header" href="#配置">配置</a></h3>
+<p>获取<code>rocketchat-server</code>当前的配置：</p>
+<pre><code class="language-shell">snap get rocketchat-server
+# Key                Value
+# backup-on-refresh  disable
+# ignore-errors      false
+# mongo-oplog-url    mongodb://localhost:27017/local
+# mongo-url          mongodb://localhost:27017/parties
+# port               3000
+# siteurl            http://localhost:3000
+</code></pre>
+<blockquote>
+<p>如果<code>siteurl</code>与实际访问URL不匹配，客户端会提示URL跳转。</p>
+</blockquote>
+<h5 id="启动服务"><a class="header" href="#启动服务">启动服务</a></h5>
+<pre><code class="language-shell">snap start rocketchat-server  # 将启动server以及数据库(和可选的caddy服务)
+snap start rocketchat-server.rocketchat-server # 单独启动server服务
+</code></pre>
+<blockquote>
+<p>问题：</p>
+<ol>
+<li>服务无限重启，日志（<code>snap logs -f rocketchat-server.rocketchat-server</code>查看服务日志）出现<code>Segmentation fault</code>未知错误：尝试重启服务器然后启动<code>rocketchat-server</code>服务。</li>
+<li>重启<code>rocketchat-server</code>服务后，无法正常访问：需要重启机器（可能是因为之前的服务占用某些资源未释放）。</li>
+</ol>
+</blockquote>
+<h5 id="设置端口"><a class="header" href="#设置端口">设置端口</a></h5>
+<pre><code class="language-shell">sudo snap set rocketchat-server port=8080  # 默认端口3000
+sudo snap restart rocketchat-server.rocketchat-server # 重启服务生效
+</code></pre>
+<blockquote>
+<p>将配置项置空将恢复默认配置。</p>
+<p>注意：如果设置的服务端口或以下代理端口无法连接，检查是否开启防火墙及相关策略。如果客户端配置了代理将无法正常访问，需要将域名或地址排除到代理范围外。</p>
+</blockquote>
+<h5 id="设置数据库服务配置"><a class="header" href="#设置数据库服务配置">设置数据库服务配置</a></h5>
+<p>Mongdb数据库服务的配置文件位于<code>/var/snap/rocketchat-server/current/mongod.conf</code>。</p>
+<blockquote>
+<p>问题：</p>
+<ol>
+<li>
+<p><code>Failed to set up listener: SocketException: No such file or directory</code>：无法（在默认位置<code>/tmp</code>）创建UNIX域套接字，修改配置文件，显式设置UNIX域套接字所在目录：</p>
+<pre><code class="language-yaml">net:
+  unixDomainSocket:
+    enabled: true
+    pathPrefix: /var/snap/rocketchat-server/common  # 使用数据目录
+</code></pre>
+</li>
+</ol>
+</blockquote>
+<h5 id="配置访问代理"><a class="header" href="#配置访问代理">配置访问代理</a></h5>
+<p>RocketChat服务本身可作为独立的HTTP服务。如果需要配置外部使用HTTPS请求，可使用内置<code>caddy</code>作为反向代理（如果要使用其他代理（例如<a href="#Nginx">NGINX</a>），则无需以下配置）。</p>
+<pre><code class="language-shell">sudo snap set rocketchat-server https=enable
+sudo snap set rocketchat-server caddy=enable
+sudo snap set rocketchat-server caddy-url=https://&lt;domain-name&gt;[:&lt;port&gt;]
+sudo snap run rocketchat-server.initcaddy  # 生成Caddyfile*
+</code></pre>
+<blockquote>
+<p><code>*</code>：如果提示找不到<code>initcaddy</code>命令，可直接编辑配置目录下的<code>Caddyfile</code>文件。</p>
+</blockquote>
+<pre><code class="language-shell">https://example-domain.com { # *
+    tls self_signed          # **
+    proxy / localhost:3000 {
+        websocket
+        transparent
+    }
+}
+</code></pre>
+<blockquote>
+<p><code>*</code>：同一服务器上代理与rocketchat服务不要使用同一端口。</p>
+<p><code>**</code>：测试或内部使用可使用Caddy自签名证书，仅需在Caddyfile中声明<code>tls self_signed|internal</code>。如果具有公开可访问的域名，Caddy可自动使用<a href="https://letsencrypt.org/">Let's Encrypt</a>生成SSL证书。</p>
+</blockquote>
+<p>配置完成后，启动<code>caddy</code>服务并重启<code>server</code>服务。</p>
+<pre><code class="language-shell">sudo snap start rocketchat-server.rocketchat-caddy
+</code></pre>
+<h3 id="升级迁移"><a class="header" href="#升级迁移">升级迁移</a></h3>
+<p>进行升级迁移前首先对数据进行备份，以防过程中出现错误。snap支持对应用数据生成快照，但快照通常仅能用于同一版本的数据恢复（通常用于使用过程中的备份）。升级迁移情况下，需要使用RocketChat内部的数据备份恢复机制。</p>
+<h4 id="数据备份和恢复"><a class="header" href="#数据备份和恢复">数据备份和恢复</a></h4>
+<p>备份或恢复操作时应先停止server服务，保留数据库服务。</p>
+<pre><code class="language-shell">sudo rocketchat-server.backupdb  # 然后，将备份文件保存到其他地方
+sudo cp /var/snap/rocketchat-server/common/rocketchat_backup.tar.gz ~/backup
+</code></pre>
+<p>恢复（必须将备份文件存放到<code>/var/snap/rocketchat-server/common/</code>）</p>
+<pre><code class="language-shell">sudo rocketchat-server.restoredb rocketchat_backup.tgz
+</code></pre>
+<h2 id="文件服务"><a class="header" href="#文件服务">文件服务</a></h2>
+<h3 id="filebrowser"><a class="header" href="#filebrowser">filebrowser</a></h3>
+<h4 id="安装-1"><a class="header" href="#安装-1">安装</a></h4>
+<p><code>filebrowser</code>仅包含单独的可执行文件，将档案文件释放到创建的指定目录即可。</p>
+<pre><code class="language-shell">tar -xzf linux-amd64-filebrowser.tar.gz -C /opt/filebrowser
+/opt/filebrowser/filebrowser -r /content/root/  # 指定文件服务的根目录
+</code></pre>
+<blockquote>
+<p>默认用户名和密码为<code>admin:admin</code>，可在启动服务后通过Web界面或命令行修改。</p>
+<p><code>filebrowser</code>的运行数据保存在工作目录下的数据库文件<code>database.db</code>（Bolt DB）中，不依赖于外部数据库服务。</p>
+</blockquote>
+<h4 id="配置-1"><a class="header" href="#配置-1">配置</a></h4>
+<p>配置项可通过配置文件、环境变量、命令行选项提供，配置项的优先级高于数据库中存储的配置项。优先级从高到低：</p>
+<ul>
+<li>选项：
+<ul>
+<li><code>-a,--address</code>：监听地址；</li>
+<li><code>-p,--port</code>：监听端口；</li>
+<li><code>-b,--baseurl</code>：Web服务URL的根路径；</li>
+<li><code>-c,--config</code>：配置文件路径；</li>
+<li><code>-d,--databse</code>：数据库文件路径；</li>
+</ul>
+</li>
+<li>环境变量命名规则：<code>FB_OPTION_NAME</code>。</li>
+<li>配置文件<code>.filebrowser.{json|toml|yaml|yml}</code>，搜索路径包括：<code>./</code>、<code>$HOME/</code>、<code>/etc/filebrowser/</code>。</li>
+<li>数据库配置：通过Web界面或命令行<code>filebrowser config</code>等修改的信息将更新到数据库中。</li>
+<li>默认值。</li>
+</ul>
+<h5 id="服务配置"><a class="header" href="#服务配置">服务配置</a></h5>
+<pre><code class="language-ini">[Unit]
+Description=filebrowser - Web File Explorer
+Documentation=https://filebrowser.org/
+Wants=network-online.target
+After=network-online.target
+[Service]
+Type=simple
+WorkingDirectory=/opt/filebrowser/
+ExecStart=/opt/filebrowser/filebrowser -c config.json -r /content/root/
+ExecStop=/bin/kill -s TERM $MAINPID
+KillSignal=SIGTERM
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=filebrowser
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<h3 id="syncthing"><a class="header" href="#syncthing">Syncthing</a></h3>
+<h4 id="配置-2"><a class="header" href="#配置-2">配置</a></h4>
+<h5 id="配置文件"><a class="header" href="#配置文件">配置文件</a></h5>
+<p>配置文件路径：</p>
+<pre><code class="language-shell">$HOME/.config/syncthing   # Linux
+%LOCALAPPDATA%\Syncthing  # Windows
+</code></pre>
+<blockquote>
+<p><code>--config CONFIG_PATH</code>覆盖默认路径。</p>
+</blockquote>
+<p>配置文件路径下可能包含的内容：</p>
+<pre><code class="language-shell">config.xml  
+cert.pem       # ECDSA public/private key
+key.pem
+https-cert.pem # for HTTPS GUI
+https-key.pem
+csrftokens.txt # A list of recently issued CSRF tokens
+</code></pre>
+<p>数据库路径（优先级从高到低）：</p>
+<pre><code class="language-shell">/path/to/exist_db         # 指定的路径???
+$XDG_DATA_HOME/syncthing
+~/.local/share/syncthing  # Windows:$HOME\AppData\Local\Syncthing
+$HOME/.config/syncthing
+</code></pre>
+<blockquote>
+<p><code>--data DB_PATH</code>覆盖默认配置。</p>
+</blockquote>
+<h5 id="配置文件格式"><a class="header" href="#配置文件格式">配置文件格式</a></h5>
+<pre><code class="language-xml">&lt;configuration version=&quot;35&quot;&gt;
+    &lt;folder&gt;&lt;/folder&gt;
+    &lt;device&gt;&lt;/device&gt;
+    &lt;gui&gt;&lt;/gui&gt;
+    &lt;ldap&gt;&lt;/ldap&gt;
+    &lt;options&gt;&lt;/options&gt;
+    &lt;remoteIgnoredDevice&gt;&lt;/remoteIgnoredDevice&gt;
+    &lt;defaults&gt;&lt;/defaults&gt;
+&lt;/configuration&gt;
+</code></pre>
+<h5 id="通信方式与监听地址配置"><a class="header" href="#通信方式与监听地址配置">通信方式与监听地址配置</a></h5>
+<ul>
+<li>
+<p>TCP：<code>tcp[4]://0.0.0.0:22000,tcp[4|6]://:22000</code>，<code>tcp6://[::]:22000</code>；<code>tcp</code>协议监听IPv4/v6地址。</p>
+</li>
+<li>
+<p>QUIC：<code>quic://[0.0.0.0]:22000</code>，类似于TCP，可指定<code>quic4</code>和<code>quic6</code> 。</p>
+<blockquote>
+<p>如果上述端口被占用，则<code>syncthing</code>会自动切换为选择随机端口（如<code>57350</code>）。</p>
+</blockquote>
+</li>
+<li>
+<p><a href="#Syncthing-Discovery-Server">发现服务</a>：<code>https://discover_server:8443?</code>；</p>
+</li>
+<li>
+<p>中继</p>
+<ul>
+<li>动态中继：<code>dynamic+https://relays.syncthing.net/endpoint</code>；</li>
+<li>动态中继池：<code>dynamic+https://192.0.2.42/relays</code>；</li>
+<li>静态中继：<code>relay://192.0.2.42:22067?id=abcd123...</code>；</li>
+</ul>
+</li>
+<li>
+<p>默认(<code>default</code>)：<code>tcp://0.0.0.0:22000</code>, <code>quic://0.0.0.0:22000</code> 和<code>dynamic+https://relays.syncthing.net/endpoint</code>.</p>
+</li>
+</ul>
+<p><a href="https://docs.syncthing.net/v1.20.2/users/config#config-file-format">Syncthing Configuration — Syncthing v1.20.2 documentation</a></p>
+<h4 id="命令行"><a class="header" href="#命令行">命令行</a></h4>
+<p>服务启动选项：</p>
+<pre><code class="language-shell">--home=&lt;dir&gt;                # 配置文件和数据库路径
+                            # --config=&lt;dir&gt;, --data=&lt;dir&gt;
+--gui-address=0.0.0.0:8384  # or '/var/run/st.sock'
+--logfile=&lt;filename&gt;        # '-' for stdout
+--log-max-old-files=&lt;num&gt;
+--log-max-size=&lt;num&gt;
+--no-browser                # 不启动浏览器(适用于服务器)
+--no-console                # 隐藏终端窗口(Windows)
+</code></pre>
+<pre><code class="language-shell">syncthing --device-id      # Print device ID
+syncthing --paths          # 打印配置相关路径
+          --version
+syncthing --generate=&lt;dir&gt; # 生成配置文件和密钥文件
+syncthing generate \       # 指定新的用户名和密码
+          --gui-user=&lt;username&gt;       
+          --gui-password=&lt;password&gt;   # or '-' 从命令行读取,覆盖配置文件(Hash)
+</code></pre>
+<h5 id="命令行扩展工具"><a class="header" href="#命令行扩展工具">命令行扩展工具</a></h5>
+<p><a href="https://github.com/tenox7/stc">tenox7/stc: Syncthing CLI Tool (github.com)</a></p>
+<h5 id="自启动配置"><a class="header" href="#自启动配置">自启动配置</a></h5>
+<p><a href="https://docs.syncthing.net/users/autostart.html">Starting Syncthing Automatically — Syncthing documentation</a></p>
+<h4 id="常见问题"><a class="header" href="#常见问题">常见问题</a></h4>
+<h5 id="inotify-limit"><a class="header" href="#inotify-limit">inotify limit</a></h5>
+<pre><code class="language-shell">echo &quot;fs.inotify.max_user_watches=204800&quot; | sudo tee -a /etc/sysctl.conf
+</code></pre>
+<h5 id="linux只读目录的同步"><a class="header" href="#linux只读目录的同步">Linux只读目录的同步</a></h5>
+<p>syncthing不推荐使用<code>root</code>账户运行，但syncthing会在目录下创建<code>.stfolder</code>目录以存放同步信息，只读目录下无法自动创建。可用<code>root</code>账户手动创建该目录并将其所有者修改为<code>syncthing</code>服务的执行用户。</p>
+<h4 id="web用户界面简介"><a class="header" href="#web用户界面简介">Web用户界面简介</a></h4>
+<p><img src="%E5%8D%8F%E4%BD%9C%E5%8A%9E%E5%85%AC%E8%BD%AF%E4%BB%B6.assets/gui1-16587263079781.png" alt="" /></p>
+<h5 id="文件夹视图"><a class="header" href="#文件夹视图">文件夹视图</a></h5>
+<p>屏幕左侧显示所有已配置文件夹的 ID 和当前状态。单击文件夹名称可使该部分展开以显示更详细的文件夹信息，以及用于暂停文件夹、强制重新扫描或编辑配置的按钮。</p>
+<p>文件夹可以处于以下任一状态：</p>
+<ul>
+<li>未知：在加载 GUI 时，</li>
+<li>未共享：当您尚未共享此文件夹时，</li>
+<li>暂停：当文件夹的活动被搁置时，</li>
+<li>停止：当文件夹遇到错误时，</li>
+<li>最新的：当文件夹与其他设备同步时，</li>
+<li>等待扫描：在扫描文件夹之前等待其他文件夹空闲时，</li>
+<li>扫描：当Syncthing在文件夹中查找本地更改时，</li>
+<li>等待同步：在同步文件夹之前等待其他文件夹空闲时，</li>
+<li>准备同步：当 Syncthing 收集要同步的文件更改时，</li>
+<li>同步：当此设备从网络下载更改时，</li>
+<li>等待清洁：在清理版本之前等待文件夹空闲时，</li>
+<li>清洁版本：同时从<code>.stversions</code>文件夹中删除过时的文件。</li>
+</ul>
+<p>在文件夹详细信息中，您可以看到当前的“全局状态”和“本地状态”摘要，以及如果文件夹状态不是最新的，则“不同步”的数据量。</p>
+<ul>
+<li>全局状态：指示完全最新的文件夹包含的数据量，这基本上是所有连接设备中所有文件的最新版本的总和。这是计算机上与远程设备完全同步时文件夹的大小。</li>
+<li>本地状态：显示文件夹现在实际包含的数据量。如果文件夹当前正在与其他设备同步，则此值可能大于或小于全局状态。</li>
+<li>不同步：显示需要从其他设备同步的数据量。请注意，这是所有不同步<em>文件</em>的总和 - 如果您已经拥有此类文件的一部分或该文件的旧版本，则需要通过网络传输的数据少于此值。</li>
+<li>错误：介绍了文件夹处于“已停止”状态时出现的问题。一种可能的消息是“缺少文件夹标记”。这意味着此文件夹的根目录不包含名为 （marker） 的文件或目录。当此标记丢失时，同步将停止，以防止数据丢失，例如，当文件夹路径被卸载时。如果标记被意外删除，只需重新创建它，然后按 UI 中的重新扫描按钮即可。</li>
+</ul>
+<h5 id="创建新的同步文件夹"><a class="header" href="#创建新的同步文件夹">创建新的同步文件夹</a></h5>
+<p>使用同步 Web 界面。单击“添加文件夹”按钮，该按钮将显示具有以下选项的对话框：</p>
+<ul>
+<li>文件夹标签：应设置为描述性内容。此标签最初将与远程设备共享，但可以根据需要在每个设备上进行更改。</li>
+<li>文件夹标识：所有设备都必须相同，因为它是文件夹的唯一标识符。最佳做法是保留自动生成的 ID，以避免与其他设备上的同名文件夹发生冲突。</li>
+<li>文件夹路径：指定文件夹的物理路径，即硬盘驱动器上的物理路径。</li>
+</ul>
+<p>接下来，选择要与哪些设备共享文件夹，然后按添加，这将添加文件夹并开始同步。</p>
+<h5 id="设备视图"><a class="header" href="#设备视图">设备视图</a></h5>
+<p>屏幕右侧显示所有已配置设备的整体状态。本地设备始终位于顶部，远程设备按字母顺序排列。对于每个设备，您都会看到其当前状态，并在展开时看到更详细的信息。所有传输速率（“下载速率”和“上传速率”）都是从本地设备的角度出发的，即使是针对远程设备显示的传输速率。本地设备的速率是远程设备的速率之和。对于每个速率，您可以看到当前的传输速度，然后是到目前为止传输的数据总量。您可以单击当前传输速度以在字节和位之间切换单位。</p>
+<h5 id="桌面软件"><a class="header" href="#桌面软件">桌面软件</a></h5>
+<p><a href="https://github.com/Martchus/syncthingtray">Martchus/syncthingtray: Tray application and Dolphin/Plasma integration for Syncthing (github.com)</a></p>
+<h4 id="syncthing-discovery-server"><a class="header" href="#syncthing-discovery-server">Syncthing Discovery Server</a></h4>
+<p>如果需要同步的设备不在同一网络中，则需要配置发现服务。<code>syncthing</code>默认使用联网的发现服务器（<code>default</code>）。如果在离线环境部署<code>syncthing</code>，则需要自行部署发现服务。</p>
+<pre><code class="language-shell">stdiscosrv 
+    -cert=./cert.pem -key=./key.pem
+    -db-dir=./discovery.db
+    -debug 
+    -http   # Listen on HTTP (使用HTTPS反向代理)
+    -listen=':8443'
+    -metrics-listen=&lt;address&gt;  # default disabled
+    -replicate=&lt;peers&gt;
+    -replication-listen=':19200'
+</code></pre>
+<p><code>syncthing</code>配置选项：</p>
+<ul>
+<li><code>https://discover_server:8443</code>：使用CA签发证书。</li>
+<li><code>https://discover_server:8443?id=&lt;server_id&gt;</code>：使用自签名证书，使用发现服务ID验证证书。</li>
+<li><code>http://discover_server:8443?insecure</code>：取消证书验证。</li>
+</ul>
+<img src="协作办公软件.assets/global_discovery_server_config.png" style="zoom: 50%;" />
+<blockquote>
+<p>如果需要要从互联网访问发现服务，可能需要动态DNS服务。</p>
+</blockquote>
+<h5 id="负载均衡"><a class="header" href="#负载均衡">负载均衡</a></h5>
+<p><a href="https://docs.syncthing.net/users/stdiscosrv.html#replication">Syncthing Discovery Server — Replication</a></p>
+<h5 id="反向代理"><a class="header" href="#反向代理">反向代理</a></h5>
+<p><a href="https://docs.syncthing.net/users/stdiscosrv.html#reverse-proxy-setup">Syncthing Discovery Server — Reverse Proxy Setup</a></p>
+<h4 id="自定义升级服务器"><a class="header" href="#自定义升级服务器">自定义升级服务器</a></h4>
+<p><a href="https://docs.syncthing.net/users/custom-upgrades.html">Custom Upgrade Server — Syncthing documentation</a></p>
+<h3 id="hedgedoc"><a class="header" href="#hedgedoc">HedgeDoc</a></h3>
+<h4 id="安装-2"><a class="header" href="#安装-2">安装</a></h4>
+<p>安装依赖组件：</p>
+<ul>
+<li>
+<p><a href="../JavaScript/JS%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83.html#Node.js">Node.js 16</a>（包含NPM）；</p>
+</li>
+<li>
+<p>数据库（<a href="../%E6%95%B0%E6%8D%AE%E5%BA%93/PostgreSQL.html#%E5%AE%89%E8%A3%85"><strong>PostgreSQL</strong></a>, <a href="../%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL.html#%E5%AE%89%E8%A3%85%E8%BF%90%E8%A1%8C">MySQL</a>, MariaDB, SQLite），数据库应使用UTF-8编码（PostgreSQL和SQLite默认）。为数据库创建库实例和用户，并分配访问权限。</p>
+<pre><code class="language-shell">createdb hedgedoc
+createuser -h localhost hedgedoc -P
+</code></pre>
+<pre><code class="language-sql">GRANT ALL ON DATABASE hedgedoc TO hedgedoc;
+</code></pre>
+</li>
+<li>
+<p><a href="../JavaScript/JS%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83.html#yarn">Yarn 1.22+</a>。</p>
+</li>
+</ul>
+<p>安装配置HedgeDoc：</p>
+<ul>
+<li>
+<p>在软件根目录下执行：<code>bin/setup</code><strong>在线下载</strong>依赖项和生成配置文件；</p>
+</li>
+<li>
+<p>如果需要对前端进行定制修改（例如markdown的展示样式），可在修改后重新编译前端内容。</p>
+<pre><code class="language-shell">yarn install --frozen-lockfile &amp;&amp; yarn build
+</code></pre>
+</li>
+<li>
+<p>修改配置文件（<code>./config.json</code>）：</p>
+<pre><code class="language-json">{
+    &quot;production&quot;: {
+        &quot;domain&quot;: &quot;10.131.5.6&quot;,
+        &quot;port&quot;: 4000,
+        &quot;urlAddPort&quot;: true,
+        &quot;db&quot;: {
+            &quot;dialect&quot;: &quot;postgres&quot;,
+            &quot;username&quot;: &quot;USERNAME&quot;,
+            &quot;password&quot;: &quot;PASSWORD&quot;,
+            &quot;database&quot;: &quot;hedgedoc&quot;,
+            &quot;host&quot;: &quot;10.131.5.11&quot;,
+            &quot;port&quot;: &quot;5432&quot;
+        }
+    }
+}
+</code></pre>
+</li>
+<li>
+<p>手动启动服务，检查是否产生错误：</p>
+<pre><code class="language-shell">NODE_ENV=production yarn start
+</code></pre>
+</li>
+<li>
+<p>创建用户。</p>
+<pre><code class="language-shell">useradd -m hedgedoc
+mkdir -p /home/hedgedoc/public/uploads /home/hedgedoc/db
+</code></pre>
+</li>
+<li>
+<p>配置系统服务<code>hedgedoc.service</code>。基于<a href="https://docs.hedgedoc.org/setup/manual-setup/#systemd-unit-example">文档提供模板</a>根据实际安装情况进行修改。</p>
+<pre><code class="language-shell">Environment=PATH=/node/path:/system/path
+Environment=NODE_ENV=production
+ExecStart=/path/to/yarn start --production
+WorkingDirectory=/path/to/hedgedoc
+ReadWritePaths=/home/hedgedoc/public/uploads /home/degedoc/db
+</code></pre>
+</li>
+<li>
+<p>将服务文件安装到系统服务目录，启用并运行服务，查看服务运行状态。</p>
+<pre><code class="language-shell">cp hedgedoc.service /lib/systemd/system/
+systemctl daemon-reload &amp;&amp; systemctl enable --now hedgedoc
+journalctl -xe -f -u hedgedoc 
+</code></pre>
+</li>
+</ul>
+<h4 id="反向代理配置"><a class="header" href="#反向代理配置">反向代理配置</a></h4>
+<p>如果需要通过反向代理访问HedegDoc服务，则服务的某些配置与直接访问的方式不同。具体包括：</p>
+<ul>
+<li><code>domain</code>：配置为反向代理的域名或IP，这将使响应内容中URL的主机地址为代理服务器，而非HedgeDoc服务所在主机。同时，也避免浏览器的跨站访问检测策略阻止访问HedgeDoc服务（CSP和<a href="./%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E8%BD%AF%E4%BB%B6.html#Nginx%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF">CORS</a>策略）。</li>
+<li><code>protocolUseSSL</code>：如果浏览器是通过<code>HTTPS</code>访问服务，则应该设置为<code>true</code>；这将保证响应内容中的URL统一使用<code>https</code>，从而能正确被反向代理响应。该选项只影响URL的协议，而不影响实际使用HTTP或HTTPS。</li>
+<li><code>urlAddPort</code>：由于反向代理具有统一的访问端口，通常为<code>80</code>或<code>443</code>，因此响应内容中的URL应该不添加HedgeDoc服务所使用的端口。</li>
+<li><code>urlPath</code>：如果反向代理处需要通过URL路径区分服务，则需要为HedgeDoc设置根路径而不是使用默认的<code>/</code>。</li>
+</ul>
+<p>Nginx配置中添加HedgeDoc服务（HTTP）的转发规则。</p>
+<pre><code class="language-nginx">map $http_upgrade $connection_upgrade {
+    default upgrade;
+    ''      close;
+}
+server {
+    server_name hedgedoc.example.com;
+    location / {
+        proxy_pass http://hedgedoc-server:3000;
+        proxy_set_header Host $host; 
+        proxy_set_header X-Real-IP $remote_addr; 
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; 
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+    location /socket.io/ {  # WebSocket
+        proxy_pass http://hedgedoc-server:3000;
+        proxy_set_header Host $host; 
+        proxy_set_header X-Real-IP $remote_addr; 
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; 
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection $connection_upgrade;
+    }
+}
+</code></pre>
+<p>如果设置了<code>urlPath='hedgedoc'</code>，则上述转发规则做相应修改：</p>
+<pre><code class="language-nginx">location /hedgedoc {
+    proxy_pass http://hedgedoc-server:3000/;
+}
+location /hedgedoc/socket.io/ {  # WebSocket
+    proxy_pass http://hedgedoc-server:3000/socket.io/;
+}
+</code></pre>
+<h2 id="远程桌面"><a class="header" href="#远程桌面">远程桌面</a></h2>
+<h3 id="vnc"><a class="header" href="#vnc">VNC</a></h3>
+<h5 id="安装tigervnc服务"><a class="header" href="#安装tigervnc服务">安装TigerVNC服务</a></h5>
+<blockquote>
+<p>Gnome（Fedora）自带远程桌面服务无法连接，在配置以下服务前首先关闭系统自带的远程桌面服务。</p>
+</blockquote>
+<pre><code class="language-shell">sudo dnf -y install tigervnc-server
+sudo firewall-cmd --add-service=vnc-server --permanent
+sudo firewall-cmd --reload
+vncpasswd
+</code></pre>
+<p>编辑<code>~/.vnc/config</code>修改显示分辨率<code>geometry=1920x1080</code>。</p>
+<p>编辑<code>/etc/tigervnc/vncserver.users</code>添加用户映射：<code>:2=gary</code>。</p>
+<p>启动服务：<code>systemctl enable --now vncserver@:2.service</code></p>
+<blockquote>
+<p>注意：<a href="https://forums.fedoraforum.org/showthread.php?321053-tiger-VNC-server-shows"><code>:1</code>显示可能无法正常工作</a>，因此从<code>:2</code>开始配置。如果服务无法启动，尝试禁用并重启服务。</p>
+</blockquote>
+<h5 id="连接安全性"><a class="header" href="#连接安全性">连接安全性</a></h5>
+<p>VNC传输未加密。为保证通信安全，应该在受信任的网络中使用，或首先从建立一条安全的隧道：</p>
+<pre><code class="language-shell">ssh -v -C -L 590N:localhost:590M vncserver.host # local_590N -&gt; remote_590M
+</code></pre>
+<h5 id="vnc客户端"><a class="header" href="#vnc客户端">VNC客户端</a></h5>
+<p>常用包括：UtralVNC、TigerVNC Viewer、TightVNC等。</p>
+<blockquote>
+<p>MobaXTerm连接质量较低（切换屏幕会导致VNC服务终止）；</p>
+</blockquote>
+<p>VNC客户端连接黑屏：<a href="https://forums.fedoraforum.org/showthread.php?321053-tiger-VNC-server-shows">登录界面显示服务不兼容</a>，修改<code>/etc/gdm/custom.conf</code>。</p>
+<pre><code class="language-shell"># Uncomment the line below to force the login screen to use Xorg
+WaylandEnable=false
+</code></pre>
+<ol>
+<li><a href="https://www.server-world.info/en/note?os=Fedora_34&amp;p=desktop&amp;f=6">Fedora 34 : Configure VNC Server : Server World (server-world.info)</a></li>
+</ol>
+<h3 id="rdp"><a class="header" href="#rdp">RDP</a></h3>
+<p><a href="https://linuxize.com/post/how-to-install-xrdp-on-ubuntu-20-04/">How to Install Xrdp Server (Remote Desktop) on Ubuntu 20.04 | Linuxize</a>。</p>
+<blockquote>
+<p>*<code>XRDP</code>*在Elementary OS上无法正常使用。</p>
+</blockquote>
+<h2 id="文档处理"><a class="header" href="#文档处理">文档处理</a></h2>
+<h3 id="visio"><a class="header" href="#visio">Visio</a></h3>
+<h5 id="为形状添加连接点"><a class="header" href="#为形状添加连接点">为形状添加连接点</a></h5>
+<p><img src="%E5%8D%8F%E4%BD%9C%E5%8A%9E%E5%85%AC%E8%BD%AF%E4%BB%B6.assets/20181127143610980.png" alt="添加连接点" /></p>
+<p><img src="%E5%8D%8F%E4%BD%9C%E5%8A%9E%E5%85%AC%E8%BD%AF%E4%BB%B6.assets/20181127143936590.png" alt="连接点视图" /></p>
+<h5 id="更改连接线跨越风格"><a class="header" href="#更改连接线跨越风格">更改连接线跨越风格</a></h5>
+<p>“设计/版式/连接线”：取消“显示跨线”，则交叉点处不会拐弯。</p>
+<h2 id="参考资料"><a class="header" href="#参考资料">参考资料</a></h2>
+<div class="footnote-definition" id="syncthing"><sup class="footnote-definition-label">1</sup>
+<p><a href="https://github.com/syncthing/syncthing">syncthing - Open Source Continuous File Synchronization</a>.
+<sup class="footnote-reference"><a href="#st-conf">2</a></sup>: <a href="https://docs.syncthing.net/v1.20.2/users/config.html">Syncthing Configuration — Syncthing v1.20.2 documentation</a>.
+<sup class="footnote-reference"><a href="#sync-mechanism">3</a></sup>: <a href="https://docs.syncthing.net/users/syncing.html">Understanding Synchronization — Syncthing documentation</a></p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../应用软件/文件处理软件.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../应用软件/知识管理软件.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../应用软件/文件处理软件.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../应用软件/知识管理软件.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

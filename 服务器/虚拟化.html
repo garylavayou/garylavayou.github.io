@@ -1,0 +1,432 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>虚拟化 - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html" class="active">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="虚拟化"><a class="header" href="#虚拟化">虚拟化</a></h1>
+<h2 id="vmware"><a class="header" href="#vmware">VMWare</a></h2>
+<h3 id="网络配置"><a class="header" href="#网络配置">网络配置</a></h3>
+<h4 id="虚拟网络"><a class="header" href="#虚拟网络">虚拟网络</a></h4>
+<h5 id="vmware虚拟网桥"><a class="header" href="#vmware虚拟网桥">VMware虚拟网桥</a></h5>
+<p><code>vmnet0</code>：与主机网络连接复用物理接口。</p>
+<p><img src="%E8%99%9A%E6%8B%9F%E5%8C%96.assets/clip_image001.png" alt="img" /></p>
+<blockquote>
+<p>虚拟网桥的物理主机是透明的。在Windows中，无需通过<strong>网络管理</strong>配置接口的桥接。</p>
+</blockquote>
+<p>==配置自动桥接的主机网络适配器==：可选列表中可能包含了Hyper-V的虚拟适配器，应该取消选择，否则其IP地址与物理网卡地址可能不在同一网段。</p>
+<p><code>vmnet1</code>：Host-Only网络模式，类似于<code>vmnet0</code>但无法访问物理网络。</p>
+<h5 id="vmware-nat"><a class="header" href="#vmware-nat">VMware NAT</a></h5>
+<p><code>vmnet8</code>：宿主机地址为：<code>192.168.xxx.1</code>，虚拟网关/DNS服务器地址为：<code>192.168.xxx.2</code>（见配置文件<code>%PROGRAMDATA%/VMWare/vmnetnat.conf</code>）；</p>
+<p><img src="%E8%99%9A%E6%8B%9F%E5%8C%96.assets/clip_image002.png" alt="img" /></p>
+<blockquote>
+<p><strong>NAT设备</strong>：通过网络地址转换为物理机IP地址，由物理网络接口收发数据。</p>
+</blockquote>
+<p>通过<code>vmnetnat.conf</code>可配置入网流量的NAT端口地址映射。</p>
+<pre><code class="language-shell">[incomingtcp]
+# Use these with care - anyone can enter into your virtual machine through these...
+#
+# WEB (make sure that if you are using named webhosting, names point to
+#   your host, not to guest... And if you are forwarding port other
+#   than 80 make sure that your server copes with mismatched port 
+#   number in Host: header)
+#   lynx http://localhost:8888
+#8888 = 192.168.27.128:80
+[incomingudp]
+# UDP port forwarding example
+#6000 = 192.168.27.128:6001
+</code></pre>
+<p>完成后重启VMWare NAT服务。在宿主机或其他主机上，可通过宿主机的IP地址和映射后的端口访问虚拟机中开放的服务。==如果防火墙开启，则需要设置一条防火墙入站规则，允许访问主机的目标端口。==</p>
+<p>https://www.vmware.com/support/ws3/doc/ws32_network21.html</p>
+<h3 id="共享"><a class="header" href="#共享">共享</a></h3>
+<h4 id="宿主磁盘文件共享"><a class="header" href="#宿主磁盘文件共享">宿主磁盘文件共享</a></h4>
+<h5 id="安装vmware-tools"><a class="header" href="#安装vmware-tools">安装vmware-tools</a></h5>
+<p><code>vmware-tools</code>需要Linux虚拟机安装perl解释器。</p>
+<p>在Linux虚拟机中安装<code>vmware-tools</code>时找不到<code>gcc</code>、<code>kernel-headers</code>，需要安装编译工具和依赖库。</p>
+<pre><code class="language-shell">yum install gcc binutils make kernel-devel -y
+</code></pre>
+<p>无法在虚拟机中访问已共享的宿主机文件夹。</p>
+<pre><code class="language-shell">sudo vi /etc/fstab
+# append following content
+# .host:/     /mnt/hgfs    fuse.vmhgfs-fuse  allow_other    0    0
+</code></pre>
+<h3 id="显示"><a class="header" href="#显示">显示</a></h3>
+<h4 id="虚拟机屏幕尺寸"><a class="header" href="#虚拟机屏幕尺寸">虚拟机屏幕尺寸</a></h4>
+<p>问题：虚拟机不能自适应屏幕尺寸。</p>
+<blockquote>
+<p>The issue is that <code>libresolutionKMS.so</code> is not loaded into the Wayland session on Fedora. It works as expected in Ubuntu 20.10 with either Wayland or Xorg.</p>
+</blockquote>
+<pre><code class="language-shell">cp /etc/vmware-tools/tools.conf.example /etc/vmware-tools/tools.conf
+nano /etc/vmware-tools/tools.conf
+</code></pre>
+<p>Remove the # from this block:</p>
+<pre><code class="language-shell">[resolutionKMS]
+enable=true
+</code></pre>
+<pre><code class="language-shell">systemctl restart vmtoolsd.service
+</code></pre>
+<h3 id="移动和复制虚拟机"><a class="header" href="#移动和复制虚拟机">移动和复制虚拟机</a></h3>
+<p>当移动或复制虚拟机后，VMWare会提示用户查虚拟机磁盘文件（对应虚拟机配置文件中的<code>scsi0:0.fileName</code>），并在虚拟机配置文件<code>.vmx</code>中增加一个搜索路径<code>fileSearchPath</code>；当再次复制或移动上述虚拟机，如果仍在本机上，由于<code>fileSearchPath</code>存在，将直接访问该路径下的虚拟磁盘文件，而非复制到当前虚拟机目录下的虚拟磁盘文件。因此需要修改或删除该搜索路径。</p>
+<h3 id="虚拟机快照"><a class="header" href="#虚拟机快照">虚拟机快照</a></h3>
+<p>删除快照：每个快照会在磁盘上额外生成一个较小的虚拟磁盘文件；删除快照将删除该文件。可删除某些不再使用的快照以节约存储空间。</p>
+<h2 id="window-sub-system-of-linux-wsl"><a class="header" href="#window-sub-system-of-linux-wsl">Window Sub-system of Linux (WSL)</a></h2>
+<h3 id="安装"><a class="header" href="#安装">安装</a></h3>
+<h4 id="自动安装"><a class="header" href="#自动安装">自动安装</a></h4>
+<p>自动安装WSL需要的系统组件、Linux内核并安装默认的Linux发行版（默认为Ubuntu）<sup class="footnote-reference"><a href="#WSL">1</a></sup>。</p>
+<blockquote>
+<p>版本要求：Windows 10 2004+(Build 19041+) or Windows 11。</p>
+</blockquote>
+<pre><code class="language-powershell">wsl --set-default-version 2    # 安装保证WSL2已经启用
+wsl --install                  # 安装默认发行版
+wsl --update                   # 升级至应用商店版本(或通过应用商店升级)
+wsl --version                  # 商店版本可用
+</code></pre>
+<h4 id="手动安装"><a class="header" href="#手动安装">手动安装</a></h4>
+<p>启用WSL<sup class="footnote-reference"><a href="#WSL-mannual">2</a></sup>：</p>
+<pre><code class="language-powershell">dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+# Restart before updating to WSL 2
+</code></pre>
+<ul>
+<li>下载Linux内核更新包：<a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">WSL2 Linux kernel update package for x64 machines</a>。</li>
+</ul>
+<p>设置WSL2，WSL2需要开启Hyper-V。</p>
+<pre><code class="language-powershell">wsl --set-default-version 2     # 更改默认安装的版本 (WSL2)
+wsl --set-version &lt;dist-name&gt; 2 # 转换已安装的版本 (WSL2)
+</code></pre>
+<h4 id="安装管理发行版"><a class="header" href="#安装管理发行版">安装管理发行版</a></h4>
+<p>从应用商店查找安装Linux发行版。发行版管理：</p>
+<pre><code class="language-powershell">wsl --set-default &lt;dist-name&gt;  # 设置默认发行版
+wsl --install -d &lt;DistroName&gt;  # 安装一个发行版
+wsl --list [--all|--running] [--quiet|--verbose] # 列出系统中的发行版
+</code></pre>
+<h4 id="离线安装"><a class="header" href="#离线安装">离线安装</a></h4>
+<p>如果联网安装下载发行版很慢，或者机器离线，则在开启系统的WSL组件后可以<a href="https://docs.microsoft.com/en-us/windows/wsl/install-manual#downloading-distributions">离线下载</a>并手动安装WSL发行版。如果应用商店不可用，则从<code>appx</code>文件（<code>zip</code>）中提取安装内容（解压其中的<code>Ubuntu_2004_*.appx</code>到安装位置，同级目录下还包含不同缩放比例下的图标资源文件，解压到安装目录下的<code>Assets</code>目录中），并手动执行安装（运行<code>ubuntu.exe</code>）。</p>
+<p><strong>配置WindowsTerminal</strong>：由于是手动安装，需要修改启动目录（否则找不到路径无法启动，可设置为WSL用户主目录<code>\\wsl$\Ubuntu\home\gary</code>）和资源图标文件（任意图片文件，可使用安装自带的图标<code>$INSTALLPATH\Assets\StoreLogo.scale-100.png</code>）。</p>
+<h4 id="开启systemd"><a class="header" href="#开启systemd">开启systemd</a></h4>
+<p>编辑<code>/etc/wsl.conf</code>，重启WSL。（需要WSL版本为0.67.6及以上）</p>
+<pre><code class="language-ini">[boot]
+systemd=true
+</code></pre>
+<h3 id="wsl系统配置"><a class="header" href="#wsl系统配置">WSL系统配置</a></h3>
+<h4 id="忘记密码"><a class="header" href="#忘记密码">忘记密码</a></h4>
+<pre><code class="language-powershell"># windows CLI
+ubuntu config --default-user root
+# login WSL with root
+passwd &lt;username&gt;
+# windows terminal
+ubuntu config --default-user &lt;username&gt;
+</code></pre>
+<blockquote>
+<p>其他发行版，将<code>ubunut</code>替换为其他发行版名称。</p>
+</blockquote>
+<h4 id="网络配置-1"><a class="header" href="#网络配置-1">网络配置</a></h4>
+<h5 id="wsl端口转发"><a class="header" href="#wsl端口转发"><a href="../Windows/Windows%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86.html#WSL%E8%99%9A%E6%8B%9F%E7%BD%91%E7%BB%9C">WSL端口转发</a></a></h5>
+<p><a href="https://docs.microsoft.com/en-us/windows/wsl/wsl-config#configure-global-options-with-wslconfig">Advanced settings configuration in WSL | Microsoft Docs</a>。</p>
+<h3 id="使用wsl"><a class="header" href="#使用wsl">使用WSL</a></h3>
+<h4 id="启动和停止wsl"><a class="header" href="#启动和停止wsl">启动和停止WSL</a></h4>
+<pre><code class="language-powershell">wsl --user root  # 以指定用户身份运行
+wsl --exec cmd   # 不启动shell运行命令
+wsl --distribution,-d &lt;distname&gt;  # 运行指定发行版
+wsl --shutdown                 # 终止所有正在运行WSL2实例
+wsl --terminate  &lt;dist-name&gt;   # -t, 终止指定发行版
+</code></pre>
+<h4 id="windows下执行wsl命令"><a class="header" href="#windows下执行wsl命令">Windows下执行WSL命令</a></h4>
+<p>不启动WSL终端，直接运行命令：</p>
+<pre><code class="language-powershell">wsl [wsl_opts] -- [linux_args]
+# wsl -- ip a '|' grep -E 'inet.*eth0'
+</code></pre>
+<h4 id="文件共享"><a class="header" href="#文件共享">文件共享</a></h4>
+<p>本地磁盘位于<code>/mnt</code>目录下，例如<code>C</code>盘位于<code>/mnt/c</code>。</p>
+<p>文件权限：WSL挂载的Windows目录权限均为<code>777</code>（WSL也不能改动该目录中的内容的权限），代表WSL未对该目录做任何权限控制，其实际权限由Windows文件系统决定。</p>
+<blockquote>
+<p>某些应用要令其某些文件的权限为特定值，如果设置失败会产生异常。</p>
+</blockquote>
+<h4 id="开发环境"><a class="header" href="#开发环境">开发环境</a></h4>
+<p>Visual Studio Code server：在WSL中运行<code>code</code>便可以从Windows中启动VS Code Remote Extension连接至WSL。 </p>
+<h2 id="qemu"><a class="header" href="#qemu">QEMU</a></h2>
+<p>QEMU目前支持模拟的架构包括ARM、CRIS、i386、M68k (ColdFire)、MicroBlaze、MIPS、PowerPC、SH4、SPARC和x86-64。</p>
+<blockquote>
+<p><em>In <strong>system emulation</strong> mode QEMU emulates a full system, including a processor and various peripherals.</em></p>
+<p><em>In <strong>user mode</strong>, QEMU can launch Linux processes compiled for one CPU on another CPU.</em></p>
+</blockquote>
+<h3 id="安装-1"><a class="header" href="#安装-1">安装</a></h3>
+<h4 id="linuxapt"><a class="header" href="#linuxapt">Linux/apt</a></h4>
+<p>QEMU包含多个架构的模拟功能，而用户通常不会使用到所有架构，因此只需要安装对应架构的包<code>qemu-system-ARCH</code>。如果要使用用户模式模拟，则安装<code>qemu-user</code>或<code>qemu-user-static</code>。</p>
+<pre><code class="language-shell">sudo apt install qemu-system     # full installation
+sudo apt install qemu-system-arm # only specific architecture
+sudo apt install qemu-system-gui qemu-utils ipxe-qemu \
+                 qemu-efi-aarch64 qemu-efi-arm
+</code></pre>
+<blockquote>
+<p><code>qemu-system</code>包含以下架构的包：<code>arm, mips, ppc, sparc, x86, s390x, misc</code>。</p>
+<p><code>qemu-system-arm</code>支持<code>aarch64</code>（64位）和<code>arm</code>（32位）架构。</p>
+<p><code>qemu-system-x86</code>支持<code>x86_64</code>（64位）和<code>i386</code>（32位）架构。</p>
+<ul>
+<li><code>qemu-kvm</code>在（<code>x86</code>机器）KVM模式下运行<code>qemu-system-x86</code>（后向兼容）；</li>
+<li><code>qemu-system-x86-microvm</code>裁剪了大量功能提供轻量容器用于KVM隔离（常规用途使用<code>qemu-system-x86</code>）;</li>
+<li><code>qemu-system-x86-xen</code>：<em>run Xen in HVM mode.</em></li>
+</ul>
+<p><code>qemu-system-gui</code>提供（GTK）图形界面。</p>
+<p><code>qemu-utils</code>提供虚拟磁盘镜像工具、网络磁盘访问等工具。</p>
+<p><code>qemu-efi-aarch64</code>提供BIOS固件，支持包含安全启动的UEFI。</p>
+</blockquote>
+<h5 id="安装管理工具"><a class="header" href="#安装管理工具">安装管理工具</a></h5>
+<pre><code class="language-shell">sudo apt install libvirt-daemon-system libvirt-clients bridge-utils
+sudo apt install virt-manager
+</code></pre>
+<blockquote>
+<p><em>Libvirt is a C toolkit to interact with the virtualization capabilities
+of recent versions of Linux (and other OSes). The library aims at providing
+a long term stable C API for different virtualization mechanisms. It currently
+supports QEMU, KVM, XEN, OpenVZ, LXC, and VirtualBox.</em></p>
+<p><em><code>libvirt-daemon-system</code> contains the configuration files to run the <code>libvirt</code> daemon as a system service.</em>
+<em><code>libvirt-clients</code> contains the libvirt shell <code>virsh</code> and other client binaries.</em>
+<em><code>bridge-utils</code> contains utilities for configuring the Linux Ethernet
+bridge in Linux.</em></p>
+<p><em><code>virt-manager</code> presents a summary view of running domains and their live performance &amp; resource utilization statistics. A detailed view presents graphs showing performance &amp; utilization over time. Ultimately it will allow creation of new domains, and configuration &amp; adjustment of a domain's resource allocation &amp; virtual hardware.  Finally an embedded VNC client viewer presents a full graphical console to the guest domain.</em></p>
+</blockquote>
+<h3 id="创建虚拟机"><a class="header" href="#创建虚拟机">创建虚拟机</a></h3>
+<p>创建磁盘镜像：</p>
+<pre><code class="language-powershell">qemu-img create --format &quot;raw|qcow2&quot; arm64linux.img 40G
+</code></pre>
+<p>创建虚拟机：</p>
+<pre><code class="language-powershell">qemu-system-aarch64.exe \
+  -M virt \
+	-bios QEMU_EFI.fd \
+	-cpu cortex-a72 -smp 4,cores=4,threads=1,sockets=1 \
+	-m 8192 \
+	-netdev tap,id=mynet0,ifname=tap1 \
+  -device e1000,netdev=mynet0,mac=52:55:00:d1:55:01 \
+	-device nec-usb-xhci \
+	-device usb-kbd \
+	-device usb-mouse \
+	-device VGA \
+	-device virtio-scsi-device \
+	-device virtio-blk-device,drive=hd0 \
+	-drive if=none,file=arm64linux.img,id=hd0 \
+	-device scsi-cd,drive=cdrom \
+	-drive if=none,file=Kylin-Server-10-SP1-Release-Build04-20200711-arm64.iso,id=cdrom,media=cdrom
+</code></pre>
+<p>启动虚拟机时，无需再指定CD驱动器设备；可重新指定虚拟网卡(<code>tap</code>)。</p>
+<h4 id="虚拟机网络配置"><a class="header" href="#虚拟机网络配置">虚拟机网络配置</a></h4>
+<p>需要为虚拟机添加虚拟网络设备，否则虚拟机启动后无法与宿主机进行通信，仅能通过QEMU提供的终端操作虚拟机。创建虚拟机时指定以下选项以创建虚拟网络设备：</p>
+<pre><code class="language-shell">-netdev tap,id=mynet0,ifname=tap1 # 指定虚拟网络设备类型、名称和ID
+-device e1000,netdev=mynet0       # 指定虚拟机网络设备对应的虚拟网络设备
+</code></pre>
+<blockquote>
+<p><code>-device</code>还可添加附加参数：<code>mac=52:55:00:d1:55:01</code>。</p>
+</blockquote>
+<h5 id="创建windows-tap网络接口"><a class="header" href="#创建windows-tap网络接口">创建Windows Tap网络接口</a></h5>
+<ul>
+<li>在Windows主机上安装TAP网卡驱动：可下载openvpn客户端软件，只安装其中的TAP驱动；在网络连接中，会看到一个新的虚拟网卡，属性类似于<code>TAP-Windows Adapter V9</code>，将其名称修改为<code>tap0</code>。</li>
+<li>将虚拟网卡和Windows上真实网卡桥接：选中这两块网卡并桥接生成网桥。==生成的网桥将使用所选的第一个设备的物理信息作为外部接口信息==。</li>
+</ul>
+<h5 id="创建linux虚拟网桥和tap网络接口"><a class="header" href="#创建linux虚拟网桥和tap网络接口">创建Linux虚拟网桥和Tap网络接口</a></h5>
+<p>以管理员身份运行以下命令，<a href="https://wiki.qemu.org/Documentation/Networking">创建虚拟网桥和Tap接口</a>。</p>
+<pre><code class="language-shell">ip link add br0 type bridge          # 创建虚拟网桥 =&gt; brctl addbr br0
+ip addr delete IP/MASK dev eth0      # 删除主机连接的IP =&gt; ip addr flush dev eth0
+ip link set dev eth0 master br0      # 将主机连接绑定到网桥 =&gt; brctl addif br0 eth0
+ip addr add IP/MASK dev br0          # 为网桥添加IP地址,或自动分配 dhclient -v br0
+ip link set br0 up                   # 启用网桥 =&gt; ifconfig br0/tap1/eth0 up
+ip route add default via IP dev br0  # 主机通过网桥访问网络
+
+ip tuntap add dev tap1 mode tap      # 创建tap接口
+ip link set dev tap0 master br0      # 将tap接口绑定到网桥 =&gt; brctl addif br0 tap1
+</code></pre>
+<blockquote>
+<p><em><code>ifconfig</code>, <code>tunctl</code> and <code>brctl</code> are mostly considered deprecated nowadays</em>.</p>
+</blockquote>
+<p>查看网桥和接口信息：</p>
+<pre><code class="language-shell">brctl show               # show bridge information
+ip link show qemu_bridge # show link information of bridge
+ip link show qemu_tap1   # show link information of tap interface
+</code></pre>
+<p>虚拟网桥通过数据链路层协议(Ethernet)连接物理接口和虚拟接口构成虚拟网络，同时网桥也承载主机的IP协议栈以代替主机原有的网络连接(<code>eth0</code>)提供主机的网络服务。</p>
+<img src="虚拟化.assets/linux_vbridge_tap.jpg" alt="img" style="zoom: 80%;" />
+<p>Tap网络接口则通过虚拟网桥复用物理接口：网桥从主机的上层协议接收的数据以及其他Tap接口接收到的外发数据将转发给物理接口，物理接口执行外发操作；对于接收数据，物理接口将数据转发给网桥，网桥根据MAC地址按端口进行转发。（通常，一个物理网卡应该只与一个虚拟网桥连接）</p>
+<h2 id="参考文献"><a class="header" href="#参考文献">参考文献</a></h2>
+<div class="footnote-definition" id="WSL"><sup class="footnote-definition-label">1</sup>
+<p><a href="https://docs.microsoft.com/en-us/windows/wsl/install">Install WSL | Microsoft Docs</a>.
+<sup class="footnote-reference"><a href="#WSL-mannual">2</a></sup>: <a href="https://docs.microsoft.com/en-us/windows/wsl/install-manual">Manual installation steps for older versions of WSL | Microsoft Docs</a>.</p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../服务器/容器编排.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../服务器/Airflow.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../服务器/容器编排.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../服务器/Airflow.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

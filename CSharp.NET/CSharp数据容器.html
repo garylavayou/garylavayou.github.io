@@ -1,0 +1,588 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>数据容器 - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html" class="active">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="c数据容器"><a class="header" href="#c数据容器">C#数据容器</a></h1>
+<h2 id="字符串string"><a class="header" href="#字符串string">字符串(String)</a></h2>
+<h5 id="构造"><a class="header" href="#构造">构造</a></h5>
+<pre><code class="language-c#">string str = &quot;this is a string&quot;;  //使用字面值初始化；
+str = new string(charr_array); //使用字符数组初始化；
+str = new string(ch, n);  // 重复字符n次；
+</code></pre>
+<h3 id="查找"><a class="header" href="#查找">查找</a></h3>
+<pre><code class="language-c#">tf = name.StartsWith(&quot;B&quot;)
+</code></pre>
+<h4 id="正则表达式"><a class="header" href="#正则表达式">正则表达式</a></h4>
+<pre><code class="language-c#">Regex in System.Text.RegularExpressions
+Regex.Match()
+</code></pre>
+<h3 id="运算"><a class="header" href="#运算">运算</a></h3>
+<p><code>String</code>类有很多字符串修改方法，但是<code>String</code>对象本身是不会改变的；修改的结果由返回值返回,只能对变量进行重新复制，让它指向内存中的另一块区域。</p>
+<p>要在源字符串直接做修改，则改用<a href="#StringBuilder"><code>StringBuilder</code>类</a>。</p>
+<h5 id="拼接"><a class="header" href="#拼接">拼接</a></h5>
+<p>使用<code>+</code>或<code>Concat</code>方法，将对象的字符串表示（<code>ToString()</code>）拼接形成一个字符串。</p>
+<pre><code class="language-c#">String.Concat(obj1,obj2,...);
+String.Concat({obj1,obj2,....})
+</code></pre>
+<p><code>+</code>运算符作用对象包含字符串时，作为拼接运算符。</p>
+<h5 id="字符串内插"><a class="header" href="#字符串内插">字符串内插</a></h5>
+<pre><code class="language-c#">string greeting = 'Hello', firstName = 'Bob';
+string message = $&quot;{greeting} {firstName}!&quot;;
+</code></pre>
+<blockquote>
+<p>可以同时使用逐字文本前缀符号 <code>@</code> 和字符串内插 <code>$</code> 符号。</p>
+</blockquote>
+<h3 id="格式化"><a class="header" href="#格式化">格式化</a></h3>
+<p>使用格式声明对参数进行格式化并输出字符串。</p>
+<pre><code class="language-c#">String.Format(&quot;{0}...{1}...&quot;, arg1, arg2, ...)
+</code></pre>
+<blockquote>
+<p>支持格式化语法的类似方法包括：<code>StringBuilder.AppendFormat</code>、<code>Console.WriteLine</code>、<code>TextWriter.WriteLine</code>、<code>Debug.WriteLine</code>等。</p>
+</blockquote>
+<h6 id="复合格式声明"><a class="header" href="#复合格式声明">复合格式声明</a></h6>
+<p>复合格式由参数索引，对齐声明和格式声明组成）。</p>
+<pre><code class="language-c#">{ index[,[+-]alignment][:formatString]}
+</code></pre>
+<p>多个格式项可以引用同一个参数，索引顺序与参数顺序无关。</p>
+<p>对齐方式：<code>alignment</code>的绝对值代表了字符串的最小长度（字符串长度超过该值，则<code>alignment</code>无效）；正值代表右对齐，负值代表左对齐，如果需要则填充空白。</p>
+<p>不同类型的对象有不同的格式声明（格式声明在不同国家/语言有不同输出），其中：
+标准数字格式包括：</p>
+<div class="table-wrapper"><table><thead><tr><th>格式</th><th>名称</th><th>说明</th></tr></thead><tbody>
+<tr><td>`C</td><td>c[n]`</td><td>货币格式</td></tr>
+<tr><td>`D</td><td>d[n]`</td><td>整型数字</td></tr>
+<tr><td>`E</td><td>e[n]`</td><td>指数计数法</td></tr>
+<tr><td>`F</td><td>f[n]`</td><td>定点计数法</td></tr>
+<tr><td>`G</td><td>g[n]`</td><td>科学计数法</td></tr>
+<tr><td>`P</td><td>p[n]`</td><td>百分比</td></tr>
+<tr><td>`X</td><td>x`</td><td>十六进制整型</td></tr>
+</tbody></table>
+</div>
+<p>自定义数值格式：</p>
+<p>标准日期和时间：</p>
+<div class="table-wrapper"><table><thead><tr><th>格式</th><th>说明</th><th>示例</th></tr></thead><tbody>
+<tr><td><code>d</code></td><td>短日期</td><td><code>6/15/2009</code></td></tr>
+<tr><td><code>D</code></td><td>长日期</td><td><code>Monday, June 15, 2009</code></td></tr>
+<tr><td><code>g</code></td><td>短日期时间</td><td><code>6/15/2009 1:45 PM</code></td></tr>
+<tr><td><code>G</code></td><td>长日期时间</td><td><code>6/15/2009 1:45:30 PM</code></td></tr>
+</tbody></table>
+</div>
+<p>自定义日期和时间类型：获取日期时间中的字段</p>
+<div class="table-wrapper"><table><thead><tr><th>格式</th><th>说明</th><th>格式</th><th>说明</th></tr></thead><tbody>
+<tr><td><code>y/yy</code></td><td>year(<code>0-99</code>/<code>00-99</code>)</td><td><code>yyyy</code></td><td>year(<code>0000-9999</code>)</td></tr>
+<tr><td><code>M/MM</code></td><td>month(<code>1-12</code>/<code>01-12</code>)</td><td><code>MMM/MMMM</code></td><td>month name (short/long)</td></tr>
+<tr><td><code>d/dd</code></td><td>day-of-month</td><td></td><td></td></tr>
+<tr><td><code>ddd</code></td><td>day-of-week, short (<code>Mon</code>)</td><td><code>dddd</code></td><td>day-of-week, long (<code>Monday</code>)</td></tr>
+<tr><td><code>h/hh</code></td><td>hour(<code>1-12</code>/<code>01~12</code>)</td><td><code>H/HH</code></td><td>hour(<code>0-23</code>/<code>01-23</code>)</td></tr>
+<tr><td><code>m/mm</code></td><td>minute(<code>0-59/00-59</code>)</td><td></td><td></td></tr>
+<tr><td><code>s/ss</code></td><td>second(<code>0-59</code>/<code>00-59</code>)</td><td></td><td></td></tr>
+<tr><td><code>t/tt</code></td><td>AM/PM</td><td></td><td></td></tr>
+<tr><td><code>g/gg</code></td><td><code>A.D.</code> or <code>B.C.</code></td><td><code>f/ff/fff/...</code></td><td><code>.x</code>/<code>.xx</code>/<code>.xxx</code>/<code>...</code> seconds</td></tr>
+<tr><td><code>K</code></td><td>time zone</td><td><code>z/zz</code></td><td>timezone hour offset</td></tr>
+<tr><td><code>:</code></td><td>时间分隔符</td><td><code>/</code></td><td>日期分隔符</td></tr>
+</tbody></table>
+</div>
+<p>TimeSpan类型</p>
+<p>枚举类型</p>
+<ol>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/standard-numeric-format-strings">标准数字格式字符串</a>。</li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/standard-date-and-time-format-strings">标准日期和时间格式字符串</a>。</li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/custom-date-and-time-format-strings">自定义日期和时间格式字符串</a>。</li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/standard-timespan-format-strings">标准 TimeSpan 格式字符串</a>。</li>
+</ol>
+<h5 id="比较"><a class="header" href="#比较">比较</a></h5>
+<pre><code class="language-c#">bool Equals(string value, StringComparison comparisonType);
+bool EndsWith(string value, comparisonType)
+</code></pre>
+<p><code>comparisonType</code>：比较规则包括<code>{Ordinal, OrdinalIgnoreCase }</code>。当调用字符串比较函数如<code>String.Compare</code>、<code>String.Equals</code>、<code>String.IndexOf</code>，应该总是使用带有<code>comparisonType</code>的函数指定比较规则。省略<code>comparisonType</code>，则该方法按照<code>Ordinal</code>规则（case-sensitive和culture-insensitive）进行比较。</p>
+<h3 id="stringbuilder"><a class="header" href="#stringbuilder">StringBuilder</a></h3>
+<pre><code class="language-c#">StringBuilder str = new StringBuilder();
+str.Append(value);
+</code></pre>
+<h3 id="编码"><a class="header" href="#编码">编码</a></h3>
+<p><code>Encoding</code></p>
+<h2 id="数组"><a class="header" href="#数组">数组</a></h2>
+<p>数组是用于存储多个同一类型变量的数据结构。数组是引用类型，派生于抽象基类Array类，所以数组也能当做类来使用。</p>
+<h3 id="声明"><a class="header" href="#声明">声明</a></h3>
+<p>声明数组：</p>
+<pre><code class="language-c#">type[] arrayname;  // 1-D
+type[,,,...] arrayname; // multi-dimension array
+</code></pre>
+<p>数组的类型由值类型<code>type</code>和“<code>[]</code>”指定的维数决定。数组元素的类型可以是基本类型也可以是引用类型（甚至可以是数组类型）。数组的维数根据“<code>[]</code>”中的“<code>,</code>”的个数确定，<code>维数=逗号个数+1</code>。</p>
+<p>数组初始化时的维度应该与数组声明一致，也可以将数组的声明和初始化放到一起。</p>
+<pre><code class="language-c#">type[] arrayname = new type[size]；// initialize as default
+</code></pre>
+<p>数组在初始化时确定其维数和长度，且不能在实例存在期间修改。</p>
+<p><strong>数组的每个维度的长度或初始化列表可以省略，但两者不能同时省略</strong>：如果省略初始化列表则使用元素类型的默认值初始化数组；如果省略长度，则根据初始化列表元素的长度确定数组的长度；如果<strong>两者同时给出，则必须保证维数和长度声明与初始化列表一致</strong>。</p>
+<pre><code class="language-c#">arrayname = new type[size]{initialize_list};
+arrayname = new type[m,n]{{list1},{list2},...{listm}};
+arrayname = new type[,]{{list1},{list2},...{listm}};
+arrayname = {{list1},{list2},...{listm}};
+</code></pre>
+<h3 id="锯齿数组"><a class="header" href="#锯齿数组">锯齿数组</a></h3>
+<p>锯齿数组（或称为交错数组）的每个元素是数组。</p>
+<pre><code class="language-c#">type [,...][,...] arrayname;
+</code></pre>
+<p>声明中，第一个<code>[,...]</code>是锯齿数组的维度声明，第二个是锯齿数组元素的维度声明。虽然每个子数组的维数由声明确定，但是在初始化时，子数组之间各相应维度的长度可以各不相同，因此称为锯齿/交错数组。使用初始化列表赋值：</p>
+<pre><code class="language-c#">int[][,] jag_array = { // 使用初始化列表
+    new int[,]{{1,2,3},{2,4,1}},
+    new int[,]{{2,1},{4,2}},
+    new int[,]{{1,3,5},{2,1,3},{3,4,5}}
+    ...
+};
+int[][,] jag_array = new int[M][,]{...}
+</code></pre>
+<p>先使用<code>new</code>初始化交替数组本身，再初始化数组的每个元素：</p>
+<pre><code class="language-c#">int[][] jag_array = new int[M][];
+for(int i=0; i&lt;M; ++i){ //对每个元素逐个赋值
+    jag_array[i] = new int[len_i];
+}
+</code></pre>
+<p>可以定义高维的锯齿数组：：</p>
+<pre><code class="language-c#">int[,][] multi_array = {
+    {new int[]{1,2,3}, new int[]{2,1}},
+    {new int[]{1,3}, new int[]{2,1,3}}
+};
+</code></pre>
+<h3 id="数组访问"><a class="header" href="#数组访问">数组访问</a></h3>
+<p><strong>下标</strong></p>
+<p>普通数组的访问方法是<code>array[i,j,...]</code>。</p>
+<p>交错数组的访问方法是<code>array[i][j,k,...]</code>。</p>
+<p><strong>迭代</strong></p>
+<p>使用循环语句<code>for</code>。</p>
+<pre><code class="language-c#">// 普通数组
+for(int i = 0; i&lt;M; ++i){
+    for(int j=0; j&lt;M; ++j){
+        Console.Write(&quot;{0:G} &quot;, array2d[i,j])
+    }
+}
+</code></pre>
+<p>使用<code>foreach</code>语句，高维数组视为一维数组迭代。</p>
+<pre><code class="language-c#">foreach(int x in array2d){
+    Console.Write(&quot;{0:G} &quot;, x)
+}
+</code></pre>
+<blockquote>
+<p><code>foreach</code>只能读元素，而不能修改数组。</p>
+</blockquote>
+<h5 id="数组维数和长度"><a class="header" href="#数组维数和长度">数组维数和长度</a></h5>
+<pre><code class="language-c#">array.Length;	// 数组的元素总数
+array.GetLength(dim);  //数组的一个维度的长度；
+</code></pre>
+<h2 id="容器"><a class="header" href="#容器">容器</a></h2>
+<h3 id="容器类型"><a class="header" href="#容器类型">容器类型</a></h3>
+<h4 id="泛型和非泛型容器"><a class="header" href="#泛型和非泛型容器">泛型和非泛型容器</a></h4>
+<p><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/generics/">泛型</a>容器（<code>System.Collections.Generic</code>）用于储存同一类型的元素，<strong>具有强类型要求</strong>，从而提供更好的类型安全以及更好的性能。</p>
+<p>非泛型容器（<code>System.Collections</code>）存储的元素不要求特定的类型，所有元素都当作<code>Object</code>对象。非泛型集合（如 <code>ArrayList</code>）不建议使用，并且保留用于兼容性目的。大多数非泛型版本容器都不支持应用商店应用。</p>
+<div class="table-wrapper"><table><thead><tr><th>容器名</th><th>泛型</th><th>非泛型</th><th>说明</th></tr></thead><tbody>
+<tr><td>列表</td><td><code>List&lt;T&gt;</code></td><td><a href="#arraylist"><code>ArrayList</code></a></td><td>容器的大小可以增加或减小。提供查找、排序和修改等等方法。</td></tr>
+<tr><td>链表</td><td><code>LinkedList&lt;T&gt;</code></td><td></td><td></td></tr>
+<tr><td>有序列表</td><td><code>SortedList&lt;Tk, Tv&gt;</code></td><td><code>SortedList</code></td><td>使用<code>ICompare</code>接口根据对元素进行排序。</td></tr>
+<tr><td>队列</td><td><code>Queue&lt;T&gt;</code></td><td><code>Queue</code></td><td>具有先进先出（FIFO）操作规则。</td></tr>
+<tr><td>栈</td><td><code>Stack&lt;T&gt;</code></td><td><code>Stack</code></td><td></td></tr>
+<tr><td>映射</td><td><code>Dictionary&lt;Tk,Tv&gt;</code></td><td><code>HashTable</code></td><td>基于键值或Hash值索引元素。</td></tr>
+<tr><td>有序映射</td><td><code>SortedDictionary&lt;Tk, Tv&gt;</code></td><td></td><td></td></tr>
+<tr><td>集合</td><td><code>HashSet&lt;T&gt;</code></td><td></td><td></td></tr>
+<tr><td>有序集合</td><td><a href="https://msdn.microsoft.com/en-us/library/dd412070(v=vs.110).aspx"><code>SortedSet&lt;T&gt;</code></a></td><td></td><td></td></tr>
+</tbody></table>
+</div>
+<h4 id="专用容器"><a class="header" href="#专用容器">专用容器</a></h4>
+<p><code>System.Collections.Specialized</code></p>
+<p>包含专用的强类型的结合。例如：链表字典，位向量，字符串容器。</p>
+<h4 id="并发容器"><a class="header" href="#并发容器">并发容器</a></h4>
+<p><code>System.Collections.Concurrent</code></p>
+<p>提供高效地线程安全的容器访问操作。当从多线程访问容器时，应该使用本空间中的对应容器类型代替<code>System.Collections.Generic</code>和<code>System.Collections</code>中的类型。</p>
+<h3 id="容器公共特性"><a class="header" href="#容器公共特性">容器公共特性</a></h3>
+<p>容器基于<code>ICollection</code>、<code>IList</code>和<code>IDictionary</code>接口及其泛型版本。<code>IList</code>和<code>IDictionary</code>派生自<code>ICollection</code>。</p>
+<p>容器接口包括：</p>
+<ul>
+<li>
+<p><code>ICollection&lt;T&gt;</code></p>
+</li>
+<li>
+<p><code>IList&lt;T&gt;</code></p>
+</li>
+<li>
+<p><code>IDictionary&lt;T&gt;</code></p>
+</li>
+<li>
+<p><code>IComparer&lt;T&gt;</code></p>
+</li>
+<li>
+<p><code>IEqualityComparer&lt;T&gt;</code></p>
+</li>
+<li>
+<p><code>IEnumerator&lt;T&gt;</code></p>
+</li>
+<li>
+<p><code>ISet&lt;T&gt;</code></p>
+</li>
+</ul>
+<h4 id="枚举元素"><a class="header" href="#枚举元素">枚举元素</a></h4>
+<p>容器类型继承<code>IEnumerable</code>/<code>IEnumerable&lt;T&gt;</code>，因此可以通过<code>foreach</code>语句进行枚举。继承自<code>IEnumerable&lt;T&gt;</code>的容器还可以通过<code>LINQ</code>进行查询。<code>LINQ</code>通常更简洁且可读性更强，提供筛选、排序以及分组能力，且能提高性能。</p>
+<h4 id="复制到数组"><a class="header" href="#复制到数组">复制到数组</a></h4>
+<p>通过<code>CopyTo</code>方法将元素按照枚举顺序复制到一维数组中。</p>
+<h4 id="容量和计数"><a class="header" href="#容量和计数">容量和计数</a></h4>
+<ul>
+<li>
+<p><code>Capacity</code></p>
+<p>在不重新分配空间前，容器的容量。<code>Capacity</code>不应该设置为比<code>Count</code>小的值，否则引发异常（<code>ArgumentOutOfRangeException</code>）。</p>
+</li>
+<li>
+<p><code>Count</code></p>
+<p>容器包含元素的数量。</p>
+</li>
+</ul>
+<h4 id="一致的下界"><a class="header" href="#一致的下界">一致的下界</a></h4>
+<p>元素从0起索引。Array可以自定义起始索引。</p>
+<h4 id="比较-1"><a class="header" href="#比较-1">比较</a></h4>
+<p>Contains, IndexOf,
+<code>LastIndexOf</code>以及<code>Remove</code>等方法使用等式比较。泛型容器的比较方案：如果类型T继承了<code>IEquatable\&lt;T\&gt;</code>接口，则使用接口的<code>Equals</code>函数；否则使用<code>Object.Equals</code>。</p>
+<h4 id="排序顺序"><a class="header" href="#排序顺序">排序顺序</a></h4>
+<p><code>BinarySearch</code>和<code>Sort</code>使用一个顺序比较器，用于比较容器的元素或与给定的值比较。</p>
+<p>default
+comparer：依赖参与比较的对象至少有一个实现了IComparable接口。泛型类型的比较器方案：如果T实现了IComparable&lt;T&gt;接口，则默认比较器为IComparable&lt;T&gt;.CompareTo(T)；如果T实现了IComparable接口，则默认比较器为IComparable.CompareTo(T)；如果T没有实现以上接口，则必须显示提供比较器。</p>
+<h3 id="元素排序"><a class="header" href="#元素排序">元素排序</a></h3>
+<ul>
+<li><code>SortedList</code>/
+<code>SortedList&lt;TKey, TValue&gt;</code>、<code>SortedDictionary&lt;TKey, TValue&gt;</code></li>
+</ul>
+<blockquote>
+<p>实现<code>IDictionary</code>/``IDictionary&lt;TKey, TValue&gt;`接口，每个元素是key/value对。</p>
+<p>元素根据<code>ICompare</code>/<code>ICompare&lt;T&gt;</code>接口排序。</p>
+<p>每个类提供仅返回key或value的属性。</p>
+</blockquote>
+<ul>
+<li><code>HashTable</code>/<code>Dictionary&lt;TKey,TValue&gt;</code></li>
+</ul>
+<blockquote>
+<p>按key排序。</p>
+</blockquote>
+<h3 id="迭代器"><a class="header" href="#迭代器">迭代器</a></h3>
+<p>迭代器用于容器的迭代访问操作。</p>
+<p>使用<code>foreach</code>语句来调用迭代器。</p>
+<p>访问容器的接口</p>
+<h3 id="容器相关操作"><a class="header" href="#容器相关操作">容器相关操作</a></h3>
+<h4 id="queue"><a class="header" href="#queue">Queue</a></h4>
+<ul>
+<li>Dequeue/Enqueue</li>
+</ul>
+<h4 id="stack"><a class="header" href="#stack">Stack</a></h4>
+<ul>
+<li>
+<p>Push/Pop</p>
+<p>Peek</p>
+</li>
+</ul>
+<h2 id="linq"><a class="header" href="#linq">LINQ</a></h2>
+<p>You can write LINQ queries in C# with SQL Server databases, XML documents, ADO.NET Datasets, and any collection of objects that <strong>supports <code>IEnumerable</code> or the generic <code>IEnumerable&lt;T&gt;</code> interface.</strong></p>
+<p>All LINQ query operations consist of three distinct actions:</p>
+<ol>
+<li>
+<p>Obtain the data source.</p>
+</li>
+<li>
+<p>Create the query.</p>
+</li>
+<li>
+<p>Execute the query.</p>
+</li>
+</ol>
+<h3 id="数据源data-source"><a class="header" href="#数据源data-source">数据源(Data Source)</a></h3>
+<p>LINQ数据源可以是支持<code>IEnumerable&lt;T&gt;</code>接口以及继承该接口的任何实例。支持<code>IEnumerable&lt;T&gt;</code>及其派生接口（如<code>IQueryable&lt;T&gt;</code>）的类型被称为<strong>可查询类型</strong>。</p>
+<p><code>Enumerable</code>类提供一组用于查询实现<code>IEnumerable&lt;T&gt;</code>的对象的静态方法。</p>
+<p>XElement</p>
+<p>Northwnd</p>
+<h3 id="查询"><a class="header" href="#查询">查询</a></h3>
+<p>查询语法：从对象序列中查询满足条件的对象，并返回筛选结果。</p>
+<pre><code class="language-c#">var seattleCustomers = from customer in customers
+                       where customer.City == &quot;Seattle&quot;
+			              [orderby customer.ID]
+                       select customer.Name;   // or select customer
+</code></pre>
+<blockquote>
+<p><code>from</code>指定数据源；<code>where</code>应用过滤条件；<code>select</code>语句指定返回元素的类型。</p>
+</blockquote>
+<pre><code class="language-c#">var localDistributors =
+    from customer in customers
+    join distributor in distributors on customer.City equals distributor.City
+    select new { Customer = customer, Distributor = distributor.ID };
+</code></pre>
+<blockquote>
+<p>return a new type</p>
+</blockquote>
+<pre><code class="language-c#">var scoreQuery = from student in students
+                 from score in student.Scores
+                 where score &gt; 90
+                 select new { Last = student.LastName, score };
+</code></pre>
+<h3 id="执行查询"><a class="header" href="#执行查询">执行查询</a></h3>
+<h4 id="延迟执行"><a class="header" href="#延迟执行">延迟执行</a></h4>
+<p>查询变量本身只储存查询命令，当通过<code>foreach</code>语句对查询变量进行迭代时，才真正执行查询。</p>
+<h4 id="强制立即执行"><a class="header" href="#强制立即执行">强制立即执行</a></h4>
+<p>统计函数：<code>Count</code>、<code>Max</code>、<code>Average</code>、<code>First</code></p>
+<p>强制执行：<code>ToList()</code>或<code>ToArray()</code>;</p>
+<p>在查询语句之后，立即使用<code>foreach</code>语句。</p>
+<h2 id="list"><a class="header" href="#list">List</a></h2>
+<h3 id="list实现的接口"><a class="header" href="#list实现的接口"><code>List</code>实现的接口</a></h3>
+<p><code>IndexOf</code>、<code>LastIndexOf</code>和<code>Remove</code>方法使用类型<code>T</code>的默认比较函数（<code>EqualityComparer&lt;T&gt;.Default</code>属性）判断相等。如果<code>T</code>实现了<code>System.IEquatable&lt;T&gt;</code>接口，则返回包含该接口的<code>EqualityComparer</code>，否则返回包含由<code>T</code>提供的<code>Objects.Equals</code>和<code>Objects.GetHashCode</code>的<code>EqualityComparer</code>。</p>
+<p><code>Contains</code>方法使用默认的相等比较函数判断相等。如果<code>T</code>实现了<code>IEquatable&lt;T&gt;</code>接口，则调用<code>IEquatabale.Equals</code>方法，否则使用<code>Object.Equals</code>。</p>
+<p><code>Sort</code>、<code>BinarySearch</code>使用类型T的默认的比较函数（<code>Comparer&lt;T&gt;.Default</code>属性）。如果<code>T</code>实现了<code>IComparable&lt;T&gt;</code>接口，则默认比较函数为<code>IComparable&lt;T&gt;.CompareTo(T)</code>；否则如果实现了<code>IComparable</code>接口，则默认比较函数是<code>IComparable.CompareTo()</code>；如果<code>T</code>没有实现比较接口，则必须显式提供比较委托。</p>
+<p><code>List</code>允许引用类型取值为<code>null</code>，以及重复元素。</p>
+<h4 id="arraylist"><a class="header" href="#arraylist">ArrayList</a></h4>
+<p>ArrayList的容量是自动扩充的（类似于字符串，与一般数组不同）；</p>
+<p>ArrayList只能是一维的；</p>
+<h3 id="构造函数"><a class="header" href="#构造函数">构造函数</a></h3>
+<pre><code class="language-c#">List&lt;T&gt;()		//with default capacity
+List&lt;T&gt;(Int32 Capacity)
+</code></pre>
+<h3 id="属性"><a class="header" href="#属性">属性</a></h3>
+<pre><code>T this[int index] { get; set; }
+</code></pre>
+<p>按序号访问指定的元素。</p>
+<h3 id="方法"><a class="header" href="#方法">方法</a></h3>
+<h5 id="插入"><a class="header" href="#插入">插入</a></h5>
+<pre><code class="language-c#">void Add( T item );
+void Insert( int index, T item )
+</code></pre>
+<p><code>Add</code>添加元素到列表末尾。</p>
+<p><code>Insert</code>在指定序号处插入元素，指定的序号小于<code>0</code>或大于<code>Count</code>会引发异常（<code>ArgumentOutOfRangeException</code>）。</p>
+<h5 id="删除"><a class="header" href="#删除">删除</a></h5>
+<pre><code class="language-c#">bool Remove( T item );
+int RemoveAll( Predicate&lt;T&gt; match );
+void RemoveAt( int index )
+void Clear();
+void TrimExcess()
+</code></pre>
+<p><code>Remove</code>移除出现的第一个指定元素，如果成功移除返回<code>true</code>；如果指定元素不在列表中或移除失败，返回<code>false</code>。</p>
+<p><code>RemoveAll</code>移除满足条件的所有元素，并返回移除元素的数量。</p>
+<p><code>RemoveAt</code>移除指定位置的元素，指定的序号小于<code>0</code>或大于<code>Count</code>会引发异常（<code>ArgumentOutOfRangeException</code>）。</p>
+<p><code>Clear</code>移除列表中的所有元素。</p>
+<p><code>TrimExcess</code>将列表的容量缩小至元素实际数量。</p>
+<h5 id="查找-1"><a class="header" href="#查找-1">查找</a></h5>
+<pre><code class="language-c#">bool Contains( T item );
+bool Exists( Predicate&lt;T&gt; match );
+T Find( Predicate\&lt;T\&gt; match );  // FindLast
+int FindIndex( Predicate\&lt;T\&gt; match ); // FindLastIndex
+int IndexOf( T item );  // LastIndexOf
+List&lt;T&gt; FindAll( Predicate&lt;T&gt; match );
+</code></pre>
+<p><code>Contains</code>判断一个元素是否包含在列表中。（This method determines equality by using
+the default equality comparer, as defined by the object's
+implementation of the IEquatable&lt;T&gt;.Equals method forT (the type of
+values in the list).）</p>
+<p><code>Exists</code>判断是否存在匹配给定条件的元素。<code>match</code>定义了查找元素的条件。列表的元素分别被传递给<code>match</code>函数，当找到匹配元素时停止操作。</p>
+<p><code>Find</code>查找满足条件的元素并返回第一个元素。</p>
+<p><code>FindAll</code>查找所有满足条件的元素并返回。</p>
+<p><code>FindIndex</code>查找满足条件的元素并返回第一个元素序号。</p>
+<p><code>IndexOf</code>查找指定的元素，并返回第一个元素的序号。</p>
+<h5 id="排序"><a class="header" href="#排序">排序</a></h5>
+<pre><code>void Reverse()
+</code></pre>
+<p>反转整个列表的元素排列顺序。</p>
+<pre><code class="language-c#">void Sort()
+void Sort( Comparison&lt;T&gt; comparison )
+void Sort( IComparer&lt;T&gt; comparer )
+</code></pre>
+<p>使用<code>comparison</code>对列表排序。</p>
+<p>使用<code>comparer</code>进行排序。</p>
+<h2 id="dictionary"><a class="header" href="#dictionary">Dictionary</a></h2>
+<pre><code>System.Collections in mscorlib
+</code></pre>
+<p>代表非一般性的键值对（key/value）的容器。每一个键值对储存在一个<code>DictionaryEntry</code>对象中。</p>
+<p>每个键值对必须具有唯一的键名，实现类型可以决定是否允许键名为null。值可以是null且不要求唯一性。</p>
+<p><code>IDictionary</code>的实现类型分为三类：只读、固定长度、可变长度。</p>
+<h3 id="属性-1"><a class="header" href="#属性-1">属性</a></h3>
+<p>按键名key访问元素：</p>
+<pre><code>Object this[ Object key] { get; set; }
+</code></pre>
+<p>键名和值</p>
+<pre><code class="language-c#">ICollection Keys { get; }
+ICollection Values { get; }
+</code></pre>
+<p>值的顺序与<code>Keys</code>返回的键名的顺序对应。</p>
+<p><code>DictionaryEntry</code>定义字典的键值对。</p>
+<pre><code class="language-c#">Object Key { get; set; }
+Object Value { get; set; }
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../CSharp.NET/CSharp输入输出.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../CSharp.NET/CSharp数值计算.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../CSharp.NET/CSharp输入输出.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../CSharp.NET/CSharp数值计算.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

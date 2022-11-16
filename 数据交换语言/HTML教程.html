@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<!-- 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+-->
+<!-- 文档内容 -->
+<!-- 标签：大小写不敏感，推荐小写  
+  属性：定义在开始标签中。属性值包含在引号中。
+-->
+<!-- 当显示页面时，浏览器会移除源代码中多余的空格和空行。
+  所有连续的空格或空行都会被算作一个空格。
+  需要注意的是，HTML 代码中的所有连续的空行（换行）也被显示为一个空格。 -->
+<html>
+
+<head>
+  <!-- Title: (1) 定义浏览器工具栏中的标题
+        (2) 提供页面被添加到收藏夹时显示的标题
+        (3) 显示在搜索引擎结果中的页面标题 -->
+  <title>HTML教程与实践</title>
+  <!-- 元数据可用于浏览器（如何显示内容或重新加载页面），搜索引擎（关键词），或其他 web 服务。 -->
+  <meta name="keywords" content="HTML, CSS, XML" />
+  <!-- 脚本 -->
+
+  <!-- 外部样式表 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+  -->
+  <!-- 内部样式表 -->
+  <style>
+    #header {
+      background-color: black;
+      color: white;
+      text-align: center;
+      padding: 5px;
+    }
+
+    #nav {
+      line-height: 30px;
+      background-color: #eeeeee;
+      height: 300px;
+      width: 100px;
+      float: left;
+      padding: 5px;
+    }
+
+    #section {
+      width: 350px;
+      float: left;
+      padding: 10px;
+    }
+
+    #footer {
+      background-color: black;
+      color: white;
+      clear: both;
+      text-align: center;
+      padding: 5px;
+    }
+  </style>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+</head>
+
+<!-- 主体 -->
+<!-- 内联样式：使用样式（style）属性，代替了一系列旧属性，包括
+  bgcolor/background, font, align
+ -->
+
+<body style="background-color:gray">
+  <!---背景颜色：旧的bgcolor属性无法在VS Code中预览-->
+  <!-- 背景图片：background -->
+
+  <h1>HTML元素</h1>
+  <ol>
+    <li>块元素（block）自动以换行结束，包括：<code>h1</code>, <code>p</code>, <code>ul</code>, <code>table</code>。</li>
+    <li>内联（inline）元素通常不会以新行开始，包括：<code>img</code>，<code>a</code>，<code>td</code>。</li>
+    <li><code>div</code>是块元素：作为元素容器，用于文档布局，与CSS一起使用设置样式属性。</li>
+    <li><code>span</code>是内联元素：可用作文本容器，与CSS一起使用设置样式属性。</li>
+  </ol>
+
+  <!-- 标题 h1~h6 -->
+  <h1 style="color:blue;font-family:楷体;font-size: 40pt;text-align: center">一级标题</h1>
+
+  <h2 align="center">二级标题</h2>
+  <h3>三级标题</h3>
+  <!-- 段落：浏览器会自动地在段落的前后添加空行 -->
+  <p>
+    我的第一个段落。 <br /> <!-- 换行（空元素） -->
+
+    <ul type="square"> <!-- Unordered List -->
+      <li>Coffee</li>  <!-- List Item -->
+      <li>Milk</li>
+    </ul>
+    <ol type="A">   <!-- Ordered List -->
+      <li>Coffee</li>
+      <li>Milk</li>
+    </ol>
+    预留字符：例如&lt;&gt;，参考<a href="http://www.w3school.com.cn/tags/html_ref_entities.html">HTML实体符号参考手册</a>。
+  </p>
+
+  <h1>文档内容</h1>
+  <h2>图像</h2>
+  <p>
+    <!-- （Inline）图像：同时声明尺寸等
+      alt: 缺失图像的代替信息
+      align：行垂直对齐方式：top\center\bottom
+          段落内的浮动图像：left\right
+      可创建带有可供点击区域的图像地图。
+    -->
+    <img src="w3school.jpg" width="104" height="142" alt="Loss Image" /> <br />
+    <a href="http://www.example.com/"><img src="w3school.jpg" width="104" height="142" alt="Loss Image" /></a>
+  </p>
+
+  <hr /> 水平分割线<br />
+
+  <h2>表格</h2>
+  <!-- 属性：
+    colspan/rowspan：跨行列
+    bgcolor/background：背景颜色/图片
+    align
+  -->
+  <p>
+    <table border="1" frame="hsides">
+      <caption>表格1：我的标题</caption>
+      <tr> <!--table row-->
+        <th bgcolor="blue">A</th> <!--table header-->
+        <th>B</th>
+        <th>C</th>
+      </tr>
+      <tr>
+        <td bgcolor="green" text-align="center">A1</td> <!--table cell-->
+        <td>B1</td>
+        <td>C1</td>
+      </tr>
+      <tr>
+        <td rowspan="2" color="#d65f5f">A23</td>
+        <td>&nbsp;</td>
+        <td>C2</td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center">BC3</td>
+      </tr>
+    </table>
+  </p>
+
+  <h2>公式</h2>
+  MathJax：\(a\ge b\). <br/>
+  \[ax^2+bx+c = 0 \rightarrow x = \frac{-b\pm\sqrt{b^2-4ac}}{2a}. \tag{1}\]
+
+  <h2><a name="labelhyperref"></a> 超链接与引用</a>
+  </h2>
+  <p>
+    <!-- 超链接 （anchor）
+      href: 链接
+        URL格式：scheme://host.domain:port/path/filename
+        URL编码：ASCII charset，使用 "%" 其后跟随两位的十六进制数来替换非ASCII字符。
+                URL不能包含空格，通常使用“+”来替换空格。
+      target：链接的打开方式
+          超链接为文件夹时，应该在末尾添加"/"以减少对服务器的请求。
+      name：书签名（不会显示在页面中），可以在当前的其他位置或其他文档进行引用。
+          通常为标题等创建书签。
+    -->
+    <a href="http://www.w3school.com.cn/tags/html_ref_urlencode.html">URL 编码参考手册</a><br />
+    <a href="http://www.w3school.com.cn" target="_blank" name="booklabel">This is a link</a><br />
+    <a href="#labelhyperref">指向书签</a><br>
+    <a href="./HTML教程.html#booklabel">指向书签</a><br />
+    邮件链接（启动邮件客户端）：
+    <a href="mailto:someone@microsoft.com?subject=Hello%20again">发送邮件</a><br />
+    包含更多信息的邮件链接：
+    <a
+      href="mailto:someone@microsoft.com?cc=someoneelse@microsoft.com&bcc=andsomeoneelse2@microsoft.com&subject=Summer%20Party&body=You%20are%20invited%20to%20a%20big%20summer%20party!">发送邮件！</a>
+
+  </p>
+
+  <h2>表单</h2>
+  <a href="http://www.w3school.com.cn/html/html_forms.asp">HTML表单</a>
+  用于搜集不同类型的用户输入。<br />
+  form.action 属性定义在提交表单时执行的动作。<br />
+  form.method属性规定在提交表单时所用的 HTTP 方法（GET 或 POST）。<br />
+  如果要正确地被提交，每个输入字段必须设置一个 name 属性。<br />
+  用&lt;fieldset&gt;组合表单数据。
+  <p>
+    <form action="http://www.example.com/test.asp" method="post/get" accept-charset="UTF-8"
+      ectype="application/x-www-form-urlencoded" autocomplete="off" novalidate>
+      <input type="text" name="lastname" value="Nixon" size="30" maxlength="50">
+      <input type="password">
+      <input type="checkbox" checked="checked">
+      <input type="radio" checked="checked">
+      <input type="submit">
+      <input type="reset">
+      <input type="hidden">
+      <select>
+        <option>Apples
+        <option selected>Bananas
+        <option>Cherries
+      </select>
+      <br />
+      <textarea name="Comment" rows="10" cols="40"></textarea>
+    </form>
+  </p>
+
+  <h1>格式</h1>
+  <h2>颜色</h2>
+  RGB值：#FFFFFF，RGB(255,255,255)<br />
+  颜色名：标准颜色名：aqua, black, blue, fuchsia, gray, green, lime, maroon, navy, olive, purple, red, silver, teal, white,
+  yellow，<a href="http://www.w3school.com.cn/html/html_colornames.asp">其他颜色名</a><br />
+
+  <h2>格式化文本</h2>
+  <p>
+    <b> Bold text. <br /> </b>
+    <strong> Strong text. <br /> </strong>
+    <big> Big text. </big> Normal text. <small> Small text.</small> <br />
+    <em> Emphasis text. <br /> </em>
+    <i> Italic text. <br /> </i>
+    Text followed by <sup>superscript</sup> and <sub>subscript</sub>. <br />
+    <del>删除线</del>
+    <pre>
+预格式文本：
+  它保留了      空格
+和换行。
+    </pre>
+    计算机代码相关格式: <br />
+    代码：<code>
+      #include "stdio.h" <br/>
+    </code>
+    键盘输入：<kbd> keboard input <br /> </kbd>
+    打字机字体：<tt>monospace font type <br /> </tt>
+    示例：<samp>Sample text <br /> </samp>
+    变量：<var>a<sub>i</sub><sup>x</sup> <br /> </var>
+    <br />
+    地址：
+    <address>
+      Written by <a href="mailto:webmaster@example.com">Donald Duck</a>.<br>
+      Visit us at:<br>
+      Example.com<br>
+      Box 564, Disneyland<br>
+      USA
+    </address>
+    <br />
+    引用：<q>短引用</q> <br />
+    <blockquote>
+      浏览器会插入换行和外边距: 这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。
+    </blockquote>
+  </p>
+  <h2>转义字符</h2>
+	<p>
+		<code>&ampnbsp   space <br/>
+			  &ampamp    &  <br/>
+			  &amplt     <  <br/>
+			  &ampgt     >  <br/>
+			  &ampquot   "  <br/>
+			  &ampqpos   ' </code>
+	</p>
+	
+  <p>
+    缩写：悬停显示全称。<br />
+    <abbr title="World Health Organization">WHO</abbr> 成立于 1948 年。 <br />
+    <dfn title="World Health Organization">WHO</dfn> 成立于 1948 年。<br />
+    <dfn><abbr title="World Health Organization">WHO</abbr></dfn> 成立于 1948 年。<br />
+    <dfn>WHO</dfn> World Health Organization 成立于 1948 年。<br /><br />
+
+    著作名：<br />
+    <cite>The Scream</cite> by Edward Munch. Painted in 1893.
+  </p>
+
+  <h1>HTML页面布局</h1>
+  <ol>
+    <li>div+CSS</li>
+    <li><a href="https://getbootstrap.com/">Boostrap</a></li>
+    <li><a href="http://www.w3school.com.cn/html/html_frames.asp">框架（Frame）</a>: frameset 和 frame(target)。</li>
+    <li>iframe 用于在网页内显示网页。</li>
+  </ol>
+
+  <div id="header">
+    <h1>City Gallery</h1>
+  </div>
+
+  <div id="nav">
+    London<br>
+    Paris<br>
+    Tokyo<br>
+  </div>
+
+  <div id="section">
+    <h1>London</h1>
+    <p>
+      London is the capital city of England. It is the most populous city in the United Kingdom,
+      with a metropolitan area of over 13 million inhabitants.
+    </p>
+    <p>
+      Standing on the River Thames, London has been a major settlement for two millennia,
+      its history going back to its founding by the Romans, who named it Londinium.
+    </p>
+  </div>
+
+  <div id="footer">
+    Copyright W3School.com.cn
+  </div>
+
+
+  <h1>脚本</h1>
+  script标签用于定义客户端脚本，比如 JavaScript、VBScript。
+
+</body>
+
+</html>

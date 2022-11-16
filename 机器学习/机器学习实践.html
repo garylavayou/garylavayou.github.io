@@ -1,0 +1,750 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>机器学习实践 - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html" class="active">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="机器学习实践"><a class="header" href="#机器学习实践">机器学习实践</a></h1>
+<h2 id="搭建开发环境"><a class="header" href="#搭建开发环境">搭建开发环境</a></h2>
+<h3 id="python环境"><a class="header" href="#python环境">Python环境</a></h3>
+<p>数据处理和算法库：</p>
+<ul>
+<li><code>numpy</code>、<code>pandas</code>；</li>
+<li><code>scipy</code>、sklearn (<code>scikit-learn</code>)</li>
+<li><code>tensorflow</code>、<code>keras</code>（<code>tensorflow</code>已将<code>keras</code>作为内置模块，但使用需要单独安装）；</li>
+<li><code>pytorch</code>；</li>
+</ul>
+<h4 id="安装tensorflow"><a class="header" href="#安装tensorflow">安装Tensorflow</a></h4>
+<p><code>tensorflow 1.x</code>分为CPU和GPU版本，且<code>1.x</code>和<code>2.x</code>版本不兼容，因此需要在单独的虚拟环境中分别安装：</p>
+<pre><code class="language-shell">conda create -n tf2 [tensorflow-gpu] tensorflow=&lt;ver&gt; cudnn cudatoolkit=11.2 keras
+conda create -n tfgpu tensorflow-gpu=&lt;ver&gt; ... # 1.x GPU版本
+</code></pre>
+<blockquote>
+<p>2.x版本的包名不区分GPU/CPU版本，根据是否安装GPU工具包（<code>cudnn</code>和<code>cudatoolkit</code>）决定是否能使用GPU计算。<code>tensorflow-gpu</code>声明了对GPU库的依赖保证安装支持GPU的版本。</p>
+<p>使用<code>pip</code>安装：</p>
+<pre><code class="language-shell">pip install tensorflow    # CPU 版本
+</code></pre>
+</blockquote>
+<h5 id="gpu支持"><a class="header" href="#gpu支持">GPU支持</a></h5>
+<p>在系统中安装<a href="https://www.nvidia.com/drivers">NVIDIA® GPU 驱动程序</a>（CUDA 11.2需要450.80.02或更高版本）。==使用Conda安装<code>tensorflow-gpu</code>将自动为虚拟环境安装兼容版本的CUDA Toolkit和cuDNN==。官方提供CUDA Toolkit包含了进行CUDA相关程序开发的编译、调试等过程相关的所有组件。而Conda虚拟环境提供的CUDA Toolkit仅包含运行时库。以下为可选安装内容：</p>
+<ul>
+<li>
+<p><a href="https://developer.nvidia.com/cuda-toolkit-archive">CUDA® 工具包</a>（CUDA Toolkit）：TensorFlow 支持 CUDA 11.2（TensorFlow 2.5.0及更高版本）。 </p>
+</li>
+<li>
+<p><a href="https://developer.nvidia.com/cudnn">cuDNN SDK</a>（8.1.0）</p>
+</li>
+<li>
+<p>CUDA 工具包附带的 <a href="http://docs.nvidia.com/cuda/cupti/">CUPTI</a>。</p>
+<pre><code class="language-shell">export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64
+</code></pre>
+</li>
+<li>
+<p><a href="https://docs.nvidia.com/deeplearning/sdk/tensorrt-install-guide/index.html">TensorRT 6.0</a>，可缩短用某些模型进行推断的延迟时间并提高吞吐量。</p>
+</li>
+</ul>
+<h5 id="tensorflow容器"><a class="header" href="#tensorflow容器"><a href="https://hub.docker.com/r/tensorflow/tensorflow/">TensorFlow容器</a></a></h5>
+<pre><code class="language-shell">docker run -it -p 8888:8888 tensorflow/tensorflow:latest-jupyter
+</code></pre>
+<p><a href="https://www.tensorflow.org/install/docker">Docker  | TensorFlow</a></p>
+<h5 id="验证安装"><a class="header" href="#验证安装">验证安装</a></h5>
+<pre><code class="language-python">import tensorflow as tf
+print(tf.version.VERSION)
+tf.config.list_physical_devices()
+</code></pre>
+<h5 id="tensorflow-with-directml-on-wsl"><a class="header" href="#tensorflow-with-directml-on-wsl"><a href="https://docs.microsoft.com/en-us/windows/ai/directml/gpu-tensorflow-wsl">Tensorflow with DirectML on WSL</a></a></h5>
+<h4 id="安装pytorch"><a class="header" href="#安装pytorch">安装PyTorch</a></h4>
+<p>使用Conda安装<code>pytorch</code>：相关包可使用<code>pytorch</code>通道下载（注意<a href="https://pytorch.org/get-started/locally/">选择操作系统和计算平台</a>，以下仅为示例）。</p>
+<pre><code class="language-shell">conda create -n pytorch[-gpu] python=3.8   # python&gt;=3.6
+conda install pytorch torchvision torchaudio cpuonly -c pytorch
+conda install pytorch=&quot;1.10.*&quot;=&quot;*cuda*&quot; torchvision torchaudio cudatoolkit=11.3 -c pytorch
+</code></pre>
+<blockquote>
+<p>2022/01/21：<code>conda-forge: cudatoolkit&lt;=11.2</code>；<code>pytorch: cudatoolkit&lt;=11.3</code>。当Pytorch和TensorFlow共同安装时，可能导致依赖解析问题无法安装Pytorch的GPU版本，此时可指定安装<code>pytorch-gpu</code>（Linux下才有此包）。</p>
+<p>使用pip安装<code>pytorch</code>： </p>
+<pre><code class="language-shell">pip install torch torchvision torchaudio           # CPU version
+pip3 install torch==1.10.1+cu113 \
+  torchvision==0.11.2+cu113 torchaudio==0.10.1+cu113 \
+  -f https://download.pytorch.org/whl/cu113/torch_stable.html # GPU version
+</code></pre>
+<p>验证安装：</p>
+<pre><code class="language-python">import torch
+x = torch.rand(5, 3); print(x)
+torch.cuda.is_available()
+</code></pre>
+</blockquote>
+<h5 id="enable-pytorch-with-directml-on-wsl-2"><a class="header" href="#enable-pytorch-with-directml-on-wsl-2"><a href="https://docs.microsoft.com/en-us/windows/ai/directml/gpu-pytorch-wsl">Enable PyTorch with DirectML on WSL 2</a></a></h5>
+<h4 id="图神经网络库"><a class="header" href="#图神经网络库">图神经网络库</a></h4>
+<h5 id="dgl"><a class="header" href="#dgl">DGL</a></h5>
+<pre><code class="language-shell">conda create -n dgl -c pytorch pytorch=1.12 cudatoolkit=11.6 cudnn
+conda activate dgl
+conda install -c dglteam dgl-cuda11.6
+</code></pre>
+<p><code>dglteam</code>仓库仅在Anaconda官方源中可用，如果使用Nexus代理，增加以下仓库代理。</p>
+<pre><code class="language-ini">Name=anaconda-cloud
+Remote=https://conda.anaconda.org/
+URL=http://192.168.178.52:8081/repository/anaconda-cloud
+</code></pre>
+<p>也可使用DGL提供的pip仓库安装<code>dgl</code>库。</p>
+<pre><code class="language-shell">pip install dgl-cu116 dglgo -f https://data.dgl.ai/wheels/repo.html
+</code></pre>
+<p>通过配置文件<code>~/.dgl/config.json </code>或环境变量指定使用的深度学习框架后端。</p>
+<pre><code class="language-json">{
+    &quot;backend&quot;:  &quot;pytorch&quot;
+}
+</code></pre>
+<pre><code class="language-shell">export DGLBACKEND=pytorch  # pytorch, mxnet, tensorflow
+</code></pre>
+<h5 id="pytorch-geometric"><a class="header" href="#pytorch-geometric">PyTorch Geometric</a></h5>
+<blockquote>
+<p><em><strong>PyG</strong> (PyTorch Geometric) is a library built upon PyTorch to easily write and train Graph Neural Networks (GNNs) for a wide range of applications related to structured data.</em></p>
+</blockquote>
+<pre><code class="language-shell">conda create -n pyg -c pytorch pytorch=1.12 cudatoolkit=11.6 cudnn
+conda activate pyg
+conda install pyg -c pyg
+</code></pre>
+<p>使用<code>pip</code>安装：</p>
+<pre><code class="language-shell">CUDA={cpu|cu102|cu113|cu116}
+pip install torch-scatter -f https://data.pyg.org/whl/torch-1.12.0+${CUDA}.html
+pip install torch-sparse -f https://data.pyg.org/whl/torch-1.12.0+${CUDA}.html
+pip install torch-geometric
+</code></pre>
+<div class="table-wrapper"><table><thead><tr><th></th><th><code>cpu</code></th><th><code>cu102</code></th><th><code>cu113</code></th><th><code>cu116</code></th></tr></thead><tbody>
+<tr><td><strong>Linux</strong></td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+<tr><td><strong>Windows</strong></td><td>✅</td><td></td><td>✅</td><td>✅</td></tr>
+<tr><td><strong>macOS</strong></td><td>✅</td><td></td><td></td><td></td></tr>
+</tbody></table>
+</div>
+<p><a href="https://github.com/pyg-team/pytorch_geometric">pyg-team/pytorch_geometric: Graph Neural Network Library for PyTorch (github.com)</a></p>
+<h3 id="gpu计算库"><a class="header" href="#gpu计算库">GPU计算库</a></h3>
+<h4 id="nvidia-cuda"><a class="header" href="#nvidia-cuda">NVIDIA CUDA</a></h4>
+<p>安装：<code>./cuda-xxx.run --no-opengl-libs</code>；</p>
+<p>如果机器已经安装驱动程序，则安装过程中可跳过驱动程序安装；</p>
+<p>修改环境变量使CUDA全局可用；<img src="机器学习实践.assets/wsl-launch-upt-0625-rz.png" alt="CUDA on WSL Overview." style="zoom:35%;float:right" /></p>
+<h5 id="cuda-on-wsl-2"><a class="header" href="#cuda-on-wsl-2">CUDA on WSL 2</a></h5>
+<blockquote>
+<p>系统版本需要为<a href="https://docs.microsoft.com/en-us/windows/ai/directml/gpu-cuda-in-wsl">Windows 10 21H2或更高</a>，WSL发行版使用Ubuntu或Debian（Linux 5.10.43.3+）。</p>
+</blockquote>
+<ol>
+<li>
+<p>在Windows中安装<a href="https://developer.nvidia.com/cuda/wsl">支持WSL的NVIDIA CUDA驱动程序</a>。</p>
+</li>
+<li>
+<p>[可选] 在WSL中安装<a href="https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=WSL-Ubuntu&amp;target_version=2.0">专用CUDA工具包</a>（注意使用<code>run</code>文件不要安装显卡驱动）；如果需要<a href="https://docs.nvidia.com/cuda/wsl-user-guide/index.html#ch03a-setting-up-cuda">编译CUDA程序</a>，则需要安装CUDA Toolkit。</p>
+</li>
+<li>
+<p>使用CUDA自带样例验证安装是否正确；</p>
+</li>
+<li>
+<p>安装完成后，即可和普通Linux一样使用PyTorch、TensorFlow或<a href="https://github.com/NVIDIA/nvidia-docker">NVIDIA Docker</a>。</p>
+<pre><code class="language-shell"># 验证
+nvidia-smi -q
+chmod -R a+w /usr/local/cuda-11.4/samples
+cd /usr/local/cuda-11.4/samples/4_Finance/BlackScholes
+make BlackScholes &amp;&amp; ./BlackScholes
+</code></pre>
+</li>
+</ol>
+<h4 id="nvidia-docker"><a class="header" href="#nvidia-docker">NVIDIA Docker</a></h4>
+<blockquote>
+<p>Note that NVIDIA Container Toolkit has not yet been validated with <a href="https://docs.docker.com/docker-for-windows/wsl/">Docker Desktop WSL 2</a> backend（实测可以运行）.</p>
+<p><a href="">NVIDIA/nvidia-docker: Build and run Docker containers leveraging NVIDIA GPUs (github.com)</a></p>
+</blockquote>
+<p>安装NVIDIA Docker工具包：</p>
+<pre><code class="language-shell">distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
+curl -s -L https://nvidia.github.io/libnvidia-container/$distribution/libnvidia-container.list | \
+sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
+sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+
+sudo apt update &amp;&amp; sudo apt install -y nvidia-docker2
+</code></pre>
+<p>需要重启docker服务以完成安装。</p>
+<p>容器示例：</p>
+<pre><code class="language-shell">docker run --gpus all nvcr.io/nvidia/k8s/cuda-sample:nbody nbody -gpu -benchmark
+docker run -it --gpus all -p 8888:8888 tensorflow/tensorflow:latest-gpu-py3-jupyter
+docker run --gpus all -it --shm-size=1g --ulimit memlock=-1 --ulimit stack=67108864 nvcr.io/nvidia/tensorflow:20.03-tf2-py3 # Unknown runtime specified nvidia.
+</code></pre>
+<h3 id="java环境"><a class="header" href="#java环境">Java环境</a></h3>
+<p><a href="https://spark.apache.org/mllib/">Spark MLlib</a></p>
+<h2 id="数据准备"><a class="header" href="#数据准备">数据准备</a></h2>
+<p>尽管单个向量的默认方向是列向量，但在表示表格数据集的矩阵中， 将每个数据样本作为矩阵中的行向量更为常见。</p>
+<ul>
+<li>向量：$\mathbf{y}, \boldsymbol{y}$</li>
+<li>矩阵：$\mathbf{A}, \boldsymbol{A}$</li>
+<li>张量：$\mathsf{X}$</li>
+</ul>
+<h3 id="数据类型"><a class="header" href="#数据类型">数据类型</a></h3>
+<ul>
+<li>
+<p><a href="../Python/Python%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html#%E7%9F%A9%E9%98%B5">Numpy数组</a></p>
+</li>
+<li>
+<p><a href="Pytorch.html#Pytorch%E5%BC%A0%E9%87%8F">Pytorch张量</a></p>
+</li>
+</ul>
+<h3 id="数据集划分"><a class="header" href="#数据集划分">数据集划分</a></h3>
+<p>将数据集按比例随机抽样划分为训练集、开发集（交叉验证集）和测试集。</p>
+<ul>
+<li><a href="ScikitLearn.html#%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%92%E5%88%86">Scikit Learn</a></li>
+</ul>
+<blockquote>
+<p>能在开发集上运行性能良好，却在测试集上效果不佳的系统。如果此时开发集和测试集的分布相同，那么你就能清楚地明白问题所在：算法在开发集上过拟合了（overfit）。解决方案显然就是去获取更多的开发集数据。</p>
+<p>但是如果开发集和测试集服从不同的分布，解决方案就不那么明确了。此时可能存在以下一种或者多种情况：</p>
+<ol>
+<li>算法在开发集上过拟合了。</li>
+<li>测试集比开发集更难进行预测，尽管算法做得足够好了，却很难有进一步的提升空间。</li>
+<li>测试集不一定更难预测，但它与开发集性质并不相同（分布不同）。因此在开发集上表现良好的算法不一定在测试集上也能够取得出色表现。如果是这种情况，大量针对开发集性能的改进工作将会是徒劳的。</li>
+</ol>
+<p><a href="https://deeplearning-ai.github.io/machine-learning-yearning-cn/docs/ch06/">开发集和测试集应该服从同一分布 (deeplearning-ai.github.io)</a></p>
+</blockquote>
+<h3 id="真实数据集"><a class="header" href="#真实数据集">真实数据集</a></h3>
+<ul>
+<li>
+<p><code>keras.datasets</code></p>
+<p>提供在线获取（缓存在本地<code>~/.keras/datasets/</code>）和加载示例数据集的接口。数据集包括：<code>mnist</code>、<code>boston_house</code>、<code>cifar</code>、<code>imdb</code>、<code>reuters</code>等。</p>
+</li>
+<li></li>
+</ul>
+<h2 id="数据预处理"><a class="header" href="#数据预处理">数据预处理</a></h2>
+<ul>
+<li>清理：错误、丢失信息；</li>
+<li>使用统计方法理解数据；</li>
+<li>可视化数据，发现有用特征；</li>
+<li>构造新特征；</li>
+<li>反复迭代；</li>
+</ul>
+<h3 id="数值化numeralization"><a class="header" href="#数值化numeralization">数值化（Numeralization）</a></h3>
+<h4 id="类别数据categorical-variables"><a class="header" href="#类别数据categorical-variables">类别数据（<em>Categorical Variables</em>）</a></h4>
+<ul>
+<li><strong>无序数据</strong>（<em><strong>nominal</strong></em>），例如：<code>{male, female}</code>；不应该被编码为数值，类别之间无大小关系；</li>
+<li><strong>有序数据</strong>（<em><strong>ordinal</strong></em>），例如<code>{low, medium, high}</code>；可以编码成任意具有大小关系的数值，不能准确表示原始数据的意图。</li>
+</ul>
+<h5 id="one-hot-encoding-scheme"><a class="header" href="#one-hot-encoding-scheme">One-hot Encoding Scheme</a></h5>
+<pre><code class="language-python">pd_dummy= pd.get_dummies(drop_first=True)
+</code></pre>
+<p>默认仅对<code>object</code>类型的列进行编码。</p>
+<h6 id="dummy-variable-trap"><a class="header" href="#dummy-variable-trap">Dummy Variable Trap</a></h6>
+<p>Multicollinearity: Variance Inflation Factor.</p>
+<p>https://towardsdatascience.com/one-hot-encoding-multicollinearity-and-the-dummy-variable-trap-b5840be3c41a</p>
+<h6 id="dummy-coding-scheme"><a class="header" href="#dummy-coding-scheme">Dummy Coding Scheme</a></h6>
+<h6 id="effect-coding-scheme"><a class="header" href="#effect-coding-scheme">Effect Coding Scheme</a></h6>
+<h5 id="bin-counting-scheme"><a class="header" href="#bin-counting-scheme">Bin-counting Scheme</a></h5>
+<h5 id="feature-hashing-scheme"><a class="header" href="#feature-hashing-scheme">Feature Hashing Scheme</a></h5>
+<ol>
+<li>UNDERSTANDING FEATURE ENGINEERING (PART 2), Categorical Data, Strategies for working with discrete, categorical data, https://towardsdatascience.com/understanding-feature-engineering-part-2-categorical-data-f54324193e63.</li>
+<li>scikit-learn 0.22.1, Preprocessing data, Discretization, https://scikit-learn.org/stable/modules/preprocessing.html#discretization.</li>
+</ol>
+<h4 id="word2vec"><a class="header" href="#word2vec">Word2vec</a></h4>
+<p>利用One-hot Encoding表示单词，使用降维方法减小向量空间。</p>
+<p><a href="https://www.jianshu.com/p/471d9bfbd72f">通俗理解word2vec - 简书 (jianshu.com)</a></p>
+<p><a href="https://www.cnblogs.com/peghoty/p/3857839.html">word2vec 中的数学原理详解 - peghoty - 博客园 (cnblogs.com)</a></p>
+<h4 id="标签编码"><a class="header" href="#标签编码">标签编码</a></h4>
+<p>标签编码，将文本数据转换为整数。</p>
+<blockquote>
+<ul>
+<li><a href="ScikitLearn.html#LabelEncoder"><code>sklearn.preprocessing.LabelEncoder</code></a></li>
+</ul>
+</blockquote>
+<p>标签二值化，将样本的负/正标签值转换为<code>(0,1)</code>二值。如果标签值类别超过两类，则分别对每类值（视为正样本，映射为<code>1</code>）执行二值化（非正样本映射为<code>0</code>）。</p>
+<blockquote>
+<ul>
+<li><a href="ScikitLearn.html#LabelBinarizer"><code>sklearn.preprocessing.LabelBinarizer</code></a></li>
+</ul>
+</blockquote>
+<p>多标签二元化，样本的每个标签对应的编码位置为1。</p>
+<blockquote>
+<ul>
+<li><a href="ScikitLearn.html#MultiLabelBinarizer"><code>sklearn.preprocessing.MultiLabelBinarizer</code></a></li>
+</ul>
+</blockquote>
+<h3 id="标准化normalization"><a class="header" href="#标准化normalization">标准化（Normalization）</a></h3>
+<blockquote>
+<p><em>Change the values of numeric columns in the dataset to a common scale, without distorting differences in the ranges of values.</em></p>
+</blockquote>
+<p>每个特征具有的物理意义不同，其具体数值在特征之间通常不具有可比性（更换数据的单位其数值就相应地缩放，但是物理意义没有变化）；将数据特征的区间缩放到一个常见的范围，提升算法稳定性。</p>
+<p><strong>对于基于距离的算法，则需要考虑：1）原始数据的取值范围（单位）是否影响算法；2）标准化是否破坏了原始的距离信息；</strong></p>
+<blockquote>
+<p>如果一列数据为常量，缩放方法无效；同时，该列数据在学习任务中通常没有作用。</p>
+</blockquote>
+<h4 id="线性缩放"><a class="header" href="#线性缩放">线性缩放</a></h4>
+<p>线性缩放处理特征之间数据范围不一致的情形。</p>
+<h5 id="标准缩放standardscaler"><a class="header" href="#标准缩放standardscaler">标准缩放（StandardScaler）</a></h5>
+<p>移除样本的统计均值并将统计方差缩放为1：
+$$
+z = (x-\mu)/\sigma \notag
+$$</p>
+<h5 id="min-max缩放"><a class="header" href="#min-max缩放">Min-Max缩放</a></h5>
+<p>将特征区间缩放到$[0,1]$区间。
+$$
+\hat{x}=\frac{x-\min{x}}{\max{x}-\min{x}}\notag
+$$</p>
+<h4 id="非线性缩放"><a class="header" href="#非线性缩放">非线性缩放</a></h4>
+<h5 id="对数缩放logscaler"><a class="header" href="#对数缩放logscaler">对数缩放（LogScaler）*</a></h5>
+<p>样本特征分布<a href="https://towardsdatascience.com/visualizing-data-with-pair-plots-in-python-f228cf529166">范围很大（长尾分布）</a>，根据特征的属性，如果在特征取值较大，而其变化对目标任务影响较小时（例如收入、数据下载量、音量等），可以采用对数缩放，从而保留更多特征信息。</p>
+<blockquote>
+<p>对数缩放可能使得异常点不显著。</p>
+</blockquote>
+<p>$$
+\hat{x}=\log_{10}{(1+x)}\notag
+$$</p>
+<p>可以与线性缩放结合使用。</p>
+<h3 id="归一化unit-vector-normalization"><a class="header" href="#归一化unit-vector-normalization">归一化（Unit Vector Normalization）</a></h3>
+<p>针对每个样本而不是每个特征进行处理。</p>
+<p>将向量（<strong>样本特征向量</strong>）长度缩放为1，即将所有样本缩放到一个单位超球面上。需要注意，==如果原始数据本身具有不同的向量长度，且算法对数据的向量长度敏感==（基于距离的算法），则此类标准化方法不适用。此方法常用于<strong>文本分类或聚类</strong>。
+$$
+\hat{\boldsymbol{x}}=\frac{\boldsymbol{x}}{|\boldsymbol{x}|}\notag
+$$</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/preprocessing/plot_all_scaling.html#sphx-glr-auto-examples-preprocessing-plot-all-scaling-py">Compare the effect of different scalers on data with outliers</a>。</p>
+<h3 id="特征生成"><a class="header" href="#特征生成">特征生成</a></h3>
+<h4 id="多项式特征生成"><a class="header" href="#多项式特征生成">多项式特征生成</a></h4>
+<p>基于已有特征生成高阶非线性特征，如：$x^2, x^3, xy, \cdots$。</p>
+<h2 id="处理流程"><a class="header" href="#处理流程">处理流程</a></h2>
+<h3 id="pipeline"><a class="header" href="#pipeline">Pipeline</a></h3>
+<img src="Python.assets/pipeline.png" alt="img" style="zoom: 67%;" />
+<p>将数据预处理、学习算法等流程串联起来（<strong>最后一个流程必须执行预测</strong>）。</p>
+<ul>
+<li><a href="ScikitLearn.html#Pipeline%E5%B7%A5%E4%BD%9C%E6%B5%81">Scikit-Learn Pipeline</a></li>
+</ul>
+<h2 id="性能评估"><a class="header" href="#性能评估">性能评估</a></h2>
+<h3 id="评估方法"><a class="header" href="#评估方法">评估方法：</a></h3>
+<ul>
+<li>
+<p>学习方法（estimator）的<code>score</code>方法</p>
+</li>
+<li>
+<p><code>sklearn.metrics</code>提供的评估预测误差的方法，包括分类误差计算方法：<code>accuracy_score</code>、<code>f1_score</code>、<code>precision_score</code>、<code>recall_score</code>，回归误差计算方法<code>r2_score</code>。</p>
+</li>
+<li>
+<p>交叉验证的评分策略，通过<code>scoring</code>参数选择评分方法。评分器（<code>scorer</code>）约定越高评分代表越好的性能。预定义的<code>scoring</code>参数对应了<code>metrics</code>中的评估方法。</p>
+<p><code>make_scorer</code></p>
+<p>自定义打分方法：</p>
+<pre><code class="language-python">def scoring_func(estimator, X, y):
+  # do scoring
+  return score # higher is better.
+</code></pre>
+</li>
+</ul>
+<p>多分类或多标签分类的评分方法。</p>
+<blockquote>
+<p>当你需要在多个分类器之间进行选择时，使用单值评估指标将帮助你更快速地作出决定。它能给出一个清晰明了的分类器性能排名，从而帮助团队明确后续的改进方向。</p>
+<p><a href="https://deeplearning-ai.github.io/machine-learning-yearning-cn/docs/ch08/">使用单值评估指标进行优化 (deeplearning-ai.github.io)</a></p>
+<p><a href="https://deeplearning-ai.github.io/machine-learning-yearning-cn/docs/ch09/">优化指标和满意度指标 (deeplearning-ai.github.io)</a></p>
+</blockquote>
+<h3 id="交叉验证"><a class="header" href="#交叉验证">交叉验证</a></h3>
+<blockquote>
+<p><em>Cross Validation (CV) provides the ability to estimate model performance on unseen data not used while training.</em></p>
+</blockquote>
+<ul>
+<li>test on unseen data</li>
+<li>avoid overfitting</li>
+</ul>
+<h5 id="k折交叉验证"><a class="header" href="#k折交叉验证">K折交叉验证</a></h5>
+<p>步骤：splitting the data into subsets (called folds, <strong>K-fold</strong>) and rotating the training and validation among them. </p>
+<p><img src="%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5.assets/1rRqMSQZ38QKPWqf79GYQRQ.png" alt="K-fold" /></p>
+<ul>
+<li><a href="ScikitLearn.html#%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81">Scikit Learn</a></li>
+</ul>
+<p>https://towardsdatascience.com/what-is-cross-validation-60c01f9d9e75</p>
+<p><a href="https://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter">Metrics and scoring: quantifying the quality of predictions</a></p>
+<h3 id="参数搜索"><a class="header" href="#参数搜索">参数搜索</a></h3>
+<p>获取非训练过程调整的你参数。</p>
+<h5 id="网格搜索交叉验证"><a class="header" href="#网格搜索交叉验证">网格搜索交叉验证</a></h5>
+<p>在各个超参数的取值范围内穷举参数组合，分别应用于模型进行训练和预测，根据预测性能获得最佳的超参数组合。为了计算应用超参数组合的模型的性能，需要结合(K折)交叉验证，即将数据集划分为==训练集和验证集==。</p>
+<ul>
+<li><a href="ScikitLearn.html#%E7%BD%91%E6%A0%BC%E6%90%9C%E7%B4%A2%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81"><code>GridSearchCV</code></a></li>
+</ul>
+<h5 id="random-search-cross-validation"><a class="header" href="#random-search-cross-validation">Random Search Cross Validation</a></h5>
+<p>从参数空间中随机采样。</p>
+<ol>
+<li><a href="https://scikit-learn.org/stable/modules/grid_search.html#">Tuning the hyper-parameters of an estimator</a></li>
+<li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html">sklearn.model_selection.GridSearchCV</a></li>
+</ol>
+<h2 id="深度学习算法"><a class="header" href="#深度学习算法">深度学习算法</a></h2>
+<h3 id="autoencoder"><a class="header" href="#autoencoder">AutoEncoder</a></h3>
+<p><a href="https://blog.keras.io/building-autoencoders-in-keras.html">Building Autoencoders in Keras, 2016</a></p>
+<h2 id="end-to-end-ml-lifecycle-management"><a class="header" href="#end-to-end-ml-lifecycle-management">End-to-End ML Lifecycle Management</a></h2>
+<h3 id="mlflow"><a class="header" href="#mlflow">MLflow</a></h3>
+<ul>
+<li><strong>MLflow Tracking</strong>: 记录实验结果，比较参数和结果；</li>
+<li><strong>MLflow Projects</strong>：将ML代码打包未可重用可复现的形式（用于共享或生产部署）；</li>
+<li><strong>MLflow Models</strong>：支持多种机器学习库模型在多种平台上的管理和部署；</li>
+<li><strong>MLflow Registry</strong>：提供模型管理协作中心。</li>
+</ul>
+<p><a href="https://www.mlflow.org/docs/latest/concepts.html">Concepts — MLflow 1.24.0 documentation</a></p>
+<p><a href="https://www.mlflow.org/docs/latest/tutorials-and-examples/index.html">Tutorials and Examples — MLflow 1.24.0 documentation</a></p>
+<p><a href="https://github.com/mlflow/mlflow/tree/master/examples/multistep_workflow">Orchestrating Multistep Workflows</a></p>
+<pre><code class="language-shell">conda create -n mlflow -c conda-forge mlflow
+pip install mlflow
+pip install mlflow[pipelines] # + experimental MLflow Pipelines
+pip install mlflow[extras]    # + extra ML libraries and 3rd-party tools
+pip install mlflow-skinny     # + lightweight version of MLflow
+</code></pre>
+<blockquote>
+<p><em>MLflow requires <code>conda</code> to be on the <code>PATH</code> for the projects feature.</em></p>
+</blockquote>
+<h4 id="mlflow-tracking"><a class="header" href="#mlflow-tracking">MLflow Tracking</a></h4>
+<p><a href="https://www.mlflow.org/docs/latest/tracking.html#tracking-server">MLflow Tracking — MLflow 1.24.0 documentation</a></p>
+<h5 id="tracking-api"><a class="header" href="#tracking-api">Tracking API</a></h5>
+<pre><code class="language-python">from mlflow import log_metric, log_param
+mlflow.set_tracking_uri(&quot;http://YOUR-SERVER:4040&quot;)  # 默认为本地文件存储
+mlflow.set_experiment(&quot;my-experiment&quot;) # 实验名，默认为Default
+log_param(&quot;param1&quot;, randint(0, 100))   # 记录输入的参数
+log_metric(&quot;foo&quot;, random() + 2)        # 记录输出的指标
+</code></pre>
+<p>为不同的实验设置不相同的实验名称，从而方便对比实验参数和输出指标。</p>
+<p>默认将运行记录写入本地<code>./mlruns</code>目录，可在当前目录下运行<code>mlfllow ui</code>查看其中的运行记录。每个运行记录由唯一的<strong>Run ID</strong>。</p>
+<p><strong>Artifacts</strong>包含模型代码、运行环境声明等信息。</p>
+<h4 id="mlflow-projects"><a class="header" href="#mlflow-projects">MLflow Projects</a></h4>
+<pre><code class="language-shell">mlflow run --no-conda project_path -P param1=value1
+</code></pre>
+<p>如果指定<code>--no-conda</code>，则MLflow不会自动创建虚拟环境并安装依赖（MLflow内部会维护虚拟环境列表而不会重复创建），而是使用系统已有环境。</p>
+<p>项目声明文件：</p>
+<pre><code class="language-yaml">name: tutorial           # 项目名称
+conda_env: conda.yaml    # 项目使用的虚拟环境配置
+entry_points:            # 代码入口信息
+  main:                  # 可定义多个入口，按顺序指定（构成处理流程）
+    parameters:          # 代码接收的参数
+      alpha: {type: float, default: 0.5}
+      l1_ratio: {type: float, default: 0.1}
+    command: &quot;python train.py {alpha} {l1_ratio}&quot;  # 执行代码的命令
+</code></pre>
+<p>虚拟环境配置文件：</p>
+<pre><code class="language-yaml">name: tutorial           # 虚拟环境名称（MLflow内部使用，映射conda虚拟环境名称）
+channels:                # 使用的软件源通道
+  - conda-forge
+dependencies:            # 依赖库声明
+  - python=3.7
+  - pip
+  - pip:                 # 需要使用pip安装的依赖库
+      - scikit-learn==0.23.2
+      - mlflow&gt;=1.0
+      - pandas
+</code></pre>
+<h5 id="sklearn"><a class="header" href="#sklearn">sklearn</a></h5>
+<p><em>pandas, numpy, and sklearn</em></p>
+<h4 id="mlflow-models"><a class="header" href="#mlflow-models">MLflow Models</a></h4>
+<h5 id="保存模型"><a class="header" href="#保存模型">保存模型</a></h5>
+<pre><code class="language-shell">mlflow.log_artifacts(&quot;output_path&quot;)    # 将本地目录中的内容作为模型内容保存
+mlflow.sklearn.log_model(lr, &quot;model&quot;)  # 将模型对象保存到本地
+</code></pre>
+<h5 id="运行模型"><a class="header" href="#运行模型">运行模型</a></h5>
+<pre><code class="language-shell">mlflow models serve -m runs:/&lt;RUN_ID&gt;/model --port 5001
+</code></pre>
+<p>根据模型自带的环境声明自动创建Conda虚拟环境并运行模型。模型启动后可以通过REST接口向其发送数据。模型将执行预测并输出结果。</p>
+<p>运行模型使用的Python版本必须与创建模型时使用的版本一致（否则<code>pickle</code>无法正常工作）。</p>
+<h5 id="运行时检测依赖库"><a class="header" href="#运行时检测依赖库">运行时检测依赖库</a></h5>
+<p><a href="https://www.mlflow.org/docs/latest/tutorials-and-examples/tutorial.html#specifying-pip-requirements-using-pip-requirements-and-extra-pip-requirements">specifying pip requirements using <code>pip_requirements</code> and <code>extra_pip_requirements</code></a></p>
+<h3 id="ray"><a class="header" href="#ray">Ray</a></h3>
+<p>📚<a href="https://docs.ray.io/en/latest/ray-air/user-guides.html">User Guides — Ray 2.0.0</a></p>
+<h4 id="安装"><a class="header" href="#安装">安装</a></h4>
+<h5 id="机器学习运行环境架构"><a class="header" href="#机器学习运行环境架构">机器学习运行环境架构</a></h5>
+<p><img src="%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5.assets/ray-air.svg" alt="" /></p>
+<ul>
+<li>
+<p><a href="https://docs.ray.io/en/latest/data/dataset.html#data-compatibility">Ray Datasets: Distributed Data Preprocessing — Ray 2.0.0</a></p>
+</li>
+<li>
+<p>Ray Train: Scalable Model Training</p>
+</li>
+<li>
+<p>Tune: Scalable Hyperparameter Tuning</p>
+</li>
+<li>
+<p>Serve: Scalable and Programmable Serving</p>
+</li>
+<li>
+<p>RLlib: Industry-Grade Reinforcement Learning</p>
+</li>
+</ul>
+<blockquote>
+<p><em>Ray Datasets is designed to load and preprocess data for distributed ML training pipelines.</em></p>
+</blockquote>
+<p><img src="%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5.assets/air-ecosystem.svg" alt="AIR ecosystem map" /></p>
+<blockquote>
+<p><a href="https://docs.ray.io/en/latest/ray-air/air-ecosystem.html#air-ecosystem-map">AIR ecosystem map</a>.</p>
+</blockquote>
+<h5 id="安装机器学习运行环境"><a class="header" href="#安装机器学习运行环境">安装机器学习运行环境</a></h5>
+<pre><code class="language-python">conda create -n ray-ml python=3.10
+pip install 'ray[air]'                # 包含机器学习运行环境的所有模块
+pip install tqdm                      # tqdm用于显示数据处理进度
+pip install fastapi                   # 用于模型部署提供API
+pip install xgboost xgboost_ray torch tensorflow  
+</code></pre>
+<p>Ray集成的机器学习框架以及其他工具需要独立安装。</p>
+<h4 id="数据预处理-1"><a class="header" href="#数据预处理-1">数据预处理</a></h4>
+<p>加载并拆分数据集，构造训练、验证和测试集。</p>
+<pre><code class="language-python">dataset = ray.data.read_csv(&quot;s3://anonymous@air-example-data/breast_cancer.csv&quot;)
+train_dataset, valid_dataset = dataset.train_test_split(test_size=0.3)
+test_dataset = valid_dataset.drop_columns(cols=[&quot;target&quot;])
+</code></pre>
+<blockquote>
+<p>Ray会自动在本地创建一个集群，可通过仪表板查看（<code>http://127.0.0.1:8265</code>）。</p>
+</blockquote>
+<p>构造预处理器，如标准化等；</p>
+<pre><code class="language-python">from ray.data.preprocessors import StandardScaler
+preprocessor = StandardScaler(columns=[&quot;mean radius&quot;, &quot;mean texture&quot;])
+</code></pre>
+<h5 id="预处理器"><a class="header" href="#预处理器">预处理器</a></h5>
+<p>预处理处理标准的数据集对象<code>DataSet</code>。预处理器在训练阶段进行拟合（<code>fit_transform</code>）并应用于训练和服务阶段（<code>transform</code>）。</p>
+<p>自定义预处理器：</p>
+<pre><code class="language-python">import ray
+from pandas import DataFrame
+from ray.data.preprocessor import Preprocessor
+from ray.data import Dataset
+from ray.data.aggregate import Max
+
+class CustomPreprocessor(Preprocessor):
+    def _fit(self, dataset: Dataset) -&gt; Preprocessor:
+        self.stats_ = dataset.aggregate(Max(&quot;value&quot;))
+    def _transform_pandas(self, df: DataFrame) -&gt; DataFrame:
+        return df * self.stats_[&quot;max(value)&quot;]
+</code></pre>
+<p>使用<code>BatchMapper</code>构造无需拟合的预处理</p>
+<pre><code class="language-python">preprocessor = BatchMapper(lambda df: df * 2)
+</code></pre>
+<h4 id="训练模型"><a class="header" href="#训练模型">训练模型</a></h4>
+<p>选择常用机器学习框架训练模型。此阶段通常需要输入训练和验证数据集以优化模型，防止过拟合。</p>
+<pre><code class="language-python">from ray.air.config import ScalingConfig
+from ray.train.xgboost import XGBoostTrainer
+trainer = XGBoostTrainer(...)
+result = trainer.fit()
+print(result.metrics)
+</code></pre>
+<h4 id="超参数调优"><a class="header" href="#超参数调优">超参数调优</a></h4>
+<pre><code class="language-python">from ray import tune
+param_space = {&quot;params&quot;: {&quot;max_depth&quot;: tune.randint(1, 9)}}
+metric = &quot;train-logloss&quot;
+
+from ray.tune.tuner import Tuner, TuneConfig
+from ray.air.config import RunConfig
+tuner = Tuner(trainer,param_space=param_space,tune_config=TuneConfig(**kwargs))
+result_grid = tuner.fit()
+# Fetch the best result.
+best_result = result_grid.get_best_result()
+print(&quot;Best Result:&quot;, best_result)
+</code></pre>
+<h4 id="使用模型进行预测"><a class="header" href="#使用模型进行预测">使用模型进行预测</a></h4>
+<h5 id="checkpoints"><a class="header" href="#checkpoints">Checkpoints</a></h5>
+<p><code>Checkpoint</code>对象由训练器、调优器以及预训练模型生成，用于构建模型对象。</p>
+<h5 id="批量预测"><a class="header" href="#批量预测">批量预测</a></h5>
+<pre><code class="language-python">from ray.train.batch_predictor import BatchPredictor
+from ray.train.xgboost import XGBoostPredictor
+# You can also create a checkpoint from a trained model using
+# `XGBoostCheckpoint.from_model`.
+checkpoint = best_result.checkpoint
+batch_predictor = BatchPredictor.from_checkpoint(checkpoint, XGBoostPredictor)
+predicted_probabilities = batch_predictor.predict(test_dataset)
+predicted_probabilities.show()
+</code></pre>
+<h4 id="模型部署"><a class="header" href="#模型部署">模型部署</a></h4>
+<pre><code class="language-shell">from ray import serve
+from fastapi import Request
+from ray.serve import PredictorDeployment
+from ray.serve.http_adapters import json_request
+
+
+async def adapter(request: Request):
+    content = await request.json()
+    print(content)
+    return pd.DataFrame.from_dict(content)
+
+serve.start(detached=True)
+deployment = PredictorDeployment.options(name=&quot;XGBoostService&quot;)
+deployment.deploy(
+    XGBoostPredictor, result.checkpoint, batching_params=False, http_adapter=adapter
+)
+print(deployment.url)
+</code></pre>
+<pre><code class="language-shell">import requests
+sample_input = test_dataset.take(1)
+sample_input = dict(sample_input[0])
+output = requests.post(deployment.url, json=[sample_input]).json()
+print(output)
+</code></pre>
+<h2 id="参考文献"><a class="header" href="#参考文献">参考文献</a></h2>
+<ol>
+<li><a href="https://github.com/Nyandwi/machine_learning_complete">Nyandwi/machine_learning_complete: A comprehensive machine learning repository containing 30+ notebooks on different concepts, algorithms and techniques. (github.com)</a></li>
+<li><a href="https://deeplearning-ai.github.io/machine-learning-yearning-cn/docs/ch04/">规模驱动机器学习发展 (deeplearning-ai.github.io)</a></li>
+<li><a href="https://github.com/deeplearning-ai/machine-learning-yearning-cn/">deeplearning-ai/machine-learning-yearning-cn: Machine Learning Yearning 中文版 - 《机器学习训练秘籍》 - Andrew Ng 著 (github.com)</a></li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../应用软件/多媒体编辑软件.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../机器学习/ScikitLearn.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../应用软件/多媒体编辑软件.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../机器学习/ScikitLearn.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

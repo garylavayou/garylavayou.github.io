@@ -1,0 +1,675 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>程序开发 - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html" class="active">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="程序开发软件"><a class="header" href="#程序开发软件">程序开发软件</a></h1>
+<h2 id="编辑器"><a class="header" href="#编辑器">编辑器</a></h2>
+<h3 id="vim"><a class="header" href="#vim">Vim</a></h3>
+<img src="程序开发软件.assets/vim-vi-workmodel.png" alt="img" style="zoom:60%;" />
+<p>https://www.runoob.com/linux/linux-vim.html</p>
+<p><a href="http://xstarcd.github.io/wiki/vim/vim_replace_encodeing.html">vi使用技巧</a>。</p>
+<h4 id="配置"><a class="header" href="#配置">配置</a></h4>
+<p>在命令模式下输入<code>set</code>命令修改当前配置，或在配置文件<code>/etc/vim/vimrc</code>中配置相应命令以永久修改。</p>
+<h5 id="缩进"><a class="header" href="#缩进">缩进</a></h5>
+<pre><code class="language-sh"># edit 
+set tabstop=4      
+set softtabstop=0   # 不要将空格和tab混合输入
+set shiftwidth=4    # 默认用4个空格
+set autoindent      # 自动缩进
+set expandtab       # tab转换为空格
+# 对于下列文件类型，4个空格太宽了，可以换成2个空格。
+autocmd FileType html,css,xml,yaml,json,sh set sw=2 ts=2 
+</code></pre>
+<p>https://www.kawabangga.com/posts/2817</p>
+<h5 id="显示行号"><a class="header" href="#显示行号">显示行号</a></h5>
+<pre><code class="language-shell">set [no]number          # =&gt; set [no]nu
+set [no]relativenumber  # =&gt; set [no]rnu *
+set numberwidth=2
+</code></pre>
+<blockquote>
+<p><code>*</code>：相对行号和绝对行号可同时存在。</p>
+</blockquote>
+<h4 id="常用命令"><a class="header" href="#常用命令">常用命令</a></h4>
+<h5 id="查找"><a class="header" href="#查找">查找</a></h5>
+<pre><code class="language-sh">/&lt;search-pattern&gt;   # forward
+?&lt;search-pattern&gt;   # backward
+</code></pre>
+<p>回到命令模式后，输入<code>n</code>查找下一个，输入<code>N</code>查找上一个。</p>
+<h5 id="替换"><a class="header" href="#替换">替换</a></h5>
+<p>使用<code>sed</code>替换语法：</p>
+<pre><code class="language-sh">:n,[m]$s/&lt;origin&gt;/&lt;replace&gt;/g #替换第n行（到m行，默认到最后）中origin为replace
+</code></pre>
+<p>转义字符&quot;<code>/</code>&quot; $\rightarrow$ &quot;<code>\/</code>&quot;。</p>
+<h5 id="复制粘贴"><a class="header" href="#复制粘贴">复制粘贴</a></h5>
+<pre><code class="language-sh">yy  # 复制一行，
+V   #选择连续多行，
+v   # 移动方向键任意选择，Ctrl+v 选择光标开始的矩形区域
+y   # 复制所选内容
+d   # 剪切
+p   # 粘贴所选内容，如果选择整行，则粘贴到所在行的后一行；否则粘贴到光标所在位置
+</code></pre>
+<h5 id="删除"><a class="header" href="#删除">删除</a></h5>
+<pre><code class="language-sh"># 普通命令模式
+gg	# 返回文件开始
+dG	# 删除至文件末尾的所有行
+# 底线命令模式
+:1,$d   # 删除第1行至最后一行$的所有内容
+:%d     # %代表所有行
+</code></pre>
+<h5 id="撤销重做"><a class="header" href="#撤销重做">撤销|重做</a></h5>
+<pre><code class="language-sh">u,:u,:undo  # 撤销单步
+4u          # 撤销多步
+Ctrl+r      # 重做
+</code></pre>
+<h5 id="保存"><a class="header" href="#保存">保存</a></h5>
+<pre><code class="language-shell">:w !sudo tee %   # 以管理员权限保存只读文件
+</code></pre>
+<blockquote>
+<p>If <code>Ctrl+S</code> freezes your terminal, type <code>Ctrl+Q</code> to get it going again.</p>
+</blockquote>
+<h3 id="visual-studio-code"><a class="header" href="#visual-studio-code">Visual Studio Code</a></h3>
+<h4 id="开发环境"><a class="header" href="#开发环境">开发环境</a></h4>
+<h5 id="vscodemsys2"><a class="header" href="#vscodemsys2">VSCode+MSYS2</a></h5>
+<p><a href="../Windows/Windows%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86.html#MSYS2">安装MSYS2</a>后，在MSYS2终端中安装开发工具链，以C++/mingw64开发为例，</p>
+<pre><code class="language-shell">pacman -S --needed base-devel mingw-w64-x86_64-toolchain
+</code></pre>
+<p>将<code>$MSYS2_ROOT/mingw64/bin</code>加入Windows路径，可在Windows下使用MSYS2的开发工具链。</p>
+<p><a href="https://code.visualstudio.com/docs/cpp/config-mingw">Get Started with C++ and Mingw-w64 in Visual Studio Code</a></p>
+<h4 id="资源管理器"><a class="header" href="#资源管理器">资源管理器</a></h4>
+<h5 id="排除要显示的文件"><a class="header" href="#排除要显示的文件">排除要显示的文件</a></h5>
+<p>设置的文件模式将不会在资源管理器中显示，如果直接在用户主目录下工作，通常需要将系统或程序产生的隐藏目录排除。</p>
+<pre><code class="language-json">&quot;files.exclude&quot;: {
+  &quot;.*hst&quot;: true,
+  &quot;.*rc&quot;: true,
+  &quot;.bash*&quot;: true,
+  &quot;.pki&quot;: true,
+  &quot;.vscode-server&quot;: true
+}
+</code></pre>
+<h4 id="离线安装vscode远程服务"><a class="header" href="#离线安装vscode远程服务">离线安装VSCode远程服务</a></h4>
+<p>在联网状态下，VSCode远程服务会在建立远程连接后自动安装。在离线状态下，自动安装会失败，但可以从日志中得到要安装的远程服务软件包的地址。</p>
+<pre><code class="language-shell">https://update.code.visualstudio.com/commit:dfd34e8260c270da74b5c2d86d61aee4b6d56977/server-linux-x64/stable
+</code></pre>
+<p>利用此地址，可以从联网计算机上下载安装包，并解压到目标机器的<code>~/.vscode-server/bin/</code>目录下，并将解压内容根目录以上述URL中的commit ID命名。</p>
+<h3 id="code-server"><a class="header" href="#code-server">Code-Server</a></h3>
+<h4 id="安装"><a class="header" href="#安装">安装</a></h4>
+<p><a href="https://coder.com/docs/code-server/latest/install">Install - code-server docs (coder.com)</a></p>
+<p><a href="https://coder.com/docs/code-server/latest/guide">Usage - code-server docs (coder.com)</a></p>
+<h4 id="安装插件"><a class="header" href="#安装插件">安装插件</a></h4>
+<p>Code-Server从<a href="https://open-vsx.org/">Open VSX Registry</a>下载安装插件。如果存在网络问题，可离线安装：</p>
+<pre><code class="language-shell">code-server --install-extension  ext_name.vsix  # --list-extensions
+</code></pre>
+<h4 id="反向代理"><a class="header" href="#反向代理">反向代理</a></h4>
+<p>目前不支持为Web服务设置根路径，因此需要使用独立的服务站点（独立端口）来代理。</p>
+<pre><code class="language-nginx">server {
+    listen 80;
+    listen [::]:80;
+    server_name mydomain.com;
+    location / {
+      proxy_pass http://localhost:8080/;
+      proxy_set_header Host $host;
+      proxy_set_header Upgrade $http_upgrade;
+      proxy_set_header Connection upgrade;
+      proxy_set_header Accept-Encoding gzip;
+    }
+}
+</code></pre>
+<h4 id="多用户使用"><a class="header" href="#多用户使用">多用户使用</a></h4>
+<p><img src="%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E8%BD%AF%E4%BB%B6.assets/how-code-works.64be3f50.svg" alt="img" /></p>
+<p>可以为每个系统用户启用一个服务：</p>
+<pre><code class="language-shell">systemctl enable --now code-server@USER
+# ExecStart=/usr/local/code-server 
+</code></pre>
+<p>服务将从用户目录下读取配置文件<code>~/.config/code-server/config.yaml</code>（配置项对应命令行参数名），其中包含服务的监听地址端口和身份认证配置。</p>
+<pre><code class="language-yaml">bind-addr: 0.0.0.0:8081
+auth: password
+password: xxxxyyyy
+#cert: /PATH/CERTFILE
+#cert-key: /PATH/CERT_KEY
+disable-telemetry: true
+disable-update-check: true
+user-data-dir: /PATH
+extensions-dir: /PATH
+</code></pre>
+<p>建议使用普通用户建立Code-Server服务，防止用户越权修改服务器后台文件。 </p>
+<h3 id="coder"><a class="header" href="#coder">Coder</a></h3>
+<h4 id="安装-1"><a class="header" href="#安装-1">安装</a></h4>
+<h5 id="预装环境"><a class="header" href="#预装环境">预装环境</a></h5>
+<p>如果需要在本地使用docker部署工作空间，则需要首先<a href="../%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%AE%B9%E5%99%A8%E7%BC%96%E6%8E%92.html#%E5%AE%89%E8%A3%85Docker%20Engine">安装docker</a>。</p>
+<blockquote>
+<p>如果未预先安装docker，会出现以下错误：<em><code>...Got permission denied while trying to connect to the Docker daemon socket</code></em>。此时，需要将用户<code>coder</code>加入<code>docker</code>组中。</p>
+<pre><code class="language-shell">sudo usermod -aG docker coder
+systemctl restart coder.service
+</code></pre>
+</blockquote>
+<h5 id="在线安装"><a class="header" href="#在线安装"><a href="https://coder.com/docs/coder-oss/latest/install#installsh">在线安装</a></a></h5>
+<pre><code class="language-shell">curl -fsSL https://coder.com/install.sh | sh
+</code></pre>
+<h5 id="离线安装"><a class="header" href="#离线安装"><a href="https://github.com/coder/coder/releases">离线安装</a></a></h5>
+<p>使用发行版软件包<code>.deb</code>、<code>.rpm</code>、<code>.apk</code>安装。</p>
+<h5 id="docker-compose安装"><a class="header" href="#docker-compose安装">Docker-compose安装</a></h5>
+<h5 id="kuberneteshelm"><a class="header" href="#kuberneteshelm">Kubernetes+<a href="https://helm.sh/zh/docs/">Helm</a></a></h5>
+<blockquote>
+<p><em>Helm 是 Kubernetes 的包管理器。</em></p>
+</blockquote>
+<h4 id="配置和启动服务"><a class="header" href="#配置和启动服务">配置和启动服务</a></h4>
+<p>服务的访问地址<code>CODER_ACCESS_URL</code>，可通过<code>/etc/coder.d/coder.env</code>配置。</p>
+<pre><code class="language-shell">coder server 
+      -a,--address $CODER_ADDRESS             # 127.0.0.1:3000 
+      --access-url $CODER_ACCESS_URL          # http://localhost:3000
+      --postgres-url $CODER_PG_CONNECTION_URL # 数据库地址*
+      --global-config $CODER_CONFIG_DIR       # 配置数据目录**
+sudo systemctl enable --now coder  # 作为服务启动
+</code></pre>
+<blockquote>
+<p><code>*</code>：如果未指定，则Coder将自动下载PostgreSQL数据库，并将数据存储在配置目录下。使用<code>coder server postgres-builtin-url</code>可查看内置数据库的访问地址。</p>
+<p><code>**</code>：默认配置数据目录位于<code>/root/.config/coderv2</code>。</p>
+</blockquote>
+<p><strong>网络代理</strong>：为了保证Coder服务访问<code>registry.terraform.io</code>以及<code>github.com</code>等网站下载资源，可能需要<a href="../Linux/Linux%E9%85%8D%E7%BD%AE%E5%92%8C%E7%AE%A1%E7%90%86.html#%E6%9C%AC%E5%9C%B0%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86">配置代理</a>（通过<code>/etc/coder.d/coder.env</code>配置）。</p>
+<h5 id="身份认证"><a class="header" href="#身份认证">身份认证</a></h5>
+<p>通过终端登录并配置第一个管理员用户。Coder默认使用用户名和密码认证。</p>
+<pre><code class="language-shell">coder login http://localhost:3000 # 配置用户名、邮箱和密码
+coder login -u USER http://localhost:3000 # 在终端登录
+</code></pre>
+<p>管理用户身份：</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Functions</th><th style="text-align: left">User Admin</th><th style="text-align: left">Template Admin</th><th>Owner</th></tr></thead><tbody>
+<tr><td style="text-align: left">Add and remove Users</td><td style="text-align: left">✅</td><td style="text-align: left"></td><td>✅</td></tr>
+<tr><td style="text-align: left">Change User roles</td><td style="text-align: left"></td><td style="text-align: left"></td><td>✅</td></tr>
+<tr><td style="text-align: left">Manage Templates</td><td style="text-align: left"></td><td style="text-align: left">✅</td><td>✅</td></tr>
+<tr><td style="text-align: left">View, update and delete <strong>ALL</strong> Workspaces</td><td style="text-align: left"></td><td style="text-align: left">✅</td><td>✅</td></tr>
+<tr><td style="text-align: left">Execute and use <strong>ALL</strong> Workspaces</td><td style="text-align: left"></td><td style="text-align: left"></td><td>✅</td></tr>
+</tbody></table>
+</div>
+<p>所有用户隐含<code>Member</code>身份，可创建工作空间。</p>
+<h4 id="工作空间配置"><a class="header" href="#工作空间配置">工作空间配置</a></h4>
+<h5 id="工作空间模板配置"><a class="header" href="#工作空间模板配置">工作空间模板配置</a></h5>
+<p>在终端中登录用户并执行：</p>
+<pre><code class="language-shell">coder templates init [directory] -v  # 选择模板类型并初始化。
+cd directory &amp;&amp; vim main.tf          # 修改模板描述文件
+coder templates create/push --parameter-file params.yaml # 创建/更新模板
+</code></pre>
+<blockquote>
+<p><code>directory</code>是模板名称和模板文件所在目录名。</p>
+</blockquote>
+<h5 id="创建工作空间"><a class="header" href="#创建工作空间">创建工作空间</a></h5>
+<p>命令行基于模板创建工作空间，也可登录Web界面选择模板创建。</p>
+<pre><code class="language-shell">coder create --template=&quot;yourTemplate&quot; &lt;workspace-name&gt;
+coder show &lt;workspace-name&gt;
+</code></pre>
+<p><strong>问题</strong>：==访问<code>https://registry.terraform.io/.well-known/terraform.json</code>失败，网络连接问题。==</p>
+<h4 id="编写模板"><a class="header" href="#编写模板">编写模板</a></h4>
+<p><a href="https://coder.com/docs/coder-oss/latest/templates">Templates - Coder OSS main docs</a></p>
+<h5 id="安装ide"><a class="header" href="#安装ide">安装IDE</a></h5>
+<pre><code class="language-hcl">resource &quot;coder_agent&quot; &quot;main&quot; {
+    arch          = &quot;amd64&quot;
+    os            = &quot;linux&quot;
+    startup_script = &lt;&lt;EOF
+    #!/bin/sh
+    # install and start code-server
+    curl -fsSL https://code-server.dev/install.sh | sh
+    code-server --auth none --port 13337
+    EOF
+}
+</code></pre>
+<p><a href="https://coder.com/docs/coder-oss/latest/ides/configuring-web-ides">Configuring Web IDEs - Coder OSS main docs</a></p>
+<h5 id="安装jetbrains-projector"><a class="header" href="#安装jetbrains-projector">安装JetBrains Projector</a></h5>
+<h5 id="安装jupyterlab"><a class="header" href="#安装jupyterlab">安装JupyterLab</a></h5>
+<h5 id="安装airflow"><a class="header" href="#安装airflow">安装airflow</a></h5>
+<h2 id="终端"><a class="header" href="#终端">终端</a></h2>
+<h3 id="windows-terminal"><a class="header" href="#windows-terminal">Windows Terminal</a></h3>
+<h4 id="离线安装-1"><a class="header" href="#离线安装-1">离线安装</a></h4>
+<p>从Github下载最新的<a href="https://github.com/microsoft/terminal/releases">发布版本</a>，如果离线安装需要使用带依赖库的<code>Win10</code>版本包。</p>
+<pre><code class="language-powershell">Add-AppxPackage FILENAME.msixbundle
+</code></pre>
+<blockquote>
+<p><em>安装时如果出现VC运行时版本错误，则首先安装附带的依赖库（<a href="https://docs.microsoft.com/en-us/troubleshoot/developer/visualstudio/cpp/libraries/c-runtime-packages-desktop-bridge?msclkid=3e1dd82aac8b11ec8f9dbd86d5979ca8#how-to-install-and-update-desktop-framework-packages"><code>Microsoft.VCLibs.x64.*.appx</code></a>）；如果手动安装，可能需要安装<a href="https://docs.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist"><code>VC_redist.x64.exe</code></a>。</em></p>
+</blockquote>
+<h4 id="配置-1"><a class="header" href="#配置-1">配置</a></h4>
+<p><a href="https://devblogs.microsoft.com/commandline/windows-terminal-tips-and-tricks/">Windows Terminal Tips and Tricks | Windows Command Line</a></p>
+<p>配置文件为<code>settings.json</code>，其中终端配置项位于<code>$.profiles.list[*]</code>，基本配置项如下：</p>
+<pre><code class="language-json">{
+	&quot;name&quot;: &quot;Windows PowerShell&quot;,
+	&quot;commandline&quot;: &quot;powershell.exe&quot;,
+	&quot;startingDirectory&quot;: &quot;%HOMEPATH%&quot;,
+	&quot;startingDirectory&quot;: &quot;//wsl$/Ubuntu/home/gary&quot;,  // 代替默认的&quot;~&quot;,避免找不到目录
+}
+</code></pre>
+<h5 id="字体"><a class="header" href="#字体">字体</a></h5>
+<p><a href="https://github.com/microsoft/cascadia-code">microsoft/cascadia-code</a><img src="程序开发软件.assets/cascadia-code-16502448769902.png" alt="Cascadia Code" style="zoom: 20%; float: right;" /></p>
+<pre><code class="language-json">{
+	&quot;fontFace&quot;: &quot;Cascadia Code PL&quot;,
+	&quot;fontSize&quot;: 12    
+}
+</code></pre>
+<h5 id="颜色和背景"><a class="header" href="#颜色和背景">颜色和背景</a></h5>
+<p>终端的颜色配置项包括：</p>
+<pre><code class="language-json">{
+	&quot;colorScheme&quot;: &quot;One Half Dark&quot;,    
+    &quot;useAcrylic&quot;: true,
+    &quot;opacity&quot;: 70
+}
+</code></pre>
+<blockquote>
+<p>内置颜色方案位于配置文件的<code>$.schemes[*]</code>，可自定义颜色方案。</p>
+<p><a href="https://terminalsplash.com/">&gt;_TerminalSplash - Windows Terminal Themes</a><img src="程序开发软件.assets/TerminalSplash.png" alt="img" style="zoom: 30%; float: right;" /></p>
+</blockquote>
+<img src="程序开发软件.assets/Windows Terminal Miku.png" style="zoom: 67%;" />
+<p>背景</p>
+<pre><code class="language-json">{
+	&quot;backgroundImage&quot;: &quot;C:\Users\admin\background.png&quot;,
+	&quot;backgroundImageAlignment&quot; : &quot;bottomRight&quot;,
+	&quot;backgroundImageStretchMode&quot; : &quot;uniform&quot;,
+	&quot;backgroundImageOpacity&quot; : 0.3,
+}
+</code></pre>
+<p>除上述基础配置外，可使用<a href="#%E7%BB%88%E7%AB%AF%E4%B8%BB%E9%A2%98%E5%8C%96%E5%B7%A5%E5%85%B7">Oh-My-Posh等工具</a>对终端进行个性化定制。</p>
+<h4 id="集成终端工具"><a class="header" href="#集成终端工具">集成终端工具</a></h4>
+<h5 id="msys2"><a class="header" href="#msys2">MSYS2</a></h5>
+<pre><code class="language-shell">C:\msys64\msys2_shell.cmd -mingw64 -defterm -no-start
+</code></pre>
+<p>启动的终端环境包括<code>mingw64</code>、<code>clang64</code>、<code>msys</code>、<code>ucrt64</code>等。</p>
+<h5 id="anaconda"><a class="header" href="#anaconda">Anaconda</a></h5>
+<pre><code class="language-powershell">%windir%\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy ByPass -NoExit -Command &quot;&amp; 'C:\Users\gary\miniconda3\shell\condabin\conda-hook.ps1' ; conda activate 'C:\Users\gary\miniconda3' &quot;
+</code></pre>
+<h3 id="nushell"><a class="header" href="#nushell">Nushell</a></h3>
+<blockquote>
+<p><em>Nushell is both a programming language and a shell.</em></p>
+</blockquote>
+<h4 id="安装-2"><a class="header" href="#安装-2">安装</a></h4>
+<pre><code class="language-powershell">winget install nushell # [Windows]--&gt; choco/scoop
+brew   install nushell # [Linux/Mac]
+</code></pre>
+<h5 id="设置登录终端"><a class="header" href="#设置登录终端">设置登录终端</a></h5>
+<p>Linux：将<code>nu</code>加入<code>/etc/shells</code>白名单中，然后使用<code>chsh</code>命令切换Shell程序。</p>
+<p>Windows：安装完成后将自动为Windows Terminal生成Nushell配置，初次启动会进行初始化。</p>
+<h4 id="配置-2"><a class="header" href="#配置-2">配置</a></h4>
+<pre><code class="language-shell">config nu
+</code></pre>
+<h4 id="常用命令-1"><a class="header" href="#常用命令-1">常用命令</a></h4>
+<p>Nushell命令输出内容为对象（类似于Powershell，包括表格、字典和字符串等）并以表格形式显示，方便后续命令操作数据。</p>
+<p>命令支持Tab补全，并同时提供命令候选与帮助信息。</p>
+<p><code>ps</code>：显示进程信息。</p>
+<p><code>date</code>：显示日期信息。</p>
+<pre><code class="language-shell">date now | date to-table
+</code></pre>
+<p><code>sys</code>：显示系统硬件信息。返回对象不是简单表格，而是键值组成的字典（以表格列的形式分别显示键和值），每个值是嵌套的字典或表格。</p>
+<pre><code class="language-shell">sys | get host # 返回嵌套字典
+sys | get cpu  # 返回嵌套表格
+sys | get host.sessions.name
+</code></pre>
+<h5 id="文件操作"><a class="header" href="#文件操作">文件操作</a></h5>
+<p><code>ls</code>：显示目录内容。</p>
+<pre><code class="language-shell">ls | sort-by size | reverse  # 排序
+ls | where size &gt; 1kb        # 筛选
+ls *.md                      # 匹配 (**/*.md:匹配所有子目录)
+</code></pre>
+<p><code>cd</code>，<code>mv</code>，<code>cp</code>，<code>rm</code>，<code>mkdir</code>（跨平台）。</p>
+<h5 id="读取数据"><a class="header" href="#读取数据">读取数据</a></h5>
+<pre><code class="language-shell">open package.json # 将数据加载为记录对象。
+open pokemon.csv  # 将数据加载为表格对象。
+open Cargo.lock | from toml  # 将未识别格式数据按指定格式处理
+open Cargo.toml --raw        # 按原始文本输出
+</code></pre>
+<p>Nushell当前支持加载以下格式的数据：<code>csv</code>，<code>ini</code>，<code>json</code>，<code>nuon</code>，<code>SQLite</code>，<code>toml</code>，<code>url</code>，<code>xlsx/xls</code>，<code>xml</code>，<code>yaml/yml</code>……对于不支持的文件格式，Nushell将尝试直接输出文件内容。</p>
+<blockquote>
+<p>Nushell Object Notation (NUON) 是JSON的一个超集，支持注释（<code>#</code>开头）。</p>
+</blockquote>
+<h5 id="读取sqlite"><a class="header" href="#读取sqlite">读取SQLite</a></h5>
+<pre><code class="language-shell">open foo.db | query db &quot;select * from some_table&quot;
+</code></pre>
+<h5 id="读取url指定的文件"><a class="header" href="#读取url指定的文件">读取URL指定的文件</a></h5>
+<pre><code class="language-shell">fetch https://blog.rust-lang.org/feed.xml
+</code></pre>
+<h5 id="帮助信息"><a class="header" href="#帮助信息">帮助信息</a></h5>
+<p>除通过<code>Tab</code>补全时提供的提示信息外，通过<code>help</code>命令可查看Nushell命令的使用方法。</p>
+<h4 id="输出设置"><a class="header" href="#输出设置">输出设置</a></h4>
+<p>使用<code>ansi</code>命令，设置输出文字颜色（<code>ansi reset</code>回复之前的设置）。</p>
+<pre><code class="language-shell">$'(ansi purple_bold)This text is a bold purple!(ansi reset)'
+</code></pre>
+<h4 id="语法"><a class="header" href="#语法">语法</a></h4>
+<ul>
+<li><a href="https://www.nushell.sh/book/thinking_in_nu.html#variables-are-immutable">变量是不可变的</a>；</li>
+<li><a href="https://www.nushell.sh/book/thinking_in_nu.html#nushell-s-environment-is-scoped">运行环境具有作用域</a>。</li>
+</ul>
+<h3 id="web终端"><a class="header" href="#web终端">Web终端</a></h3>
+<p><a href="https://github.com/tsl0922/ttyd">tsl0922/ttyd: Share your terminal over the web (github.com)</a></p>
+<h4 id="webssh"><a class="header" href="#webssh">WebSSH</a></h4>
+<p>通过浏览器访问远程的SSH连接终端，其工作模式</p>
+<pre><code class="language-shell">+---------+     http     +--------+    ssh    +-----------+
+| browser | &lt;==========&gt; | webssh | &lt;=======&gt; | ssh server|
++---------+   websocket  +--------+    ssh    +-----------+
+</code></pre>
+<p><code>webssh</code>是一个Python模块，可通过<a href="">pip</a>或<a href="">Conda</a>安装。启动服务：</p>
+<pre><code class="language-bash">wssh --address=0.0.0.0 --port=8080 \       # 服务器地址端口
+	   --ssladdress=0.0.0.0 --sslport=8088 \ # HTTPS地址端口
+	   --certfile=&quot;path_to_certfile.crt&quot; \
+	   --keyfile=&quot;path_to_keyfile.key&quot; \     # 证书密钥文件
+	   --fbidhttp=True \                     # 禁用外部HTTP请求（只允许localhost访问）
+     --maxconn=20 	\                      # 最大连接数
+     --debug --origin='*'                  # 
+     &gt; /tmp/wssh/wssh.log 2&gt; /tmp/wssh/wss.error.log &amp; # 日志输出，脱离终端
+</code></pre>
+<blockquote>
+<p>避免证书/密钥文件询问密码。</p>
+<p><em>Cross origin operation is not allowed</em>：设置<code>--debug --orgin='*'</code>。</p>
+</blockquote>
+<h4 id="butterfly"><a class="header" href="#butterfly">butterfly</a></h4>
+<blockquote>
+<p><em><a href="https://github.com/paradoxxxzero/butterfly">Butterfly</a> is an xterm-compatible web terminal based on websocket and tornado.</em></p>
+</blockquote>
+<pre><code class="language-shell">butterfly.server.py --host=soc3.113.cn --port=57575 --unsecure
+</code></pre>
+<p>使用SSL加密通信</p>
+<pre><code class="language-shell">butterfly.server.py --generate-certs --host=soc3.113.cn
+butterfly.server.py --generate-user-pkcs=root
+butterfly.server.py --host=soc3.113.cn --port=57575
+</code></pre>
+<blockquote>
+<p><em><code>SSL Error on 8 ('172.28.76.6', 65440): [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: EE certificate key too weak (_ssl.c:997)</code></em>.</p>
+</blockquote>
+<h3 id="终端复用"><a class="header" href="#终端复用">终端复用</a></h3>
+<h4 id="tmux"><a class="header" href="#tmux">Tmux</a></h4>
+<p>Tmux可以将终端窗口与会话解绑：</p>
+<ul>
+<li>从而使任务可以进入后台运行，</li>
+<li>同时也能在同一终端访问多个已存在的会话；</li>
+<li>且支持将终端窗口进行拆分，从而同时访问多个会话。</li>
+</ul>
+<p>在终端中执行<code>tmux</code>进入Tmux环境，输入<code>exit</code>退出。</p>
+<h5 id="快捷键"><a class="header" href="#快捷键">快捷键</a></h5>
+<p>使用<code>Ctrl+b</code>进入快捷键模式，输入命令对应的快捷键。</p>
+<div class="table-wrapper"><table><thead><tr><th>快捷键</th><th>命令</th><th>说明</th></tr></thead><tbody>
+<tr><td><code>?</code></td><td></td><td>显示帮助信息</td></tr>
+<tr><td><code>d</code></td><td><code>attach</code></td><td>分离当前会话</td></tr>
+<tr><td><code>$</code></td><td><code>rename</code></td><td>重命名会话</td></tr>
+<tr><td><code>%</code></td><td><code>split-window -h</code></td><td>左右拆分窗格</td></tr>
+<tr><td><code>&quot;</code></td><td><code>split-window</code></td><td>上下差分窗格</td></tr>
+<tr><td>$\uparrow\downarrow$<code>-&gt;&lt;-</code></td><td>`select-pane -U</td><td>D</td></tr>
+<tr><td><code>x</code></td><td><code>exit</code></td><td>退出当前窗格</td></tr>
+<tr><td><code>Ctrl+</code>$\uparrow\downarrow$<code>-&gt;&lt;-</code></td><td></td><td>按箭头方向调整窗格大小</td></tr>
+<tr><td><code>q</code></td><td></td><td>显示窗格编号</td></tr>
+<tr><td><code>c</code></td><td><code>new-window</code></td><td>新建窗口（状态栏显示窗口信息）</td></tr>
+<tr><td>`p</td><td>n</td><td><N>`</td></tr>
+<tr><td><code>w</code></td><td><code>select-window</code></td><td>从列表中选择窗口</td></tr>
+<tr><td><code>,</code></td><td><code>rename-window</code></td><td>窗口重命名</td></tr>
+</tbody></table>
+</div>
+<h5 id="会话管理"><a class="header" href="#会话管理">会话管理</a></h5>
+<p>新建窗格（子窗口）时创建会话，并自动编号（<code>0,1,...</code>）；或者手动创建会话并命名，方便后续访问该会话。</p>
+<pre><code class="language-shell">tmux new -s &lt;session-name&gt;
+tmux detach  # 将当前会话与终端脱离
+tmux ls      # 列出所有Tmux会话
+tmux attach|switch -t &lt;session-id&gt;|&lt;session-name&gt;  # 重新接入或切换会话
+tmux kill-session -t ......
+tmux rename-session -t 0 &lt;new-name&gt;
+</code></pre>
+<h5 id="划分窗格"><a class="header" href="#划分窗格">划分窗格</a></h5>
+<pre><code class="language-shell">tmux split-window [-h]   # -h =&gt; 拆分为左右两个窗口 
+tmux swap-pane -U|D      # 移动当前窗口位置（上移|下移）
+</code></pre>
+<h5 id="窗口管理"><a class="header" href="#窗口管理">窗口管理</a></h5>
+<p>除了将一个窗口划分成多个窗格，Tmux 也允许新建多个窗口并在多个窗口间切换（命令类型与窗格管理）。</p>
+<pre><code class="language-shell">tmux new-window -n &lt;window-name&gt;  # 默认自动编号
+tmux select-window -t &lt;window-number&gt;|&lt;window-name&gt;  # 切换窗口
+</code></pre>
+<ol>
+<li><a href="https://www.ruanyifeng.com/blog/2019/10/tmux.html">Tmux 使用教程 - 阮一峰的网络日志 (ruanyifeng.com)</a></li>
+</ol>
+<h3 id="终端主题化工具"><a class="header" href="#终端主题化工具">终端主题化工具</a></h3>
+<h4 id="oh-my-posh"><a class="header" href="#oh-my-posh">oh-my-posh</a></h4>
+<p>使用“<a href="https://ohmyposh.dev/">Oh my Posh 3</a>”来为PowerShell/Bash等终端提供主题功能。</p>
+<h5 id="安装-3"><a class="header" href="#安装-3">安装</a></h5>
+<pre><code class="language-powershell">winget install|upgrade oh-my-posh # JanDeDobbeleer.OhMyPosh
+</code></pre>
+<p>安装内容：</p>
+<ul>
+<li><code>oh-my-posh.exe</code> - Windows executable, added to your $PATH；</li>
+<li><code>oh-my-posh-wsl</code> - Linux executable, added to your $PATH for use in the ==WSL==；</li>
+<li><code>themes</code> - The latest Oh My Posh themes (<code>~\AppData\Local\Programs\oh-my-posh\themes\</code>)。</li>
+</ul>
+<h6 id="安装linux版本"><a class="header" href="#安装linux版本">安装Linux版本</a></h6>
+<p>使用<code>linuxbrew</code>安装/升级。</p>
+<pre><code class="language-shell">brew install oh-my-posh  # jandedobbeleer/oh-my-posh/oh-my-posh
+brew update &amp;&amp; brew upgrade oh-my-posh # 新版本的路径可能发生变化，需要重新开启Shell
+</code></pre>
+<p>安装内容位于<code>$(brew --prefix oh-my-posh)</code>，包括可执行文件和主题。</p>
+<h5 id="应用样式"><a class="header" href="#应用样式">应用样式</a></h5>
+<p>在Powshell中执行<code>Get-PoshThemes</code>预览样式。</p>
+<p>在PowerShell初始化配置文件（<code>$PROFILE</code>）中设置命令：</p>
+<pre><code class="language-powershell"># code $PROFILE
+oh-my-posh init pwsh --config $env:POSH_THEMES_PATH/paradox.omp.json | Invoke-Expression
+</code></pre>
+<blockquote>
+<p>Windows内置的PowerShell 5和独立安装的PowerShell 7使用的shell配置都为<code>pwsh</code>；</p>
+</blockquote>
+<h6 id="linux版本命令"><a class="header" href="#linux版本命令">Linux版本命令</a></h6>
+<p>预览主题：</p>
+<pre><code class="language-shell">THEME_PATH=&quot;$(brew --prefix oh-my-posh)/themes&quot;
+for file in $THEME_PATH/*.omp.json; do 
+    eval &quot;$(oh-my-posh init bash --config $file)&quot; #**无法预览主题**
+    echo &quot;$file&quot;
+done
+</code></pre>
+<p>设置主题（<code>~/.bashrc</code>）：</p>
+<pre><code class="language-shell">eval &quot;$(oh-my-posh init bash --config $THEME_PATH/agnoster.omp.json)&quot;
+</code></pre>
+<h5 id="离线安装-2"><a class="header" href="#离线安装-2">离线安装</a></h5>
+<p>从<a href="https://github.com/JanDeDobbeleer/oh-my-posh/releases">Github Release</a>直接下载发布的可执行文件以及主题文件，将可执行文件路径添加到系统路径中，配置方法与自动安装一致。</p>
+<h5 id="图标"><a class="header" href="#图标">图标<img src="程序开发软件.assets/nerd-fonts-logo.svg" alt="@SankeyMATIC Diagram" style="zoom:40%;float:right" /></a></h5>
+<p>下载带图标的字体（<code>nerdfont</code>）。优先使用<code>Windows Compatible</code>的Code字体（<code>Mono</code>字体不支持连字）。</p>
+<p><img src="%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E8%BD%AF%E4%BB%B6.assets/sankey-glyphs-combined-diagram.svg" alt="@SankeyMATIC Diagram" /></p>
+<p><a href="https://github.com/ryanoasis/nerd-fonts">ryanoasis/nerd-fonts</a></p>
+<p><a href="https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/CascadiaCode">ryanoasis/nerd-fonts</a></p>
+<p>在PowerShell中安装并设置图标模块：</p>
+<pre><code class="language-powershell">Install-Module -Name Terminal-Icons -Repository PSGallery -Scope CurrentUser
+Import-Module -Name Terminal-Icons   # code $PROFILE
+</code></pre>
+<h5 id="git插件"><a class="header" href="#git插件">git插件</a></h5>
+<pre><code class="language-powershell">Install-Module posh-git -Scope CurrentUser
+</code></pre>
+<blockquote>
+<p>Posh-Git将Git状态信息添加到提示，并为Git命令、参数、远程和分支名称添加<code>Tab</code>自动补全。</p>
+</blockquote>
+<pre><code class="language-powershell">Import-Module posh-git
+</code></pre>
+<h4 id="powerline-go"><a class="header" href="#powerline-go">powerline-go</a></h4>
+<blockquote>
+<p><em>A beautiful and useful low-latency prompt for your shell, written in go.</em></p>
+</blockquote>
+<pre><code class="language-bash">sudo apt install golang-go
+export GOPROXY=https://goproxy.io
+export GO111MODULE=on
+go get -u github.com/justjanne/powerline-go
+</code></pre>
+<p>编辑shell配置文件（<code>.bashrc</code>）</p>
+<pre><code class="language-bash">GOPATH=$HOME/go
+function _update_ps1() {
+    PS1=&quot;$($GOPATH/bin/powerline-go -error $?)&quot;
+}
+if [ &quot;$TERM&quot; != &quot;linux&quot; ] &amp;&amp; [ -f &quot;$GOPATH/bin/powerline-go&quot; ]; then
+    PROMPT_COMMAND=&quot;_update_ps1; $PROMPT_COMMAND&quot;
+fi
+</code></pre>
+<p><a href="https://github.com/justjanne/powerline-go">justjanne/powerline-go: A beautiful and useful low-latency prompt for your shell, written in go (github.com)</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../Windows/Windows Applications.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../应用软件/服务器管理软件.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../Windows/Windows Applications.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../应用软件/服务器管理软件.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

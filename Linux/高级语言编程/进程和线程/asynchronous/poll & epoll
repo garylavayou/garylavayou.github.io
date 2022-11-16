@@ -1,0 +1,36 @@
+1. poll
+	在文件描述符上等待事件发生。
+	#include <poll.h>
+	int poll(struct pollfd *fds, nfds_t nfds, int timeout);
+	poll执行与select相似的任务：阻塞等待文件描述符集合准备好I/O操作。
+	fds：监视的文件描述符，该结构有以下格式：
+		struct pollfd {
+        	int   fd;         /* file descriptor */
+            short events;     /* requested events:bitwise */
+            short revents;    /* returned events:bitwise */
+        };
+	nfds：在fds中文件描述符的数量。
+	timeout：阻塞时间限制（毫秒）。设定负值表示无限阻塞。
+	events和revents比特定义如下：
+		POLLIN		有数据可读。
+		POLLPRI		有紧急数据读取。
+		POLLOUT		现在写数据不会阻塞。
+		POLLRDHUP	流式套接字对方关闭连接或半关闭写方向的连接
+		POLLERR		错误（仅revents）。
+		POLLHUP		挂起（仅revents）。
+		POLLNVAL	无效请求：文件描述符未打开（近revents）。
+		with _XOPEN_SOURCE
+		POLLRDNORM	等价于POLLIN。
+		POLLRDBAND	优先带数据可被读取（通常不在LINUX中使用）。
+		POLLWRNORM	等价于POLLOUT。
+		POLLWRBAND	优先数据可以写入。
+	返回：成功，返回正数，代表revents不为0的描述符的总数。返回值0代表超时
+并且没有文件描述符准备好；错误，返回值为-1，同时errno被设置。
+
+2. ppoll
+	int ppoll(struct pollfd *fds, nfds_t nfds,
+        const struct timespec *timeout_ts, const sigset_t *sigmask);
+	ppoll与poll的关系类似于pselect与select的关系：pploll允许应用程序安全
+地等待指导文件描述符准备好，或信号被捕获。
+	timeout_ts：相比poll使用的timeout参数，ppoll使用的时间参数的精度更高。
+当timeout_ts为NULL时，ppoll将无限制阻塞。

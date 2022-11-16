@@ -1,0 +1,82 @@
+# 数据
+
+## 定义
+
+我们也可以将数据存储在文件中，但是在文件中读写数据速度相对==较慢==。
+
+Files and directories on Unix-like operating systems form an example of a hierarchical database. 
+
+所以，现在我们使用关系型数据库管理系统（RDBMS）来存储和管理的大数据量。所谓的关系型数据库，是建立在关系模型基础上的数据库，借助于集合代数等数学概念和方法来处理数据库中的数据。
+
+ORDBMS（对象关系数据库系统）是面向对象技术与传统的关系数据库相结合的产物。
+
+关系数据库管理系统 —— Relational database management systems,RDBMSs
+
+E.F.Codd, A Relational Model of Data for Large Shared Data Banks
+Codd的关系数据库原则
+1.信息是以数据表来逻辑呈现。
+2.数据必须可以用数据表（table）、主键（primary key）和列（column）来逻辑访问。
+3.NULL值必须一律被视为“缺少的数据（missing information）”，而不是空字符串、空白或零。
+4.元数据（metadata，即与数据库有关的数据）必须与一般数据一样存储在数据库中。
+5.单一语言必须能定义数据（data）、视图（view）、完整性约束（integrity constraint）、授权（authorization）、事务（transaction）及数据操作（data manipulation）。
+6.视图必须显示它的基表（base table）的更新，反之亦然。
+7.如下操作均须拥有各自的单一操作行为：获取数据、插入数据、更新数据或删除数据。
+8.批处理及终端用户的操作在逻辑上应该与物理存储及访问方式分开。
+9.批处理及终端用户的操作无须重建数据库模式（database schema）或其上的应用程序，便可以改变数据库模式。
+10.一定要有完整性限制，并存储在元数据中，而不是存储在应用程序中。
+11.关系系统的数据操作语言不应该关注物理数据分布位置或方式，无论数据是集中式存储还是分布式存储，语言也不应该加以改动。
+12.系统中的数据行处理须服从与集合处理相同的完整性原则及限制。
+
+结构化英语查询语言 —— Structured English Query Language，SEQUEL
+结构化查询语言 —— Structured Query Language，SQL
+
+
+数据表 —— table	—— entity
+数据行 —— row —— 记录 —— tuple
+数据列 —— column —— 属性 —— attribute
+主键 —— primary key
+	如果列或列存储的值可以辨认出每个记录的唯一性，那么该列便可作为一个主键。
+
+SQL92语句分类
+数据操纵语言（Data Manipulation Language，DML）
+	提供特定数据操纵命令，如SELECT、INSERT、UPDATE、DELETE。
+数据定义语言（Data Definition Language，DDL）
+	包含处理数据库对象的可访问性及操纵命令，如CREATE、DROP。
+数据控制语言（Data Control Language，DCL）
+	包含授权的相关命令，如GRANT和REVOKE。
+	
+SQL3语句分类
+SQL链接语句 —— 开始与结束客户端连接 —— CONNECT、DISCONNECT
+SQL控制语句 —— 控制一组SQL语句的执行 —— CALL、RETURN
+SQL数据语句 —— 可能对数据有持久效果 —— SELECT、INSERT、UPDATE、DELETE
+SQL诊断语句 —— 提供诊断信息并列出异常及错误 —— GET DIAGNOSTICS
+SQL模式语句 —— 可能对数据库模式及此模式内
+			   的对象有持久效果 —— ALTER、CREATE、DROP
+SQL会话语句 —— 控制会话的默认行为及其他参数 ——SET CONSTRAINT
+SQL事务语句 —— 设定事务的起止点 —— COMMIT、ROLLBACK
+
+SQL语句
+标识符（identifier）
+	说明用户或系统为数据库对象设定的名字，如：数据库、数据表、表约束以及表内的字段/视图等。
+文本（literal）
+	为用户或系统设定的字符串或值，但是并非关键字或标识符。文本可分为字符串（如“hello”）、数字（如“1234”）、日期（如“Jan 01,2002”）或布尔值（如“TRUE”）。
+	字符串文本应该总是用单引号（''）括起来。这是所有字符串文本的标准定界符。使用连续的两个单引号就可在文本中表示单引号。
+操作符（operator）
+	指定在一个或多个表达式上所执行的动作符号，它通常在DELETE、INSERT、SELECT或UPDATE语句内。操作符也常用于创建数据库对象。
+	操作符分为以下几类：
+	算术运算符（arithmetic operator）
+		所有数据库都支持。
+	赋值运算符（assignment operator）
+		所有数据库都支持。
+	位运算符（bitwise operator）
+		MySQL和SQL server支持。
+	比较运算符（comparison operator）
+		所有数据库都支持。
+	逻辑运算符（logical operator）
+		所有数据库都支持。
+	单目运算符（unary operator）
+		MySQL、Oracle、SQL server支持。
+
+保留字及关键字（reserved word and keyword）
+	对数据库SQL解析器有特定意义。类似于SELECT、GRANT、DELETE或CREATE这样的关键字不能作为数据库平台内的标识符。这些关键字通常是命令或SQL语句。保留字是未来可能成为关键字的词。
+

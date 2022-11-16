@@ -1,0 +1,588 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>开发环境 - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html" class="active">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="开发环境"><a class="header" href="#开发环境">开发环境</a></h1>
+<h2 id="web开发环境"><a class="header" href="#web开发环境">Web开发环境</a></h2>
+<h3 id="客户侧开发工具"><a class="header" href="#客户侧开发工具">客户侧开发工具</a></h3>
+<p>✨<a href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools">Understanding client-side web development tools - Learn web development | MDN (mozilla.org)</a></p>
+<h3 id="客户侧框架"><a class="header" href="#客户侧框架">客户侧框架</a></h3>
+<p>✨<a href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Introduction">Introduction to client-side frameworks - Learn web development | MDN (mozilla.org)</a></p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Framework</th><th style="text-align: left">Browser support</th><th style="text-align: left">Preferred DSL</th><th style="text-align: left">Supported DSLs</th></tr></thead><tbody>
+<tr><td style="text-align: left">Angular</td><td style="text-align: left">IE9+</td><td style="text-align: left">TypeScript</td><td style="text-align: left">HTML-based; TypeScript</td></tr>
+<tr><td style="text-align: left">React</td><td style="text-align: left">Modern (IE9+ with Polyfills)</td><td style="text-align: left">JSX</td><td style="text-align: left">JSX; TypeScript</td></tr>
+<tr><td style="text-align: left">Vue</td><td style="text-align: left">IE9+</td><td style="text-align: left">HTML-based</td><td style="text-align: left">HTML-based, JSX, Pug</td></tr>
+<tr><td style="text-align: left">Ember</td><td style="text-align: left">Modern (IE9+ in Ember version 2.18)</td><td style="text-align: left">Handlebars</td><td style="text-align: left">Handlebars, TypeScript</td></tr>
+</tbody></table>
+</div>
+<h3 id="服务侧框架"><a class="header" href="#服务侧框架">服务侧框架</a></h3>
+<p><a href="https://developer.mozilla.org/en-US/docs/Learn/Server-side">Server-side website programming - Learn web development | MDN (mozilla.org)</a></p>
+<p>✨<a href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction">Express/Node introduction - Learn web development | MDN (mozilla.org)</a></p>
+<h2 id="nodejs"><a class="header" href="#nodejs">Node.js</a></h2>
+<h3 id="安装nodejs"><a class="header" href="#安装nodejs">安装Node.js</a></h3>
+<blockquote>
+<p>Node.js® 是一个基于 <a href="https://v8.dev/">Chrome V8引擎</a> 的 JavaScript 运行时环境。</p>
+<p><em>The runtime is intended for running directly on a computer or server OS. As such, the environment omits browser-specific JavaScript APIs and adds support for more traditional OS APIs including HTTP and file system libraries.</em>
+✨<a href="https://github.com/maxogden/art-of-node">maxogden/art-of-node: a short introduction to node.js (github.com)</a></p>
+</blockquote>
+<h5 id="linux"><a class="header" href="#linux">Linux</a></h5>
+<pre><code class="language-sh"># Using Ubuntu
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+apt-get install -y nodejs
+# CentOS/Fedora
+curl -fsSL https://rpm.nodesource.com/setup_lts.x | bash -
+yum install -y nodejs
+yum install gcc-c++ make # to compile&amp;install native addons from npm*
+</code></pre>
+<blockquote>
+<p><code>*</code>：或者执行<code>yum groupinstall 'Development Tools'</code>。</p>
+<p>Latest LTS Version: <strong>16.17.0</strong> (includes <code>npm</code> 8.15)。</p>
+<p>Linux版本：https://github.com/nodesource/distributions/blob/master/README.md。</p>
+<p>Windows版本：https://nodejs.org/en/download/。</p>
+</blockquote>
+<h5 id="windows"><a class="header" href="#windows">Windows</a></h5>
+<pre><code class="language-powershell">winget install OpenJS.NodeJS.LTS  # v16 *
+</code></pre>
+<blockquote>
+<p><code>winget</code>安装包无法自动安装Python和C++编译工具，需要从<a href="https://nodejs.org/en/download/">官网下载安装包</a>并修改安装。</p>
+<p><em>MSBUILD : error MSB4132: 无法识别工具版本“2.0”。可用的工具版本为 &quot;4.0&quot;。</em></p>
+</blockquote>
+<h3 id="包管理器"><a class="header" href="#包管理器">包管理器</a></h3>
+<h4 id="npm"><a class="header" href="#npm">NPM</a></h4>
+<p>NPM (Node package manager)包含在Node.js中。</p>
+<pre><code class="language-shell">npm -l             # display usage info for all commands
+npm &lt;command&gt; -h   # quick help on &lt;command&gt;
+npm help &lt;command&gt; # show help in browser
+</code></pre>
+<h5 id="初始化项目"><a class="header" href="#初始化项目">初始化项目</a></h5>
+<p>为项目创建配置文件<code>package.json</code>（交互式）：</p>
+<pre><code class="language-shell">cd progdir &amp;&amp; npm {init|create}   # create&lt;-&gt;init
+# package name: (test-api)
+# version: (1.0.0)
+# description: coding a fun API using Express, a NodeJS minimalist web framework.
+# entry point: (index.js)
+# test command:
+# git repository:
+# keywords: express, api, nodejs
+# author: Gary Wang
+# license: (ISC)
+mkdir src &amp;&amp; touch src/index.js
+</code></pre>
+<p>配置文件内容包括：项目基本信息、执行脚本、依赖库声明。</p>
+<pre><code class="language-json">{
+    &quot;name&quot;: &quot;node-echo&quot;,     
+    &quot;main&quot;: &quot;./lib/echo.js&quot;, // 包的主模块
+    &quot;dependencies&quot;: {
+        &quot;argv&quot;: &quot;0.0.2&quot;      // 依赖库名称和版本
+    }
+}
+</code></pre>
+<h5 id="包管理"><a class="header" href="#包管理">包管理</a></h5>
+<blockquote>
+<p>也可在<a href="https://www.npmjs.com/">npm (npmjs.com)</a>搜索包。</p>
+</blockquote>
+<p>安装/更新依赖库：</p>
+<pre><code class="language-shell">npm install       # 安装当前项目所需依赖(package.json)
+           --location=global,user,project #*
+           --global
+npm install &lt;foo&gt; &lt;bar@version&gt; # 安装指定模块**
+            --save # 将安装的模块加入package.json
+npm update        # 更新满足条件的依赖库并更新(package-lock.json)
+npm run &lt;script&gt;  # 运行package.json中定义的脚本
+npm start|restart|stop --if-present   # =&gt; npm run start 
+</code></pre>
+<blockquote>
+<p>相应脚本需要在配置文件中定义，<code>--if-present</code>仅在相应命令存在的情况下执行而不产生错误。</p>
+<p><code>*</code>：安装位置：</p>
+<ul>
+<li><code>global</code>：<code>~\AppData\Roaming\npm\node_modules</code>（<code>Windows</code>）或<code>/usr/local/nodejs/lib/node_modules/</code>（Linux）；</li>
+<li><code>user</code>：<code>~\node_modules</code>；</li>
+<li><code>project</code>：<code>PROJECT_HOME\node_modules</code>；</li>
+</ul>
+<p><code>**</code>：如果当前目录下没有项目配置文件（<code>package.json</code>），执行命令时会自动生成包含所安装包的配置文件。</p>
+</blockquote>
+<h5 id="仓库镜像配置"><a class="header" href="#仓库镜像配置">仓库镜像配置</a></h5>
+<p>默认仓库为<code>https://registry.npmjs.org/</code>，可修改为国内镜像源（阿里云：<code>https://registry.npmmirror.com</code>）</p>
+<pre><code class="language-shell">npm config set registry https://registry.npmmirror.com
+npm config get registry
+</code></pre>
+<h5 id="包管理-1"><a class="header" href="#包管理-1">包管理</a></h5>
+<p>Java Script包采用<a href="https://docs.npmjs.com/about-semantic-versioning">语义化版本控制</a>，以在项目中使用依赖包时保证良好的兼容性。项目使用的依赖包声明方式：</p>
+<ul>
+<li>仅允许<code>patch</code>版本升级：<code>1.0, 1.0.x, ~1.0.4</code>；</li>
+<li>允许<code>minor</code>和<code>patch</code>版本升级：<code>1, 1.x, ^1.0.4</code>；</li>
+<li>允许<code>major</code>版本升级：<code>*, x</code>。</li>
+<li>版本范围：<code>&gt;2.1</code>，<code>1.0.0 - 1.2.0</code>（可使用<code>&gt;,&lt;,&gt;=,&lt;=,=</code>或<code>-</code>表示范围）。</li>
+<li>组合：<code>^2 &lt;2.2 || &gt;2.3</code>。</li>
+</ul>
+<h5 id="安装全局工具"><a class="header" href="#安装全局工具">安装全局工具</a></h5>
+<pre><code class="language-shell">npm install --global,-g &lt;module-name&gt;
+</code></pre>
+<h4 id="yarn"><a class="header" href="#yarn">yarn</a></h4>
+<pre><code class="language-shell">curl -sL https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
+yum install yarn
+</code></pre>
+<pre><code class="language-shell">NODE_ENV=prodution yarn start --production
+</code></pre>
+<h4 id="pnpm"><a class="header" href="#pnpm">pnpm</a></h4>
+<h4 id="模块编译"><a class="header" href="#模块编译">模块编译</a></h4>
+<p><code>node-gyp</code>：<code>MSBuild.exe failed with exit code: 1</code>，<a href="https://stackoverflow.com/a/66801369/6571140">解决方法</a>：</p>
+<pre><code class="language-shell">npm install --ignore-scripts
+npm rebuild node-sass --force --ignore-scripts
+</code></pre>
+<h3 id="node运行环境管理"><a class="header" href="#node运行环境管理">Node运行环境管理</a></h3>
+<pre><code class="language-shell">nvm version                   # 查看nvm版本
+nvm arch                      # 查看node运行的系统架构
+nvm current                   # 当前激活的node版本
+nvm list [available]          # 列出已安装/可安装版本
+nvm install &lt;version&gt; [32|64] # 安装指定版本node*
+nvm use [version] [32|64]     # 切换版本(全局生效)**
+nvm uninstall &lt;version&gt;       # 必须指定具体版本
+</code></pre>
+<blockquote>
+<p><code>*</code>：具体版本号、<code>lts</code>或<code>latest</code>；</p>
+<p><code>**</code>：需要管理员权限创建符号链接。</p>
+</blockquote>
+<h5 id="下载镜像"><a class="header" href="#下载镜像">下载镜像</a></h5>
+<pre><code class="language-shell">nvm proxy [URL]
+nvm node_mirror [URL] # -&gt; 下载node地址：https://nodejs.org/dist/
+nvm npm_mirror [URL]  # -&gt; 下载NPM地址：https://github.com/npm/cli/archive/
+nvm root [PATH]       # -&gt; 环境安装目录：~\AppData\Roaming\nvm
+</code></pre>
+<h3 id="node交互式环境"><a class="header" href="#node交互式环境">Node交互式环境</a></h3>
+<p>在终端执行<code>node</code>进入交互命令行。</p>
+<pre><code class="language-javascript">console.log('hello world!')
+</code></pre>
+<h3 id="nodejs库"><a class="header" href="#nodejs库">Node.js库</a></h3>
+<h4 id="http服务"><a class="header" href="#http服务">HTTP服务</a></h4>
+<pre><code class="language-javascript">const http = require(&quot;http&quot;);
+const hostname = &quot;127.0.0.1&quot;, port = 5000;
+const server = http.createServer(function (req, res) {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('Hello World\n');
+});
+server.listen(port, hostname, function () { // start server
+    console.log(`Server running at http://${hostname}:${port}/`);
+})
+</code></pre>
+<h3 id="nodejs应用程序"><a class="header" href="#nodejs应用程序">Node.js应用程序</a></h3>
+<pre><code class="language-shell">npx &lt;package&gt;  # -&gt; x, npm exec
+</code></pre>
+<h4 id="http-server"><a class="header" href="#http-server">http-server</a></h4>
+<blockquote>
+<p><em><code>http-server</code> is a simple, zero-configuration command-line <strong>static</strong> HTTP server. It is powerful enough for production usage, but it's simple and hackable enough to be used for testing, local development and learning.</em></p>
+</blockquote>
+<h5 id="用法"><a class="header" href="#用法">用法</a></h5>
+<pre><code class="language-shell">http-server [./public]  # 如果&quot;./public&quot;不存在则默认为&quot;./&quot; 
+            -p,--port=8080
+            -a 0.0.0.0
+            --cors=false
+            -o [path]   # 在浏览器中打开指定路径
+            --username USER
+            --password
+            -S,--tls,--ssl -C,--cert=cert.pem -K,--key=key.pem
+</code></pre>
+<h3 id="web前端打包"><a class="header" href="#web前端打包">Web前端打包</a></h3>
+<p>将HTML文件引用的NPM包及其依赖库打包到单一文件，方便引用。</p>
+<h4 id="browserify"><a class="header" href="#browserify">browserify</a></h4>
+<pre><code class="language-shell">npm install -g browserify
+</code></pre>
+<p><a href="https://github.com/browserify/browserify#usage">browserify/browserify: browser-side require() the node.js way (github.com)</a></p>
+<pre><code class="language-shell">browserify.cmd .\index.js  --outfile .\bundle.js 
+</code></pre>
+<blockquote>
+<p><code>--outfile</code>：在Windows终端中执行命令，如果将输出定向到文件可能导致编码不匹配的问题（输出内容为UTF-8，而终端编码为UTF-16）从而导致乱码。使用该选项打开文件进行输出可避免该问题。</p>
+</blockquote>
+<h4 id="webpack"><a class="header" href="#webpack">webpack</a></h4>
+<blockquote>
+<p><em>internally builds a dependency graph from one or more entry points and then combines every module your project needs into one or more bundles, which are static assets to serve your content from.</em></p>
+</blockquote>
+<p>打包配置<code>webpack.config.js</code>：</p>
+<pre><code class="language-javascript">const path = require('path');
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
+  },
+};
+</code></pre>
+<p>引用打包后的文件：</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    ...
+  &lt;/head&gt;
+  &lt;body&gt;
+    ...
+    &lt;script src=&quot;dist/bundle.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><a href="https://webpack.js.org/guides/installation/#local-installation">Installation | webpack</a></p>
+<p><a href="https://webpack.js.org/guides/getting-started">webpack</a></p>
+<h4 id="esbuild"><a class="header" href="#esbuild">esbuild</a></h4>
+<pre><code class="language-shell">npm install -g esbuild
+esbuild app.jsx --bundle --outfile=out.js
+</code></pre>
+<p><a href="https://esbuild.github.io/getting-started/">esbuild - Getting Started</a></p>
+<h2 id="typescript"><a class="header" href="#typescript">TypeScript</a></h2>
+<blockquote>
+<p><em>TypeScript is available as a <a href="https://www.npmjs.com/package/typescript">package on the npm registry</a> available as <code>&quot;typescript&quot;</code>.</em></p>
+</blockquote>
+<pre><code class="language-shell">npm install typescript --save-dev # install for current project
+npm install -g typescript         # Globally Installing TypeScript
+</code></pre>
+<blockquote>
+<p>codebases should prefer a project-wide installation over a global install so that they can benefit from reproducible builds across different machines.</p>
+</blockquote>
+<p><a href="https://www.typescriptlang.org/docs/bootstrap">TypeScript: Bootstrapping tools for TypeScript projects (typescriptlang.org)</a></p>
+<h3 id="编译"><a class="header" href="#编译">编译</a></h3>
+<p>将TypeScript源码转换为JavaScript。</p>
+<ul>
+<li><em>Erased Types</em></li>
+<li><em>Downleveling</em></li>
+<li><em>Strictness</em></li>
+</ul>
+<h4 id="编译项目"><a class="header" href="#编译项目">编译项目</a></h4>
+<pre><code class="language-shell">npx tsc --init                 # 初始化项目，生成tsconfig.json
+npx tsc                        # 编译项目
+tsc -p ./path/to/tsconfig.json # 编译指定路径下的项目
+npx tsc program.ts utils.ts    # 编译源码，忽略项目配置
+</code></pre>
+<h2 id="express"><a class="header" href="#express">Express</a></h2>
+<blockquote>
+<p><em>Fast, unopinionated, minimalist web framework for Node.js.</em></p>
+</blockquote>
+<p>Express封装了Node.js的<a href="#HTTP%E6%9C%8D%E5%8A%A1"><code>http</code>和<code>https</code>库</a>，并提供高层次的HTTP处理接口，如处理不同的HTTP方法、API路由、服务静态文件和基于模板创建动态响应。</p>
+<blockquote>
+<ul>
+<li>
+<p><a href="https://expressjs.com/en/resources/frameworks.html">Frameworks built on Express (expressjs.com)</a></p>
+</li>
+<li>
+<p><strong>Express middleware</strong></p>
+<p><em>While Express itself is fairly minimalist, developers have created compatible <a href="https://expressjs.com/en/resources/middleware.html">middleware packages</a> to address almost any web development problem, related to cookies, sessions, user logins, URL parameters, POST data, security headers, ......</em></p>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>Robust routing</li>
+<li>Focus on high performance</li>
+<li>Super-high test coverage</li>
+<li>HTTP helpers (redirection, caching, etc)</li>
+<li>View system supporting 14+ template engines</li>
+<li>Content negotiation</li>
+<li>Executable for generating applications quickly</li>
+</ul>
+<h3 id="express项目"><a class="header" href="#express项目">Express项目</a></h3>
+<p>使用模板快速开始构建App。</p>
+<pre><code class="language-shell">npm install -g express-generator@4
+express /project/folder  # &quot;npx express-generator&quot; for Node.js 8.2+
+npm install
+npm start   # -&gt; http://localhost:3000
+</code></pre>
+<p>项目目录结构如下：</p>
+<pre><code class="language-shell">/project/folder
+├─bin
+├─public
+│  ├─images
+│  ├─javascripts
+│  └─stylesheets
+├─routes
+└─views
+</code></pre>
+<p>创建新项目并添加<code>express</code>库。</p>
+<pre><code class="language-shell">npm init &amp;&amp; npm install express
+</code></pre>
+<h4 id="代码结构"><a class="header" href="#代码结构">代码结构</a></h4>
+<pre><code class="language-javascript">const express = require('express')  // 导入express库
+const app = express()               // 创建应用实例
+const port = 5000
+// 定义API和处理方法
+app.get('/', (req, res) =&gt; {
+    res.send('hello world!');
+})
+// 启动服务
+app.listen(port, () =&gt; {
+    console.log(`Example app listening on port ${port}.`);
+})
+</code></pre>
+<p>监听多个端口与协议：</p>
+<pre><code class="language-javascript">const http = require('http'),
+      https = require('https'),
+      express = require('express'),
+      app = express();
+http.createServer(app).listen(80); 
+https.createServer({options}, app).listen(443);
+</code></pre>
+<p><a href="http://expressjs.com/en/starter/examples.html">Express examples (expressjs.com)</a></p>
+<blockquote>
+<p><a href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Tutorial_local_library_website">Express Tutorial: The Local Library website - Learn web development | MDN (mozilla.org)</a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction">Express/Node introduction - Learn web development | MDN (mozilla.org)</a></p>
+</blockquote>
+<h3 id="url处理函数"><a class="header" href="#url处理函数">URL处理函数</a></h3>
+<p>一个URL可定义多个匹配的处理函数。</p>
+<pre><code class="language-javascript">app.METHOD(PATH, HANDLER)
+</code></pre>
+<ul>
+<li><code>METHOD</code>是HTTP方法；</li>
+<li><code>PATH</code>是服务器的URL；</li>
+<li><code>HANDLER</code>是处理函数。</li>
+</ul>
+<pre><code class="language-js">req
+res
+</code></pre>
+<h4 id="服务静态文件"><a class="header" href="#服务静态文件">服务静态文件</a></h4>
+<pre><code class="language-javascript">express.static(root, [options])
+app.use(express.static('public'))  // 添加多个静态文件目录
+app.use(express.static('files'))   // 按顺序查找静态资源
+app.use('/static', express.static('public'))  // 为静态资源URL添加前缀
+</code></pre>
+<p><code>root</code>指定服务器上存放静态文件的根目录（可为绝对或相对路径，该目录名称不是URL的一部分）。</p>
+<blockquote>
+<p>使用反向代理提高静态资源的服务效率。</p>
+</blockquote>
+<h4 id="api路由"><a class="header" href="#api路由">API路由</a></h4>
+<pre><code class="language-js">app.use('BASE_URL', Router)
+</code></pre>
+<h3 id="服务静态文件-1"><a class="header" href="#服务静态文件-1">服务静态文件</a></h3>
+<h3 id="错误处理"><a class="header" href="#错误处理">错误处理</a></h3>
+<h3 id="使用数据库"><a class="header" href="#使用数据库">使用数据库</a></h3>
+<h2 id="angular"><a class="header" href="#angular">Angular</a></h2>
+<p>Angular是一个用HTML和TypeScript构建客户端应用的平台与框架。</p>
+<ul>
+<li>模块<code>NgModule</code>；根模块<code>AppModule</code>提供了用来启动应用的引导机制。</li>
+<li>组件<code>@Component()</code>：每个应用至少有一个组件（<em>根组件</em>），它会把组件树和页面中的DOM连接起来。每个组件都会定义一个类，其中包含应用的数据和逻辑，并与一个HTML<em>模板</em>相关联，该模板定义了一个供目标环境下显示的视图。</li>
+<li>模板：模板中的<em>指令</em>会提供程序逻辑，而<em>绑定标记</em>会把你应用中的数据和 DOM 连接在一起。</li>
+<li><em>服务</em>类：与特定视图无关并希望跨组件共享的数据或逻辑，通过<code>@Injectable()</code>让服务作为依赖<em>被注入到</em>客户组件中。</li>
+<li>路由：</li>
+</ul>
+<p><img src="JS%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83.assets/angular-overview.png" alt="overview" /></p>
+<p><a href="https://angular.cn/tutorial/toh-pt0">使用 Angular CLI 来创建最初的应用程序。</a></p>
+<h3 id="angular命令行工具"><a class="header" href="#angular命令行工具">Angular命令行工具</a></h3>
+<h5 id="安装和卸载命令行工具"><a class="header" href="#安装和卸载命令行工具">安装和卸载命令行工具</a></h5>
+<pre><code class="language-shell">npm install -g @angular/cli			# sudo on Ubuntu
+npm uninstall -g @angular/cli
+npm cache clean --force
+</code></pre>
+<blockquote>
+<p>Windows上使用PowerShell需要修改脚本执行策略：</p>
+<pre><code class="language-powershell">Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+</code></pre>
+</blockquote>
+<h5 id="创建新项目"><a class="header" href="#创建新项目">创建新项目</a></h5>
+<pre><code class="language-shell">ng new my-app
+npm install --legacy-peer-deps # 如果安装依赖出错使用该命令
+</code></pre>
+<h5 id="编译项目-1"><a class="header" href="#编译项目-1">编译项目</a></h5>
+<pre><code class="language-shell">ng build
+</code></pre>
+<h5 id="启动应用"><a class="header" href="#启动应用">启动应用</a></h5>
+<pre><code class="language-shell">ng serve --host=ws-gary --port port --ssl [--disableHostCheck]
+</code></pre>
+<h3 id="项目结构"><a class="header" href="#项目结构">项目结构</a></h3>
+<p><code>package.json</code>：包含了项目的配置文件，包括项目名称、描述、源代码仓库、版本、许可证、项目构建、测试、启动命令、依赖包等信息。</p>
+<p><code>angular.json</code>：Angular框架配置文件。</p>
+<p><code>tsconfig.json</code>：TypeScript配置文件。</p>
+<h3 id="编译-1"><a class="header" href="#编译-1">编译</a></h3>
+<pre><code class="language-sh">ng update		# shou packages can be updated
+ng update --all [--allow-dirty] [--force]
+ng update @angular/core @angular/cli
+</code></pre>
+<h2 id="electron"><a class="header" href="#electron">Electron</a></h2>
+<blockquote>
+<p><em>Electron is a framework for building desktop applications using JavaScript, HTML, and CSS. By embedding <strong>Chromium</strong> and <strong>Node.js</strong> into its binary, Electron allows you to maintain one JavaScript codebase and create <strong>cross-platform apps</strong> that work on Windows, macOS, and Linux — no native development experience required.</em></p>
+</blockquote>
+<pre><code class="language-shell">git clone https://github.com/electron/electron-quick-start
+cd electron-quick-start
+npm install &amp;&amp; npm start
+</code></pre>
+<p><a href="https://www.electronjs.org/docs/latest/tutorial/tutorial-prerequisites">This tutorial will guide you through the process of developing a desktop application with Electron and distributing it to end users.</a></p>
+<h2 id="开发工具"><a class="header" href="#开发工具">开发工具</a></h2>
+<h3 id="vs-code"><a class="header" href="#vs-code">VS Code</a></h3>
+<h5 id="调试"><a class="header" href="#调试">调试</a></h5>
+<p>VS Code支持在浏览器中启动服务并调试Javascript程序，或通过Node.js执行环境进行调试。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../JavaScript/TypeScript.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../开发环境/git.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../JavaScript/TypeScript.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../开发环境/git.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

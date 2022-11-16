@@ -1,0 +1,1152 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Linux 发行版 - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html" class="active">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="linux-发行版"><a class="header" href="#linux-发行版">Linux 发行版</a></h1>
+<h2 id="ubuntu"><a class="header" href="#ubuntu">Ubuntu</a></h2>
+<h3 id="安装系统"><a class="header" href="#安装系统">安装系统</a></h3>
+<p>系统版本：</p>
+<ul>
+<li>Server：默认无桌面环境；在编译时优化了某些选项；支持多处理器对称技术和NUMA；服务器版本的内核时钟频率由桌面的100hz转为1khz（<a href="https://blog.csdn.net/dearbaba_8520/article/details/80563812">参考</a>）。</li>
+</ul>
+<p>Ubuntu默认采用的文件系统格式为<code>ext4</code>，默认除根目录和<code>/boot</code>外，不会为其他目录挂载分区。</p>
+<h3 id="软件管理"><a class="header" href="#软件管理">软件管理</a></h3>
+<h4 id="软件源配置"><a class="header" href="#软件源配置">软件源配置</a></h4>
+<p>添加镜像站点加速。国内的站点包括：</p>
+<ul>
+<li>阿里云：https://developer.aliyun.com/mirror/ubuntu</li>
+<li>清华：https://mirrors.tuna.tsinghua.edu.cn/ubuntu（<em><code>Certificate verification failed</code></em>）</li>
+<li>中科大：https://mirrors.ustc.edu.cn/ubuntu</li>
+<li>网易：http://mirrors.163.com/ubuntu</li>
+</ul>
+<blockquote>
+<p>安装服务器版本过程中，可以设置镜像站点。</p>
+</blockquote>
+<p>编辑软件源配置文件：</p>
+<pre><code class="language-shell">sudo vi /etc/apt/sources.list
+</code></pre>
+<blockquote>
+<p>修改配置文件中的站点为<a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/">镜像站点</a>。</p>
+</blockquote>
+<p>更新软件源信息：</p>
+<pre><code class="language-shell">sudo apt update
+</code></pre>
+<p>如果需要使用代理访问网络，则设置<code>/etc/apt/apt.conf.d/00aptproxy</code>（<code>apt</code>不适用系统代理环境变量）：</p>
+<pre><code class="language-shell">Acquire::http::proxy &quot;http://[&lt;domain\user&gt;:&lt;password&gt;@]&lt;yourproxyserver&gt;:&lt;Port&gt;&quot;;
+Acquire::https::proxy &quot;http://[&lt;domain\user&gt;:&lt;password&gt;@]&lt;yourproxyserver&gt;:&lt;Port&gt;&quot;;
+Acquire::ftp::proxy &quot;http://[&lt;domain\user&gt;:&lt;password&gt;@]&lt;yourproxyserver&gt;:&lt;Port&gt;&quot;;
+</code></pre>
+<blockquote>
+<p>如果代理需要认证，则需要配置用户名和密码<code>[&lt;domain\user&gt;:&lt;password&gt;@]</code>。</p>
+</blockquote>
+<h5 id="常见问题"><a class="header" href="#常见问题">常见问题</a></h5>
+<ol>
+<li>
+<p><em><code>Certificate verification failed</code></em>：（容器）使用<code>https</code>协议需要<code>ca-certificates</code>。</p>
+<p>使用基于<code>http</code>的镜像源。或者<a href="#%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E5%8C%85">手动下载安装</a><code>ca-certificates</code>及其依赖文件。</p>
+</li>
+</ol>
+<h4 id="软件管理工具"><a class="header" href="#软件管理工具">软件管理工具</a></h4>
+<h5 id="apt-get"><a class="header" href="#apt-get">apt-get</a></h5>
+<p><code>apt-get</code>是其他APT工具的后端，如<code>aptitude</code>，<code>synaptic</code>和<code>wajig</code>。</p>
+<pre><code class="language-shell">apt-get update    # 从软件源同步软件包索引
+        upgrade   # 升级软件包到最新版本
+        dist-upgrade  # 系统重大升级(可能移除某些软件包)
+        install|reinstall PKG[=version] --download-only
+        remove|purge PKG       # purge还移除配置文件
+        autoremove             # 移除系统中不需要的软件包
+        download PKG[=version] # 下载软件包到当前目录
+                               # 不能指定下载位置
+        clean|autoclean        # 清理本地仓库，autoclean清理不再使用的缓存文件
+apt-get changelog  # 获取软件包的改动历史
+</code></pre>
+<p><code>remove</code>将保留用户做过修改的配置文件（以防以外卸载导致用户配置丢失），而<code>purge</code>将移除所有相关文件（包括之前卸载过的软件，用户主目录下的文件除外）。==手动删除<code>remove</code>保留的配置文件可能导致重装软件出现问题。==</p>
+<blockquote>
+<p><code>install --reinstall =&gt; reinstall</code>；
+<code>remove --purge =&gt; purge</code></p>
+</blockquote>
+<p>选项：</p>
+<ul>
+<li><code>-a,--host-architecture=architecture</code>：</li>
+</ul>
+<h5 id="apt-cache"><a class="header" href="#apt-cache">apt-cache</a></h5>
+<p>查询APT缓存。</p>
+<pre><code class="language-shell">apt-cahce gencaches       # 生成缓存，其他命令如需要会调用
+          stats           # 显示缓存统计信息
+          search   REGEX
+              -f,--full       # 列出所有版本的信息
+              -n,--names-only # 仅搜索包名
+          pkgnames PREFIX # 显示匹配前缀的包名
+          showpkg  PKG    # 显示软件包信息
+          show     PKG    # 显示软件包信息(更多详情)
+              -a,--all-versions # 显示所有可用版本
+          showsrc  PKG    # 显示软件源码包(必须source.list中配置源码源)          
+          depends  PKG    # 显示依赖信息(包括冲突包)
+              --recurse   # 递归解析依赖    
+</code></pre>
+<h5 id="apt"><a class="header" href="#apt">apt</a></h5>
+<p><code>apt</code>封装了<code>apt-get</code>、<code>apt-cache</code>等后端工具的常用命令，并对选项默认值做了部分改动。</p>
+<h6 id="查找软件"><a class="header" href="#查找软件">查找软件</a></h6>
+<pre><code class="language-shell">sudo apt search PACKAGE  # -&gt; apt-cache search
+sudo apt list PACKAGE [--installed]  # 列出（已安装）软件包信息*
+sudo apt show PACKAGE  # 列出软件包详细信息（list --full）
+</code></pre>
+<blockquote>
+<p><code>PACKAGE</code>支持POSIX正则表达式（不支持<code>\d</code>等）。</p>
+</blockquote>
+<h6 id="安装卸载软件"><a class="header" href="#安装卸载软件">安装/卸载软件</a></h6>
+<pre><code class="language-shell">sudo apt install PACKAGE	    # 安装软件包
+sudo apt remove|purge PACKAGE	# 移除软件包
+sudo apt autoremove				   
+</code></pre>
+<p>安装桌面环境的交互命令：</p>
+<pre><code class="language-shell">sudo apt install tasksel -y
+sudo tasksel
+</code></pre>
+<pre><code class="language-shell">sudo apt install ./&lt;file&gt;.deb
+</code></pre>
+<h5 id="软件升级"><a class="header" href="#软件升级">软件升级</a></h5>
+<blockquote>
+<p>安装操作系统后首先对系统进行升级。</p>
+</blockquote>
+<pre><code class="language-shell">sudo apt list --upgradable	# 列出所有可升级软件包的信息
+sudo apt upgrade			      # 升级软件包，更新系统
+sudo apt full-upgrade
+</code></pre>
+<h5 id="长期支持版升级"><a class="header" href="#长期支持版升级">长期支持版升级</a></h5>
+<pre><code class="language-sh">sudo apt update &amp;&amp; sudo apt upgrade &amp;&amp; sudo apt dist-upgrade
+sudo apt install update-manager-core
+# edit /etc/update-manager/release-upgrades
+Prompt=lts  # normal  
+sudo do-release-upgrade 
+     # -d upgrade to development release*
+</code></pre>
+<blockquote>
+<p><code>*</code>：<em>The new LTS release isn’t made available to <code>do-release-upgrade</code> until its first <strong>point release</strong> (e.g., <code>22.04.1</code>, usually comes a few months after the initial release date). If you don’t see an available release, add the <code>-d</code> option to upgrade to the <strong>development</strong> release.</em> </p>
+</blockquote>
+<h5 id="离线安装软件包"><a class="header" href="#离线安装软件包">离线安装软件包</a></h5>
+<p><strong>下载离线安装包到指定位置</strong>：<code>apt-get</code>可以将包下载到当前目录。</p>
+<pre><code class="language-shell">app=mysql-server
+depends=$(apt-cache depends --recurse --no-recommends --no-suggests --no-conflicts --no-breaks --no-replaces --no-enhances $app| grep &quot;^\w&quot; | sort -u)
+apt-get download $depends
+</code></pre>
+<p><code>dpkg-scanpackages</code>扫描目录（包括子目录）并创建<strong>包索引文件<code>Packages.gz</code></strong>（给<code>apt</code>等工具查找和安装包使用）。</p>
+<pre><code class="language-shell"># sudo apt install dpkg-dev  # &lt;== dpkg-scanpackages
+cd /path/to/repository  
+dpkg-scanpackages [--OPTS] . [OVERRIDE_FILE PATH_PREFIX] &gt; Packages
+gzip -9c Packages &gt; Packages.gz #*
+</code></pre>
+<blockquote>
+<p><code>*</code>：如果通过<code>file://</code>访问仓库，则使用<code>Packages</code>，如果通过<code>http://</code>等方式，则使用的文件需要压缩为<code>*.xz,*.bz2,*.gz</code>。</p>
+<p><code>-m</code>：输出内容中包括包的所有版本（包括重复内容）；</p>
+<p><code>path-prefix</code>：添加到输出内容的<code>Filename</code>字段；等效于<code>PACKAGE_APTH</code>前添加前缀；<code>OVERRIDE_FILE</code>包含包的附加信息（可选，或设置为<code>/dev/null</code>）。</p>
+</blockquote>
+<p>创建本地源</p>
+<pre><code class="language-shell">vi /etc/apt/sources.list.d/local.list
+deb [trusted=yes] file:/home/user/download/packages/ ./ # 本地文件*
+deb [trusted=yes] http://local-server/debs/amd64/ ./    # HTTP服务=&gt; /var/www/debs/amd64
+sudo apt-get update
+</code></pre>
+<blockquote>
+<p>源声明中，第一列为包类型（软件包或源代码包），第二列固定参数为仓库URL，第三列为发行版名称（通常本地源使用<code>./</code>代替），后两者组成索引文件<code>Packages</code>或<code>Packages.gz</code>所在目录。索引文件声明了软件包相对于索引文件的位置，因此进行迁移部署时，应该保持扫描包时软件包与索引文件的相对位置不变。</p>
+</blockquote>
+<p>使用<code>apt</code>等工具搜索安装软件。</p>
+<blockquote>
+<pre><code class="language-shell">sudo dpkg -i *  # 不推荐直接安装目录下的所有包，可能有兼容性问题
+sudo dpkg --configure -a
+</code></pre>
+</blockquote>
+<h5 id="软件文件缺损"><a class="header" href="#软件文件缺损">软件文件缺损</a></h5>
+<h3 id="软件中心"><a class="header" href="#软件中心">软件中心</a></h3>
+<p>遇到软件中心安装程序长时间不能完成或无响应</p>
+<ol>
+<li>
+<p>使用以下命令找到root的<code>dpkg</code>进程</p>
+<pre><code class="language-shell">ps -af | grep dpkg
+</code></pre>
+</li>
+<li>
+<p>使用以下命令杀死该进程</p>
+<pre><code class="language-shell">sudo kill -9 PID
+</code></pre>
+</li>
+<li>
+<p>然后可以继续安装软件</p>
+</li>
+</ol>
+<h5 id="ppa"><a class="header" href="#ppa">PPA</a></h5>
+<p>从软件源移除PPA：</p>
+<pre><code class="language-shell">sudo ls /etc/apt/sources.list.d		#列出PPA名称
+sudo rm -i /etc/apt/sources.list.d/PPA_Name.list #移除指定的PPA
+</code></pre>
+<h3 id="网络接口配置"><a class="header" href="#网络接口配置">网络接口配置</a></h3>
+<p>Ubuntu使用<code>netplan</code>，其配置文件：<code>/etc/netplan/50-cloud-init.yaml</code>（或<code>00-installer-config.yaml</code>）</p>
+<p>示例：</p>
+<pre><code class="language-yaml">network:
+	renderer: networkd	# NetworkManager for desktop system
+    ethernets:
+     	eth0:			# WAN interface
+        dhcp4: true
+      eth1:			# LAN interface
+        addresses:	# static IP configuration
+        - 192.168.1.100/24
+        dhcp4: false
+        gateway4: 192.168.1.1
+        nameservers: # DNS servers
+          addresses: 
+          - 223.5.5.5
+          - 223.6.6.6 
+        search: []
+    version: 2
+</code></pre>
+<p>将<code>dhcp4</code>设置为<code>true</code>时，也可以人工设置部分参数，DHCP服务仅更新未设置的网络参数，如默认网关（影响路由表中默认路由信息生成）。</p>
+<blockquote>
+<p>使用静态配置时，如果更新了网关，可能路由表中的条目没有及时更新，导致网络不可用。此时可使用DHCP动态刷新默认路由。</p>
+<p><code>dhcp=true</code>时，如果设置了IP地址，则此时接口同时具有动态和静态IP地址。</p>
+</blockquote>
+<p>网络配置：https://ubuntu.com/server/docs/network-configuration。</p>
+<h3 id="防火墙ufw"><a class="header" href="#防火墙ufw">防火墙ufw</a></h3>
+<p><code>ufw</code>（<em><strong>Uncomplicated Firewall</strong></em>）为Ubuntu中的<a href="%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86.html#%E5%86%85%E6%A0%B8%E9%98%B2%E7%81%AB%E5%A2%99">防火墙</a>用户程序，其简化了<code>iptables</code>直接操作表链的命令。</p>
+<pre><code class="language-shell">ufw enable|disable|reload       # enable重载防火墙并开机自启
+ufw reset --force               # 重置防火墙到安装状态，--force不确认直接执行
+ufw logging on|off|LEVEL        # 日志级别：off,low,medium,high,full（默认&quot;low&quot;）
+</code></pre>
+<blockquote>
+<p><code>ufw</code>需要管理员权限（<code>sudo</code>）运行。使用<code>--dry-run</code>查看命令产生的修改，但不应用修改；即使不提供该选项，<code>ufw</code>默认也会在应用规则前提示用户要执行的操作。</p>
+<p>输出信息中<code>Anywhere</code>表示<code>any</code>和<code>0.0.0.0/0</code>；。</p>
+</blockquote>
+<p><code>ufw</code>在启用时会首先清空防火墙规则表（以保证状态一致性），这可能导致已有连接中断（如果默认策略为拒绝）。<code>ufw</code>支持在启用前添加规则，即<code>sudo ufw allow 22/tcp &amp;&amp; ufw enable</code>。该规则仍然会在启用防火墙时被清空，但防火墙在启用后相应端口的连接会保持。防火墙启用后，添加或删除规则不会再次清空规则表。</p>
+<h4 id="防火墙状态"><a class="header" href="#防火墙状态">防火墙状态</a></h4>
+<pre><code class="language-shell">ufw status [numbered|verbose]   # 查看防火墙状态及ufw管理的规则
+</code></pre>
+<p>查看防火墙统计信息：</p>
+<pre><code class="language-shell">ufw show raw|builtins|before-rules|user-rules|after-rules|logging-rules|listening|added
+</code></pre>
+<h4 id="规则配置"><a class="header" href="#规则配置">规则配置</a></h4>
+<h5 id="设置默认规则"><a class="header" href="#设置默认规则">设置默认规则</a></h5>
+<pre><code class="language-shell">ufw default allow|deny|reject [incoming|outgoing|routed] # 默认规则
+</code></pre>
+<h5 id="设置收发规则"><a class="header" href="#设置收发规则">设置收发规则</a></h5>
+<pre><code class="language-shell">ufw allow|deny|reject|limit [in|out] [PORT[/PROTO]|APPNAME] [comment COMMENT] # 简洁模式
+ufw allow|deny|reject|limit \  # 完整命令模式
+	[in|out] [on INTERFACE]  \  # 方向和接口
+	[from SRC] [TO DEST] \      # IP地址：any表示所有地址，10.0.0.0/8表示网段
+	[PORT[/PROTO]|APPNAME] \    # 端口协议(默认tcp和udp)|服务，80,443,8080:8090指定多个(连续)端口
+	[comment COMMENT]           # 规则说明
+# ufw allow 53; ufw allow 25/tcp;  ufw allow smtp; ufw allow in http comment &quot;web service&quot;
+</code></pre>
+<blockquote>
+<p>IPv6地址<code>2001:db8::/32</code>（在<code> /etc/default/ufw</code>中启用IPv6防火墙）；如果设置规则时未指定IP地址且启用IPv6，则添加规则时将同时添加两条规则。</p>
+<p>其他协议包括：<code>ah/esp/gre</code>（未指定端口时有效）；<code>ipv6/igmp</code>（未指定端口且指定IPv4地址）。</p>
+</blockquote>
+<p><code>limit</code>用于限制会话速率（防止暴力破解登录攻击，<code>ufw limit ssh/tcp</code>）。</p>
+<p>上述命令默认将规则添加到规则列表末尾。</p>
+<pre><code class="language-shell">ufw insert NUM RULE   # 插入规则到指定编号位置（原有规则编号自动更新）
+ufw prepend RULE      # 将已添加的规则置顶
+</code></pre>
+<blockquote>
+<p><code>NUM</code>的值不能比现有规则编号大，因此要在规则列表末端添加规则就不提供<code>insert NUM</code>命令。==IPv6规则默认在所有IPv4规则之后==（虽然编号是连续的，但实际是两张独立的表），因此指定<code>NUM</code>时，其值必须在对应的IP协议规则编号范围内。</p>
+</blockquote>
+<p>删除规则：</p>
+<pre><code class="language-shell">ufw delete RULE|NUM     # 删除指定规则或对应编号规则
+</code></pre>
+<blockquote>
+<p><code>RULE</code>同时匹配IPv4和IPv6规则时，将同时删除两条规则；删除规则时可不指定规则的说明。</p>
+</blockquote>
+<h5 id="设置路由规则"><a class="header" href="#设置路由规则">设置路由规则</a></h5>
+<p>路由规则在收发规则语句前增加<code>route</code>关键字，以处理目的地址非本机的数据包。路由规则可同时指定<code>in/out</code>及其接口。</p>
+<pre><code class="language-shell">ufw route ACTION RULE
+</code></pre>
+<blockquote>
+<p>启用路由功能需<a href="Linux%E9%85%8D%E7%BD%AE%E5%92%8C%E7%AE%A1%E7%90%86.html#%E8%BD%AC%E5%8F%91%E5%8A%9F%E8%83%BD">开启IP转发功能</a>，然后重启<code>ufw</code>。</p>
+</blockquote>
+<h5 id="应用配置"><a class="header" href="#应用配置">应用配置</a></h5>
+<p>在配置规则时，可使用应用名称代替端口协议配置。应用配置文件位于<code>/etc/ufw/applications.d</code> （<code>/etc/services</code>）。</p>
+<pre><code class="language-ini">[SomeService]
+title=Some title
+description=Some description
+ports=12/udp|34|56,78:90/tcp
+</code></pre>
+<pre><code class="language-shell">ufw app list  # 列出已配置的应用名称，应用名为配置文件中节标题(SomeService)
+ufw app update &lt;name&gt;|all  # 更新应用相关的防火墙规则
+</code></pre>
+<h3 id="桌面环境"><a class="header" href="#桌面环境">桌面环境</a></h3>
+<h4 id="字体"><a class="header" href="#字体">字体</a></h4>
+<h5 id="安装中文字体"><a class="header" href="#安装中文字体">安装中文字体</a></h5>
+<pre><code class="language-sh">sudo apt-get install ttf-wqy-microhei  	#文泉驿-微米黑
+sudo apt-get install ttf-wqy-zenhei  	#文泉驿-正黑
+sudo apt-get install xfonts-wqy 		#文泉驿-点阵宋体
+</code></pre>
+<h5 id="列出系统字体"><a class="header" href="#列出系统字体">列出系统字体</a></h5>
+<pre><code class="language-sh">fc-list: lang=zh # list fonts
+</code></pre>
+<h3 id="elementary-os"><a class="header" href="#elementary-os">Elementary OS</a></h3>
+<p>Elementary OS基于Ubuntu。</p>
+<h3 id="常见问题-1"><a class="header" href="#常见问题-1">常见问题</a></h3>
+<ol>
+<li>
+<p>启动黑屏/花屏</p>
+<p>更新显卡驱动程序（NVIDIA/ASPEED/...）。</p>
+</li>
+<li>
+<p>欢迎屏幕之前有字符界面</p>
+<p>更新grub设置。</p>
+<pre><code class="language-shell">sudo vi /boot/grub/grub.cfg
+# add quiet splash nomodeset
+sudo update-grub
+</code></pre>
+<p><strong>问题</strong>：系统无法在初始化阶段获得屏幕信息，导致进入欢迎界面以及登陆后的分辨率过低。</p>
+</li>
+<li>
+<p>中文乱码</p>
+<ul>
+<li>
+<p>没有安装中文支持</p>
+</li>
+<li>
+<p>没有中文字体</p>
+</li>
+<li>
+<p>控制台不支持中文</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="kali-linux"><a class="header" href="#kali-linux">Kali Linux</a></h2>
+<pre><code class="language-shell"># edit /etc/apt/sources.list
+deb https://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main non-free contrib
+sudo apt install kali-linux-default
+</code></pre>
+<p>https://www.kali.org/docs/general-use/metapackages/</p>
+<h5 id="kaili-on-wsl2"><a class="header" href="#kaili-on-wsl2">Kaili on WSL2*</a></h5>
+<p><a href="https://www.kali.org/docs/wsl/win-kex/">Win-KeX</a> provides a Kali Desktop Experience for WSL.</p>
+<pre><code class="language-shell">sudo apt install -y kali-win-kex
+# Run in Kali
+kex --win -s       # start in Window mode with sound support
+kex --esm --ip -s  # start in Enhanced Session Mode
+kex --sl -s        # start in Seamless mode with sound support
+</code></pre>
+<h2 id="fedoracentosrhel"><a class="header" href="#fedoracentosrhel">Fedora/CentOS/RHEL</a></h2>
+<h3 id="安装"><a class="header" href="#安装">安装</a></h3>
+<p>CentOS/RHEL采用图形界面配置安装过程，在安装界面可配置工作站、服务器和带图形界面的服务器等多种安装方案（VMWare中选择简易安装将进入无人值守安装，默认安装带图形界面的服务器版本，无法进行自定义。可通过鼠标键盘选择界面中的配置项以中断自动安装过程）。</p>
+<img src="Linux发行版.assets/image-20200901092403396.png" alt="image-20200901092403396" style="zoom: 67%;" />
+<p>软件环境配置：</p>
+<img src="Linux发行版.assets/image-20200901093253141.png" alt="image-20200901093253141" style="zoom:67%;" />
+<p>CentOS支持远程Web管理（Cockpit，默认端口9090（<code>websm</code>）)。<img src="" alt="" /></p>
+<h5 id="磁盘分区"><a class="header" href="#磁盘分区">磁盘分区</a></h5>
+<p>CentOS自动分区得到的根目录空间较小（<code>/</code>目录最多分配50GiB），默认文件系统类型为LVM/XFS。XFS不支持文件系统扩容/缩容，因此若选择XFS，必须在安装系统时根据需求规划好<a href="Linux%E9%85%8D%E7%BD%AE%E5%92%8C%E7%AE%A1%E7%90%86.html">分区方案</a>。</p>
+<img src="Linux发行版.assets/image-20210914154908159.png" alt="image-20210914154908159" style="zoom: 67%;" />
+<h3 id="软件管理-1"><a class="header" href="#软件管理-1">软件管理</a></h3>
+<p>所有发行版可使用命令工具<code>dnf/yum</code>从软件源下载安装软件，桌面版可使用软件中心检查和安装更新。使用<code>dnf/yum/rpm</code>可以从本地软件包安装软件。</p>
+<h4 id="软件包管理器yumdnf"><a class="header" href="#软件包管理器yumdnf">软件包管理器yum(dnf)</a></h4>
+<blockquote>
+<p><code>dnf</code>(<em>Dandified YUM</em>)是<code>yum</code>(<em>Yellow dog Updater, Modified</em>)的下一个版本。</p>
+</blockquote>
+<pre><code class="language-shell">yum clean                # 清除本地仓库缓存数据
+dnf history
+</code></pre>
+<h5 id="查找"><a class="header" href="#查找">查找</a></h5>
+<pre><code class="language-shell">yum repolist [all]               # 列出可用仓库, all包括未启用仓库
+yum-config-manager --enable &lt;repo-name&gt;
+yum search &lt;keyword&gt;             # 按关键字搜索软件包
+yum list [installed] [PACKAGE]   # 列出(已安装)软件包信息：包名|版本|源
+yum info [installed] PACKAGE     # 查看(已安装)软件包的信息
+yum --showduplicates list httpd  # 列出软件包的不同版本
+</code></pre>
+<blockquote>
+<p>软件安装源对应<code>*.repo</code>文件的节名称，其中以<code>@anaconda</code>开头的为系统预装软件，软件源为<code>installed</code>为安装系统后手动安装的软件（通过软件源或RPM包）。</p>
+</blockquote>
+<h5 id="安装和更新"><a class="header" href="#安装和更新">安装和更新</a></h5>
+<pre><code class="language-shell">yum --installroot NEWROOT --releasever=/ install PACKAGE[-ver] 
+    --enablerepo=&lt;reponame&gt;  # 即时启用软件仓库(支持通配符)
+    --disablerepo=&lt;reponame&gt;
+yum reinstall            # 重新安装
+yum check-update         # 检查可用更新
+yum update [PACKAGE]
+</code></pre>
+<p>如果未指定<code>installroot</code>选项，则默认安装根目录为<code>/</code>，否则使用指定的根目录（<a href="https://linuxhint.com/install-package-to-a-specific-directory-using-yum/">需要同时指定<code>--releasever=/</code>，否则报错</a>），<code>yum</code>会==在指定位置创建完整的根文件树==并安装指定软件及其依赖项。每个根目录下安装的软件是相互独立的，即检查依赖项时在当前根目录下查找依赖项的安装记录（查找已安装软件时也可指定<code>installroot</code>选项，从而查找指定安装根目录下的软件）。</p>
+<blockquote>
+<p>创建基本的运行环境：</p>
+<pre><code class="language-shell">yum --installroot=/root/tmproot/ --releasever=/ install bash coreutils grep
+</code></pre>
+<p>创建新的根目录时使用的是真实系统的软件仓库设置；在已创建的根目录下继续安装软件将使用该根目录下的仓库配置<code>/NEWROOT/etc/yum.repos.d</code>。如果要使用真实系统中的仓库源配置，将相应文件复制到上述目录。</p>
+</blockquote>
+<h5 id="卸载"><a class="header" href="#卸载">卸载</a></h5>
+<pre><code class="language-shell">yum remove &lt;package&gt;
+yum autoremove [&lt;package&gt;]  # 移除不再使用的依赖包
+</code></pre>
+<p>清理不再维护的软件</p>
+<pre><code class="language-shell">dnf install remove-retired-packages
+remove-retired-packages
+</code></pre>
+<p>清理过时的软件，以下命令列出的软件可能不再需要，可检查并移除相应软件。</p>
+<pre><code class="language-shell">PKGS=$(dnf repoquery --unsatisfied)  # 不满足依赖的软件(通常为空)
+PKGS=$(dnf repoquery --duplicates)   # 具有重复版本的软件
+PKGS=$(dnf list extras)              # 不在仓库中的软件
+</code></pre>
+<p>使用以下脚本清理旧版本内核</p>
+<pre><code class="language-shell">old_kernels=($(dnf repoquery --installonly --latest-limit=-1 -q))
+dnf remove &quot;${old_kernels[@]}&quot;
+</code></pre>
+<h5 id="fedora系统升级"><a class="header" href="#fedora系统升级">Fedora系统升级</a></h5>
+<pre><code class="language-shell">dnf upgrade --refresh
+dnf install dnf-plugin-system-upgrade
+dnf system-upgrade download --releasever=36  # 官方仅支持跨两个版本升级
+dnf system-upgrade reboot
+</code></pre>
+<p>合并配置文件</p>
+<pre><code class="language-shell">dnf install rpmconf
+rpmconf -a  # 
+</code></pre>
+<p>清理失效的符号连接：</p>
+<pre><code class="language-shell">dnf install symlinks
+symlinks -r /usr | grep dangling  # 检查列出的失效链接文件
+symlinks -r -d /usr  # 删除失效链接文件
+</code></pre>
+<h5 id="安装-1"><a class="header" href="#安装-1">安装</a></h5>
+<h5 id="中文字体"><a class="header" href="#中文字体">中文字体</a></h5>
+<pre><code class="language-shell">yum groupinstall Fonts
+</code></pre>
+<h4 id="软件源配置-1"><a class="header" href="#软件源配置-1">软件源配置</a></h4>
+<h5 id="fedora"><a class="header" href="#fedora">Fedora</a></h5>
+<p>Fedora/CentOS 默认使用 <a href="https://zh.fedoracommunity.org/2018/04/05/fedora-secures-package-delivery.html">Metalink</a> 给出推荐的镜像列表，保证用户使用的镜像仓库足够新，并且能够尽快拿到安全更新，从而提供更好的安全性。所以通常情况下使用默认配置即可，无需更改配置文件。</p>
+<blockquote>
+<p>由于 Metalink 需要从国外的 Fedora 项目服务器上获取元信息，所以对于校园内网、无国外访问等特殊情况，metalink 并不适用，此时可以将<code>/etc/yum.repos.d</code>目录下的文件<code>fedora.repo</code>、<code>fedora-updates.repo</code>、<code>fedora-modular.repo</code>和<code>fedora-updates-modular.repo</code>中的<code>metalink</code>注释掉，并将<code>baseurl</code>的域名改为国内镜像站点。</p>
+<ul>
+<li><code>https://mirrors.aliyun.com/fedora/</code></li>
+<li><code>https://mirrors.tuna.tsinghua.edu.cn/fedora</code></li>
+</ul>
+<pre><code class="language-shell">baseurl=MIRROR_SITE/releases/$releasever/Everything/$basearch/os/
+</code></pre>
+<p>由于Fedora发行节奏较快，部分镜像源通常仅保留最近若干个版本的仓库数据（由于<a href="http://archives.fedoraproject.org/pub/archive/fedora/">主站点对旧版本进行归档</a>）。如果进行软件安装或升级时，发现无法获取仓库元数据（<code>repodata.xml</code>），则需要更换为Metalink自动寻找仍支持当前系统版本的软件源，稍后尝试对系统进行升级。</p>
+</blockquote>
+<h5 id="centos"><a class="header" href="#centos">CentOS</a></h5>
+<p>默认启用的软件源包括：<code>Base</code>、<code>AppStream</code>、<code>Extras</code>。</p>
+<pre><code class="language-shell">sudo cp /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak
+</code></pre>
+<p>编辑<code>/etc/yum.repos.d/CentOS-Base.repo</code>文件，在<code>mirrorlist=</code>开头行前面加<code>#</code>注释掉；并将<code>baseurl=</code>开头行取消注释，把该行内的域名（例如<code>mirror.centos.org</code>）替换为 ``https://mirrors.tuna.tsinghua.edu.cn/`。</p>
+<pre><code class="language-shell">sudo yum makecache   # 生成缓存软件包元数据
+</code></pre>
+<h5 id="epel"><a class="header" href="#epel">epel</a></h5>
+<p>EPEL(<em>Extra Packages for Enterprise Linux</em>)是由Fedora Special Interest Group维护的Enterprise Linux（RHEL/CentOS）中经常用到的包。首先安装<code>epel-release</code>，生成<code>epel.repo</code>。</p>
+<pre><code class="language-shell">yum install epel-release
+</code></pre>
+<blockquote>
+<p>EPEL不适用于Fedora，Fedora源中已经包含了大部分EPEL中的包。</p>
+</blockquote>
+<p>如果需要使用epel镜像源，在安装上述包后，修改其中的<code>baseurl</code>。</p>
+<h5 id="redhat"><a class="header" href="#redhat">redhat</a></h5>
+<p>RHEL安装后系统中没有配置仓库，需要通过<code>subscription-manager</code>将系统注册到RedHat的订阅（需要现在<a href="https://developers.redhat.com/register">RedHat开发者网站注册</a>开发者账号并更新<a href="https://access.redhat.com/management/subscriptions">订阅</a>）。</p>
+<pre><code class="language-shell">subscription-manager register    # 在当前系统登录，输入开发者网站用户名和密码
+subscription-manager attach      # 将当前系统绑定到账户的订阅
+subscription-manager list|status # 列出当前系统信息和订阅信息
+subscription-manager repos       # 列出系统使用的仓库=&gt;yum repolist
+subscription-manager repos --enable rhel-xxx-rpms # 启用仓库(yum-config-manage)
+</code></pre>
+<blockquote>
+<p><code>subscription-manager-gui</code>是图形界面版本。</p>
+<p>由于网络原因，<code>subscription.rhsm.redhat.com</code>的IP可能无法获取，尝试更改DNS配置并通过<code>ping</code>获取正确IP，手动更新<code>/etc/hosts</code>文件。</p>
+</blockquote>
+<h5 id="使用nexus代理"><a class="header" href="#使用nexus代理"><a href="../%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E8%BD%AF%E4%BB%B6.html#centos-yum%E4%BB%A3%E7%90%86">使用nexus代理</a></a></h5>
+<pre><code class="language-ini">[CentOS]
+name=centos
+baseurl=http://localhost:8081/repository/proxy-centos/7/os/x86_64
+enabled=1
+gpgcheck=0
+# baseurl=http://localhost:8081/repository/proxy-centos/7/extras/x86_64
+# baseurl=http://localhost:8081/repository/proxy-centos/7/updates/x86_64
+# baseurl=http://localhost:8081/repository/proxy-epel/7/x86_64
+</code></pre>
+<p>注意：通常镜像站点包含一系列<code>repo</code>，<code>baseurl</code>路径是可以找到<code>repodata</code>的目录。</p>
+<h4 id="离线安装软件"><a class="header" href="#离线安装软件">离线安装软件</a></h4>
+<p><strong>软件包</strong>：使用浏览器从软件官网或从使用<code>dnf/yum</code>从软件源下载<code>rpm</code>软件包。<code>alien</code>可以将<code>deb</code>包转换为<code>rpm</code>包，但不一定成功。</p>
+<pre><code class="language-shell">yum whatprovides */lspci  # 查看命令所在的包
+yum install yum-utils        # provide yumdownloader, repoquery, repotrack
+</code></pre>
+<pre><code class="language-shell">yum install --installroot /tmproot --releasever=/ \
+            --downloadonly --downloaddir=DLDIR &lt;package&gt;  # 已安装的依赖包不会下载
+yumdownloader [yum_options]    \  # 与yum download等效
+    --resolve                  \  # 解析并下载依赖包（已安装的包不会下载）
+    --destdir=prefix           \  # defaults to current directory
+    --archlist=x86_64,noarch -x '*i686'   \  # 系统架构, 排除兼容包
+    #--urls                    \  # 仅列出要下载包的URL而不下载
+    package_name                  # 要下载的软件包
+</code></pre>
+<p>由于已安装的依赖包不会被下载，因此我们可以使用全新系统进行下载，或者<a href="#%E5%AE%89%E8%A3%85%E5%92%8C%E6%9B%B4%E6%96%B0">使用<code>yum</code>制作一个只包括预装软件的操作系统环境</a>。如果没有基础环境，也可以通过以下方式解析和下载软件及其依赖包。</p>
+<p>如果目标系统版本低于下载包的系统版本，则需要使用<code>repoquery/repotrack</code>下载所有依赖项（包括系统库）进行升级。</p>
+<pre><code class="language-shell">repoquery --archlist=x86_64,noarch \  
+    -f \                     # 查询提供当前文件的包*
+    --requires \             # 列出依赖项 &lt;=&gt; -R
+    --resolve \              # 将依赖项解析为对应的包名
+    --recursive \            # 递归解析依赖项
+    #--list \                # 列出包中包含的文件
+    #--installed \           # 仅查询已安装的包
+    package_name | xargs -r yumdownloader [options]
+</code></pre>
+<blockquote>
+<p><code>*</code>：根据帮助文档，该选项的值为指定包中应该包含的文件名；实际上，如果缺少该选项，会导致命令行提供的包名对应的包不会被返回（仅返回依赖项），因此需要添加该选项（无需提供值）。</p>
+</blockquote>
+<pre><code class="language-shell">repotrack --arch=x86_64 \ # 默认当前架构*
+          -p,--download_path=DIR \
+          -u,--url  \   # 列举要下载的内容
+          packages...     # 递归下载软件及其依赖安装包（包括系统预装库）
+</code></pre>
+<blockquote>
+<p><code>*</code>：<code>x_86</code>架构会自动下载兼容<code>i686</code>和<code>noarch</code>包。为了排除<code>i686</code>包，可先列举下载内容并过滤，再使用<code>yumdownloader</code>进行下载（类似于上述使用<code>repoquery</code>下载方法）。</p>
+<p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1045871">1045871 – yumdownloader --archlist=x86_64 downloads i686 on x86_64 (redhat.com)</a></p>
+<p>通常<code>repotrack</code>用于下载包及其依赖项，<code>repoquery</code>用于查询相关信息（类似于<code>rpm -q*</code>）。</p>
+</blockquote>
+<p>使用软件包安装/移除软件：</p>
+<pre><code class="language-shell">yum install &lt;package&gt;.rpm       # 兼容localinstall命令，可自动检查安装本地依赖包
+rpm -ivh --force --upgrade &lt;package&gt;.rpm  # -i =&gt; --install, --force=&gt;强制重新安装, --upgrade升级安装
+rpm -e,--erase &lt;package&gt;.rpm    # remove installation
+rpm -q  &lt;package&gt;               # print Name.Version.Release
+rpm -qa                         # query all packages
+rpm -ql[p][v] &lt;package&gt;         # contents at install location/oackage file
+</code></pre>
+<blockquote>
+<p>RPM选项：</p>
+<p><code>-q,--query</code> to specify it as a query command
+<code>-l,--list</code> to list the files in the package,
+<code>-p,--package</code> 查询/验证包文件中的内容，未提供则查询/验证以安装内容;
+<code>-v</code> (verbose) provides additional information (permissions, owner, etc.)</p>
+</blockquote>
+<h5 id="构建本地软件仓库"><a class="header" href="#构建本地软件仓库">构建本地软件仓库</a></h5>
+<p>安装带依赖项的软件包：配置本地软件源，将软件包放置于本地目录。</p>
+<ul>
+<li>
+<p>首先安装在系统中安装<code>createrepo</code>；</p>
+</li>
+<li>
+<p>在软件包所在目录下执行。</p>
+<pre><code class="language-shell">createrepo --update --output=repodir path/to/packages
+</code></pre>
+<blockquote>
+<p>默认输出到软件包所在目录，软件包路径相对<code>repodir</code>指定，保证下载软件时路径正确。</p>
+</blockquote>
+</li>
+<li>
+<p>在<code>/etc/yum.repos.d</code>创建一个本地源的配置文件：</p>
+<pre><code class="language-shell">[local]
+name=My Awesome Repo
+baseurl=file:///path/to/repodir
+enabled=1   # &quot;enabled&quot; not &quot;enable&quot;
+gpgcheck=0
+</code></pre>
+</li>
+</ul>
+<p>将系统内置的在线软件源禁用或将配置移到备份位置。</p>
+<ul>
+<li>
+<p>使用<code>yum install</code>命令安装相应软件包。</p>
+<pre><code class="language-shell">yum clean all   # package-cleanup --cleandupes &lt;== yum-utils
+yum makecache   # 载入本地源的元数据
+</code></pre>
+<p>如果系统中存在卸载残留的依赖包，可能导致新安装的包产生依赖冲突，因此需要执行<code>clean</code>命令。</p>
+</li>
+</ul>
+<pre><code class="language-shell">yum install alien
+alien -r &lt;package&gt;.deb
+</code></pre>
+<h4 id="桌面软件"><a class="header" href="#桌面软件">桌面软件</a></h4>
+<h5 id="中文输入法"><a class="header" href="#中文输入法">中文输入法</a></h5>
+<p>应用程序/系统工具/设置/区域和语言/输入源/（+号，汉语（中国））/添加 “汉语(Intelligent Pinyin)”</p>
+<h5 id="坚果云"><a class="header" href="#坚果云">坚果云</a></h5>
+<p>需要使用管理员权限从终端安装。</p>
+<pre><code class="language-shell">rpm -ivh nutstore.rpm
+</code></pre>
+<h3 id="构建rpm软件包"><a class="header" href="#构建rpm软件包">构建RPM软件包</a></h3>
+<p>安装RPM构建工具：</p>
+<pre><code class="language-shell">yum install rpmdevtools
+</code></pre>
+<p>创建和编辑打包声明文件：</p>
+<pre><code class="language-shell">rpmdev-setuptree # mkdir -pv ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
+cd ~/rpmbuild/SPECS
+rpmdev-newspec &lt;appname&gt;   # 生成&lt;appname&gt;.spec
+</code></pre>
+<h4 id="编写打包声明文件"><a class="header" href="#编写打包声明文件"><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/rpm_packaging_guide/packaging-software#rpm-macros_rpm-packages">编写打包声明文件</a></a></h4>
+<p>打包声明文件通过头部定义了包的元数据，并按阶段定义了打包、部署等过程。每个阶段以<code>%STAGE</code>声明开始，如果某个阶段无操作，则可省略该阶段的声明。</p>
+<h5 id="声明元数据"><a class="header" href="#声明元数据">声明元数据</a></h5>
+<div class="table-wrapper"><table><thead><tr><th>字段名称</th><th>说明</th></tr></thead><tbody>
+<tr><td><code>Name</code></td><td>软件包名，也是打包声明文件名</td></tr>
+<tr><td><code>Version</code></td><td>版本号：与上游源文件版本对应</td></tr>
+<tr><td><code>Release</code></td><td>发行号：与系统发行号保持一致<code>1%{?dist}</code>根据需要==调整==</td></tr>
+<tr><td><code>Summary</code></td><td>软件包的简要描述信息，详细信息在<code>%description</code>中</td></tr>
+<tr><td><code>License</code></td><td>许可类型，如：<code>GPLv3+, Apache, BSD, MIT,...</code></td></tr>
+<tr><td><code>URL</code></td><td>开发者的网站地址</td></tr>
+<tr><td><code>Packager</code></td><td>软件包维护者信息</td></tr>
+<tr><td><code>Group</code></td><td>软件分类，如<code>Development/IDE</code></td></tr>
+<tr><td><code>Source0</code></td><td>源归档文件路径：位于编译目录<code>SOURCES</code>下或网络资源；<br/>可声明多个源<code>Source1,Source2,...</code></td></tr>
+<tr><td><code>BuildArch</code></td><td>编译和打包输出的架构，如：<br/><code>noarch, x86_64, aarch64,...</code></td></tr>
+<tr><td><code>Provides</code></td><td>软件安装后在目标系统中提供的项</td></tr>
+<tr><td><code>AutoReqProv</code><br/><code>AutoReq</code><br/><code>AutoProv</code></td><td><code>yes</code>：自动发现软件包内容所需依赖和软件包提供内容；<code>no</code>禁用。<br />如果开启自动发现，还可设置<a href="https://docs.fedoraproject.org/en-US/packaging-guidelines/AutoProvidesAndRequiresFiltering/">过滤规则</a>。</td></tr>
+<tr><td><code>Requires</code></td><td>软件安装时检查目标系统依赖项，可进一步指定安装和卸载阶段的脚本依赖，<br />例如：<code>Requires(pre)</code></td></tr>
+<tr><td><code>BuildRequires</code></td><td>打包时检查当前系统的依赖项</td></tr>
+<tr><td><code>Conflicts</code></td><td>软件安装时检查目标系统冲突项</td></tr>
+</tbody></table>
+</div>
+<p>RPM包的名称由<code>Name-Version-Release</code>构成。</p>
+<p>依赖和提供内容发现过滤规则（使用正则表达式）：</p>
+<pre><code class="language-shell">%global __requires_exclude_from PATH_PATTERN  # 排除扫描文件
+%global __provides_exclude_from PATH_PATTERN
+%global __provides_exclude PATH_PATTERN  # 排除发现的结果
+%global __requires_exclude PATH_PATTERN
+%description
+</code></pre>
+<p>由于<code>rpmbuild</code>和正则表达式都会处理<code>\</code>转义序列，因此文件中对特殊符号转义需要使用<code>\\</code>（特别地，对<code>\</code>转义需要使用<code>\\\\</code>）。</p>
+<h5 id="条件语句块"><a class="header" href="#条件语句块">条件语句块</a></h5>
+<p>条件语句块可使用的命令包括：<code>%ifarch/ifnarch,%elifarch</code>、<code>%ifos/ifnos,%elifos</code>、<code>%if,%elif</code>，所有条件命令可附加<code>%else</code>，所有语句块以<code>%endif</code>结束。<code>%else, %endif</code>后不可包含其他文本。</p>
+<pre><code class="language-shell">%ifarch s390 s390x
+BuildRequires: s390utils-devel
+%endif
+%if %{defined with_foo} &amp;&amp; %{undefined with_bar}
+%if &quot;%{optimize_flags}&quot; != &quot;none&quot;
+%if 0%{?fedora} &gt; 10 || 0%{?rhel} &gt; 7
+</code></pre>
+<h5 id="打包"><a class="header" href="#打包">打包</a></h5>
+<p>打包过程包括准备（<code>%prep</code>）、编译（<code>%build</code>）、封装（<code>%install</code>）、清理（<code>%clean</code>）和测试。</p>
+<ul>
+<li>
+<p><code>%prep</code>：将<code>Source0</code>等定义的源归档文件（格式<code>.tar</code>、<code>.tar.gz</code>或<code>.tgz</code>等）释放到编译工作目录<code>%{_builddir}</code>（<code>rpmbuild/BUILD</code>），用于编译和封装。</p>
+<p>该过程主要使用<code>%setup</code>指令定义源归档文件的释放行为，默认过程为：进入<strong>编译根目录</strong>，删除已有的软件包<strong>编译工作目录</strong>，释放源归档文件<code>Source0</code>，切换到软件包编译工作目录。</p>
+<pre><code class="language-shell">cd /root/rpmbuild/BUILD   # %{_builddir}
+rm -rf package-name-1.7.0
+/usr/bin/tar -xvvf /root/rpmbuild/SOURCES/package-name-1.7.0.tar
+cd package-name-1.7.0
+</code></pre>
+<p>该过程假定软件包编译工作目录（默认为<code>%{name}-%{version}</code>）和归档文件的根目录一致，否则上述释放过程完成后将无法切换到编译工作目录。解决该问题的两个途径：1) 打包源文件时保证根目录为上述默认值；2) 修改编译工作目录名<code>%setup -n build-name</code>，与归档文件根目录一致。</p>
+<p>如果<code>Source0</code>没有唯一根目录，则首先使用<code>%setup -c</code>创建编译工作目录并切换到该目录下，使得<code>Source0</code>的所有内容释放到该目录下；<code>-c</code>可以和<code>-n</code>共同使用以创建指定的编译工作目录。</p>
+<blockquote>
+<pre><code class="language-shell">cd /root/rpmbuild/BUILD   # %setup -c -n build-name
+rm -rf build-name
+/usr/bin/mkdir -p build-name
+cd build-name
+/usr/bin/tar -xvvf /root/rpmbuild/SOURCES/package-name-1.7.0.tar
+</code></pre>
+</blockquote>
+<p>对于有多个源档案文件存在的情况下，声明了<code>%setup</code>指令则默认自动根据指令释放<code>Source0</code>（添加<code>-T</code>选项禁止自动释放，除了第一条<code>%setup</code>指令外，其他都应该添加<code>-T</code>防止重复释放），其他源档案文件则需要添加额外<code>%setup</code>指令。</p>
+<ul>
+<li>
+<p>如果<code>SourceN</code>的根目录与编译工作目录相同或者需要将<code>SourceN</code>置于编译工作目录同级（例如外部依赖项），则应该在进入编译工作目录前释放，因此指令为：<code>%setup -D -T -b N</code>。其中，<code>-D</code>防止删除前面已经释放的文件。</p>
+<blockquote>
+<pre><code class="language-shell">cd /root/rpmbuild/BUILD
+# rm -rf package-name-1.7.0   # %setup -D
+</code></pre>
+</blockquote>
+</li>
+<li>
+<p>如果<code>SourceN</code>是编译工作目录下的部分内容，则应该在进入编译工作目录后释放，因此指令为：<code>%setup -D -T -a N</code>。</p>
+</li>
+</ul>
+<p><a href="https://rpm-packaging-guide.github.io/">使用<code>-q</code>减少释放过程中的输出信息</a>。</p>
+</li>
+<li>
+<p><code>%build</code>：执行编译命令并输出编译结果到编译目录下。对于已经在外部编译完成的软件则跳过此阶段。</p>
+</li>
+<li>
+<p><code>%install</code>：将准备和编译阶段生成的文件，根据需要添加到RPM包的根目录<code>%{buildroot}</code>（该目录模拟目标系统的根目录）。这些文件将在部署阶段被安装到目标系统中。</p>
+</li>
+<li>
+<p><code>%clean</code>：编写命令，清理<code>rpmbuild</code>工作目录下释放的源文件以及编译输出文件（默认不清理，可为构建命令指定<code>--clean</code>选项，在完成打包后自动清理工作目录）；</p>
+</li>
+<li>
+<p><code>%check</code>：编写命令测试RPM包。</p>
+</li>
+</ul>
+<h5 id="部署软件包"><a class="header" href="#部署软件包">部署软件包</a></h5>
+<p><a href="http://ftp.rpm.org/max-rpm/s1-rpm-inside-files-list-directives.html"><code>%files</code></a>：从RPM包的根目录下，复制指定文件/目录到目标系统上的相同位置并设置相应文件的属性；</p>
+<ul>
+<li><code>%attr(0744,root,root) /usr/local/bin/*</code>：安装并设置指定内容的属性（<code>744</code>对于用户具有读写和执行/访问权限，对于用户组或其他用户仅有读权限）；</li>
+<li><code>defattr(644,apache,apache[,755])</code>：设置安装文件和目录的默认权限（无需设置则使用<code>-</code>代替）和所有者；相比于<code>attr</code>增加了目录权限设置参数（文件的执行劝降和目录的访问权限不相同）。</li>
+<li><code>%license LICENSE</code>：安装并声明指定内容为许可文件；</li>
+<li><code>%doc doc/*.html</code>：安装并声明指定内容为软件的文档；</li>
+<li><code>%config(noreplace) %{_sysconfdir}/%{name}/%{name}.conf</code>：安装并声明指定内容为配置文件。如果配置文件在本地被修改过，且新旧版软件包中配置文件发生变更，则声明<code>noreplace</code>会将新版本的配置文件另存为<code>.rpmnew</code>；反之将修改过的本地文件另存为<code>.rpmsave</code>。如果新旧版软件包中配置文件未发生变更，则不会更新配置文件。对于未被<code>%config</code>声明的文件，将直接被覆盖。</li>
+<li><code>/opt/appname</code>：将RPM中的其他指定内容安装到目标系统；注意RPM包提供的内容都需要通过<code>%files</code>声明（否则打包过程认为安装与打包不一致）。</li>
+<li><code>%exlcude /path/file</code>：从已声明内容中排除文件，支持使用通配符。==即使后面再添加相应的文件声明，被排除内容也不会被安装==。</li>
+</ul>
+<p>推荐：**RPM仅包含普通文件构成的树形结构。**RPM包的安装过程经过<code>%files</code>声明的文件，能够被包管理器记录并实现自动卸载，RPM包也能检测到用户是否对这些文件进行过修改。</p>
+<blockquote>
+<p>如果RPM在安装过程中释放的文件未经声明（例如通过<code>%post</code>脚本释放压缩包或执行其中的程序产生新文件），那么包管理器在卸载软件时无法处理这些文件。除非能够由<code>%post</code>和<code>%postun</code>流程管理这些文件的清理，否则不应该包含这些内容。由于第三方安装包的释放内容往往难以确定，如果这些包没有相应的卸载方法，则不应该在安装过程中调用，否则无法在卸载阶段完成该包的清理工作。</p>
+</blockquote>
+<p>问题：</p>
+<ul>
+<li><code>rpmbuild warning file listed twice</code>：通常需要声明整个目录作为安装内容，并且详细指定其中部分内容的权限、类型等，因此导致部分内容被重复声明。此告警信息只是提示作用，对打包结果无影响。</li>
+</ul>
+<h5 id="安装和卸载脚本"><a class="header" href="#安装和卸载脚本">安装和卸载脚本</a></h5>
+<p>安装和卸载脚本用于对系统进行配置和清理，按过程按顺序分为以下阶段，每个阶段包含一段Shell脚本<sup class="footnote-reference"><a href="#rpm-scriplets">1</a></sup>。</p>
+<p>安装软件包前（几乎没有软件包安装需要在安装前进行配置）：<code>%pretrans</code>、<code>%triggerprein</code>、<code>%pre</code><sup class="footnote-reference"><a href="#rpm-scripts">2</a></sup>。</p>
+<p>安装软件包后：</p>
+<ul>
+<li><code>%post</code>：RPM包中数据复制完成后执行的命令（例如启动服务、动态生成配置文件等）；该环境下仅加载系统基本的环境变量，需要手动定义环境变量或导入相应的脚本。通常<code>%postun</code>与之成对出现，以保证清理安装内容，恢复安装前的系统配置和状态。</li>
+<li><code>%triggerin</code>：如果该软件包触发安装依赖包，则首先执行依赖包的对应脚本。</li>
+</ul>
+<p>卸载软件包前：</p>
+<ul>
+<li><code>%triggerun</code>：如果卸载<strong>旧版本</strong>软件包触发卸载依赖包，则首先执行当前软件包的对应脚本。</li>
+<li><code>%preun</code>：卸载<strong>旧版本</strong>软件包前的处理。</li>
+</ul>
+<p>卸载软件包后：</p>
+<ul>
+<li><code>%postun</code>：<a href="https://opensource.com/article/18/9/how-build-rpm-packages">卸载<strong>旧版本</strong>软件时清理<code>%post</code>阶段产生的文件</a>，<code>%files</code>阶段安装的文件将在卸载时自动删除。</li>
+<li><code>%triggerpostun</code>：如果卸载<strong>旧版本</strong>软件包触发卸载依赖包，则首先执行当前软件包的对应脚本。</li>
+<li><code>%postrans</code>：</li>
+</ul>
+<p>脚本通过传入参数<code>$1</code>判断是<strong>安装</strong>、<strong>升级</strong>或卸载：</p>
+<div class="table-wrapper"><table><thead><tr><th>stage</th><th>install</th><th>upgrade</th><th>uninstall</th></tr></thead><tbody>
+<tr><td><code>%pretrans</code></td><td><code>$1 == 1</code></td><td><code>$1 -gt 1</code></td><td>(N/A)</td></tr>
+<tr><td><code>%pre</code></td><td><code>$1 == 1</code></td><td><code>$1 -gt 1</code></td><td>(N/A)</td></tr>
+<tr><td><code>%post</code></td><td><code>$1 == 1</code></td><td><code>$1 -gt 1</code></td><td>(N/A)</td></tr>
+<tr><td><code>%preun</code></td><td>(N/A)</td><td><code>$1 == 1</code></td><td><code>$1 == 0</code></td></tr>
+<tr><td><code>%postun</code></td><td>(N/A)</td><td><code>$1 == 1</code></td><td><code>$1 == 0</code></td></tr>
+<tr><td><code>%posttrans</code></td><td><code>$1 == 1</code></td><td><code>$1 == 1</code></td><td>(N/A)</td></tr>
+</tbody></table>
+</div>
+<p>脚本的最后命令退出状态如果非0，则后续阶段不会执行。因此除非是严重错误导致安装无法继续，应该在每个脚本最后添加<code>exit 0</code>。</p>
+<blockquote>
+<ul>
+<li><a href="https://docs.fedoraproject.org/en-US/packaging-guidelines/Scriptlets/#_saving_state_between_scriptlets">Saving state between scriptlets</a>.</li>
+<li><a href="https://docs.fedoraproject.org/en-US/packaging-guidelines/Scriptlets/#_systemd">Systemd services</a>.</li>
+<li><a href="https://docs.fedoraproject.org/en-US/packaging-guidelines/UsersAndGroups/">Users and Groups Guidelines</a>.</li>
+</ul>
+</blockquote>
+<p><strong>其他</strong></p>
+<ul>
+<li>
+<p><code>%description</code>：完整的RPM包描述信息文本。</p>
+</li>
+<li>
+<p><code>%changelog</code>：RPM包的变更记录。每条记录第一行（以<code>*</code>开头）为变更记录的元数据，包括日期、作者、邮箱、和版本号，后续为变更信息列表（以<code>-</code>开头）。</p>
+<pre><code class="language-shell">%changelog
+* Tue May 31 2016 Adam Miller &lt;maxamillion@fedoraproject.org&gt; - 0.1-1
+- First bello package
+- Example second item in the changelog for version-release 0.1-1
+</code></pre>
+</li>
+</ul>
+<h4 id="在声明文件中使用宏变量"><a class="header" href="#在声明文件中使用宏变量">在声明文件中使用宏变量</a></h4>
+<p>使用<a href="https://docs.fedoraproject.org/en-US/packaging-guidelines/RPMMacros/">宏变量</a>可替代声明文件中的配置信息，从而保证文件中使用配置的一致性。</p>
+<p>宏变量包括：</p>
+<ul>
+<li>
+<p><strong>预定义</strong>：使用<code>rpm</code>或<code>rpmbuild</code>命令时，通过<code>--define</code>选项定义宏变量。</p>
+<pre><code class="language-shell">rpm --define &quot;MACRO some_value&quot; --eval %{MACRO}
+</code></pre>
+<p><code>rpmbuild</code>命令在解析声明文件时会使用宏变量进行替换。</p>
+</li>
+<li>
+<p><strong>基于配置文件元数据</strong>：声明文件中的元数据，如<code>Name, Version, Release</code>等，会生成对应元数据名的小写形式（<code>name,version,release...</code>）的宏变量及对应的环境变量（<code>RPM_PACKAGE_NAME, RPM_PACKAGE_VERSION, RPM_PACKAGE_RELEASE</code>），可在后续声明中使用。</p>
+</li>
+<li>
+<p><strong>内置宏变量</strong>：关于打包过程的环境变量：</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">macro</th><th>env</th><th style="text-align: left">definition</th></tr></thead><tbody>
+<tr><td style="text-align: left"><code>%{_buildrootdir}</code></td><td></td><td style="text-align: left"><code>%{_topdir}/BUILDROOT</code></td></tr>
+<tr><td style="text-align: left"><code>%{buildroot}</code></td><td><code>$RPM_BUILD_ROOT</code><br/><em><code>$RPM_ROOT_DIR</code></em></td><td style="text-align: left"><code>%{_buildrootdir}/%{name}-%{version}-%{release}.%{_arch}</code></td></tr>
+<tr><td style="text-align: left"><code>%{_topdir}</code></td><td></td><td style="text-align: left"><code>%{getenv:HOME}/rpmbuild</code></td></tr>
+<tr><td style="text-align: left"><code>%{_builddir}</code></td><td><code>$RPM_BUILD_DIR</code></td><td style="text-align: left"><code>%{_topdir}/BUILD</code></td></tr>
+<tr><td style="text-align: left"><code>%{_rpmdir}</code></td><td></td><td style="text-align: left"><code>%{_topdir}/RPMS</code></td></tr>
+<tr><td style="text-align: left"><code>%{_sourcedir}</code></td><td><code>$RPM_SOURCE_DIR</code></td><td style="text-align: left"><code>%{_topdir}/SOURCES</code></td></tr>
+<tr><td style="text-align: left"><code>%{_specdir}</code></td><td></td><td style="text-align: left"><code>%{_topdir}/SPECS</code></td></tr>
+<tr><td style="text-align: left"><code>%{_srcrpmdir}</code></td><td></td><td style="text-align: left"><code>%{_topdir}/SRPMS</code></td></tr>
+</tbody></table>
+</div>
+<p>关于路径的宏变量：</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">macro</th><th style="text-align: left">definition</th><th style="text-align: left">default</th></tr></thead><tbody>
+<tr><td style="text-align: left"><code>%{_sysconfdir}</code></td><td style="text-align: left"><code>/etc</code></td><td style="text-align: left"></td></tr>
+<tr><td style="text-align: left"><code>%{_prefix}</code></td><td style="text-align: left"><code>/usr</code></td><td style="text-align: left"><code>/app</code> for flatpak builds</td></tr>
+<tr><td style="text-align: left"><code>%{_exec_prefix}</code></td><td style="text-align: left"><code>%{_prefix}</code></td><td style="text-align: left"><code>/usr</code></td></tr>
+<tr><td style="text-align: left"><code>%{_includedir}</code></td><td style="text-align: left"><code>%{_prefix}/include</code></td><td style="text-align: left"><code>/usr/include</code></td></tr>
+<tr><td style="text-align: left"><code>%{_bindir}</code></td><td style="text-align: left"><code>%{_exec_prefix}/bin</code></td><td style="text-align: left"><code>/usr/bin</code></td></tr>
+<tr><td style="text-align: left"><code>%{_libdir}</code></td><td style="text-align: left"><code>%{_exec_prefix}/%{_lib}</code></td><td style="text-align: left"><code>/usr/%{_lib}</code></td></tr>
+<tr><td style="text-align: left"><code>%{_libexecdir}</code></td><td style="text-align: left"><code>%{_exec_prefix}/libexec</code></td><td style="text-align: left"><code>/usr/libexec</code></td></tr>
+<tr><td style="text-align: left"><code>%{_sbindir}</code></td><td style="text-align: left"><code>%{_exec_prefix}/sbin</code></td><td style="text-align: left"><code>/usr/sbin</code></td></tr>
+<tr><td style="text-align: left"><code>%{_datarootdir}</code></td><td style="text-align: left"><code>%{_prefix}/share</code></td><td style="text-align: left"><code>/usr/share</code></td></tr>
+<tr><td style="text-align: left"><code>%{_datadir}</code></td><td style="text-align: left"><code>%{_datarootdir}</code></td><td style="text-align: left"><code>/usr/share</code></td></tr>
+<tr><td style="text-align: left"><code>%{_infodir}</code></td><td style="text-align: left"><code>%{_datarootdir}/info</code></td><td style="text-align: left"><code>/usr/share/info</code></td></tr>
+<tr><td style="text-align: left"><code>%{_mandir}</code></td><td style="text-align: left"><code>%{_datarootdir}/man</code></td><td style="text-align: left"><code>/usr/share/man</code></td></tr>
+<tr><td style="text-align: left"><code>%{_docdir}</code></td><td style="text-align: left"><code>%{_datadir}/doc</code></td><td style="text-align: left"><code>/usr/share/doc</code></td></tr>
+<tr><td style="text-align: left"><code>%{_rundir}</code></td><td style="text-align: left"><code>/run</code></td><td style="text-align: left"></td></tr>
+<tr><td style="text-align: left"><code>%{_localstatedir}</code></td><td style="text-align: left"><code>/var</code></td><td style="text-align: left"></td></tr>
+<tr><td style="text-align: left"><code>%{_sharedstatedir}</code></td><td style="text-align: left"><code>/var/lib</code></td><td style="text-align: left"></td></tr>
+<tr><td style="text-align: left"><code>%{_lib}</code></td><td style="text-align: left"><code>/lib64</code></td><td style="text-align: left"><code>/lib</code> on 32bit platforms</td></tr>
+<tr><td style="text-align: left"><code>%{_tmppath}</code></td><td style="text-align: left"><code>%{_var}/tmp</code></td><td style="text-align: left"><code>/var/tmp</code></td></tr>
+</tbody></table>
+</div></li>
+</ul>
+<h4 id="打包方法"><a class="header" href="#打包方法">打包方法</a></h4>
+<p><a href="http://ftp.rpm.org/max-rpm/ch-rpm-b-command.html">执行编译和打包</a>：</p>
+<pre><code class="language-shell">rpmbuild -b[bas] \
+  --clean \                            # 清理构建路径
+  --sign  \                            # 添加数字签名using PGP
+  --buildroot &lt;buildroot&gt; \            # 在&lt;buildroot&gt;执行%install定义的命令
+  --buildarch &lt;arch&gt; \                 # override BuildArch
+  --define &quot;_topdir $(pwd)/rpmbuild&quot; \ # 指定工作目录
+  &lt;appname&gt;.spec
+# Output =&gt; {Name}-{Version}-{Release}.rpm
+</code></pre>
+<p><code>rpmdev-setuptree</code>在用户主目录下创建工作目录，如果要在其他位置进行打包，将创建的目录移动到其他位置，同时在打包命令中指定<code>&quot;_topdir&quot;</code>或在打包声明文件中指定<code>%_topdir </code>的值。</p>
+<p><code>-b</code>选项的值限定打包过程所执行的阶段，在编写声明文件时，可根据情况选择执行阶段，从而加快测试打包过程。</p>
+<ul>
+<li>
+<p><code>p</code>：<code>%prep</code>；</p>
+</li>
+<li>
+<p><code>c</code>：<code>%prep, %build</code>；</p>
+<p>仅显示执行过程，移除命令输出，方便调试打包过程：</p>
+<pre><code class="language-shell">rpmbuild -bc --define &quot;_topdir $(pwd)/rpmbuild&quot; \
+         rpmbuild/SPECS/package-name.spec | grep -E &quot;^(\+|E)&quot;
+</code></pre>
+</li>
+<li>
+<p><code>i</code>：<code>%prep, %build, %install, %check</code>，不打包；</p>
+</li>
+<li>
+<p><code>b</code>：<code>%prep, %build, %install, %check</code>，打包可执行程序；</p>
+</li>
+<li>
+<p><code>a</code>：<code>%prep, %build, %install, %check</code>，打包可执行程序和源代码；</p>
+</li>
+</ul>
+<h5 id="打包过程中的自动编译"><a class="header" href="#打包过程中的自动编译">打包过程中的自动编译</a></h5>
+<p>在<code>%install</code>结束阶段，打包工具会检查安装内容，对于某些可编译内容（如Python脚本），打包工具默认会自动调用编译工具进行编译。可在该阶段的定义中显式声明<code>exit 0</code>以结束该阶段从而禁用后续的自动检查和编译。如果开启该功能，则需要设置正确的编译工具（防止利用系统默认工具或找不到相应工具）。</p>
+<pre><code class="language-shell">/usr/bin/rpmbuild -bb --define &quot;_python_override ${PYTHON_PATH}&quot;  # build commmand
+%define __python %{_python_override}/python   # in sepcfile
+</code></pre>
+<h5 id="软件包内容"><a class="header" href="#软件包内容">软件包内容</a></h5>
+<blockquote>
+<p>RPM package consists of the <code>cpio</code> archive. The files in <code>buildroot</code> are later put into a <code>cpio</code> archive, which becomes the main part of the RPM. When RPM is installed on the end user’s system, these files are extracted in the <code>root</code> directory, preserving the correct hierarchy.</p>
+</blockquote>
+<p>查看软件包内容：</p>
+<pre><code class="language-shell">rpm -qlpv &lt;pakagename&gt;.rpm  # contents of package file
+</code></pre>
+<blockquote>
+<p><code>v</code>列出文件属性，不指定则只列出文件名。</p>
+</blockquote>
+<p>提取软件包内容：</p>
+<pre><code class="language-shell">rpm2cpio ./&lt;packagename&gt;.rpm | cpio -idmv
+</code></pre>
+<blockquote>
+<p><code>-i</code> extract the files from the archive,
+<code>-d</code> create the leading directories where needed, 
+<code>-m</code> preserve the file modification times when creating files.
+<code>-v</code> (verbose) list the files processed.</p>
+</blockquote>
+<p><a href="https://blog.packagecloud.io/eng/2015/10/13/inspect-extract-contents-rpm-packages/">Inspecting and extracting RPM package contents - Packagecloud Blog</a></p>
+<h5 id="跨平台打包"><a class="header" href="#跨平台打包">跨平台打包</a></h5>
+<p>问题：<a href="https://utcc.utoronto.ca/%7Ecks/space/blog/linux/RPMCrossBuildIssues">Why building RPMs for a different architecture is a hard problem</a>。</p>
+<h3 id="防火墙配置"><a class="header" href="#防火墙配置">防火墙配置</a></h3>
+<p>Fedora/CentOS使用<code>firewalld</code>/<code>firewall-cmd</code>作为防火墙应用程序，其中<code>firewall-cmd</code>为用户接口，<code>firewalld</code>与内核（<code>netfilter</code>）交互。</p>
+<img src="Linux发行版.assets/image-20210524125029766.png" alt="image-20210524125029766" style="zoom: 40%;" />
+<h5 id="防火墙运行管理"><a class="header" href="#防火墙运行管理">防火墙运行管理</a></h5>
+<p><code>firewalld</code>作为系统服务，由<code>systemd</code>托管，使用<code>systemctl</code>进行管理。</p>
+<pre><code class="language-shell">firewall-cmd --state           # firewalld的状态==&gt;systemctl status firewalld
+firewall-cmd --reload          # 不中断服务的重新加载，更新防火墙规则
+firewall-cmd --complete-reload # 中断所有连接的重新加载
+firewall-cmd --runtime-to-permanent  # 将当前防火墙的规则永久保存
+firewall-cmd --check-config          # 检查配置正确性
+</code></pre>
+<p>选项：</p>
+<p><code>--permanent</code>：使规则永久生效（当前并未生效，须适用<code>--reload</code>命令重新加载规则）；反之，防火墙重新加载后规则失效（适用<code>--runtime-to-permanent</code>命令保存）。某些非定义规则的命令必须使用<code>--permanent</code>。</p>
+<h4 id="预定义信息"><a class="header" href="#预定义信息">预定义信息</a></h4>
+<h5 id="区域"><a class="header" href="#区域">区域</a></h5>
+<p>区域是==防火墙控制范围的逻辑划分==，可将本机的网络接口、远程的IP地址等绑定到区域（<code>--add-interface, --add-source</code>），==其相关流量控制由相应区域的规则决定==。未绑定区域的网络实体的控制逻辑由默认(<code>active</code>)区域中的规则确定。区域信息由<code>NetworkManager </code>管理，而非<code>firewalld</code>。</p>
+<blockquote>
+<p><em>==Zones are predefined sets of rules==. Network interfaces and sources can be assigned to a zone.</em></p>
+</blockquote>
+<pre><code class="language-shell">firewall-cmd --get-zones                    # 查看支持的区域
+firewall-cmd --get-active-zones             # 查看区域信息
+</code></pre>
+<p>预定义的区域（存储于<code>/usr/lib/firewalld/zones/</code>）及其默认配置：</p>
+<ul>
+<li><code>drop</code>：拒绝所有外来请求，没有通知消息；</li>
+<li><code>block</code>：拒绝所有外部链接请求并发送ICMP消息，仅允许系统内部发起的连接；</li>
+<li><code>dmz</code>：<em>Only selected incoming connections are accepted.</em></li>
+<li><code>external</code>：<em>do not trust others on the network. external networks with masquerading enabled, especially for routers. Only selected incoming connections are accepted.</em></li>
+<li><code>public</code>：<em>do not trust others on the network. Only selected incoming connections are accepted.</em></li>
+<li><code>home,internal,work</code>：<em>mostly trust the others on the network. Only selected incoming connections are accepted.</em></li>
+<li><code>trusted</code>：允许所有连接。</li>
+</ul>
+<blockquote>
+<p>其他区域：<code>FedoraServer, FedoraWorkstation,nm-shared, libvirt</code>。可使用<code>--new-zone,--new-zone-from-file,--delete-zone</code>自定义区域。</p>
+</blockquote>
+<p>区域设置和地址绑定：</p>
+<pre><code class="language-shell">firewall-cmd --set-default-zone=&lt;ZoneName&gt;  # 设置默认区域=&gt;get-default-zone
+firewall-cmd --zone=&lt;ZoneName&gt; --add-interface=eth0       # 绑定本机网络接口
+firewall-cmd --zone=&lt;ZoneName&gt; --change-interface=enp03s  # 修改接口所属区域
+firewall-cmd --zone=&lt;ZoneName&gt; \         # 绑定源地址到区域=&gt;--remove-source
+             --add-source=&lt;source&gt;[/&lt;mask&gt;]|&lt;MAC&gt;|ipset:&lt;ipset&gt; 
+firewall-cmd --get-zone-of-interface=enp1s0 # 查看指定接口所属区域
+</code></pre>
+<p>未指定区域则命令的目标为默认区域。</p>
+<h5 id="地址集合ipset"><a class="header" href="#地址集合ipset">地址集合（IPSet）</a></h5>
+<p>获取地址集合以及预定义的类型：</p>
+<pre><code class="language-shell">firewall-cmd --get-ipsets
+sudo firewall-cmd --get-ipset-types
+</code></pre>
+<p>定义地址集合（必须重启才能生效）：</p>
+<pre><code class="language-shell">firewall-cmd --permanent --new-ipset=local --type=hash:net # MUST --permanent
+firewall-cmd --permanent --ipset=local --add-entry=172.28.76.41 # =&gt; 192.168.1.0/24
+# --add-entries-from-file, --remove-entries-from-file, --remove-entry
+firewall-cmd --reload  # 需重新加载才生效
+</code></pre>
+<blockquote>
+<p><code>--add-entry</code>：如果定义的<code>ipset</code>还未加载，则必须添加<code>--permanent</code>选项，否则无法在当前加载信息中找到相应的<code>ipset</code>。</p>
+</blockquote>
+<p>获取IP地址集合的信息：</p>
+<pre><code class="language-shell">firewall-cmd --info-ipset=local
+firewall-cmd --ipset=local --get-entries  # 仅返回地址
+</code></pre>
+<h5 id="服务"><a class="header" href="#服务">服务</a></h5>
+<p>自定义服务：</p>
+<pre><code class="language-shell">firewall-cmd --new-service=ssh     # 创建新的服务/--new-service-from-file
+firewall-cmd --delete-service=ssh  # 删除定义的服务
+firewall-cmd --service=&lt;service&gt; \
+             --set-short         \ # 设置服务信息/--get-short
+             --set-description   \
+             --add-port=1024[-10000]/tcp  # --query-port, --remove-port
+firewall-cmd --get-services       # 显示已定义的服务,已内置标准服务。
+firewall-cmd --info-service=ssh
+firewall-cmd --path-service=ssh   # 显示ssh配置文件的路径
+</code></pre>
+<h4 id="防火墙规则"><a class="header" href="#防火墙规则">防火墙规则</a></h4>
+<p>查看防火墙规则：防火墙规则是关联到区域的。</p>
+<pre><code class="language-shell">firewall-cmd --zone=public \  # 默认为active的区域
+             --list-ports \   # 查看打开的端口
+             --list-all       # 所有信息
+firewall-cmd --list-all-zones 
+</code></pre>
+<h5 id="基于端口的规则"><a class="header" href="#基于端口的规则">基于端口的规则</a></h5>
+<pre><code class="language-shell">firewall-cmd --permanent --zone=&lt;zone&gt; \
+             --add-port=8080/tcp \ # protocl=&lt;tcp|udp|sctp|dccp&gt;
+             --remove-port=8080/tcp \
+             --add-source-port=10000-65535 \ # --remove-source-port
+             --set-target=&lt;target&gt;           # 防火墙动作(默认为accept)
+</code></pre>
+<blockquote>
+<p><code>--timeout=600</code>：临时设置规则，时限到后规则失效。<code>target</code>表示匹配规则后防火墙的<a href="%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86.html#%E5%8A%A8%E4%BD%9C%EF%BC%88target%EF%BC%89">动作</a>。</p>
+</blockquote>
+<p>基于服务的规则：</p>
+<pre><code class="language-shell">firewall-cmd --add-service=smtp   # 将服务添加到允许列表
+             --remove-service=smtp
+firewall-cmd --list-services      # 显示允许访问的服务
+</code></pre>
+<h5 id="复杂规则"><a class="header" href="#复杂规则">复杂规则</a></h5>
+<p>规则中的条件包含了：协议族、地址、端口和传输层协议等。</p>
+<pre><code class="language-shell">firewall-cmd --add-rich-rule='rule family=ipv4 source ipset=local port port=8501-9000 protocol=tcp accept'
+firewall-cmd --direct -add-rule \ # 直接模式：使用iptables语法
+   ipv4 filter INPUT 0 -p tcp --dport 9000 -j ACCEPT  
+</code></pre>
+<h5 id="端口转发"><a class="header" href="#端口转发"><a href="Linux%E9%85%8D%E7%BD%AE%E5%92%8C%E7%AE%A1%E7%90%86.html#%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91">端口转发</a></a></h5>
+<pre><code class="language-shell">firewall-cmd --add-forward-port=\                       # --query-forward
+	port=80:proto=tcp[:toaddr=192.168.0.1][:toport=8080] # --remove-forward
+</code></pre>
+<p>默认规则：</p>
+<pre><code class="language-shell">firewall-cmd --panic-on     # 拒绝所有包
+firewall-cmd --panic-off    # 取消拒绝状态
+firewall-cmd --query-panic  # 查看是否默认拒绝
+</code></pre>
+<h5 id="防火墙日志"><a class="header" href="#防火墙日志">防火墙日志</a></h5>
+<pre><code class="language-shell">firewall-cmd --get-log-denied  # 获取记录被拒绝的日志
+</code></pre>
+<p>https://www.tecmint.com/start-stop-disable-enable-firewalld-iptables-firewall/</p>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/security_guide/sec-setting_and_controlling_ip_sets_using_firewalld">5.12. Setting and Controlling IP sets using firewalld Red Hat Enterprise Linux 7 | Red Hat Customer Portal</a></p>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/security_guide/sec-viewing_current_status_and_settings_of_firewalld">5.3. Viewing the Current Status and Settings of firewalld Red Hat Enterprise Linux 7 | Red Hat Customer Portal</a></p>
+<p><a href="https://www.liquidweb.com/kb/an-introduction-to-firewalld/">Firewalld Cheat Sheet | Liquid Web Knowledge Base</a></p>
+<p><a href="https://ipset.netfilter.org/features.html">IP sets (netfilter.org)</a></p>
+<p><a href="https://jingyan.baidu.com/article/f96699bb7adf11c94f3c1b4b.html">CentOS7忘记root密码</a></p>
+<h2 id="wsl"><a class="header" href="#wsl">WSL</a></h2>
+<p><a href="../%E6%9C%8D%E5%8A%A1%E5%99%A8/%E8%99%9A%E6%8B%9F%E5%8C%96.html#Window_Sub-system_of_Linux" title="WSL">WSL</a>是基于Windows Hype-V虚拟化技术的Linux发行版。</p>
+<h2 id="参考资料"><a class="header" href="#参考资料">参考资料</a></h2>
+<ol>
+<li><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/">Product Documentation for Red Hat Enterprise Linux 7 - Red Hat Customer Portal</a>
+<ul>
+<li><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/security_guide/sec-using_firewalls#sec-Getting_started_with_firewalld">Chapter 5. Using Firewalls Red Hat Enterprise Linux 7 | Red Hat Customer Portal</a></li>
+</ul>
+</li>
+</ol>
+<div class="footnote-definition" id="ubuntu-release"><sup class="footnote-definition-label">3</sup>
+<p><a href="https://ubuntu.com/about/release-cycle">Ubuntu release cycle | Ubuntu</a>
+<sup class="footnote-reference"><a href="#rpm-scriplets">1</a></sup>: <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/rpm_packaging_guide/advanced-topics#epoch-scriplets-and-triggers_advanced-topics">Epoch, Scriptlets and Triggers, Red Hat Enterprise Linux 7 RPM Packaging Guide</a>.
+<sup class="footnote-reference"><a href="#rpm-scripts">2</a></sup>: <a href="https://ftp.osuosl.org/pub/rpm/max-rpm/s1-rpm-inside-scripts.html#S3-RPM-INSIDE-PRE-SCRIPT">Scripts: RPM's Workhorse, <strong>Maximum RPM: Taking the RPM Package Manager to the Limit</strong>, Chapter 13. Inside the Spec File</a>.</p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../Linux/Linux-Shell.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../Linux/操作系统原理.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../Linux/Linux-Shell.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../Linux/操作系统原理.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

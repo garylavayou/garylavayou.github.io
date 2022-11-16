@@ -1,0 +1,366 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>HTTP - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html" class="active">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="http"><a class="header" href="#http">HTTP</a></h1>
+<h2 id="通信流程"><a class="header" href="#通信流程">通信流程</a></h2>
+<p>HTTP使用TCP协议在客户端和服务器间传输数据，从而保证传输的可靠性，使得HTTP应用无需关注传输细节。</p>
+<p>HTTP程序从URL获取服务器域名和端口号，并通过DNS得到服务器的IP地址。</p>
+<h3 id="dns查询"><a class="header" href="#dns查询">DNS查询</a></h3>
+<ol>
+<li>查询浏览器DNS缓存</li>
+<li>查询本机<code>hosts</code>文件</li>
+<li>查询DNS服务器</li>
+</ol>
+<h3 id="http报文"><a class="header" href="#http报文">HTTP报文</a></h3>
+<p>HTTP报文由<a href="#GET">起始行、头部和主体</a>组成。</p>
+<p>行终止符：<code>CRLF</code>（<code>0x0D0A</code>）；标准要求行终止符为两个字符，但应用程序也应该接受单个字符作为行终止符。</p>
+<h5 id="起始行"><a class="header" href="#起始行">起始行</a></h5>
+<p>请求报文的起始行由方法、URL（路径）和HTTP版本组成：</p>
+<pre><code class="language-http">GET /index.html http/1.1
+</code></pre>
+<p>响应报文的起始行由HTTP版本、状态码和状态信息组成：</p>
+<pre><code class="language-http">http/1.1 200 OK
+</code></pre>
+<h4 id="状态码"><a class="header" href="#状态码">状态码</a></h4>
+<p>所有处理过程都使用响应码而非其文本描述。</p>
+<h5 id="1xx信息提示"><a class="header" href="#1xx信息提示"><code>1xx</code>信息提示</a></h5>
+<h5 id="2xx成功"><a class="header" href="#2xx成功"><code>2XX</code>成功</a></h5>
+<p><code>200</code>：returns with a response body</p>
+<p><code>201</code>：Created</p>
+<p><code>204</code>：no content</p>
+<h5 id="3xx重定向"><a class="header" href="#3xx重定向"><code>3XX</code>重定向</a></h5>
+<p><code>301 Moved Permanently</code>：请求资源已经被永久移动，返回资源的新地址；</p>
+<p><code>302 Found</code>：请求资源被暂时修改，客户端随后应该使用该URI请求更新内容；</p>
+<p><code>304 Not Modified</code>：请求的资源未被修改过，客户端可使用已缓存内容；</p>
+<h5 id="4xx客户端错误"><a class="header" href="#4xx客户端错误"><code>4XX</code>客户端错误</a></h5>
+<p><code>400 Bad Request</code>：服务器无法解析请求数据；</p>
+<p><code>401 Unauthorized</code>：需要输入用户名和密码；</p>
+<p><code>403 Forbidden</code>：拒绝访问；</p>
+<p><code>404 Not Found</code>：no item matches the requested URL</p>
+<h5 id="5xx服务器错误"><a class="header" href="#5xx服务器错误"><code>5XX</code>服务器错误</a></h5>
+<p><code>5xx</code>：Unhandled exceptions</p>
+<h4 id="头部字段"><a class="header" href="#头部字段">头部字段</a></h4>
+<h5 id="user-agent"><a class="header" href="#user-agent">User-Agent</a></h5>
+<p>让网络协议的对端来识别发起请求的用户代理软件的应用类型、操作系统、软件开发商以及版本号。</p>
+<pre><code class="language-http">User-Agent: Mozilla/&lt;version&gt; (&lt;system-information&gt;) &lt;platform&gt; (&lt;platform-details&gt;) &lt;extensions&gt;
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36 OPR/38.0.2220.41
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1
+User-Agent: Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0)
+User-Agent: Googlebot/2.1 (+http://www.google.com/bot.html)
+</code></pre>
+<h5 id="content-type"><a class="header" href="#content-type">Content-Type</a></h5>
+<p>用于指示资源的MIME类型。</p>
+<pre><code class="language-http">Content-Type: text/html; charset=utf-8
+Content-Type: multipart/form-data; boundary=something
+</code></pre>
+<p><code>boundary</code>由1~70个字符组成（<em>known to be very robust through email gateways</em>），用于封装消息的多个部分的边界，对于多部分实体（multipart entities，具有一组而不是单个内容体）是必需的。通常头部边界前缀添加<code>--</code>，尾部边界后缀添加<code>--</code>。</p>
+<h5 id="content-disposition"><a class="header" href="#content-disposition">Content-Disposition</a></h5>
+<p>https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Disposition</p>
+<pre><code class="language-http">Content-Disposition: inline
+Content-Disposition: attachment
+Content-Disposition: attachment; filename=&quot;filename.jpg&quot;
+</code></pre>
+<pre><code class="language-http">Content-Disposition: form-data
+Content-Disposition: form-data; name=&quot;fieldName&quot;
+Content-Disposition: form-data; name=&quot;field2&quot;; filename=&quot;example.txt&quot;
+</code></pre>
+<h5 id="content-encoding"><a class="header" href="#content-encoding">Content-Encoding</a></h5>
+<p>媒体数据的压缩编码。通常尽可能压缩数据，但对于已经压缩过的类型（如<code>jpeg</code>）则不必要。</p>
+<pre><code class="language-http">Content-Encoding: gzip
+Content-Encoding: compress
+Content-Encoding: deflate
+Content-Encoding: br
+Content-Encoding: deflate, gzip
+</code></pre>
+<h5 id="content-language"><a class="header" href="#content-language">Content-Language</a></h5>
+<p>用于设定内容的目标观众所适用的语言。</p>
+<pre><code class="language-http">Content-Language: en-US
+Content-Language: de-DE, en-CA
+</code></pre>
+<h5 id="set-cookie"><a class="header" href="#set-cookie">Set-Cookie</a></h5>
+<p>服务器向客户代理发送cookie，从而客户代理随后能将其返回给服务器。要设置多个cookies，则设置多个该字段。</p>
+<pre><code class="language-http">Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;
+Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;; Expires=&lt;date&gt;
+Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;; Domain=&lt;domain-value&gt;
+Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;; Path=&lt;path-value&gt;
+// Multiple attributes are also possible, for example:
+Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;; Secure; HttpOnly; SameSite=Strict
+</code></pre>
+<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie</p>
+<h2 id="web资源"><a class="header" href="#web资源">Web资源</a></h2>
+<h3 id="uri"><a class="header" href="#uri">URI</a></h3>
+<p>URI（Uniform Resource Identifier）分为URL（Uniform Resource Locator）和URN（Uniform Resource Name）</p>
+<h4 id="url"><a class="header" href="#url">URL</a></h4>
+<p>URL描述一台特定服务器上特定资源的位置及其访问方式。</p>
+<p><a href="https://www.ibm.com/docs/en/cics-ts/5.1?topic=concepts-components-url">The components of a URL - IBM Documentation</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier">Uniform Resource Identifier - Wikipedia</a></p>
+<h5 id="url格式"><a class="header" href="#url格式"><a href="URL.txt">URL格式</a></a></h5>
+<p>URL通常由协议、服务器地址和路径（服务器上资源的位置）组成。</p>
+<pre><code>scheme://user:password@host:port/path;params?query#frag
+query:key1=value1&amp;key2=value2&amp;...
+</code></pre>
+<p><code>frag</code>（片段）并不会发送给服务器，服务器将资源返回后，客户端通过片段决定显示的资源内容。</p>
+<h5 id="相对url"><a class="header" href="#相对url">相对URL</a></h5>
+<p>相对于当前文档路径的URL。</p>
+<h5 id="url编码"><a class="header" href="#url编码">URL编码</a></h5>
+<h4 id="urn"><a class="header" href="#urn">URN</a></h4>
+<p>URN作为特定内容的全局唯一标识，与资源位置无关（例如<a href="https://en.wikipedia.org/wiki/Digital_object_identifier">DOI</a>）。</p>
+<h3 id="资源类型"><a class="header" href="#资源类型">资源类型</a></h3>
+<p>MIME (Multipurpose Internet Mail Extension)类型最初用于电子邮件系统，在HTTP中用于标识媒体资源类型（<code>Content-Type</code>）。</p>
+<h2 id="web服务架构"><a class="header" href="#web服务架构">Web服务架构</a></h2>
+<h3 id="代理"><a class="header" href="#代理">代理</a></h3>
+<h3 id="缓存"><a class="header" href="#缓存">缓存</a></h3>
+<h3 id="网关"><a class="header" href="#网关">网关</a></h3>
+<h3 id="隧道"><a class="header" href="#隧道">隧道</a></h3>
+<p>HTTP/SSL</p>
+<h3 id="代理-1"><a class="header" href="#代理-1">代理</a></h3>
+<p>代表用户发起HTTP请求的程序（客户端），例如浏览器、爬虫。</p>
+<h2 id="http方法"><a class="header" href="#http方法">HTTP方法</a></h2>
+<h5 id="get"><a class="header" href="#get">GET</a></h5>
+<p>获取记录。</p>
+<pre><code class="language-http">GET https://localhost:5001/api/TodoItems
+User-Agent: PostmanRuntime/7.26.8
+Accept: */*
+Postman-Token: 4241178d-38d3-4b68-a7e1-6d2540938bdb
+Host: localhost:5001
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+-------------------------------------
+HTTP/1.1 200 OK
+Date: Fri, 08 Jan 2021 13:05:35 GMT
+Content-Type: application/json; charset=utf-8
+Server: Kestrel
+Transfer-Encoding: chunked
+[{&quot;id&quot;:1,&quot;name&quot;:&quot;walk dog&quot;,&quot;isComplete&quot;:true}]
+</code></pre>
+<h5 id="post"><a class="header" href="#post">POST</a></h5>
+<p>添加记录。</p>
+<pre><code class="language-http">POST https://localhost:5001/api/TodoItems
+Content-Type: application/json5
+# User-Agent/Accept/Postman-Token/Host/Accept-Encoding/Connection
+Content-Length: 47
+{&quot;name&quot;:&quot;walk dog&quot;,&quot;isComplete&quot;:true}
+---------------------------------------
+HTTP/1.1 201
+Date: Fri, 08 Jan 2021 13:05:22 GMT
+Content-Type: application/json; charset=utf-8
+Server: Kestrel
+Transfer-Encoding: chunked
+Location: https://localhost:5001/api/TodoItems/1
+{&quot;id&quot;:1,&quot;name&quot;:&quot;walk dog&quot;,&quot;isComplete&quot;:true}
+</code></pre>
+<h5 id="put"><a class="header" href="#put">PUT</a></h5>
+<p>更新记录</p>
+<pre><code class="language-http">PUT https://localhost:5001/api/TodoItems/1
+Content-Type/User-Agent/Accept/Postman-Token/Host/Accept-Encoding/Connection/Content-Length
+{&quot;id&quot;:1,&quot;name&quot;:&quot;walk cat&quot;,&quot;isComplete&quot;:true}
+--------------------------------------------
+HTTP/1.1 204
+Date: Fri, 08 Jan 2021 13:53:03 GMT
+Server: Kestrel
+</code></pre>
+<blockquote>
+<p>在URL和请求数据中都需要包含<code>id</code>。</p>
+</blockquote>
+<h5 id="delete"><a class="header" href="#delete">DELETE</a></h5>
+<pre><code class="language-http">DELETE https://localhost:5001/api/TodoItems/1
+---------------------------------------------
+HTTP/1.1 204
+Date: Fri, 08 Jan 2021 14:00:06 GMT
+Server: Kestrel
+</code></pre>
+<h2 id="http-cookies"><a class="header" href="#http-cookies">HTTP cookies</a></h2>
+<h2 id="附录"><a class="header" href="#附录">附录</a></h2>
+<h3 id="http版本"><a class="header" href="#http版本">HTTP版本</a></h3>
+<p><strong>HTTP/0.9</strong>：只支持<code>GET</code>方法，不支持MIME类型、HTTP首部和版本号。</p>
+<p><strong>HTTP/1.0</strong>：添加了版本号，HTTP首部和多媒体对象处理。</p>
+<p><strong>HTTP/1.0+</strong>：很多特性被加入，包括：keep-alive连接、虚拟主机、代理连接。</p>
+<p><strong>HTTP/1.1</strong>：校正设计中的结构性缺陷，明确语义，引入重要的性能优化措施，并删除一些不好的特性。</p>
+<p><strong>HTTP/2.0</strong>：性能优化，服务逻辑远程执行框架。</p>
+<p><a href="https://www.w3.org/Protocols/WhyHTTP.html">HTTP: Why a new protocol? (w3.org)</a></p>
+<p><a href="https://www.w3.org/DesignIssues/Architecture.html">Web Architecture from 50,000 feet (w3.org)</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../数据交换语言/HTML.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../Protocols/DNS.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../数据交换语言/HTML.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../Protocols/DNS.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

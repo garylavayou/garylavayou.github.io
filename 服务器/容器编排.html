@@ -1,0 +1,906 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>容器编排 - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html" class="active">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="容器编排"><a class="header" href="#容器编排">容器编排</a></h1>
+<h2 id="容器技术"><a class="header" href="#容器技术">容器技术</a></h2>
+<h3 id="namespace"><a class="header" href="#namespace">Namespace</a></h3>
+<p>Namesapce：资源隔离和虚拟化。</p>
+<ul>
+<li>UTS</li>
+<li>IPC</li>
+<li>PID</li>
+<li>Network</li>
+<li>Mount</li>
+<li>User</li>
+</ul>
+<h3 id="cgroup"><a class="header" href="#cgroup">Cgroup</a></h3>
+<h3 id="文件系统"><a class="header" href="#文件系统">文件系统</a></h3>
+<h3 id="网络"><a class="header" href="#网络">网络</a></h3>
+<h2 id="docker"><a class="header" href="#docker">Docker</a></h2>
+<p>docker LXC, namespace, cgroups, 资源隔离与安全保障</p>
+<p>docker client/server： REST API</p>
+<p><img src="./docker.assets/engine-components-flow.png" alt="Docker Engine Components Flow" /></p>
+<p>docker组件：</p>
+<ul>
+<li>镜像（Image）</li>
+<li>容器（Container）</li>
+<li>仓库（Repository）</li>
+</ul>
+<p><img src="./docker.assets/whats-the-diff-container-vs-vm.jpg" alt="What's the Diff: Containers vs VMs" /></p>
+<p>https://www.backblaze.com/blog/vm-vs-containers/</p>
+<p>https://docs.docker.com/get-started/overview/</p>
+<h3 id="容器的优点"><a class="header" href="#容器的优点">容器的优点</a></h3>
+<p>面向产品：简化交付</p>
+<p>面向开发：简化环境配置</p>
+<p>面向测试：多版本测试</p>
+<p>面向运维：环境一致性（一次构建、代码与配置分离）</p>
+<p>面向架构：自动化扩容（微服务）</p>
+<p>不可变基础设施：用替换代替变更</p>
+<h3 id="安装docker-engine"><a class="header" href="#安装docker-engine">安装Docker Engine</a></h3>
+<h4 id="ubuntu"><a class="header" href="#ubuntu">Ubuntu</a></h4>
+<pre><code class="language-shell"># install necessray tools
+sudo apt-get install apt-transport-https ca-certificates \
+    curl gnupg-agent software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+# Add repository
+sudo add-apt-repository \
+   &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable&quot;
+# install docker
+sudo apt install docker-ce docker-ce-cli containerd.io docker-compose
+</code></pre>
+<p>https://learnku.com/articles/34941</p>
+<h4 id="fedoracentos"><a class="header" href="#fedoracentos">Fedora/CentOS</a></h4>
+<p>目前支持Fedora ==34/35/36==版本和CentOS ==7/8/9==（<code>centos-extras</code>仓库需要启用）<sup class="footnote-reference"><a href="#docker-install">1</a></sup>。</p>
+<pre><code class="language-sh">yum install -y yum-utils # dnf -y install dnf-plugins-core
+yum-config-manager --add-repo \ 
+ 	https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+# dnf config-manager --add-repo
+#     https://mirrors.aliyun.com/docker-ce/linux/fedora/docker-ce.repo
+yum install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+systemctl enable --now docker  # start and enable
+</code></pre>
+<h5 id="移除旧版本docker"><a class="header" href="#移除旧版本docker">移除旧版本docker</a></h5>
+<pre><code class="language-shell">yum remove docker docker-latest \
+           docker-client docker-client-latest \
+           docker-common \
+           docker-logrotate docker-latest-logrotate \
+           docker-engine
+</code></pre>
+<blockquote>
+<p>位于<code>/var/lib/docker</code>的镜像、容器、卷和网络等数据不会被移除。</p>
+</blockquote>
+<h4 id="windows"><a class="header" href="#windows">Windows</a></h4>
+<p>安装Doker Desktop，需要启用<a href="https://docs.docker.com/docker-for-windows/wsl/">Hyper-V/WSL2支持</a>。</p>
+<h3 id="管理镜像"><a class="header" href="#管理镜像">管理镜像</a></h3>
+<pre><code class="language-sh">docker pull centos[:tag] # get docker iamge from DockerHub
+docker images  # show local images
+docker save -o centos.tar centos  # save image as archive
+docker load --input centos.tar    # load image from archive
+docker rmi [ID|tag] # remove image
+docker rmi $(docker images -q)  # remove all iamges
+</code></pre>
+<blockquote>
+<p>Ubuntu（不包括WSL发行版）不支持<code>root</code>账号，因此需要使用<code>sudo</code>运行命令。</p>
+</blockquote>
+<h3 id="运行容器"><a class="header" href="#运行容器">运行容器</a></h3>
+<img src="容器编排.assets/docker-host-5d47dcbc68e7d.png" alt="img" style="zoom: 67%;" />
+<pre><code class="language-sh">docker run [--name NAME] centos[:latest] echo &quot;Hello World&quot;
+docker run --name mydocker -d -t -i centos /bin/bash
+# [start,stop]
+docker start mydocker   # start an existing iamge
+docker ps [-a]  # show docker instance (and history process)
+</code></pre>
+<ul>
+<li><code>-d,--detach</code>：Run container in background and print container ID.</li>
+<li><code>--network &lt;net&gt;</code>：Connect a container to a network.</li>
+<li><code>--name &lt;name&gt;</code>：Assign a name to the container.</li>
+<li><code>-e, --env &lt;vars&gt;</code>：设置环境变量；</li>
+<li><code>-i, --interactive </code>：Keep STDIN open even if not attached</li>
+<li><code>--ip string</code>：IPv4 address (e.g., 172.30.100.104)</li>
+<li><code>-t, --tty</code>：Allocate a pseudo-TTY</li>
+<li><code>-h, --hostname string </code>：Container host name</li>
+</ul>
+<p>查看容器的输出信息：</p>
+<pre><code class="language-shell">docker logs [OPTIONS] CONTAINER
+</code></pre>
+<h4 id="进入容器"><a class="header" href="#进入容器">进入容器</a></h4>
+<h5 id="attach"><a class="header" href="#attach">attach</a></h5>
+<p>连接到docker的进程。</p>
+<pre><code class="language-sh">docker attach mydocker
+</code></pre>
+<blockquote>
+<p>在我们使用<code>attach</code>进入容器的时候，如果同时有多个窗口<code>attach</code>到同一个容器的时候，所有窗口都会同步显示。某个窗口因命令阻塞时,其他窗口也无法执行操作。一个窗口执行<code>exit</code>，则容器就推出运行。</p>
+</blockquote>
+<h5 id="nsenter"><a class="header" href="#nsenter">nsenter</a></h5>
+<pre><code class="language-sh">PID=$(docker inspect --format &quot;{{ .State.Pid }}&quot; mydocker)
+nsenter --target $PID --mount --uts --ipc --net --pid
+</code></pre>
+<h5 id="exec"><a class="header" href="#exec">exec</a></h5>
+<p>通过docker让容器执行命令。</p>
+<pre><code class="language-sh">docker exec mydocker ln -sf target destfile
+</code></pre>
+<p>容器中执行命令的返回值将通过上述命令返回。</p>
+<p>进入容器：</p>
+<pre><code class="language-sh">docker exec -it mydocker /bin/bash
+</code></pre>
+<blockquote>
+<p>此时重新在容器中启动了一个shell。</p>
+</blockquote>
+<h4 id="删除容器"><a class="header" href="#删除容器">删除容器</a></h4>
+<pre><code class="language-sh">docker rm [id|name]
+docker run --rm centos /bin/echo &quot;One&quot;  # remove after stop
+# 执行完命令后退出
+docker kill $(docker ps -a -q) # kill all containers
+docker rm $(docker ps -a -q)  # remove all stopped containers
+</code></pre>
+<h3 id="数据管理"><a class="header" href="#数据管理">数据管理</a></h3>
+<pre><code class="language-shell">docker volume create &lt;vol_name&gt; -d,--driver &lt;driver&gt;
+docker [ps|rm|prune]
+</code></pre>
+<p><code>driver</code>：默认为<code>local</code>，卷的物理位置。</p>
+<p><code>prune</code>：删除所有未被任何容器所使用的数据卷。</p>
+<p>创建的数据卷位于<code>/var/lib/docker/volumes</code>目录下。在WSL2中，数据卷的物理映射路径（<code>/var/lib/docker/volumes</code>）不变但无法访问。其实际位置在Windows的文件系统上（通过网络访问：<code>\\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes</code>）。</p>
+<blockquote>
+<p><em>查看容器挂载的WSL卷时，发现其不是指定的目录，这里应该是做了某种映射（新版本已经做了更改）。</em></p>
+<p>当停止并删除容器后，容器曾挂载过的卷仍被docker所占用，因此无法删除，需要首先退出Docker Desktop。</p>
+<p>在Windows虚拟机（WSL2，VMware等）中挂载Windows目录时需要注意，容器挂载路径不要映射到Windows卷。由于Windows和Linux的读写权限配置不同，容器在Windows卷下读写文件可能会失败；因此目前最好使用WSL或虚拟机内部存储映射到容器路径。</p>
+<p>VMware可以为虚拟机添加额外的虚拟磁盘或物理磁盘/分区供虚拟机独占使用。 </p>
+</blockquote>
+<h4 id="挂载数据"><a class="header" href="#挂载数据">挂载数据</a></h4>
+<p>使用<code>-v</code>、<code>--volume</code>或<code>--mount</code>挂载目录或文件。</p>
+<pre><code class="language-sh">-v /root/mediawiki:/usr/local/mediawiki
+-v /root/mediawiki/logo.png:/var/www/html/resources/assets/wiki.png
+</code></pre>
+<p>如果目标不存在，则<code>-v</code>、<code>--volume</code>将自动创建目标，而<code>--mount</code>会产生错误。</p>
+<h3 id="网络管理"><a class="header" href="#网络管理">网络管理</a></h3>
+<pre><code class="language-sh">docker network create &lt;netname&gt; \
+    -d,--driver &lt;driver&gt; \
+    --gateway strings --ip-range strings --subnet strings
+docker network connect|disconnect
+docker network ls|rm|prune
+docker network inspect &lt;net&gt;  # show detail of network
+</code></pre>
+<p><code>driver</code>：指定网络类型（管理网络的驱动：<code>bridge/host/null</code>）。系统中分别存在以每个类型名命名的默认网络实例。</p>
+<h4 id="地址端口映射"><a class="header" href="#地址端口映射">地址端口映射</a></h4>
+<p>将主机物理端口绑定到容器端口。</p>
+<pre><code class="language-shell">-p &lt;host_addr&gt;:&lt;host_port&gt;:&lt;container_port&gt;/protocol
+</code></pre>
+<blockquote>
+<p><code>protocol=tcp|udp</code>.</p>
+<p><a href="../Windows/Windows%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86.html#Docker-on-WSL2">WSL2中的端口映射</a>。</p>
+</blockquote>
+<h4 id="容器域名映射"><a class="header" href="#容器域名映射">容器域名映射</a></h4>
+<p><code>hosts</code>文件属于镜像的只读层，重启容器后对该文件的修改丢失。在构建容器阶段替换<code>hosts</code>文件或者在启动容器时在<code>hosts</code>文件中添加额外内容。</p>
+<pre><code class="language-sh">--add-host wiki.ica.caep.cn:127.0.0.1
+</code></pre>
+<blockquote>
+<p>容器主机名（ID）映射将由docker在最后添加：<code>172.18.0.3      d6e8e32ea99b</code>。</p>
+</blockquote>
+<p>位于同一网络中的容器（通常使用<code>docker-compose</code>等工具构建）可通过容器名互相访问（由<code>dockerd</code>提供映射查询）。</p>
+<h4 id="docker-desktop网络"><a class="header" href="#docker-desktop网络">Docker Desktop网络</a></h4>
+<p>Docker Desktop使用<code>vpnkit</code>管理外发流量（TCP/IP协议栈代理，非NAT），同时使用<code>vpnkit</code>处理DNS查询和HTTP(S)代理<sup class="footnote-reference"><a href="#docker-desktop-net">2</a></sup>。</p>
+<blockquote>
+<p>HTTP(S)代理可在Docker Desktop配置界面中设置。</p>
+<p>对于未配置DNS服务器的容器，其域名请求将由<code>vpnkit</code>转发至Docker Desktop内部的DNS服务（包括<code>dockerd</code>和CoreDNS服务）。通过CoreDNS服务，容器中的域名解析依赖主机的域名服务配置，因此容器内部服务也能够与外部主机正常通信。</p>
+</blockquote>
+<p>Docker Desktop通过<code>com.docker.backend</code>将Docker端口映射到主机端口<code>0.0.0.0:port</code>，从而对外提供服务。外部机器可直接通过主机地址访问相应端口（到<code>com.docker.backend.exe</code>的防火墙访问策略通过询问用户打开）。</p>
+<blockquote>
+<p>类似于<code>wslhost.exe</code>，但不同于<code>wslhost.exe</code>默认仅限于<code>localhost</code>访问。</p>
+</blockquote>
+<h3 id="docker-compose"><a class="header" href="#docker-compose">docker-compose</a></h3>
+<p>除了直接通过<code>docker</code>命令接收参数的形式配置容器，也可以通过<code>docker-compose</code>输入配置文件的形式配置容器参数并构建容器（两者参数对应）。</p>
+<pre><code class="language-yaml">services:
+  &lt;service_name&gt;:              # service_name作为主机名
+    image: &lt;image_name&gt;[:version]
+	container_name: &lt;name&gt;     # --name &lt;name&gt; 容器名
+    environment:               # 容器中的环境变量 (array)          
+      # docker属性
+      - node.name=&lt;hostname&gt;   # -h, --hostname &lt;hostname&gt;
+      # 环境变量                # -e,--env &lt;vars&gt;
+      - &quot;ES_JAVA_OPTS=-Xms512m -Xmx512m&quot;
+      - DEBUG                  # 传递shell环境变量
+    volumes:
+      - data01:/usr/share/elasticsearch/data  # 卷-&gt;容器路径
+    networks:     # --network &lt;net&gt;
+      - net         
+    ports:
+      - 9200:9200    # host -&gt; docker, expose is only informative
+    depends_on:
+      db:
+        condition: service_healthy
+  &lt;service_name&gt;:
+    build: path_to_dockerfile
+    environment:               # 容器中的环境变量 (dict)          
+      key1: value1
+      key2: value2
+    depends_on:   # 依赖服务
+      - &lt;service_name&gt;
+    restart: always   # no, always, on-failure, unless-stopped
+    dns:
+       - 8.8.8.8
+       - 9.9.9.9
+    domainname: app.net
+    hostname: node-1 # 主机名
+    ports:
+       target: 80
+       host_ip: 127.0.0.1
+       published: 8080
+       protocol: tcp
+       mode: host
+    networks:
+    	net:
+    	  aliases:   # 网络上的主机别名
+    	    - node-alias_name1
+    	    - node-alias-name2
+    	  ipv4_address: 172.16.238.10      # 需要在网络声明中配置子网
+        ipv6_address: 2001:3984:3989::10
+    extra_hosts:
+    - &quot;somehost:162.242.195.82&quot;
+    - &quot;otherhost:50.31.209.229&quot;
+    healthcheck:
+       test: [&quot;CMD&quot;, &quot;curl&quot;, &quot;-f&quot;, &quot;http://localhost&quot;]
+       interval: 1m30s
+       timeout: 10s
+       retries: 3
+       start_period: 40s
+volumes: 
+  data01:
+    driver: local      # docker volumn create data01 --driver local
+networks:
+  net:
+    driver: bridge     # docker network create --driver local
+  net2:                # 配置子网，如果需要为容器设置IP，则需设置子网
+    ipam:
+      driver: default
+      config:
+        - subnet: &quot;172.16.238.0/24&quot;
+        - subnet: &quot;2001:3984:3989::/64&quot;
+</code></pre>
+<h5 id="环境变量"><a class="header" href="#环境变量">环境变量</a></h5>
+<p>在<code>docker-compose.yml</code>文件中，通过<code>${VAR}</code>引用环境变量。环境变量包含：</p>
+<ul>
+<li>
+<p><code>.env</code>文件：声明编排过程中的环境变量，默认位于项目文件夹下或使用<code>--env-file</code>指定环境变量定义文件；项目文件夹即<code>docker-compose.yml</code>文件所在目录根据<code>--file</code>或<code>COMPOSE_FILE</code>环境变量确定，默认为<code>docker-compose</code>启动目录；</p>
+<blockquote>
+<pre><code class="language-shell">COMPOSE_PROJECT_NAME=elastic
+VERSION=7.14.1
+</code></pre>
+</blockquote>
+</li>
+<li>
+<p>Shell环境变量，优先级高于<code>.env</code>文件（可以在执行<code>docker-compose</code>命令前声明）；</p>
+</li>
+<li>
+<p><code>project-name</code>由环境变量<code>COMPOSE_PROJECT_NAME</code>指定（默认为<code>docker-compose.yaml</code>文件所在目录名）。由<code>docker-compose</code>创建的对象（服务、卷、网络等）名称将自动添加<code>project-name</code>作为前缀。</p>
+</li>
+</ul>
+<h5 id="网络配置"><a class="header" href="#网络配置">网络配置</a></h5>
+<p>根据<code>networks</code>声明自动创建网络；如果没有声明网络，则会自动创建默认的网络（<code>&lt;project-name&gt;_default</code>）。</p>
+<h5 id="数据卷配置"><a class="header" href="#数据卷配置">数据卷配置</a></h5>
+<p>自动创建卷位于<a href="#%E5%8D%B7%E7%AE%A1%E7%90%86"><code>/var/lib/docker/volumes/</code></a>，卷名为<code>&lt;project-name&gt;_&lt;volume-name&gt;</code>。</p>
+<h4 id="启动顺序"><a class="header" href="#启动顺序">启动顺序</a></h4>
+<p><a href="https://docs.docker.com/compose/startup-order/">Control startup and shutdown order in Compose | Docker Documentation</a></p>
+<h4 id="管理"><a class="header" href="#管理">管理</a></h4>
+<pre><code class="language-shell"># [up,create,start,restart]
+docker-compose up -d  # Create and start containers (as daemon)
+# [start,pause,unpause,stop,restart]
+docker-compose kill   # 
+docker-compose rm     # 删除停止服务（镜像）
+docker-compose down -v # 删除容器以及相关网络、数据卷等
+docker-compose ps     # at dir with docker-compose.yaml
+</code></pre>
+<h5 id="状态检查"><a class="header" href="#状态检查">状态检查</a></h5>
+<p><a href="https://docs.docker.com/compose/compose-file/compose-file-v3/#healthcheck">Compose file version 3 reference | Docker Documentation</a></p>
+<h3 id="构建镜像"><a class="header" href="#构建镜像">构建镜像</a></h3>
+<h4 id="手动"><a class="header" href="#手动">手动</a></h4>
+<p>手动向容器添加内容，并将该容器保存为镜像。</p>
+<pre><code class="language-shell">docker commit -m &quot;message&quot; container_id image_name:tag
+</code></pre>
+<h4 id="dockerfile"><a class="header" href="#dockerfile">Dockerfile</a></h4>
+<p>Dockerfile：构建容器镜像的声明文件。</p>
+<pre><code class="language-dockerfile"># This docker file uses the centos image
+# VERSION 1
+# Author: Jason Zhao
+# Base image
+FROM centos
+# Maintainer
+MAINTAINER shundong.zhao zhaoshundong@gmail.com
+#Commands to update the image
+# LABEL url=&quot;&quot;
+ENV DEBIAN_FRONTEND noninteractive   # 环境变量
+RUN rpm -ivh http://mirrors.aliyun.com/epel/epel-release-latest-7.noarch.rpm
+RUN yum install -y nginx --enablerepo=epel  # 在容器中运行命令
+# VOLUME 
+WORKDIR /your/path   # 切换工作目录
+ADD index.html /usr/share/nginx/html/index.html
+COPY host/src container/target       # 拷贝文件
+RUN echo &quot;daemon off;&quot; &gt;&gt; /etc/nginx/nginx.conf
+EXPOSE 80    # 暴露容器端口
+CMD  [&quot;python3&quot;, &quot;-m&quot;, &quot;pelican.server&quot;, &quot;80&quot;]  # 运行命令，可添加多个参数
+USER xxx   # 
+</code></pre>
+<blockquote>
+<p><em><code>COPY</code>命令似乎不支持符号链接拷贝。</em></p>
+<p><code>ARG</code>存在于<code>docker build</code>命令执行期间。默认值写在 Dockerfile里。如果需要修改，可以通过<code>docker build</code>命令里的<code>--build-arg</code>参数来指定。</p>
+<p><code>ENV</code>存在于<code>docker run</code>命令执行期间。默认值写在Dockerfile里。如果要修改，可以通过<code>docker run</code>命令的 <code>--env</code>参数来指定。</p>
+<p><code>ARGENV</code>：如果要把<code>ARG</code>的值保存到<code>container</code>运行起来之后仍然可以可用。</p>
+</blockquote>
+<h5 id="run"><a class="header" href="#run">RUN</a></h5>
+<p>在镜像容器中执行命令。</p>
+<h5 id="构建命令"><a class="header" href="#构建命令">构建命令</a></h5>
+<pre><code class="language-sh">docker build -t img_name:img_tag -f app.dockerfile PATH
+</code></pre>
+<p><code>-f</code>指定<code>Dockerfile</code>的路径，默认为<code>PATH/Dockerfile</code>；<code>PATH</code>参数不可省略（当前路径使用<code>&quot;.&quot;</code>）</p>
+<p>镜像分层设计：</p>
+<ul>
+<li>操作系统</li>
+<li>运行环境</li>
+<li>应用</li>
+</ul>
+<p>SSH</p>
+<p>Supervisor</p>
+<h3 id="docker仓库"><a class="header" href="#docker仓库">Docker仓库</a></h3>
+<h4 id="设置镜像源"><a class="header" href="#设置镜像源">设置镜像源</a></h4>
+<p>创建或修改<code>/etc/docker/daemon.json</code>文件，修改为如下形式：</p>
+<pre><code class="language-json">{ &quot;registry-mirrors&quot; : [
+  &quot;https://famqhaa8.mirror.aliyuncs.com&quot;,  
+  &quot;https://docker.mirrors.ustc.edu.cn&quot;,
+  &quot;http://hub-mirror.c.163.com&quot;,
+  &quot;https://registry.docker-cn.com&quot;
+]}
+</code></pre>
+<blockquote>
+<p><a href="https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors">容器镜像服务 (aliyun.com)</a></p>
+</blockquote>
+<p>重启docker服务使配置生效。</p>
+<pre><code class="language-sh">systemctl daemon-reload
+systemctl restart docker
+</code></pre>
+<h4 id="docker-registry"><a class="header" href="#docker-registry">Docker Registry</a></h4>
+<h4 id="harbor"><a class="header" href="#harbor">Harbor</a></h4>
+<h4 id="nexus"><a class="header" href="#nexus">Nexus</a></h4>
+<pre><code class="language-sh">docker login reg.example.com
+docker push
+</code></pre>
+<h2 id="容器编排-1"><a class="header" href="#容器编排-1">容器编排</a></h2>
+<p>https://mp.weixin.qq.com/s/spNSMozSrCO7AgqyRVfwug</p>
+<p>常见的容器编排引擎包括：Kubernetes、Docker Swarm、Apache Mesos等。</p>
+<blockquote>
+<p><em>With that said, if you’re just looking to get up and running and test out using an orchestration engine, then Docker Swarm is probably a good choice. When you’re ready to delve further into the subject, or possibly deploy something leaning toward industrial grade, look to Kubernetes. If flexibility and massive scale are your goals, then consider Apache Mesos.</em>   https://www.sumologic.com/insight/kubernetes-vs-mesos-vs-swarm/</p>
+</blockquote>
+<h3 id="kubernetes架构"><a class="header" href="#kubernetes架构">Kubernetes架构</a></h3>
+<p><img src="docker.assets/components-of-kubernetes.png" alt="Kubernetes 组件" /></p>
+<p>https://kubernetes.io/zh/docs/concepts/overview/what-is-kubernetes/</p>
+<h4 id="物理节点"><a class="header" href="#物理节点">物理节点</a></h4>
+<h5 id="master"><a class="header" href="#master">Master</a></h5>
+<ul>
+<li><strong>API Server</strong>：提供Kubernetes API接口，主要处理 Rest操作以及更新Etcd中的对象。是所有资源增删改查的唯一入口。</li>
+<li><strong>Scheduler</strong>：绑定Pod到Node上，主要做资源调度。</li>
+<li><strong>Controller Manager</strong>：所有其他群集级别的功能，目前由控制器Manager执行。资源对象的自动化控制中心，Kubernetes集群有很多控制器。</li>
+<li><strong>Etcd</strong>：所有持久化的状态信息存储在Etcd中，这个是Kubernetes集群的数据库。</li>
+</ul>
+<h5 id="node"><a class="header" href="#node">Node</a></h5>
+<p>从节点上运行<code>kubelet</code>、<code>kube-proxy</code>分别作为计算节点的代理和网络代理。</p>
+<p>节点上运行容器引擎（例如Docker），负责容器创建等具体工作。</p>
+<h4 id="虚拟节点"><a class="header" href="#虚拟节点">虚拟节点</a></h4>
+<h5 id="pod"><a class="header" href="#pod">Pod</a></h5>
+<p>封装一个或多个容器（通常为1个）。Pod中封装的容器由容器引擎创建。</p>
+<h5 id="service-cluster"><a class="header" href="#service-cluster">Service Cluster</a></h5>
+<p>运行同一服务的所有Pod组成的集合。</p>
+<h4 id="kubernetis网络"><a class="header" href="#kubernetis网络">Kubernetis网络</a></h4>
+<p><a href="https://opensource.com/article/22/6/kubernetes-networking-fundamentals?check_logged_in=1">A visual guide to Kubernetes networking fundamentals | Opensource.com</a></p>
+<h5 id="intra-pod-and-inter-pod"><a class="header" href="#intra-pod-and-inter-pod">intra-pod and inter-pod</a></h5>
+<img src="容器编排.assets/1containerandpodnets.jpg" alt="Container-to-container and pod-to-pod networking" style="zoom: 67%;" />
+<h5 id="podinternet-to-service"><a class="header" href="#podinternet-to-service">pod/internet-to-service</a></h5>
+<img src="容器编排.assets/2podtoservicenets.jpg" alt="Pod-to-Service networking" style="zoom:67%;" />
+<img src="容器编排.assets/3internettoservicenets.jpg" alt="Internet-to-service" style="zoom:67%;" />
+<h3 id="安装配置kubernetes集群"><a class="header" href="#安装配置kubernetes集群">安装配置Kubernetes集群</a></h3>
+<h3 id="管理集群"><a class="header" href="#管理集群">管理集群</a></h3>
+<h4 id="常用管理命令"><a class="header" href="#常用管理命令">常用管理命令</a></h4>
+<h5 id="创建资源"><a class="header" href="#创建资源">创建资源</a></h5>
+<p>将集群中的资源进行抽象封装，由Kubernetes进行管理。</p>
+<pre><code class="language-sh">kubectl create -f res-manifest.yaml  # create resources
+kubectl apply  -f res-manifest.yaml  # apply changes to created resources
+kubectl delete &lt;type&gt; &lt;resource&gt;  # delete resources
+</code></pre>
+<p>Kubernetes管理的资源类型包括计算资源（Pod）、网络资源（Service）、存储资源（Volumn）等类型。</p>
+<pre><code class="language-sh">kubectl api-resources  # list type of kubernetes resources
+</code></pre>
+<blockquote>
+<p>某些资源名称可使用缩写代替，<code>all</code>可以代表所有资源类型</p>
+</blockquote>
+<h5 id="资源信息"><a class="header" href="#资源信息">资源信息</a></h5>
+<pre><code class="language-sh">kubectl get &lt;type&gt; [&lt;resource&gt;]  # list specified (type of) resource
+kubectl get &lt;type&gt; -l app=nginx
+</code></pre>
+<blockquote>
+<p><code>-o wide</code>：默认按列表形式显示，该选项可显示更多列内容；
+<code>-o yaml</code>：输出资源对应的配置； 
+<code>-l expr</code>：通过标签筛选；</p>
+</blockquote>
+<pre><code class="language-sh">kubectl describe &lt;type&gt; [&lt;resource&gt;] # get details of specified (type of) resources
+</code></pre>
+<p>虚拟资源可按命名空间分组。</p>
+<pre><code class="language-sh">kubectl create ns &lt;namedspace&gt;
+kubectl &lt;command&gt; -n nginx  # 在指定命名空间进行操作
+</code></pre>
+<h3 id="计算资源"><a class="header" href="#计算资源">计算资源</a></h3>
+<h4 id="node-1"><a class="header" href="#node-1">Node</a></h4>
+<p>添加标签。标签可用于创建资源时对节点进行筛选。</p>
+<pre><code class="language-sh">kubectl label node &lt;host&gt; &lt;label=value&gt;
+kubectl get node --show-labels
+</code></pre>
+<h4 id="pod-1"><a class="header" href="#pod-1">Pod</a></h4>
+<pre><code class="language-yaml"># pod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod
+  labels:
+    app: pod-nginx   # lable and values can be customized
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.13.12
+    ports:
+- containerPort: 80
+</code></pre>
+<p>将Pod运行在指定的Node上。</p>
+<pre><code class="language-yaml"># deploy.yaml
+spec:
+  template:
+    spec:
+      nodeSelector:
+        disktype: ssd
+</code></pre>
+<h4 id="控制器"><a class="header" href="#控制器">控制器</a></h4>
+<p>通过控制器实现容器应用的自动化管理。</p>
+<h5 id="replicationcontroller-rc"><a class="header" href="#replicationcontroller-rc">ReplicationController (RC)</a></h5>
+<p>确保应用运行的Pod的数量。与手动创建的 pod 不同，如果有 pod 失败、被删除或被终止，ReplicationController 会自动维护并替代这些 pod 。</p>
+<h5 id="replicaset-rs"><a class="header" href="#replicaset-rs">ReplicaSet (RS)</a></h5>
+<p>ReplicaSet支持标签选择器，而ReplicationController仅支持基于等级的选择器。</p>
+<h5 id="deployment"><a class="header" href="#deployment">Deployment</a></h5>
+<p>封装了Pod的副本管理、部署更新、回滚、扩容、缩容等功能。</p>
+<blockquote>
+<p>Deployment封装了ReplicaSet。</p>
+</blockquote>
+<pre><code class="language-yaml"># deploy.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: nginx
+  name: nginx-deployment  # must be lowercase alphabet, '.', or '-'
+  labels:
+    app: deploy-nginx
+spec:
+  replicas: 3    # number of pod instance
+  selector:
+    matchLabels: # ?
+      app: nginx
+  template:
+    metadata:
+      labels: # pod label
+        app: pod-nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.13.12
+        ports:
+        - containerPort: 80
+</code></pre>
+<p>更新和回滚：</p>
+<pre><code class="language-sh">kubectl set image deployment/nginx-deployment nginx=nginx:1.14.2 --record # update and record history version
+kubectl rollout history deployment/nginx-deployment # output history
+kubectl rollout history deployment/nginx-deployment --revision=1
+kubectl rollout undo deployment/nginx-deployment
+</code></pre>
+<p>Scale-in/out：设置应用运行的<code>pod</code>实例数量。</p>
+<pre><code class="language-sh">kubectl scale deployment nginx-deployment --replicas &lt;n&gt;
+</code></pre>
+<h5 id="daemonset"><a class="header" href="#daemonset">DaemonSet</a></h5>
+<p><code>DaemonSet+nodeSelector</code>：使容器仅运行在通过标签筛选的节点上，且每个节点上只运行一个Pod实例。</p>
+<h5 id="statefulset"><a class="header" href="#statefulset">StatefulSet</a></h5>
+<p>有状态的应用，为 Pod 提供唯一的标识，它可以保证部署和 scale 的顺序。</p>
+<h5 id="job"><a class="header" href="#job">Job</a></h5>
+<p>使用Kubernetes运行单一任务。</p>
+<h5 id="cronjob"><a class="header" href="#cronjob">CronJob</a></h5>
+<p>使用Kubernetes运行定时任务。</p>
+<h3 id="网络资源"><a class="header" href="#网络资源">网络资源</a></h3>
+<p>Node网络指的是Kubernetes Node节点本地的网络，所有的Node和Master在该网段都可以正常通信。</p>
+<p>每一个Pod都会有一个IP地址（Pod内的容器/进程共享一个IP地址），这个IP地址网络段被称之为Pod网络。</p>
+<p>Service是为Pod提供访问和负载均衡的网络地址段。</p>
+<h4 id="服务"><a class="header" href="#服务">服务</a></h4>
+<p>由于Pod的生命周期是短暂的，而且每次重启Pod的IP地址都会发生变化。Kubernetes使用Service来实现Pod的访问，而且Service有一个Cluster IP，通常也称之为VIP，是固定不变的。</p>
+<img src="docker.assets/2e61328894d1eaf548ad6ff06d85a6a3.png" alt="img" style="zoom:67%;" />
+<p>每个Service实例存在一个对应的Endpoint实例，记录了该Service中的Pod实例信息。</p>
+<p>Serivce类型：</p>
+<ul>
+<li>
+<p>ClusterIP：使用Serivce的IP访问服务，只能在集群内部使用；</p>
+</li>
+<li>
+<p>NodePort：使用边缘节点的IP和端口映射到Service的VIP和端口（传输层负载均衡）；</p>
+<pre><code class="language-yaml"># service.yaml
+kind: Service
+apiVersion: v1
+metadata:
+  namespace: nginx
+  name: svc-nginx-nodeport
+spec:
+  type: NodePort
+  selector:
+    app: pod-nginx    # match pod's label 
+  ports:
+  - protocol: TCP
+    port: 80          # sevice port
+    targetPort: 80    # pod port
+    nodePort: 32222   # mapping service port to edge node port
+</code></pre>
+</li>
+</ul>
+<h4 id="负载均衡"><a class="header" href="#负载均衡">负载均衡</a></h4>
+<p>应用层负载均衡：根据URL进行转发。</p>
+<h5 id="lvs"><a class="header" href="#lvs">LVS</a></h5>
+<p><code>ipvs</code></p>
+<p>http://www.linuxvirtualserver.org/zh/lvs1.html</p>
+<h5 id="ingress-controller"><a class="header" href="#ingress-controller">Ingress Controller</a></h5>
+<p>Ingress Controller目前有两大开源项目，一个是Nginx Controller，一个是目前比较流行的Traefik。</p>
+<h6 id="创建ingress实例"><a class="header" href="#创建ingress实例">创建ingress实例</a></h6>
+<pre><code class="language-sh">
+</code></pre>
+<h6 id="设置ingress规则"><a class="header" href="#设置ingress规则">设置ingress规则</a></h6>
+<p>从Service处获取Endpoint信息，从而直接转发到Pod。</p>
+<pre><code class="language-yaml"># ingress.yaml
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  namespace: nginx
+  name: ingress-webserver
+spec:
+  rules:
+  - host: nginx.example.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: nginx-web-server  # service name (not deploy)
+          servicePort: 80
+</code></pre>
+<h3 id="存储"><a class="header" href="#存储">存储</a></h3>
+<p>Volume：需要在Pod中进行定义，生命周期和Pod一样；</p>
+<ul>
+<li>emptyDir卷</li>
+<li>HostPath卷</li>
+</ul>
+<p>PersistentVolume（PV）：集群中的存储资源。</p>
+<p>访问模式：</p>
+<ul>
+<li>ReadWriteOnce——该卷可以被单个节点以读/写模式挂载</li>
+<li>ReadOnlyMany——该卷可以被多个节点以只读模式挂载</li>
+<li>ReadWriteMany——该卷可以被多个节点以读/写模式挂载</li>
+</ul>
+<p>回收策略：</p>
+<ul>
+<li>Retain（保留）——手动回收</li>
+<li>Recycle（回收）——基本擦除（<code>rm -rf /thevolume/*</code>）</li>
+<li>Delete（删除）——关联的存储资产（例如 AWS EBS、GCE PD、Azure Disk 和 OpenStack Cinder 卷）将被删除</li>
+</ul>
+<p>storageClassName</p>
+<p>PersistentVolumeClaim （PVC）：请求并关联PV资源。声明可以请求特定的大小和访问模式（例如，可以以读/写一次或只读多次模式挂载）。</p>
+<p>StorageClass</p>
+<h4 id="nfs"><a class="header" href="#nfs">NFS</a></h4>
+<pre><code class="language-sh">salt-ssh '*' -r 'yum install -y nfs-utils rpcbind'
+echo &quot;/data/k8s-nfs *(rw,sync,no_root_squash)&quot; &gt;&gt; /etc/exports
+systemctl enable --now rpcbind
+showmount -e &lt;host&gt;  # show mounted NFS
+</code></pre>
+<h5 id="创建pv"><a class="header" href="#创建pv">创建PV</a></h5>
+<pre><code class="language-yaml">apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-demo
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Recycle
+  storageClassName: nfs
+  nfs:
+    path: /data/k8s-nfs/pv-demo
+    server: 192.168.56.11
+</code></pre>
+<h5 id="创建pvc"><a class="header" href="#创建pvc">创建PVC</a></h5>
+<pre><code class="language-yaml"># pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  namespace: nginx
+  name: pvc0
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: nfs
+</code></pre>
+<p>PVC的使用在应用部署声明中给出：</p>
+<pre><code class="language-yaml"># deployment.yaml
+template:
+  spec:
+    containers:
+    - name: nginx
+      volumnMounts:
+      - mountPath: &quot;/usr/share/nginx/html&quot;
+        name: pvc0
+    volumes:
+      - name: pvc0
+        persistentVolumeClaim:
+          claimName: pvc0
+</code></pre>
+<blockquote>
+<p><em>persistentvolume-controller  Volume recycled</em></p>
+</blockquote>
+<h3 id="部署应用"><a class="header" href="#部署应用">部署应用</a></h3>
+<pre><code class="language-sh"># create a name space
+kubectl create ns &lt;namedspace&gt;
+kubectl label ns nginx name=&quot;NginxWebServer&quot;
+# creat a deployment (computing)
+# specify name space in &lt;yaml&gt; file or by &quot;-n &lt;namespace&gt;&quot;
+kubectl apply -f nginx-deployment-web.yaml
+# creat a service (networking)
+# creat a NodePort mapping
+kubectl create -f nginx-service-web.yaml
+# set an ingress rule for &quot;nginx.example.com&quot;
+kubectl create -f nginx-ingress-web.yaml
+# mount data volumn (storage)
+kubectl apply -f nginx-deployment-pvc-web.yaml
+</code></pre>
+<h2 id="应用"><a class="header" href="#应用">应用</a></h2>
+<h3 id="使用docker"><a class="header" href="#使用docker">使用Docker</a></h3>
+<h5 id="mediawiki"><a class="header" href="#mediawiki">Mediawiki</a></h5>
+<p>https://hub.docker.com/_/mediawiki</p>
+<p>Mediawiki使用MySQL存储数据，首先在数据库中为Mediawiki<a href="../%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL.html#%E8%B4%A6%E6%88%B7%E7%AE%A1%E7%90%86">创建用户并分配权限</a>。</p>
+<pre><code class="language-shell">docker run -d \
+	--net=xwiki-nw \
+	--name mysql-xwiki \
+	-v /home/gary/mysql:/var/lib/mysql \
+	-v /home/gary/mysql-init:/docker-entrypoint-initdb.d \
+	-e MYSQL_ROOT_PASSWORD=xwiki \
+	-e MYSQL_USER=xwiki \
+	-e MYSQL_PASSWORD=xwiki \
+	-e MYSQL_DATABASE=xwiki  \
+	mysql \
+	--character-set-server=utf8mb4 \
+	--collation-server=utf8mb4_bin \
+	--explicit-defaults-for-timestamp=1 \
+	--default-authentication-plugin=mysql_native_password # mysql 8.0
+</code></pre>
+<pre><code class="language-mysql">CREATE USER mediawiki IDENTIFIED BY 'mediawiki'; % 创建额外用户
+grant all privileges on *.* to xwiki@'%', mediawiki@'%';
+</code></pre>
+<pre><code class="language-sh">sudo docker run -d \
+	--name my-mediawiki \
+	--net xwiki-nw \
+	-p 10080:80 \
+  -v /home/gary/mediawiki:/usr/local/mediawiki \
+  -v 
+  mediawiki
+</code></pre>
+<blockquote>
+<p>可能需要配置数据库权限</p>
+<p>生成的<code>LocalSettings.php</code> 文件放到<code>/var/www/html</code>目录下（与<code>index.php</code>同级）。可以在其中添加并修改<code>includes/DefaultSettings.php</code>中的配置项。可以将该文件所在的外部目录挂载到容器中，并链接到http服务主目录下。</p>
+</blockquote>
+<h5 id="xwiki"><a class="header" href="#xwiki">xwiki</a></h5>
+<p>https://github.com/xwiki-contrib/docker-xwiki/blob/master/README.md</p>
+<pre><code class="language-sh">docker network create -d bridge xwiki-nw
+</code></pre>
+<p>首先创建<a href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%B9%E5%99%A8">数据库</a>。</p>
+<pre><code class="language-sh">docker run -d \
+	--net=xwiki-nw \
+	--name xwiki \
+	-p 8080:8080 \
+	-v /my/path/xwiki:/usr/local/xwiki \
+	-e DB_USER=xwiki \
+	-e DB_PASSWORD=xwiki \
+	-e DB_DATABASE=xwiki \
+	-e DB_HOST=mysql-xwiki \ 
+	xwiki:lts-mysql-tomcat
+</code></pre>
+<blockquote>
+<p><code>Mysql&gt;=5.7</code>。</p>
+</blockquote>
+<h2 id="参考资料"><a class="header" href="#参考资料">参考资料</a></h2>
+<div class="footnote-definition" id="docker-install"><sup class="footnote-definition-label">1</sup>
+<p><a href="https://docs.docker.com/engine/install/">Install Docker Engine | Docker Documentation</a></p>
+</div>
+<div class="footnote-definition" id="docker-desktop-net"><sup class="footnote-definition-label">2</sup>
+<p><a href="https://www.docker.com/blog/how-docker-desktop-networking-works-under-the-hood/">How Docker Desktop Networking Works Under the Hood - Docker</a>.</p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../服务器/流数据处理.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../服务器/虚拟化.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../服务器/流数据处理.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../服务器/虚拟化.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

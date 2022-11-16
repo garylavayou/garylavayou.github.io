@@ -1,0 +1,425 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>HTML - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html" class="active">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="html"><a class="header" href="#html">HTML</a></h1>
+<h2 id="语法"><a class="header" href="#语法">语法</a></h2>
+<h3 id="术语"><a class="header" href="#术语">术语</a></h3>
+<h5 id="html元素"><a class="header" href="#html元素">HTML元素</a></h5>
+<img src="HTML.assets/grumpy-cat-small.png" alt="img" style="zoom:50%;" />
+<ul>
+<li>
+<p>元素（Element）</p>
+</li>
+<li>
+<p>标签（Tag）</p>
+</li>
+<li>
+<p>内容（Content）</p>
+</li>
+</ul>
+<img src="HTML.assets/grumpy-cat-attribute-small.png" alt="img" style="zoom:50%;" />
+<ul>
+<li>属性（Attribute）</li>
+</ul>
+<h5 id="嵌套元素"><a class="header" href="#嵌套元素">嵌套元素</a></h5>
+<pre><code class="language-html">&lt;p&gt;My cat is &lt;strong&gt;very&lt;/strong&gt; grumpy.&lt;/p&gt;
+</code></pre>
+<h5 id="空元素"><a class="header" href="#空元素">空元素</a></h5>
+<pre><code class="language-html">&lt;img src=&quot;images/firefox-icon.png&quot; alt=&quot;My test image&quot;&gt;
+</code></pre>
+<h5 id="css"><a class="header" href="#css">CSS</a></h5>
+<blockquote>
+<p><em><strong>Cascading Style Sheets</strong></em> are used to selectively style HTML elements.</p>
+</blockquote>
+<img src="HTML.assets/css-declaration-small.png" alt="CSS p declaration color red" style="zoom:50%;" />
+<ul>
+<li>选择器（Selector）：匹配HTML元素。</li>
+<li>声明（Declaration）：包含要一个或多个元素属性；</li>
+</ul>
+<h5 id="布局"><a class="header" href="#布局">布局</a></h5>
+<img src="HTML.assets/box-model.png" style="zoom:80%;" alt="box model"/>
+<blockquote>
+<p><em>CSS layout is mostly based on the <strong>box model</strong>,</em> where properties <code>padding</code>, <code>border</code> and <code>margin</code> are involved. Besides, the size (<code>width, height</code>) of the element itself also affects the final layout.</p>
+</blockquote>
+<h3 id="html结构"><a class="header" href="#html结构">HTML结构</a></h3>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en-US&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;My test page&lt;/title&gt;
+    &lt;link rel=&quot;icon&quot; href=&quot;favicon.ico&quot; type=&quot;image/x-icon&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/style.css&quot;&gt; &lt;!--CSS--&gt;
+    &lt;script src=&quot;my-js-file.js&quot; defer&gt;&lt;/script&gt; &lt;!--load JavaScript*--&gt;
+  &lt;/head&gt;
+  &lt;!-- 注释 --&gt;
+  &lt;body&gt;
+    &lt;img src=&quot;images/firefox-icon.png&quot; alt=&quot;My test image&quot;&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<blockquote>
+<p><code>*</code>：<code>defer</code>表示在HTML加载完后再加载JavaScript程序文件，以避免程序访问还未解析的HTML元素。</p>
+</blockquote>
+<h4 id="元数据"><a class="header" href="#元数据">元数据</a></h4>
+<pre><code class="language-html">&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;author&quot; content=&quot;Chris Mills&quot;&gt;
+&lt;meta name=&quot;description&quot; content=&quot;The MDN Web Docs.&quot;&gt; &lt;!--*-&gt;
+</code></pre>
+<blockquote>
+<p><code>*</code>：描述信息用于搜索引擎搜索结果展示。</p>
+</blockquote>
+<p><a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML#other_types_of_metadata">What's in the head? Metadata in HTML - Learn web development | MDN (mozilla.org)</a></p>
+<h4 id="标题"><a class="header" href="#标题">标题</a></h4>
+<p>标签标题：<code>&lt;title&gt;</code>位于<code>&lt;head&gt;</code>，显示在浏览器标签上。</p>
+<p>章节标题：HTML contains 6 <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements">heading levels</a>, <code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code>。<code>&lt;h1&gt;</code>作为正文的文章标题。</p>
+<pre><code class="language-html">&lt;h1&gt;My main title&lt;/h1&gt; 
+</code></pre>
+<h4 id="段落"><a class="header" href="#段落">段落</a></h4>
+<pre><code class="language-html">&lt;p&gt;This is a single paragraph&lt;/p&gt;
+</code></pre>
+<h5 id="列表"><a class="header" href="#列表">列表</a></h5>
+<p>无编号列表<code>&lt;ul&gt;</code>和编号列表<code>&lt;ol&gt;</code>。列表可嵌套在段落中，或独立成为段落。</p>
+<pre><code class="language-html">&lt;ul&gt;
+  &lt;li&gt;technologists&lt;/li&gt;
+  &lt;li&gt;thinkers&lt;/li&gt;
+  &lt;li&gt;builders&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<blockquote>
+<h5 id="文字风格"><a class="header" href="#文字风格">文字风格</a></h5>
+<p>强调：<code>&lt;em&gt;</code>，<code>&lt;strong&gt;</code>；</p>
+<p>斜体：<code>&lt;i&gt;</code></p>
+<p>粗体：<code>&lt;b&gt;</code></p>
+<p>下划线：<code>&lt;u&gt;</code>。</p>
+<p>斜体、粗体、下划线等文字风格是元素的呈现形式而非元素，因此不推荐使用这种形式。考虑使用<code>&lt;span&gt;</code>等元素代替。</p>
+</blockquote>
+<h4 id="图像"><a class="header" href="#图像">图像</a></h4>
+<p><code>alt</code>属性：图像的描述性文本；</p>
+<h4 id="表格"><a class="header" href="#表格">表格</a></h4>
+<p>✨<a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Basics">HTML table basics - Learn web development | MDN (mozilla.org)</a></p>
+<h4 id="链接"><a class="header" href="#链接">链接</a></h4>
+<pre><code class="language-html">&lt;a href=&quot;https://www.mozilla.org/en-US/about/manifesto/&quot;&gt;Mozilla Manifesto&lt;/a&gt;
+</code></pre>
+<p>链接不仅可用于文本，也可用于整个元素，例如图像（<code>&lt;img&gt;</code>）：</p>
+<pre><code class="language-html">&lt;a href=&quot;https://www.mozilla.org/en-US/&quot;&gt;
+  &lt;img src=&quot;mozilla-image.png&quot; alt=&quot;logo of the Mozilla homepage&quot;&gt;
+&lt;/a&gt;
+</code></pre>
+<p>链接支持使用相对路径，即相对当前文档访问链接目标的路径。</p>
+<p>使用文档片段指向目标文档中<code>id</code>属性对应的元素，从而直接跳转到该元素位置而非文档顶部。</p>
+<pre><code class="language-html">&lt;a href=&quot;contacts.html#Mailing_address&quot;&gt;mailing address&lt;/a&gt;
+</code></pre>
+<p>下载链接，<code>download</code>属性提供文件默认保存名称：</p>
+<pre><code class="language-html">&lt;a href=&quot;https://download.mozilla.org/&quot;
+   download=&quot;firefox-latest-64bit-installer.exe&quot;&gt;
+  Download Latest Firefox for Windows (64-bit) (English, US)
+&lt;/a&gt;
+</code></pre>
+<h3 id="css-1"><a class="header" href="#css-1">CSS</a></h3>
+<p>CSS使HTML所呈现的内容与格式分离。</p>
+<p>✨<a href="https://developer.mozilla.org/en-US/docs/Learn/CSS">Learn to style HTML using CSS - Learn web development | MDN (mozilla.org)</a></p>
+<h4 id="选择器"><a class="header" href="#选择器">选择器</a></h4>
+<h5 id="元素选择器"><a class="header" href="#元素选择器">==元素选择器==</a></h5>
+<p>选择多个元素</p>
+<pre><code class="language-css">p, li, h1 {
+  color: red;
+}
+</code></pre>
+<h5 id="标识选择器"><a class="header" href="#标识选择器">标识选择器</a></h5>
+<pre><code class="language-css">#my-id {}  /* -&gt; &lt;p id=&quot;my-id&quot;&gt; */ 
+</code></pre>
+<blockquote>
+<p><em>On a given HTML page, each id value should be unique.</em></p>
+</blockquote>
+<h5 id="类选择器"><a class="header" href="#类选择器">==类选择器==</a></h5>
+<p>选择所有属于该类的元素。</p>
+<pre><code class="language-css">.my-class {} /* -&gt; &lt;p class=&quot;my-class&quot;&gt; */
+</code></pre>
+<h5 id="伪类选择器"><a class="header" href="#伪类选择器">伪类选择器</a></h5>
+<p>选择处于某一状态的所有元素。</p>
+<pre><code class="language-css">a:hover {}
+</code></pre>
+<h5 id="属性选择器"><a class="header" href="#属性选择器">属性选择器</a></h5>
+<p>选择包含指定属性的所有元素。</p>
+<pre><code class="language-css">img[src] {} /* -&gt; &lt;img src=&quot;myimage.png&quot;&gt; not &lt;img&gt; */
+</code></pre>
+<p>更多选择器：https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors。</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/Getting_started#combining_selectors_and_combinators">Getting started with CSS - Combining selectors and combinators</a>。</p>
+<h4 id="边距与填充声明语法"><a class="header" href="#边距与填充声明语法">边距与填充声明语法</a></h4>
+<pre><code class="language-css">p {
+  margin: all
+  margin: tb lr;
+  margin: t r b [l];    
+}
+</code></pre>
+<p>距离声明：</p>
+<ul>
+<li>
+<p><code>12px</code>：固定值（像素），<code>0</code>表示<code>0px</code>。</p>
+</li>
+<li>
+<p><code>auto</code>：与其他元素共同分配剩余空间。</p>
+</li>
+</ul>
+<h4 id="inline-styles"><a class="header" href="#inline-styles">Inline Styles</a></h4>
+<pre><code class="language-html">&lt;head&gt;
+  &lt;style&gt;
+    h1 {}
+    p {}
+  &lt;/style&gt;  
+&lt;/head&gt;
+</code></pre>
+<h2 id="格式"><a class="header" href="#格式">格式</a></h2>
+<p>以下使用<code>css</code>来书写HTML元素属性，相应的属性可直接用于HTML元素。</p>
+<h3 id="布局-1"><a class="header" href="#布局-1">布局</a></h3>
+<pre><code class="language-css">body {
+  width: 600px;
+  margin: 0 auto;
+  padding: 0 20px 20px 20px;
+  border: 5px solid black;
+}
+</code></pre>
+<h3 id="字体"><a class="header" href="#字体">字体</a></h3>
+<pre><code class="language-css">html {
+  font-size: 10px;
+  font-family: &quot;Open Sans&quot;, sans-serif;
+  font-weight: bold;
+}
+</code></pre>
+<h3 id="颜色"><a class="header" href="#颜色">颜色</a></h3>
+<pre><code class="language-css">html {
+  color: #00539F;
+  background-color: #FF9500;
+}
+</code></pre>
+<p>颜色表示法：</p>
+<ul>
+<li>十六进制RGB：<code>#00539F</code>；</li>
+<li>RGBA：<code>rgba(0,0,200,0.3)</code></li>
+<li>颜色名称：<code>red</code>，<code>blue</code>，<code>green</code>，……</li>
+</ul>
+<h4 id="阴影"><a class="header" href="#阴影">阴影</a></h4>
+<pre><code class="language-css">p {
+  text-shadow: 3px 3px 1px black;
+  box-shadow: 1px 1px 2px rgba(0,0,200,0.4);
+}
+</code></pre>
+<h3 id="段落格式"><a class="header" href="#段落格式">段落格式</a></h3>
+<h5 id="间距"><a class="header" href="#间距">间距</a></h5>
+<pre><code class="language-css">p,li {
+  line-height: 2;
+  letter-spacing: 1px;
+}
+</code></pre>
+<h5 id="对齐"><a class="header" href="#对齐">对齐</a></h5>
+<pre><code class="language-css">p,li {
+  text-align: center;
+}
+</code></pre>
+<h4 id="编号1"><a class="header" href="#编号1">编号<sup class="footnote-reference"><a href="#css-counter">1</a></sup></a></h4>
+<pre><code class="language-css">h1 {
+    counter-reset: h2counter;    
+}
+h2::before {
+    counter-increment: h2counter; 
+    content: &quot;Section &quot; counter(h2counter) &quot;: &quot;; /*显示在对应内容前, 由指定内容拼接成 */
+}
+</code></pre>
+<h3 id="交互格式"><a class="header" href="#交互格式">交互格式</a></h3>
+<pre><code class="language-css">p {
+  cursor: pointer;
+}
+</code></pre>
+<h2 id="网页结构"><a class="header" href="#网页结构">网页结构</a></h2>
+<p>✨<a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure">Document and website structure - Learn web development | MDN (mozilla.org)</a></p>
+<h3 id="表单"><a class="header" href="#表单">表单</a></h3>
+<p>✨<a href="https://developer.mozilla.org/en-US/docs/Learn/Forms">Web forms — Working with user data - Learn web development | MDN (mozilla.org)</a></p>
+<h2 id="多媒体嵌入"><a class="header" href="#多媒体嵌入">多媒体嵌入</a></h2>
+<p>✨<a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding">Multimedia and embedding - Learn web development | MDN (mozilla.org)</a></p>
+<h2 id="参考资料"><a class="header" href="#参考资料">参考资料</a></h2>
+<div class="footnote-definition" id="css-counter"><sup class="footnote-definition-label">1</sup>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Counter_Styles/Using_CSS_counters">Using CSS counters - CSS: Cascading Style Sheets | MDN (mozilla.org)</a>.</p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../数据交换语言/XML.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../Protocols/http.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../数据交换语言/XML.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../Protocols/http.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

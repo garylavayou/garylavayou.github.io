@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
+    <title>icon-metricbeat-32-color</title>
+    <desc>Created with Sketch.</desc>
+    <g id="icon-metricbeat-32-color" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-7">
+            <path d="M16,2 C8.28,2 2,8.28 2,16 C2,23.72 8.28,30 16,30 C23.72,30 30,23.72 30,16 C30,8.28 23.72,2 16,2 M16,32 C7.178,32 0,24.822 0,16 C0,7.178 7.178,0 16,0 C24.822,0 32,7.178 32,16 C32,24.822 24.822,32 16,32" id="Fill-1" fill="#535966"></path>
+            <path d="M28,16 L26,16 C26,10.486 21.514,6 16,6 C10.486,6 6,10.486 6,16 L4,16 C4,9.383 9.383,4 16,4 C22.617,4 28,9.383 28,16" id="Fill-3" fill="#00BFB3"></path>
+            <path d="M16,18 C14.897,18 14,17.103 14,16 C14,14.897 14.897,14 16,14 C17.103,14 18,14.897 18,16 C18,17.103 17.103,18 16,18 L16,18 Z M21.707,11.707 L20.293,10.293 L18.019,12.566 C17.424,12.216 16.74,12 16,12 C13.794,12 12,13.794 12,16 C12,18.206 13.794,20 16,20 C18.206,20 20,18.206 20,16 C20,15.261 19.785,14.576 19.433,13.98 L21.707,11.707 Z" id="Fill-5" fill="#535966"></path>
+        </g>
+    </g>
+</svg>

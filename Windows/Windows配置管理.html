@@ -1,0 +1,840 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>配置管理 - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html" class="active">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html" class="active">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="windows配置管理"><a class="header" href="#windows配置管理">Windows配置管理</a></h1>
+<h2 id="安装"><a class="header" href="#安装">安装</a></h2>
+<p>磁盘初始化，如果回收磁盘空间重新初始化，则会创建单独的启动分区。</p>
+<h3 id="uefi"><a class="header" href="#uefi">UEFI</a></h3>
+<p>以UEFI模式安装系统，启动设备需要使用FAT32文件系统。</p>
+<p>问题：无法为安装介质加载驱动程序</p>
+<p>切换到USB2.0接口。</p>
+<h2 id="管理工具"><a class="header" href="#管理工具">管理工具</a></h2>
+<p><a href="./Windows%20Shell.html#WMI%E5%92%8CCIM">WMI and CIM</a></p>
+<h3 id="远程访问"><a class="header" href="#远程访问">远程访问</a></h3>
+<p>通过会话访问远程主机并执行命令。在目标机器上启用PowerShell远程会话：</p>
+<pre><code class="language-powershell">Enable-PSRemoting  # 以管理员身份运行，网络类型“专用”
+</code></pre>
+<blockquote>
+<p><em>由于此计算机上的网络连接类型之一设置为公用，因此 WinRM 防火墙例外将不运行。 将网络连接类型更改为域或专用，然后再次尝试。</em></p>
+</blockquote>
+<pre><code class="language-powershell">$Cred = Get-Credential    # 弹出对话框选择账号并输入密码
+Enter-PSSession -ComputerName dc01 -Credential $Cred #建立远程登录会话
+Exit-PSSession
+</code></pre>
+<blockquote>
+<p>错误：使用 winrm.cmd 配置 <code>TrustedHosts</code>。</p>
+</blockquote>
+<pre><code class="language-powershell">Invoke-Command -ComputerName dc01, sql02, web01 {Get-Service -Name W32time} -Credential $Cred
+
+$Session = New-PSSession -ComputerName dc01, sql02, web01 -Credential $Cred
+Invoke-Command -Session $Session {(Get-Service -Name W32time).start()}
+Invoke-Command -Session $Session {Get-Service -Name W32time}
+Get-PSSession | Remove-PSSession  # close established sessions
+</code></pre>
+<h2 id="硬件"><a class="header" href="#硬件">硬件</a></h2>
+<h3 id="主板"><a class="header" href="#主板">主板</a></h3>
+<pre><code class="language-powershell">wmic baseboard get Manufacturer,Model,Name,PartNumber,serialnumber
+</code></pre>
+<h3 id="cpu"><a class="header" href="#cpu">CPU</a></h3>
+<pre><code class="language-powershell">wmic cpu
+</code></pre>
+<h3 id="gpu"><a class="header" href="#gpu">GPU</a></h3>
+<pre><code class="language-powershell">dxdiag
+nvidia-smi
+</code></pre>
+<h3 id="bios"><a class="header" href="#bios">BIOS</a></h3>
+<pre><code class="language-powershell">wmic BIOS get name,version,serialnumber
+Get-WmiObject -Class Win32_Bios | Format-List -Property *
+</code></pre>
+<blockquote>
+<p><code>serialnumber</code>为主机序列号。</p>
+</blockquote>
+<h3 id="内存"><a class="header" href="#内存">内存</a></h3>
+<pre><code class="language-powershell">wmic MemoryChip get BankLabel,Capacity,MemoryType,TypeDetail,Speed,Tag
+</code></pre>
+<p>虚拟内存配置：如果系统物理内存足够大，可选择关闭系统分页文件：<code>pagefile.sys</code>，<code>swapfile.sys</code>以节省磁盘空间。</p>
+<h3 id="磁盘"><a class="header" href="#磁盘">磁盘</a></h3>
+<p>列出物理磁盘信息：</p>
+<pre><code class="language-powershell">wmic diskdrive list brief   # DeviceID as disks path
+wmic diskdrive get Name,Model,InterfaceType,MediaType,SerialNumber,Size,Status
+wmic PARTITION
+wmic VOLUME
+</code></pre>
+<blockquote>
+<p>可查看型号（<code>Model</code>）、序列号（<code>SerialNumber</code>）。</p>
+</blockquote>
+<pre><code class="language-bash">diskpart		# 启动磁盘管理交互环境
+</code></pre>
+<p>在交互环境中可执行的命令（通过<code>help</code>查看）：</p>
+<div class="table-wrapper"><table><thead><tr><th>命令</th><th>说明</th></tr></thead><tbody>
+<tr><td>`list disk</td><td>partition</td></tr>
+<tr><td>`select disk</td><td>parition</td></tr>
+<tr><td><code>rescan</code></td><td>重新扫描计算机，查找磁盘和卷</td></tr>
+<tr><td><code>clean</code></td><td>从磁盘清除配置信息或所有信息。</td></tr>
+<tr><td><code>compact</code></td><td>尝试减少文件的物理大小。</td></tr>
+<tr><td><code>convert</code></td><td>在不同的磁盘格式之间转换。</td></tr>
+<tr><td><code>create</code></td><td>创建卷、分区或虚拟磁盘。</td></tr>
+<tr><td><code>format</code></td><td>格式化卷或分区</td></tr>
+<tr><td><code>shrink</code></td><td>减小选定卷。</td></tr>
+<tr><td><code>remove</code></td><td>删除驱动器号或装载点分配。</td></tr>
+<tr><td><code>delete</code></td><td>删除对象。</td></tr>
+<tr><td><code>exit</code></td><td>退出<code>diskpart</code>。</td></tr>
+</tbody></table>
+</div>
+<h5 id="磁盘分区类型"><a class="header" href="#磁盘分区类型">磁盘分区类型</a></h5>
+<p>如果在MBR分区类型的磁盘上安装了</p>
+<p><code>mbr2gpt</code>可将MBR分区类型的磁盘转换为GPT分区类型，而无需移动磁盘上的数据。</p>
+<pre><code class="language-powershell">mbr2gpt /validate        # 验证选定磁盘可进行转换操作（未指定磁盘则使用安装系统的磁盘）
+        /convert /disk:N # 验证并执行转换操作
+        /allowFullOS     # 使该命令可用于完整Windows环境（默认仅用于PE环境，推荐）
+</code></pre>
+<p>打开高级启动模式：“<code>设置-&gt;更新和安全-&gt;恢复-&gt;高级启动-&gt;立即重新启动</code>”（或按住<code>Shift</code>键点击重启按钮）；在启动选项中选择：<code>疑难解答-&gt;高级选项-&gt;命令行</code>，然后重新启动电脑，执行上述命令。</p>
+<h3 id="电源管理"><a class="header" href="#电源管理">电源管理</a></h3>
+<pre><code class="language-powershell">powercfg /a      # 睡眠状态
+powercfg -H OFF  # 关闭休眠模式(删除系统磁盘下的hyberfi.sys文件)
+# /LIST、/L          列出所有电源方案。
+</code></pre>
+<h3 id="网络接口"><a class="header" href="#网络接口">网络接口</a></h3>
+<pre><code class="language-powershell">wmic nic get AdapterType,Name,MACAddress,Speed,NetConnectionStatus
+</code></pre>
+<h2 id="系统管理"><a class="header" href="#系统管理">系统管理</a></h2>
+<h3 id="系统信息"><a class="header" href="#系统信息">系统信息</a></h3>
+<pre><code class="language-sh">systeminfo	# 输出系统信息[CLI]
+msinfo32    # 系统信息[GUI]
+ver         # [cmd]查看系统版本
+winver      # [GUI]查看系统版本对话框
+wmic COMPUTERSYSTEM
+wmic OS
+Get-ComputerInfo -Property &quot;*version&quot;
+Get-WmiObject -Class Win32_ClassName | Format-List -Property '*'
+</code></pre>
+<p><a href="https://docs.microsoft.com/en-us/windows/win32/cimwin32prov/computer-system-hardware-classes?redirectedfrom=MSDN">Computer System Hardware Classes - Win32 apps | Microsoft Docs</a></p>
+<p><a href="https://docs.microsoft.com/en-us/previous-versions//aa392727(v=vs.85)">Operating System Classes (Windows) | Microsoft Docs</a></p>
+<p><a href="https://docs.microsoft.com/en-us/powershell/scripting/samples/collecting-information-about-computers?view=powershell-7.2">Collecting Information About Computers - PowerShell | Microsoft Docs</a></p>
+<h5 id="系统启动信息"><a class="header" href="#系统启动信息">系统启动信息</a></h5>
+<p>启动配置数据存储编辑器：</p>
+<pre><code class="language-powershell">bcdedit /delete {uuid}
+</code></pre>
+<blockquote>
+<p>单独运行 &quot;<code>bcdedit</code>&quot; 等同于运行 &quot;<code>bcdedit /enum ACTIVE</code>&quot;(列出激活的启动项)。</p>
+</blockquote>
+<h3 id="注册表"><a class="header" href="#注册表">注册表</a></h3>
+<p><a href="https://docs.microsoft.com/en-us/powershell/scripting/samples/working-with-registry-entries?view=powershell-7.2">Working with Registry Entries - PowerShell | Microsoft Docs</a></p>
+<p><a href="https://docs.microsoft.com/en-us/powershell/scripting/samples/working-with-registry-keys?view=powershell-7.2">Working with Registry Keys - PowerShell | Microsoft Docs</a></p>
+<h2 id="文件管理"><a class="header" href="#文件管理">文件管理</a></h2>
+<pre><code class="language-powershell">Set-Location [-Path] path # &gt;&gt; cd, chdir
+</code></pre>
+<blockquote>
+<p>切换当前目录。</p>
+</blockquote>
+<h5 id="读取目录"><a class="header" href="#读取目录">读取目录</a></h5>
+<pre><code class="language-powershell">Get-ChildItem -Recursive -Path *.txt  # &gt;&gt; dir
+</code></pre>
+<h5 id="创建文件"><a class="header" href="#创建文件">创建文件</a></h5>
+<pre><code class="language-powershell">New-Item -ItemType &quot;file&quot; -Path . -Name &quot;testfile1.txt&quot; -Value &quot;This is a text string.&quot;
+New-Item -ItemType &quot;directory&quot; -Path &quot;c:\&quot; -Name &quot;logfiles&quot; # -&gt; mkdir
+</code></pre>
+<h5 id="链接文件"><a class="header" href="#链接文件">链接文件</a></h5>
+<p>硬链接(<em>Hard link</em>)==只能用于文件==，且不能跨磁盘使用。多个硬链接可以指向同一个文件，并且删除一个硬链接或原始文件，其他硬链接仍然可以访问。删除软链接(<em>Symbolic link</em>)不会影响原始文件，但删除原始文件会使软链接失效。</p>
+<blockquote>
+<p><strong>权限</strong>：创建符号链接需要有“<code>SeCreateSymbolicLinkPrivilege</code>”用户权利，administrators 组成员默认具有此权利。 这个权利可以在“<code>本地安全策略（secpol.msc）\本地策略\用户权利分配</code>”中设置。</p>
+</blockquote>
+<pre><code class="language-powershell">New-Item -ItemType SymbolicLink -Path &quot;Link&quot; -Target &quot;Target&quot;
+</code></pre>
+<p><code>-ItemType SymbolicLink|Junction|HardLink</code>：
+<code>-Path</code>：符号链接文件的路径；
+<code>-Target</code>：符号链接的目标路径；
+<code>-Force</code>：覆盖已有文件。</p>
+<blockquote>
+<p>cmd:</p>
+<pre><code class="language-powershell">mklink {/D|/H|/J} Link Target
+</code></pre>
+<p><code>/D</code>：创建目录符号链接(symbolic link)，默认为文件符号链接。
+<code>/H</code>：创建硬链接(hard link)而非符号链接，目标文件必须位于同一磁盘分区（卷）。
+<code>/J</code>：创建目录联接(junction)，目录必须位于本地。
+<code>Link</code>指定新的符号链接名称，<code>Target</code>指定新链接引用的路径 (相对或绝对)。</p>
+<p>Adobe Reader保存文件时，可能会先删除原有文件，再创建新文件，由此使得指向原文件的硬链接与新文件不同。</p>
+</blockquote>
+<h5 id="查看文件链接"><a class="header" href="#查看文件链接">查看文件链接</a></h5>
+<pre><code class="language-shell">dir path -recurse -force | ?{$_.LinkType} | select FullName,LinkType,Target
+</code></pre>
+<blockquote>
+<p><code>dir-&gt;Get-ChildItem</code></p>
+</blockquote>
+<h5 id="复制移动文件"><a class="header" href="#复制移动文件">复制移动文件</a></h5>
+<pre><code class="language-powershell">del filename  % 删除文件。
+dir
+rmdir
+move
+</code></pre>
+<pre><code class="language-powershell">Move-Item -Path C:\test.txt -Destination E:\Temp\tst.txt  # move file
+Move-Item -Path C:\Temp -Destination C:\Logs # move folder
+Move-Item -Path .\*.txt -Destination C:\Logs # wildcard
+</code></pre>
+<h3 id="查找"><a class="header" href="#查找">查找</a></h3>
+<h4 id="查找可执行程序"><a class="header" href="#查找可执行程序">查找可执行程序</a></h4>
+<pre><code class="language-powershell">Get-Command dotnet  # [gcm]   -&gt; &quot;where&quot; in cmd
+#CommandType     Name          Version    Source
+#-----------     ----          -------    ------
+#Application     dotnet.exe    5.0.152... C:\Program Files\dotnet\dotnet.exe
+</code></pre>
+<h2 id="应用管理"><a class="header" href="#应用管理">应用管理</a></h2>
+<p>https://dev.to/bowmanjd/chocolatey-vs-scoop-package-managers-for-windows-2kik</p>
+<p><a href="https://docs.microsoft.com/en-us/powershell/scripting/samples/working-with-software-installations?view=powershell-7.2">Working with Software Installations - PowerShell | Microsoft Docs</a></p>
+<pre><code class="language-powershell">Get-CimInstance -Class Win32_Product | Select-Object -Property Name,Vendor,Version
+</code></pre>
+<h3 id="离线安装"><a class="header" href="#离线安装">离线安装</a></h3>
+<h4 id="appx包"><a class="header" href="#appx包">appx包</a></h4>
+<h5 id="获取appx包"><a class="header" href="#获取appx包">获取appx包</a></h5>
+<p>包括<code>AppxBundle</code>和<code>appx</code>包，其中<code>AppxBundle</code>是多个<code>appx</code>包的合集。</p>
+<ol>
+<li>软件发布者在GitHub等网站提供<code>appx</code>包的下载（某些可能为将依赖项打包）；</li>
+<li>从应用商店获取应用的分享链接，然后在<a href="https://store.rg-adguard.net/">Microsoft Store - Generation Project</a>查找并下载应用的<code>appx</code>包及其依赖包。</li>
+</ol>
+<h5 id="安装-1"><a class="header" href="#安装-1">安装</a></h5>
+<p>以管理员身份使用PowerShell命令提供安装选项：</p>
+<pre><code class="language-powershell">Add-AppxPackage FILENAME.appx
+</code></pre>
+<blockquote>
+<p>双击软件包即也可执行安装。但<strong>离线安装程序无法启动，提示找不到启动文件</strong>：可能是由于安装位置<code>C:\Program Files\WindowsApps</code>没有访问权限。由于以上两种文件格式都是以<code>zip</code>格式封装，因此可以提取其中的<code>appx</code>包内容并手动安装到用户提供目录下。</p>
+<p>安装如果出现证书无法被信任的问题，需要将<code>appx</code>包所带证书（通过“属性/数字签名”查看）安装到本机的证书目录下（选择“受信任的<code>xxx</code>”）。</p>
+</blockquote>
+<h3 id="winget"><a class="header" href="#winget">winget</a></h3>
+<pre><code class="language-powershell">winget list [-q QUERY] # 显示已安装软件列表（包括非winget安装）
+       --id ID
+       --name NAME
+       --source SOURCE  # -s 使用指定的源查找程序包
+       --count          # -n 显示不超过指定数量的结果 
+       --exact          # -e 使用精确匹配
+winget list &gt; winget.installed.txt   # 在cmd中执行避免乱码
+</code></pre>
+<blockquote>
+<p>即使非<code>winget</code>安装，如果在相应软件源发现匹配软件，仍会显示相应的源（<code>msstore/winget</code>）。</p>
+</blockquote>
+<pre><code class="language-powershell">winget search PACKAGE --source SOURCE
+winget show PACKAGE --source SOURCE  # 显示软件的详细信息
+winget search &gt; winget.repo.txt      # 在cmd中执行避免乱码
+</code></pre>
+<blockquote>
+<p>当<code>show</code>发现多个匹配时，会提示用户提供更精确的包名或限定源。</p>
+</blockquote>
+<pre><code class="language-powershell">winget install &lt;package&gt; --source msstore
+       upgrade
+       uninstall
+winget export --output FILE --source SOURCE
+       import --import-file FILE
+</code></pre>
+<pre><code class="language-powershell">winget source list \         # 列出源的名称和URL
+              --name winget  # 列出指定源的详细信息 
+winget settings  # 打开设置文件进行编辑
+</code></pre>
+<h3 id="chocolatey"><a class="header" href="#chocolatey">Chocolatey</a></h3>
+<h5 id="配置"><a class="header" href="#配置">配置</a></h5>
+<pre><code class="language-bash">choco source [list]								# 列出软件源
+choco source add -n=REPONAME -s=url
+choco source enable/disable/remove -n=REPONAME
+choco config [list]								# 列出配置信息
+choco config get [--name] CONFIG_NAME
+choco config set [--name] CONFIG_NAME --value VALUE
+</code></pre>
+<h5 id="搜索软件"><a class="header" href="#搜索软件">搜索软件</a></h5>
+<pre><code class="language-sh">choco list/find/search openjdk[--exact --verbose]
+choco list/find/search &lt;appname&gt; --local-only # 查找已安装应用
+choco info pkgname
+</code></pre>
+<h5 id="更新"><a class="header" href="#更新">更新</a></h5>
+<pre><code class="language-powershell">choco upgrade &lt;appname&gt;|all --except=&quot;appname,...&quot; # 升级应用
+choco outdated   # 列出可更新软件 upgrade all --noop
+choco pin &lt;package_name&gt;  # 固定软件版本
+</code></pre>
+<h5 id="安装卸载"><a class="header" href="#安装卸载">安装卸载</a></h5>
+<pre><code class="language-powershell">choco install &lt;appname&gt;	
+choco uninstall &lt;appname&gt;
+</code></pre>
+<h4 id="搭建本地软件仓库"><a class="header" href="#搭建本地软件仓库">搭建本地软件仓库</a></h4>
+<h5 id="使用nexus代理"><a class="header" href="#使用nexus代理">使用Nexus代理</a></h5>
+<p>仅代理Chocolaty安装脚本信息（<code>nuget</code>），软件的安装文件仍然需要访问官方资源。因此该代理只是提高对软件仓库的查询速度，而不能离线部署。</p>
+<pre><code class="language-shell">Name=chocolatey
+Format=nuget
+URL=http://172.28.76.100:8081/repository/chocolatey/
+Protocl=&quot;NuGet V2&quot;
+Remote=https://chocolatey.org/api/v2/
+</code></pre>
+<p><a href="https://docs.chocolatey.org/en-us/features/host-packages">Chocolatey Software Docs | Host packages internally</a></p>
+<h3 id="scoop"><a class="header" href="#scoop">Scoop</a></h3>
+<p>如果没有管理员权限，则采用Scoop更加合适。</p>
+<pre><code class="language-powershell"># Enable execution of PowerShell scripts
+Set-ExecutionPolicy AllSigned
+Set-ExecutionPolicy RemoteSigned -scope CurrentUser
+Invoke-Expression (
+	New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
+# or shorter: iwr -useb get.scoop.sh | iex
+</code></pre>
+<pre><code class="language-powershell">scoop search [&lt;app&gt;]   # 省略app名称将列出仓库中所有可用软件
+scoop info &lt;app&gt; # 显示软件信息（含必要配置说明）
+scoop install|uninstall &lt;app&gt;
+scoop list
+scoop status   # 检查软件是否有新版本
+scoop hold|unhold &lt;app&gt;  # 停用/启用更新 
+scoop update [&lt;app&gt;]  # 更新scoop或指定软件
+scoop cleanup *  # 清理所有旧版软件, 清理指定软件, 清理过期的安装包
+scoop cleanup &lt;app&gt;
+</code></pre>
+<blockquote>
+<p>安装的软件在<code>~\scoop\apps</code>目录下。</p>
+</blockquote>
+<h5 id="软件源"><a class="header" href="#软件源">软件源</a></h5>
+<p><a href="https://rasa.github.io/scoop-directory/by-apps">Scoop buckets by number of apps | scoop-directory (rasa.github.io)</a></p>
+<pre><code class="language-powershell">scoop bucket add|list|known|rm &lt;bucket&gt;
+</code></pre>
+<h5 id="下载"><a class="header" href="#下载">下载</a></h5>
+<p>利用<code>aria2</code>加速下载：</p>
+<pre><code class="language-powershell">scoop install aria2
+scoop config aria2-enabled true                   # default: true
+scoop config aria2-retry-wait 8                   # default: 2
+scoop config aria2-split 8                        # default: 5
+scoop config aria2-max-connection-per-server 8    # default: 5
+scoop config aria2-min-split-size 2M              # default: 5M
+</code></pre>
+<p>添加库 versions, 可以安装其他（落后的)版本：</p>
+<pre><code class="language-powershell">scoop bucket add versions
+scoop install python@3.7.7
+</code></pre>
+<h3 id="msys2"><a class="header" href="#msys2">MSYS2</a></h3>
+<blockquote>
+<p><em>Software Distribution and Building Platform for Windows.</em></p>
+<ul>
+<li>
+<p>Terminal: <code>mintty</code>、<code>bash</code>；</p>
+</li>
+<li>
+<p>CLI tools：<code>git</code>、<code>tar</code>、<code>awk</code>；</p>
+</li>
+<li>
+<p>Develop tools：GCC, mingw-w64, CPython, CMake, Meson, OpenSSL, FFmpeg, Rust, Ruby。</p>
+<p><img src="assets/msys-environment.png" alt="image-20221020132233008" /></p>
+<p><a href="https://www.msys2.org/docs/environments/">Environments - MSYS2</a></p>
+</li>
+<li>
+<p>package management：<code> Pacman</code>（Arch Linux）</p>
+</li>
+</ul>
+</blockquote>
+<p><a href="https://www.msys2.org/docs/what-is-msys2/">What is MSYS2? - MSYS2</a></p>
+<pre><code class="language-powershell">winget install msys2.msys2
+</code></pre>
+<pre><code class="language-shell">用法:  pacman &lt;操作&gt; [...]
+操作:
+    pacman {-h --help}
+    pacman {-V --version}
+    pacman {-D --database} &lt;选项&gt; &lt;软件包&gt;
+    pacman {-F --files}    [选项] [文件]
+    pacman {-Q --query}    [选项] [软件包]
+    pacman {-R --remove}   [选项] &lt;软件包&gt;
+    pacman {-S --sync}     [选项] [软件包]
+    pacman {-T --deptest}  [选项] [软件包]
+    pacman {-U --upgrade}  [选项] &lt;文件&gt;
+</code></pre>
+<p>MSYS2提供模拟文件系统，其物理位置为MSYS2安装目录（可直接从物理系统访问其中内容）。</p>
+<pre><code class="language-shell">df -hT /home/gary/
+# 文件系统       类型   容量   已用  可用   已用% 挂载点
+# C:/msys64     ntfs  931G  221G  711G   24%  /
+</code></pre>
+<h3 id="office"><a class="header" href="#office">Office</a></h3>
+<p>安装office部署工具（Office Deployment Tool）。</p>
+<p>配置文件（<code>configuration.xml</code>）</p>
+<pre><code class="language-powershell">&lt;Configuration&gt;
+  &lt;Add OfficeClientEdition=&quot;64&quot; Channel=&quot;Monthly&quot;&gt; &lt;!--PerpetualVL2019--&gt;
+    &lt;Product ID=&quot;HomeStudent2019Retail&quot;&gt;  
+    &lt;!-- ProPlus2019Volume|VisioPro2019Volume... --&gt;
+      &lt;Language ID=&quot;zh-cn&quot; /&gt;
+    &lt;/Product&gt;
+  &lt;/Add&gt;
+  &lt;!--  &lt;RemoveMSI All=&quot;True&quot; /&gt; --&gt;
+  &lt;!--  &lt;Display Level=&quot;None&quot; AcceptEULA=&quot;TRUE&quot; /&gt;  --&gt;
+  &lt;!--  &lt;Property Name=&quot;AUTOACTIVATE&quot; Value=&quot;1&quot; /&gt;  --&gt;
+&lt;/Configuration&gt;
+</code></pre>
+<p><a href="https://docs.microsoft.com/en-us/office365/troubleshoot/installation/product-ids-supported-office-deployment-click-to-run">Product IDs that are supported by the Office Deployment Tool for Click-to-Run - Office 365 | Microsoft Docs</a></p>
+<p>下载安装文件：</p>
+<pre><code class="language-powershell">setup /download configuration.xml   # run in cmd
+</code></pre>
+<p>安装应用：</p>
+<pre><code class="language-powershell">setup /configure configuration.xml  # run in cmd  
+</code></pre>
+<p>https://docs.microsoft.com/en-us/deployoffice/office2019/deploy.</p>
+<h5 id="激活office"><a class="header" href="#激活office">激活Office</a></h5>
+<pre><code class="language-sh"># 查看激活状态
+cscript &quot;C:\Program Files\Microsoft Office\Office16\OSPP.VBS&quot; /dstatus 
+# 移除key
+cscript &quot;C:\Program Files\Microsoft Office\Office16\OSPP.VBS&quot; /unpkey:F6YYT
+</code></pre>
+<h3 id="rdp"><a class="header" href="#rdp">RDP</a></h3>
+<h4 id="rdpwrap"><a class="header" href="#rdpwrap">RDPWrap</a></h4>
+<p>https://raw.githubusercontent.com/sebaxakerhtc/rdpwrap.ini/master/rdpwrap.ini</p>
+<h3 id="vmware-workstation"><a class="header" href="#vmware-workstation">VMWare Workstation</a></h3>
+<p>VM16 Pro：<code>ZF3R0-FHED2-M80TY-8QYGC-NPKYF</code></p>
+<h2 id="进程管理"><a class="header" href="#进程管理">进程管理</a></h2>
+<p>查看进程信息：</p>
+<pre><code class="language-powershell">tasklist /V /FI &quot;ImageName eq winlogon.exe&quot;
+</code></pre>
+<blockquote>
+<p><code>/V</code>：显示更多信息</p>
+<p><code>/FI</code>：设置过滤条件（不区分大小写）。筛选器包括：<code>Status</code>（运行状态）、<code>ImageName</code>（程序名称）、<code>Pid</code>（进程号）等等（查看<code>tasklist /?</code>）。</p>
+</blockquote>
+<pre><code class="language-powershell">wmic process 
+</code></pre>
+<blockquote>
+<p><code>wmic</code>可以获得包括命令行信息在内的详细信息。</p>
+</blockquote>
+<pre><code class="language-powershell">Get-Process [-Name] [firefox, powershell]	# alias as ps
+Get-Process DataExchangeHost -Module # need admin privilage
+Get-Process WindowsTerminal -FileVersionInfo
+</code></pre>
+<p><a href="https://docs.microsoft.com/en-us/powershell/scripting/samples/managing-processes-with-process-cmdlets?view=powershell-7.2">Managing Processes with Process Cmdlets - PowerShell | Microsoft Docs</a></p>
+<p>获取当前进程信息？</p>
+<h3 id="创建进程"><a class="header" href="#创建进程">创建进程</a></h3>
+<p>直接在当前终端中运行可执行程序，程序将在前台运行。</p>
+<h4 id="新进程与终端分离"><a class="header" href="#新进程与终端分离">新进程与终端分离</a></h4>
+<p><code>Start-Process</code>在新的进程中运行<strong>可执行文件</strong>（类似Linux <code>exec</code>）。</p>
+<ul>
+<li>
+<p>如果指定<code>-NoNewWindow</code>，则直接在当前Shell中创建新进程，并与当前Shell分离（<em>输入输出默认仍在当前终端，除非添加重定向选项</em>）。</p>
+</li>
+<li>
+<p>反之，首先新建一个Shell进程（桌面环境弹出控制台界面），并在新的Shell环境中运行可执行程序。可执行程序同样与Shell环境分离，因此新的Shell环境在执行启动命令后即退出。</p>
+</li>
+<li>
+<p>在脚本中调用<code>Start-Process</code>和上述情况一致，执行脚本仅在当前Shell进程中创建一个子Shell环境。</p>
+</li>
+<li>
+<p>如果出现新终端窗口不退出的情况（后台任务未成功与终端分离，使用<strong>Terminal</strong>作为默认终端时可能出现），可添加<code>-WindowStyle Hidden</code>（不能与<code>-NoNewWindow</code>同时使用）手动隐藏终端。</p>
+<blockquote>
+<p>如果直接从图形界面启动脚本，并使用<code>-NoNewWindow</code>，导致后台进程无法启动。因为系统分配的终端没有被阻塞执行完脚本内容后直接退出。使用<code>-NoNewWindow</code>会使在当前Shell环境的后台进程也退出。</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>非Windows平台上子进程<strong>总是</strong>连接到父进程终端，可以使用<code>Start-Process nohup</code>命令脱离父终端。</p>
+</blockquote>
+<pre><code class="language-powershell">Start-Process -FilePath command \  # -&gt; start*
+              -ArgumentList ('-jar',&quot;$jEdit&quot;, '-settings=&quot;$JEditSettings&quot;')\ 
+              -WorkingDirectory path \
+              -RedirectStandardInput  &quot;source_file&quot;
+              -RedirectStandardOutput &quot;$JEditLogs\console.out&quot; \
+              -RedirectStandardError &quot;$JEditLogs\console.err&quot;  \
+              -PassThru            # 返回进程对象
+              -Verb [RunAs|Print|Open]  # 
+$processOptions = @{...}
+Start-Process $processOptions
+</code></pre>
+<blockquote>
+<p><code>*</code>：<code>start</code>是<code>Start-Process</code>的别名，与<code>cmd</code>命令用法有区别。</p>
+<pre><code class="language-powershell">start &quot;&quot; &quot;Notepad.exe&quot;  # [cmd] 脱离终端，start命令处理引号中的参数
+</code></pre>
+</blockquote>
+<h5 id="进程启动方式"><a class="header" href="#进程启动方式">进程启动方式</a></h5>
+<p>通过<code>-Verb</code>选项指定<code>-FilePath</code>传递的进程或文件的启动方式（如以管理员运行），通过以下命令查看可执行程序(如<code>PowerShell.exe</code>)可用的启动方式：</p>
+<pre><code class="language-powershell">startExe = New-Object System.Diagnostics.ProcessStartInfo -Args PowerShell.exe
+startExe.verbs  # -&gt; open/runas/runasuser
+</code></pre>
+<h4 id="从图形界面启动新进程"><a class="header" href="#从图形界面启动新进程">从图形界面启动新进程</a></h4>
+<p>对于从图形界面点击脚本，其打开方式默认为终端，因此系统会首先为其创建一个Shell环境再执行程序，类似于调用<code>Start-Process powershell.exe -ArgumentList ('xxx.ps1')</code>，因此还是会弹出临时终端。</p>
+<p>对于从图形界面点击<code>.exe</code>程序，则系统直接新建进程（中间不涉及创建Shell环境）。</p>
+<h3 id="启动powershell任务"><a class="header" href="#启动powershell任务">启动PowerShell任务</a></h3>
+<p><code>Start-Job</code>用于运行PowerShell脚本(<code>-FilePath</code>/<code>-LiteralPath</code>)或命令（<code>-ScriptBlock</code>）。</p>
+<pre><code class="language-powershell">$job=Start-Job -Name PShellJob -ScriptBlock { Get-Process -Name pwsh } `
+               -InitializationScript {Import-Module MapFunctions} `
+               -InputObject &quot;C:\Servers.txt&quot; `   # $input
+               -ArgumentList powershell, pwsh, notepad ` # 逗号分隔参数列表或数组对象$args
+               -WorkingDirectory C:\Test\Scripts  # PS7 $PWD
+Get-Process -Name pwsh &amp;
+Receive-Job -Id $job.Id # -Keep保留已获取的输出结果。
+Get-Job  # 获取当前会话启动的后台任务，可查看任务状态。
+Stop-Job/Remove-Job 
+</code></pre>
+<blockquote>
+<p>PowerShell Core 6.0+支持使用<code>&amp;</code>使启动的进程与当前终端脱离（<code>Start-Job</code>的语法糖）。</p>
+</blockquote>
+<p>任务类型：</p>
+<ul>
+<li><code>RemoteJob</code>：运行在远程会话中的任务；</li>
+<li><code>BackgroundJob</code>：运行在独立进程中的任务；</li>
+<li><code>PSTaskJob</code>或 <code>ThreadJob</code>运行在当前进程的独立线程中的任务。</li>
+</ul>
+<p><code>Invoke-Command</code>支持在本机或远程执行任务。</p>
+<pre><code class="language-powershell">$s = New-PSSession -ComputerName Server02 -Credential Domain01\User01
+Invoke-Command -ComputerName HostName 
+               -FilePath ScriptPath
+               -ScriptBlock $command
+               -PSSession $s  # 在指定的PS会话中执行命令
+               -InDisconnectedSession
+               -AsJob # 运行为后台任务(-&gt;Start-Job)
+</code></pre>
+<p><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7.2&amp;viewFallbackFrom=powershell-6">Invoke-Command (Microsoft.PowerShell.Core) - PowerShell | Microsoft Learn</a></p>
+<h3 id="服务管理"><a class="header" href="#服务管理">服务管理</a></h3>
+<p><a href="https://docs.microsoft.com/en-us/powershell/scripting/samples/managing-services?view=powershell-7.2">Managing Services - PowerShell | Microsoft Docs</a></p>
+<h2 id="网络管理"><a class="header" href="#网络管理">网络管理</a></h2>
+<p><a href="https://docs.microsoft.com/en-us/powershell/scripting/samples/performing-networking-tasks?view=powershell-7.2">Performing Networking Tasks - PowerShell | Microsoft Docs</a></p>
+<h3 id="网络连接信息"><a class="header" href="#网络连接信息">网络连接信息</a></h3>
+<p>显示网络信息：</p>
+<pre><code class="language-powershell">netstat 
+</code></pre>
+<p>连接信息：</p>
+<blockquote>
+<p><code>-a</code>：显示所有连接（包括地址<code>0.0.0.0</code>）和侦听端口。</p>
+<p><code>-b</code>：显示进程对应的可执行程序。</p>
+<p><code>-n</code>：以数字形式显示地址和端口号。</p>
+<p><code>-p PROTOCOL</code>：显示指定协议的连接，包括：TCP、UDP、TCPv6和UDPv6。</p>
+</blockquote>
+<p>路由信息：</p>
+<p><code>-r</code>：路由信息；</p>
+<p>统计信息：</p>
+<blockquote>
+<p><code>-s</code>：显示 IP、IPv6、ICMP、ICMPv6、TCP、TCPv6、UDP 和 UDPv6 的统计信息；</p>
+<p><code>-e</code>：显示以太网统计信息。</p>
+</blockquote>
+<h5 id="arp"><a class="header" href="#arp">arp</a></h5>
+<pre><code class="language-powershell">arp -agv
+</code></pre>
+<h5 id="ip"><a class="header" href="#ip">ip</a></h5>
+<pre><code class="language-powershell">ipconfig
+ping
+tracert
+</code></pre>
+<h3 id="网络配置"><a class="header" href="#网络配置">网络配置</a></h3>
+<pre><code class="language-powershell">netsh.exe  COMMAND       # netstat help
+netsh.exe  -f ScriptFile
+# COMMAND
+# interface              - 更改网络接口配置。
+# lan/wlan/bridge        - 更改有线/无线局域网/网桥配置
+# firewall/advfirewall   - 更改防火墙(高级)配置
+# winsock                - 更改套接字配置。
+# dhcpclient/dnsclient   - 更改DHCP/DNS客户端配置。
+# ipsec/http/winhttp/rpc - 更改IPSec/http/RPC配置。
+# dump                   - 显示一个配置脚本。
+# exec                   - 运行一个脚本文件。
+# set                    - 更新配置设置。
+# show                   - 显示信息。
+# delete                 - 在项目列表上删除一个配置项目。
+</code></pre>
+<blockquote>
+<p>远程管理选项：<code>[-r RemoteMachine] [-u [DomainName\]UserName] [-p Password | *]</code>。</p>
+</blockquote>
+<pre><code class="language-shell">netsh interface portproxy show [all|v4tov4|v4tov6|v6tov4|v6tov6]
+</code></pre>
+<h4 id="网络共享"><a class="header" href="#网络共享">网络共享</a></h4>
+<h5 id="权限"><a class="header" href="#权限">权限</a></h5>
+<h3 id="网络访问问题"><a class="header" href="#网络访问问题">网络访问问题</a></h3>
+<h5 id="网络连接"><a class="header" href="#网络连接">网络连接</a></h5>
+<p><strong>问题</strong>：Windows网络连接显无法连接网络，实际可以上网？</p>
+<p><strong>原因</strong>：DNS服务器导致系统的网络探测服务无法正常工作，修改DNS服务器。</p>
+<h5 id="网络发现问题"><a class="header" href="#网络发现问题">网络发现问题</a></h5>
+<p>问题：在网络中无法查看开启共享的机器。</p>
+<p>原因：目标机器相关服务可能未运行（<code>Function Discovery Provider Host</code>和<code>Function Discovery Resource Publication</code>服务）。</p>
+<h5 id="共享权限"><a class="header" href="#共享权限">共享权限</a></h5>
+<p>访问共享目录的用户（例如everyone）需要同时有本地文件系统的访问权限和共享目录的访问权限。</p>
+<h5 id="共享安全问题"><a class="header" href="#共享安全问题">共享安全问题</a></h5>
+<p>Windows 10：<code>0x80070035 找不到网络路径</code>。</p>
+<pre><code class="language-powershell">[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters]
+&quot;AllowInsecureGuestAuth&quot;=dword:00000001
+</code></pre>
+<p><a href="https://blog.csdn.net/weivnuo/article/details/80934241?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase">windows 10 0x80070035 找不到网络路径_SOESC.COM-CSDN博客_0x80070035</a></p>
+<h4 id="uwp应用的网络代理"><a class="header" href="#uwp应用的网络代理">UWP应用的网络代理</a></h4>
+<p>UWP应用（包括Microsoft Store）运行在沙箱环境中，其网络访问与物理机隔离（总是通过本地环回地址转发给物理机），因此无法使用物理机配置的网络代理。</p>
+<h5 id="解除应用的本地环回限制"><a class="header" href="#解除应用的本地环回限制">解除应用的本地环回限制</a></h5>
+<p>以应用商店程序为例：</p>
+<ul>
+<li>
+<p>基于UWP应用可执行文件的所在路径（通过任务管理器找到可执行文件，查看其属性可找到其位置），确定UWP应用包名<code>Microsoft.WindowsStore_22207.1401.9.0_x64__8wekyb3d8bbwe</code>。</p>
+</li>
+<li>
+<p>通过UWP包名中的App名称<code>WindowsStore</code>，在注册表中查找应用对应的安全标识符SID（<code>Mappings</code>条目下的名称）或系列名称(<code>Moniker</code>)</p>
+<pre><code class="language-ini">[HKEY_CURRENT_USER\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Mappings\S-1-15-2-1609473798-1231923017-684268153-4268514328-882773646-2760585773-1760938157]
+&quot;DisplayName&quot;=&quot;Microsoft Store&quot;
+&quot;Moniker&quot;=&quot;microsoft.windowsstore_8wekyb3d8bbwe&quot;
+</code></pre>
+</li>
+<li>
+<p>使用<code>CheckNetisolation</code>程序，传入SID或系列名称解除本地环回限制。</p>
+<pre><code class="language-powershell">CheckNetIsolation.exe loopbackexempt -a/-d -p=$SID -n=$Moniker # 添加/移除例外项
+CheckNetIsolation.exe LoopbackExempt -s # 列出已解除的列表
+</code></pre>
+</li>
+</ul>
+<h5 id="修改系统winhttp代理规则"><a class="header" href="#修改系统winhttp代理规则">修改系统WinHttp代理规则</a></h5>
+<pre><code class="language-powershell">netsh winhttp import proxy source=ie  # 使用系统设置中配置的代理服务器
+netsh winhttp show proxy              # 查看当前配置
+</code></pre>
+<p><a href="https://learn.microsoft.com/en-us/windows/win32/winhttp/winhttp-start-page">Windows HTTP Services - Win32 apps | Microsoft Learn</a></p>
+<h3 id="虚拟网络"><a class="header" href="#虚拟网络">虚拟网络</a></h3>
+<h4 id="vmware虚拟网络"><a class="header" href="#vmware虚拟网络"><a href="../%E6%9C%8D%E5%8A%A1%E5%99%A8/%E8%99%9A%E6%8B%9F%E5%8C%96.html#%E8%99%9A%E6%8B%9F%E7%BD%91%E7%BB%9C">VMWare虚拟网络</a></a></h4>
+<h4 id="wsl虚拟网络"><a class="header" href="#wsl虚拟网络"><a href="../%E6%9C%8D%E5%8A%A1%E5%99%A8/%E8%99%9A%E6%8B%9F%E5%8C%96.html#WSL%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE">WSL</a>虚拟网络</a></h4>
+<ol>
+<li>
+<p>在Windows主机上通过<code>localhost</code>可访问WSL开放的服务；</p>
+<blockquote>
+<p>使用<code>127.0.0.1</code>不能访问WSL的服务。</p>
+</blockquote>
+</li>
+<li>
+<p>WSL和Windows主机连接到内置的Hyper-V虚拟网络，因此可使用同一网段的IP地址互相访问；</p>
+<blockquote>
+<p>通过Windows主机的网络管理可以找到Windows主机在虚拟网络中的地址；WSL中<code>/etc/resolv.conf</code>记载了Windows主机的IP地址（作为WSL的域名服务）；</p>
+<p>WSL的<code>/etc/hosts</code>也记录了Windows中手动配置的域名。</p>
+</blockquote>
+</li>
+<li>
+<p>局域网访问WSL服务：WSL服务需要绑定到虚拟网卡IP地址而非本地环回地址，WSL中开放的端口会通过Windows主机的<code>wslhost.exe</code>进行端口转发（默认仅监听WSL2的<code>localhost</code>，需要使用以下脚本添加监听地址，或使用<a href="https://github.com/CzBiX/WSLHostPatcher">WSL Host Patcher</a>自动监听并转发WSL2中打开的端口）。同时，确保Windows防火墙策略允许外部IP访问<code>wslhost.exe</code>应用。</p>
+<pre><code class="language-powershell"># 1. Get IP Address of WSL 2 machine
+# 2. Remove previous port forwarding rules
+netsh interface portproxy delete v4tov4 
+    listenport=$host_port listenaddress=$host_addr ...
+# 3. Add port Forwarding rules
+netsh interface portproxy add v4tov4 
+    listenport=$host_port listenaddress=$host_addr  # (0.0.0.0)
+    connectport=$wsl_port connectaddress=$wsl_addr 
+</code></pre>
+<p><a href="https://github.com/microsoft/WSL/issues/4150">WSL 2 NIC Bridge mode 🖧 (Has TCP Workaround🔨)</a></p>
+</li>
+</ol>
+<h4 id="docker-on-wsl2"><a class="header" href="#docker-on-wsl2"><a href="../%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%AE%B9%E5%99%A8%E7%BC%96%E6%8E%92.html#%E5%9C%B0%E5%9D%80%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84">Docker</a> on WSL2</a></h4>
+<p><strong>通过VMWare NAT网络连接的VM<code>-&gt;</code>本地Docker服务</strong>：VM需要使用本地主机的物理地址（而非主机在虚拟机子网中的地址）访问Docker服务。虽然Docker已经将Docker服务端口映射到物理端口，但其绑定的IP地址实际不包含虚拟网卡地址（如VMWare虚拟网卡）。因此，VM中发起的请求必须经过源NAT，以访问主机物理地址上的服务。</p>
+<h2 id="用户管理"><a class="header" href="#用户管理">用户管理</a></h2>
+<pre><code class="language-powershell">whoami /UPN     # User Principal Name (域用户)
+       /FQDN    # Fully Qualified Differentiable Name (域用户)
+       /LOGONID # 当前用户的登录ID (S-1-5-5-0-28587288)
+whoami /USER    # 显示用户名与安全标识符 (SID)
+       /GROUPS  # 用户所属组名称、类型、SID 和属性。
+       /CLAIMS  # 当前用户的声明
+       /PRIV    # 当前用户的安全特权
+       /ALL
+       [/FO format] # format=TABL(default)|LIST|CSV
+       [/NH]    #
+</code></pre>
+<h2 id="安全"><a class="header" href="#安全">安全</a></h2>
+<h3 id="证书管理"><a class="header" href="#证书管理">证书管理</a></h3>
+<p>通过Windows“运行”对话框（<code>Win+R</code>启动）打开证书管理工具：</p>
+<ul>
+<li><code>certmgr.msc</code>：当前用户证书管理；</li>
+<li><code>certlm.msc</code>：本地计算机证书管理（需要管理员权限）；</li>
+</ul>
+<h5 id="安装证书"><a class="header" href="#安装证书">安装证书</a></h5>
+<p>点击证书文件进行安装，可选择存储位置为当前用户或本地计算机（需要管理员权限）。</p>
+<p>再证书管理工具中，可通过拖拽更改证书所属路径。</p>
+<h5 id="证书类型"><a class="header" href="#证书类型">证书类型</a></h5>
+<div class="table-wrapper"><table><thead><tr><th>类型</th><th>标识符</th></tr></thead><tbody>
+<tr><td>个人</td><td><code>My</code></td></tr>
+<tr><td>==中间证书颁发机构==</td><td><code>CA</code></td></tr>
+<tr><td>==第三方根证书颁发机构==</td><td><code>AuthRoot</code></td></tr>
+<tr><td>==受信任的根证书颁发机构==</td><td><code>Root</code></td></tr>
+<tr><td>企业信任</td><td><code>Trust</code></td></tr>
+<tr><td>受信任的发布者</td><td><code>TrustedPublisher</code></td></tr>
+<tr><td>受信任的封装应用安装颁发机构</td><td><code>TrustedAppRoot</code>+</td></tr>
+<tr><td>受信任的设备</td><td><code>TrustedDevices</code>*+</td></tr>
+<tr><td>受信任人</td><td><code>TrustedPeople</code>*</td></tr>
+<tr><td>其他人</td><td><code>ADDRESSBOOK</code></td></tr>
+<tr><td>智能卡受信任的根</td><td><code>SmartCardRoot</code>*</td></tr>
+<tr><td>客户端身份验证颁发者</td><td><code>ClientAuthIssuer</code>*</td></tr>
+<tr><td>Active Directory 用户对象</td><td><code>UserDS</code>*</td></tr>
+<tr><td>-</td><td><code>AAD Token Issuer</code>*+</td></tr>
+<tr><td>证书注册申请</td><td><code>REQUEST</code>*</td></tr>
+<tr><td>不信任的证书</td><td><code>Disallowed</code>*</td></tr>
+<tr><td>测试版根目录</td><td><code>TestSignRoot</code>+</td></tr>
+<tr><td>预览版根</td><td><code>FlightRoot</code>+</td></tr>
+<tr><td>远程桌面</td><td><code>Remote Desktop</code>+</td></tr>
+<tr><td>-</td><td><code>WindowsServerUpdateServices</code>*+</td></tr>
+<tr><td>-</td><td><code>eSIM Certification Authorities</code>+</td></tr>
+<tr><td>-</td><td><code>Windows Live ID Token Issuer</code>+</td></tr>
+<tr><td>-</td><td><code>Homegroup Machine Certificates</code>*+</td></tr>
+<tr><td>-</td><td><code>Local NonRemovable Certificates</code>*</td></tr>
+<tr><td>-</td><td><code>MSIEHistoryJournal</code>*</td></tr>
+</tbody></table>
+</div>
+<blockquote>
+<p><code>*</code>通常为空目录。</p>
+<p><code>+</code>本地计算机目录下才有的类型。</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../Linux/操作系统原理.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../Windows/Windows配置管理.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../Linux/操作系统原理.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../Windows/Windows配置管理.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

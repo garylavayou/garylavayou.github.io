@@ -1,0 +1,613 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>开发环境 - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html" class="active">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="java开发环境"><a class="header" href="#java开发环境">Java开发环境</a></h1>
+<h2 id="java-development-kit"><a class="header" href="#java-development-kit">Java Development Kit</a></h2>
+<pre><code class="language-sh">choco install jdk8  # Windows: choco install jdk11, ojdkbuild11...
+sudo apt install openjdk-8-jdk  # =&gt; yum install java-1.8.0-openjdk
+</code></pre>
+<blockquote>
+<p><code>apt</code>：<code>openjdk-11-jdk</code>安装JDK；<code>openjdk-11-jre</code>仅安装JRE。</p>
+<p><code>yum</code>：<code>java-11-openjdk-devel</code>安装JDK；<code>java-11-openjdk</code>：仅安装JRE。</p>
+</blockquote>
+<p><a href="https://docs.microsoft.com/zh-cn/azure/developer/java/fundamentals/reasons-to-move-to-java-11">迁移到 Java 11 的原因 - Azure | Microsoft Docs</a></p>
+<p><a href="https://docs.microsoft.com/zh-cn/azure/developer/java/fundamentals/transition-from-java-8-to-java-11">从 Java 8 转换到 Java 11 - Azure | Microsoft Docs</a>（ClassLoader 注意事项）。</p>
+<blockquote>
+<p><em>Optimized to run Java™ applications cost-effectively in the cloud, <strong>Eclipse OpenJ9</strong> is a fast and efficient JVM that delivers power and performance when you need it most.</em></p>
+</blockquote>
+<h3 id="环境变量"><a class="header" href="#环境变量">环境变量</a></h3>
+<p>通过软件包管理器安装的开发环境通常已经设置环境变量，如果是直接下载的软件包则需要手动设置。基于Java的软件依赖Java相关的环境变量来定位Java的可执行文件和库文件。其中：</p>
+<ul>
+<li><code>PATH</code>：可执行文件（Java编译器、解释器），位于JDK安装目录下的<code>bin</code>目录；</li>
+<li><code>JAVA_HOME</code>：Java安装目录；</li>
+<li><code>CLASSPATH</code>：外部库搜索路径，JVM通过<code>CLASSPATH</code>来寻找类。</li>
+<li><code>LD_LIBRARY_PATH</code>：<em>shared native libraries like</em> <code>.DLL</code> <em>or</em> <code>.so</code> <em>not</em> <code>JARS</code> <em>or classes.</em></li>
+</ul>
+<p>在Linux中，通过系统安装的JDK会将可执行文件的符号链接（例如<code>/etc/alternatives/java</code>$\rightarrow$
+<code>/usr/lib/jvm/java-6-openjdk-i386/jre/bin/java</code>）放在<code>/usr/bin</code>目录下，所以在终端中可以直接运行，而无需修改<code>PATH</code>变量。如果是手动安装的JDK，则不会有这些符号链接。要设置上述变量，则编辑<code>~/.bashrc</code>文件，添加以下内容：</p>
+<pre><code class="language-shell">export PATH=$PATH:java_home/bin # echo $PATH
+export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64  # echo $JAVA_HOME
+export CLASSPATH=.:java_home/lib/dt.jar:java_home/lib/tools.jar
+</code></pre>
+<p>全局设置：在<code>/etc/profile.d/java.sh</code> 中添加</p>
+<pre><code class="language-shell">export JAVA_HOME=/path/to/java_installation
+</code></pre>
+<p>或<code>/etc/environment</code>中添加</p>
+<pre><code class="language-shell">JAVA_HOME=/path/to/java_installation
+</code></pre>
+<p>在Windows中则通过系统中的环境变量编辑窗口设置（如果是安装版软件，通常会设置上述变量）。</p>
+<h5 id="确定java_home"><a class="header" href="#确定java_home">确定JAVA_HOME</a></h5>
+<pre><code class="language-sh">update-alternatives --display java 
+</code></pre>
+<p>返回值为<code>java</code>可执行文件的路径，其父目录为<code>xxxjdk/jre/bin</code>。</p>
+<blockquote>
+<p>JDK目前会在<code>jre</code>的上层目录创建一个<code>bin</code>目录，其中部分可执行文件链接到<code>jre/bin</code>中的对应文件，但<code>jdk/bin</code>目录下包含更多可执行文件。因此两个位置都可以作为<code>JAVA_HOME</code>。</p>
+</blockquote>
+<p>如果安装了JDK，可以使用<code>jrunscript</code>程序查找<code>JAVA_HOME</code>：</p>
+<pre><code class="language-shell">jrunscript -e 'java.lang.System.out.println(java.lang.System.getProperty(&quot;java.home&quot;));'
+</code></pre>
+<blockquote>
+<p>JDK/JRE headless: 没有键盘、鼠标和显示系统支持，更适合服务器应用。</p>
+</blockquote>
+<h5 id="javafx"><a class="header" href="#javafx">JavaFX</a></h5>
+<p>Java 11开始JavaFX从JDK拆分出来，独立发布。因此对于需要使用JavaFX的程序，需要在系统中单独进行安装。</p>
+<p>Ubuntu 18.04 (LTS) 提供openjfx作为openjdk的JavaFX版本。在软件仓库中可以选择安装<code>openjdk-8-jdk</code>（JDK8）或<code>openjdk-11-jdk</code>（JDK11），但是默认提供最新版<code>openjfx</code>（JavaFX11），而<a href="https://bugs.launchpad.net/ubuntu/+source/openjfx/+bug/1799946">JavaFX11与JDK8不兼容</a>。因此如果使用JDK8，需要指定安装的JavaFX版本，并阻止其升级。</p>
+<pre><code class="language-sh">sudo apt install \
+  openjfx=8u161-b12-1ubuntu2 \
+  libopenjfx-java=8u161-b12-1ubuntu2 \
+  libopenjfx-jni=8u161-b12-1ubuntu2
+# list all available openjfx version in the repository
+# sudo apt show openjfx -a
+sudo apt-mark hold openjfx libopenjfx-java libopenjfx-jni
+</code></pre>
+<h2 id="java编译器"><a class="header" href="#java编译器">Java编译器</a></h2>
+<p>将<code>java</code>源文件编译为字节码文件。</p>
+<pre><code class="language-sh">javac -d &lt;dir&gt; \
+      --{class-path,classpath,cp} &lt;path&gt; \       # 依赖库搜索目录
+      --{boot-class-path,bootclasspath} &lt;path&gt; \ # 启动类的路径
+      -encoding &lt;encoding&gt; \                     # 指定源文件使用的字符编码
+      -sourcepath &lt;project_path&gt; \               # 代码查找路径 =&gt; 项目根目录
+      src/main/java/.../src.java
+</code></pre>
+<p>源代码默认位于项目根目录下的<code>src/main/java</code>目录（<a href="https://stackoverflow.com/questions/3004710/what-is-the-advantage-of-the-src-main-java-convention">Maven约定</a>），往下为包结构对应的目录。</p>
+<p><code>-d</code>：指定编译输出的目录（默认为源代码所在目录），在该目录下，输出<a href="./JAVA%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80.html#%E6%89%93%E5%8C%85%E5%A3%B0%E6%98%8E">字节码的存储路径与源代码中声明的包名对应</a>（不包含<code>src/main/java</code>）。</p>
+<p><a href="JAVA%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80.html#%E7%B1%BB%E6%90%9C%E7%B4%A2%E8%B7%AF%E5%BE%84">依赖库搜索路径</a>用于寻找源代码中导入的外部类<code>*.class</code>，可以为目录、<code>jar</code>文件和<code>zip</code>文件；<code>path/*</code>将包含该目录下的所有<code>jar</code>文件。</p>
+<h3 id="反编译"><a class="header" href="#反编译">反编译</a></h3>
+<p>使用<code>javap</code>可进行反编译代码（将字节码转换为可读格式），<a href="http://jd.benow.ca/">jd-gui</a>是一个图形化反编译工具，可根据字节码还原源代码。</p>
+<pre><code class="language-shell">javap -c -verbose ... App.class
+# -classpath 指定搜索路径
+# -l 输出行号和本地变量表
+# -public/protected/package/private: 要输出的成员访问级别，private输出所有成员
+</code></pre>
+<h3 id="归档"><a class="header" href="#归档">归档</a></h3>
+<h5 id="查看档案文件内容"><a class="header" href="#查看档案文件内容">查看档案文件内容</a></h5>
+<pre><code class="language-sh">jar tvf jarfile.jar
+</code></pre>
+<h2 id="工具链"><a class="header" href="#工具链">工具链</a></h2>
+<h3 id="make"><a class="header" href="#make"><a href="../CC++/C++%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83.html#make">Make</a></a></h3>
+<pre><code class="language-makefile">target:
+    javac ./package1/A.java -d ../classes
+    javac ./package1/B.java -d ../classes
+    javac ./package2/C.java -d ../classes
+    javac ./main/Test.java  -d ../classes/main/ -classpath ../classes
+run:
+    java -classpath ../classes/main;../classes Test
+clean:
+    rm -rf ../classes/package1/*.class
+    rm -rf ../classes/package2/*.class
+    rm -rf ../classes/main/*.class
+</code></pre>
+<h3 id="maven"><a class="header" href="#maven">Maven</a></h3>
+<p><a href="https://maven.apache.org/">Apache Maven</a>是软件项目管理和分析工具，基于项目对象模型（Project Object Model，<a href="https://maven.apache.org/ref/3.6.1/maven-model/maven.html">POM</a>），Maven可以管理项目的构建、报告和文档。</p>
+<p>Maven程序<a href="https://mvnrepository.com/">仓库</a>：查找插件、项目的相关信息（例如版本）。</p>
+<h4 id="安装和配置maven"><a class="header" href="#安装和配置maven">安装和配置Maven</a></h4>
+<p>IDEA和Eclipse等IDE通常已集成Maven。独立安装方式：</p>
+<pre><code class="language-sh">choco install maven    # Windows
+sudo apt install maven # Linux
+</code></pre>
+<p>配置文件<code>settings.xml</code>：</p>
+<ul>
+<li>全局：<code>${maven.home}/conf</code>或<code>/etc/maven/settings.xml</code>；</li>
+<li>用户：<code>${user.home}/.m2/settings.xml</code>（默认无此文件，可将全局文件复制过来修改）；</li>
+</ul>
+<pre><code class="language-xml">&lt;settings xmlns=&quot;http://maven.apache.org/SETTINGS/1.0.0&quot;
+          xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+          xsi:schemaLocation=&quot;http://maven.apache.org/SETTINGS/1.0.0
+                              https://maven.apache.org/xsd/settings-1.0.0.xsd&quot;&gt;
+    &lt;mirrors&gt;
+        &lt;mirror&gt;
+            &lt;id&gt;central-mirror&lt;/id&gt;
+            &lt;url&gt;https://maven.aliyun.com/repository/central&lt;/url&gt;
+            &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;
+        &lt;/mirror&gt;
+    &lt;/mirrors&gt;
+&lt;/settings&gt;
+</code></pre>
+<p>使用<code>-s</code>选项切换默认用户配置文件，使用<code>-f</code>选项切换默认项目文件：</p>
+<pre><code class="language-shell">mvn commands [...] -s settings.xml -f pom.xml
+</code></pre>
+<h5 id="全局配置"><a class="header" href="#全局配置">全局配置</a></h5>
+<pre><code class="language-xml">&lt;profiles&gt;
+   &lt;profile&gt;
+      &lt;id&gt;nexus&lt;/id&gt;
+      &lt;activation&gt;&lt;!--激活条件--&gt;
+         &lt;activeByDefault&gt;false&lt;/activeByDefault&gt;
+         &lt;jdk&gt;1.5&lt;/jdk&gt;        &lt;!-- JDK版本 --&gt;
+         &lt;os&gt;...&lt;/os&gt;          &lt;!-- 操作系统版本 --&gt;
+         &lt;property&gt;&lt;/property&gt; &lt;!-- POM中定义的属性是否满足条件：$${name}=value --&gt;
+         &lt;file&gt;&lt;/file&gt;         &lt;!-- 判断文件是否存在exists/missing --&gt;              
+      &lt;/activation&gt; 
+      &lt;properties&gt;&lt;/properties&gt; &lt;!-- POM属性定义：覆盖全局定义 --&gt;
+      &lt;repositories&gt;...&lt;/repositories&gt;
+      &lt;pluginRepositories&gt;...&lt;/pluginRepositories&gt; 
+   &lt;/profile&gt;
+&lt;/profiles&gt;
+&lt;activeProfiles&gt;   &lt;!-- 无论activation是否有效 --&gt;
+   &lt;activeProfile&gt;nexus&lt;/activeProfile&gt;
+&lt;/activeProfiles&gt;
+</code></pre>
+<h5 id="设置仓库"><a class="header" href="#设置仓库">设置仓库</a></h5>
+<p>local and remote (public and internal)</p>
+<p>Downloading in Maven is triggered by a project declaring a dependency that is not present in the local repository (or for a <code>SNAPSHOT</code>, when the remote repository contains one that is newer). </p>
+<p>为提升下载速度，可使用距离较近的镜像仓库或本地仓库。修改<code>settings.xml</code>文件。依赖仓库的选择方式：依赖优先级关系</p>
+<p>Maven执行构建时，由近(本地仓库)及远(远程仓库)获取依赖库，具体地：</p>
+<ul>
+<li>
+<p>首先查找本地仓库，默认位于<code>$HOME/$.m2/repository</code>。本地仓库路径配置项位于<code>settings.xml</code>中。</p>
+<pre><code class="language-xml">&lt;settings&gt;
+   &lt;localRepository&gt;$PATH/.m2/repository&lt;/localRepository&gt;
+&lt;/settings&gt;
+</code></pre>
+</li>
+<li>
+<p>其次，根据全局配置文件<code>settings.xml</code>以及项目配置文件<code>pom.xml</code>中关于仓库的配置信息，从已配置仓库中依次尝试下载依赖库，直到下载成功或尝试完所有仓库后失败。</p>
+</li>
+</ul>
+<p>Maven[默认使用中央仓库](Maven POM.md#默认仓库)，如果上述配置文件中配置了任何仓库，将不再请求默认仓库。</p>
+<blockquote>
+<p>Note: The official Maven repository is at https://repo.maven.apache.org/maven2 hosted by the Sonatype Company and is distributed worldwide via CDN.</p>
+<p><a href="https://maven.aliyun.com/mvn/guide">阿里云公共仓库</a>：线上可搜索包名、获取其Maven依赖配置语句以及直接下载包。将其仓库地址通过以下方式设置为项目使用的仓库地址。</p>
+<div class="table-wrapper"><table><thead><tr><th>仓库名称</th><th>仓库地址</th><th></th></tr></thead><tbody>
+<tr><td>central</td><td><code>https://maven.aliyun.com/repository/central</code></td><td>不包含spring库</td></tr>
+<tr><td>spring</td><td><code>https://maven.aliyun.com/repository/spring</code></td><td></td></tr>
+<tr><td>public</td><td><code>https://maven.aliyun.com/repository/public</code></td><td>central和jcenter的聚合</td></tr>
+</tbody></table>
+</div></blockquote>
+<p>仓库的配置方式包括：</p>
+<ul>
+<li>
+<p>通过项目的<code>pom.xml</code>中<code>project.repositories/pluginRepositories</code>声明一个或多个<code>repository</code>配置；</p>
+<pre><code class="language-xml">&lt;repositories&gt;
+  &lt;repository&gt;
+    &lt;id&gt;central&lt;/id&gt;
+    &lt;url&gt;http://127.0.0.1:8081/repository/maven-central/&lt;/url&gt;
+  &lt;/repository&gt;
+  &lt;reposirtory&gt;...&lt;/reposirtory&gt;
+&lt;/repositories&gt;
+&lt;pluginRepositories&gt;...&lt;/pluginRepositories&gt; 
+</code></pre>
+</li>
+<li>
+<p>可将上述声明置于项目的<code>project.profiles</code>声明的一个<code>profile</code>中；</p>
+<pre><code class="language-xml">&lt;profiles&gt;
+  &lt;profile&gt;
+    &lt;id&gt;nexus&lt;/id&gt;
+    &lt;repositories&gt;...&lt;/repositories&gt;
+  &lt;/profile&gt;
+&lt;/profiles&gt;
+</code></pre>
+</li>
+<li>
+<p>也可将较为固定的仓库配置以<code>profile</code>写在全局配置文件中，根据环境激活相应配置或手动激活；</p>
+<pre><code class="language-xml">&lt;profiles&gt;
+  &lt;profile&gt;
+     &lt;id&gt;nexus&lt;/id&gt;
+     &lt;activation&gt;...&lt;/activation&gt;
+     &lt;repositories&gt;...&lt;/repositories&gt;
+  &lt;/profile&gt;
+&lt;/profiles&gt;
+&lt;activeProfiles&gt;   &lt;!-- 无论activation是否有效 --&gt;
+   &lt;activeProfile&gt;nexus&lt;/activeProfile&gt;
+&lt;/activeProfiles&gt;
+</code></pre>
+</li>
+</ul>
+<h5 id="设置仓库镜像"><a class="header" href="#设置仓库镜像">设置仓库镜像</a></h5>
+<p>此外，Maven支持配置仓库镜像转发，用于将对上述配置仓库的下载请求转发到第三方或本地仓库或代理。通过<code>settings.xml</code>中的<code>settings.mirrors.mirror</code>配置基于仓库ID匹配的转发规则，<strong>可以为不同仓库指定不同的镜像源</strong>。匹配从上向下进行，如果未匹配到任何项，则尝试使用第一条规则，然后使用匹配到的规则的URL进行请求下载。</p>
+<pre><code class="language-xml">&lt;mirrors&gt;
+  &lt;mirror&gt;
+    &lt;id&gt;nexus-central&lt;/id&gt;   &lt;!-- mirror-rule-id --&gt;
+    &lt;url&gt;http://127.0.0.1:8081/repository/maven-central/&lt;/url&gt; &lt;!--forward URL--&gt;
+    &lt;mirrorOf&gt;*,!dev&lt;/mirrorOf&gt;  &lt;!-- 匹配要转发的仓库请求：默认响应central仓库请求 --&gt;
+  &lt;/mirror&gt;
+  &lt;mirror&gt;
+    &lt;id&gt;nexus-dev&lt;/id&gt;   &lt;!-- mirror-rule-id: self-hosted repo --&gt;
+    &lt;url&gt;http://127.0.0.1:8081/repository/maven-dev/&lt;/url&gt;
+    &lt;mirrorOf&gt;dev&lt;/mirrorOf&gt;  &lt;!-- 仅响应dev仓库的请求 --&gt;
+  &lt;/mirror&gt;
+&lt;/mirrors&gt;
+</code></pre>
+<blockquote>
+<p>匹配规则：</p>
+<ul>
+<li><code>*</code>：匹配所有仓库请求；</li>
+<li><code>*,!repo</code>：除<code>repo</code>以外的所有仓库；</li>
+<li></li>
+</ul>
+</blockquote>
+<p>通过<strong>仓库管理器</strong>（如<a href="../%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E8%BD%AF%E4%BB%B6.html#nexus">Nexus</a>）可将不同仓库合并统一对外提供服务接口。仓库管理接收到请求后，将逐次尝试合并仓库中的每个仓库是否有请求的内容，并对外服务。通过这种方式可将上述<code>mirrors</code>或<code>repositroies</code>的配置简化为一项。</p>
+<h5 id="声明依赖包"><a class="header" href="#声明依赖包">声明依赖包</a></h5>
+<p>在项目的<code>pom.xml</code>文件中添加依赖包声明。</p>
+<pre><code class="language-xml">&lt;dependencies&gt;
+  &lt;dependency&gt;
+    &lt;groupId&gt;org.apache.spark&lt;/groupId&gt;
+    &lt;artifactId&gt;spark-sql_2.11&lt;/artifactId&gt;
+    &lt;version&gt;2.4.5&lt;/version&gt;
+  &lt;/dependency&gt;
+&lt;/dependencies&gt;
+</code></pre>
+<h5 id="声明项目使用的插件"><a class="header" href="#声明项目使用的插件">声明项目使用的插件</a></h5>
+<p>应指定插件的<code>groupId</code>，<code>artifactId</code>和<code>version</code>。</p>
+<h5 id="发布声明"><a class="header" href="#发布声明">发布声明</a></h5>
+<p>在项目<code>pom.xml</code>的<code>project</code>块下声明<code>distributionManagement</code>，用于声明输出包的发布服务器信息（包括<code>releases</code>和<code>snapshot</code>版本）。</p>
+<pre><code class="language-xml">&lt;distributionManagement&gt;
+  &lt;repository&gt;  &lt;!-- snapshotRepository --&gt;
+    &lt;id&gt;nexus&lt;/id&gt;
+    &lt;url&gt;http://127.0.0.1:8081/repository/maven-releases/&lt;/url&gt;
+  &lt;/repository&gt;
+&lt;/distributionManagement&gt;
+</code></pre>
+<h4 id="maven工作流"><a class="header" href="#maven工作流">Maven工作流</a></h4>
+<h5 id="编译"><a class="header" href="#编译">编译</a></h5>
+<pre><code class="language-shell">mvn [clean] compile -s settings.xml -f pom.xml  # 指定配置文件
+mvn verify
+</code></pre>
+<p>编译过程会自动从Maven程序<a href="https://mvnrepository.com/">仓库</a>下载依赖包，默认的本地存储路径为<code>$HOME/.m2/repository</code>。</p>
+<p>编译时，在<code>resources</code>目录下的文件也将被复制到目标（<code>target/classes</code>）目录下，在打包时也一同输出至包。</p>
+<h6 id="源代码文本编码"><a class="header" href="#源代码文本编码">源代码文本编码</a></h6>
+<p>在Windows下，Maven传递给编译器的默认编码方式为GBK，而代码通常为UTF-8编码，如果代码中存在中文字符，则会出现<code>编码GBK的不可映射字符</code>。解决方法：1)在项目<code>pom.xml</code>的<code>project/properties</code>块中设置<code>project.build.sourceEncoding=UTF-8</code>；2) 如果上述设置无效或需要使用项目特定的编码方式，则在项目<code>/project/build/plugins</code>下的资源插件配置项中设置<code>encoding=UTF-8</code>。3) 在编译插件<code>maven-compiler-plugin</code>配置中指定编码方式。</p>
+<pre><code class="language-xml">&lt;plugin&gt;
+  &lt;artifactId&gt;maven-resources-plugin&lt;/artifactId&gt;
+  &lt;configuration&gt;
+    &lt;encoding&gt;UTF-8&lt;/encoding&gt;
+  &lt;/configuration&gt;
+&lt;/plugin&gt;
+</code></pre>
+<h5 id="打包"><a class="header" href="#打包">打包</a></h5>
+<pre><code class="language-shell">mvn [clean] package
+</code></pre>
+<p>如果程序依赖其他软件包，则<a href="https://stackoverflow.com/questions/574594/how-can-i-create-an-executable-jar-with-dependencies-using-maven">打包的文件需要声明依赖软件包的路径，或者将依赖软件包同时打包至输出文件</a>。如果无法引用相应的依赖包，将造成<code>NoClassDefFoundError</code>等错误。</p>
+<ol>
+<li>
+<p>指定程序的入口和依赖包的位置，在运行java程序时，<strong>查找依赖包的根目录为java程序包所在目录，而非Java解释器的当前工作目录</strong>。</p>
+<blockquote>
+<p>在Linux下使用<code>*.jar</code>文件的符号链接，仍然会以符号链接的目标文件路径作为查找根目录；而在Windows下的符号链接则以符号链接所在目录为根目录。</p>
+</blockquote>
+<pre><code class="language-xml">&lt;plugin&gt;
+    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+    &lt;artifactId&gt;maven-jar-plugin&lt;/artifactId&gt;
+    &lt;version&gt;3.1.0&lt;/version&gt;
+    &lt;configuration&gt;
+        &lt;archive&gt;
+            &lt;manifest&gt;
+                &lt;addClasspath&gt;true&lt;/addClasspath&gt;
+                &lt;classpathPrefix&gt;lib/&lt;/classpathPrefix&gt;
+                &lt;mainClass&gt;package.MainClass&lt;/mainClass&gt;
+            &lt;/manifest&gt;
+        &lt;/archive&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;
+</code></pre>
+<blockquote>
+<p>如果项目的多个类包含<code>Main</code>函数，则需使用具体的类名<code>package.MainClass</code>指定程序入口函数所在类 。</p>
+<p><em>将<code>${project.build.finalName}</code>作为<code>classpathPrefix</code>的前缀，导致搜索不到某些类（例如<code>picocli</code>）</em>。</p>
+</blockquote>
+</li>
+<li>
+<p>将依赖软件包作为库输出。在执行打包时，利用<code>maven-dependency-plugin</code>工具将依赖软件包输出至指定位置：</p>
+<pre><code class="language-xml">&lt;plugin&gt;
+    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+    &lt;artifactId&gt;maven-dependency-plugin&lt;/artifactId&gt;
+    &lt;executions&gt;
+        &lt;execution&gt;
+            &lt;id&gt;copy-dependencies&lt;/id&gt;
+            &lt;phase&gt;prepare-package&lt;/phase&gt;
+            &lt;goals&gt;
+                &lt;goal&gt;copy-dependencies&lt;/goal&gt;
+            &lt;/goals&gt;
+            &lt;configuration&gt;
+                &lt;outputDirectory&gt;
+                ${project.build.directory}/lib
+                &lt;/outputDirectory&gt;
+            &lt;/configuration&gt;
+        &lt;/execution&gt;
+    &lt;/executions&gt;
+&lt;/plugin&gt;
+</code></pre>
+<p>依赖软件包应该与输出的包同时分发，避免无法引用。</p>
+</li>
+<li>
+<p>将依赖包同时打包至输出软件包</p>
+<p>在执行打包期间，利用<code>maven-shade-plugin</code>将依赖包添加至目标包。</p>
+<pre><code class="language-xml">&lt;plugin&gt;
+    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+    &lt;artifactId&gt;maven-shade-plugin&lt;/artifactId&gt;
+    &lt;version&gt;3.2.1&lt;/version&gt;
+    &lt;executions&gt;
+        &lt;execution&gt;
+            &lt;phase&gt;package&lt;/phase&gt;
+            &lt;goals&gt;
+                &lt;goal&gt;shade&lt;/goal&gt;
+            &lt;/goals&gt;
+        &lt;/execution&gt;
+    &lt;/executions&gt;
+&lt;/plugin&gt;
+</code></pre>
+<p>此方法将造成目标包体积过大。类似地，<code>maven-assembly-plugin</code>也可以完成此功能。</p>
+<pre><code class="language-xml">&lt;plugin&gt;
+    &lt;artifactId&gt;maven-assembly-plugin&lt;/artifactId&gt;
+  	&lt;version&gt;3.2.0&lt;/version&gt;
+    &lt;configuration&gt;
+        &lt;archive&gt;
+            &lt;manifest&gt;
+                &lt;mainClass&gt;fully.qualified.MainClass&lt;/mainClass&gt;
+            &lt;/manifest&gt;
+        &lt;/archive&gt;
+        &lt;descriptorRefs&gt;
+            &lt;descriptorRef&gt;jar-with-dependencies&lt;/descriptorRef&gt;
+        &lt;/descriptorRefs&gt;
+    &lt;/configuration&gt;
+  	&lt;executions&gt;
+   &lt;execution&gt;
+        &lt;id&gt;make-assembly&lt;/id&gt;
+        &lt;phase&gt;package&lt;/phase&gt;
+        &lt;goals&gt;
+          &lt;goal&gt;signle&lt;/goal&gt;
+        &lt;/goals&gt;
+      &lt;/execution&gt;
+  &lt;/executions&gt;
+&lt;/plugin&gt;
+</code></pre>
+<p><strong>完成打包后，还需执行<code>mvn assembly:assembly</code>将依赖包添加进目标包。</strong></p>
+<pre><code class="language-sh">mvn clean package assembly:single
+</code></pre>
+<blockquote>
+<p>If your project wants to package your artifact in an uber-jar, the assembly plugin provides only basic support. For more control, use the <a href="http://maven.apache.org/plugins/maven-shade-plugin/">Maven Shade Plugin</a>.</p>
+</blockquote>
+<p><a href="https://stackify.com/gradle-vs-maven/">Gradle vs. Maven: Performance, Compatibility, Builds, &amp; More – Stackify</a></p>
+</li>
+</ol>
+<h4 id="maven常见问题"><a class="header" href="#maven常见问题">Maven常见问题</a></h4>
+<ol>
+<li>下载依赖包的过程中出现<code>Checksum failed on download:...</code>的错误。有可能是因为下载过程为多线程，依赖包先于其校验文件被下载到本地无法完成校验。这种情况可尝试重新执行编译命令看是否依赖包已下载完成，或设置<code>-Dmaven.artifact.threads=1</code>使用单线程下载依赖包。</li>
+</ol>
+<h2 id="集成开发环境"><a class="header" href="#集成开发环境">集成开发环境</a></h2>
+<h3 id="visual-studio-code"><a class="header" href="#visual-studio-code">Visual Studio Code</a></h3>
+<p>安装Java Extension Pack，其中的扩展包括： Language Support for Java™ by Red Hat，Debugger for Java，Java Test Runner，<a href="#maven">Maven</a> Project Explorer，Java Dependency Viewer，Visual Studio IntelliCode。</p>
+<h4 id="java开发环境配置"><a class="header" href="#java开发环境配置">Java开发环境配置</a></h4>
+<p>配置系统中可用的Java运行环境及其版本信息（<code>name</code>的值为内置用于识别Java版本，可进行选择）。</p>
+<pre><code class="language-json">&quot;java.configuration.runtimes&quot;: [
+   {
+      &quot;name&quot;: &quot;JavaSE-11&quot;,
+      &quot;path&quot;: &quot;C:/Program Files/AdoptOpenJDK/jdk-11.0.11.9-hotspot&quot;,
+      &quot;default&quot;: true
+   },{
+      &quot;name&quot;: &quot;JavaSE-1.8&quot;,
+      &quot;path&quot;: &quot;C:/tools/jdk8u275-b01&quot;
+   }
+]
+</code></pre>
+<h5 id="调试环境配置"><a class="header" href="#调试环境配置">调试环境配置</a></h5>
+<p>设置环境变量，以及程序的传入参数等。</p>
+<pre><code class="language-json">&quot;configurations&quot;: [
+    {
+        &quot;args&quot;: &quot;tfapi&quot;,  # input arguments
+        &quot;env&quot;:{	&quot;LD_LIBRARY_PATH&quot;: &quot;your/path&quot; } # environment variables
+    }
+]
+</code></pre>
+<h4 id="基于maven的java项目"><a class="header" href="#基于maven的java项目">基于Maven的Java项目</a></h4>
+<p><a href="#Maven">安装Maven</a>，使用maven插件，快速创建项目<code>maven-archtype-quickstart</code>。</p>
+<p><code>maven.compiler.source</code>和<code>maven.compiler.target</code>如果与默认JDK版本不同，将产生警告，需要首先<a href="#Java%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE">配置相应的JDK版本</a>。</p>
+<h3 id="eclipse"><a class="header" href="#eclipse">Eclipse</a></h3>
+<p><strong>Maven支持</strong>：Eclipse内置Maven支持（<code>m2e</code>）。</p>
+<h3 id="intellij-idea"><a class="header" href="#intellij-idea">IntelliJ IDEA</a></h3>
+<p>IDEA内置maven插件，支持直接创建基于maven的项目（自动生成<code>pom.xml</code>）。</p>
+<h4 id="项目配置"><a class="header" href="#项目配置">项目配置</a></h4>
+<p>入口：菜单项<code>File/Project Structure...</code>（项目管理器没有配置入口）。</p>
+<p>配置项目使用的JDK等信息。</p>
+<img src="Java开发环境.assets/image-20210810133548736.png" alt="image-20210810133548736" style="zoom:50%;" />
+<h5 id="加载依赖项"><a class="header" href="#加载依赖项">加载依赖项</a></h5>
+<p>在<code>pom.xml</code>中添加依赖项定义（<code>dependency</code>）后，不会自动下载依赖项，需要重新加载Maven项目。</p>
+<img src="Java开发环境.assets/image-20210810132118089.png" alt="image-20210810132118089" style="zoom: 40%;" />
+<h2 id="常见问题"><a class="header" href="#常见问题">常见问题</a></h2>
+<ol>
+<li>
+<p>依赖项冲突</p>
+<p>出现<code>NoSuchMethodError</code>或<code>UndefinedClassError</code>：引用的依赖库版本不正确，API不兼容导致找不到调用的类或方法。</p>
+</li>
+<li></li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../Java/JAVA编程基础.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../Java/Maven POM.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../Java/JAVA编程基础.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../Java/Maven POM.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

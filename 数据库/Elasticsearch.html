@@ -1,0 +1,1678 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Elasticsearch - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html" class="active">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="elasticsearch"><a class="header" href="#elasticsearch">Elasticsearch</a></h1>
+<h2 id="准备工作"><a class="header" href="#准备工作">准备工作</a></h2>
+<h3 id="安装elasticsearch"><a class="header" href="#安装elasticsearch">安装Elasticsearch</a></h3>
+<h4 id="ubuntu"><a class="header" href="#ubuntu">Ubuntu</a></h4>
+<h5 id="apt"><a class="header" href="#apt">apt</a></h5>
+<pre><code class="language-shell">wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+sudo apt-get install apt-transport-https
+echo &quot;deb https://artifacts.elastic.co/packages/7.x/apt stable main&quot; | sudo tee /etc/apt/sources.list.d/elastic-7.x.list
+sudo apt-get update &amp;&amp; sudo apt-get install elasticsearch logstash filebeat
+</code></pre>
+<blockquote>
+<p>程序的安装位置为<code>/usr/share</code>。</p>
+</blockquote>
+<h5 id="deb"><a class="header" href="#deb"><a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.15/deb.html#install-deb">deb</a></a></h5>
+<h4 id="centos"><a class="header" href="#centos">CentOS</a></h4>
+<h5 id="软件仓库安装"><a class="header" href="#软件仓库安装">软件仓库安装</a></h5>
+<h5 id="rpm包安装"><a class="header" href="#rpm包安装">rpm包安装</a></h5>
+<pre><code class="language-shell">wget https://artifacts.elastic.co/.../elasticsearch-7.14.1-x86_64.rpm
+wget https://artifacts.elastic.co/.../elasticsearch-7.14.1-x86_64.rpm.sha512
+shasum -a 512 -c elasticsearch-7.14.1-x86_64.rpm.sha512 
+sudo rpm --install elasticsearch-7.14.1-x86_64.rpm
+</code></pre>
+<h4 id="docker"><a class="header" href="#docker">Docker</a></h4>
+<p>安装最新版ElasticSearch必须带具体标签（<code>latest</code>标签未绑定至最新版本）。</p>
+<h5 id="development-mode-single-node"><a class="header" href="#development-mode-single-node">Development Mode （Single Node）</a></h5>
+<pre><code class="language-sh">docker network create elastic
+docker run -d --name elasticsearch --net elastic -p 9200:9200 -p 9300:9300 -e &quot;discovery.type=single-node&quot; elasticsearch:tag
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> Pulling an images requires using a specific version number tag. The <code>latest</code> tag is not supported.</p>
+</blockquote>
+<h5 id="production-mode"><a class="header" href="#production-mode">Production Mode</a></h5>
+<p>https://www.elastic.co/guide/en/elasticsearch/reference/7.12/docker.html</p>
+<p>The <code>vm.max_map_count</code> kernel setting must be set to at least <code>262144</code> for production use.</p>
+<blockquote>
+<p>Error: </p>
+<pre><code class="language-shell">&gt; ERROR: for kib01  Container &quot;7d61ad9aeddd&quot; is unhealthy.
+&gt; bootstrap check failure [1] of [1]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]
+</code></pre>
+</blockquote>
+<pre><code class="language-sh">vi /etc/sysctl.conf
+vm.max_map_count=262144                  # permanent settings for Linux
+sudo sysctl -w vm.max_map_count=262144   # enable now for WSL (/etc/rc.local =&gt; u+x)
+</code></pre>
+<h6 id="kibana"><a class="header" href="#kibana">kibana</a></h6>
+<p>kibana用于Elasticsearch数据的可视化分析，可以与Elasticsearch安装在同一集群。</p>
+<p>https://www.elastic.co/guide/en/kibana/current/docker.html</p>
+<p><a href="./scripts/docker-compose-elasticsearch.yaml">配置文件</a></p>
+<pre><code class="language-yaml">services:
+  kibana:
+    image: kibana:7.9.2
+    container_name: kibana7
+    environment:
+      ELASTICSEARCH_HOSTS: http://es_node:9200
+    ports:
+      - &quot;5601:5601&quot;
+</code></pre>
+<p>默认的Elasticsearch集群主节点名为<code>elasticsearch</code>，如果不是，通过环境变量<code>ELASTICSEARCH_HOSTS</code>设置，否则无法与集群建立连接。</p>
+<h6 id="启用安全配置"><a class="header" href="#启用安全配置">启用安全配置</a></h6>
+<p>启用HTTPS/TLS：https://www.elastic.co/guide/en/elastic-stack-get-started/7.12/get-started-docker.html。启用HTTP后，访问elasticsearch/kibana都需要用户名和密码进行验证。</p>
+<pre><code class="language-shell"># 重启集群应用密码
+docker-compose -f elastic-docker-tls.yml stop
+docker-compose -f elastic-docker-tls.yml up -d
+# 清理环境
+docker-compose -f elastic-docker-tls.yml down -v
+</code></pre>
+<p>WSL中的证书文件：<code>\\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes\es_certs\_data</code>（安装证书到系统）</p>
+<h5 id="问题"><a class="header" href="#问题">问题</a></h5>
+<ol>
+<li>
+<p>*WSL2文件系统访问权限问题</p>
+<p><em>&quot;Causedby:java.nio.file.NoSuchFileException:/usr/share/elasticsearch/data/nodes/0/node.lock&quot;</em></p>
+<p>原因：可能是镜像对挂载的数据卷（位于docker的<a href="">卷目录</a>下，在WSL中实际映射到Windows的文件系统中）没有正确的读写权限。==该问题在Linux虚拟机中不曾出现，且在删除出错的服务和数据卷后重新创建服务后该问题没有复现==。</p>
+</li>
+<li>
+<p>问题：<em>Exception in thread &quot;main&quot; java.nio.file.FileSystemException: /tmp/elasticsearch-15594239510299122966: No space left on device</em>。</p>
+<p>原因：宿主机存储空间不足，无法创建数据卷。清理磁盘或增加磁盘容量。</p>
+</li>
+</ol>
+<h3 id="配置"><a class="header" href="#配置">配置</a></h3>
+<p>系统配置（<code>/etc/default/elasticsearch</code>[Ubuntu]或<code>/etc/sysconfig/elasticsearch</code>[CentOS]）：包括ES运行相关的系统环境变量。</p>
+<pre><code class="language-shell">ES_PATH_CONF=/etc/elasticsearch  # default
+ES_JAVA_HOME=/usr/share/elasticsearch/jdk/bin/java
+MAX_OPEN_FILES=65535
+</code></pre>
+<p>配置文件位于<code>/etc/elasticsearch/elasticsearch.yml</code>。重要配置项：</p>
+<pre><code class="language-yml">ES_TMPDIR: /data/tmp/es  # 不使用默认临时文件目录防止被以外删除
+node.name: es_005_data   # 默认为$(hostname)
+path:
+  data: /path/to/data  # Multiple data paths deprecated in 7.13
+  logs: /path/to/logs
+path.plugins: /path/to/plugins
+network.host: 0.0.0.0  # 默认仅监听loopback
+action.auto_create_index: *
+</code></pre>
+<blockquote>
+<p>ElasticSearch自带Java运行环境。ElasticSearch默认监听端口9200，如果被占用，将自动向后查询可用端口。</p>
+</blockquote>
+<p>集群环境配置：</p>
+<pre><code class="language-yaml">cluster.name: es_cluster  # 集群名相同的节点才能加入集群
+discovery.seed_hosts:  # 发现集群节点,默认会扫描同一机器上的实例（9300 to 9305）
+   - node-1
+   - 192.168.1.11:9300  
+   - seeds.mydomain.com
+cluster.initial_master_nodes:
+   - node-1   # =&gt; node.name
+   - node-2
+# at least one of [discovery.seed_hosts, discovery.seed_providers, cluster.initial_master_nodes] must be configured
+</code></pre>
+<blockquote>
+<p>当一个节点联系到单播列表中的成员时，它就会得到整个集群所有节点的状态，然后它会联系 master节点，并加入集群。</p>
+</blockquote>
+<p><a href="https://www.elastic.co/guide/cn/elasticsearch/guide/current/important-configuration-changes.html#_%E9%9B%86%E7%BE%A4%E6%81%A2%E5%A4%8D%E6%96%B9%E9%9D%A2%E7%9A%84%E9%85%8D%E7%BD%AE">集群恢复</a>：在集群重启的时候避免过多的分片交换。这可能会让数据恢复从数个小时缩短为几秒钟。</p>
+<pre><code class="language-yaml"># gateway.recover_after_nodes: 3   # 集群至少有3个节点可用才开始恢复数据
+gateway.recover_after_master_nodes: 1
+gateway.recover_after_data_nodes: 3
+# gateway.expected_nodes           # 等待达到4个节点或持续5min钟后开始恢复
+gateway.expected_data_nodes: 3   
+gateway.expected_master_nodes: 1
+gateway.recover_after_time: 5m  
+</code></pre>
+<h4 id="配置插件"><a class="header" href="#配置插件">配置插件</a></h4>
+<pre><code class="language-shell">elasticsearch-plugin install [plugin_name]  # curl host:9200/_cat/plugins
+</code></pre>
+<h4 id="配置logstash"><a class="header" href="#配置logstash">配置logstash</a></h4>
+<h5 id="插件管理"><a class="header" href="#插件管理">插件管理</a></h5>
+<p>Logstash包含了常用插件。</p>
+<pre><code class="language-shell">bin/logstash-plugin list --verbose
+                         --group output|input|filter|codec
+</code></pre>
+<h5 id="在线安装插件"><a class="header" href="#在线安装插件">在线安装插件</a></h5>
+<p>从<a href="https://rubygems.org/">RubyGems.org</a>获取插件：</p>
+<pre><code class="language-shell">logstash-plugin install|remove logstash-input-github
+logstash-plugin install /path/to/logstash-output-kafka-1.0.0.gem  # 安装本地插件
+logstash-plugin update [logstash-input-github] # 默认更新所有插件
+</code></pre>
+<p>离线安装和更新插件：</p>
+<pre><code class="language-shell">logstash-plugin prepare-offline-pack --output OUTPUT.zip --overwrite [PLUGINS]
+logstash-plugin install|update file:///path/to/logstash-offline-plugins.zip
+</code></pre>
+<blockquote>
+<p><code>PLUGINS</code>表示要打包的插件（可使用通配符<code>*</code>）。</p>
+</blockquote>
+<h5 id="logstash执行环境"><a class="header" href="#logstash执行环境">logstash执行环境</a></h5>
+<p><a href="https://www.elastic.co/guide/en/logstash/7.15/logstash-settings-file.html"><code>logstash.yml</code></a>：</p>
+<pre><code class="language-yml">node.name: ${HOSTNAME}
+path.data: LOGSTASH_HOME/data
+timzzone？
+</code></pre>
+<p><code>pipelines.yml</code>：</p>
+<h5 id="logstash管道配置"><a class="header" href="#logstash管道配置">logstash管道配置</a></h5>
+<p><code>/etc/logstash/conf.d</code></p>
+<blockquote>
+<p>The default Logstash installation includes the Beats input plugin. The Beats input plugin enables Logstash to receive events from the Elastic Beats framework, which means that any Beat written to work with the Beats framework, such as Packetbeat and Metricbeat, can also send event data to Logstash.]</p>
+</blockquote>
+<p>可定义多个输入数据源和输出目标。</p>
+<pre><code class="language-conf">input {
+  beats {
+    port =&gt; &quot;5044&quot;
+  }
+  file {
+    path =&gt; &quot;/var/log/messages&quot;
+    type =&gt; &quot;syslog&quot;
+  }
+   kafka{
+     bootstrap_servers=&gt;&quot;192.168.13.10:9092&quot;
+     topics=&gt;[&quot;kafka_es_test&quot;]
+     group_id=&gt;&quot;logstash_kafka_test&quot;
+   }
+}
+filter {
+  grok {
+    # parse apache web logs
+    match =&gt; { &quot;message&quot; =&gt; &quot;%{COMBINEDAPACHELOG}&quot;} 
+  }
+}
+output {
+  stdout { codec =&gt; rubydebug }
+  elasticsearch {
+    hosts =&gt; [ &quot;localhost:9200&quot; ]
+    index =&gt; &quot;logstash_kafka_test&quot;
+  }
+}
+</code></pre>
+<h5 id="测试"><a class="header" href="#测试">测试</a></h5>
+<p><code>&quot;@timestamp&quot;</code>日志收集时间，非日志中表示时间的字段。</p>
+<pre><code class="language-shell">bin/logstash -f first-pipeline.conf --config.test_and_exit  # 测试配置文件
+bin/logstash -f first-pipeline.conf --config.reload.automatic  # 启用管道
+</code></pre>
+<h3 id="启用服务"><a class="header" href="#启用服务">启用服务</a></h3>
+<pre><code class="language-shell">sudo systemctl daemon-reload
+sudo systemctl enable --now elasticsearch.service  # sudo is required
+sudo systemctl start logstash.service
+</code></pre>
+<h4 id="查看状态"><a class="header" href="#查看状态">查看状态</a></h4>
+<h5 id="查看集群状态"><a class="header" href="#查看集群状态">查看集群状态</a></h5>
+<pre><code class="language-http">http://hostip:9200/   # 访问elasticsearch
+http://hostip:5601/   # 访问kibana
+GET /_cat/health?v
+GET _cluster/health
+</code></pre>
+<blockquote>
+<p>The cluster status will remain yellow if you are only running a single instance of Elasticsearch.</p>
+</blockquote>
+<h5 id="查看日志"><a class="header" href="#查看日志">查看日志</a></h5>
+<pre><code class="language-shell">sudo journalctl --unit elasticsearch \
+                --since  &quot;2016-10-30 18:17:16&quot;
+</code></pre>
+<h3 id="api"><a class="header" href="#api">API</a></h3>
+<p>使用REST接口访问Elasticsearch以<a href="#%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE">查询</a>或<a href="#%E5%86%99%E5%85%A5%E6%95%B0%E6%8D%AE">写入</a>数据。使用<code>curl</code>提交数据访问请求：</p>
+<pre><code class="language-sh">curl -X&lt;VERB&gt; '&lt;PROTOCOL&gt;://&lt;HOST&gt;:&lt;PORT&gt;/&lt;PATH&gt;?&lt;QUERY_STRING&gt;' -d '&lt;BODY&gt;'
+</code></pre>
+<p><code>VERB</code>：<code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>HEAD</code>, or <code>DELETE</code>.</p>
+<p><code>PROTOCOL</code>：<code>http</code> or <code>https</code></p>
+<p><code>PATH</code>：数据路径。</p>
+<p><code>BODY</code>：JSON请求体。</p>
+<p>示例：</p>
+<pre><code class="language-shell">curl -XGET http://localhost:9200/_index/_doc/_id
+</code></pre>
+<h5 id="查看可用管理接口"><a class="header" href="#查看可用管理接口">查看可用管理接口</a></h5>
+<pre><code class="language-shell">_/cat   # 列出可用接口
+</code></pre>
+<p>列出的接口通常有两种调用方式：</p>
+<pre><code class="language-shell">_cat/ACTION?v # 返回简要信息（表格，v显示表头）
+_ACTION       # 返回详细信息（JSON）
+</code></pre>
+<p><code>/_cat/snapshots</code>对应的API是<code>/_snapshot[/{repo_name}]</code></p>
+<p>常用接口：</p>
+<pre><code class="language-shell">GET /_cat/indices/{index}?v # 查看(指定索引模式)索引列表
+GET /_cat/templates/?v      # 查看索引模板
+# health status index uuid  pri  rep  docs.count ... store.size ...
+GET /_cat/tasks?v           # 查看正在运行的任务
+# action  task_id ... type start_time ... running_time ip node
+GET /_cat/health?v          # 查看集群状态
+GET /_cat/master?v          # 查看主节点信息
+GET /_cat/nodes?v           # 查看主节点信息
+GET /_cat/plugins?v         # 查看各节点安装的插件信息
+GET /_cat/repositories      # 查看快照仓库列表
+GET /_cat/count/{index}?v   # 查看(指定索引模式)文档数量
+</code></pre>
+<h5 id="查看索引定义"><a class="header" href="#查看索引定义">查看索引定义</a></h5>
+<pre><code class="language-http">GET /&lt;index&gt;
+GET /&lt;index&gt;/{_mapping|_mappings}
+GET /&lt;index&gt;/_mapping/field/fieldname   //显式定义的映射才有返回结果
+GET /&lt;index&gt;/_settings
+GET /&lt;index&gt;/{_alias|_aliases}
+GET _data_stream
+GET _data_stream/{data_stream_name}
+</code></pre>
+<blockquote>
+<p><code>index</code>可以包含通配符，<code>_all</code>代表所有索引（等效于<code>*</code>或省略索引）。</p>
+</blockquote>
+<h3 id="索引生命周期管理"><a class="header" href="#索引生命周期管理">索引生命周期管理</a></h3>
+<p>将旧数据移动到较为便宜的存储设备中，从而提高性能并减小开销。</p>
+<h4 id="data-tiers"><a class="header" href="#data-tiers">data tiers</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>tiers</th><th>necessity</th><th>description</th></tr></thead><tbody>
+<tr><td>hot<br/>warm</td><td>required<br/>optional</td><td>高性能节点<br />快速索引和搜索最近数据</td></tr>
+<tr><td>content</td><td>required</td><td>非时序数据</td></tr>
+<tr><td>cold<br/>frozen</td><td>optional</td><td>慢速便宜节点</td></tr>
+</tbody></table>
+</div>
+<p>在节点的配置文件中声明节点对应的<code>tier</code>。一个节点可以对应一个或多个<code>tier</code>。</p>
+<pre><code class="language-yml">node.roles: [ data_content, data_hot, data_warm ]
+</code></pre>
+<h5 id="searchable-snapshot"><a class="header" href="#searchable-snapshot">Searchable Snapshot</a></h5>
+<p>使用可搜索快照以减小本地存储开销。</p>
+<p><a href="https://www.elastic.co/guide/en/elasticsearch/plugins/7.14/repository-hdfs.html">Hadoop HDFS Repository Plugin | Elasticsearch Plugins and Integrations 7.14 | Elastic</a>。</p>
+<pre><code class="language-json">// PUT _snapshot/my_hdfs_repository
+{
+  &quot;type&quot;: &quot;hdfs&quot;,
+  &quot;settings&quot;: {
+    &quot;uri&quot;: &quot;hdfs://namenode:8020/&quot;,
+    &quot;path&quot;: &quot;elasticsearch/repositories/my_hdfs_repository&quot;,
+    &quot;conf.dfs.client.read.shortcircuit&quot;: &quot;true&quot;
+  }
+}
+</code></pre>
+<h4 id="生命周期策略"><a class="header" href="#生命周期策略">生命周期策略</a></h4>
+<p>内置生命周期策略：<code>logs,metrics,synthetics</code>。</p>
+<pre><code class="language-http">GET _ilm/policy
+GET _ilm/policy/logs
+</code></pre>
+<pre><code class="language-http">PUT _ilm/policy/my-lifecycle-policy
+{...}
+</code></pre>
+<h2 id="写入数据"><a class="header" href="#写入数据">写入数据</a></h2>
+<p>将JSON文档存入Elasticsearch索引。</p>
+<ul>
+<li>按需创建索引：添加数据时创建对应的索引，使用动态映射；</li>
+<li>手动<a href="#%E5%88%9B%E5%BB%BA%E7%B4%A2%E5%BC%95">创建索引</a>：
+<ul>
+<li>使用显式映射；</li>
+<li>使用动态映射；</li>
+</ul>
+</li>
+<li>基于模板自动创建索引：添加映射模板和设置模板（生命周期管理）；</li>
+</ul>
+<h3 id="术语"><a class="header" href="#术语">术语</a></h3>
+<h5 id="索引"><a class="header" href="#索引">索引</a></h5>
+<p>索引名称：在API中索引名称可使用日期函数动态生成查询索引名。表达式：</p>
+<pre><code>&lt;static_name{now/d{yyyy.MM.dd-HH:mm:ss|+08:00}}&gt;
+</code></pre>
+<p>索引名称中的包含的特殊字符必须使用URL编码：</p>
+<pre><code class="language-python">from urllib.parse import quote
+index = quote_plus(index_expr)  # quote_plus对&quot;/&quot;也进行编码，以与路径分隔符区分开
+</code></pre>
+<blockquote>
+<p>浏览器等Web客户端通常会自动编码，而使用API时需要手动进行上述编码转换。</p>
+</blockquote>
+<h5 id="文档"><a class="header" href="#文档"><img src="Elasticsearch.assets/image-20210921134406228.png" alt="image-20210921134406228" style="float:right; zoom:50%;" />文档</a></h5>
+<p>JSON对象。</p>
+<blockquote>
+<p>文档类型<code>type</code>，即一个索引可声明一个或多个映射类型，在提交或查询数据时指定<code>type</code>，则按指定类型映射进行处理。如果一个索引的多个映射类型包含同一字段，但其数据类型不同，则<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/removal-of-types.html">在索引或查询数据时会产生冲突</a>。</p>
+<p>5.6版本设置<code>index.mapping.single_type: true</code>使索引仅支持单个映射类型；6.x版本仅支持定义单个<code>type</code>（可以是任意合法标识），且为了与7.x版本兼容，最好声明为<code>_doc</code>；7.x版本将弃用<code>type</code>声明（在API请求中声明参数<code>include_type_name=true</code>将产生启用警告），8.x版本将不再支持声明<code>type</code>。</p>
+<p>在新版本中索引的API中，<code>type=_doc</code>且不再表示文档类型，仅作为API路径（类似于<code>_mappings</code>和<code>_settings_</code>）：</p>
+<pre><code class="language-http">PUT {index}/_doc/{id} 
+POST {index}/_doc
+</code></pre>
+</blockquote>
+<p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.14/runtime.html">Runtime fields</a>：查询时进行计算的字段。</p>
+<h3 id="索引文档"><a class="header" href="#索引文档">索引文档</a></h3>
+<h4 id="创建索引"><a class="header" href="#创建索引">创建索引</a></h4>
+<p>如果没有配置自动创建索引，那么在索引文档前，需要首先创建索引。</p>
+<pre><code class="language-json">// PUT /my-index-000001
+{
+   &quot;settings&quot;: {
+      &quot;index&quot;: {
+         &quot;number_of_shards&quot;: 3,  
+         &quot;number_of_replicas&quot;: 2 
+      }
+   },
+   &quot;mappings&quot;: {
+      &quot;properties&quot;: {
+         &quot;field1&quot;: { &quot;type&quot;: &quot;text&quot; }
+      }
+   }   
+}
+</code></pre>
+<p>创建索引时，可选择指定索引的配置、<a href="#%E6%98%A0%E5%B0%84">映射</a>等信息。如果未指定映射，则索引将使用默认的自动映射规则。创建完成后返回执行状态。</p>
+<pre><code class="language-python">{'acknowledge': True, 'shards_acknowledged': True}
+</code></pre>
+<h5 id="删除索引"><a class="header" href="#删除索引">删除索引</a></h5>
+<pre><code class="language-http">DELETE /&lt;index_name&gt;  
+</code></pre>
+<p>不支持通配符批量删除。</p>
+<h4 id="索引的数据类型映射"><a class="header" href="#索引的数据类型映射">索引的数据类型映射</a></h4>
+<p>将文档中的数据字段转换为ES存储的目标<a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.14/mapping-types.html">数据类型</a>，在创建索引时为索引指定映射设置。</p>
+<h5 id="显式类型映射"><a class="header" href="#显式类型映射">显式类型映射</a></h5>
+<p>映射定义了文档字段的数据类型、格式等。<a href="#%E6%9F%A5%E7%9C%8B%E7%B4%A2%E5%BC%95%E5%AE%9A%E4%B9%89">查看映射的定义</a>。</p>
+<pre><code class="language-json">//PUT /my-index-000001
+{
+   &quot;mappings&quot;: {
+      &quot;&lt;doc_type&gt;&quot;:{   // *
+         &quot;properties&quot;: {
+            &quot;age&quot;:    { &quot;type&quot;: &quot;integer&quot; },
+            &quot;email&quot;:  { &quot;type&quot;: &quot;keyword&quot;  },
+            &quot;name&quot;:   { &quot;type&quot;: &quot;text&quot;  }
+         } } } }
+</code></pre>
+<blockquote>
+<p><code>*</code>：<code>doc_type</code>已弃用(7.x)无须声明，直接将<code>properties</code>声明在<code>mappings</code>中。<code>5.x</code>需要声明。</p>
+</blockquote>
+<p>更新映射：添加一个字段。注意，通常无法修改已经定义的字段，否则会与已有数据冲突。</p>
+<pre><code class="language-json">//PUT /my-index-000001/_mapping   # =&gt; 
+{
+   &quot;properties&quot;: {
+      &quot;city&quot;: {
+         &quot;type&quot;: &quot;text&quot;,
+         &quot;fields&quot;: {    // 该字段的属性
+            &quot;name&quot;: { 
+               &quot;type&quot;:  &quot;keyword&quot;
+            }
+         }
+   }
+}
+</code></pre>
+<h5 id="动态类型映射"><a class="header" href="#动态类型映射">动态类型映射</a></h5>
+<p>ES自动解析数据并设定对应的字段的类型。</p>
+<p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.14/dynamic-field-mapping.html">Dynamic field mapping | Elasticsearch Guide 7.14 | Elastic</a></p>
+<ol>
+<li>
+<p><strong>自动类型映射</strong>：修改自动映射配置（如果索引不存在将自动创建索引）：</p>
+<pre><code class="language-json">//PUT my-index-000001
+{
+   &quot;mappings&quot;: {
+       &quot;&lt;doc_type&gt;&quot;: {  // *
+          &quot;dynamic&quot;: true,
+          &quot;date_detection&quot;: true,                 // 转换日期类型
+          &quot;dynamic_date_formats&quot;: [&quot;MM/dd/yyyy&quot;], // 日期转换格式
+          &quot;numeric_detection&quot;: true 
+       }
+   }
+}
+</code></pre>
+<blockquote>
+<p><code>*</code>：<code>doc_type</code>已弃用(7.x)无须声明，直接将<code>properties</code>声明在<code>mappings</code>中。<code>5.x</code>需要声明。</p>
+</blockquote>
+</li>
+<li>
+<p><strong>基于规则的动态类型映射</strong>：基于规则进行类型映射。</p>
+</li>
+</ol>
+<pre><code class="language-json">{
+   &quot;mappings&quot;:{
+      &quot;dynamic_templates&quot;:[  // 可定义多个动态映射模板
+         {
+            &quot;as_integer&quot;:{   // 模板名称
+               &quot;match_mapping_type&quot;: &quot;long&quot;, // 匹配检测到的数据类型*
+               &quot;norms&quot;: false,        // 不存储index-time scoring factor
+               &quot;mapping&quot;:{
+                  &quot;type&quot;: &quot;integer&quot;，
+                  &quot;index&quot;: false      // 不索引该字段**
+               }
+            }
+         },
+         {
+            &quot;as_date&quot;:{
+               &quot;match_pattern&quot;: &quot;regex&quot;,
+               &quot;match&quot;: &quot;_time$&quot;,      // 匹配字段名
+               &quot;unmatch&quot;: &quot;^collect&quot;,
+               &quot;mapping&quot;:{ }
+            }
+         },
+         {
+            &quot;as_keyword&quot;:{
+               &quot;path_match&quot;:   &quot;name.*&quot;,  // 匹配路径名
+               &quot;path_unmatch&quot;: &quot;*.middle&quot;,
+               &quot;mapping&quot;: {},
+               &quot;runtime&quot;: {},             // 查询时将字符串转换为keyword
+         }
+      ]
+   }
+}
+</code></pre>
+<blockquote>
+<p><code>*</code>：匹配条件：如果未指定<code>match_mapping_type,match,path_match</code>中的任意一个，则该动态模板不会匹配任何字段。</p>
+</blockquote>
+<h5 id="查询时映射"><a class="header" href="#查询时映射"><a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.14/runtime-mapping-fields.html">查询时映射</a></a></h5>
+<ol>
+<li>通过脚本生成运行时的字段。</li>
+<li>在执行搜索时定义运行时字段。</li>
+</ol>
+<h4 id="索引模板"><a class="header" href="#索引模板">索引模板</a></h4>
+<p>如果索引名不存在且匹配该模板，则ES将根据该模板创建索引。</p>
+<h5 id="创建模板组件"><a class="header" href="#创建模板组件">创建模板组件</a></h5>
+<p>索引模板组件通常由映射(mappings)和索引设置(index settings)模板组成。模板组件从模板定义中被抽离出来从而可以被==复用==（索引生命周期策略配置同理）。</p>
+<h6 id="映射模板"><a class="header" href="#映射模板">映射模板</a></h6>
+<pre><code class="language-json">// PUT _component_template/my-mappings # =&gt; Create a mappings template
+{
+  &quot;template&quot;: {
+    &quot;mappings&quot;: {
+      &quot;properties&quot;: {
+        &quot;@timestamp&quot;: {
+          &quot;type&quot;: &quot;date&quot;,    // 数据类型
+          &quot;format&quot;: &quot;date_optional_time||epoch_millis&quot;  // 格式
+        },
+        &quot;message&quot;: {
+          &quot;type&quot;: &quot;wildcard&quot;
+        }
+}}},
+  &quot;_meta&quot;: {
+    &quot;description&quot;: &quot;Mappings for @timestamp and message fields&quot;,
+    &quot;my-custom-meta-field&quot;: &quot;自定义元数据&quot;
+}}
+</code></pre>
+<h6 id="索引设置模板"><a class="header" href="#索引设置模板">索引设置模板</a></h6>
+<p>索引设置定义了索引的<a href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AD%96%E7%95%A5">生命周期策略</a>。</p>
+<pre><code class="language-json">//PUT _component_template/my-settings # Create a index settings template
+{
+  &quot;template&quot;: {
+    &quot;settings&quot;: {
+      &quot;index.lifecycle.name&quot;: &quot;my-lifecycle-policy&quot; // 索引生命周期策略
+}},
+  &quot;_meta&quot;: {
+    &quot;description&quot;: &quot;Settings for ILM&quot;,
+    &quot;my-custom-meta-field&quot;: &quot;自定义元数据&quot;
+}}
+</code></pre>
+<h5 id="创建索引模板"><a class="header" href="#创建索引模板">创建索引模板</a></h5>
+<pre><code class="language-json">//PUT _index_template/my-index-template
+{
+  &quot;index_patterns&quot;: [&quot;my-data-stream*&quot;],   // 匹配索引/数据流的名称
+  &quot;data_stream&quot;: { },                      // data stream enabled
+  &quot;composed_of&quot;: [ &quot;my-mappings&quot;, &quot;my-settings&quot; ], // 模板组件
+  &quot;priority&quot;: 500,                         // 优先级&gt;=200，避免与内置索引模板冲突
+  &quot;_meta&quot;: {
+    &quot;description&quot;: &quot;Template for my time series data&quot;,
+    &quot;my-custom-meta-field&quot;: &quot;More arbitrary metadata&quot;
+}}
+</code></pre>
+<h4 id="创建文档"><a class="header" href="#创建文档">创建文档</a></h4>
+<h5 id="使用putpost提交文档"><a class="header" href="#使用putpost提交文档">使用PUT/POST提交文档</a></h5>
+<p>将JSON文档存储为ES索引对象。API接口格式：</p>
+<pre><code class="language-json">// PUT  /&lt;index&gt;/_doc/&lt;_id&gt;      # 创建或更新指定id文档 *
+// POST /&lt;index&gt;/_doc/           # 创建文档并自动创建id **
+// PUT  /&lt;index&gt;/_create/&lt;_id&gt;   # 显式创建指定id的文档
+// POST /&lt;index&gt;/_create/&lt;_id&gt;   # 显式创建指定id的文档
+{
+  &quot;fristName&quot;: &quot;sunke&quot;,
+  &quot;lastName&quot; : &quot;Lee&quot; ,
+  &quot;tags&quot; : [&quot;guitar&quot;,&quot;ball&quot;]
+}
+// POST /users/_doc/1   =&gt; index/type_id 
+
+</code></pre>
+<ul>
+<li><code>index</code>：索引或数据流名称。如果目标不存在，则自动创建。</li>
+</ul>
+<blockquote>
+<p><code>*</code>：<code>5.x</code>：API第二级为<code>&lt;doc_type&gt;</code>，后续版本弃用<code>doc_type</code>，使用<code>_doc/_create</code>代替。</p>
+<p><code>**</code>：要自动创建ID，需要使用<code>POST</code>方法，<code>op_type</code>设置为<code>create</code>。</p>
+</blockquote>
+<p>API查询参数：</p>
+<ul>
+<li><code>version</code>：显式指定文档的版本号（整数）；</li>
+<li><code>op_type</code>：<code>create</code>如果文档存在则返回创建失败，默认<code>index</code>为创建或更新已有文档。等效于在API后添加<code>/_create</code>。</li>
+<li><code>timeout</code>：等待主分片可用的超时时长，默认为<code>1m</code>（1分）。</li>
+</ul>
+<h5 id="批量提交文档索引操作"><a class="header" href="#批量提交文档索引操作">批量提交文档索引操作</a></h5>
+<p>将文档索引操作数据放在HTTP请求主体中。每条操作数据需要包含操作说明和可选的文档数据，并以换行结束。</p>
+<pre><code class="language-json">// PUT logs-my_app-default/_bulk?_source=false
+{ &quot;create&quot;: { } }    // action and meta data   =&gt; [PUT]
+{ &quot;@timestamp&quot;: &quot;2099-05-07T16:24:32.000Z&quot;, &quot;event&quot;: { &quot;original&quot;: &quot;192.0.2.242 - - [07/May/2020:16:24:32 -0500] \&quot;GET /images/hm_nbg.jpg HTTP/1.0\&quot; 304 0&quot; } } // data
+{ &quot;index&quot;: { &quot;_id&quot;:&quot;1&quot;, &quot;_type&quot;: &quot;_doc&quot;} } // =&gt; {POST}
+{ &quot;@timestamp&quot;: &quot;2099-05-08T16:25:42.000Z&quot;, &quot;event&quot;: { &quot;original&quot;: &quot;192.0.2.255 - - [08/May/2099:16:25:42 +0000] \&quot;GET /favicon.ico HTTP/1.0\&quot; 200 3638&quot; } }
+// new line
+</code></pre>
+<p>操作方式包括：<code>create</code>， <code>index</code>，<code>update</code>，<code>delete</code>（无数据行）。由于数据以<code>\n</code>区分记录，因此要确保JSON文件不能格式化换行缩进。如果数据量较大，也可指定传输的文件。</p>
+<pre><code class="language-shell">curl -H &quot;Content-Type: application/json&quot; -XPOST &quot;localhost:9200/bank/_bulk?pretty&amp;refresh&quot; --data-binary &quot;@accounts.json&quot;
+</code></pre>
+<p>如果未指定目标索引，则需要在<code>action</code>数据中指定<code>&quot;_index&quot;</code>参数：</p>
+<pre><code class="language-json">// PUT _bulk  
+{ &quot;create&quot; : { &quot;_index&quot; : &quot;test&quot;, &quot;_id&quot; : &quot;3&quot; } }
+{ &quot;field1&quot; : &quot;value3&quot; }
+</code></pre>
+<h6 id="请求参数"><a class="header" href="#请求参数">请求参数</a></h6>
+<ul>
+<li><code>_source</code>是否返回提交的数据，或要返回的数据字段。</li>
+</ul>
+<p>参考：https://www.elastic.co/guide/en/elasticsearch/reference/7.10/getting-started-index.html。</p>
+<h3 id="数据流"><a class="header" href="#数据流">数据流</a></h3>
+<p>数据流适用于日志、事件、指标等自动生成数据。一个数据流由一个或多个后台索引组成。</p>
+<p>数据流需要一个匹配的<a href="#%E7%B4%A2%E5%BC%95%E6%A8%A1%E6%9D%BF">索引模板</a>。</p>
+<blockquote>
+<p><em>Every document indexed to a data stream must contain a <code>@timestamp</code> field, mapped as a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.14/date.html"><code>date</code></a> or <a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.14/date_nanos.html"><code>date_nanos</code></a> field type.</em></p>
+</blockquote>
+<h4 id="filebeat"><a class="header" href="#filebeat">Filebeat</a></h4>
+<p><code>/var/lib/filebeat/registry</code>存储了文件读取记录，进行重复测试时需要删除该目录。</p>
+<pre><code class="language-yml">filebeat.inputs:
+- type: log
+  paths:
+    - /path/to/file/logstash-tutorial.log 
+output.logstash:
+  hosts: [&quot;localhost:5044&quot;]
+</code></pre>
+<h4 id="kafka"><a class="header" href="#kafka">Kafka</a></h4>
+<blockquote>
+<p>The Logstash Kafka consumer handles group management and uses the default offset management strategy using Kafka topics.</p>
+<p>Logstash instances by default form a single logical group to subscribe to Kafka topics Each Logstash Kafka consumer can run multiple threads to increase read throughput. </p>
+</blockquote>
+<p><a href="https://cloud.tencent.com/developer/article/1362320">当Elasticsearch遇见Kafka--Logstash kafka input插件 - 云+社区 - 腾讯云 (tencent.com)</a></p>
+<pre><code class="language-json">input {
+   kafka {
+     bootstrap_servers=&gt;&quot;kafka_server:9092&quot;
+     topics=&gt;[&quot;kafka_es_test&quot;]
+     group_id=&gt;&quot;logstash&quot;
+     client_id=&gt;&quot;logstash&quot;
+     auto_offset_resetedit=&gt;&quot;latest&quot;
+     consumer_threads=&gt;N_PARTITIONS
+     decorate_events=&gt;&quot;basic&quot;|&quot;extended&quot;    // 添加Kafka元数据 =&gt;@metadata
+     security_protocol=&gt;&quot;PLAINTEXT&quot;
+     topics_pattern=&gt;&quot;kafka*&quot;
+     add_field=&gt;{     }
+     codec=&gt;&quot;plain&quot;
+     enable_metric=&gt;true  // 记录插件的性能日志
+     id=&gt;&quot;plugin_id&quot;      // 插件ID
+     tags=&gt;[&quot;TAG_a&quot;, &quot;TAG_b&quot;]
+     type=&gt;&quot;log_type&quot;
+   }
+}
+filter {
+   mutate { 
+      add_field =&gt; { &quot;[@metadata][target_index]&quot; =&gt; &quot;prod-%{+YYYY.MM.dd}&quot; } 
+   }
+}
+output {
+   elasticsearch {
+       hosts =&gt; [ &quot;localhost:9200&quot; ]
+       index =&gt; &quot;logstash_kafka_test&quot;
+       index =&gt; &quot;%{[some_field][sub_field]}-%{+YYYY.MM.dd}&quot; // 动态生成索引名
+       index =&gt; &quot;%{[@metadata][target_index]}&quot;              // 使用添加的元数据作为索引名
+       id=&gt;&quot;plugin_id&quot;
+       enable_metric=&gt;true  // 记录插件的性能日志
+  }
+  elasticsearch { // 数据流
+     hosts =&gt; [ &quot;localhost:9200&quot; ]
+     data_stream =&gt; &quot;true&quot;
+     data_stream_type =&gt; &quot;metrics&quot;
+     data_stream_dataset =&gt; &quot;foo&quot;
+     data_stream_namespace =&gt; &quot;bar&quot;
+     ilm_rollover_alias =&gt; &quot;custom&quot;
+     ilm_pattern =&gt; &quot;000001&quot;
+     ilm_policy =&gt; &quot;custom_policy&quot;
+  }
+}
+</code></pre>
+<blockquote>
+<p>元数据：</p>
+<p><code>[@metadata][kafka][topic]</code>
+<code>[@metadata][kafka][offset]</code>
+<code>[@metadata][kafka][timestamp]</code></p>
+</blockquote>
+<h2 id="查询文档数据"><a class="header" href="#查询文档数据">查询文档数据</a></h2>
+<h3 id="query-dsl"><a class="header" href="#query-dsl">Query DSL</a></h3>
+<p>使用索引名称<code>index</code>可<a href="#REST-API">查询</a>该索引中的文档<code>doc</code>内容<sup class="footnote-reference"><a href="#search">1</a></sup>。</p>
+<pre><code class="language-shell">POST http://hostip:9200/index_name[/&lt;doc_type&gt;]/_search # *
+POST http://hostip:9200/index1,index2,.../_search       # &quot;,&quot; =&gt; &quot;%2C&quot;
+</code></pre>
+<blockquote>
+<p><code>*</code>：由于<code>doc_type</code>属性已弃用（<code>7.x</code>），查询时可不用指定。</p>
+</blockquote>
+<ul>
+<li><code>index</code>：索引名支持通配符<code>*</code>，使用<code>*</code>或<code>_all</code>查询所有索引。</li>
+</ul>
+<h4 id="查询参数"><a class="header" href="#查询参数">查询参数</a></h4>
+<p>结构简单的查询参数可通过URL参数设置，所有参数均可通过HTTP请求体字段设置，<a href="https://www.elastic.co/guide/en/elasticsearch/reference/8.2/search-search.html#search-search-api-query-params">URL参数优先级高于请求体字段</a>。请求体使用JSON对象可表示复杂的序列或字典对象参数。</p>
+<pre><code class="language-json">// POST http://hostname:9200/index_name/_search
+{
+  &quot;query&quot;: {&lt;query_specifications&gt;},
+  &quot;sort&quot;: sort_specs,
+  &quot;from&quot;: 10,  // default=0
+  &quot;size&quot;: 10,  // default=10
+  &quot;_source&quot;: [&quot;account_number&quot;, &quot;firstname&quot;]
+}
+</code></pre>
+<ul>
+<li><code>query</code>：DSL查询语句声明，包括[单项查询]( #Term-level queries)、[复合查询]( #Compound queries)等。</li>
+<li><code>allow_no_indices=true</code>：如果为<code>false</code>，目标索引==存在任何==缺失或关闭则返回错误；</li>
+<li><code>_source/_source_include/_source_exclude</code>：是否要在返回结果中包含文档的字段数据，以及需要包含/排除的字段（支持字段名模糊匹配）。</li>
+<li><code>size=10</code>：返回文档数量。</li>
+<li><code>from</code>：指定返回记录偏移；<em><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/paginate-search-results.html#search-after">Avoid using from and size to page too deeply or request too many results at once</a>. By default, you cannot use</em> <code>from</code> <em>and</em> <code>size</code> <em>to page through more than 10,000 hits.</em> ==<code>from+size&lt;=10000</code>==：<a href="https://www.elastic.co/guide/en/elasticsearch/reference/5.1/search-request-search-after.html">search requests take heap memory and time proportional</a> to <code>from + size</code>. </li>
+<li><code>timeout</code>：等待每个分片响应的超时时长。</li>
+<li><code>version=false</code>：返回文档的版本信息。</li>
+</ul>
+<h5 id="生成字段"><a class="header" href="#生成字段">生成字段</a></h5>
+<p>通过脚本计算生成新的字段（也可使用<a href="#%E6%9F%A5%E8%AF%A2%E6%97%B6%E6%98%A0%E5%B0%84">查询时映射</a>计算新的字段）；</p>
+<pre><code class="language-json">&quot;script_fields&quot;: {
+   &quot;field_name&quot;: {
+       &quot;script&quot;: {
+         &quot;lang&quot;: &quot;painless&quot;,  // the script language, default to &quot;painless&quot;
+         &quot;source&quot;: &quot;field1 * field2&quot;
+}}}
+</code></pre>
+<blockquote>
+<p><strong>字符串拼接</strong>脚本：默认禁用文本字段计算，可使用<code>keyword</code>运算。</p>
+<pre><code class="language-json">doc['firstname.keyword'].value + ' ' + doc['lastname.keyword'].value
+</code></pre>
+<p>使用<code>keyword</code>得到的结果带“<code>[]</code>”，使用<code>.value</code>获取其字符串值。</p>
+</blockquote>
+<h4 id="查询视图"><a class="header" href="#查询视图">查询视图</a></h4>
+<p>搜索请求默认获取当前可用的最新数据，使用查询视图可保证每次查询访问一致的数据。</p>
+<h5 id="分页视图"><a class="header" href="#分页视图">分页视图</a></h5>
+<ul>
+<li>
+<p><code>scroll=1m</code>：分页搜索上下文的保存时长。由于后续请求会刷新上下文的保存时长，因此该值的设置只要大于一批数据处理的时长即可。</p>
+<p>查询结果返回<code>_scroll_id</code>（每次查询后返回的值可能会发生变化，应使用最新值），后续查询使用<code>_scroll_id</code>继续获取数据。</p>
+<p>每次调用<code>scroll</code>API返回下一批数据直到获取所有查询结果（即返回查询结果为空）；如果查询语句包含聚合查询，仅第一次响应包含聚合查询结果。</p>
+<pre><code class="language-json">// GET  /my-index-000001/_search    -&gt; _scroll_id
+{
+    &quot;scroll&quot;: &quot;1m&quot;
+}
+// POST /_search/scroll
+{
+    &quot;scroll&quot; : &quot;1m&quot;,   // 后续请求将更新分页上下文的保存时长*
+    &quot;scroll_id&quot;: _scroll_id
+}
+</code></pre>
+<blockquote>
+<p><code>*</code>：如果后续请求未指定<code>scroll</code>参数，后台将删除该搜索上下文。也可通过<a href="https://www.elastic.co/guide/en/elasticsearch/reference/8.2/paginate-search-results.html#clear-scroll"><code>DELETE /_search/scroll</code>接口</a>删除搜索上下文以释放资源。</p>
+<p>分页搜索的结果在首次请求搜索时已经确定，后续分页返回结果不受文档更新的影响。</p>
+<p>We no longer recommend using the scroll API for deep pagination. If you need to preserve the index state while paging through more than 10,000 hits, use the search_after parameter with a point in time (<a href="#PIT">PIT</a>).</p>
+</blockquote>
+</li>
+</ul>
+<h5 id="排序视图"><a class="header" href="#排序视图">排序视图</a></h5>
+<ul>
+<li>
+<p><code>sort</code>：排序字段，命令行参数格式为<code>field1:asc,field:desc,...</code>；使用<code>sort</code>语句后，返回的结果包含<code>sort</code>字段，表示当前文档的排序字段的值。</p>
+<pre><code class="language-json">{
+    &quot;sort&quot;: [ 
+        &quot;_doc&quot;,  // simplest with default order
+        { &quot;account_number&quot;: &quot;asc&quot; },   //simple： asc|desc
+        { &quot;post_date&quot; : {&quot;order&quot; : &quot;asc&quot;, &quot;format&quot;: &quot;yyyy-mm-dd&quot;}}, //complex
+    ],
+    &quot;from&quot;: 0  // 设置为0或-1
+}
+</code></pre>
+</li>
+<li>
+<p><code>search_after</code>：分页返回排序查询结果。包含<code>sort</code>声明的查询返回文档<code>hits</code>每条记录中包含额外的<code>sort</code>字段，将该字段值设置为<code>search_after</code>参数的值以返回排序结果的下一页。</p>
+</li>
+</ul>
+<h5 id="pit"><a class="header" href="#pit">PIT</a></h5>
+<p>Point in time接口生成查询发起时的轻量级数据视图，从而保证在一段时间内使用查询接口可获取一致的数据而不受数据更新的影响。<code>[7.10+]</code></p>
+<pre><code class="language-json">// POST /my-index-000001/_pit?keep_alive=1m  // create pit view -&gt; pit_id
+// POST /_search // pit search not specify index name
+{
+    &quot;query&quot;: {},
+    &quot;pit&quot;: { &quot;id&quot;: &quot;&lt;pit_id&gt;&quot;, &quot;keep_alive&quot;: &quot;1m&quot; }
+}
+// DELETE /_pit
+{ &quot;id&quot; : pit_id }  // 完成搜索任务后删除视图释放资源
+</code></pre>
+<h5 id="分片查询"><a class="header" href="#分片查询">分片查询</a></h5>
+<p>当查询大量文档时，可将其分片，并分别请求每个分片的查询结果。</p>
+<pre><code class="language-json">// GET /_search
+{
+  &quot;slice&quot;: {
+    &quot;id&quot;: 0,   // 当前分片                      
+    &quot;max&quot;: 2   // 分片最大数量                   
+  },
+  &quot;query&quot;: {},
+  &quot;pit&quot;: { &quot;id&quot;: &quot;&lt;pit_id&gt;&quot; }
+}
+</code></pre>
+<h5 id="分页返回排序结果"><a class="header" href="#分页返回排序结果">分页返回排序结果</a></h5>
+<p>如果查询语句包含排序参数声明，则返回结果包含更新的pit ID，同时返回的最后一条数据包含搜索分界编号：</p>
+<pre><code class="language-json">{
+  &quot;pit_id&quot; : &quot;&lt;updated_pit_id&gt;&quot;, 
+  &quot;hits&quot; : {
+    &quot;hits&quot; : [
+      //... hitted documents
+      {
+        &quot;sort&quot; : [ &quot;2021-05-20T05:30:04.832Z&quot;, 4294967298 ]
+      }
+    ]
+  }
+}
+</code></pre>
+<p>基于上述返回信息，可查询排序结果的下一页数据（类似于排序视图）：</p>
+<pre><code class="language-json">// GET /_search
+{
+  // query 和 sort 声明需要保持不变
+  &quot;pit&quot;: { &quot;id&quot;:  &quot;&lt;updated_pit_id&gt;&quot;,  &quot;keep_alive&quot;: &quot;1m&quot; },
+  &quot;search_after&quot;: [ &quot;2021-05-20T05:30:04.832Z&quot;, 4294967298 ],
+  &quot;track_total_hits&quot;: false // speed up pagination.
+}
+</code></pre>
+<h4 id="参数值的单位约定"><a class="header" href="#参数值的单位约定">参数值的单位约定</a></h4>
+<div class="table-wrapper"><table><thead><tr><th><a href="https://www.elastic.co/guide/en/elasticsearch/reference/8.2/api-conventions.html#size-units">纯量</a></th><th><a href="https://www.elastic.co/guide/en/elasticsearch/reference/8.2/api-conventions.html#byte-units">字节</a></th><th><a href="https://www.elastic.co/guide/en/elasticsearch/reference/8.2/api-conventions.html#distance-units">长度</a></th><th><a href="https://www.elastic.co/guide/en/elasticsearch/reference/8.2/api-conventions.html#time-units">时间</a></th></tr></thead><tbody>
+<tr><td></td><td><code>b</code>: bytes</td><td></td><td><code>nanos</code></td></tr>
+<tr><td><code>k</code>: kilo</td><td><code>kb</code></td><td><code>nmi</code></td><td><code>micros</code></td></tr>
+<tr><td><code>m</code>: mega</td><td><code>mb</code></td><td><code>mm</code></td><td><code>ms</code></td></tr>
+<tr><td><code>g</code>: giga</td><td><code>gb</code></td><td><code>cm</code></td><td><code>s</code>: seconds</td></tr>
+<tr><td><code>t</code>: tera</td><td><code>tb</code></td><td><code>m</code>: meters</td><td><code>m</code>: minutes</td></tr>
+<tr><td><code>p</code>: peta</td><td><code>pb</code></td><td><code>km</code></td><td><code>h</code>: hours</td></tr>
+<tr><td></td><td></td><td></td><td><code>d</code>: days</td></tr>
+</tbody></table>
+</div>
+<h3 id="term-level-queries"><a class="header" href="#term-level-queries">Term-level queries</a></h3>
+<blockquote>
+<p><em>You can use term-level queries to find documents based on precise values in structured data. Examples of structured data include date ranges, IP addresses, prices, or product IDs.</em></p>
+</blockquote>
+<h4 id="查询文档属性"><a class="header" href="#查询文档属性">查询文档属性</a></h4>
+<p><code>type</code> query
+Returns documents of the specified type.</p>
+<p><code>ids</code> query
+Returns documents based on their document IDs.</p>
+<h4 id="查询文档字段"><a class="header" href="#查询文档字段">查询文档字段</a></h4>
+<h5 id="exists"><a class="header" href="#exists">exists</a></h5>
+<p>返回索引中包含指定字段的文档。文档不含某个字段的原因包括：</p>
+<ul>
+<li>JSON文档字段的值为<code>null</code>或<code>[]</code>；</li>
+<li>在映射模板中，该字段设置了<code>&quot;index&quot;: false</code>、该字段长度超过<code>ignore_above</code>或触发<code>ignore_malformed</code>（字段值格式不正确）；</li>
+</ul>
+<pre><code class="language-json">&quot;exists&quot;: {
+   &quot;field&quot;: &quot;user&quot;
+}
+</code></pre>
+<h5 id="term"><a class="header" href="#term">term</a></h5>
+<p><code>term</code> query：Returns documents that contain an exact term in a provided field.</p>
+<pre><code class="language-json">&quot;term&quot; : { &quot;tags&quot; : &quot;production&quot; }
+</code></pre>
+<p><code>terms</code> query: Returns documents that contain one or more exact terms in a provided field.</p>
+<pre><code class="language-json">&quot;terms&quot; : { &quot;tags&quot; : [&quot;production&quot;, &quot;price&quot;] }
+</code></pre>
+<h5 id="range"><a class="header" href="#range">range</a></h5>
+<p><code>range</code> query：返回给定区间的记录，区间可以为数值或时间。</p>
+<pre><code class="language-json">&quot;range&quot;: {
+  &quot;query_field&quot;: {
+    &quot;gte&quot;: 10, &quot;lte&quot;: 20,
+    &quot;format&quot;: &quot;yyyy-MM-dd&quot;
+  }
+}
+</code></pre>
+<blockquote>
+<p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-date-format.html#built-in-date-formats">内置时间格式</a>。</p>
+</blockquote>
+<blockquote>
+<p>IP地址类型匹配方式：支持<code>term</code>或<code>range</code>匹配方式：</p>
+<pre><code class="language-json">&quot;term&quot; : { &quot;ip_addr&quot; : &quot;172.28.76.0/24&quot; }  // &quot;/24&quot;用于匹配子网
+&quot;range&quot;: {
+     &quot;ipaddr&quot;: {
+       &quot;gt&quot;: &quot;10.0.1.3&quot;, &quot;lt&quot;: &quot;10.0.1.14&quot;}  // 用于匹配非完整子网
+}
+</code></pre>
+</blockquote>
+<h5 id="关键字匹配"><a class="header" href="#关键字匹配">关键字匹配</a></h5>
+<p><code>prefix</code> 前缀：匹配一个字段的前缀。</p>
+<p><code>wildcard</code>通配符：<code>*</code>匹配零或多个字符，<code>?</code>恰匹配一个字符。</p>
+<p><code>regexp</code>正则表达式。模式必须与字段的值完整匹配（即默认包含起始和结束锚点<code>^...$</code>）。</p>
+<pre><code class="language-json">&quot;regexp&quot;: { &quot;collect_time_hour&quot;: &quot;[0-9]{8}(18|19|20|21|22)&quot;} // 简写，仅提供字段与模式
+&quot;regexp&quot;: { // 完整语法，提供额外选项
+  &quot;collect_time_hour&quot;: {
+     &quot;value&quot;: &quot;[0-9]{8}(18|19|20|21|22)&quot;,
+     &quot;flags&quot;: &quot;ALL&quot;, // enables all optional regexp syntax.
+     &quot;case_insensitve&quot;: false // 7.10.0起支持
+  }
+}
+</code></pre>
+<blockquote>
+<p>Elasticsearch未使用Perl兼容正则表达式，非捕获组（<code>?:</code>）不能正常使用。</p>
+<p><code>flags</code>为正则表达式语法可选项标识，用<code>|</code>连接一个或多个标识。其中包括：</p>
+<ul>
+<li><code>INTERVAL</code>：<code>&lt;001-200&gt;</code>用于匹配一个区间的数字（字符串）；</li>
+<li><code>INTERSECTION</code>：启用<code>&amp;</code>运算符（交集），即一个字符串同时满足两个匹配模式；</li>
+<li><code>COMPLEMENT</code>：启用<code>~</code>运算符（补集）；</li>
+</ul>
+</blockquote>
+<p>使用<code>wildcard</code>或<code>regexp</code>时，应该避免起始位置为通配符或正则表达式的匹配模式，应该使用一个确定前缀以提高匹配效率。字段类型为<code>keyword</code>类型；如果字段为<code>text</code>类型，上述匹配方式无效，需要使用<code>match</code>查询。</p>
+<h4 id="全文查询"><a class="header" href="#全文查询"><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/full-text-queries.html">全文查询</a></a></h4>
+<p><code>match</code>：在文档所有内容中匹配一个或多个单词，计算匹配分数。</p>
+<pre><code class="language-json">{
+   &quot;match_all&quot;: {}, // 特殊匹配：匹配所有内容
+   &quot;match&quot;: {
+      &quot;message&quot;: {
+         &quot;query&quot;: &quot;this is a test&quot;,
+         &quot;operator&quot;: &quot;AND&quot;,   // AND | OR 匹配所有/任意单词
+         &quot;minimum_should_match&quot;: 1
+      }
+   },
+   &quot;match&quot;: { &quot;message&quot;: &quot;this is a test&quot; }
+}
+</code></pre>
+<p><code>math_phrase</code>：匹配整个词组，语法类似<code>match</code>。</p>
+<p><code>match_phrase_prefix</code>：模式中的最后一个单词可以仅前缀匹配。</p>
+<p><code>fuzzy</code> query：<em>Returns documents that contain terms similar to the search term. Elasticsearch measures similarity, or fuzziness, using a Levenshtein edit distance.</em></p>
+<h3 id="compound-queries"><a class="header" href="#compound-queries">Compound queries</a></h3>
+<blockquote>
+<p><em>Compound queries wrap other compound or leaf queries, either to combine their results and scores, to change their behaviour, or to switch from query to filter context.</em></p>
+</blockquote>
+<p><code>constant_score</code> query
+<strong>A query which wraps a filter query, executing it in filter context</strong>. All matching documents are given the same “constant” <code>_score</code>.</p>
+<pre><code class="language-json">&quot;query&quot;: {
+  &quot;constant_score&quot;: {
+    &quot;filter&quot;: {  // 仅能包含一个条件
+      &quot;term&quot;: { &quot;user.id&quot;: &quot;kimchy&quot; }
+}}}
+</code></pre>
+<p><code>filter</code>查询仅可包含一个查询条件，如果需要提供多个查询条件，则使用<code>bool</code>查询封装查询条件。</p>
+<p><code>bool</code> query
+The default query for combining multiple leaf or compound query clauses, as <code>must</code>, <code>should</code>, <code>must_not</code>, or <code>filter</code> clauses. T==he <code>must</code> and <code>should</code> clauses have their scores combined== — the more matching clauses, the better — while the <code>must_not</code> and <code>filter</code> clauses are executed in filter context.</p>
+<pre><code class="language-json">&quot;query&quot;: {
+  &quot;bool&quot; : {
+    &quot;filter&quot;: { // 多个条件则为字典构成的序列
+      &quot;term&quot; : { &quot;tags&quot; : &quot;production&quot; }
+    },
+    &quot;must_not&quot; : {
+      &quot;range&quot; : { &quot;age&quot; : { &quot;gte&quot; : 10, &quot;lte&quot; : 20 } }
+    },
+    &quot;must&quot; : {
+      &quot;term&quot; : { &quot;user.id&quot; : &quot;kimchy&quot; }
+    },
+    &quot;should&quot; : [
+      { &quot;term&quot; : { &quot;tags&quot; : &quot;env1&quot; } },
+      { &quot;term&quot; : { &quot;tags&quot; : &quot;deployed&quot; } }
+    ],
+    &quot;minimum_should_match&quot; : 1,
+    &quot;boost&quot; : 1.0
+}}
+</code></pre>
+<p><code>minimum_should_match</code>：指定<code>should</code>语句必须匹配的数量或百分比（而非仅依据相似性得分）。如果<code>bool</code>查询仅包含<code>should</code>，那么默认值为1，反之，默认值为0（可选条件）。</p>
+<blockquote>
+<p><code>should</code>为空时，<code>minimum_should_match</code>应该设置为0，否则无返回结果。</p>
+</blockquote>
+<p><code>boosting</code> query
+Return documents which match a positive query, but reduce the score of documents which also match a negative query.
+<code>dis_max</code> query
+A query which accepts multiple queries, and returns any documents which match any of the query clauses. ==While the bool query combines the scores from all matching queries, the dis_max query uses the score of the single best-matching query clause==.
+<code>function_score</code> query
+Modify the scores returned by the main query with functions to take into account factors like popularity, recency, distance, or custom algorithms implemented with scripting.</p>
+<h3 id="eql"><a class="header" href="#eql">EQL</a></h3>
+<p><a href="https://eql.readthedocs.io/en/latest/query-guide/index.html">Event Query Language (EQL)</a> is a query language for event-based, time series data, such as logs.</p>
+<blockquote>
+<p><strong>We designed EQL for security use cases.</strong></p>
+</blockquote>
+<pre><code class="language-json">GET /my-index-000001/_eql/search
+{
+ &quot;query&quot;: &quot;&quot;&quot;
+  sequence by process.pid with maxspan=1h
+  [ process where process.name == &quot;regsvr32.exe&quot; ]
+  [ file where stringContains(file.name, &quot;scrobj.dll&quot;) ]
+  &quot;&quot;&quot; 
+}
+</code></pre>
+<h3 id="sql"><a class="header" href="#sql">SQL</a></h3>
+<p>Elasticsearch SQL allows SQL-like queries to be executed in real-time against Elasticsearch. One can think of Elasticsearch SQL as a <em>translator</em>, one that understands both SQL and Elasticsearch and makes it easy to read and process data in real-time, at scale by leveraging Elasticsearch capabilities.</p>
+<pre><code class="language-json">//POST /_sql?format=txt  csv,json,yaml,...
+{
+  &quot;query&quot;: &quot;SELECT * FROM library WHERE release_date &lt; '2000-01-01'&quot;,
+  &quot;fetch_size&quot;: 5,      // 分页查询
+  &quot;columnar&quot;: false     // 按列返回数据
+}
+</code></pre>
+<p>[Mapping concepts across SQL and Elasticsearch | Elasticsearch Guide <a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.14/_mapping_concepts_across_sql_and_elasticsearch.html">7.14] | Elastic</a></p>
+<p>[Response Data Formats | Elasticsearch Guide <a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.14/sql-rest-format.html">7.14] | Elastic</a></p>
+<h5 id="sql-cli"><a class="header" href="#sql-cli">SQL CLI</a></h5>
+<pre><code class="language-shell">./bin/elasticsearch-sql-cli http[s]://some.server:9200
+</code></pre>
+<h2 id="聚合查询"><a class="header" href="#聚合查询">聚合查询</a></h2>
+<p>根据文档查询结果进行聚合。聚合查询DSL基本语法：</p>
+<pre><code class="language-json">{
+    &quot;query&quot;: {},
+    &quot;aggregations&quot; : {   // =&gt; &quot;aggs&quot;
+        &quot;&lt;aggregation_name&gt;&quot; : {
+            &quot;&lt;aggregation_type&gt;&quot; : {
+                // &lt;aggregation_body&gt;
+            },
+            // [,&quot;meta&quot; : {  [&lt;meta_data_body&gt;] } ]?
+            // [,&quot;aggregations&quot; : { [&lt;sub_aggregation&gt;]+ } ]?
+        },
+        &quot;&lt;aggregation_name_2&gt;&quot; : { }
+    } 
+}
+</code></pre>
+<p><code>aggregation_name</code>也作为返回结果的<code>key</code>。<code>aggs</code>是<code>aggregations</code>的别名。</p>
+<p>聚合分为四类：<a href="#%E7%BB%9F%E8%AE%A1%E8%81%9A%E5%90%88">Metric</a>、<a href="#%E5%88%86%E7%BB%84%E8%81%9A%E5%90%88">Bucketing</a>、Matrix、[Pipeline](Pipeline Aggregations)。</p>
+<h3 id="统计聚合"><a class="header" href="#统计聚合">统计聚合</a></h3>
+<p><strong>Metric Aggregation</strong>：字段的统计特征计算。查询返回结果为字典，通常其中<code>value</code>字段为查询结果。</p>
+<h5 id="averagemaxminsum-metrics"><a class="header" href="#averagemaxminsum-metrics">Average/Max/Min/Sum Metrics</a></h5>
+<pre><code class="language-json">&quot;avg&quot;: {&quot;field&quot;: &quot;grade&quot; , &quot;missing&quot;: 10 } # aggregation_body
+</code></pre>
+<blockquote>
+<p><code>missing</code>: 填充缺失值。</p>
+</blockquote>
+<h5 id="weighted-average"><a class="header" href="#weighted-average">Weighted Average</a></h5>
+<pre><code class="language-json">&quot;weighted_avg&quot;: {
+    &quot;value&quot; : {&quot;field&quot;: &quot;grade&quot;, &quot;missing&quot;: 10},
+    &quot;weight&quot;: {&quot;field&quot;: &quot;weight&quot;, &quot;missing&quot;: 1}
+} # aggregation_body
+</code></pre>
+<h5 id="percentile"><a class="header" href="#percentile">Percentile</a></h5>
+<pre><code class="language-json">&quot;percentiles&quot;: { 
+  &quot;field&quot;: &quot;load_time&quot;, 
+	&quot;percents&quot;: [ 95, 99, 99.9 ],
+  &quot;keyed&quot;: true 
+}
+</code></pre>
+<blockquote>
+<p>默认区间为<code>[ 1, 5, 25, 50, 75, 95, 99]</code>，使用<code>percent</code>指定区间。</p>
+<p><code>keyed</code>：默认将百分比设置为返回值的键名，设为<code>false</code>则返回<code>key</code>和<code>value</code>分别表示百分比和对应的值。</p>
+</blockquote>
+<h6 id="boxplot-quantile"><a class="header" href="#boxplot-quantile">Boxplot (quantile)</a></h6>
+<pre><code class="language-json">&quot;boxplot&quot;: { &quot;field&quot;: &quot;load_time&quot; }
+</code></pre>
+<p>返回结果包括：<code>min</code>、<code>q1</code>、<code>q2</code>、<code>q3</code>、<code>max</code>。</p>
+<h6 id="median"><a class="header" href="#median">Median</a></h6>
+<pre><code class="language-json">&quot;median_absolute_deviation&quot;: {&quot;field&quot;: &quot;rating&quot;} # 近似计算
+</code></pre>
+<h5 id="stats"><a class="header" href="#stats">Stats</a></h5>
+<pre><code class="language-json">&quot;stats&quot;: { &quot;field&quot;: &quot;grade&quot; }
+&quot;extended_stats&quot;: { &quot;field&quot;: &quot;grade&quot; }  # more statistic details
+</code></pre>
+<p><code>stats</code>返回结果包括：<code>min</code>、<code>max</code>、<code>sum</code>、<code>count</code>和<code>avg</code>等多个字段（不包括<code>value</code>字段）。</p>
+<h5 id="string-stats"><a class="header" href="#string-stats">String Stats</a></h5>
+<pre><code class="language-json">&quot;string_stats&quot;: { &quot;field&quot;: &quot;message.keyword&quot; }
+</code></pre>
+<h5 id="计数"><a class="header" href="#计数">计数</a></h5>
+<pre><code class="language-json">&quot;cardinality&quot; : {&quot;field&quot;: &quot;type&quot;}     # 近似计算不重复值的数量
+&quot;value_count&quot; : { &quot;field&quot; : &quot;type&quot; }  # 不去除重复
+</code></pre>
+<blockquote>
+<p><code>value_count</code> <em>if a field has duplicates each value will be counted individually.</em></p>
+</blockquote>
+<h5 id="geo-boundscentroid"><a class="header" href="#geo-boundscentroid">Geo Bounds/Centroid</a></h5>
+<p>计算坐标边界和中心。</p>
+<h5 id="t-test"><a class="header" href="#t-test">T-Test</a></h5>
+<p>检查一个字段是否符合学生<code>t</code>分布。</p>
+<h5 id="top-metrics"><a class="header" href="#top-metrics">Top-Metrics</a></h5>
+<pre><code class="language-json">&quot;top_metrics&quot;: {
+  &quot;metrics&quot;: {&quot;field&quot;: &quot;m&quot;},
+  &quot;sort&quot;: {&quot;s&quot;: &quot;desc&quot;},
+  &quot;size&quot;: 3   
+} # 返回按sort字段排序后位于顶部的记录的指定字段的值
+</code></pre>
+<p><code>metrics</code>可用数组指定返回多个字段。</p>
+<h5 id="top-hits-aggregation"><a class="header" href="#top-hits-aggregation">Top Hits Aggregation</a></h5>
+<p>https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-metrics-top-hits-aggregation.html</p>
+<h3 id="分组聚合"><a class="header" href="#分组聚合">分组聚合</a></h3>
+<p><em><strong>Buckets Aggregation</strong></em>：根据指定标准(criterion)对记录进行分组（bucket），并返回每一组包含的记录数(<code>doc_count</code>)。==Bucket聚合可以包含针对每个分组记录的子聚合==。</p>
+<pre><code class="language-json">&quot;aggs&quot;:{
+  &quot;bucket_agg_name&quot;:{
+    &quot;bucket_agg_type&quot;:{&quot;param&quot;: &quot;value&quot;},
+    &quot;aggs&quot;:{  // 子聚合查询
+      &quot;sub_agg_name&quot;:{&quot;sub_agg_type&quot;:{&quot;param&quot;: &quot;value&quot;} },
+}}}
+</code></pre>
+<p>==嵌套的聚合<code>sub_agg_type</code>可以是针对每个bucket的<a href="#%E7%BB%9F%E8%AE%A1%E8%81%9A%E5%90%88">统计聚合</a>、<a href="#%E5%88%86%E7%BB%84%E8%81%9A%E5%90%88">分组聚合</a>、或者针对整个聚合结果的[Parent管道聚合](#Parent Aggregation)==。</p>
+<h5 id="range-1"><a class="header" href="#range-1">Range</a></h5>
+<p>按给定区间分组；</p>
+<h5 id="date-range"><a class="header" href="#date-range">Date Range</a></h5>
+<p>按给定的日期区间分组（<code>from/to</code>）；</p>
+<h5 id="terms"><a class="header" href="#terms">Terms</a></h5>
+<pre><code class="language-json">&quot;terms&quot;: { 
+  &quot;field&quot;: &quot;genre[.keyword]&quot;,   
+  &quot;size&quot;: 1000,
+  &quot;show_term_doc_count_error&quot;: true,
+  &quot;order&quot;: { &quot;_count&quot;: &quot;asc&quot; }, 
+  &quot;order&quot;: { &quot;playback_stats.max&quot;: &quot;desc&quot; }, 
+  &quot;include&quot;: &quot;.*sport.*&quot;, 
+  &quot;include&quot;: [ &quot;mazda&quot;, &quot;honda&quot; ],
+  &quot;exclude&quot;: &quot;water_.*&quot;,
+  &quot;exclude&quot;: [ &quot;rover&quot;, &quot;jensen&quot; ],
+}
+</code></pre>
+<p><code>size</code>指定返回分组的数量（默认为10）。</p>
+<p><code>order='_count'|'_key'|...</code>，可以==使用子<a href="#%E7%BB%9F%E8%AE%A1%E8%81%9A%E5%90%88">统计聚合</a>返回的结果==进行排序。</p>
+<p>首先计算<code>include</code>，再计算<code>exclude</code>，表达式可以是精确匹配或正则表达式。</p>
+<blockquote>
+<p><code>terms</code>仅支持根据单个字段进行分组，[Composite Aggregation](#Composite Aggregation)可使用多个字段进行分组，并支持分页返回结果。</p>
+</blockquote>
+<p><em>返回结果中的计数是近似值。</em></p>
+<p>https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-terms-aggregation.html</p>
+<blockquote>
+<p>响应内容：</p>
+<p><code>doc_count_error_upper_bound</code>：计数误差上界；</p>
+<p><code>sum_other_doc_count</code>：响应结果中未包含的匹配内容计数；</p>
+</blockquote>
+<h5 id="直方图histogram"><a class="header" href="#直方图histogram">直方图（Histogram）</a></h5>
+<p>按给定字段的值所在区间$[nT,(n+1)T)$对记录进行分组，聚合后的<code>bucket_key</code>的计算方式为<code>bucket_key = Math.floor((value-offset)/interval)*interval+offset</code>（<code>offset</code>为区间边界偏移量）。</p>
+<pre><code class="language-json">&quot;histogram&quot;: { &quot;field&quot;: &quot;price&quot;,  &quot;interval&quot;: 50 }
+</code></pre>
+<blockquote>
+<p>For range values，其覆盖区间上的所有分组都计算在内。</p>
+</blockquote>
+<p>对分组结果再进行[求和](#Average/Max/Min/Sum Metrics)等聚合运算，可以得到统计直方图。</p>
+<h6 id="date-histogram"><a class="header" href="#date-histogram">Date Histogram</a></h6>
+<pre><code class="language-json">&quot;date_histogram&quot;: {
+  &quot;field&quot;: &quot;date&quot;,
+  &quot;calendar_interval&quot;: &quot;month&quot;, 
+  &quot;format&quot;: &quot;yyyy-MM-dd&quot;,
+  &quot;time_zone&quot;: &quot;+08:00&quot;
+}
+</code></pre>
+<p>支持的日历周期（<code>calendar_interval</code>）包括：<code>minute,1m</code>、<code>hour,1h</code>、<code>day,1d</code>、<code>week,1w</code>、<code>month,1M</code>、<code>quarter,1q</code>和<code>year,1y</code>。不支持支持区间取值为多个单位周期。</p>
+<p>支持的固定周期（<code>fixed_interval</code>）包括：<code>ms</code>、<code>s</code>、<code>m</code>、<code>h</code>、<code>d</code>，最为单位与数字组合使用。</p>
+<blockquote>
+</blockquote>
+<h5 id="filters-aggregation"><a class="header" href="#filters-aggregation">Filters Aggregation</a></h5>
+<p>过滤聚合内容（也可在查询语句使用<code>filter</code>设定，此处可作为聚合的补充过滤条件，可用于<code>match</code>等方法过滤内容），返回一个分组：</p>
+<pre><code class="language-json">&quot;filter&quot;: { &quot;term&quot;: { &quot;type&quot;: &quot;t-shirt&quot; } },
+</code></pre>
+<p>添加多个过滤条件，每个条件对应一个分组；如果<code>other_bucket=true</code>，则未被任何过滤条件匹配的记录将被分到一个额外分组中：</p>
+<pre><code class="language-json">&quot;filters&quot;:{
+  &quot;filters&quot;: { 
+    &quot;error&quot;: {&quot;term&quot;: { &quot;body&quot;: &quot;error&quot; }},
+    &quot;warning&quot;: {&quot;term&quot;: {&quot;body&quot;: &quot;warning&quot;}}
+  },  
+  &quot;other_bucket&quot;: true,
+  &quot;other_bucket_key&quot;: &quot;other_messages&quot;
+}
+</code></pre>
+<h4 id="复合分组聚合"><a class="header" href="#复合分组聚合">复合分组聚合</a></h4>
+<p>多个层级的聚合。聚合语句内容：</p>
+<pre><code class="language-json">&quot;genre_group&quot;:{ // genre + state
+   &quot;terms&quot;: { 
+      &quot;field&quot;: &quot;genre[.keyword]&quot; // ,...
+   },
+   &quot;aggs&quot;: {  // 针对genre_group得到的分组分别根据state进行再一次分组
+      &quot;state_group&quot;:{
+         &quot;terms&quot;: {
+            &quot;field&quot;: &quot;state[.keyword]&quot;,
+} } } }
+</code></pre>
+<blockquote>
+<p><em>The composite aggregation is expensive.</em> </p>
+</blockquote>
+<p><code>composite</code>使用多个字段组合进行分组；支持分页返回分组结果（类似查询记录时的<code>scroll</code>）</p>
+<pre><code class="language-json">&quot;composite_group&quot;:{ // genre + state
+   &quot;composite&quot;: {   // R6.1
+      &quot;sources&quot;: [
+         { &quot;state&quot;: { 
+            &quot;terms&quot;: { &quot;field&quot;: &quot;state.keyword&quot;, &quot;order&quot;: 'asc' }
+         }},
+         { &quot;gender&quot;: { &quot;terms&quot;: { &quot;field&quot;: &quot;gender.keyword&quot; } } }
+      ],
+      &quot;after&quot;: {},
+      &quot;size&quot;: 10
+}}
+</code></pre>
+<p>返回结果中包含<code>after_key</code>字段，并在后续查询中指定为<code>after</code>的值，可从上次返回结果后查询剩余内容（如果记录数多于<code>size</code>给定的值，则后续返回内容非空）。</p>
+<blockquote>
+<p><code>composite</code>仅支持根据分组字段进行排序，如果需要根据分组的计算结果（例如记录计数），则需要使用管道聚合（[<code>bucket_sort</code>](#Bucket Sort)）。</p>
+<p>如果指定的字段值为序列，则<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-composite-aggregation.html#search-aggregations-bucket-composite-aggregation">序列每个元素会和其他分组字段进行组合</a>，形成多个分组。</p>
+</blockquote>
+<p><code>multi_terms</code>类似于<code>composite</code>，但不支持分页，可使用<code>order</code>定义<a href="#%E5%88%86%E7%BB%84%E8%81%9A%E5%90%88">排序</a>。</p>
+<pre><code class="language-json">&quot;multi_group&quot;:{     // genre + state
+   &quot;multi_terms&quot;: { // R7.12
+      &quot;terms&quot;: [
+         { &quot;field&quot;: &quot;state&quot; },
+         { &quot;field&quot;: &quot;gender&quot;}
+      ],
+      &quot;size&quot;: 10 // 返回分组数量
+}}
+</code></pre>
+<h3 id="pipeline-aggregations"><a class="header" href="#pipeline-aggregations">Pipeline Aggregations</a></h3>
+<p>管道聚合对其他聚合的输出进行统计运算。</p>
+<p><code>bucket_path</code>语法：指定输入分组。</p>
+<pre><code>PATH = [AGG_NAME&gt;]SUB_AGG_NAME[.METRIC];
+</code></pre>
+<blockquote>
+<p><code>&quot;_count&quot; </code>是一个特殊的路径，用于表示记录计数。</p>
+</blockquote>
+<h4 id="sibling"><a class="header" href="#sibling">Sibling</a></h4>
+<p><strong>Sibling</strong>：使用一个聚合的输出计算，并在生成一个新的聚合结果。==与分组聚合子聚合的区别==：与相关聚合在同一层级，而非在其内部。</p>
+<p>使用相对路径：</p>
+<pre><code class="language-json">&quot;aggs&quot;: {
+  &quot;agg_name&quot;: { &quot;agg_type&quot;:{&quot;param&quot;: &quot;value&quot;} },
+  &quot;sibling_agg_name&quot;: {
+    &quot;sibling_pipe_agg_type&quot;: {
+      &quot;buckets_path&quot;: &quot;AGG_NAME[&gt;SUB_AGG_NAME]&quot;
+}}}
+</code></pre>
+<h5 id="avgmaxminsum"><a class="header" href="#avgmaxminsum">Avg/Max/Min/Sum</a></h5>
+<pre><code class="language-json">&quot;max_bucket&quot;: {&quot;buckets_path&quot;: &quot;aggs_name&gt;sub_agg_name&quot;}
+</code></pre>
+<blockquote>
+<p>与<a href="#%E7%BB%9F%E8%AE%A1%E8%81%9A%E5%90%88">统计聚合</a>的对应类型区别，Pipeline聚合的类型名称带后缀<code>_bucket</code>。</p>
+</blockquote>
+<h5 id="percentile-bucket"><a class="header" href="#percentile-bucket">Percentile Bucket</a></h5>
+<pre><code class="language-json">&quot;percentiles_bucket&quot;: { 
+  &quot;buckets_path&quot;: path, &quot;percents&quot;: [], &quot;keyed&quot;: true
+}
+</code></pre>
+<blockquote>
+<p>查看<a href="#Percentile">Percentile</a>。</p>
+</blockquote>
+<h4 id="parent-aggregation"><a class="header" href="#parent-aggregation">Parent Aggregation</a></h4>
+<p><strong>Parent</strong>：位于父聚合（例如Buckets聚合）内部，根据父聚合的输出字段进行计算，并将结果添加到父聚合生成的buckets中或影响父聚合的返回结果（如<code>bucket_sort</code>）。</p>
+<pre><code class="language-json">&quot;aggs&quot;: {
+  &quot;agg_name&quot;: {
+    &quot;agg_type&quot;: { &quot;param&quot;: &quot;value&quot; },
+	  &quot;sub_agg_name&quot;: {
+	    &quot;parent_pipe_agg_type&quot;: {
+        &quot;buckets_path&quot;: &quot;the_sum&quot; ,
+        &quot;param&quot;: &quot;value&quot;
+}}}
+</code></pre>
+<p><strong>Sibling和Parent聚合类型的用法和使用位置</strong>：Sibling聚合类型应用于所有Buckets中的某个统计量，需要在一个聚合计算完成后才能使用其结果进行计算，因此需要置于Buckets聚合的同层级。==Parent管道聚合的计算结果是作用于父聚合的，因此位于父聚合内部，由父聚合调用执行==。</p>
+<blockquote>
+<p>Sibling置于Buckets聚合内部出错：<em>The first aggregation in buckets_path must be a multi-bucket aggregation for aggregation.</em></p>
+<p>Parent置于Buckets聚合的同级出错：<em>XXX aggregation [xxx] must have a histogram, date_histogram or auto_date_histogram as parent but doesn't have a parent</em>。</p>
+</blockquote>
+<h5 id="moving-avg"><a class="header" href="#moving-avg">Moving Avg</a></h5>
+<pre><code class="language-json">&quot;moving_avg&quot;: {
+  &quot;buckets_path&quot;: &quot;the_sum&quot;,
+  &quot;model&quot;: &quot;holt&quot;,
+  &quot;window&quot;: 5,
+  &quot;gap_policy&quot;: &quot;insert_zeros&quot;,
+  &quot;settings&quot;: {&quot;alpha&quot;: 0.8}
+}
+</code></pre>
+<h5 id="差分derivative"><a class="header" href="#差分derivative">差分（Derivative）</a></h5>
+<pre><code class="language-json">&quot;derivative&quot;: { &quot;buckets_path&quot;: &quot;the_sum&quot; }
+</code></pre>
+<h5 id="cumsumcumcardinality"><a class="header" href="#cumsumcumcardinality">CumSum/CumCardinality</a></h5>
+<pre><code class="language-json">&quot;cumulative_sum&quot;: {&quot;buckets_path&quot;: &quot;the_sum&quot;}
+&quot;cumulative_cardinality&quot;: {&quot;buckets_path&quot;: &quot;my_cardinality_agg&quot;}
+</code></pre>
+<h5 id="bucket-sort"><a class="header" href="#bucket-sort">Bucket Sort</a></h5>
+<p>使用父聚合的结果中的字段进行排序：</p>
+<pre><code class="language-json">&quot;bucket_sort_name&quot;:{
+  &quot;bucket_sort&quot;: {
+    &quot;sort&quot;: [
+      { &quot;sort_field_1&quot;: { &quot;order&quot;: &quot;asc&quot; } },   
+      { &quot;sort_field_2&quot;: { &quot;order&quot;: &quot;desc&quot; } },
+      &quot;sort_field_3&quot;
+    ],
+    &quot;from&quot;: 1,
+    &quot;size&quot;: 3
+}}
+</code></pre>
+<blockquote>
+<p><code>bucket_sort</code>仅对当前返回页排序，如果bucket结果分页，则每一页单独排序。</p>
+</blockquote>
+<h2 id="备份和恢复"><a class="header" href="#备份和恢复">备份和恢复</a></h2>
+<h3 id="快照"><a class="header" href="#快照">快照</a></h3>
+<h4 id="创建快照仓库"><a class="header" href="#创建快照仓库">创建快照仓库</a></h4>
+<pre><code class="language-shell">curl -XPOST http://hostname:9200/_snapshot/hdfs_backup -d \
+{
+  &quot;type&quot;: &quot;hdfs&quot;,
+  &quot;settings&quot;: {
+    &quot;uri&quot;: &quot;hdfs://namenode:9000/&quot;,
+    &quot;path&quot;: &quot;backup/path&quot;   // 使用相对目录，在ES用户主目录下
+  }
+}
+curl http://hostname:9200/_snapshot/hdfs_backup  # get repo info
+curl -XDELETE /_snapshot/hdfs_backup # 删除快照仓库
+</code></pre>
+<blockquote>
+<p>快照仓库名支持通配符<code>*</code>；如果仓库名未<code>_all</code>或未提供，则会返回所有快照仓库的信息。</p>
+</blockquote>
+<h5 id="使用hdfs作为快照仓库"><a class="header" href="#使用hdfs作为快照仓库">使用HDFS作为快照仓库</a></h5>
+<p>安装插件<code>repository-hdfs</code>。</p>
+<h5 id="验证仓库配置"><a class="header" href="#验证仓库配置">验证仓库配置</a></h5>
+<p>如果创建备份仓库时未指定<code>?verify=false</code>参数，可以单独执行验证：</p>
+<pre><code class="language-shell">curl http://hostname:9200/_snapshot/hdfs_backup/_verify # verifying
+</code></pre>
+<h4 id="创建快照"><a class="header" href="#创建快照">创建快照</a></h4>
+<pre><code class="language-shell">curl -XPUT /_snapshot/hdfs_backup/snapshot_1?wait_for_completion=true -d 
+{
+  &quot;indices&quot;: &quot;index_1,index_2&quot;
+}  # 指定索引名称过滤快照内容，支持通配符
+</code></pre>
+<p>快照是增量创建的，对比仓库中已有的索引文件，仅加入新建或修改过的文件到快照中。</p>
+<p>集群同一时间只能运行一个快照进程。</p>
+<h5 id="获取快照信息"><a class="header" href="#获取快照信息">获取快照信息</a></h5>
+<pre><code class="language-shell">curl /_snapshot/hdfs_backup/snapshot_1
+curl /_snapshot/hdfs_backup/snapshot_*,some_other_snapshot
+curl /_snapshot/hdfs_backup/_all
+curl /_snapshot/hdfs_backup/_current  # 正在执行的快照
+curl /_snapshot/_status
+curl /_snapshot/hdfs_backup/_status
+curl /_snapshot/hdfs_backup/snapshot_1/_status
+</code></pre>
+<h5 id="删除快照"><a class="header" href="#删除快照">删除快照</a></h5>
+<pre><code class="language-shell">curl -XDELETE /_snapshot/hdfs_backup/snapshot_1
+</code></pre>
+<p>删除快照将删除快照中未被其他快照引用的文件。删除正在执行的快照终止快照过程。</p>
+<h4 id="恢复"><a class="header" href="#恢复">恢复</a></h4>
+<pre><code class="language-shell">curl -XPOST /_snapshot/hdfs_backup/snapshot_1/_restore -d \
+{
+  &quot;indices&quot;: &quot;index_1,index_2&quot;,
+  &quot;ignore_unavailable&quot;: true,
+  &quot;include_global_state&quot;: true,
+}
+</code></pre>
+<p>恢复时可指定索引设置覆盖快照中的设置。</p>
+<h5 id="恢复到其他集群"><a class="header" href="#恢复到其他集群">恢复到其他集群</a></h5>
+<p>快照数据未绑定到特定集群或集群名，因此可以恢复到其他集群（无须具有相同集群大小和拓扑）。</p>
+<p><code>5.x=&gt;6.x</code>，<code>5.x/=&gt;7.x</code></p>
+<h4 id="问题-1"><a class="header" href="#问题-1">问题</a></h4>
+<p>HDFS访问权限：<code>java.security.AccessControlException: access denied (&quot;javax.security.auth.PrivateCredentialPermission&quot; &quot;org.apache.hadoop.security.Credentials&quot; &quot;read&quot;)</code>。</p>
+<blockquote>
+<p>修改插件的Java安全选项<code>$PLUGIN_PATH/repository-hdfs/plugin-security.policy</code>：</p>
+<pre><code class="language-java">grant {
+    permission javax.security.auth.PrivateCredentialPermission &quot;org.apache.hadoop.security.Credentials * \&quot;*\&quot;&quot;, &quot;read&quot;;
+}
+</code></pre>
+</blockquote>
+<p>在ES启动脚本<code>ES_HOME/bin/elasticsearch</code>中，为启动命令添加以下Java选项，并重启集群。</p>
+<pre><code class="language-shell">-Djava.security.policy=ES_HOME/plugins/repository-hdfs/plugin-security.policy
+</code></pre>
+<h3 id="复制数据"><a class="header" href="#复制数据">复制数据</a></h3>
+<pre><code class="language-shell">elasticsearch-dump \
+  --input=http://source.es.com:9200/my_index \  # 源索引支持通配符
+  --output=http://target.es.com:9200/my_index \
+  --type=data \
+  --limit 100 \     # 根据集群配置将单批读取数据量上调可加快读取速度
+</code></pre>
+<p><a href="https://github.com/elasticsearch-dump/elasticsearch-dump">elasticsearch-dump: Import and export tools for elasticsearch (github.com)</a></p>
+<h2 id="python客户端"><a class="header" href="#python客户端">Python客户端</a></h2>
+<p>底层接口<code>elasticsearch</code>：封装了Elasticsearch REST API，通过<code>Helper</code>类简化API调用<sup class="footnote-reference"><a href="#pycli">2</a></sup>。</p>
+<blockquote>
+<p>HTTP传输：客户端每个配置或探测到的节点建立一个持久连接（<code>ConnectionPool</code>），并追踪每个节点的状态。如果节点变为无响应，则其对应的连接将被设置一个超时区间，直到超时区间结束才重新检测该节点是否可用。默认，连接池中的节点随机排列，并通过轮询方式调用以实现负载均衡。</p>
+</blockquote>
+<p>高层接口<code>elasticsearch-dsl</code>：以Python风格提供搜索接口。</p>
+<blockquote>
+<p>使用Elasticsearch主版本号相同的Python客户端版本：<code>elasticsearch5</code>、<code>elasticsearch6</code>……<code>elasticsearch</code>总是与当前Elasticsearch最新稳定版本一致。</p>
+</blockquote>
+<h3 id="python-rest-api"><a class="header" href="#python-rest-api">Python REST API</a></h3>
+<h4 id="创建客户端连接实例"><a class="header" href="#创建客户端连接实例">创建客户端连接实例</a></h4>
+<pre><code class="language-shell">import elasticsearch5 as es
+es_cli = es.Elaticsearch(
+   hosts=[
+      {'host': 'hostname'},
+      {'host': 'ip_addr', 'port': 9200},
+      '[http://user:secret@]host_addr:9200/path'
+   ]
+   # Transports参数[elasticsearch.transport.Transport]
+   sniff_on_start=True,          # 自动探测集群节点
+   sniff_on_connection_fail=True,
+   sniffer_timeout=60,           # 自动探测的时间间隔*
+   retry_on_timeout=False,       # 超时触发使用不同节点重试
+   # Connection参数[Urllib3HttpConnection]**
+   timeout=10,                   # 全局HTTP/TCP超时限制
+   maxisize=10,                  # 限制客户端与每个ES节点建立连接数(多线程并发查询)
+   # 
+)
+es_cli.info()   # 获取当前集群的基本信息
+es_cli.ping()   # 探测集群是否可用
+</code></pre>
+<blockquote>
+<p><code>*</code>：另一个参数<code>sniff_timeout</code>表示一次探测请求的超时时限（通常设置较小以尽可能快地探测集群所有节点）。</p>
+<p><code>**</code>：HTTPS连接的相关参数：<code>use_ssl=False, verify_certs=True, ca_certs=None, client_cert=None, client_key=None</code>。</p>
+</blockquote>
+<h5 id="es客户端内置属性"><a class="header" href="#es客户端内置属性">ES客户端内置属性</a></h5>
+<p>提供访问ES集群以及各类对象的代理，查看集群和数据的相关状态。</p>
+<ul>
+<li><code>cat</code>、<code>cluster</code>、<code>indices</code>、<code>ingest</code>、<code>nodes</code>、<code>snapshot</code>、<code>tasks</code>。</li>
+</ul>
+<h5 id="api全局参数8x版本弃用"><a class="header" href="#api全局参数8x版本弃用">API全局参数(8.x版本弃用)</a></h5>
+<p><code>ignore=[400,404]</code>：出错时默认会抛出异常，如<code>TransportError</code>，通过该参数忽略某些错误。</p>
+<p><code>request_timeout=1</code>：API请求超时限制（秒）。</p>
+<blockquote>
+<p>某些API包含的<code>timeout</code>参数限制其内部操作的超时时间，不能保证请求在指定时间后返回。</p>
+</blockquote>
+<h4 id="文档操作接口"><a class="header" href="#文档操作接口">文档操作接口</a></h4>
+<h5 id="读取信息"><a class="header" href="#读取信息">读取信息</a></h5>
+<pre><code class="language-python">es_cli.exists(index, doc_type, id)  # 查看文档是否存在*
+es_cli.count(index,doc_type,body)
+</code></pre>
+<blockquote>
+<p><code>*</code>：要查看索引是否存在，<a href="#%E6%9F%A5%E7%9C%8B%E7%B4%A2%E5%BC%95%E6%8E%A5%E5%8F%A3">调用<code>cli.indices.exists()</code>方法</a>。</p>
+</blockquote>
+<h5 id="读取文档"><a class="header" href="#读取文档">读取文档</a></h5>
+<pre><code class="language-python">es_cli.get(index, id, doc_type,...)        # 返回指定id的JSON文档
+es_cli.mget(ids, index, doc_type,...)      # 返回指定id的多个JSON文档
+es_cli.get_source(index, id, doc_type,...) # 返回指定索引文档的源文档
+</code></pre>
+<h5 id="搜索文档内容"><a class="header" href="#搜索文档内容">搜索文档内容</a></h5>
+<pre><code class="language-python">es_cli.search(index, 
+              doc_type=None, 
+              body=dsl,   # JSON文本或字典对象
+              _source,    # 是否返回_source字段
+              _source_{include|exclude}, # 返回数据要包含/排除的文档字段
+              from_=0,
+              scroll='1000s', # 启用分页并指定分页存活时长
+              size=10,        # 返回的数据量
+              allow_no_indices=False, # 允许通配符匹配不到任何索引
+              ignore_unavailable=True, # 忽略
+              version=False,  # 是否返回文档的版本信息
+             )
+</code></pre>
+<ul>
+<li><code>_source</code>：<code>True/False</code>指定是否返回JSON文档的字段；也可指定字段列表返回指定的字段（等效于指定<code>_source=True,_source_include=fields</code>）；</li>
+<li><code>default_operator</code>：<code>AND/OR(default)</code>，查询文本的默认连接运算符。</li>
+<li><code>expand_wildcards</code>：通配符的匹配范围，默认为<code>open</code>，其他包括：<code>closed</code>、<code>none</code>、<code>all</code>。</li>
+</ul>
+<p>分页搜索：</p>
+<pre><code class="language-python">es_cli.scroll(scroll_id, body=dsl, scroll='1000s')
+es_cli.clear_scroll()
+</code></pre>
+<p>迭代读取：</p>
+<pre><code class="language-python">from elasticsearch import helpers
+helpers.scan(es_cli, query,scroll,preserve_order=False,clear_scroll=True) 
+</code></pre>
+<blockquote>
+<p>搜索模板：</p>
+<pre><code class="language-python">es_cli.search_template(...)
+es_cli.get_template(id)
+es_cli.put_template(id)
+es_cli.delete_template(id)
+es_cli.exist_template(name)
+</code></pre>
+<ul>
+<li><code>id</code>：搜索模板ID。</li>
+</ul>
+</blockquote>
+<h5 id="聚合搜索"><a class="header" href="#聚合搜索">聚合搜索</a></h5>
+<p>在查询结构的查询语句<code>body</code>中，声明<code>aggregations/aggs</code>语句。</p>
+<h5 id="创建文档接口"><a class="header" href="#创建文档接口">创建文档接口</a></h5>
+<p>必须指定文档ID<code>id</code>（可以是整数或字符串形式，最终存储为文本），如果文档已存在，且未指定不同的<code>version</code>，会抛出<code>ConflictError</code>。</p>
+<pre><code class="language-python">es_cli.create(index, doc_type, body, id=None, timeout,version...) # -&gt; 文档的基本信息
+</code></pre>
+<blockquote>
+<p>创建的文档会经过一定的延迟才可被搜索。</p>
+</blockquote>
+<ul>
+<li><code>doc_type</code>：文档类型。<code>5.x</code>必须指定文档类型，<code>7.x</code>为可选参数。</li>
+<li><code>body</code>：文档数据；</li>
+<li><code>id</code>：文档编号。如果未指定，则由ES自动生成。</li>
+<li><code>timestamp</code>：文档显式指定时间戳；</li>
+<li><code>ttl</code>：文档失效时间；</li>
+<li><code>version</code>：显式指定文档版本号。</li>
+</ul>
+<p>更新文档：==不会覆盖原有文档，而是创建一个新的版本并更新版本号==。 </p>
+<pre><code class="language-python">es_cli.update(...,_source,_source_include,_source_exclude,fields)
+</code></pre>
+<p>创建或更新文档：</p>
+<pre><code class="language-shell">es_cli.index(index, doc_type, body, id, op_type='index',...) # -&gt; 文档的基本信息
+</code></pre>
+<ul>
+<li><code>op_type</code>：<code>'index'</code>表示创建或更新，<code>create</code>仅在文档不存在的情况下创建文档。</li>
+</ul>
+<h5 id="批量写入操作"><a class="header" href="#批量写入操作">批量写入操作</a></h5>
+<p>底层的<code>bulk()</code>API需要<a href="#%E6%89%B9%E9%87%8F%E6%8F%90%E4%BA%A4%E6%96%87%E6%A1%A3%E7%B4%A2%E5%BC%95%E6%93%8D%E4%BD%9C">传递批量的文档文本</a>，不方便进行数据处理。<code>es.helpers</code>提供封装直接处理包含文档对象的序列。</p>
+<pre><code class="language-shell">es_cli.bulk(
+	body,  # action-data pair, separated by newline. 
+    index, doc_type
+)
+helpers.bulk(es_cli,actions,stats_only=False,raise_on_error=True) #-&gt; (...)*
+helpers.streaming_bulk(es_cli, actions,...) # bulk()封装streaming_bulk()
+helpers.parallel_bulk(...)
+</code></pre>
+<blockquote>
+<p><code>*</code>：<code>stats_only=True</code>：除返回写入成功的数量外，仅返回错误的统计数量；反之，返回错误的详细信息构成的列表。为了避免批量插入中途出现错误而终端批量操作，可令<code>raise_on_error=False</code>。</p>
+</blockquote>
+<p>批量对象序列的元素结构通常与<code>search()</code>的返回结构一致：</p>
+<pre><code class="language-json">{
+   '_index': 'index-name',
+   '_type': 'doc',
+   '_id': 42,
+   '_source': {...}
+}
+</code></pre>
+<p>如果输入数据字段中不包含<code>source</code>，则<code>helpers.bulk()</code>将从输入对象的字段中首先提取元数据字段，将剩余数据作为文档数据。可通过元数据<code>_op_type</code>指定操作类型，包括<code>index</code>(默认)、<code>create</code>、<code>delete</code>和<code>update</code>。</p>
+<h5 id="删除文档"><a class="header" href="#删除文档">删除文档</a></h5>
+<pre><code class="language-python">es_cli.delete(index, doc_type, id, timeout)
+</code></pre>
+<p>删除查询匹配的结果：</p>
+<pre><code class="language-python">es_cli.delete_by_query(...)  # 接受search接口的参数
+</code></pre>
+<h4 id="索引管理接口"><a class="header" href="#索引管理接口">索引管理接口</a></h4>
+<p>通过ES客户端实例<a href="#ES%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%86%85%E7%BD%AE%E5%B1%9E%E6%80%A7">提供的索引的客户端代理</a><code>IndicesClient</code>提供的接口来管理索引。</p>
+<h5 id="查看索引接口"><a class="header" href="#查看索引接口">查看索引接口</a></h5>
+<p>索引汇总信息：</p>
+<pre><code class="language-python">es_cli.cat.indices(index, format='json|yaml', health=None,s=None,v=False)
+</code></pre>
+<p><code>health</code>：<code>'green'|'yellow'|'red'</code>，按节点状态筛选；</p>
+<p>索引详细信息：</p>
+<pre><code class="language-python">es_cli.indices.exists(index, ignore_unavailable) # 索引是否存在
+es_cli.indices.get(index)                        # 获取索引信息(alises,settings,mappings)
+</code></pre>
+<blockquote>
+<p><code>index</code>：支持通配符。</p>
+</blockquote>
+<h5 id="创建索引接口"><a class="header" href="#创建索引接口">创建索引接口</a></h5>
+<pre><code class="language-shell">es_cli.indices.create(index, body,...) # -&gt; 返回执行状态
+</code></pre>
+<p><code>body:dict</code>：索引的配置，包括<a href="#%E5%88%9B%E5%BB%BA%E7%B4%A2%E5%BC%95">设置(settings)和映射(mappings)</a>的JSON对象。</p>
+<p>获取已有索引的这些配置：</p>
+<pre><code class="language-python">es_cli.indices.get_mapping(fileds, index, doc_type,...)  # 获取索引的映射
+es_cli.indices.get_settings(fileds, index, doc_type,...) # 获取索引的配置
+es_cli.indices.get_field_mapping(fileds, index, doc_type,...)
+</code></pre>
+<blockquote>
+<p>返回JSON对象以索引名为根节点。</p>
+</blockquote>
+<h5 id="开启或关闭索引接口"><a class="header" href="#开启或关闭索引接口">开启或关闭索引接口</a></h5>
+<pre><code class="language-python">es_cli.indices.open(index, ingore_unavailable,...)
+es_cli.indices.close(index, ingore_unavailable,...)
+</code></pre>
+<h5 id="删除索引接口"><a class="header" href="#删除索引接口">删除索引接口</a></h5>
+<pre><code class="language-python">es_cli.indices.delete(index)
+es_cli.indices.delete_alias(index, name)
+</code></pre>
+<h5 id="索引数据迁移"><a class="header" href="#索引数据迁移">索引数据迁移</a></h5>
+<pre><code class="language-python">es_clit.reindex(body=dsl, )  # reindex all docs from one index to another
+helpers.reindex(es_cli, src_index, tgt_index,...)
+</code></pre>
+<h4 id="模板管理接口"><a class="header" href="#模板管理接口">模板管理接口</a></h4>
+<pre><code class="language-python">es_cli.cat.templates(
+    name=pattern,      #*
+    format='json',     # 以JSON/YAML格式输出,默认以纯文本表格输出
+    h='name,template', # 要输出的列
+    s='name,template', # 对输出按列排序
+    v=True             # 显示表头
+)  # 返回匹配的模板名称
+es_cli.indices.exists_template(name='xxx') -&gt; bool
+es_cli.indices.get_template(name='xxx') -&gt; Dict[str,dict]
+es_cli.indices.put_template(name='xxx', body, create=False)  #**
+es_cli.indices.delete_template(name='xxx')
+
+</code></pre>
+<blockquote>
+<p><code>*</code>：<code>name</code>参数支持通配符。</p>
+<p><code>**</code>：<code>create=False</code>支持替换已有模板。</p>
+</blockquote>
+<h2 id="opensearch"><a class="header" href="#opensearch">OpenSearch</a></h2>
+<blockquote>
+<p><strong>OpenSearch</strong> is <a href="https://aws.amazon.com/blogs/opensource/introducing-opensearch/">a community-driven, open source fork</a> of <a href="https://en.wikipedia.org/wiki/Elasticsearch">Elasticsearch</a> and <a href="https://en.wikipedia.org/wiki/Kibana">Kibana</a>.</p>
+<p>OpenSearch is a community-driven, Apache 2.0-licensed open source search and analytics suite that makes it easy to ingest, search, visualize, and analyze data. Developers build with OpenSearch for use cases such as application search, log analytics, data observability, data ingestion, and more.</p>
+<p>OpenSearch consists of a data store and search engine (OpenSearch), and a visualization and user interface (OpenSearch Dashboards). Users can extend the functionality of OpenSearch with a selection of plugins that enhance search, security, performance analysis, machine learning, and more.</p>
+</blockquote>
+<p><a href="https://opensearch.org/docs/latest/">Get started - OpenSearch documentation</a></p>
+<h2 id="参考文献"><a class="header" href="#参考文献">参考文献</a></h2>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">3</sup>
+<p><a href="https://elastic-stack.readthedocs.io/en/latest/index.html">Log Consolidation with ELK Stack — Log Consolidation with ELK Stack 1.2 documentation (elastic-stack.readthedocs.io)</a>
+<sup class="footnote-reference"><a href="#search">1</a></sup>: <a href="https://www.elastic.co/guide/en/elasticsearch/reference/8.2/search.html">Search APIs | Elasticsearch Guide 8.2 | Elastic</a>
+<sup class="footnote-reference"><a href="#pycli">2</a></sup>:<a href="https://elasticsearch-py.readthedocs.io/en/5.5.1/index.html">Python Elasticsearch Client — Elasticsearch 5.5.1 documentation (elasticsearch-py.readthedocs.io)</a></p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../数据库/HiveSQL.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../数据库/Elastic Datasource.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../数据库/HiveSQL.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../数据库/Elastic Datasource.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

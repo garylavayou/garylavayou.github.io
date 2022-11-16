@@ -1,0 +1,347 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Hive SQL - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html" class="active">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="hive-sql"><a class="header" href="#hive-sql">Hive SQL</a></h1>
+<p>Hive是基于Hadoop的数据库，底层数据存储采用HDFS，提供HQL（Hive SQL）查询功能。</p>
+<p>Hive将SQL语句转换为MapReduce任务运行。</p>
+<p>Hive用于做海量离线数据统计分析：</p>
+<ul>
+<li>不支持记录级别的增删改操作，可以将查询结果导出到文件</li>
+<li>查询延时很严重，因为 MapReduce任务的启动过程消耗很长时间，所以不能用在交互查询系统中。</li>
+<li>不支持事务，因为没有增删改操作，所以主要用来做 OLAP（联机分析处理），而不是 OLTP（联机事务处理）。</li>
+</ul>
+<h2 id="配置"><a class="header" href="#配置">配置</a></h2>
+<p>Hive命令行回显结果不显示表名：</p>
+<pre><code class="language-sql">hive&gt; set hive.resultset.use.unique.column.names=false;
+</code></pre>
+<h2 id="定义数据库"><a class="header" href="#定义数据库">定义数据库</a></h2>
+<pre><code class="language-sql">CREATE DATABASE|SCHEMA [IF NOT EXISTS] database_name
+  [COMMENT 'database comment']
+  [WITH DBPROPERTIES (property_name=property_value, ...)];
+DROP DATABASE|SCHEMA [IF EXISTS] database_name [RESTRICT|CASCADE];
+</code></pre>
+<blockquote>
+<p><code>CASCADE</code>删除数据库前先删除表格，默认情况<code>RESTRICT</code>如果数据库非空则删除操作失败。</p>
+</blockquote>
+<h3 id="定义数据表"><a class="header" href="#定义数据表">定义数据表</a></h3>
+<pre><code class="language-sql">CREATE TABLE tablename (
+   col_name DATA_TYPE [constraints] [COMMENT col_comment], ...)
+   [COMMENT 'table comment']                   -- 表格说明
+   [PARTITIONED BY (col_name data_type,...)]   -- 分片: 必须声明为(col type)格式
+   ROW FORMAT DELIMITED      -- 分隔符文件
+   FIELDS TERMINATED BY '\t' -- 分隔符
+   -- LINES TERMINATED BY '\n' 
+   STORED AS TEXTFILE        -- 存储格式：默认TEXTFILE，其他PARQUET、AVRO、ORC、JSONFILE等
+   TBLPROPERTIES(&quot;skip.header.line.count&quot; = &quot;1&quot;,...);  
+DROP TABLE tablename [purge];
+</code></pre>
+<p>==分片的列单独声明==，不应在列定义中重复声明；<code>STORED AS TEXTFILE</code>应该放在其他格式声明之后。</p>
+<p>数据表属性声明：</p>
+<ul>
+<li><code>skip.header.line.count=1</code>：使用Hive查询时，跳过数据文件中的首行（包含表头的情况，列名不要包含特殊字符，如<code>#</code>，空格等）。</li>
+</ul>
+<p>对于具有表头的原始数据，可以去除表头后再导入HDFS（从而<a href="../%E6%9C%8D%E5%8A%A1%E5%99%A8/Spark%20Python%20API.html#Hive%E6%95%B0%E6%8D%AE%E6%BA%90%E6%A0%BC%E5%BC%8F">与Spark读取处理方式兼容</a>）。</p>
+<pre><code class="language-shell">tail -n +2 data.csv &gt; data_nohead.csv
+hdfs dfs -put data_nohead.csv /datasets/data.csv
+</code></pre>
+<blockquote>
+<p>对于较大数据量，使用<code>tail</code>处理时间较长（需要复制数据）。</p>
+</blockquote>
+<h5 id="查看表的定义"><a class="header" href="#查看表的定义">查看表的定义</a></h5>
+<pre><code class="language-sql">DESC table_name;  -- DESCRIBE
+SHOW CREATE TABLE table_name;
+# STORED AS TEXTFILE &lt;=&gt; STORED AS INPUTFORMAT 'org.apache.hadoop.mapred.TextInputFormat'
+# OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+# LOCATION 'hdfs://CLUSTER_ADDR/hive/warehouse/DBNAME.db/TABLE_FILE'
+</code></pre>
+<p>从定义中可看到表的底层数据在HDFS上的存储位置。</p>
+<h5 id="自动获取数源的定义"><a class="header" href="#自动获取数源的定义">自动获取数源的定义</a></h5>
+<p>使用Pandas可加载数据文件并自动推导数据类型定义，然后生成数据表的定义。</p>
+<pre><code class="language-python">table_schema = pd.io.sql.get_schema(df.drop(columns=parition_cols), 'table_name')\
+                        .replace('&quot;', '`')\
+                        .replace('TEXT', 'STRING')\
+                        .replace('INTEGER', 'INT')
+# print(table_schema)
+# CREATE TABLE `table_name` (
+# `field1` STRING,
+# `field2` INT
+# )
+</code></pre>
+<p>转换后的SQL语句语法不完全与HQL兼容，例如需要将标识符范围限定符<code>&quot;</code>（PosgreSQL）替换为<code>ˋ</code>（MySQL）；某些类型关键字转换（如<code>TEXT</code>转换为<code>STRING</code>）。此外，为了支持设置分片列声明，可提前将分片列从源数据中分离出来并单独生成类型声明。</p>
+<pre><code class="language-python">part_schema = pd.io.sql.get_schema(df[parition_cols], 'part_name')\
+                       .replace('&quot;', '`')\
+                       .replace('TEXT', 'STRING')
+part_schema = ''.join(part_schema.split('\n')[1:-1])     
+</code></pre>
+<p>基于上述结果，可继续添加Hive表格属性限定声明（如分片、分隔符、存储格式等），从而生成Hive表格定义。</p>
+<pre><code class="language-python">table_schema = '\n'.join(table_schema, f&quot;PARTITIONED BY ({part_schema})&quot;, 
+                         &quot;ROW FORMAT DELIMITED&quot;, &quot;STORED AS TEXTFILE&quot;, ...)
+</code></pre>
+<p>如果使用Spark加载数据文件为表格，类似地，能基于自动推导生成表格定义（需要自行生成SQL语句）。</p>
+<pre><code class="language-python">def spark_get_schema(df, tablename):
+  ts = []
+  ts.append(f'CREATE TABLE `{tablename}` (')
+  tts = []
+  for x in df.schema: 
+    tts.append('`{0}` {1}'.format(x.name, x.dataType.typeName()))
+  ts.append(',\n'.join(tts))
+  ts.append(')')
+  table_schema = '\n'.join(ts)
+  return table_schema
+</code></pre>
+<h5 id="修改表定义"><a class="header" href="#修改表定义">修改表定义</a></h5>
+<pre><code class="language-sql">ALTER TABLE table_name RENAME TO new_table_name;  # 修改表名
+ALTER TABLE invites REPLACE COLUMNS (foo INT, bar STRING, ...);
+</code></pre>
+<p>修改表的<code>Schema</code>，不在参数声明中的列将被丢弃。</p>
+<h5 id="修改表属性"><a class="header" href="#修改表属性">修改表属性</a></h5>
+<pre><code class="language-sql">ALTER TABLE pokemon SET TBLPROPERTIES (&quot;skip.header.line.count&quot;=&quot;1&quot;);
+</code></pre>
+<h4 id="数据类型"><a class="header" href="#数据类型">数据类型</a></h4>
+<h5 id="基本类型"><a class="header" href="#基本类型">基本类型</a></h5>
+<div class="table-wrapper"><table><thead><tr><th>分类</th><th>数据类型</th></tr></thead><tbody>
+<tr><td>逻辑类型</td><td><code>BOOLEAN</code></td></tr>
+<tr><td>整数</td><td><code>TINYINT,SMALLINT,INT,BIGINT</code></td></tr>
+<tr><td>浮点数</td><td><code>FLOAT,DOUBLE</code></td></tr>
+<tr><td>高精度浮点数</td><td><code>DECIMAL,DECIMAL(precision, scale)</code></td></tr>
+<tr><td>字符文本</td><td><code>STRING,VARCHAR,CHAR</code></td></tr>
+<tr><td>时间日期</td><td><code>TIMESTAMP,DATE</code></td></tr>
+<tr><td>原始数据</td><td><code>BINARY</code></td></tr>
+</tbody></table>
+</div>
+<h2 id="导入数据"><a class="header" href="#导入数据">导入数据</a></h2>
+<p>将本地文件导入Hive数据仓库：</p>
+<pre><code class="language-sql">LOAD DATA [LOCAL] INPATH './examples/files/kv1.txt' OVERWRITE INTO TABLE pokes;
+LOAD DATA [LOCAL] INPATH './examples/files/kv2.txt' OVERWRITE INTO TABLE invites PARTITION (ds='2008-08-15');
+</code></pre>
+<p><code>LOCAL</code>：从本地文件系统上传（省略则从HDFS中查找文件并移动到hive目录下）；<code>OVERWRITE</code>覆盖当前已有数据（省略则==追加==到当前数据）；如果是已定义分区的数据表，则必须指定<code>PARTITION</code>指定要写入数据的分区（分区字段将被写入设置的值，而非源数据中的值）。</p>
+<blockquote>
+<p>不会验证数据的<code>schema</code>；</p>
+</blockquote>
+<h2 id="读取数据"><a class="header" href="#读取数据">读取数据</a></h2>
+<p>使用SQL<code>SELECT</code>语句进行查询，结果将输出至标准输出。</p>
+<p>查询的列名可使用正则表达式模糊匹配。</p>
+<h5 id="保存数据"><a class="header" href="#保存数据">保存数据</a></h5>
+<p>使用Hive<code>INSERT</code>命令将查询结果写入Hive表、HDFS或本地存储。</p>
+<pre><code class="language-sql">INSERT OVERWRITE [LOCAL] DIRECTORY 'directory1'
+  [ROW FORMAT row_format] [STORED AS file_format]
+  SELECT ... FROM ...;
+-- row_format
+:DELIMITED [FIELDS TERMINATED BY char [ESCAPED BY char]] 
+		[COLLECTION ITEMS TERMINATED BY char]
+        [MAP KEYS TERMINATED BY char] 
+        [LINES TERMINATED BY char]
+        [NULL DEFINED AS char]
+INSERT OVERWRITE DIRECTORY '/tmp/hdfs' SQL_STATEMENT;   -- to HDFS
+INSERT OVERWRITE TABLE events;                          -- to hive table
+INSERT OVERWRITE LOCAL DIRECTORY '/tmp' SQL_STATEMENT;  -- to local storage
+</code></pre>
+<blockquote>
+<p><em>Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.</em></p>
+</blockquote>
+<h5 id="基于分区的查询"><a class="header" href="#基于分区的查询">基于分区的查询</a></h5>
+<h3 id="计算"><a class="header" href="#计算">计算</a></h3>
+<p>在查询语句使用<code>TRANSFORM</code>和<code>USING</code>，可以调用外部程序（例如使用Python脚本）处理数据。</p>
+<pre><code class="language-python">import sys
+import datetime
+for line in sys.stdin:   # 从标准输入读取一行数据
+  line = line.strip()
+  userid, movieid, rating, unixtime = line.split('\t')
+  weekday = datetime.datetime.fromtimestamp(float(unixtime)).isoweekday()
+  print '\t'.join([userid, movieid, rating, str(weekday)])  # 输出结果到标准输出
+</code></pre>
+<pre><code class="language-sql">add FILE weekday_mapper.py;
+INSERT OVERWRITE TABLE u_data_new
+   SELECT
+     TRANSFORM (userid, movieid, rating, unixtime)
+     USING 'python weekday_mapper.py'  -- 运行Python程序处理每一行记录
+     AS (userid, movieid, rating, weekday)
+   FROM u_data;
+</code></pre>
+<p><a href="https://cwiki.apache.org/confluence/display/Hive/GettingStarted#GettingStarted-DDLOperations">GettingStarted - Apache Hive - Apache Software Foundation</a></p>
+<p><a href="https://cwiki.apache.org/confluence/display/Hive/Tutorial">Tutorial - Apache Hive - Apache Software Foundation</a></p>
+<p><a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL">LanguageManual DDL - Apache Hive - Apache Software Foundation</a></p>
+<p><a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DML">LanguageManual DML - Apache Hive - Apache Software Foundation</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../数据库/PostgreSQL.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../数据库/Elasticsearch.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../数据库/PostgreSQL.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../数据库/Elasticsearch.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

@@ -1,0 +1,1925 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>输入输出 - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html" class="active">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="输入输出"><a class="header" href="#输入输出">输入输出</a></h1>
+<h2 id="文件读写"><a class="header" href="#文件读写">文件读写</a></h2>
+<p>创建文件对象：</p>
+<pre><code class="language-python">fp = open(file_name, mode='r|b', encoding=None, buffering)  # === io.open
+# os.open底层IO接口
+</code></pre>
+<p><code>access_mode</code>：<a href="../Linux/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%8E%A5%E5%8F%A3.html#open">访问模式</a>。文件打开模式决定读写内容是文本（默认）或<a href="./Python%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html#%E5%AD%97%E8%8A%82%E5%BA%8F%E5%88%97%E7%B1%BB%E5%9E%8B%EF%BC%88bytes%EF%BC%89">字节序列</a>。</p>
+<blockquote>
+<p><code>a</code>：追加模式，如果文件不存在将自动创建。</p>
+</blockquote>
+<p><code>close</code>：可使用<code>with</code>语句实现自动管理文件资源。</p>
+<h5 id="文件对象"><a class="header" href="#文件对象">文件对象</a></h5>
+<div class="table-wrapper"><table><thead><tr><th>属性</th><th>描述</th></tr></thead><tbody>
+<tr><td><code>file.closed</code></td><td>如果文件已被关闭返回<code>true</code>，否则返回<code>false</code>。</td></tr>
+<tr><td><code>file.mode</code></td><td>返回被打开文件的访问模式。</td></tr>
+<tr><td><code>file.name</code></td><td>返回文件的名称。</td></tr>
+<tr><td><code>file.softspace</code></td><td>如果用<code>print</code>输出后必须跟一个空格符，则返回<code>false</code>。</td></tr>
+</tbody></table>
+</div>
+<h5 id="文件读写-1"><a class="header" href="#文件读写-1"><a href="../Linux/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%8E%A5%E5%8F%A3.html#%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99">文件读写</a></a></h5>
+<blockquote>
+<p><code>read</code>  <code>readlines</code>  <code>write</code>  <code>writelines</code>  <code>seek</code>  <code>tell</code>；</p>
+</blockquote>
+<p><code>fp.readline()</code>返回结果包含换行符“<code>\n</code>”；</p>
+<p><code>fileinput</code>基于行读取文件：</p>
+<pre><code class="language-python">import fileinput
+with fileinput.input(files=('data.txt',)) as file:
+  for line in file: print(line)
+</code></pre>
+<p>内置库<code>filecache</code>，你可以用它来指定读取具体某一行，或者某几行，不指定就读取全部行。</p>
+<pre><code class="language-python">import linecache
+content = linecache.getline(filename, lineno)  # 行号从1开始，0返回空行
+content = linecache.getlines(filename)
+</code></pre>
+<h3 id="输入输出对象"><a class="header" href="#输入输出对象">输入输出对象</a></h3>
+<p>提供类似文件读写的接口读写内存缓存空间的数据，包括基于文本<code>io.StringIO</code>和基于字节<code>io.BytesIO</code>的输入输出对象。</p>
+<pre><code class="language-python">str_buffer = io.StringIO(initial_value='')
+bytes_buffer = io.BytesIO(initial_bytes=b'')
+</code></pre>
+<h3 id="文件类型支持"><a class="header" href="#文件类型支持">文件类型支持</a></h3>
+<h5 id="gzip"><a class="header" href="#gzip">gzip</a></h5>
+<p><code>gzip</code>模块提供 <a href="https://docs.python.org/zh-cn/3/library/gzip.html#gzip.GzipFile"><code>GzipFile</code></a> 类和 <a href="https://docs.python.org/zh-cn/3/library/gzip.html#gzip.open"><code>open()</code></a>、<a href="https://docs.python.org/zh-cn/3/library/gzip.html#gzip.compress"><code>compress()</code></a>、<a href="https://docs.python.org/zh-cn/3/library/gzip.html#gzip.decompress"><code>decompress()</code></a> 几个便利的函数。</p>
+<p><a href="https://docs.python.org/zh-cn/3/library/gzip.html#gzip.GzipFile"><code>GzipFile</code></a> 类可以读写<strong>gzip</strong>格式的文件，还能自动压缩和解压缩数据，这让操作压缩文件如同操作普通的文件对象一样方便。</p>
+<pre><code class="language-python">gzip.open(filename, mode='rb', ...)
+</code></pre>
+<blockquote>
+<p>对于二进制模式，这个函数等价于 <a href="https://docs.python.org/zh-cn/3/library/gzip.html#gzip.GzipFile"><code>GzipFile</code></a> 构造器：<code>GzipFile(filename, mode, compresslevel)</code>。</p>
+</blockquote>
+<pre><code class="language-python">gzip.compress(data, compresslevel=9)
+</code></pre>
+<pre><code class="language-python">gzip.decompress(data)
+</code></pre>
+<h5 id="xml"><a class="header" href="#xml">XML</a></h5>
+<pre><code class="language-python">import xml.etree.ElementTree as xml
+root = xml.Element(&quot;users&quot;)
+</code></pre>
+<h2 id="标准输入输出"><a class="header" href="#标准输入输出">标准输入输出</a></h2>
+<p>读取一行输入字符串。</p>
+<pre><code class="language-python">line = input(&quot;Press [enter] to continue.&quot;)
+</code></pre>
+<p>输入密码：</p>
+<pre><code class="language-python">import getpass
+p=getpass.getpass(prompt='Password: ')
+</code></pre>
+<p>使用<code>print</code>打印对象的<a href="Python%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80.html#%E7%B1%BB%E7%9A%84%E6%88%90%E5%91%98">文本表示</a> <code>str(x)</code>（<code>__str__()</code>）。如果要格式化输出，通过<code>str.format</code>将输出<a href="./Python%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A0%BC%E5%BC%8F%E5%8C%96">格式化为字符串</a>，再通过<code>print</code>输出字符串。</p>
+<pre><code class="language-python">print(value, ..., sep=' ', end ='\n', file=sys.stdout) # 支持多个参数连续输出
+print(&quot;... %{0:s} ... %{1:d} ...&quot;.format('Zara',21))
+</code></pre>
+<blockquote>
+<p>Python 2.x：<code>print &quot;... %s ... %d ...&quot; % ('Zara', 21)</code>。</p>
+</blockquote>
+<h3 id="警告信息"><a class="header" href="#警告信息">警告信息</a></h3>
+<h4 id="生成警告信息"><a class="header" href="#生成警告信息">生成警告信息</a></h4>
+<pre><code class="language-python">import warnings
+warnings.warn(message,category=UserWarning,stacklevel=1,source=None)
+</code></pre>
+<blockquote>
+<p><code>stacklevel</code>用于指定显示触发告警语句的层级，<code>1</code>表示<code>warn</code>语句所在行，2表示<code>warn</code>语句的上一级调用。</p>
+<p><code>source</code>：*if supplied, is the destroyed object which emitted a <code>ResourceWarning</code>.*通常没用。</p>
+</blockquote>
+<p><code>warn</code>告警信息给出的行号总是在调用<code>warn</code>的位置，因此不能准确反映代码中触发告警的位置。使用<code>warn_explicit()</code>可以指定<a href="Python%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80.html#%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E4%BF%A1%E6%81%AF">代码行号</a>。</p>
+<pre><code class="language-python">warnings.warn_explicit(message, category, filename, lineno, module=None, registry=None, module_globals=None, source=None)
+</code></pre>
+<h5 id="警告类型"><a class="header" href="#警告类型"><a href="https://docs.python.org/3/library/warnings.html#warning-categories">警告类型</a></a></h5>
+<p><a href="https://docs.python.org/3/library/exceptions.html#Warning"><code>Warning</code></a>：所有警告类型的基类，继承自<a href="Python%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80#%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><code>Exception</code></a>。<code>UserWarning</code>是<code>warn()</code>产生警告的默认类型。<code>DeprecationWarning</code>和<code>FutureWarning</code>分别用于告知开发者和最终用户相关特性将被弃用。</p>
+<p><code>SyntaxWarning/RuntimeWarning/ImportWarning/UnicodeWarning/BytesWarning/ResourceWarning...</code>。</p>
+<h4 id="警告信息筛选"><a class="header" href="#警告信息筛选">警告信息筛选</a></h4>
+<p>每条告警信息按尝试依次匹配筛选规则，当匹配到规则，则按该规则的处理方式处理告警<sup class="footnote-reference"><a href="#warnings">1</a></sup>。告警筛选规则包括：</p>
+<ul>
+<li><code>action</code>：警告的处理方式；
+<ul>
+<li><code>&quot;always&quot;</code>：总是打印警告；</li>
+<li><code>&quot;default&quot;</code>：打印首次出现的匹配警告（不同的<code>module</code>+<code>lineno</code>）；<code>&quot;module&quot;</code>打印模块内首次出现的匹配警告（不同的<code>module</code>）；<code>&quot;once&quot;</code>：仅打印一次匹配的警告；</li>
+<li><code>&quot;error&quot;</code>：将警告转换为异常；</li>
+<li><code>&quot;ignore&quot;</code>：从不打印警告；</li>
+</ul>
+</li>
+<li><code>message</code>：匹配警告信息的正则表达式（大小写不敏感）；</li>
+<li><code>category</code>：匹配警告类型的类名（<code>Warning</code>的子类）；</li>
+<li><code>module</code>：匹配触发警告信息的模块名的正则表达式（大小写不敏感）；</li>
+<li><code>lineno</code>：匹配触发警告的行号（默认<code>0</code>匹配任意行）。</li>
+</ul>
+<p>如果一条警告信息未匹配到筛选规则，则按默认处理方式处理。</p>
+<h5 id="设置警告规则列表"><a class="header" href="#设置警告规则列表">设置警告规则列表</a></h5>
+<p>使用环境变量<code>PYTHONWARNINGS</code>（使用<code>,</code>分隔规则）、Python解释器<code>-W</code>选项（多次提供设置多个规则）设置，首次导入<code>warnings</code>模块时加载这些设置。一条规则的声明语法为</p>
+<pre><code class="language-python">action:message:category:module:line
+</code></pre>
+<p>如果某个参数未提供，则<code>:</code>之间为空；如果字段数不足则对应参数值为空。Python内置了部分告警过滤规则，通过上述方法可覆盖这些预置规则。</p>
+<pre><code class="language-python">warnings.filterwarnings(action,message='',category=Warning,module='',lineno=0,append=False)
+warnings.simplefilter(action,category=Warning,lineno=0,append=False) # 不匹配message和module
+</code></pre>
+<p><code>append=False</code>：默认将规则置于最前端。</p>
+<h5 id="临时设置警告规则"><a class="header" href="#临时设置警告规则">临时设置警告规则</a></h5>
+<pre><code class="language-python">with warnings.catch_warnings():
+    warnings.simplefilter(&quot;ignore&quot;)
+    states_contains_warning()
+</code></pre>
+<h3 id="日志"><a class="header" href="#日志">日志</a></h3>
+<h4 id="产生日志"><a class="header" href="#产生日志">产生日志</a></h4>
+<p>产生日志的方法：<code>debug(), info(), warning(), error(), critical()</code>，对应了相应的日志等级<code>DEBUG, INFO, WARNING, ERROR, CRITICAL</code>，默认等级为<code>WARNING</code>。</p>
+<h5 id="全局日志生成器"><a class="header" href="#全局日志生成器">全局日志生成器</a></h5>
+<pre><code class="language-python">import logging
+logging.warning('Watch out!')  # print to console
+root_logger = logging.getLogger()
+</code></pre>
+<h5 id="logger"><a class="header" href="#logger">Logger</a></h5>
+<p>日志生成器（Logger）包含一名称用于区分日志来源，推荐基于模块级别构造日志生成器（使用<code>.</code>命名区分层级）。</p>
+<pre><code class="language-python">logger = logging.getLogger(name=__name__)  # default is root
+logger.setLevel(level)   # effective level
+logger.warning(msg)      # error/exception/warning/info/debug/trace
+</code></pre>
+<p>属性：<code>level</code>（日志级别）、<code>name</code>（日志器名称）。日志生成器会默认将消息传递给全局生成器（意味着会在生成两次日志并发送到相应目标），如果这一行为并非期望的方式，令<code>logger.propagate=False</code>禁止传递消息。</p>
+<h4 id="处理日志"><a class="header" href="#处理日志">处理日志</a></h4>
+<p>日志处理方法包括：打印至控制台（<code>StreamHandler</code>，默认输出流为标准错误输出<code>sys.stderr</code>），存储到磁盘文件<code>FileHandler</code>。</p>
+<h5 id="配置全局日志处理方法"><a class="header" href="#配置全局日志处理方法">配置全局日志处理方法</a></h5>
+<pre><code class="language-python">logging.basicConfig(filename='example.log', encoding='utf-8', level=...)
+</code></pre>
+<blockquote>
+<p><code>basicConfig()</code>需要在产生日志的方法前调用。</p>
+</blockquote>
+<h5 id="自定义配置日志处理方法"><a class="header" href="#自定义配置日志处理方法">自定义配置日志处理方法</a></h5>
+<p><code>Handlers</code>类型将日志发送到指定的目标。可以为一个日志生成器添加<a href="https://stackoverflow.com/questions/17745914/python-logging-module-is-printing-lines-multiple-times/37340718">多个日志处理器</a>，从而将日志送至不同目标（默认添加了全局的日志处理方法，即输出到<code>stderr</code>）。<a href="https://docs.python.org/3/howto/logging.html#useful-handlers">常用处方法类型</a>：<code>FileHandler</code>、<code>RotatingFileHandler</code>、<code>TimedRotatingFileHandler</code>、<code>SocketHandler</code>、<code>DatagramHandler</code>、<code>SysLogHandler</code>、<code>NTEventLogHandler</code>、<code>QueueHandler</code></p>
+<pre><code class="language-python">handler = logging.FileHandler(filename,mode='a',encoding=...) # mode可为追加(a)或清空(w)
+from logging import handlers   # 更多的处理方法在handlers模块中
+handlers.TimedRotatingFileHandler(filename, when='h', interval=1,...)
+# TimedRotatingFileHandler按时间区间轮换
+# RotatingFileHandler按文件大小轮换，适用于多个进程向文件写数据。
+</code></pre>
+<blockquote>
+<p><code>when</code>：时间单位包括<code>S</code>秒；<code>M</code>分；<code>H</code>时；<code>D</code>天；<code>W0-W6</code>周（大小写不敏感）。</p>
+</blockquote>
+<p><code>logger.hasHandlers()</code>可查看日志生成器是否配置了处理方法；使用<code>logger.handlers</code>查看其直接处理方法。如果日志生成器的属性<code>propagate=True</code>，则该日志生成器还会将日志传递上级日志生成器（<code>logger.parent</code>，默认为<code>root</code>）。</p>
+<pre><code class="language-shell">handler.setLevel(level)    # handler需要处理的最低日志级别
+logger.addHandler(handler) # logger.removeHandler() =&gt; logger.handlers
+logger.addFilter(filter)   # and Logger.removeFilter()  =&gt; logger.filters
+# addFilter() and removeFilter()
+</code></pre>
+<h4 id="日志格式"><a class="header" href="#日志格式">日志格式</a></h4>
+<pre><code class="language-python">logging.basicConfig(format='[%(asctime)s] - %(levelname)s: %(message)s',
+                    datefmt='%Y-%m-%d %H:%M:%S')
+</code></pre>
+<blockquote>
+<p><code>%(name)s</code>：日志发生器名称；
+<code>%(asctime)s</code>：输出日期时间（格式参考<code>time.strftime()</code>）；
+<code>%(message)s</code>：日志消息；
+<code>%(levelname)s</code>，<code>%(lineno)d</code>，<code>%(funcName)s</code>，<code>%(process)d</code>……</p>
+</blockquote>
+<h5 id="formatter"><a class="header" href="#formatter">Formatter</a></h5>
+<pre><code class="language-python">handler.setFormatter(
+	logging.Formatter(fmt=None, datefmt=None, style='%|{|$')
+)  # 设置格式化方法
+</code></pre>
+<h4 id="配置日志"><a class="header" href="#配置日志">配置日志</a></h4>
+<ol>
+<li><a href="https://docs.python.org/3/howto/logging.html#configuring-logging">分别创建</a>并配置日志处理流程的各个对象；</li>
+<li>读取日志配置文件<code>fileConfig('log.conf')</code>;</li>
+<li>读取包含配置信息的字典<code>dictConfig()</code>，可从<code>JSON</code>或<code>YAML</code>文件读取配置信息。</li>
+</ol>
+<p><a href="https://docs.python.org/3/howto/logging.html">Logging HOWTO — Python 3.9.5 documentation</a></p>
+<p><a href="https://docs.python.org/3/howto/logging-cookbook.html#logging-cookbook">Logging Cookbook — Python 3.9.5 documentation</a></p>
+<p><a href="https://www.datadoghq.com/blog/python-logging-best-practices/">How to Collect, Customize, and Centralize Python Logs | Datadog (datadoghq.com)</a></p>
+<p><a href="https://docs.python.org/3/library/logging.html">logging — Logging facility for Python — Python 3.9.5 documentation</a></p>
+<h3 id="对象输出"><a class="header" href="#对象输出">对象输出</a></h3>
+<h4 id="格式化对象输出"><a class="header" href="#格式化对象输出">格式化对象输出</a></h4>
+<p>Python内置<code>pprint</code>模块，支持将对象的数据成员序列化为JSON对象并格式化输出（提供缩进），默认输出到标准输出（<code>stream=None</code>）。</p>
+<pre><code class="language-python">from pprint import pprint
+pprint(object, stream=None, indent=1, width=80, depth=None, *, compact=False)
+</code></pre>
+<p>使用<code>rich</code>模块能够利用现代终端特性，提供输出内容的风格设置（斜体、加粗、颜色、高亮等）。</p>
+<pre><code class="language-shell">from rich import print  # as rprint
+print(&quot;[italic red] Hello[/italic red] World!&quot;, locals())  # 替换系统print函数
+from rich import pretty
+pretty.install()  # 自动格式化Python命令行回显的对象。
+from rich import inspect
+inspect(obj, methods=Ture)  # 格式化输出对象成员信息
+</code></pre>
+<blockquote>
+<p>在notebook中首先执行<code>%load_ext rich</code>，在Jupyter Notebook中通过<code>display</code>方法使用<code>rich</code>。</p>
+</blockquote>
+<h4 id="数组输出"><a class="header" href="#数组输出">数组输出</a></h4>
+<p>设置打印选项：</p>
+<pre><code class="language-python">np.set_printoptions(
+  precision=8,  # number of digits after &quot;.&quot;
+  linewidth=75, 
+  nanstr=None, infstr=None, 
+  suppress=False, formatter=None, sign=None, floatmode=None)
+</code></pre>
+<h4 id="表格输出"><a class="header" href="#表格输出">表格输出</a></h4>
+<p>Pandas设置打印宽度等参数：</p>
+<pre><code class="language-python">pd.set_option('display.width', 80)        # 每行显示字符数
+pd.set_option('display.max_columns', 40)  # 最多显示的数据列数
+pd.set_option('display.max_rows', 60)     # 也适用于Jupyter Notebook
+</code></pre>
+<blockquote>
+<p><em><code>width</code>和<code>max_columns</code>需要同时设置才有效。</em></p>
+</blockquote>
+<p>设置数值显示精度：</p>
+<pre><code class="language-python">with pd.option_context('display.precision', 2):
+  print(df)
+</code></pre>
+<h3 id="进度条"><a class="header" href="#进度条">进度条</a></h3>
+<h4 id="clickprogressbar"><a class="header" href="#clickprogressbar">click.progressbar</a></h4>
+<p><a href="https://click.palletsprojects.com/en/7.x/utils/#showing-progress-bars">Showing Progress Bars</a></p>
+<h4 id="tqdm"><a class="header" href="#tqdm">tqdm</a></h4>
+<p>安装：</p>
+<pre><code class="language-shell">conda install -c conda-forge tqdm # pip install tqdm
+</code></pre>
+<p>用法：</p>
+<pre><code class="language-python">from tqdm import tqdm, trange
+for char in tqdm(iterable):
+    sleep(0.25)    
+for i in trange(100): sleep(0.01)
+with tqdm(total=10, desc='TaskName',unit='it') as pbar:   # =&gt; pbar.close()
+   for i in range(10):
+      tqdm.write(&quot;task in progress ...&quot;)
+      sleep(1)			
+      _ = pbar.update(n=1)  # True if a `display()` was triggered.
+</code></pre>
+<blockquote>
+<p><code>desc</code>值当进度条左侧显示的信息；<code>unit</code>指定在进度条右侧显示的速率单位。</p>
+<pre><code class="language-python">tqbar.set_description(desc=None, refresh=True)
+</code></pre>
+</blockquote>
+<h5 id="防止进度条重绘"><a class="header" href="#防止进度条重绘">防止进度条重绘</a></h5>
+<p>直接在进度条循环中添加输出语句（<code>print</code>）会导致进度条重复绘制（内容会粘连到之前绘制的进度条后面），可使用<code>tqdm.write</code>来输出信息（清除之前的进度条并输出信息，然后在下一行重绘进度条）。如果迭代过程中调用第三方库输出内容，可以首先将标准输出和错误输出重定向到<code>tqdm</code>。</p>
+<pre><code class="language-python">import sys, contextlib, tqdm, time
+from tqdm.contrib import DummyTqdmFile
+@contextlib.contextmanager
+def std_out_err_redirect_tqdm():
+    orig_out_err = sys.stdout, sys.stderr
+    try:
+        sys.stdout, sys.stderr = map(DummyTqdmFile, orig_out_err)
+        yield orig_out_err[0]
+    except Exception as exc:
+        raise exc
+    finally:
+        sys.stdout, sys.stderr = orig_out_err
+      
+with std_out_err_redirect_tqdm() as orig_stdout:
+  pbar = tqdm(total=100, file=orig_stdout, dynamic_ncols=True)
+  for i in range(100):
+    time.sleep(1) # internal messages
+    print(f'progress to {i}')
+    print(f'progress to {i*10}')
+    _ = pbar.update(n=1)
+  pbar.close()
+</code></pre>
+<p>图形界面</p>
+<pre><code class="language-python">import tqdm.gui
+tqdm.gui.tqdm(total=100, desc='Progress')
+</code></pre>
+<h5 id="用于applymap操作"><a class="header" href="#用于applymap操作">用于Apply|Map操作</a></h5>
+<pre><code class="language-python">tqdm.pandas(desc)
+df.progress_apply(...)     # similar to apply()
+df.progress_applymap(...)  # similar to applymap()
+</code></pre>
+<h4 id="alive-progress"><a class="header" href="#alive-progress">alive-progress</a></h4>
+<p>安装：<code>pip install alive-progress</code>。</p>
+<pre><code class="language-python">from alive_progress import alive_bar
+with alive_bar(total=100, title='Task') as bar:
+    for i in range(100):      # iterate as usual
+      sleep(1)
+      bar()                 # call after consuming one item
+</code></pre>
+<blockquote>
+<p><code>title</code>：显示在进度条左侧。</p>
+</blockquote>
+<h2 id="数据交换"><a class="header" href="#数据交换">数据交换</a></h2>
+<h3 id="对象序列化"><a class="header" href="#对象序列化">对象序列化</a></h3>
+<h4 id="json对象序列化"><a class="header" href="#json对象序列化">JSON对象序列化</a></h4>
+<p>将Python对象转为为JSON描述的字符串形式，并写入文件；或从文件读取JSON字符串并转换为Python对象。</p>
+<pre><code class="language-python">json.dump(obj, fp,..., ensure_ascii=True，indent=None，
+          default=default_func, cls=custom_encoder)
+obj = json.load(fp,...)
+</code></pre>
+<blockquote>
+<p><code>ensure_ascii=True</code>则将非ASCII字符传唤为Unicode转义序列，如<code>\u9ed8\u8ba4</code>；反之则使用UTF-8编码文本，文件也应该使用<code>UTF-8</code>编码打开。</p>
+<p><code>indent</code>：如果为None，则不会换行；反之，按给定数量缩进各层级内容；</p>
+<p><code>dumps</code>和<code>loads</code>在对象和字符串之间转换。</p>
+</blockquote>
+<p>默认编码类<code>JSONEncoder</code>支持转换的Python类型包括：</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Python</th><th style="text-align: left">JSON</th></tr></thead><tbody>
+<tr><td style="text-align: left"><code>dict</code></td><td style="text-align: left"><code>object</code></td></tr>
+<tr><td style="text-align: left"><code>list</code>/ <code>tuple</code></td><td style="text-align: left"><code>array</code></td></tr>
+<tr><td style="text-align: left"><code>str</code></td><td style="text-align: left"><code>string</code></td></tr>
+<tr><td style="text-align: left"><code>numeric</code>（<code>int,float</code>）</td><td style="text-align: left"><code>number</code></td></tr>
+<tr><td style="text-align: left"><code>True</code></td><td style="text-align: left"><code>true</code></td></tr>
+<tr><td style="text-align: left"><code>False</code></td><td style="text-align: left"><code>false</code></td></tr>
+<tr><td style="text-align: left"><code>None</code></td><td style="text-align: left"><code>null</code></td></tr>
+</tbody></table>
+</div>
+<p>对于<code>JSONEncoder</code>不支持的类型，可通过自定义<code>default</code>方法或继承<code>JSONEncoder</code>并重写<code>default</code>方法。例如，将任意迭代类型转换为<code>list</code>，或者将<code>np.int64</code>转换为<code>int</code>。</p>
+<pre><code class="language-python">def default(o):
+  try:
+    iterable = iter(o)
+    return list(iterable)  
+  except TypeError as e:
+      raise e
+def MyEncoder(JSONEncoder):
+  def default(self, o):
+    pass
+</code></pre>
+<h5 id="不完整的json对象解析"><a class="header" href="#不完整的json对象解析">不完整的JSON对象解析</a></h5>
+<h4 id="yaml"><a class="header" href="#yaml">YAML</a></h4>
+<h5 id="安装"><a class="header" href="#安装">安装</a></h5>
+<pre><code class="language-shell">pip install pyyaml
+python setup.py --with-libyaml install  # install with lib
+</code></pre>
+<h5 id="使用"><a class="header" href="#使用">使用</a></h5>
+<pre><code class="language-python">import yaml
+try:  # use LibYAML based parser and emitter
+    from yaml import CLoader as Loader, CDumper as Dumper
+except ImportError:
+    from yaml import Loader, Dumper
+	
+data = yaml.load(stream, Loader=Loader)
+output = yaml.dump(data, Dumper=Dumper)
+</code></pre>
+<h4 id="marshmallow"><a class="header" href="#marshmallow">marshmallow</a></h4>
+<blockquote>
+<p><a href="https://marshmallow.readthedocs.io/en/stable/#marshmallow-simplified-object-serialization">marshmallow: simplified object serialization</a>, <em>converting complex datatypes to and from native Python datatypes.</em></p>
+</blockquote>
+<p><code>marshmallow</code>使用<code>Schema</code>约束对象的序列化和反序列化时的==数据类型==（相比<code>json</code>无类型验证）。Schema定义的字段对应于对象的成员变量/属性或是字典的元素。</p>
+<pre><code class="language-python">from marshmallow import Schema, fields
+class ArtistSchema(Schema): # 使用静态成员来定义Schema
+    name = fields.Str()
+class AlbumSchema(Schema): 
+    title = fields.Str()
+    release_date = fields.Date()
+    artist = fields.Nested(ArtistSchema())  # 嵌套定义
+album = dict(   # 要序列化的对象可以是字典或是对象（特别地，数据类对象）
+  artist=dict(name=&quot;David Bowie&quot;), 
+  title=&quot;Hunky Dory&quot;, 
+  release_date=date(1971, 12, 17)
+)
+schema = AlbumSchema()
+result = schema.dump(album)  # -&gt; Python字典
+result = schema.dumps(album)  # -&gt; JSON文本
+</code></pre>
+<p><a href="https://marshmallow.readthedocs.io/en/stable/quickstart.html">Quickstart — marshmallow 3.11.1 documentation</a></p>
+<h4 id="pickle"><a class="header" href="#pickle">pickle</a></h4>
+<blockquote>
+<p><em>The <code>pickle</code> module implements binary protocols for serializing and de-serializing a Python object structure.</em></p>
+<p><em>The <code>pickle</code> module <strong>is not secure</strong>. Only unpickle data you trust.</em></p>
+</blockquote>
+<pre><code class="language-python">pickle.dump(obj, file, ...)   # write an object to file stream
+obj_bytes = pickle.dumps(...) # return bytes array instead of writing to file
+</code></pre>
+<p><code>file</code>：打开的文件对象。</p>
+<pre><code class="language-python">a = pickle.load(file, ...)
+a = pickle.loads(bytes_buffer, ...)
+</code></pre>
+<blockquote>
+<p><code>pickle</code>编码的数据与代码相关，不同Python版本间可能存在兼容性问题。</p>
+<p><code>pickle</code>编码速度较慢。</p>
+</blockquote>
+<h5 id="cloudpicke"><a class="header" href="#cloudpicke">cloudpicke</a></h5>
+<p><code>cloudpickle</code>支持序列化<code>pickle</code>模块不支持的Python数据结构，尤其是支持==函数对象==，因此可以将代码保存并传递到本地或远程的其他进程。<code>cloudpickle</code>提供与<code>pickle</code>相同的接口。</p>
+<h5 id="marshal"><a class="header" href="#marshal">marshal</a></h5>
+<p><code>marshal</code>不能用于序列化用户自定义类型对象。</p>
+<blockquote>
+<p><em>The <code>marshal</code> module exists mainly to support reading and writing the “pseudo-compiled” code for Python modules of <code>.pyc</code> files. Therefore, the Python maintainers reserve the right to modify the marshal format in ==backward incompatible== ways should the need arise. If you’re serializing and de-serializing Python objects, use the <code>pickle</code> module instead – <strong>the performance is comparable, version independence is guaranteed, and pickle supports a substantially wider range of objects than marshal</strong>.</em></p>
+</blockquote>
+<p><a href="https://stackoverflow.com/a/10050570/6571140">How to pickle a python function with its dependencies?</a></p>
+<h5 id="shelve"><a class="header" href="#shelve">shelve</a></h5>
+<blockquote>
+<p><em>A “shelf” is a persistent, dictionary-like object, where the <strong>values</strong> in a shelf can be essentially arbitrary Python objects that the <code>pickle</code> module can handle. including most <strong>class instances, recursive data types, and objects containing lots of shared sub-objects</strong>. The <strong>keys</strong> are ordinary strings.</em></p>
+<p><a href="https://docs.python.org/3/library/shelve.html#module-shelve">shelve — Python object persistence — Python 3.10.7 documentation</a></p>
+</blockquote>
+<h3 id="导入导出数据"><a class="header" href="#导入导出数据">导入导出数据</a></h3>
+<h4 id="使用numpyscipy"><a class="header" href="#使用numpyscipy">使用NumPy/SciPy</a></h4>
+<p>保存数组数据为二进制文件(默认以<code>.npy</code>作为扩展名)。</p>
+<pre><code class="language-python">np.save(file_name, array, allow_pickle=True, fix_imports=True)
+array = np.load(file_name)	# 加载数组或pickle对象。
+</code></pre>
+<blockquote>
+<p>序列类型也可以进行保存，Numpy会自动将其转换为<code>ndarray</code>。</p>
+</blockquote>
+<h5 id="保存多个数组"><a class="header" href="#保存多个数组">保存多个数组</a></h5>
+<pre><code class="language-python">np.savez(file, arrays, kw_arrays)  # save as '.npz' format
+</code></pre>
+<p>使用关键字参数可以关键字作为数组名一并保存；反之，数组将按<code>'arr_0', 'arr_1'</code>的方式依次命名。</p>
+<blockquote>
+<p><code>npz</code>文件格式是一个由数组对象对应的<code>npy</code>文件组成的档案文件。使用<code>savez_compressed</code>将档案文件进行压缩。</p>
+</blockquote>
+<p>同样使用<code>np.load</code>读取<code>npz</code>文件并返回一个<code>NpzFile</code>对象，可访问其中包括的数组对象。</p>
+<pre><code class="language-python">arrays = np.load(file)
+var_names = arrays.files  # 获取包含的数组名
+arr = arrays[var_name]    # 读取数组
+</code></pre>
+<h5 id="保存数组为文本文件"><a class="header" href="#保存数组为文本文件">保存数组为文本文件</a></h5>
+<p>==仅适用于<code>1D</code>或<code>2D</code>数组==。</p>
+<pre><code class="language-python">np.savetxt(fname, array, fmt='%.18e', delimiter=' ', newline='\n', header='', ...)
+array = np.loadtxt(fname, dtype=&lt;class 'float'&gt;, delimiter=None,...)
+array = np.genfromtxt(fname, dtype=&lt;class 'float'&gt;, delimiter=None,...)
+</code></pre>
+<blockquote>
+<p><code>fmt</code>中可以添加固定字符，例如添加<code>\n</code>以强制换行。</p>
+<p><code>newline</code>为插入到两行之间的分隔符（默认<code>\n</code>）；</p>
+<p><code>genfromtxt</code>增加了处理缺失数据的选项。</p>
+</blockquote>
+<h5 id="保存稀疏数组"><a class="header" href="#保存稀疏数组">保存稀疏数组</a></h5>
+<pre><code class="language-python">from scipy import sparse
+sparse.save_npz(file_path, matrix)
+matrix = sparse.load_npz(file_path)
+</code></pre>
+<h4 id="使用pandas"><a class="header" href="#使用pandas">使用Pandas</a></h4>
+<p>Pandas提供读取多种格式的数据的方法：包括<code>CSV</code>、<code>EXCEL</code>、<code>JSON</code>、数据库等。<code>pd.read_csv/read_json()</code>和<code>pd.DataFrame.to_csv/to_json()</code>可读取文件或<a href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E5%AF%B9%E8%B1%A1">IO文本缓存对象</a>。</p>
+<pre><code class="language-python"># 适用于转换命令行输出的表格型数据
+df=pd.read_csv(io.StringIO(output))
+</code></pre>
+<h5 id="csv"><a class="header" href="#csv">CSV</a></h5>
+<pre><code class="language-python">data = pd.read_csv(
+    &quot;D:/DataSets/NSL-KDD/KDDTrain+.txt&quot;, header='infer', index_col=None, escapechar=&quot;\\&quot;)
+</code></pre>
+<blockquote>
+<p><code>header</code>:默认将第一行作为表头<code>header=0</code>，没有头部的<code>CSV</code>文件应该设置<code>header=None</code>（将生成默认数组编号表头）；
+<code>names</code>：代替从文件中读取的表头；
+<code>index_col</code>：设置作为行索引的列名，设置多个列名以生成<code>MultiIndex</code>；
+<code>usecols</code>：指定要读取的列；
+<code>dtype</code>：指定数据类型，使用字典单独指定某列类型；
+<code>skipinitialspace</code>：==跳过分隔符后的空白字符==。
+<code>quotechar</code>：引号字符用于包含字符串，对字符串中的分隔符转移；<code>doublequote</code>将两个连续引号字符视为一个引号元素。
+<code>escapechar</code>：转义字符，可以消除任何字符可能具有的特殊含义（<code>\n</code>、<code>\t</code>等代表特殊控制序列，直接转换为字母），主要用于消除引号的特殊意义。<strong>不仅限于使用引号字符的字符串，任何字段中包含转移字符都有效</strong>。
+分隔符<code>sep|delimiter</code>：<code>sep=','</code>（默认）；<code>\s+</code>空白，==用于处理以空格或<code>\t</code>分隔的数据==；长于1个字符将被视为正则表达式（强制使用Python解析引擎）；<code>delim_whitespace=True</code>用于指定空白作为分隔符。
+<code>lineterminator</code>：只有选择<code>'C'</code>解析引擎才可用。
+<code>encoding=utf-8</code>：文件的编码方案，其他包括：<code>gb18030</code>。
+<code>skiprows=N|[i,j,...]|func</code>：跳过文件中的行，先于读取表头（即跳过的行包含表头）。如果参数为列表，则跳过指定行，如果为整数则跳过相应行数。如果为函数，则函数根据输入行号计算是否跳过对应行，如：</p>
+<ul>
+<li><code>lambda i: i&gt;0 and i&lt;=100</code>（跳过除第一行之后的100行）。</li>
+<li><code>lambda j: i%2==0</code>（跳过奇数行）。</li>
+</ul>
+<p><code>error_bad_lines</code>：
+<code>warn_bad_lines</code>：
+<code>comment</code>：注释行开始符号。</p>
+</blockquote>
+<p>日期解析选项：</p>
+<ul>
+<li><code>parse_dates:bool|List[str]|List[int]|dict{'name': List}</code>：指定是否解析日期以及解析日期的列名/编号；使用字典表示使用多列的值拼接后进行解析，并将解析后的值以字典键名作为列名输出。</li>
+<li><code>infer_datetime_format=False</code>：自动推测日期格式。</li>
+<li><code>keep_date_col=False</code>：如果是使用原数据的多列拼接解析，是否保留原数据。</li>
+<li><code>date_parser=dateutil.parser.parser</code>：解析日期的函数。</li>
+<li><code>day_first=False</code>：日期格式为<code>DD/MM</code>。</li>
+</ul>
+<p>读取<code>excel</code>文件需要<code>openpyxl</code>库支持。</p>
+<p>输出：</p>
+<pre><code class="language-python">df.to_csv(&quot;path/to/file.csv&quot;, header=True, index=True, columns=None, float_format='%.2f', sep=',', na_rep='', )
+</code></pre>
+<blockquote>
+<p>使用<code>columns</code>参数指定导出的列。</p>
+<p><code>quotechar</code>（默认为<code>&quot;</code>）、<code>doublequote=True</code>、<code>escapechar=None</code></p>
+</blockquote>
+<h5 id="json"><a class="header" href="#json">JSON</a></h5>
+<pre><code class="language-shell">pd.read_json(path_or_none, orient='records', dtype=True, 
+	convert_dates=True, keep_default_dates=True, date_unit=None, 
+	encoding='utf-8', encoding_errors='strict', 
+	compression='infer', # 'infer', 'gzip', 'bz2', 'zip', 'xz', None for no compression
+	lines=False, chunksize=None, nrows=None, # refer to pd.read_csv()
+	storage_options=None   # e.g. http://user:passwd@host/path/file.json
+)
+</code></pre>
+<p><code>orient</code>：导出数据格式。</p>
+<ul>
+<li>
+<p><code>'split'</code>：<code>=&gt;{'index':[...],'columns':[...],'data':[...]}</code>，分别存储索引、列名和数据（矩阵）；</p>
+</li>
+<li>
+<p><code>'values'</code>：仅存储数据矩阵（<code>split</code>的数据矩阵）；</p>
+</li>
+<li>
+<p><code>'index'</code> ：<code>=&gt;{'index':{'column':value,...},...}</code>，按==行索引==存储记录，每条记录都包含列名；</p>
+<ul>
+<li>
+<p><code>'columns'</code>：<code>=&gt;{'column':{'index':value,...},...}</code>，按==列存储==，每列都包含索引名；</p>
+</li>
+<li>
+<p><code>'records'</code>：<code>=&gt;[{'col1':val1,...},...,{'col2':val2,...}]</code>，使用列表存储记录，不存储索引；</p>
+</li>
+<li>
+<p><code>'table'</code>：<code>{'schema': schema, 'data': data}</code>。<code>data</code>结构和<code>records</code>输出结构相同（包含<code>index</code>）；</p>
+<pre><code class="language-json">{
+   &quot;fields&quot;: [{&quot;name&quot;: name, &quot;type&quot;: type},...],
+   &quot;primaryKey&quot;: [&quot;index&quot;]
+}
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<p><code>dtype</code>：默认自动推导数据类型，如果为字典则使用指定类型；</p>
+<p><code>convert_dates</code>：默认将类似日期的列转换为日期类型数据（<code>datetime64[ns]</code>）；如果为列表，则只对指定列进行转换；</p>
+<p><code>keep_default_dates</code>：默认尝试转换以<code>'_at','_time'</code>结尾，以<code>'timestamp'</code>开头，或为<code>'modified, date'</code>的字段；</p>
+<p><code>date_unit</code>：默认尝试检测日期的单位；如果自动检测不正确，则可以指定单位为<code>'s','ms','us','ns'</code>；此处指定的时间单位仅影响读取数据，==不影响转换后日期类型的单位==。</p>
+<p><code>chunksize</code>：分块大小，返回一个迭代对象，每次获取指定数量的记录；</p>
+<p><code>nrows</code>：仅返回指定数量的记录（默认返回全部）。</p>
+<pre><code class="language-python">df.to_json(path_or_none, orient='records', 
+           date_format='epoch', date_unit='ms', double_precision=10, 
+           force_ascii=True,  # 不强制保存为ASCII（可使用UTF-8打开文件）
+           lines=False,  # for orient='records'：输出去掉外层[]，每行一条记录
+           index=True,   # for orient='split'| 'table'
+           indent=4, 
+           default_handler=str,
+           compression='infer', # infer from filename
+           storage_options,
+          )
+</code></pre>
+<blockquote>
+<p><code>date_format</code>：<code>'epoch'</code>表示<code>date_unit</code>单位的时间戳（除<code>orient='table'</code>外的默认值），<code>iso</code>表示ISO8601文本格式（<code>2017-09-30T09:00:00</code>，<code>orient='table'</code>的默认值）。</p>
+<p><code>date_unit</code>：转换后的数值单位（<code>'s','ms','us','ns'</code>）。</p>
+<p><code>default_handler</code>：对于无法转换的数据结构的默认转换方法。</p>
+<p>与<code>to_json()</code>类似的方法是<a href="Python%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html#%E4%BB%A5%E5%AD%97%E5%85%B8%E6%88%96%E5%88%97%E8%A1%A8%E5%88%9D%E5%A7%8B%E5%8C%96"><code>to_dict()</code></a>，后者仅将数据表转换为Python字典，因此不需要考虑数据序列化的问题，因此没有序列化相关参数。</p>
+</blockquote>
+<h5 id="parquet"><a class="header" href="#parquet">Parquet</a></h5>
+<pre><code class="language-python">df.to_parqeut(filepath=None, index=None, partition_cols=None)
+</code></pre>
+<blockquote>
+<p><code>index=False</code>：不保存索引信息。如果为<code>True</code>则索引被保存为数据列，如果为<code>None</code>，则索引被保存为元数据。==如果未指定分区，则路径为文件；反之，路径为目录名==；如果未指定路径则返回一个<code>bytes</code>对象。</p>
+<p>Pandas使用<code>pyarrow</code>库作为读写Parquet文件的接口，使用以下方法可以读取文件的元信息：</p>
+<pre><code class="language-python">import pyarrow.parquet as pq
+pq.read_metadata(file)    # 汇总信息
+schema = pq.read_schema(file)      # 表格字段类型定义
+types = [str(t) for t in schema.types] 
+df = pd.DataFrame({'Field': schema.names, 'Type': types})
+</code></pre>
+</blockquote>
+<p><em>读取分片数据时可能遇到类型不匹配问题（null schema）。</em></p>
+<h5 id="数据库"><a class="header" href="#数据库">数据库</a></h5>
+<p>Pandas使用<code>SQLAlchemy</code>读取数据库。</p>
+<pre><code class="language-python">sql_engine = sqlalchemy.create_engine(db_url, **kwargs)
+df = pd.read_sql(table_or_query, sql_engine, **kwargs)
+</code></pre>
+<p>如果参数为表名则调用<code>read_sql_table</code>，反之调用<code>read_sql_query</code>。</p>
+<p><code>index_col</code>：用作索引的列（<code>str</code>或<code>list</code>）；
+<code>coerce_float</code>：尝试将非数值（如<code>decimal.Decimal</code>）转换为浮点数类型；
+<code>parse_dates</code>：针对源数据为字符串或时间戳，转为日期时间的列名（<code>list</code>）或：</p>
+<ul>
+<li><code>{column_name: format_string}</code>）：列名及其对应的变换格式；</li>
+<li><code>{column_name: arg_dict}</code>：列名及传递给<code>pandas.to_datetime</code>的选项参数（用于数据库不支持<code>Datetime</code>的情况）</li>
+</ul>
+<p><code>columns</code>：从表中读取的列（仅用于读取表格）；
+<code>chunksize</code>：如果指定该参数，则返回一个迭代器<code>Iterator[DataFrame]</code>包含指定的行数；</p>
+<p>写入数据库（如果表格不存在将自动创建）：</p>
+<pre><code class="language-python">df.to_sql(
+   table_name,
+   con=sql_engine,          # created by SQLalchemy
+   if_exists='fail',        # 如果表格存在, &quot;replace&quot; or &quot;append&quot;
+   dtype=dict_or_scalar,    # 指定某些列的类型，使用SQLAlchemy定义的类型
+   index=True,              # 是否将索引保存为数据库表的列
+   index_label=str_or_list, # 指定保存的索引列名称
+   chunksize=None           # 每次写入的行数（默认一次全部写入）
+)
+</code></pre>
+<p>覆盖表格内容：使用<code>if_exists='replace'</code>将删除并重新创建数据库表。为了==确保数据库表的定义不变==（<code>to_sql</code>生成的表定义可能与人工配置的定义不同），可在写入前先执行<code>TRUNCATE TABLE</code>命令，再使用<code>if_exists='append'</code>进行==追加写入==。</p>
+<p><code>df.to_sql()</code>不支持更新已有数据库表中的记录（因为涉及查找匹配记录的具体逻辑）。</p>
+<h3 id="读写配置文件"><a class="header" href="#读写配置文件">读写配置文件</a></h3>
+<p><code>configparser</code>：<a href="https://betterprogramming.pub/tips-and-tricks-for-handling-configuration-files-in-python-a9d7429aa50b">Tips and Tricks for Handling Configuration Files in Python | by Ng Wai Foong | Better Programming</a></p>
+<p><a href="https://stackoverflow.com/questions/3085029/pros-and-cons-for-different-configuration-formats">python - Pros and cons for different configuration formats? - Stack Overflow</a></p>
+<p><a href="https://www.barenakedcoder.com/blog/2020/03/config-files-ini-xml-json-yaml-toml/">Config Files: INI, XML, JSON, YAML, TOML | BareNakedCoder.com</a></p>
+<h2 id="声音"><a class="header" href="#声音">声音</a></h2>
+<p>产生蜂鸣音：</p>
+<pre><code class="language-python">import winsound
+frequency = 2500  # Set Frequency To 2500 Hertz
+duration = 1000  # Set Duration To 1000 ms == 1 second
+winsound.Beep(frequency, duration)
+os.system(&quot;beep -f 555 -l 460&quot;)  # on linux
+</code></pre>
+<h2 id="图形"><a class="header" href="#图形">图形</a></h2>
+<h3 id="matplotlib"><a class="header" href="#matplotlib">Matplotlib</a></h3>
+<p><code>matplotlib</code>中，frontend就是我们写的python代码，而backend就是负责显示我们代码所写图形的底层代码。backend分为两类：</p>
+<ul>
+<li><code>interface backend</code>（<code>interactive backend</code>）：跟显示到屏幕相关的UI库（需要额外安装）；</li>
+<li><code>hardcopy backend</code>（<code>non-interactive backend</code>）：写入到文件相关的库。</li>
+</ul>
+<pre><code class="language-python">import matplotlib
+matplotlib.rcsetup.interactive_bk     # 获取 interactive backend
+# GTK4Agg, Qt5Agg, TkAgg, WXAgg, GTX4Cario, Qt5Cario, TkCario, WXCario ......
+matplotlib.rcsetup.non_interactive_bk # 获取 non-interactive backend
+# agg, cario, pdf, pgf, ps, svg, template
+matplotlib.rcsetup.all_backends       # 获取所有 backend
+plt.get_backend()          # 获取正在使用的后端
+plt.switch_backend('name') # 切换后端
+matplotlib.use('Qt5Agg')   # 切换后端, use before import pyplot
+</code></pre>
+<blockquote>
+<p>不同的后端提供的图形接口可能不同。</p>
+</blockquote>
+<h4 id="绘图窗口figure"><a class="header" href="#绘图窗口figure">绘图窗口（figure）</a></h4>
+<pre><code class="language-python">import matplotlib.pyplot as plt
+fig = plt.figure(num=None, figsize=None, dpi=None, facecolor=None, edgecolor=None, frameon=True, clear=False)
+</code></pre>
+<p><code>figsize</code>：图形尺寸（英寸）<code>[width, height]</code>。</p>
+<p><code>clear</code>：激活图形时是否清除已有内容。</p>
+<p><code>num</code>：可以为整数（<code>fig.number</code>）或字符串（作为图形标签以及窗口标题）。如果没有指定，则自动编号。如果为整数，则窗口编号默认为<code>Figure &lt;num&gt;</code>。==如果指定编号切片对应图形窗口存在，则激活该窗口，反之创建对应该编号的窗口。==可以在相关绘图函数中指定编号以操作对应的图形窗口。</p>
+<p>图形窗口创建后默认为隐藏状态，需要调用<code>fig.show()</code>（非阻塞）/<code>show()</code>来显示窗口。</p>
+<p>利用各种绘图函数也可以自动创建图形窗口。</p>
+<h5 id="绘制子图"><a class="header" href="#绘制子图">绘制子图</a></h5>
+<p>在当前图形窗口中创建子图。如果当前没有图形窗口则创建一个。</p>
+<pre><code class="language-python">ax = plt.subplot(nrows, ncols, index, ...,**kwargs)
+ax = plt.subplot(pos, ..., **kwargs)
+</code></pre>
+<p><code>nrows</code>，<code> ncols</code>指定网格大小，<code>index</code>为按行索引的子图序号。<code>index</code>也可以设置为二元组<code>(first,last)</code>表示子图跨列。==当指定的网格大小超出当前图形窗口的网格范围，会清除此前已经创建的子图网格并重新创建；反之，则切换当前子图。==如果只是添加子图，则使用<code>add_subplot()</code>方法。</p>
+<p><code>pos</code>使用三位数字代替<code>nrows, ncols, index</code>（少于9幅子图）；</p>
+<p><code>sharex, sharey</code>：所有子图共享坐标轴设置（limits, ticks, scale）；</p>
+<p><code>label</code>：子图坐标系的标签；当指定指定坐标子图时默认返回已有子图（如果没有则新创建一个），==如果提供不同标签，则会返回新的子图==。</p>
+<p><code>**kwargs</code>：<a href="https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.subplot.html"><code>subplot()</code></a>方法还接受坐标轴的属性对应的关键字参数。</p>
+<blockquote>
+<p>封装了<code>Figure.add_subplot(nrows, ncols, index, ...,**kwargs)</code>。</p>
+</blockquote>
+<p>创建一个包含子图网格的窗口：==当所有子图的属性一致时，以及设置窗口属性==，使用该函数更加方便。</p>
+<pre><code class="language-python">fig,ax = plt.subplots(nrows=1, ncols=1, 
+                      **subplot_kw, **gridspec_kw, **fig_kw)
+</code></pre>
+<p>当只生成一幅子图时，返回的坐标对象<code>ax</code>；当生成<code>1xN</code>或<code>Nx1</code>幅子图时，返回1维坐标对象向量；其他返回<code>MxN</code>坐标对象矩阵。</p>
+<blockquote>
+<p>当不提供行列数（即<code>nrows=1, ncols=1</code>），<code>subplots</code>等效于先创建图形窗口，再调用<code>fig.add_subplot()</code>。</p>
+<p><code>subplots()</code>不接受<code>pos</code>参数。</p>
+</blockquote>
+<h5 id="获取当前窗口"><a class="header" href="#获取当前窗口">获取当前窗口</a></h5>
+<p>获取当前窗口，如果不存在图形窗口，则创建一个。</p>
+<pre><code class="language-python">fig = plt.gcf() 
+</code></pre>
+<h5 id="部件"><a class="header" href="#部件">部件</a></h5>
+<h4 id="显示绘图"><a class="header" href="#显示绘图">显示绘图</a></h4>
+<pre><code class="language-python">plt.show(block=True)  # show current figure  
+</code></pre>
+<blockquote>
+<p><code>block=True</code>：在交互式终端中，显示绘图后阻塞程序，直到绘图窗口关闭。<code>fig.show()</code>不能阻塞程序，当程序退出时，图形窗口将关闭（在图形显示后执行<code>sleep</code>会使图形窗口无响应）。</p>
+</blockquote>
+<p>在非交互模式（<code>ion()</code>/<code>ioff()</code>）下，修改图形数据后重绘当前图形窗口。</p>
+<pre><code class="language-python">plt.draw()  # ==&gt; fig.canvas.draw_idle()
+plt.clf()   # Clear the current figure
+</code></pre>
+<h5 id="清除图形内容"><a class="header" href="#清除图形内容">清除图形内容</a></h5>
+<pre><code class="language-python">fig.clear()   # fig.clf() 清除图形内容
+ax.cla()  # 清除坐标轴内容
+</code></pre>
+<p>关闭图形窗口</p>
+<pre><code class="language-python">plt.close()
+</code></pre>
+<h4 id="坐标系"><a class="header" href="#坐标系">坐标系</a></h4>
+<p>除了绘图返回坐标系以外，也可以首先手动创建坐标系。</p>
+<pre><code class="language-python">from matplotlib.pyplot import axes, gca
+ax = plt.axes(**kwargs)	# creat an axes and make it current axes.
+plt.axes(ax)			      # add an axes and make it the current axes.
+</code></pre>
+<p>获取当前坐标系，如果不存在，则创建一个新的坐标系。</p>
+<pre><code class="language-python">ax = plt.gca(**kwargs)		# 参数用于必要情况下创建坐标系
+</code></pre>
+<pre><code class="language-python">ax.get_figure()  # 获取坐标系所属图片
+ax.axis('off')   # hide the axes: ax.set_axis_off()
+</code></pre>
+<pre><code class="language-python">ax.set(**kwargs)
+ax.set_title(label, fontdict=None, loc={'center|left|right'},y)   
+ax.set_xlabel()  # set_ylabel
+ax.set_xlim()    # set_ylim
+</code></pre>
+<blockquote>
+<p><code>kwargs</code>中的属性都对应了相应的<code>set_property()</code>方法。<code>plt.property(...)</code>快捷方法等效于调用或<code>ax.set_property(...)</code></p>
+<p>使用$\LaTeX$为标签添加数学公式：</p>
+<pre><code class="language-python">bbplt.rcParams.update({
+ &quot;text.usetex&quot;: True,
+ &quot;font.family&quot;: &quot;sans-serif&quot;,        # serif
+ &quot;font.sans-serif&quot;: [&quot;Helvetica&quot;]})  # &quot;Times New Roman&quot;
+</code></pre>
+<p>在标签文本中添加行内公式（inline），$\LaTeX$命令需要使用转义字符<code>$\\beta=0.1$</code>。</p>
+</blockquote>
+<h5 id="设置坐标刻度"><a class="header" href="#设置坐标刻度">设置坐标刻度</a></h5>
+<p>默认以图形数据的<code>x,y</code>值作为刻度数值和刻度的标签。当数据点数较多时，可人工设置刻度值和标签，从而减少坐标轴上标记的数量（刻度数值和刻度标签是一一对应的，刻度标签需要在设置刻度后设置（调用<code>ax.set_xticks,ax.set_xticklabels</code>或者<code>plt.xticks</code>等效调用），否则可能会导致标签与刻度错位）。</p>
+<pre><code class="language-python">ax.set_xticks(x, minors=False)           # =&gt; set_yticks, 
+ax.set_xticklabels(labels, minors=False, rotation=50) # set_yticklabels
+plt.xticks(ticks=None,labels=None,**kwargs)      # 同时设置刻度值和刻度标签(Text properties)
+</code></pre>
+<blockquote>
+<p><code>kwargs</code>为<a href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text">标签文本的属性</a>，包括<code>rotation</code>（逆时针旋转角度）。<code>plt.xticks</code>在未提供刻度和标签参数，但提供属性参数时，更新当前坐标轴刻度的属性。</p>
+</blockquote>
+<p>坐标轴对象提供了刻度常用属性的设置：</p>
+<pre><code class="language-python">ax.tick_params(axis='both|x|y', which='major|minor', labelrotation=...) # 设置刻度及标签属性
+ax.ticklabel_format(axis='both|x|y', style='sci', scilimits=(0,3)) # 设置标签格式（科学计数法）
+</code></pre>
+<blockquote>
+<p><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.tick_params.html?highlight=tick_params#matplotlib.axes.Axes.tick_params"><code>tick_params</code></a>常用属性包括：</p>
+<ul>
+<li><code>color, labelsize, labelcolor,labelrotation</code>，</li>
+<li><code>bottom,top,left,right</code>（是显示某个方向的刻度），</li>
+<li><code>labelbottom,labeltop,labelleft,labelright</code>（是否显示某个方向的标签）。</li>
+</ul>
+</blockquote>
+<h5 id="设置网格"><a class="header" href="#设置网格">设置网格</a></h5>
+<pre><code class="language-python">plt.grid(color='#95a5a6', linestyle='--', linewidth=2, axis='y', alpha=0.7)
+</code></pre>
+<h5 id="设置图例"><a class="header" href="#设置图例">设置图例</a></h5>
+<pre><code class="language-python">ax.legend(fontsize='small', loc='upper left', ncol=2) # 自动设置(plt.legend)
+ax.legend(lines, labels, ...) # 指定对应图例
+</code></pre>
+<p>自动设置：1) 在调用相应绘图函数时指定标签（<code>label='line_label'</code>）；2）通过已绘制的图形部件设置标签（<code>set_label('line_label')</code>）；</p>
+<blockquote>
+<p>以下划线开头的标签，将不会自动显示在图例中。</p>
+</blockquote>
+<h4 id="图形部件"><a class="header" href="#图形部件">图形部件</a></h4>
+<h5 id="折线图"><a class="header" href="#折线图">折线图</a></h5>
+<pre><code class="language-python">lines = plt.plot([x], y, [fmt], [x2], y2, [fmt2], ..., **kwargs)
+lines = ax.plot(...)
+</code></pre>
+<p>使用<code>fmt</code>定义折线格式的颜色、标记和线形，例如<code>--ro</code>；或使用曲线（<code>Line2D</code>）属性作为<code>kwargs</code>（应用于此次绘制的所有曲线），其中：</p>
+<ul>
+<li>
+<p><code>color='green'</code>（或<code>c</code>）：</p>
+</li>
+<li>
+<p><code>marker='o'</code>：标记类型，常用类型包括：<code>+</code>(加号)、<code>o</code>(实心圆)、<code>*</code>(星号)、<code>.</code>（点）、<code>|_</code>(短划线)、<code>1|2|3|4</code>（三分符号）、 <code>x</code>(斜十字)、<code>^|v|&lt;|&gt;</code>(三角形)、<code>s</code>(正方形)、<code>D|d</code>(菱形)、<code>p</code>(五边形)、<code>h|H</code>(六边形)</p>
+<blockquote>
+<p><code>,</code>(仅为一个像素点)、<code>8</code>(八边形)、<code>P</code>(加粗十字)、<code>X</code>(加粗斜十字)。</p>
+</blockquote>
+</li>
+<li>
+<p><code>markersize=12</code>：标记尺寸；</p>
+</li>
+<li>
+<p><code>markevery=(start,N)</code>：当绘图点数较多时，通过该选项减少标记的点数。每<code>N</code>个点标记，从<code>start</code>开始标记（<code>Line2D.set_markevery()</code>）。</p>
+</li>
+<li>
+<p><code>fillstyle</code>：标记填充方式，<code>'full'</code>使用<code>markerfacecolor</code>填充、<code>none</code>不填充；</p>
+</li>
+<li>
+<p><code>linestyle='-'</code>（或<code>ls</code>）：线形<code>'-','--','-.',':','',...</code>；</p>
+</li>
+<li>
+<p><code>linewidth=2</code>（或<code>lw</code>）：</p>
+</li>
+<li>
+<p><code>label='Line1'</code>：折线关联的标签，用于显示图例（<code>ax.legend</code>）。</p>
+</li>
+</ul>
+<h6 id="对数尺度绘图"><a class="header" href="#对数尺度绘图">对数尺度绘图</a></h6>
+<p>手动绘图：将坐标值进行对数转换（<code>np.log10</code>）；坐标轴刻度值设置为相应的对数转换后的值，坐标轴刻度标签设置为原始数值的表示。</p>
+<pre><code class="language-python">ax = np.plot(np.log10(x), y)
+ax.set(
+  xticks = np.log10(sub_x), # 选取部分值作为坐标轴刻度
+  xticklabels = ['format'.(x) for x in sub_x]
+)
+</code></pre>
+<p>使用库函数绘制对数尺度折线图：自动设置刻度和标签格式（默认为指数表示）。</p>
+<pre><code class="language-python">plt.semilogx(x,y,...) # plt.semilogy(...), ax.semilogx(...), ...
+plt.loglog(x,y,...) # 横纵坐标均使用对数尺度绘图。
+</code></pre>
+<blockquote>
+<p>如果需要手动设置刻度标签，为了使刻度均匀分布，刻度值应该是等比数列，标签与刻度值保持一致。</p>
+</blockquote>
+<pre><code class="language-python">plt.axvline(x)  # 垂直线, 水平线 plt.axhline(x)
+</code></pre>
+<h5 id="柱状图"><a class="header" href="#柱状图">柱状图</a></h5>
+<pre><code class="language-python">from matplotlib.axes import Axes
+bars = ax.bar(x, height, align='center', tick_label=...,
+              width=0.8, label=...)
+</code></pre>
+<p><code>x</code>：柱状图的横坐标；如果<code>x</code>为数值则表示实际位置；如果<code>x</code>为字符串，则位置按序号确定。<code>x</code>的值为默认横坐标标签，使用<code>tick_label</code>自定义横坐标标签。<code>width</code>表示柱形占<code>x</code>两个点之间的间距的比例，<code>align='center'|'edge'</code>为柱形相对<code>x</code>点的对齐方式（默认为中心对齐，<code>edge</code>为靠左边缘对齐）。</p>
+<p><code>xerr,yerr</code>：横纵坐标的值与误差。误差的设置方式：</p>
+<ul>
+<li>标量：每个柱形的<code>+/-</code>误差相同；</li>
+<li>向量：每个柱形对应<code>+/-</code>误差，<code>+/-</code>误差相同；</li>
+<li>矩阵（<code>2,N</code>）：每个柱形具有独立的<code>+/-</code>误差。</li>
+<li><code>None</code>：没有误差线。</li>
+</ul>
+<blockquote>
+<p>使用<code>barh</code>绘制水平柱形图。此时<code>x</code>为纵轴，<code>y</code>为横轴，但``xerr,yerr`的含义不变。</p>
+</blockquote>
+<p><code>label</code>：为一个系列数据的标签，用于显示图例（<code>legend</code>）。</p>
+<p>颜色选项：<code>color</code>、<code>edgecolor</code>；</p>
+<p>线条选项：<code>linewidth</code>、``</p>
+<h6 id="堆栈式柱状图"><a class="header" href="#堆栈式柱状图">堆栈式柱状图</a></h6>
+<p>每个条形分为多段，每一段代表一个系列的数据。</p>
+<p>通过指定<code>bottom</code>参数来指定各个系列的相对位置。</p>
+<pre><code>ax.bar(x,y1,...)
+ax.bar(x,y2,...,bottom=y1)
+</code></pre>
+<h6 id="分组柱状图"><a class="header" href="#分组柱状图">分组柱状图</a></h6>
+<p><img src="Python输入输出.assets/sphx_glr_barchart_001.png" style="float: right; zoom: 150%;" />多个系列数据的每个点并列展示。绘图时需要设置每个系列的<code>x</code>值偏移量，使各系列同一点的柱形并排显示（<code>pandas</code>封装了<a href="#Pandas">分组柱状图的快捷绘图方式</a>）。</p>
+<h5 id="频数直方图"><a class="header" href="#频数直方图">频数直方图</a></h5>
+<pre><code class="language-python">plt.hist(x, bins, range, density)
+</code></pre>
+<p>如果<code>x</code>是多个序列组成列表，则分别统计并绘制多个直方图。</p>
+<p><code>bins</code>：如果为整数，则指定分组个数，按均匀间隔分组；如果为序列，则指定分组的边界（$N+1$）；如果为字符串，则应该为：<code>'auto', 'fd', 'doane','scott', 'stone', 'rice', 'sturges', or 'sqrt'</code>（<code>np.histogram_bin_edges</code>）。</p>
+<p><code>density=True</code>：显示频率而非频数。</p>
+<h5 id="饼图"><a class="header" href="#饼图">饼图</a></h5>
+<pre><code class="language-python">ax.pie(sizes, explode=None, 
+       labels=None, labeldistance,           # 标签及其离中心距离
+       autopct='%1.1f%%', pctdistance=None,  # 百分比及其离中心距离
+       shadow=False, startangle=0)
+</code></pre>
+<p><code>explode</code>控制饼图组成部分与中心分离的程度；</p>
+<p><code>autopct</code>：在饼图中显示百分比，并设置百分数格式；</p>
+<p><code>shadow</code>：饼图的立体阴影；</p>
+<p><code>startangle</code>：起始部分的角度（默认为0，即右侧水平位置）；</p>
+<h5 id="boxplot"><a class="header" href="#boxplot">boxplot</a></h5>
+<img style="float: right; zoom: 80%;" src="Python输入输出.assets/ploxplot.png">
+<h5 id="hexbin"><a class="header" href="#hexbin">hexbin</a></h5>
+<p><img style="float: right; zoom: 40%;" src="Python输入输出.assets/hexbin.png">统计二维数据的分布信息。</p>
+<h5 id="形状"><a class="header" href="#形状">形状</a></h5>
+<pre><code class="language-python">from matplotlib.patches import Ellipse, Polygon
+</code></pre>
+<h5 id="文本"><a class="header" href="#文本">文本</a></h5>
+<p><a href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text">文本对象</a>在图中的标题、坐标轴标题、图例、刻度标签等使用，需要设置其属性。标签文本的常用属性包括：</p>
+<ul>
+<li><code>text</code>：</li>
+<li><code>color</code>：</li>
+<li><code>fontfamily={FONTNAME,'serif','sans-serif','monospace'}</code>：</li>
+<li><code>math_fontfamily</code>：</li>
+<li><code>fontsize|size</code>：</li>
+<li><code>fontstyle|style={'normal'|'italic'|'oblique'}</code>：</li>
+<li><code>fontweight|weight={VALUE|'normal'|'regular'|'light'|'bold'...}</code>：</li>
+<li><code>horizontalalignment|ha={'center'|'right'|'left'}</code>：</li>
+<li><code>verticalalignment|va={'center'|'top'|'bottom'|'baseline'|'center_baseline'}</code>；</li>
+<li><code>parse_math:bool</code>：</li>
+<li><code>usetex:bool</code>：<code>None</code>使用<code>rcParams[&quot;text.usetex&quot;]</code>；</li>
+<li><code>rotation={FLOAT|'vertical'|'horizontal'}</code>：</li>
+<li><code>url:str</code></li>
+<li></li>
+</ul>
+<h5 id="标注"><a class="header" href="#标注">标注</a></h5>
+<pre><code class="language-python">plt.annotate('msg', point)
+</code></pre>
+<h4 id="默认绘图属性"><a class="header" href="#默认绘图属性">默认绘图属性</a></h4>
+<p>默认绘图属性通过<code>matplotlibrc</code>配置文件、样式表（<em>style sheets</em>）和运行时配置参数<code>rcParams</code>（<em>runtime configuration</em>）确定，优先级按载入顺序依次由低到高。所有运行时配置参数储存在字典结构<a href="https://matplotlib.org/stable/api/matplotlib_configuration_api.html#matplotlib.rcParams"><code>matplotlib.rcParams</code></a>中（可通过<code>matplotlib</code>或<code>pyplot</code>来访问）。</p>
+<pre><code class="language-python">plt.rcParams.update({'group.prop': value})   # 单独设置各项属性
+plt.rc(group, **kwargs)   # by group: plt.rc('font', size=20)
+</code></pre>
+<p><code>plt.rc</code>按属性分组（<code>font</code>，<code>lines</code>，<code>axes</code>，<code>figure</code>等）设置当前的绘图属性。</p>
+<blockquote>
+<p>通过<code>plt.rcParams()</code>获取所有绘图属性的当前值，默认值可通过<code>plt.rcParamsDefault</code>获取；<code>matplotlib.rcdefaults</code>。</p>
+</blockquote>
+<p>临时修改默认属性：</p>
+<pre><code class="language-python">with mpl.rc_context(prop_value_pairs):  # 使用上下文管理器
+    plt.plot(data)      
+@mpl.rc_context(prop_value_pairs)  # 使用装饰器
+def plotting_function():
+    plt.plot(data)
+</code></pre>
+<h5 id="使用样式表设置默认绘图属性"><a class="header" href="#使用样式表设置默认绘图属性">使用样式表设置默认绘图属性</a></h5>
+<pre><code class="language-python">print(plt.style.available)
+plt.style.use('ggplot')  # 使用内置或自定义样式表。
+plt.style.use(['dark_background', 'presentation'])
+with plt.style.context('dark_background'): # 临时修改绘图属性
+    plt.plot(np.sin(np.linspace(0, 2 * np.pi)), 'r-o')
+plt.show()
+</code></pre>
+<p>自定义样式表格式与<code>matplotlibrc</code>格式相同，忽略与实际样式无关的<code>rcParams</code>参数。多个样式表（定义不同方面的样式）可进行叠加。</p>
+<pre><code class="language-ini">axes.titlesize : 24
+axes.labelsize : 20
+lines.linewidth : 3
+lines.markersize : 10
+xtick.labelsize : 16
+ytick.labelsize : 16
+</code></pre>
+<h5 id="标题"><a class="header" href="#标题">标题</a></h5>
+<pre><code class="language-python">fig.canvas.set_window_title('title') # Window Title
+# fig.canvas.setWindowTitle('title') 无效
+</code></pre>
+<h5 id="尺寸"><a class="header" href="#尺寸">尺寸</a></h5>
+<pre><code class="language-python">fig.set_size_inches(w, h=None, forward=True)
+fig.set_figwidth(val, forward=True) # set_figheigth()
+</code></pre>
+<blockquote>
+<p><code>forward=True</code>自动更新画布。长度单位转换：$1\mathrm{cm}\approx0.39\mathrm{in}$。</p>
+</blockquote>
+<p>窗口状态：最大/最小化</p>
+<pre><code class="language-python">fig_manager = plt.get_current_fig_manager()
+# TkAgg backend
+fig_manager.window.state('zoomed') 
+# Qt5Agg: showMinimized, showNormal, showFullScreen
+fig_manager.window.showMaximized()
+# wxAgg
+fig_manager.frame.Maximize(True)
+</code></pre>
+<h5 id=""><a class="header" href="#"></a></h5>
+<h4 id="颜色"><a class="header" href="#颜色">颜色</a></h4>
+<h5 id="colormap"><a class="header" href="#colormap">colormap</a></h5>
+<img src="Python输入输出.assets/sphx_glr_colormaps_001.png" alt="colormaps" style="zoom:80%;" />
+<p>Matplotlib具有一系列<a href="https://matplotlib.org/tutorials/colors/colormaps.html">内置colormap</a>。</p>
+<pre><code class="language-python">cmap = plt.get_cmap(name)  # =&gt; matplotlib.cm.get_cmap(name)
+</code></pre>
+<blockquote>
+<p><em>A perceptually uniform colormap: equal steps in data are perceived as equal steps in the color space. Human brain perceives changes in the lightness much better than changes in hue（颜色）.</em></p>
+<p>gist_earth, ocean, and terrain all seem to be created for plotting topography (green/brown) and water depths (blue) together. </p>
+</blockquote>
+<p>获取颜色系列：</p>
+<pre><code class="language-python">colors = pl.cm.jet(np.linspace(a,b,n))  # a,b in [0,1]
+</code></pre>
+<blockquote>
+<p><code>matplotlib.cm</code>内置颜色表（colormaps）和处理程序。</p>
+</blockquote>
+<h4 id="pandas"><a class="header" href="#pandas">Pandas</a></h4>
+<p>使用表格数据绘图。类型包括：<code>line</code>、<code>bar</code>、<code>barh</code>(水平柱状图)、<code>hist</code>、<code>box</code>(<a href="#boxplot">boxplot</a>)、<code>kde|density</code>  (<em>Kernel Density Estimation</em>)、<code>area</code>、<code>pie</code>、<code>scatter</code>、<code>hexbin</code>。<code>plot()</code>方法统一封装了上述类型的绘图方法。</p>
+<pre><code class="language-python">ax = df.plot(x=xname, y=y_names, 
+             kind='line',
+             .., 
+             ax=None,
+             subplots=False, # separate subplots for each y-column,
+             layout=(rows, columns), # subplot layout
+             figsize,           # 单独使用Pandas创建窗口使用
+             title,             # title (list) for (sub)plot
+             grid=False,        # 显示网格
+             legend=False,      # place legend
+             style:[list,dict], # matplotlib linestyle for column
+             logx=False,        # log-scale x axis, =&gt; logy, loglog
+             xticks,            # =&gt; yticks, xlim, ylim, xlabel, ylabel,
+             use_index,         # index as x-ticks
+             fontsize, 
+             colormap,
+             rot,               # *rot=0水平显示横坐标
+             sort_columns=False,
+             **kwargs # 传递给绘图方法
+            )
+ax = df.plot.bar(...,stacked=False,color[list,dict],**kwargs) # =&gt; barh
+ax = df.plot.hexbin(x='x', y='y', gridsize=20)
+ax = df.plot.hist(by=cols, bins=10, **kwargs)
+ax = df.plot.scatter(...,c=colors)
+</code></pre>
+<ul>
+<li><code>x|y</code>：指定<code>DataFrame</code>中用于绘图<code>x</code>轴和<code>y</code>轴数据的列名；同时，<code>x</code>用作坐标轴名称，<code>y</code>用做默认图例名；某些类型的图形可能不需要指定横坐标值（如<code>hist</code>和<code>pie</code>）；<code>x</code>轴的值可以是非数值类型，<code>x</code>的值作为刻度均匀分布于坐标轴上，==其位置与数值大小无关==。当未指定<code>x</code>时，适用数据的<code>index</code>作为<code>x</code>值；未指定<code>y</code>时，适用所有数据列绘图。</li>
+</ul>
+<p>默认后端：<code>plotting.backend=matplotlib</code>。可以与<code>matplotlib</code>的方法混合使用，例如绘制子图（需要==指定已有的坐标系对象<code>ax</code>==，否则创建新的图形窗口）。</p>
+<h3 id="seaborn"><a class="header" href="#seaborn">Seaborn</a></h3>
+<p>https://stackoverflow.com/questions/62115464/sns-pairplot-shows-density-curve-instead-of-histogram</p>
+<pre><code class="language-python">sns.pairplot(df, vars, hue='class', diag_kind='hist', kind='scatter')
+</code></pre>
+<p><code>diag_kind='auto'|'hist'|'kde'|None</code>，If ‘auto’, choose based on whether or not <code>hue</code> is used.</p>
+<p><code>kind='scatter'|'kde'|'hist’|'reg'</code></p>
+<blockquote>
+<p>绘图数据太多会导致内存开销过大，执行缓慢；可随机抽样数据的一个子集绘图。</p>
+</blockquote>
+<h3 id="plotly"><a class="header" href="#plotly">Plotly</a></h3>
+<p>创建图形窗口：</p>
+<pre><code class="language-python">fig = go.Figure(data,layout=None) # data is a single trace or a tuple of traces.
+fig.update_layout(**kwargs)
+fig.show()
+</code></pre>
+<p><code>layout</code>是布局对象或创建对象所需的参数字典。创建图形的显示布局对象：</p>
+<pre><code class="language-python">layout=go.Layout(
+   title='Network graph made with Python',
+   titlefont_size=16,  # layout.title.font
+   showlegend=False,
+   hovermode='closest',
+   margin={'b':20,'l':5,'r':5,'t':40},  # 图形外部填充的空白
+   annotations=[{
+      'text':&quot;a&quot;, 'showarrow':False, 'xref':&quot;paper&quot;, 'yref':&quot;paper&quot;,
+      x=0.005, y=-0.002 }],
+   xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+   yaxis=dict(showgrid=False, zeroline=False, showticklabels=False)
+)
+</code></pre>
+<p>布局参数：</p>
+<ul>
+<li><code>width,height</code>：图形的绝对尺寸；</li>
+<li><code>margin</code>：图形的边缘空白填充，需要保留填充空间才能显示标题等图形外的内容。</li>
+</ul>
+<h3 id="图片"><a class="header" href="#图片">图片</a></h3>
+<pre><code class="language-python">im_ax = plt.imshow(X, cmap=None, norm=None, aspect=None, origin)
+</code></pre>
+<p><code>X</code>：图像数据矩阵，支持的格式包括：</p>
+<ul>
+<li>$(M,N)$：使用colormap（<code>cmap</code>）可视化数据。</li>
+<li>$(M,N,3)$：RGB值</li>
+<li>$(M,N,4)$：RGBA值。</li>
+</ul>
+<p><code>aspect</code>：图像纵横比，可设置为<code>equal</code>、<code>auto</code>或任意浮点数值。</p>
+<p><code>origin</code>：指定图像<code>[0,0]</code>像素点位于左上角（<code>upper</code>）或左下角（<code>lower</code>）。</p>
+<p>读取图像：</p>
+<pre><code class="language-python">plt.imread(fname, format=None)
+</code></pre>
+<blockquote>
+<p><code>fname</code>表示文件名、URL或可读文件对象；<code>format</code>如果未给出则从文件扩展名推测，如果无法推测，则默认为<code>PNG</code>格式。</p>
+</blockquote>
+<p>显示矩阵数据：原点为左上角，图形的比例与矩阵维度比例一致。</p>
+<pre><code class="language-python">plt.matshow(A, fignum=None, **kwargs)
+</code></pre>
+<p>如果<code>fignum=None</code>则创建一个新图形窗口；如果<code>fignum=0</code>则在当前坐标系绘图。</p>
+<h3 id="保存图像"><a class="header" href="#保存图像">保存图像</a></h3>
+<pre><code class="language-python">plt.savefig(fname, format=None, 
+            bbox_inches='tight', transparent = False)
+</code></pre>
+<p><code>fname</code>：文件路径、文件对象等。如果未设置<code>format</code>则从文件名中推测保存格式。该方法不会尝试将格式类型追加为扩展名。<code>format</code>包括<code>'png'</code>、<code>'pdf'</code>、<code>'svg'</code>、……</p>
+<p>保存图片：</p>
+<pre><code class="language-python">plt.imsave(fname, X, format=None, ...)
+</code></pre>
+<h2 id="绘制网络图"><a class="header" href="#绘制网络图">绘制网络图</a></h2>
+<h3 id="使用networkx绘图"><a class="header" href="#使用networkx绘图">使用NetworkX绘图</a></h3>
+<p>NetworkX提供基于Matplotlib的基本的图可视化方法（其主要是用于图分析），推荐使用专门的图可视化工具如Graphviz。</p>
+<pre><code class="language-python">nx.draw(G)
+</code></pre>
+<h3 id="使用graphviz绘制网络图"><a class="header" href="#使用graphviz绘制网络图">使用Graphviz绘制网络图</a></h3>
+<pre><code class="language-python">from graphviz import Digraph,Graph
+G = Digraph(name=None,
+            comment='The Round Table', 
+            filename='hello.gv',
+            directory=None,
+            format='svg',    # jpg|png|pdf|svg...
+            engine='neato',  # 布局
+            encoding='utf-8',
+            graph_attr={'rankdir': 'LR'},
+            node_attr={'shape': 'plaintext'},
+            edge_attr={}
+           )
+</code></pre>
+<blockquote>
+<p><code>G.source</code>生成图形源代码。</p>
+</blockquote>
+<p><code>engine</code>参数设置布局引擎，在绘图时自动计算节点位置以及边的形状。</p>
+<h4 id="图数据源"><a class="header" href="#图数据源">图数据源</a></h4>
+<p>添加节点和边的方法。添加边会自动添加不存在的节点。</p>
+<pre><code class="language-python">G.node('A', label='King Arthur', **attr_dict)  # add node
+G.edge(tail_name, head_name, label=label_str, **attr_dict)
+G.edges(['AB', ('A','L')])  # add edges
+</code></pre>
+<p>节点和边添加后，不能修改指定节点或边的属性，只能<a href="#%E5%9B%BE%E5%85%83%E7%B4%A0%E7%9A%84%E9%BB%98%E8%AE%A4%E5%B1%9E%E6%80%A7">修改某类型对象的默认属性</a>。如动态更新图数据，可维护一个外部数据结构，如：NetworkX的图对象或Pandas表格存储的节点和边数据，且提供更加灵活的方法来访问边和节点并修改其属性。最后，在进行绘图前，可首先将图数据表示为上述数据结构，再转换为Graphviz对象。</p>
+<p>NetworkX图（<code>G.nodes,G.edges</code>）转换为Graphviz图：</p>
+<pre><code class="language-python">for n in G.nodes:  # G is NetworkX Graph
+  g.node(str(n), **G.nodes[n])   # 如果节点索引非字符串，需要首先将其转换为字符串
+for e in G.edges:  
+  g.edge(str(e[0]), str(e[1]), **G.edges[e])
+</code></pre>
+<p>Pandas表格图数据（节点和边数据）转换为Graphviz图。节点数据包含节点索引列和节点属性，边数据包含边首尾节点编号和边的属性。</p>
+<pre><code class="language-shell">for idx, n in df_nodes.set_index('id',drop=True).iterrows():
+  g.node(str(idx),  **n.to_dict())
+for idx, e in df_edges.set_index(['head','tail'],drop=True).iterrows():
+  g.edge(str(idx[0]),str(idx[1]),**e.to_dict())
+</code></pre>
+<p>导入外部数据时注意：仅通过接口（如<code>nx.set_node_attributes</code>）设置取值有区别的属性，节点或边的公共属性可通Graphviz提供的<code>attr</code>等方统一设置，因此数据转换时没必要传递给每一个节点或边。</p>
+<p>此外，可利用<code>NetworkX</code>提供的<code>pydot</code>接口将NetworkX图对象直接转换为Graphviz的源码，并用于构造Graphviz图对象。</p>
+<pre><code class="language-python">dot: pydot.Dot = nx.nx_pydot.to_pydot(G) 
+g = gv.Graph(name=&quot;Reconstruct from source&quot;, strict=True, 
+             body=dot.to_string().split('\n')[1:-2],...)
+</code></pre>
+<blockquote>
+<p><code>body</code>：源码中的正文部分的行构成的==序列==，不包括<code>&quot;[strict] graph &lt;NAME&gt; {&quot;</code> 和 <code>&quot;}&quot;</code>，因此需要根据源码格式去除开始和结尾行。</p>
+</blockquote>
+<h4 id="图的属性"><a class="header" href="#图的属性">图的属性</a></h4>
+<h5 id="图形元素的默认属性"><a class="header" href="#图形元素的默认属性">图形元素的默认属性</a></h5>
+<p>修改组件的<strong>默认</strong>属性，后续添加元素如果未声明相应属性则使用默认属性。属性的值均使用字符串表示。</p>
+<pre><code class="language-python">g.attr(kw=None, attrs=value, **kwargs)
+</code></pre>
+<p><code>kw</code>表示要设置属性的对象类别，包括<code>None,'graph','node','edge'</code>，<code>None</code>表示通用属性。<code>attrs</code>表示属性声明文本，例如：<code>&quot;fixedsize=shape shape=circle width=0.5&quot;</code>。<code>kwargs</code>为单独的属性项。也可通过图对象提供的成员（字典类型，<code>g.graph_attr,edge_attr,node_attr</code>）修改对应类别的默认属性。</p>
+<pre><code class="language-shell">g.graph_attr['rankdir'] = 'LR' # graph类
+</code></pre>
+<h5 id="全局属性"><a class="header" href="#全局属性">全局属性</a></h5>
+<p>对于图、节点和边通用的属性。</p>
+<div class="table-wrapper"><table><thead><tr><th>属性</th><th>说明</th><th>参数值（字符串）</th></tr></thead><tbody>
+<tr><td><code>color</code></td><td>填充或边框<a href="https://graphviz.org/doc/info/colors.html#svg">颜色</a></td><td>`aqua</td></tr>
+<tr><td><code>style</code></td><td>图形填充和边框样式</td><td>`filled</td></tr>
+<tr><td></td><td></td><td></td></tr>
+</tbody></table>
+</div>
+<h5 id="图形属性"><a class="header" href="#图形属性">图形属性</a></h5>
+<div class="table-wrapper"><table><thead><tr><th>属性</th><th>说明</th><th>参数值（字符串）</th></tr></thead><tbody>
+<tr><td><code>engine</code></td><td>图形布局</td><td>`dot</td></tr>
+<tr><td><code>rankdir</code></td><td>图形的流向</td><td>`LR</td></tr>
+<tr><td><code>size</code></td><td>图形尺寸</td><td></td></tr>
+<tr><td></td><td></td><td></td></tr>
+</tbody></table>
+</div>
+<h5 id="节点属性"><a class="header" href="#节点属性">节点属性</a></h5>
+<div class="table-wrapper"><table><thead><tr><th>属性</th><th>说明</th><th>参数值说明</th></tr></thead><tbody>
+<tr><td><code>label</code></td><td>节点标签</td><td>支持HTML标记<code>&lt;tag&gt;&lt;/tag&gt;</code>。</td></tr>
+<tr><td><code>shape</code></td><td><a href="https://graphviz.org/doc/info/shapes.html">节点形状</a></td><td><code>box/rect/rectangle/square/</code>：矩形/正方形<br/><code>invtriangle/triangle</code>：三角形<br/><code>diamond/parallelogram</code>：菱形/平行四边形<br /><code>circle/doublecircle/ellipse/oval</code>：圆/椭圆<br /><code>plaintext/plain/none</code>：纯文本<br /><code>tab/folder/note</code>：标签页/文件夹/笔记图标</td></tr>
+<tr><td><code>fixedsize</code></td><td></td><td><code>false</code>：由包含内容和边距决定最小长宽，且不小于<code>width,height</code>；<br/><code>true</code>：仅由<code>width,height</code>决定，不会自适应内容；<br/><code>shape</code>：类似于<code>true</code>，但根据内容调整节点距离避免重叠。</td></tr>
+<tr><td><code>width</code></td><td>节点宽度</td><td>宽度或最小宽度</td></tr>
+<tr><td><code>height</code></td><td>节点高度</td><td>高度或最小高度</td></tr>
+</tbody></table>
+</div>
+<h5 id="连接属性"><a class="header" href="#连接属性">连接属性</a></h5>
+<div class="table-wrapper"><table><thead><tr><th>属性</th><th>说明</th><th>参数值</th></tr></thead><tbody>
+<tr><td><code>weight</code></td><td></td><td></td></tr>
+<tr><td><code>label</code></td><td>连线标签</td><td></td></tr>
+<tr><td><code>len</code></td><td>边长度(<code>dot</code>引擎下无效)</td><td><code>1.00</code></td></tr>
+<tr><td><code>arrowhead</code></td><td>箭头形状（<code>Digraph</code>）</td><td>`normal</td></tr>
+<tr><td><code>arrowsize</code></td><td>箭头大小（<code>Digraph</code>）</td><td><code>2</code></td></tr>
+<tr><td><code>fontsize</code></td><td>边标签字号</td><td><code>10</code></td></tr>
+</tbody></table>
+</div>
+<p><a href="https://www.graphviz.org/doc/info/attrs.html">Attributes | Graphviz</a></p>
+<h4 id="布局"><a class="header" href="#布局">布局</a></h4>
+<p><code>u = w.unflatten(stagger=3)</code></p>
+<h4 id="渲染和保存"><a class="header" href="#渲染和保存">渲染和保存</a></h4>
+<p>将图对象转换为源码并生成图像文件。</p>
+<pre><code class="language-python">G.render('test-output/round-table.gv', view=True, cleanup=False)
+gv.render(...,)   # gv.render(filepath,...)
+gv.Source.render(...)  #直接从DOT源码渲染对象
+</code></pre>
+<blockquote>
+<p><em>To render the generated DOT source code, you also need to install [Graphviz](https://www.graphviz.org/
+).</em></p>
+</blockquote>
+<p>从字符串读取DOT源码：</p>
+<pre><code class="language-python">G.save()  # 保存图形的DOT源码
+dot_src = gv.Source(dot_str, ...)
+gv.Source.from_file(...)
+dot_src.save(...)
+</code></pre>
+<p><a href="https://graphviz.readthedocs.io/en/stable/manual.html#piped-output">Piped output</a></p>
+<h4 id="相关模块"><a class="header" href="#相关模块">相关模块</a></h4>
+<blockquote>
+<p><em>pydot</em></p>
+<p><em>PyGraphviz requires [Graphviz](https://www.graphviz.org/
+).</em></p>
+</blockquote>
+<pre><code class="language-python">dot = nx.nx_agraph.to_agraph(G)  # pygraphviz.AGraph()
+</code></pre>
+<h3 id="使用plotly绘制网络图"><a class="header" href="#使用plotly绘制网络图">使用Plotly绘制网络图</a></h3>
+<p>如果图的节点没有位置信息，需要使用布局引擎来计算节点位置以及边的形状。<code>networkx</code>提供多个<a href="https://networkx.org/documentation/stable/reference/drawing.html#module-networkx.drawing.layout">布局方法</a>以及基于Graphviz的布局方法生成位置数据。</p>
+<pre><code class="language-python">pos=nx.bipartite_layout(G, nodes, align='vertical',...,aspect_ratio=4/3)
+pos=nx.circular_layout(G, scale=1, center=None, dim=2)
+pos=nx.nx_agraph.graphviz_layout(G, prog='neato', root=None, args='') # =&gt; pygraphviz_layout
+pos=nx.nx_pydot.graphviz_layout(G, prog='neato', root=None) # =&gt; pydot_layout(...)
+</code></pre>
+<blockquote>
+<p><code>root</code>是某些布局算法需要确定的根节点，<code>args</code>为传递给布局程序的额外参数。</p>
+</blockquote>
+<p><code>pos</code>是关于节点名的字典，元素值为<code>(x,y)</code>。因此，可直接将生成的节位置添加到图的节点属性中：</p>
+<pre><code class="language-python">nx.set_node_attributes(G, pos, name='pos')
+</code></pre>
+<p>生成Plotly绘图数据，即节点和边的绘图数据：</p>
+<pre><code class="language-shell">def get_edge_trace(graph, linewidth=3):
+    edge_x, edge_y = [],[]
+    for edge in graph.edges():
+        x0, y0 = graph.nodes[edge[0]]['pos']
+        x1, y1 = graph.nodes[edge[1]]['pos']
+        edge_x.extend((x0, x1, None))
+        edge_y.extend((y0, y1, None))
+    edge_trace = go.Scatter(
+        x=edge_x, y=edge_y,
+        line=dict(width=linewidth, color='#888'),
+        hoverinfo='none',
+        mode='lines')
+    return edge_trace
+    
+def get_node_trace(graph, nodesize=20):
+    node_x,node_y = [],[]
+    for node in graph.nodes():
+        x, y = graph.nodes[node]['pos']
+        node_x.append(x)
+        node_y.append(y)
+
+		marker_specs = {
+        'size':nodesize,
+        'line_width':2,
+        'reversescale':True,
+        'showscale':True,
+        'colorscale':'Jet', # Greys,Rainbow,Jet,...
+        'color':[],
+        'colorbar':{title='ColorMeaning',titleside='right',xanchor='left',thickness=15}
+     }
+
+    node_trace = go.Scatter(x=node_x, y=node_y, 
+                            mode='markers', hoverinfo='text', marker=marker_specs)
+
+    num_neighbor = np.zeros(len(graph.nodes))
+    node_text = []
+    for i, adj in enumerate(graph.adjacency()):
+        num_neighbor[i] = len(adj[1])
+        node_text.append(f'Number of connections: {num_neighbor[i]}')
+    node_trace.marker.color = list(num_neighbor)
+    node_trace.text = node_text
+    return node_trace 
+</code></pre>
+<p>使用Plotly绘制生成的绘图数据（生成的绘图对象可调用<a href="#Plotly">show()</a>方法显示）。</p>
+<pre><code class="language-python">layout = go.Layout(...)
+fig = go.Figure(data=[edge_trace, node_trace], layout=layout)
+</code></pre>
+<h2 id="绘制表格"><a class="header" href="#绘制表格">绘制表格</a></h2>
+<h3 id="使用plotly绘制表格"><a class="header" href="#使用plotly绘制表格">使用Plotly绘制表格</a></h3>
+<pre><code class="language-python">plotly_table = go.Table(
+  columnwidth = [60]*len(df.columns),   # 宽度比例，绝对宽度由图形宽度决定.
+  header=dict(
+    values=list(df.columns),
+    line_color='darkslategray',
+    fill_color='paleturquoise',
+    align='center',
+    font=dict(color='blue', size=16),
+    height=30
+  ),
+  cells=dict(
+    values=[df[col] for col in df.columns], # values given by columns
+    #fill_color='lavender',      # cell fill color
+    line_color='darkslategray',  # default is None, scalar or list
+    fill=dict(color=['lavender', 'white']),  # missing column use the last specified color
+    align='center',
+    format= ['d'] + [ '.3f']*(len(df.columns)-1),  
+    font_size=16,
+    height=30
+  )
+)
+fig = go.Figure(data=plotly_table)  
+</code></pre>
+<h3 id="使用html渲染pandas表格输出"><a class="header" href="#使用html渲染pandas表格输出">使用HTML渲染Pandas表格输出</a></h3>
+<p><code>pd.DataFrame.style</code>是<code>Style</code>类型对象，使用生成表格数据的显示格式（CSS）。</p>
+<p>https://mp.weixin.qq.com/s/uaYAQj69BCx5EqcxL4uqoA</p>
+<h4 id="颜色-1"><a class="header" href="#颜色-1">颜色</a></h4>
+<pre><code class="language-python">def color_negative_red(val):
+  color = 'red' if val &lt; 0 else 'black'
+  return f'color: {color}'
+s = df.style.applymap(color_negative_red)
+def highlight_max(s):
+    is_max = s == s.max()
+    return ['background-color: yellow' if v else '' for v in is_max]
+s = df.style.apply(highlight_max, axis=0, subset=['B', 'C'])
+</code></pre>
+<blockquote>
+<p>需要在支持HTML的输出环境中（例如Notebook或Streamlit）才能显示指定的效果。</p>
+</blockquote>
+<p><code>Style</code>类型支持链式调用，因此可以将多种格式叠加到一个表格。</p>
+<h4 id="数值格式"><a class="header" href="#数值格式">数值格式</a></h4>
+<pre><code class="language-python">df.style.format(&quot;{:.2%}&quot;, na_rep=&quot;-&quot;)
+df.style.format(&quot;B&quot;: &quot;{:.2%}&quot;)   # 设置指定列的格式
+df.style.format({&quot;B&quot;: lambda x: &quot;±{:.2f}&quot;.format(abs(x))}) # 格式化函数
+</code></pre>
+<pre><code class="language-python">df.style.set_precision(2)
+</code></pre>
+<blockquote>
+<p>字符串的对齐声明符在HTML输出中无效，使用CSS<code>text-align</code>属性声明。</p>
+</blockquote>
+<h4 id="内置风格"><a class="header" href="#内置风格">内置风格</a></h4>
+<pre><code class="language-python">df.style.highlight_null(null_color='red')
+import seaborn as sns
+cm = sns.light_palette(&quot;green&quot;, as_cmap=True)
+s = df.style.background_gradient(cmap=cm)
+df.style.hide_index()
+df.style.hide_columns(['C','D'])
+</code></pre>
+<h4 id="全局风格"><a class="header" href="#全局风格">全局风格</a></h4>
+<p>使用全局风格声明表格的默认字体、字号、对齐等风格。</p>
+<pre><code class="language-python">list_style = [
+  dict(selector=&quot;th&quot;, props=[(&quot;font-size&quot;, &quot;4pt&quot;)]),   # header
+  dict(selector=&quot;td&quot;, props=[('padding', &quot;0em 0em&quot;)]), # cell
+  dict(selector=&quot;tr:hover&quot;,
+       props=[(&quot;background-color&quot;, &quot;%s&quot; % hover_color)]# row
+]
+df.style.set_table_styles(list_style)
+</code></pre>
+<p><code>props</code>由一个或多个属性的键值对组成。</p>
+<p>设置一个数据切片的的属性：</p>
+<pre><code class="language-python">df.style.set_properties(subset=None, **kwargs)
+</code></pre>
+<blockquote>
+<p><code>subset</code>表示表格的子集，例如列名的列表；<code>kwargs</code>为CSS属性。</p>
+</blockquote>
+<p>在列数据背景上绘制柱状图：</p>
+<pre><code class="language-python">df.style.bar(subset=['A', 'B'], color='#d65f5f')
+</code></pre>
+<p>标题：</p>
+<pre><code class="language-python">df.style.set_caption('Colormaps, with a caption.')
+</code></pre>
+<h4 id="共享格式"><a class="header" href="#共享格式">共享格式</a></h4>
+<pre><code class="language-python">style2.use(style1.export())
+</code></pre>
+<h3 id="dtale"><a class="header" href="#dtale"><a href="https://pypi.org/project/dtale/">DTale</a></a></h3>
+<h2 id="流程图"><a class="header" href="#流程图">流程图</a></h2>
+<h3 id="diagrams"><a class="header" href="#diagrams">diagrams</a></h3>
+<pre><code class="language-shell">conda create -n diagram -c conda-forge diagrams # pip install diagrams
+</code></pre>
+<p><a href="https://diagrams.mingrammer.com/docs/guides/diagram">Diagrams · Diagrams (mingrammer.com)</a></p>
+<h2 id="图形用户界面"><a class="header" href="#图形用户界面">图形用户界面</a></h2>
+<h3 id="jupyter-notebook"><a class="header" href="#jupyter-notebook">Jupyter Notebook</a></h3>
+<h4 id="常用控件"><a class="header" href="#常用控件">常用控件</a></h4>
+<p>可用控件：</p>
+<pre><code class="language-python">import ipywidgets as widgets
+l = pd.Series([x for x in dir(widgets) if not x.startswith('_')])
+df_widgets = l.loc[l.apply(lambda x: x[0].isupper())]
+display(pd.DataFrame(df_widgets.to_numpy()[:60].reshape(10,6))) # 超过60个内置控件
+</code></pre>
+<p>[Widget List — Jupyter Widgets 8.0.0rc0 documentation (ipywidgets.readthedocs.io)](https://ipywidgets.readthedocs.io/en/latest/examples/Widget List.html)</p>
+<h5 id="输入控件"><a class="header" href="#输入控件">输入控件</a></h5>
+<pre><code class="language-python">widgets.IntSlider(min=0, max=10, step=1, description='Slider:', value=3)
+</code></pre>
+<h5 id="输出控件"><a class="header" href="#输出控件">输出控件</a></h5>
+<pre><code class="language-python">from IPython.display import display
+slider = widgets.IntSlider()
+text = widgets.IntText()
+display(slider, text, ...)
+slider.value
+</code></pre>
+<p><code>IPython.display</code>可根据对象类型采用合适的展示方式，而不仅是<code>print</code>对象。</p>
+<pre><code class="language-python">from IPython.display import display
+display(obj_value)
+</code></pre>
+<p>Matplotlib绘图对象会自动显示（无论命令执行位置，显示在单元输出的结尾位置），不需要使用<code>display</code>。</p>
+<h5 id="ui属性"><a class="header" href="#ui属性">UI属性</a></h5>
+<pre><code class="language-python">description='Int Slider:'  # 空间标签
+</code></pre>
+<h4 id="布局和数据交互"><a class="header" href="#布局和数据交互">布局和数据交互</a></h4>
+<p>连接控件：上一控件的输出更新下一控件的输入。</p>
+<pre><code class="language-python">widgets.jslink((slider, 'value'), (text, 'value'))
+</code></pre>
+<h4 id="ui事件"><a class="header" href="#ui事件">UI事件</a></h4>
+<pre><code class="language-python">btn = widgets.Button(description='Medium')
+display(btn)
+def btn_eventhandler(obj):
+    print('Hello from the {} button!'.format(obj.description))
+btn.on_click(btn_eventhandler)
+</code></pre>
+<p>刷新输出：使用<code>Output</code>控件捕获cell输出。</p>
+<pre><code class="language-python">output_year = widgets.Output()
+def dropdown_year_eventhandler(change):
+  output_year.clear_output()
+  with output_year:
+    display(output_info)
+dropdown_year.observe(dropdown_year_eventhandler, names='value')
+display(output_year)
+</code></pre>
+<h3 id="streamlit"><a class="header" href="#streamlit">Streamlit</a></h3>
+<p>安装：</p>
+<pre><code class="language-shell">pip install streamlit    # conda install streamlit -c conda-forge
+</code></pre>
+<p>启动：</p>
+<pre><code class="language-shell">streamlit run app.py
+</code></pre>
+<p>编辑程序：运行中的程序可感知代码发生变换，并重新执行。</p>
+<pre><code class="language-python">import streamlit as st
+</code></pre>
+<p>版本信息：</p>
+<pre><code class="language-python">st.__version__
+</code></pre>
+<h4 id="ui组件"><a class="header" href="#ui组件">UI组件</a></h4>
+<p><code>key</code>：默认以UI的标签区分UI对象，如果标签相同，则需要提供额外的<code>key</code>参数区分UI对象。</p>
+<h5 id="标签"><a class="header" href="#标签">标签</a></h5>
+<p>标题：</p>
+<pre><code class="language-python">st.title('Title')
+st.header('Header1')
+st.subheader('Header2')
+</code></pre>
+<h5 id="选择"><a class="header" href="#选择">选择</a></h5>
+<p>按钮/开关：</p>
+<pre><code class="language-python">tf_press = st.button(&quot;Button&quot;)
+tf_check = st.checkbox(&quot;Check&quot;, value=False)
+</code></pre>
+<p>单选组：</p>
+<pre><code class="language-python">genre = st.radio(
+     &quot;What's your favorite movie genre&quot;,
+     ('Comedy', 'Drama', 'Documentary'),
+     index=1
+)
+</code></pre>
+<p>单选下拉列表：</p>
+<pre><code class="language-python">option = st.selectbox(
+    'How would you like to be contacted?',
+    ('Email', 'Home phone', 'Mobile phone'),
+    index = 2
+)
+</code></pre>
+<p>数值选择器：</p>
+<pre><code class="language-python">age = st.slider(
+  'How old are you?', 
+  value=25,
+  min_value=0, max_value=130)
+</code></pre>
+<p>类型选择器：</p>
+<pre><code class="language-python">color = st.select_slider(
+    'Select a color of the rainbow',
+    options=[
+      'red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']
+)
+</code></pre>
+<p>颜色选择：</p>
+<pre><code class="language-python">color = st.color_picker('Pick A Color', '#00f900')
+</code></pre>
+<p>多选：</p>
+<pre><code class="language-python">options = st.multiselect(
+    'What are your favorite colors',
+    ['Green', 'Yellow', 'Red', 'Blue'],
+    ['Yellow', 'Red']
+)
+</code></pre>
+<h5 id="输入"><a class="header" href="#输入">输入</a></h5>
+<p>单行文本输入：</p>
+<pre><code class="language-python">title = st.text_input('Movie title', value = 'Life of Brian', type='default')
+</code></pre>
+<p><code>type=password</code>：设置为密码输入框。</p>
+<p>文本区（多行文本输入）：</p>
+<pre><code class="language-python">txt = st.text_area('Text to analyze', 
+'''It was the best of times, it was the worst of times, it was
+the age of wisdom, it was the age of foolishness, it was
+the epoch of belief, it was the epoch of incredulity, it
+was the season of Light, it was the season of Darkness, it
+was the spring of hope, it was the winter of despair, (...)''',
+    height=200
+)
+</code></pre>
+<p>数值输入：</p>
+<pre><code class="language-python">number = st.number_input('Insert a number',
+                         value=50,
+                         min_value=0, max_value=100,step=1, 
+                         format='%.2f')
+</code></pre>
+<p>日期输入：</p>
+<pre><code class="language-python">d = st.date_input(
+    &quot;When's your birthday&quot;,
+    datetime.date(2019, 7, 6)
+)
+</code></pre>
+<p>时间输入：</p>
+<pre><code class="language-python">t = st.time_input('Set an alarm for', datetime.time(8, 45))
+</code></pre>
+<h5 id="文件上传"><a class="header" href="#文件上传">文件上传</a></h5>
+<pre><code class="language-python">uploaded_file = st.file_uploader(&quot;Choose a CSV file&quot;, type=&quot;csv&quot;)
+</code></pre>
+<h5 id="文本输出"><a class="header" href="#文本输出">文本输出</a></h5>
+<p><code>st.write</code>根据对象类型选择相应的输出格式。</p>
+<pre><code class="language-python">st.write(object)
+</code></pre>
+<p>全局作用域中的多行注释内容将被视为Markdown格式内容添加到输出结果中（等效于<code>st.write</code>），因此可以利用该性质添加段落输出。</p>
+<p>文字格式输出：</p>
+<pre><code class="language-python">st.text(text)     # 等宽字体
+st.caption(text)  # 小号字体
+</code></pre>
+<p>数字指标输出：</p>
+<pre><code class="language-python">st.metric(label=&quot;Streamlit version&quot;, value=0.87, delta=0.01)
+</code></pre>
+<h5 id="表格输出-1"><a class="header" href="#表格输出-1">表格输出</a></h5>
+<pre><code class="language-python">st.dataframe(data:Union[pd.DataFrame,pd.Styler,np.ndarray,Iterable,dict])
+</code></pre>
+<p>支持<code>df.style</code>的高亮语法，不支持宽度和对齐等设置。高度固定，自动生成水平/垂直滑动块；</p>
+<blockquote>
+<p>Streamlit不能输出超过50MB的表格，此时可以仅截取部分内容输出。</p>
+<p>Streamlit目前不能显示<code>category</code>类型的数据。</p>
+</blockquote>
+<p><code>table = st.table(df)</code>：支持自动调整列宽，在页面上显示全部内容。当页面宽度足够时，设置宽度有效。</p>
+<h5 id="信息块"><a class="header" href="#信息块">信息块</a></h5>
+<pre><code class="language-python">st.success('This is a success message!')
+st.info('This is a purely informational message')
+st.warning('This is a warning')
+st.error('This is an error')
+e = RuntimeError('This is an exception of type RuntimeError')
+st.exception(e)  # display an exception
+</code></pre>
+<h5 id="动画"><a class="header" href="#动画">动画</a></h5>
+<p>进度条：</p>
+<pre><code class="language-python"># placeholder = st.empty()  # 进度条占位符
+my_bar = st.progress(0)  # placeholder.progress(0)
+for percent_complete in range(10):
+    time.sleep(0.1)
+    my_bar.progress(percent_complete * 10)
+# placeholder.empty()  # 移除进度条
+</code></pre>
+<p>可将进度条置于<a href="#%E7%AE%80%E5%8D%95%E5%AE%B9%E5%99%A8"><code>st.empty()</code></a>中，可以在进度完成后手动移除进度条。</p>
+<p>进度指示器：</p>
+<pre><code class="language-python">with st.spinner('Wait for it...'):
+    time.sleep(5)
+</code></pre>
+<h5 id="下载"><a class="header" href="#下载">下载</a></h5>
+<pre><code class="language-python">st.download_button
+</code></pre>
+<h4 id="布局-1"><a class="header" href="#布局-1">布局</a></h4>
+<pre><code class="language-python">st.set_page_config(page_title='动态服务管理', page_icon=None,
+                   layout='wide', initial_sidebar_state='auto')
+</code></pre>
+<blockquote>
+<p>在其他命令使用前运行。</p>
+</blockquote>
+<h5 id="容器"><a class="header" href="#容器">容器</a></h5>
+<p>在一个容器中添加多个UI组件。</p>
+<pre><code class="language-python">with st.container():
+  st.write(&quot;This is inside the container&quot;)
+  st.bar_chart(np.random.randn(50, 3))
+group = st.container()
+group.write(&quot;This is inside another container&quot;)
+</code></pre>
+<p>与主页中直接组件的效果添加相同，和<code>empty()</code>不同不能更新已添加的组件。可以将<code>empty()</code>置于容器内部。</p>
+<h5 id="简单容器"><a class="header" href="#简单容器">简单容器</a></h5>
+<p>空占位符<code>st.empty()</code>：可在后续代码中向其中添加==一个==UI组件。空占位符引用该组件对象，因此可以多次调用该组件以更新其内容。</p>
+<blockquote>
+<p>普通方式调用组件函数未返回组件对象的引用，因此无法对其更新，重复调用组件函数将创建多个UI组件。</p>
+</blockquote>
+<pre><code class="language-python">placeholder = st.empty()
+for i in range (1,100):
+  placeholder.text(f'Progress is: {i}')   # update text
+</code></pre>
+<p>删除占位容器中的UI组件：</p>
+<pre><code class="language-python">placeholder.empty()
+</code></pre>
+<p>可使用<code>placeholder</code>多次创建UI组件并替换现有内容。==通常不使用包含<code>key</code>参数的UI组件==（通常是输出组件，例如<code>st.progress, st.write, st.text</code>等），如果再次通过<code>placeholder</code>替换该类型组件，需要提供不同的<code>key</code>。</p>
+<p>在<code>with</code>语句块中调用组件函数不会重复创建UI，<code>with</code>语句块结束后其中创建的组件不会消失。</p>
+<pre><code class="language-python">with st.empty():
+   for seconds in range(60):
+      st.write(f&quot;⏳ {seconds} seconds have passed&quot;)
+      time.sleep(1)
+   st.write(&quot;✔️ 1 minute over!&quot;)
+</code></pre>
+<p>可在<code>st.empty()</code>中设置一个<code>container</code>，从而构造可刷新的仪表板。</p>
+<pre><code class="language-python">placeholder = st.empty()
+with placeholder.container():
+    # place components here!
+</code></pre>
+<h5 id="折叠内容"><a class="header" href="#折叠内容">折叠内容</a></h5>
+<pre><code class="language-python">with st.expander(title, expanded=True):
+  add_components
+</code></pre>
+<h5 id="表单"><a class="header" href="#表单">表单</a></h5>
+<pre><code class="language-python">with streamlit.form(key:str):
+   # add_components
+   slider_val = st.slider(&quot;Form slider&quot;)
+   submitted = st.form_submit_button(&quot;Submit&quot;)  # 提交按钮位于表单环境中
+   pass
+if submitted:
+   handle_form_data
+</code></pre>
+<p><strong>UI响应</strong>：未使用表单时，更改UI组件状态将自动触发代码重新执行（更新组件后台状态）；使用表单后，更改表单内部组件的状态不会自动触发代码重新执行，内部组件的状态由表单UI组件缓存，直到点击提交按钮才会向后台发送状态变更并触发代码执行。</p>
+<p><strong>状态缓存</strong>：代码执行时，总是使用上次点击“提交”按钮后的各组件的后台状态。</p>
+<h5 id="水平线性布局"><a class="header" href="#水平线性布局">水平线性布局</a></h5>
+<pre><code class="language-python">col1,co2,... = st.columns(n_or_portion)
+with col1:
+  add_components_to_col1
+co2.add_components
+</code></pre>
+<p>当参数为整数<code>n</code>时表示创建<code>n</code>个等宽列；如果为列表<code>portion</code>，则根据列表元素值确定每列的宽度占比。</p>
+<h5 id="水平多标签页"><a class="header" href="#水平多标签页">水平多标签页</a></h5>
+<pre><code class="language-python">tab1, tab2, tab3 = st.tabs(['页面1', '页面2', '页面3'])
+with tab1:
+    pass
+tab2.dataframe(df)
+</code></pre>
+<h5 id="侧边栏"><a class="header" href="#侧边栏">侧边栏</a></h5>
+<p>在主页面上可使用的组件也可以添加到侧边栏（侧边栏可看组是一个特殊容器）。</p>
+<pre><code class="language-python">add_selectbox = st.sidebar.selectbox(
+    &quot;How would you like to be contacted?&quot;,
+    (&quot;Email&quot;, &quot;Home phone&quot;, &quot;Mobile phone&quot;)
+)
+</code></pre>
+<h5 id="多页面app"><a class="header" href="#多页面app">多页面App</a></h5>
+<p>多页面App将单页面应用的代码按功能分解到多个文件中，代码组织结构如下。</p>
+<pre><code class="language-shell">multipage-app
+├── 01_⏱_demo_app.py
+└── pages
+    ├── 02_🍕_output_demo.py
+    ├── 03_🥗_input_demo.py
+    └── 04_🥩_plots_demo.py
+streamlit run 01_⏱_demo_app.py
+</code></pre>
+<p>页面可根据文件名编号指定顺序展示。</p>
+<h4 id="绘图"><a class="header" href="#绘图">绘图</a></h4>
+<h5 id="内置绘图"><a class="header" href="#内置绘图">内置绘图</a></h5>
+<pre><code class="language-python">chart = st.line_chart(data=None, width=0, height=0)
+chart = st.area_chart(data=None, width=0, height=0)
+chart = st.bar_chart(data=None, width=0, height=0)
+</code></pre>
+<blockquote>
+<p><code>use_container_width=True</code>：与页面宽度一致。</p>
+</blockquote>
+<p>可以向图形对象添加数据，从而更新返回结果。</p>
+<pre><code class="language-python">chart.add_rows(data2)
+</code></pre>
+<h5 id="显示图像"><a class="header" href="#显示图像">显示图像</a></h5>
+<pre><code class="language-python">from PIL import Image
+image = Image.open('sunrise.jpg')
+st.image(image,caption='Sunrise',width=None,use_column_width='auto',output_format='png')
+</code></pre>
+<h5 id="matplotlib绘图"><a class="header" href="#matplotlib绘图"><a href="Python%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA.html#Matplotlib">Matplotlib绘图</a></a></h5>
+<pre><code class="language-python">fig,ax = plt.subplots(figsize=(width_inch,height_inch),...)
+ax.bar(x1,y1)
+st.pyplot(fig=fig, **kwargs_savefig)
+</code></pre>
+<p><code>matplotlib</code>的绘图后端：</p>
+<pre><code class="language-python">matplotlib.rcsetup.all_backends   # supported backends
+matplotlib.pyplot.get_backend()   # current use backend
+</code></pre>
+<p>==图形占用的宽度总是与页面宽度一致，图形的尺寸只影响显示的分辨率==。</p>
+<ul>
+<li>
+<p>可以使用<code>st.columns</code>将页面划分为多个部分，而只在其中一列中放置图形。</p>
+</li>
+<li>
+<p>将绘图转换为图片，使用<code>st.image</code>显示。</p>
+<pre><code class="language-python">from io import BytesIO
+buf = BytesIO()
+fig.savefig(buf, format=&quot;png&quot;)
+st.image(buf, caption=None, width=600, output_format='png')
+</code></pre>
+</li>
+</ul>
+<h5 id="graphviz绘图"><a class="header" href="#graphviz绘图">graphviz绘图</a></h5>
+<pre><code class="language-python">import graphviz
+graph = graphviz.Digraph()
+st.graphviz_chart(graph)
+</code></pre>
+<h5 id="bokeh无法显示图像"><a class="header" href="#bokeh无法显示图像">bokeh（*无法显示图像）</a></h5>
+<p><a href="https://docs.bokeh.org/en/latest/docs/user_guide/graph.html?highlight=network">Visualizing network graphs — Bokeh 2.3.1 Documentation</a></p>
+<pre><code class="language-python">from bokeh.plotting import figure
+p = figure(
+    title='simple line example',
+    x_axis_label='x',
+    y_axis_label='y')
+st.bokeh_chart(p, use_container_width=True)
+</code></pre>
+<h5 id="plotly-1"><a class="header" href="#plotly-1">Plotly</a></h5>
+<p><a href="https://docs.streamlit.io/en/stable/api.html#streamlit.plotly_chart">API reference — Streamlit 0.81.1 documentation</a></p>
+<p><a href="https://towardsdatascience.com/tutorial-network-visualization-basics-with-networkx-and-plotly-and-a-little-nlp-57c9bbb55bb9">Tutorial: Network Visualization Basics with Networkx and Plotly in Python | Towards Data Science</a></p>
+<pre><code class="language-python">import plotly.figure_factory as ff
+fig = ff.create_distplot(
+        hist_data, group_labels, bin_size=[.1, .25, .5])
+st.plotly_chart(fig, use_container_width=True)
+</code></pre>
+<h4 id="代码执行"><a class="header" href="#代码执行">代码执行</a></h4>
+<h5 id="ui与程序执行流程"><a class="header" href="#ui与程序执行流程">UI与程序执行流程</a></h5>
+<p>UI状态变更后，程序将从头重新执行。</p>
+<p>当执行到UI创建代码后，UI创建代码会根据输入使用缓存UI或重绘UI，相应地返回的值为上一次UI状态变更时的数据，或本次重绘UI后的初始值。</p>
+<h5 id="ui缓存"><a class="header" href="#ui缓存">UI缓存</a></h5>
+<p>UI内置了缓存机制，以保存UI状态更改。UI初始化应该使用常量（每次运行用户程序不变的量），从而保证UI对象始终缓存。不需要尝试手动保存UI的最新状态，并随后再次使用最新状态初始化UI。</p>
+<p>实际上，由于界面状态更新后，用户代码才开始执行，当执行到相应UI代码时，会使用上一次的缓存状态再次初始化UI并返回初始化值（即上一次的缓存状态），导致用户获取不到更新的界面状态。一般情况下，==如果界面初始化参数发生变化都将导致用户上一次的UI更改无效==。</p>
+<blockquote>
+<p>下图以<code>selectbox</code>为例，初始化<code>index=0</code>（初次执行代码后用户缓存该值<code>cache=0</code>），如果用户选择<code>index=2</code>将刷新页面并再次执行代码，UI对象的初始化输入不变（<code>cache=0--&gt;index</code>），因此返回给程序用户记录的选择(<code>2</code>)；当用户再次选择（<code>index=1</code>）并触发界面刷新和代码执行，UI对象的初始化输入从<code>index=0</code>变为<code>index=2</code>，会导致UI对象的重新初始化，并返回再次初始化的结果（<code>index=2</code>），<strong>与用户的目标选择不一致</strong>。这时用户获取的结果和界面显示一致，继续操作会导致上述行为会反复出现。如下图所示：</p>
+</blockquote>
+<pre><code class="language-mermaid">graph LR
+A[index=0]--&gt;X1(get_ui)--&gt;B(sel=0)--&gt;|user select|D[index=2]--&gt;X2[get_ui]
+B--&gt;C(cache=0)--&gt;|缓存一致|X2--&gt;E(sel=2)--&gt;|user select|D2[index=1]--&gt;F
+E--&gt;C1(cache=2)--&gt;|缓存落后|F[update_ui]
+A_[index=0]--&gt;X1_(get_ui)--&gt;B_(sel=0)--&gt;|user select|D_[index=2]--&gt;X2_[get_ui]--&gt;E_(sel=2)--&gt;|user select|D2_[index=1]--&gt;F_[get_ui]
+</code></pre>
+<p>实际上，用户可以缓存数据，但无需将其应用于更新UI。用户利用缓存数据与最新数据的对比以确定某个UI的状态变化从而执行相应操作。</p>
+<h5 id="回调函数"><a class="header" href="#回调函数">回调函数</a></h5>
+<p>状态变更后，代码从头开始执行。回调函数将先于其他代码首先被执行。回调函数仅知道UI状态变化，无法获取变更后的值。</p>
+<h4 id="缓存"><a class="header" href="#缓存">缓存</a></h4>
+<p>Streamlit可以缓存函数的返回对象，从而优化性能。</p>
+<p>Streamlit在调用函数时记录函数名、函数参数、外部变量、函数体内容、调用的用户自定义函数内容，当再次调用函数时检测上述内容（基于Hash函数）是否被修改。如果未发生修改，则直接返回缓存对象；反之，重新执行函数并缓存新的对象。</p>
+<pre><code class="language-python">streamlit.cache(
+  func=None,                   # 调用的函数对象
+  persist=False,               # 是否缓存到磁盘
+  allow_output_mutation=False, # 允许返回对象在外部被修改，不计算返回对象的Hash
+  hash_funcs={Type:hash_func}, # 自定指定类型对象的Hash函数
+  max_entries=None,            # 最大缓存条目数
+  ttl=None                     # 缓存有效期(秒)
+) -&gt; object
+@st.cache(**kwargs)
+func(*args, **kwargs):
+  pass
+</code></pre>
+<h5 id="hash函数"><a class="header" href="#hash函数">Hash函数</a></h5>
+<ul>
+<li>返回对象的基础类型成员，Streamlit可以使用内置Hash函数对其再进行Hash；</li>
+<li><code>id()</code>函数：用于传入参数，计算全局唯一对象（指向外部资源）的内存地址，例如<a href="https://docs.streamlit.io/en/stable/caching.html#example-1-pass-a-database-connection-around">会话连接</a>；</li>
+<li><a href="https://docs.streamlit.io/en/stable/caching.html#example-2-turn-off-hashing-for-a-specific-type"><code>lambda _: None</code></a>：已知对应类型对象不会在程序运行期间发生变化（避免对大型数据结构的计算开销）；</li>
+<li><code>hash()</code>函数：使用Python内置的<a href="https://docs.streamlit.io/en/stable/caching.html#example-2-turn-off-hashing-for-a-specific-type">hash方法</a>代替Streamlit的hash方法，以解决某些类型无法计算hash值得问题；</li>
+<li>自定义</li>
+</ul>
+<h5 id="变量显式缓存"><a class="header" href="#变量显式缓存">变量显式缓存</a></h5>
+<p><strong>全局缓存</strong>：用户可以定义缓存函数创建缓存的数据容器（如字典），以显式缓存程序运行过程中产生的变量。</p>
+<pre><code class="language-python">@st.cache(allow_output_mutation=True)
+def namespace(name:str):
+    return {}
+ns = namespace('streamlit')
+ns['x'] = 100
+@st.experimental_memo 
+@st.experimental_singleton
+</code></pre>
+<p><strong>会话状态缓存</strong></p>
+<p><code>st.session_state</code>：与每个Web会话（<em>WebSocket</em>）相关的缓存变量，同一应用的不同页面其会话缓存变量相互独立。</p>
+<h5 id="多线程执行"><a class="header" href="#多线程执行">多线程执行</a></h5>
+<p>每开启一个Web页面，Streamlit应用会启动一个子线程执行该应用的用户代码并在Web页面进行展示。多个线程共享<a href="#%E5%85%A8%E5%B1%80%E7%BC%93%E5%AD%98">全局缓存空间</a>，具有独立的<a href="#%E4%BC%9A%E8%AF%9D%E7%8A%B6%E6%80%81%E7%BC%93%E5%AD%98">会话状态空间</a>。</p>
+<h5 id="基于streamlit的服务"><a class="header" href="#基于streamlit的服务">基于Streamlit的服务</a></h5>
+<p>利用Streamlit应用运行的规则，可以在用户代码中封装一个服务（持续执行不退出），当首次开启应用时启动该服务，并在全局缓存中记录服务的运行状态；后续再启动应用时，检测该服务的状态，并与该服务进行交互。</p>
+<h4 id="问题"><a class="header" href="#问题">问题</a></h4>
+<p><a href="../Linux/Linux%E9%85%8D%E7%BD%AE%E5%92%8C%E7%AE%A1%E7%90%86.html#inotify%E6%96%87%E4%BB%B6%E7%9B%91%E6%8E%A7%E6%95%B0%E9%87%8F%E9%99%90%E5%88%B6"><em>inotify watch limit reached</em></a>，该问题会导致无法监控到后台文件更新，以及<code>streamlit</code>无法刷新Web页面（创建连接Streamlith后台服务的WebSocket失败）。</p>
+<h2 id="机器学习可视化"><a class="header" href="#机器学习可视化">机器学习可视化</a></h2>
+<h3 id="性能评估可视化"><a class="header" href="#性能评估可视化">性能评估可视化</a></h3>
+<h5 id="混淆矩阵"><a class="header" href="#混淆矩阵">混淆矩阵</a></h5>
+<p><em><strong>Confusion Matrix</strong></em></p>
+<pre><code class="language-python">from sklearn.metrics import ConfusionMatrixDisplay as cm_disp
+disp = cm_disp.from_predictions(y_test, y_pred)  
+disp = cm_disp.from_estimator(clf, X_test, y_test) # 直接从分类器获取预测
+plt.show()
+# 自动生成混淆矩阵并创建图形对象
+# cm = confusion_matrix(y_test, y_pred) # from sklearn.metrics import confusion_matrix
+# disp = cm_disp(confusion_matrix=cm, display_labels=clf.classes_)
+# disp.plot()
+</code></pre>
+<h2 id="问题-1"><a class="header" href="#问题-1">问题</a></h2>
+<h3 id="中文乱码"><a class="header" href="#中文乱码">中文乱码</a></h3>
+<p>原因：Linux系统缺少中文字体；</p>
+<p>解决方法：</p>
+<ul>
+<li>
+<p>下载中文字体（从Windows系统中复制），黑体（<code>simhei.ttf</code>）、华文宋体（<code>STSONG.TTF</code>）、楷体（<code>simkai.ttf</code>）......</p>
+</li>
+<li>
+<p>将字体==安装==到<code>/usr/share/fonts</code>目录下，并链接到<code>matplotlib</code>的字体目录下。</p>
+<pre><code class="language-sh">cd $CONDA_HOME/envs/$ENV/lib/python3.7/site-packages/matplotlib
+ln -s /usr/share/fonts/simhei.ttf mpl-data/fonts/ttf/simhei.ttf
+</code></pre>
+</li>
+<li>
+<p>修改<code>matplotlib</code>配置文件：</p>
+<pre><code class="language-sh">vim mpl-data/matplotlibrc
+font.family:     sans-serif  # uncomment
+font.sans-serif: simhei,...  # uncomment and add fonts at head
+</code></pre>
+</li>
+<li>
+<p>删除缓存文件：<code>rm ~/.cache/matplotlib/fontlist-v###.json</code></p>
+</li>
+<li>
+<p>重启Python程序。</p>
+<h5 id="中文字体测试代码"><a class="header" href="#中文字体测试代码">中文字体测试代码</a></h5>
+<pre><code class="language-python">from matplotlib.font_manager import FontManager
+import subprocess
+
+fm = FontManager()
+mat_fonts = set(f.name for f in fm.ttflist)
+print( '*' * 10, 'Matplotlib可用字体', '*' * 10)
+for f in mat_fonts:
+    print(f)
+output = subprocess.check_output(
+  'fc-list :lang=zh -f &quot;%{family}\n&quot;', shell=True, encoding='utf-8')
+print( '*' * 10, '系统可用的中文字体', '*' * 10)
+zh_fonts = set(f.split(',', 1)[0] for f in output.split('\n'))
+for f in zh_fonts:
+    print(f)
+</code></pre>
+</li>
+</ul>
+<h2 id="参考文献"><a class="header" href="#参考文献">参考文献</a></h2>
+<div class="footnote-definition" id="warnings"><sup class="footnote-definition-label">1</sup>
+<p><a href="https://docs.python.org/3/library/warnings.html">warnings — Warning control — Python 3.10.4 documentation</a></p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../Python/Python数据类型.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../Python/Python编程应用.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../Python/Python数据类型.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../Python/Python编程应用.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

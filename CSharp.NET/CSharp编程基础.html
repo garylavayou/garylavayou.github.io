@@ -1,0 +1,852 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>编程基础 - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html" class="active">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html" class="active">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="c-programming"><a class="header" href="#c-programming">C# Programming</a></h1>
+<p>C#是面向对象的编程语言，支持面向组件的编程，通过属性、方法和事件来提供编程模型。</p>
+<p>C# 特性：垃圾回收 (Garbage collection)；异常处理 (exception handling)；类型安全 (type-safe) 的语言设计。</p>
+<h2 id="基本语法"><a class="header" href="#基本语法">基本语法</a></h2>
+<p>应用程序 (application)以名为<code>Main</code>的<a href="#%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95">静态方法</a>作为程序执行的起点。<code>Main</code>方法中可书写表达式语句或调用类库或自定义的其他方法。</p>
+<pre><code class="language-c#">namespace NameSpace{
+   class Program{ 
+      static void Main(string[] args){
+         /* statements ... */
+      } // return void or int
+      static async Task Main() { }
+      static async Task&lt;int&gt; Main(string[] args) { }  // (C# 7.1)
+   }   
+}   // Libraries and services do not require a Main method.
+</code></pre>
+<blockquote>
+<p><code>Main</code>方法：必须为<code>static</code>方法，不需要是<code>public</code>。</p>
+<p><code>args</code>为除了程序名称以外的参数。</p>
+</blockquote>
+<p>一个类中最多包含一个名为<code>Main</code>的方法。在一个程序的多个类或结构中，可能都定义了<code>Main</code>方法。这样的情况下，必须利用某种外部机制（如命令行编译器的选项<code>-main</code>）来选择其中一个<code>Main</code>方法用作入口点。</p>
+<p>应用程序入口点方法不能位于泛型类声明中。</p>
+<blockquote>
+<p>从C#9开始，可以省略Main方法，将位于全局命名空间的语句作为主函数内容。</p>
+</blockquote>
+<h3 id="变量"><a class="header" href="#变量">变量</a></h3>
+<p>变量表示数据的存储位置。</p>
+<h4 id="定义变量"><a class="header" href="#定义变量">定义变量</a></h4>
+<pre><code class="language-c#">&lt;type&gt; varname = value;
+</code></pre>
+<p><strong>变量名称约定</strong></p>
+<ul>
+<li>
+<p>使用驼峰式，即第一个单词以小写字母开始，后续每个单词的首字母采用大写形式。</p>
+</li>
+<li>
+<p>变量名称不应包含变量的数据类型（在实际代码中可能不能代表实际类型）。</p>
+</li>
+</ul>
+<p>隐式类型本地变量使用 <code>var</code> 关键字进行创建，该关键字指示 C# 编译器去推断类型。</p>
+<pre><code class="language-c#">var age = 10;
+</code></pre>
+<blockquote>
+<p>变量名应使用骆驼式命名法。</p>
+</blockquote>
+<h4 id="常量"><a class="header" href="#常量">常量</a></h4>
+<p>对于数学常量，在<code>System.Math</code>类中有比较精确的定义，可以直接使用，例如<code>pi</code>和<code>e</code>。</p>
+<h5 id="字面值"><a class="header" href="#字面值">字面值</a></h5>
+<p>在数字后加上后缀，可以将字面值表示成不同类型的数值。</p>
+<h6 id="整形"><a class="header" href="#整形">整形</a></h6>
+<ul>
+<li>没有后缀：解析成<code>int</code>、<code>uint</code>、<code>long</code>、<code>ulong</code>；</li>
+<li>具有<code>u</code>后缀：解析成<code>uint</code>、<code>ulong</code>；</li>
+<li>具有<code>l</code>后缀：解析成<code>long</code>、<code>ulong</code>；</li>
+<li>具有<code>ul</code>或<code>lu</code>后缀：解析成<code>ulong</code>；</li>
+<li>十六进制表示：添加前缀“<code>0x</code>”</li>
+</ul>
+<p><code>bool</code>类型的字面值：<code>true</code>、<code>false</code>。</p>
+<h6 id="浮点型"><a class="header" href="#浮点型">浮点型</a></h6>
+<ul>
+<li>具有<code>D/d</code>后缀：解析成<code>double</code>；</li>
+<li>具有<code>M/m</code>后缀：解析成<code>decimal</code>；</li>
+<li>具有<code>F/f</code>后缀：解析成<code>float</code>。</li>
+</ul>
+<p><strong>指数记法</strong>：</p>
+<ul>
+<li>使用后缀<code>e</code>，在后缀后面添加一个整数，并在最后加一个后缀，表示整个数的类型。</li>
+<li>后缀是不区分大小写的。</li>
+</ul>
+<h6 id="字符串"><a class="header" href="#字符串">字符串</a></h6>
+<p>转义字符：C# 将反斜杠固定用于转义序列，如果出现非法转义序列将产生错误。</p>
+<blockquote>
+<p>使用 <code>\uFFFF</code> 转义序列在文本字符串中添加Unicode编码（UTF-16）字符。</p>
+</blockquote>
+<p>字符串的前面使用 <code>@</code> 指令避免转义。原始字符串：<code>@“this is \ a string.”</code></p>
+<p>当字符串中含有“<code>\</code>”时，后面的字符以及“<code>\</code>”就会被编译程序解析为转义字符。如果要使用带“<code>\</code>”的字符串而屏蔽掉其转义字符的性质，可以在字符串(双引号)前添加字符“<code>@</code>”。</p>
+<h3 id="运算符"><a class="header" href="#运算符">运算符</a></h3>
+<p>复合赋值运算符：如 <code>+=</code>、<code>-=</code>、<code>*=</code>、<code>++</code> 和 <code>--</code>；</p>
+<p>定位增量和减量运算符：<code>++</code>，<code>--</code>；</p>
+<blockquote>
+<p>同时<code>System.Threading.Interlocked</code>类提供了线程安全的方法<code>Increment()</code>和<code>Decrement()</code>。</p>
+</blockquote>
+<p>比较运算符：<code>==</code>、<code>&gt;</code>、<code>&lt;</code>、<code>&gt;=</code>、<code>&lt;=</code>、<code>!=</code>；继承自<code>Object</code>的类可以重写<code>Equals</code>方法，实现值比较（例如<code>String</code>类型的<code>==</code>比较的是字符串的值）。</p>
+<blockquote>
+<p><a href="#%E5%80%BC%E7%9B%B8%E7%AD%89%E5%85%B3%E7%B3%BB">value equality</a> and <a href="#%E5%BC%95%E7%94%A8%E7%9B%B8%E7%AD%89%E5%85%B3%E7%B3%BB">reference equality</a>。</p>
+</blockquote>
+<p>逻辑运算符：<code>&amp;&amp;</code>、<code>||</code>、``；</p>
+<p>赋值运算符：对变量进行一次赋值会返回一个值，所以可以一次对多个变量进行赋值。</p>
+<pre><code class="language-c#">string req,max;
+req=max=&quot;It would take a miracle.&quot;
+</code></pre>
+<p>位运算符：<code>&amp;,|,^,~</code></p>
+<p>移位运算符：<code>&gt;&gt;, &lt;&lt;</code></p>
+<blockquote>
+<p><code>op1st &gt;&gt; op2nd</code></p>
+<p>如果第一个操作数为<code>int</code>或<code>uint</code>（32 位），则移位数由第二个操作数的低五位给出（<code>op2nd&amp;0x1f</code>，即最多移32位）。 如果第一个操作数为<code>long</code>或<code>ulong</code>（64位数），则移位数由第二个操作数的低六位给出（<code>op2nd&amp;0x3f</code>，即最多移64位）。 
+如果第一个操作数为<code>int</code>或<code>long</code>，则右移位是<strong>算术移位</strong>（高序空位设置为符号位）。如果第一个操作数为<code>uint</code>或<code>ulong</code>类型，则右移位是<strong>逻辑移位</strong>（高位填充0）。 </p>
+<p><code>op1st &lt;&lt; op2nd</code></p>
+<p>如果第一个操作数是<code>int</code>或<code>uint</code>（32 位），第二个参数给出移动位数。
+移位操作不会导致溢出：不在移位后第一个操作数类型范围内的任意高序位均不会使用，低序空位用零填充。</p>
+</blockquote>
+<h4 id="优先级"><a class="header" href="#优先级">优先级</a></h4>
+<ol>
+<li>圆括号 （括号内的内容首先执行）</li>
+<li>指数 (<code>System.Math.Pow()</code>)</li>
+<li>乘法和除法（从左至右）</li>
+<li>加法和减法（从左至右）</li>
+</ol>
+<h3 id="代码"><a class="header" href="#代码">代码</a></h3>
+<p>标识符：</p>
+<blockquote>
+<p>By convention, C# programs use <code>PascalCase</code> for type names, namespaces, and all public members. </p>
+</blockquote>
+<p>表达式：由多个字面值和运算符可以构成常量表达式。</p>
+<p>代码块：使用<code>{}</code>定义的一行或多行代码的集合。代码块可以包含其他代码块。</p>
+<p>“空格”：指的是由 <code>space bar</code> 生成的单个空格、由 <code>tab</code> 键生成的制表符以及由 <code>enter</code> 键生成的新行。C# 编译器会忽略空格。</p>
+<h3 id="注释和文档"><a class="header" href="#注释和文档">注释和文档</a></h3>
+<h5 id="注释的作用"><a class="header" href="#注释的作用">注释的作用</a></h5>
+<ul>
+<li>
+<p>记下一段代码的意图，有助于描述用途或思考过程；</p>
+<blockquote>
+<p>勿添加关于单个代码行如何工作的注释，相关信息可通过文档获取；</p>
+<p>不要完全相信注释。 在进行许多更改之后，它们可能不会反映代码的当前状态。</p>
+</blockquote>
+</li>
+<li>
+<p>暂时删除应用程序中的代码，以尝试其他方法；</p>
+</li>
+<li>
+<p>添加类似于 <code>TODO</code> 的消息。</p>
+</li>
+</ul>
+<p>单行注释以字符 <code>//</code> 开头并延续到源行的结尾。</p>
+<p>带分隔符的注释 以字符 <code>/*</code> 开头，以字符 <code>*/</code> 结束。带分隔符的注释可以跨多行。</p>
+<p>具有特殊格式的注释可用于指导某个工具根据这些注释 和它们后面的源代码元素生成 XML。这类注释是以三个斜杠 (<code>///</code>) 开始的单行注释，或者是以一个斜杠和两个星号 <code>/**</code>) 开始的分隔注释。</p>
+<h3 id="流程控制"><a class="header" href="#流程控制">流程控制</a></h3>
+<h4 id="选择"><a class="header" href="#选择">选择</a></h4>
+<h5 id="if-else"><a class="header" href="#if-else">if-else</a></h5>
+<pre><code class="language-c#">if (condition1){ statements }
+else if (condition2) { statements }
+else {statements}
+</code></pre>
+<p><code>if-else</code>可以嵌套使用。</p>
+<h5 id="switch-case"><a class="header" href="#switch-case">switch-case</a></h5>
+<pre><code class="language-c#">switch (condition) {
+	case value1:
+		statements;
+		break;
+	case value2:
+		statements;
+		break;
+	default:
+		statements;
+		break;
+	}
+}
+</code></pre>
+<p>每一个非空的分支必须使用跳转语句（<code>break</code>，<code>return</code>等）。</p>
+<p><code>condition</code>不仅可以是整数，还可以是字符串等类型。而<a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/switch">判断条件</a>也不仅包括值类型，还包括模式匹配（例如判断是否为整数/常量）。</p>
+<h4 id="循环迭代"><a class="header" href="#循环迭代">循环迭代</a></h4>
+<h5 id="do-while"><a class="header" href="#do-while">do-while</a></h5>
+<pre><code class="language-c#">while (condition){
+    statements;
+}
+do {
+    statements
+} while (consition);
+</code></pre>
+<h5 id="for"><a class="header" href="#for">for</a></h5>
+<pre><code class="language-c#">for (int i = 0; i &lt; args.Length; i++) {
+	statements;
+}
+</code></pre>
+<h5 id="foreach"><a class="header" href="#foreach">foreach</a></h5>
+<p><code>foreach</code>语句用于访问数组的所有元素或实现了接口<code>IEnumeralbe</code>或<code>IEnumerable&lt;T&gt;</code>的集合对象的所有元素。</p>
+<pre><code class="language-c#">foreach(collection_type element in CollectionObject)
+{ statements; }
+</code></pre>
+<p><code>foreach</code>用于迭代遍历集合查找信息，但是不能对源集合<strong>增加或删除</strong>元素以避免不可预知的后果。如果需要增加或删除元素，使用<code>for</code>循环。</p>
+<p>在<code>foreach</code>语句块的任何点，都可以使用<code>break</code>跳出循环，或使用<code>continue</code>进入下一步迭代。<code>foreach</code>循环也可以使用<code>goto</code>、<code>return</code>或<code>throw</code>语句退出。</p>
+<p><strong><code>yield</code>语句</strong>：使用<code>yield</code>语句的方法、操作符或<code>get</code>访问器相当于是一个建议的迭代器。</p>
+<pre><code class="language-c#">class MyIterator {
+  public IEnumerable MyEnumerator(int start, int end){
+    for (int i = start; i &lt; end; i++){
+      yield return i;
+    } // 当使用foreach语句访问迭代器时，每次执行到yield语句则直接返回，并记录下当前位置
+  }   // 下一次迭代则从上次中断位置继续运行。
+}     // 可使用一系列yield语句构造迭代器的元素，或使用循环（本示例）实时构造迭代器元素
+      // 或通过循环返回迭代器类型的内部成员变量。
+</code></pre>
+<h4 id="跳转"><a class="header" href="#跳转">跳转</a></h4>
+<p><code>break</code>、<code>continue</code>、<code>goto</code>、<code>throw</code>、<code>return</code>和</p>
+<h4 id="异常处理"><a class="header" href="#异常处理">异常处理</a></h4>
+<pre><code class="language-c#">try {
+    statements;
+} catch (Exception e) {
+    statements;
+} finally { 
+    statements; 
+}
+</code></pre>
+<h5 id="using语句"><a class="header" href="#using语句"><code>using</code>语句</a></h5>
+<p>当<code>fianlly</code>语句块仅存在单个语句用于释放<code>try</code>语句块中申请的资源，则可用<code>using</code>语句代替。</p>
+<pre><code class="language-c#">using(File f = File.Open(name)){
+   system.WriteLine(f.Readline())
+}
+</code></pre>
+<h2 id="类型系统"><a class="header" href="#类型系统">类型系统</a></h2>
+<p>变量大致具有7种用途，即静态变量、实例变量、数组元素、值参数、引用参数、输出参数和局部变量。</p>
+<p>每个变量都具有一个类型，用于确定哪些值可以存储在该变量中。C#具有统一类型系统 (<em>unified type system</em>)，所有C#类型（包括<code>int</code>和<code>double </code>等基本类型）都继承于单个根类型<code>object</code>（<code>System.Object</code>）。</p>
+<p><strong>根据变量在内存中的存储方式以及操作方式，可以分为值类型（<em>value-type</em>）和引用类型（<em>class-type</em>）两大类</strong>：</p>
+<ul>
+<li>值类型存储在堆栈中，一般都是直接访问；将一个变量值赋给另一个变量，会在内存中重新开辟一段空间，函数传递参数也会在内存中另外生成一个副本。</li>
+<li>引用类型必须在托管堆中为引用类型变量的值分配内存，而引用类型对象的引用（地址）存储在栈中；引用类型是由垃圾回收机制来管理的；</li>
+</ul>
+<blockquote>
+<p>所有值类型均从类<code>System.ValueType</code>隐式继承，后者又从类<code>object</code>继承。<code>System.ValueType</code>本身不是值类型，而是引用类型。（可以看成根类型<code>object</code>中不包含任何数据，因此该类型既可以视为值类型也可以视为引用类型。<code>System.ValueType</code>则定义了数据及其值类型操作规则，从而覆盖了引用类型的规则。其他继承自<code>object</code>的类型因为不包含这一套操作规则，因此具有引用类型的操作规则。）</p>
+</blockquote>
+<p>五种类型是用户可定义的：类 (<em>class type</em>)、结构类(<em>struct type</em>)、接口(<em>interface type</em>)、枚举(<em>enum type</em>) 和委托(<em>delegate type</em>)。</p>
+<h3 id="值类型"><a class="header" href="#值类型">值类型</a></h3>
+<p><img src="CSharp%E8%AF%AD%E6%B3%95.assets/image-20191109103126523.png" alt="image-20191109103126523" /></p>
+<blockquote>
+<p>布尔类型不能与其它类型进行转换；</p>
+</blockquote>
+<p>简单数值类型定义了该类型的取值范围：<code>MaxValue</code>和<code>MinValue</code>，可通过<code>GetTypeCode</code>获得类型名。</p>
+<p>浮点数<code>float</code>和<code>double</code>类型，当一个数除0时，不会出现错误，而是产生“非零”结果，当打印结果时会得到“<code>NaN</code>”；当数值溢出时，也不会产生异常，而是记为“<code>Inf</code>”。当一个数，非常接近与0时，就会被近似为0，根据数的正负，近似后的数可能为“<code>+0</code>”，也可能为“<code>-0</code>”。</p>
+<p><strong>字符类型（char）</strong>：定义了一系列判断字符类型的方法和转换大小写方法。</p>
+<h5 id="值相等关系"><a class="header" href="#值相等关系">值相等关系</a></h5>
+<p><code>==</code>运算符比较基本值类型的值是否相等。</p>
+<h4 id="结构体"><a class="header" href="#结构体">结构体</a></h4>
+<p>结构类型与类类型相似，结构类型除了是值类型以外，还不支持用户指定的继承，并且所有结构类型都隐式地从类型<code>object</code>继承。结构类型的成员默认访问权限为<code>private</code>，且不能为成员指定初始值，而必须通过构造方法进行初始化（不支持无参数构造方法）。</p>
+<h4 id="枚举"><a class="header" href="#枚举">枚举</a></h4>
+<p>每个枚举类型都有一个相应的整型类型，称为该枚举类型的基础类型 (underlying type)。没有显式声明基础类型的枚举类型所对应的基础类型是 int。枚举类型的存储格式和取值范围由其基础类型确定。</p>
+<pre><code class="language-c#">enum Alignment: sbyte{	
+    Left = -1,	
+    Center = 0,	
+    Right = 1
+}
+</code></pre>
+<p>获取枚举类型的字符串表示：(1)<code>ToString()</code>；(2)<code>Enum.GetName()</code>。</p>
+<h3 id="引用类型"><a class="header" href="#引用类型">引用类型</a></h3>
+<p>构建C#应用程序的主要对象类型数据。引用类型在默认值都是<code>null</code>。</p>
+<p><img src="CSharp%E8%AF%AD%E6%B3%95.assets/image-20191109105453972.png" alt="image-20191109105453972" /></p>
+<h5 id="引用相等关系"><a class="header" href="#引用相等关系">引用相等关系</a></h5>
+<p>引用类型在使用“<code>==</code>”或“<code>~=</code>”操作符时，默认比较的是其引用的地址，<code>Object.Equals()</code>等价于“<code>==</code>”。</p>
+<p><strong>使用“<code>=</code>”操作符只使得多个引用类型引用同一个对象</strong>，即将一个引用类型变量赋值给另一个同类型变量，赋值的是这个类型对象的地址，所以两个引用都指向同一对象；通过任意一个引用修改该对象，都使得对象发生改变。</p>
+<p><strong>必须使用<code>new</code>关键字来创建引用类型变量（实际创建了对象）</strong>，运算结果也会产生新的对象（运算结果也是通过<code>new</code>生成的）；</p>
+<blockquote>
+<p>变量引用：<em>variable-reference</em> 表示一个存储位置，访问它可以获取当前值以及存储新值，在 C 和 C++ 中，<em>variable-reference</em>称为<code>lvalue</code>。</p>
+</blockquote>
+<h5 id="字符串-1"><a class="header" href="#字符串-1"><a href="C#%E6%95%B0%E6%8D%AE%E5%AE%B9%E5%99%A8.html#%E5%AD%97%E7%AC%A6%E4%B8%B2"><strong>字符串</strong></a></a></h5>
+<h5 id="数组"><a class="header" href="#数组"><a href="C#%E6%95%B0%E6%8D%AE%E5%AE%B9%E5%99%A8.html#%E6%95%B0%E7%BB%84"><strong>数组</strong></a></a></h5>
+<h4 id="委托"><a class="header" href="#委托">委托</a></h4>
+<p>委托类型 (delegate type)表示具有特定参数列表和返回类型的方法，即方法视为对象，==委托即方法的类型==。<strong>委托是用来处理其他语言（如 C++）需用函数指针来处理的情况的</strong>。与 C++ 函数指针不同，C++ 指针仅指向成员函数，而委托同时封装了对象实例和方法。</p>
+<blockquote>
+<p>函数对象（闭包）。</p>
+</blockquote>
+<p><strong>委托声明定义一个从 <code>System.Delegate</code>类派生的类</strong>，与方法声明语法一致（除了使用<code>delegate</code>关键字）：</p>
+<pre><code class="language-c#">[modifier] delegate &lt;type&gt; delegateName(param_list);
+</code></pre>
+<p>委托类型使用函数或<a href="#Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F">匿名函数</a>进行初始化。</p>
+<pre><code class="language-c#">public delegate double Calculator(double x, double y);
+public double Add(double x, double y);
+public double Sub(double x, double y);
+Calculator CalAdd = new Calculator(Add);   // 完整初始化写法
+Calculator CalSub = Sub;                   // 简洁写法
+</code></pre>
+<h5 id="委托运算"><a class="header" href="#委托运算">委托运算</a></h5>
+<p>委托实例封装了列表包括一个或多个函数对象。委托对象可使用 &quot;<code>+</code>&quot; 运算符进行合并。一个合并委托调用它所合并的两个委托。只有相同类型的委托可被合并。&quot;<code>-</code>&quot; 运算符可用于从合并的委托中移除组件委托。在执行委托时，调用列表中的方法被依次执行。</p>
+<pre><code class="language-c#">Calulator MultiCal = CalAdd + CalSub;
+MultiCal(10, 5);      // invoke two Calculator methods
+</code></pre>
+<p>**对于实例方法，可调用实体由该方法和一个相关联的实例组成，<strong>若该方法会修改实例，则委托中的可调用实体也会修改对应实例</strong>。对于静态方法，可调用实体仅由一个方法组成。**用一个适当的参数集来调用一个委托实例，就是用此给定的参数集来调用该委托实例的每个可调用实体。</p>
+<h5 id="lambda表达式"><a class="header" href="#lambda表达式">Lambda表达式</a></h5>
+<p>Lambda表达式是一个<strong>匿名函数（<em>anonymous function</em>）</strong>，可以用于创建委托；可以当作局部函数作为某些函数的参数。</p>
+<pre><code class="language-c#">(input parameters) =&gt; expression;
+(input parameters) =&gt; {statement;}
+</code></pre>
+<p>&quot;<code>=&gt;</code>&quot;操作符左边为输入参数列表，右侧为表达式或语句块。参数个数为1时，括号可以省略。可以没有输入参数。</p>
+<h3 id="类型转换"><a class="header" href="#类型转换">类型转换</a></h3>
+<h4 id="类型判断"><a class="header" href="#类型判断">类型判断</a></h4>
+<p><code>is</code>关键字判断对象是否为给定类型。</p>
+<p>语法：<code>obj is type</code></p>
+<p>当<code>type</code>是一个类，而<code>obj</code>也是该类、或继承该类、或封箱到该类中的实例，结果为<code>true</code>；</p>
+<p>当<code>type</code>是接口，而<code>obj</code>也是该接口类型、或继承该接口的类，结果为<code>true</code>。</p>
+<h4 id="转换"><a class="header" href="#转换">转换</a></h4>
+<p>自动转换：子类可以自动向父类转换</p>
+<p>强制转换：父类转换为子类需要强制转换</p>
+<pre><code class="language-c#">int first = 7, second = 5;
+decimal quotient = (decimal)first / (decimal)second;
+</code></pre>
+<p><code>as</code>关键字：在类型兼容的引用类型之间进行类型转换。</p>
+<p>​	语法：<code>type obj_type = obj as type</code></p>
+<p>​	当能够进行转换时，执行转换；当不能转换时，返回<code>null</code>。</p>
+<p>字符串与数值之间转换：使用<code>Parse()</code>方法、<code>System.Convert()</code>、<code>ToString()</code>方法。另外<code>TryParse()</code>方法和<code>Parse()</code>方法的区别在于如果转换不成功，不会引起异常而是返回<code>false</code>。</p>
+<h4 id="装箱和拆箱"><a class="header" href="#装箱和拆箱">装箱和拆箱</a></h4>
+<p>引用类型和值类型的相互转换。</p>
+<pre><code class="language-c#">char ch = 'c';
+Object obj_ch = ch;   // obj_ch boxing the value type ch
+char ch2 = (char) obj_ch; // unboxing from ref-type obj_ch
+</code></pre>
+<blockquote>
+<p>装箱：隐式将值类型转换为 object 类型。</p>
+<p>取消装箱：显式地将一个对象类型转换为值类型，使用强制转换方法。这种转换方式必须类型兼容，否则出现异常。</p>
+</blockquote>
+<h2 id="面向对象编程"><a class="header" href="#面向对象编程">面向对象编程</a></h2>
+<h3 id="类"><a class="header" href="#类">类</a></h3>
+<p>类的定义语法：</p>
+<pre><code class="language-c#">public class ClassName&lt;TypeName,...&gt;: baseClass, Interfaces
+{ 
+    private int fieldName;
+    protected static int StaticField;
+    public int propertyName {get{};set{}};
+    public void methodName(args){statements;}
+    // constructor
+    public ClassName(args){statements}
+    // indexer
+    public TypeName this[int index]
+    {statements; return items[index]}
+    // event
+    public event DelegateType ThingsChanged;
+}
+</code></pre>
+<p><code>class</code>修饰符：<code>new</code>、<code>public</code>、<code>protected</code>、<code>internal</code>、<code>private</code>、<code>abstract</code>、<code>sealed</code>、<code>static</code>。</p>
+<blockquote>
+<p>当使用<code>new</code>关键字创建对象时，如果使用该对象的位置（函数参数）类型已知，则可省略对象名直接提供参数。</p>
+<pre><code class="language-c#">new(0, &quot;Squeaky Bone&quot;, 20.99m)
+</code></pre>
+</blockquote>
+<p>声明了类型参数（<code>TypeName</code>）的类型成为泛型类型。结构类型、接口类型和委托类型也可以是泛型。</p>
+<p>如果类型定义时没有指定父类，则类继承于<code>System.Object</code>（<code>object</code>）。</p>
+<h4 id="字段"><a class="header" href="#字段">字段</a></h4>
+<p><em>如果需要一个具有常量值的符号名称，但该值的类型不允许在 <code>const</code>声明中使用，或者无法在编译时计算出该值，则<code>static readonly</code> 字段就可以发挥作用了。</em></p>
+<h4 id="方法"><a class="header" href="#方法">方法</a></h4>
+<pre><code class="language-c#">type functionName(args) { /*body*/}
+type functionName(args) =&gt; single_expr;   // 方法表达式(C# 6)
+</code></pre>
+<blockquote>
+<p>Lambda表达式是没有函数名的函数表达式。</p>
+</blockquote>
+<p>通常，为了保持程序的简洁，函数仅返回一个值。但如有必要从函数返回多个值，可以采用的方法：（1）创建一个包含多个值的类，并返回该类的对象；（2）将参数声明为<code>ref/out</code>类型。</p>
+<blockquote>
+<p>方法名后的<code>()</code>为函数调用运算符。</p>
+</blockquote>
+<h5 id="参数"><a class="header" href="#参数">参数</a></h5>
+<p>值参数：是实际参数的副本。</p>
+<p>引用参数（<code>ref</code>）引用参数与实际参数为同一个变量。</p>
+<p>输出参数（<code>out</code>）输出参数可引用函数内部的局部变量，当函数返回时变量不会被释放。<code>ref</code>参数必须在传入前进行初始化，而<code>out</code>参数则不必。</p>
+<p>参数数组允许向方法传递可变数量的实参。</p>
+<h5 id="静态方法"><a class="header" href="#静态方法">静态方法</a></h5>
+<p>静态方法的操作不需要引用特定对象。</p>
+<h5 id="构造函数和析构函数"><a class="header" href="#构造函数和析构函数">构造函数和析构函数</a></h5>
+<p>==<strong>静态构造函数</strong>==用于初始化类的静态成员。</p>
+<p>子类构造函数调用基类构造函数（类似于<a href="../CC++/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%9F%BA%E7%A1%80.docx">C++构造方法</a>），使用“<code>:</code>”操作符，<code>base</code>关键字（由于C#是单继承的，因此不需要使用基类名称）。</p>
+<pre><code class="language-c#">public ClassName(param_list): base(base_params){
+    // 构造函数
+}
+public ClassName(arg) =&gt; Member = arg;      // (C# 7)
+</code></pre>
+<p>如果需要将参数传给基类构造器之前进行修改，可以在<code>base_params</code>中调用相关的函数并返回修改后的值。</p>
+<p>析构函数不能带参数，不能具有可访问性修饰符，也不能被显式调用。垃圾回收期间会自动调用所涉及实例的析构函数。</p>
+<pre><code class="language-c#">~Destroyer() { /*release resources*/ }
+~Destroyer() =&gt; expr;    // (c# 7)
+</code></pre>
+<h4 id="对象初始化"><a class="header" href="#对象初始化">对象初始化</a></h4>
+<p>除调用构造函数外，可直接提供成员变量初始化列表进行初始化。</p>
+<pre><code class="language-c#">var instance3 = new ExampleClass(){
+    Name=&quot;Desktop&quot;, ID=37414, Location=&quot;Redmond&quot;, Age=2.3 };
+</code></pre>
+<blockquote>
+<p>等效于调用默认构造函数后，再对相应成员赋值。</p>
+</blockquote>
+<h4 id="属性"><a class="header" href="#属性">属性</a></h4>
+<p>属性 (property) 提供对私有成员进行读写、计算的方法，可被视为公共的数据成员，实际上则是特殊的方法（访问器）。属性与字段的声明方法区别在于属性声明了访问器，因此对类的数据实现间接访问，而字段则是对类的数据的直接访问。</p>
+<pre><code class="language-c#">modifiers int PropertyName{
+    get{ return this.x; }
+    set{ this.x = value; }
+}
+type PropertyName =&gt; expr;   // Read-only properties (C# 6)
+type PropertyName {          // (C# 7)
+   get =&gt; member;
+   set =&gt; member = value;
+}
+</code></pre>
+<p><code>get</code>访问器相当于有返回值的无形参方法。当在表达式中引用属性时，将调用该属性的<code>get</code>访问器以计算该属性的值。<strong>没有<code>get</code>访问器的属性是只写的</strong>。<code>set</code>访问器相当于具有单个形参（以关键字<code>value</code>作为隐形参）和<code>void</code>返回类型的方法。<strong>没有实现set访问器的属性是只读的</strong>。</p>
+<p>属性的<a href="#_%E8%AE%BF%E9%97%AE%E9%99%90%E5%AE%9A%E7%AC%A6">访问限定符</a>可以是五种中的任意一种。</p>
+<p>属性不是变量，因此不能传递作为<code>ref</code>或<code>out</code>修饰的参数。</p>
+<p><em>使用属性并不一定比直接公开字段效率低</em>。当属性是非虚的且只包含少量代码时，执行环境可能会用访问器的实际代码替换对访问器进行的调用。此过程称为<strong>内联 (inlining)</strong>，它使属性访问与字段访问一样高效，而且仍保留了属性的更高灵活性。</p>
+<p>当属性不需要添加额外的读写逻辑时，声明属性的同时，编译器将自动为该属性创建对应的<strong>匿名字段</strong>，该字段只能被属性的<code>get</code>和<code>set</code>访问器所访问。这时属性等效于一个字段。</p>
+<pre><code class="language-c#">public type PropertyName { get; set; }
+</code></pre>
+<p>当属性声明包含<code>static</code>修饰符时，称该属性为静态属性 (static property)；反之，该属性为实例属性 (instance property)。静态属性不与特定实例相关联，因此在静态属性的访问器内引用 <code>this</code>会导致编译时错误。静态属性需要通过类名进行访问，而实例属性需要通过实例名称进行访问。</p>
+<p>属性的访问器可以是虚的。当属性声明包括 <code>virtual</code>、<code>abstract </code>或 <code>override</code>修饰符时，修饰符应用于该属性的访问器。</p>
+<h4 id="索引器indexer"><a class="header" href="#索引器indexer">索引器(Indexer)</a></h4>
+<p>索引器的定义方式类似属性。</p>
+<pre><code class="language-c#">private string[] types = { &quot;Baseball&quot;, &quot;Basketball&quot;, &quot;Football&quot;};
+public string this[int i]{
+   get =&gt; types[i];
+   set =&gt; types[i] = value;
+}
+</code></pre>
+<h4 id="事件"><a class="header" href="#事件">事件</a></h4>
+<p>事件 (<code>event</code>) 是一种使类或对象能够提供通知的成员。事件的声明与字段类似，不同的是，事件的声明使用<code>event</code>关键字修飾，值类型必须是<a href="#_%E5%A7%94%E6%89%98">委托类型</a>，表示事件的处理方法。</p>
+<pre><code class="language-c#">public event DelegateType SampleEvent;
+</code></pre>
+<p>使用<code>?.</code>运算符发起事件。</p>
+<pre><code class="language-c#">SampleEvent?.Invoke(sender, event_args);
+SampleEvent(sender, event_args)
+</code></pre>
+<p>事件参数：根据发起事件所对应的委托类型的参数<strong>数量和类型</strong>决定。</p>
+<blockquote>
+<p>可使用任意类型和数量的参数作为事件参数。</p>
+<p><code>EventArgs</code>类是表示事件参数的基类，不包含任何数据。可从该类导出自定义类型将所有参数作为成员变量包括其中。使用单一类型作为事件处理方法的参数，便于代码自动生成。</p>
+</blockquote>
+<h5 id="事件处理函数event-handler"><a class="header" href="#事件处理函数event-handler">事件处理函数（event handler）</a></h5>
+<p>委托类型可以进行加减操作，因此可以为事件添加一个或多个处理方法。事件处理方法签名与事件的委托类型一致。</p>
+<pre><code class="language-c#">void event_handler(object sender, EventArgs e){}
+sender.SampleEvent += listener.event_handler;
+</code></pre>
+<p>事件处理方法可以是发布事件的类（<code>sender</code>）中的成员函数，也可以是其他类的成员函数。在其他类中订阅发布者的事件必须能够获取发布者类的引用（<code>sender</code>）。</p>
+<blockquote>
+<p><a href="#%E5%A7%94%E6%89%98">委托实际还封装了成员函数及其所属类型的实例</a>，因此事件发布和订阅在实例对象之间进行。</p>
+</blockquote>
+<p>解除订阅：使用<code>-=</code>运算符从事件委托中删除事件处理函数。</p>
+<h5 id="异步事件处理"><a class="header" href="#异步事件处理">异步事件处理</a></h5>
+<p>事件的发送和接收是同步的，即事件委托中所有事件处理函数被执行。为了实现异步，应该在将事件处理函数实现为<a href="#%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B">异步方法</a>。</p>
+<h4 id="运算符-1"><a class="header" href="#运算符-1">运算符</a></h4>
+<p>可以定义三类运算符：一元运算符、二元运算符和转换运算符。</p>
+<p>所有运算符都必须声明为<code>public static</code>。</p>
+<h4 id="访问限定符"><a class="header" href="#访问限定符">访问限定符</a></h4>
+<p>访问限定符用于声明类成员的访问能力。访问限定符包括以下四类：</p>
+<ul>
+<li><code>public</code></li>
+<li><code>protected</code></li>
+<li><code>internal</code></li>
+<li><code>private</code></li>
+</ul>
+<p>使用以上访问限定符可以声明以下五类访问级别：</p>
+<ul>
+<li><code>public</code>：访问不受限制。</li>
+<li><code>protected</code>：访问限制在本类型，或由本类派生的类型。</li>
+<li><code>internal</code>：访问限制在当前程序集。</li>
+<li><code>protected internal</code>：访问限制在当前程序集，或由本类派生的类型。</li>
+<li><code>private</code>：访问限制于包含类型。</li>
+</ul>
+<h3 id="多态"><a class="header" href="#多态">多态</a></h3>
+<p>类支持单一继承和多态，这些是派生类可用来扩展和专用化基类的机制。</p>
+<h4 id="虚方法"><a class="header" href="#虚方法">虚方法</a></h4>
+<p>使用“<code>virtual</code>”关键字修饰的方法，用于实现多态。当调用<a href="#%E8%99%9A%E5%87%BD%E6%95%B0310">虚方法</a>时，运行时将确定调用对象是哪一个子类的实例，并调用适当的覆盖方法。</p>
+<p>通过<code>override</code>关键字在子类中声明覆盖父类的虚方法。使用<code>override</code>关键字时不能同时使用<code>new</code>、<code>static</code>和<code>virtual</code>关键字修饰方法；使用<code>override</code>修饰符时，父类必须具有同名虚函数或抽象方法。（另一种覆盖父类方法的关键字是<code>new</code>，使用<code>new</code>关键字时，父类和基类中需要有同名的函数。这个过程叫做方法的隐藏。重写虚方法可以使用<code>override</code>或<code>new</code>，重写抽象方法只能用<code>override</code>。）</p>
+<h4 id="抽象方法"><a class="header" href="#抽象方法">抽象方法</a></h4>
+<p>用于抽象表示公共的方法，将具体的实现交给具体的类。</p>
+<p>抽象 (<code>abstract</code>) 方法是没有实现的虚方法。用“<code>abstract</code>”关键字修饰的方法，只有函数原型，不能添加函数体。声明抽象方法的类必须被声明为抽象类（以“<code>abstract</code>”关键字修饰的类）。</p>
+<p>在子类中，使用<code>overide</code>关键字重写父类中的抽象方法，同时该函数在父类中不能是私有成员。</p>
+<p>不能用 “<code>sealed</code>”修饰符修饰抽象类，因为这两个修饰符的含义是相反的。</p>
+<h4 id="方法重载"><a class="header" href="#方法重载">方法重载</a></h4>
+<p>同一类中的多个方法具有相同名称，条件是这些方法具有唯一的签名（signature）。</p>
+<h3 id="接口"><a class="header" href="#接口">接口</a></h3>
+<p>接口 (<code>interface</code>) 定义了一个可由类和结构实现的协定，可以包含方法、属性、事件和索引器。</p>
+<p>一个接口可以从多个基接口继承，而一个类或结构可以实现多个接口。</p>
+<p>当类或结构实现某个特定接口时，该类或结构的实例可以隐式地转换为该接口类型。</p>
+<h3 id="反射"><a class="header" href="#反射">反射</a></h3>
+<blockquote>
+<p>Function</p>
+<p>obtain information about <em>loaded assemblies</em> and <em>the types</em> defined within them, such as <em>classes</em>, <em>interfaces</em>, and <em>value types</em>. </p>
+<blockquote>
+<p>Classes, Assembly, Module, ConstructorInfo, MethodInfo, FieldInfo, EventInfo, PropertyInfo, ParameterInfo, CustomAttributeData.</p>
+</blockquote>
+<p><em>create type instances at run time</em>, and to invoke and access them.</p>
+</blockquote>
+<p><code>nameof(identifier)</code>：生成变量、类型、成员的字符串表示名称。</p>
+<pre><code class="language-c#">using System.Reflection;
+using System.Type;
+</code></pre>
+<h4 id="运行时中的泛型"><a class="header" href="#运行时中的泛型">运行时中的泛型</a></h4>
+<p>https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/generics/generics-in-the-run-time</p>
+<h4 id="泛型和反射"><a class="header" href="#泛型和反射">泛型和反射</a></h4>
+<p>https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/generics/generics-and-reflection</p>
+<h4 id="特性attributes"><a class="header" href="#特性attributes">特性（Attributes）</a></h4>
+<p>特性将元数据、声明性信息与代码（例如程序集、类型、方法、属性等）关联。可通过<a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/attributes/accessing-attributes-by-using-reflection">反射</a>在程序运行时获取这些信息。</p>
+<p>在代码声明前添加特性标签：</p>
+<pre><code class="language-c#">[Serializable]
+public class SampleClass{ 
+  // Objects of this type can be serialized.
+}
+[System.Runtime.InteropServices.DllImport(&quot;user32.dll&quot;)]
+extern static void SampleMethod();
+
+</code></pre>
+<p>https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/attributes/</p>
+<h5 id="内置属性"><a class="header" href="#内置属性">内置属性</a></h5>
+<pre><code class="language-c#">using System.Attribute;
+[Required] string Name;               // 该属性非空
+[Range(0.01, 9999.99)] decimal Price; // 数值范围
+</code></pre>
+<h2 id="程序结构"><a class="header" href="#程序结构">程序结构</a></h2>
+<p>C#程序由一个或多个源文件（编译单元）组成，在逻辑上按命名空间进行组织。命名空间中定义类，类的定义中包含各类型成员。</p>
+<h3 id="命名空间"><a class="header" href="#命名空间">命名空间</a></h3>
+<p>命名空间（namespace）中定义以下内容：</p>
+<ul>
+<li>嵌套命名空间</li>
+<li>类</li>
+<li>接口</li>
+<li>结构</li>
+<li>枚举</li>
+<li>委托</li>
+</ul>
+<p>定义命名空间</p>
+<pre><code class="language-c#">namespace identifier {……}
+</code></pre>
+<p>命名空间隐式地具有公开（<code>public</code>）访问属性且不可被修改，在声明时不允许使用任何访问修饰符。它要么出现在编译单元第一行，要么作为成员出现在其他名字空间的声明中。</p>
+<p>命名空间的声明空间是“开放式的”，两个具有相同的完全限定名的命名空间声明共同构成同一个声明空间，因此命名空间可以跨文件进行组织。</p>
+<p>无论你是否在源代码中声明一个命名空间，编译器都会添加一个<strong>默认的命名空间</strong>。该命名空间有时称为全局命名空间，在每个文件中都出现。全局命名空间中的任何标识符在有名的命名空间中都可访问。</p>
+<h4 id="引用命名空间中的内容"><a class="header" href="#引用命名空间中的内容">引用命名空间中的内容</a></h4>
+<p>程序可以直接使用自身所在的命名空间内的名称。如果在程序中使用其他命名空间中的内容，可以将该命名空间引入当前程序。</p>
+<pre><code class="language-c#">using Namespace;
+</code></pre>
+<blockquote>
+<p>可使用该空间中的所有内容。</p>
+</blockquote>
+<p>或者通过命名空间名称索引要使用的内容</p>
+<pre><code class="language-c#">space1.space2.class1
+</code></pre>
+<p>命名空间之间的层次结构只是一种组织上的形式：<strong>当引用父空间时，子空间对于引用程序来说是透明的，如果还要使用子空间需要另外声明引用</strong>。同时注意：如果在父空间和子空间都声明了同名的类，则同时引用两个空间，会导致引用混乱，编译器无法确定程序究竟是要使用哪一级的类。这是只能通过指明类的命名空间来进行访问。</p>
+<p>定义命名空间别名：</p>
+<pre><code class="language-c#">using co = Company.Proj.Nested;
+</code></pre>
+<p>.NET Framework的命名空间包括：<code>System</code>、<code>System.Windows.Forms</code>、<code>System.Drawing</code> ……</p>
+<h4 id="partial-class"><a class="header" href="#partial-class">Partial Class</a></h4>
+<p>将类、结构或接口的定义分离为多个部分到多个文件中。每个部分都必须使用<code>partial</code>关键字。每个部分必须在编译时可用，每个部分具有相同的访问权限，例如<code>public</code>、<code>private</code>等。</p>
+<p>如果某个部分定义为<code>abstract</code>，则整个类被认为是<code>abstract</code>。如果某个部分定义为<code>sealed</code>，则整个类被认为是<code>sealed</code>。如果某个部分声明了基类，则整个类继承该基类（所有部分必须声明一致的基类，但是省略基类声明的部分仍然继承该基类。）。</p>
+<p>每个部分可以声明不同的基类接口，且最终类型必须实现所有由每个部分声明的接口。任何类、结构、接口成员在每一个部分中都可用。最终类型是所有部分的组合。</p>
+<p>以下几种情况应该将类的定义分离为多个部分：</p>
+<ul>
+<li>
+<p>大型项目，将类分为几个文件允许多个程序员同时工作。</p>
+</li>
+<li>
+<p>自动生成源代码的情况。</p>
+</li>
+</ul>
+<h5 id="partial-methods"><a class="header" href="#partial-methods">Partial Methods</a></h5>
+<p>局部类可以包含局部方法。类的一个部分可以包含方法的原型，可选的方法实现可以在同一个部分或其他部分。如果没有提供方法的实现，则该方法和该方法的所有调用在编译时被移除。</p>
+<p>局部方法必须以partial修饰，并且返回void。</p>
+<p>局部方法可以具有<code>ref</code>但是不能有<code>out</code>参数。</p>
+<p>局部方法是隐式的私有方法，因此不能是抽象方法（<code>virtual</code>）。</p>
+<p>局部方法不能被<code>extern</code>修饰，因为方法体的出现与否决定该方法是否被定义或实现。</p>
+<p>局部方法可以具有<code>static</code>或<code>unsafe</code>修饰符。</p>
+<h4 id="嵌套类型"><a class="header" href="#嵌套类型">嵌套类型</a></h4>
+<p>在类或结构声明内部声明的类型称为嵌套类型 (nested type)。在命名空间内声明的类型称为非嵌套类型 (non-nested type)。</p>
+<h3 id="异步编程"><a class="header" href="#异步编程">异步编程</a></h3>
+<p>https://docs.microsoft.com/en-us/dotnet/csharp/async</p>
+<h4 id="task-based-asynchronous-pattern-tap"><a class="header" href="#task-based-asynchronous-pattern-tap">Task-based Asynchronous Pattern (TAP)</a></h4>
+<p>The <code>async</code> keyword turns a method into an <em><strong>async method</strong></em>, which allows you to use the <code>await</code> keyword in its body. The <code>await</code> keyword  ==yields control== to the caller of the method that performed <code>await</code>, and it ultimately allows a UI to be responsive or a service to be elastic.</p>
+<blockquote>
+<p>The compiler transforms your code into a state machine that keeps track of things like yielding execution when an <code>await</code> is reached and resuming execution when a background job has finished.</p>
+</blockquote>
+<p>IO密集型任务：<code>await</code> an operation that returns a <code>Task</code> or <code>Task&lt;T&gt;</code> inside of an <code>async</code> method.</p>
+<blockquote>
+<p>your code be &quot;waiting&quot; for something</p>
+</blockquote>
+<pre><code class="language-c#">public async Task&lt;int&gt; GetDotNetCountAsync(){
+    var html = await client.GetStringAsync(&quot;https://dotnetfoundation.org&quot;); 
+    return Regex.Matches(html, @&quot;\.NET&quot;).Count;
+} // await GetDotNetCountAsync() at somewhere
+public async Task&lt;string&gt; GetHtmlAsync(){
+    var client = new HttpClient(); // Execution is synchronous here
+    return client.GetStringAsync(&quot;https://www.dotnetfoundation.org&quot;);
+}
+</code></pre>
+<p><img src="CSharp%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80.assets/image-20201119233012960.png" alt="image-20201119233012960" /></p>
+<p>在一个方法中如果有后续计算依赖于异步方法的返回结果，应当使用<code>await</code>关键字。此时，<code>await</code>将创建并返回一个新的<code>Task&lt;T&gt;</code>对象，表示一个可能尚未完成的任务。<code>await</code>关键字之后的代码将封装到<code>Task&lt;T&gt;</code>对象中，稍后由系统调度并通过<code>Task</code>的方法和属性进行监视。此任务稍后完成时，将计算结果返回更新之前无计算结果的<code>Task&lt;T&gt;</code>对象。</p>
+<blockquote>
+<p>此处的返回机制类似于<code>fork</code>方法，即进程在此处分支，父进程立即返回<code>Task&lt;T&gt;</code>，子进程的代码则是<code>await</code>语句之后的内容。但是子进程不是立即启动执行，而是由系统管理。当系统收到<code>await</code>的任务执行完成时，将该任务的返回结果解封，并传递给子进程继续执行。</p>
+<p>==一个方法如果使用了<code>await</code>关键字，则必须在方法声明上添加<code>async</code>修饰==；</p>
+<p>一个方法如果调用了异步方法，但没有<code>await</code>获取结果，则该方法应该直接在异步方法处返回（后续代码依赖于异步方法返回的结果，否则也无需写在异步方法之后）；该方法中没有后续需要执行的代码，因此无需使用<code>await</code>创建一个新的<code>Task&lt;T&gt;</code>对象。</p>
+</blockquote>
+<p><strong>异步方法的起点</strong>：<code>Task&lt;T&gt;</code>的返回方式使得异步方法层层嵌套，并最终由系统调用进入内核启动真正的异步过程。例如系统与网络设备的交互，设备在收到系统指令后，准备通过网络发送数据，并向系统返回该过程的状态为挂起（<code>pending</code>），系统因此可以暂时从该任务返回执行其他任务。当请求完成且收到来自设备驱动的数据后，设备通过中断信号（interrupt）通知系统（CPU），系统的中断处理器将接收数据并向上传递到注册的任务（通过<code>system interop call</code>），这些结果将缓存在队列中直到将其解封并交给空闲线程执行任务中的剩余代码。</p>
+<blockquote>
+<p>异步过程实现的基本原理，仍然是并行处理模型。系统（CPU）和设备是并行运行的，两者间通过总线等方式进行通信。系统（CPU）内部内核进程和用户进程也是并行的，通过系统调用进行数据交换。</p>
+<p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.taskcompletionsource-1.setresult#System_Threading_Tasks_TaskCompletionSource_1_SetResult__0_">TaskCompletionSource</a>. </p>
+</blockquote>
+<p><strong>共享线程池</strong>：异步方法在<code>await</code>之后将返回，从而释放占用的线程，可以由其他任务调用。而当异步任务完成后，系统将从线程池中分配线程以运行<code>Task&lt;T&gt;</code>对象中的剩余代码。当一个<code>Task&lt;T&gt;</code>执行完成时，将更新其上层<code>Task&lt;T&gt;</code>的状态，将其加入缓存队列，从而使得上层任务在未来某个时刻被空余线程执行。由此，层层向上经过一系列离散时间片段完成异步任务，直到顶层异步方法。==因此，异步方法真正占用线程的时间被大幅减少，从而提高系统的服务能力。==对于客户端而言，为了增加UI的响应能力，需要将耗时的计算或IO任务分配给额外线程。使用共享线程池可大幅减少手动创建专用线程的开销。对于IO任务而言，由于其并不消耗CPU资源，因此分配其单独的线程将严重浪费CPU资源。</p>
+<p><strong>异步方法的终点</strong>：在<code>await</code>之后输出结果（终端、屏幕或文件等），而非再返回到上一层调用者。这意味者该方法的返回类型为<code>Task&lt;void&gt;</code>，这通常是事件处理器（event handler）。</p>
+<blockquote>
+<p><code>async Task&lt;void&gt;</code> <strong>should only be used for event handlers</strong>.</p>
+<p>事件处理器的调用者（事件队列管理器）无需等待事件处理器执行完成并查看其结果。</p>
+</blockquote>
+<p>CPU密集型任务：<code>await </code>an operation that is started on a background thread with the <code>Task.Run</code> method.</p>
+<blockquote>
+<p>your code be performing an expensive computation</p>
+<p>spawn off the work on another thread <em>with</em> <code>Task.Run</code></p>
+<p><strong>concurrency and parallelism</strong>: <a href="https://docs.microsoft.com/en-us/dotnet/standard/parallel-programming/task-parallel-library-tpl">Task Parallel Library</a></p>
+</blockquote>
+<pre><code class="language-c#">calculateButton.Clicked += async (o, e) =&gt; {
+    var damageResult = await Task.Run(() =&gt; CalculateDamageDone());
+    DisplayDamage(damageResult);
+}
+</code></pre>
+<h5 id="wait-for-multiple-tasks-to-complete"><a class="header" href="#wait-for-multiple-tasks-to-complete">Wait for multiple tasks to complete</a></h5>
+<p>可以首先构造多个异步任务，再等待其执行完成。由于每个异步任务会在<code>wait</code>语句处立即返回，因此启动多个任务的延迟不会太大。待所有任务启动后，再等待最先结束的任务。</p>
+<pre><code class="language-c#">var eggsTask = FryEggsAsync(2);    // =&gt; Task&lt;Egg&gt;
+var baconTask = FryBaconAsync(3);
+var toastTask = MakeToastWithButterAndJamAsync(2);
+var eggs = await eggsTask;
+var bacon = await baconTask;
+var toast = await toastTask;
+</code></pre>
+<p>这些任务可同时被分发执行，可以首先等待预计最先完成的任务。</p>
+<p><code>Task.WhenAll</code> and <code>Task.WhenAny</code></p>
+<pre><code class="language-c#">public static async Task&lt;List&lt;User&gt;&gt; GetUsersAsync(List&lt;int&gt; userIds){
+    var getUserTasks = new List&lt;Task&lt;User&gt;&gt;();
+    foreach (int userId in userIds){
+        getUserTasks.Add(GetUserAsync(userId));
+    }
+    return Task.WhenAll(getUserTasks);  // similar for `Task.WhenAny` 
+}
+</code></pre>
+<blockquote>
+<p><code>await Task.WhenAny</code>类似于Linux的<code>select</code>或<code>epoll</code>。</p>
+</blockquote>
+<h5 id="tips"><a class="header" href="#tips">Tips</a></h5>
+<ul>
+<li>
+<p><strong>You should add &quot;Async&quot; as the suffix of every async method name you write.</strong></p>
+</li>
+<li>
+<p><strong>Consider using</strong> <code>ValueTask</code> <strong>where possible</strong></p>
+</li>
+</ul>
+<ol>
+<li>
+<p><a href="https://docs.microsoft.com/en-us/dotnet/standard/async-in-depth">Deeper Dive into Tasks for an I/O-Bound Operation</a>.</p>
+</li>
+<li>
+<p><a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/">Asynchronous programming with async and await</a></p>
+</li>
+<li>
+<p><a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/task-asynchronous-programming-model">Task asynchronous programming model</a></p>
+</li>
+<li>
+<p><a href="https://docs.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/">Asynchronous programming patterns</a></p>
+</li>
+</ol>
+<h4 id="task-and-taskt"><a class="header" href="#task-and-taskt"><code>Task</code> and <code>Task&lt;T&gt;</code></a></h4>
+<p><a href="https://en.wikipedia.org/wiki/Futures_and_promises">Promise Model of Concurrency</a>.</p>
+<p><code>Task</code> and <code>Task&lt;T&gt;</code> objects supported by the <code>async</code> and <code>await</code> keywords. </p>
+<ul>
+<li><code>Task</code> represents a single operation which does not return a value.</li>
+<li><code>Task&lt;T&gt;</code> represents a single operation which returns a value of type <code>T</code>.</li>
+</ul>
+<p>By default, tasks execute on the current thread and ==delegate work to the Operating System==, as appropriate. Optionally, tasks can be explicitly requested to ==run on a separate thread== via the <code>Task.Run</code> API.</p>
+<h5 id="构造task"><a class="header" href="#构造task">构造Task</a></h5>
+<h3 id="预处理指令"><a class="header" href="#预处理指令">预处理指令</a></h3>
+<h2 id="自动内存管理"><a class="header" href="#自动内存管理">自动内存管理</a></h2>
+<h2 id="不安全代码"><a class="header" href="#不安全代码">不安全代码</a></h2>
+<h3 id="指针"><a class="header" href="#指针">指针</a></h3>
+<h2 id="附录"><a class="header" href="#附录">附录</a></h2>
+<h3 id="关键字"><a class="header" href="#关键字">关键字</a></h3>
+<p><code>const</code>：如果变量是<code>const</code>，则该变量也是<code>static</code>的。</p>
+<p><code>using</code>：声明语句块，用于保证具有<code>Idisposable</code>接口的对象（非托管资源）的正确使用。</p>
+<pre><code class="language-c#">using (declare DisposableObjects){ 
+    statements; 
+}
+</code></pre>
+<p>在语句块中，定义的对象为只读，不能修改或重新赋值。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../Java/ScalaFrameworks.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../CSharp.NET/CSharp编程基础.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../Java/ScalaFrameworks.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../CSharp.NET/CSharp编程基础.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

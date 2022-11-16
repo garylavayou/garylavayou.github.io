@@ -1,0 +1,1184 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>系统编程 - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html" class="active">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="系统编程"><a class="header" href="#系统编程">系统编程</a></h1>
+<p>Python封装与系统底层交互的接口。</p>
+<ul>
+<li>
+<p><code>shutil</code>：封装Shell命令；</p>
+</li>
+<li>
+<p><code>os</code>：封装NT/Posix系统底层接口（部分是跨平台通用接口）；</p>
+<blockquote>
+<p><code>sys</code>模块主要封装Python程序的运行环境，非系统接口；</p>
+</blockquote>
+</li>
+<li>
+<p><code>socket</code>：封装系统底层的套接字通信接口；</p>
+</li>
+<li>
+<p><code>fcntl</code>：封装Unix的<code>fcntl</code>和<code>ioctl</code>接口；</p>
+</li>
+<li>
+<p><code>multiprocessing</code>和<code>subprocess</code>：对多进程接口的高层封装；</p>
+</li>
+<li>
+<p><code>psutil</code>：<em>process and system utilities</em>，封装了系统监控功能（==非内置库==）；</p>
+</li>
+</ul>
+<h2 id="运行环境"><a class="header" href="#运行环境">运行环境</a></h2>
+<h3 id="硬件信息"><a class="header" href="#硬件信息">硬件信息</a></h3>
+<h5 id="cpu"><a class="header" href="#cpu">CPU</a></h5>
+<p>获取CPU数量：</p>
+<pre><code class="language-python">os.cpu_count()
+psutil.cpu_count() # CPU逻辑数量
+multiprocessing.cpu_count()
+</code></pre>
+<p>统计CPU的用户/系统/空闲时间：</p>
+<pre><code class="language-python">psutil.cpu_times()
+</code></pre>
+<h5 id="内存"><a class="header" href="#内存">内存</a></h5>
+<p>获取内存容量：</p>
+<pre><code class="language-python">vmem = psutil.virtual_memory() # return total, available, percent, used, free,...
+swap = psutil.swap_memory()
+</code></pre>
+<h5 id="磁盘"><a class="header" href="#磁盘">磁盘</a></h5>
+<pre><code class="language-python">psutil.disk_partition()
+psutil.disk_usage('/')   # total, used, free, percent
+psutil.disk_io_counters()
+</code></pre>
+<h5 id="网络"><a class="header" href="#网络">网络</a></h5>
+<pre><code class="language-python">psutil.net_io_counters()  # 获取网络读写字节／包的个数
+psutil.net_if_addrs()     # 获取网络接口信息
+psutil.net_if_stats()     # 获取网络接口状态
+psutil.net_connections()  # 获取网络连接信息
+</code></pre>
+<h3 id="用户信息"><a class="header" href="#用户信息">用户信息</a></h3>
+<h5 id="用户家目录"><a class="header" href="#用户家目录">用户家目录</a></h5>
+<p>路径字符串中的<code>&quot;~&quot;</code>不会像Shell自动替换为用户家目录路径。</p>
+<pre><code class="language-python">from pathlib import Path			# python 3.5+
+home = str(Path.home())
+realpath = os.path.expanduser(&quot;~/subpath&quot;)
+</code></pre>
+<h3 id="python运行环境"><a class="header" href="#python运行环境">Python运行环境</a></h3>
+<p><code>sys.path</code>：Python库的<a href="./Python%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80.html#%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83">搜索路径</a>构成的序列；</p>
+<blockquote>
+<p>使用<code>python -m site|sysconfig</code>可输出路径等信息。</p>
+</blockquote>
+<p><code>sys.modules</code> 是一个字典对象，表示程序当前已加载的模块信息(包括模块所在路径）。</p>
+<p><code>sys.version_info</code>：Python版本信息（<code>major, minor, micro</code>）。</p>
+<p><code>sys.args</code>：<a href="Python%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80.html#%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%82%E6%95%B0%E5%A4%84%E7%90%86">命令行参数</a>。</p>
+<h5 id="系统信息"><a class="header" href="#系统信息">系统信息</a></h5>
+<pre><code class="language-python">os.uname()   
+# posix.uname_result(sysname='Linux', nodename='WS-GARY', release='5.4.72-microsoft-standard-WSL2', version='#1 SMP Wed Oct 28 23:40:43 UTC 2020', machine='x86_64')
+</code></pre>
+<blockquote>
+<p>封装系统<code>uname</code>方法并将输出信息抽取到多个字段中。</p>
+</blockquote>
+<p><code>sys.platform</code> ：获取操作系统平台，包括<code>win32</code>，<code>linux</code>。</p>
+<h5 id="系统环境变量"><a class="header" href="#系统环境变量">系统环境变量</a></h5>
+<p><code>os.environ</code>：环境变量字典。</p>
+<pre><code class="language-python">os.getenv('USER')        # os.environ['USER'] -&gt; os.path.expanduser
+os.path.expandvars(path) # 展开字符串中环境变量，未知变量不会被展开
+</code></pre>
+<blockquote>
+<p>Windows下的用户名变量为<code>USERNAME </code>。</p>
+</blockquote>
+<h5 id="工作目录"><a class="header" href="#工作目录">工作目录</a></h5>
+<p><code>os.getcwd()</code>：直接返回工作目录的绝对路径；<code>os.curdir</code>是当前目录的相对[路径标识](# 跨平台路径标识)。</p>
+<p><code>os.chdir(path)</code>：切换工作目录。</p>
+<h2 id="文件系统"><a class="header" href="#文件系统">文件系统</a></h2>
+<h3 id="路径"><a class="header" href="#路径">路径</a></h3>
+<pre><code class="language-python">import os.path as path
+p=path.dirname()
+p=path.basename()
+p = path.abspath(p)  # 绝对路径 (=&gt;realpath)
+p = path.relpath(p)  # 相对路径
+tf = path.isabs()    # 检查是否为绝对路径
+</code></pre>
+<p>拼接路径：</p>
+<pre><code class="language-python">path.join(parent, child)
+</code></pre>
+<blockquote>
+<p>如果<code>parent</code>为空，则结果为<code>child</code>；如果<code>parent='.'</code>，则结果为<code>./child</code>。</p>
+<p>如果<code>parent</code>于<code>child</code>之间没有路径分隔符，则添加路径分隔符。</p>
+</blockquote>
+<h5 id="跨平台路径标识"><a class="header" href="#跨平台路径标识">跨平台路径标识</a></h5>
+<p><code>os.curdir</code>：当前路径标识，即<code>.</code>；使用<code>path.abspath</code>返回当前路径的绝对路径；</p>
+<p><code>os.pardir</code>：父路径标识，即<code>..</code>；</p>
+<p><code>os.sep</code>：路径分隔符，Linux中为<code>/</code>，Windows中为<code>\\</code>；</p>
+<p><code>os.pathsep</code>：环境变量分隔符，Linux中为<code>:</code>，Windows中为<code>;</code>；</p>
+<p><code>os.linesep</code>：换行符，Linux为<code>\n</code>，Windows为<code>\r\n</code>；输出换行符时总是使用<code>\n</code>，底层会根据系统自动转换。</p>
+<p><code>os.devnull</code>：Linux为<code>/dev/null</code>；Windows为<code>nul</code>。</p>
+<h3 id="检查文件文件夹"><a class="header" href="#检查文件文件夹">检查文件/文件夹</a></h3>
+<pre><code class="language-python">from os import path
+tf = path.isfile(filename)		# test regular file
+tf = path.isdir(dirname)		  # test existing dir
+tf = path.islink(filename)    # test symbolic link
+tf = path.exists(filename)	
+tf = path.ismount(path)       # test mount point(or driver/share root)
+</code></pre>
+<blockquote>
+<p><code>isdir</code>等效于<code>exists and not isfile</code>。</p>
+</blockquote>
+<blockquote>
+<p><code>pathlib</code>将路径封装为<code>Path</code>对象。</p>
+<pre><code class="language-python">import pathlib
+my_file = pathlib.Path(&quot;/path/to/file&quot;)
+tf = my_file.is_file()
+tf = my_file.is_dir()
+tf = my_file.exists()
+</code></pre>
+</blockquote>
+<h4 id="文件信息"><a class="header" href="#文件信息">文件信息</a></h4>
+<pre><code class="language-python">s = path.getsize(filename)    # get file size
+</code></pre>
+<h3 id="管理文件夹"><a class="header" href="#管理文件夹">管理文件夹</a></h3>
+<h5 id="创建文件夹"><a class="header" href="#创建文件夹">创建文件夹</a></h5>
+<pre><code class="language-python">os.mkdir(dir_path)                    # 父目录必须存在
+os.makedirs(dir_path, exist_ok=False) # 父目录不存在则创建父目录，exist_ok防止抛出异常
+</code></pre>
+<h5 id="删除文件夹"><a class="header" href="#删除文件夹">删除文件夹</a></h5>
+<p><code>os.rmdir(path)</code>：仅当这文件夹是空的才可以，否则抛出<code>OSError</code>。</p>
+<p><code>os.removedirs(path)</code>：删除文件夹树（同样也只能删除空目录）。</p>
+<p><code>shutil.rmtree(path, ignore_errors=True)</code>：==可删除非空目录==。</p>
+<h5 id="列举文件夹内容"><a class="header" href="#列举文件夹内容">列举文件夹内容</a></h5>
+<p>列出文件夹中所有内容的名称，不保证文件的列举顺序（对返回列表进行排序）。</p>
+<pre><code class="language-python">contents = [f for f in os.listdir(dirname)]
+files = [for f in contents if path.isfile(path.join(dirname, f))]
+</code></pre>
+<blockquote>
+<p><code>os.listdir</code>返回内容仅包含名称(<code>basename</code>)，==不包含路径==。</p>
+</blockquote>
+<p>递归遍历目录：</p>
+<pre><code class="language-python">for dirpath, dirnames, filenames in os.walk():
+   for d in dirnames:
+      print(os.path.join(dirname, d))
+   for f in filenames:
+      print(os.path.join(dirname, f))
+</code></pre>
+<blockquote>
+<p><code>dirpath</code>是当前遍历的目录路径；<code>dirnames</code>为当前目录下子目录的集合（不包括<code>.</code>和<code>..</code>）；<code>filenames</code>为当前目录下文件的集合。</p>
+</blockquote>
+<h3 id="管理文件"><a class="header" href="#管理文件">管理文件</a></h3>
+<p><code>rename</code>重命名文件</p>
+<p><code>remove</code>删除文件</p>
+<pre><code class="language-python">os.remove(filepath)
+</code></pre>
+<p>移动/复制文件：</p>
+<pre><code class="language-python">shutil.copyfile(src, dst) # only file
+shutil.copy(src, dst)  # dst can be a folder; use shutil.copy2() to preserve timestamp
+shutil.move(src, dst)  # 内部使用copy2进行复制
+</code></pre>
+<h3 id="文件权限"><a class="header" href="#文件权限">文件权限</a></h3>
+<p><code>os.chmod(path,mode)</code></p>
+<p><code>os.chown(path,mode)</code></p>
+<p><code>os.access(path,mode)</code>：使用<code>real uid/gid </code>测试文件是否具有访问权限（<code>mode=os.F_OK</code>测试文件存在；<code>R_OK|W_OK|X_OK</code>测试文件的读写执行权限）；</p>
+<h3 id="监控文件系统变化"><a class="header" href="#监控文件系统变化">监控文件系统变化</a></h3>
+<p>使用<code>watchdog</code>模块可对文件系统变化进行监控并执行相应处理。</p>
+<pre><code class="language-python">class MyEventHandler(watchdog.events.FileEventHandler): 
+   def on_any_event(self, event: FileSystemEvent):
+      pass
+event_handler = MyEventHandler()
+observer = watchdog.observers.Observer()
+observer.schedule(event_handler, path, recursive=True)
+observer.start()
+try:
+   while True:
+      time.sleep(3)
+finally:
+   observer.stop()
+   observer.join()
+</code></pre>
+<h2 id="输入输出"><a class="header" href="#输入输出">输入输出</a></h2>
+<h3 id="文件描述符"><a class="header" href="#文件描述符">文件描述符</a></h3>
+<p><code>os.open(file, flags, mode)</code>：底层<code>open</code>函数；</p>
+<p><code>os.close(fd)</code>：</p>
+<p><code>os.dup2()</code>方法用于将一个文件描述符复制到另一个文件描述符（必要时先关闭后一个文件描述符）。</p>
+<pre><code class="language-python">os.dup2(se.fileno(), sys.stderr.fileno())
+</code></pre>
+<h3 id="标准输入输出"><a class="header" href="#标准输入输出">标准输入输出</a></h3>
+<p><code>sys.stdout/stdin/stderr</code> 分别表示标准输入、输出和错误输出的文件对象。</p>
+<ul>
+<li><code>stdin.readline()</code> 从标准输入读一行；</li>
+<li><code>stdout.write(&quot;a&quot;)</code> 屏幕输出；</li>
+</ul>
+<h4 id="日志"><a class="header" href="#日志">日志</a></h4>
+<p><a href="https://www.jianshu.com/p/abb6148c15b4">Python syslog 浅谈</a>。</p>
+<h3 id="套接字接口"><a class="header" href="#套接字接口">套接字接口</a></h3>
+<pre><code class="language-python">s = socket.socket(family=AF_INET, type=SOCK_STREAM, proto=0)
+s = socket.create_connection(...)   # =&gt; s.connect()
+s = socket.create_server(...)
+socket.close(s)  # s.close()
+</code></pre>
+<h5 id="socket对象"><a class="header" href="#socket对象">socket对象</a></h5>
+<pre><code class="language-python">conn = s.accept()
+s.bind(address)
+s.listen(address)
+s.connect(address)
+s.fileno()  # for select()
+s.recv/recvfrom/recvmsg/recv_into/recvmsg_into/recvfrom_into()
+s.send/sendall/sendto/sendmsg/sendfile(...)
+s.shutdown()
+s.close()
+</code></pre>
+<h3 id="io多路复用"><a class="header" href="#io多路复用">IO多路复用</a></h3>
+<p>Python <code>select</code>库封装了<a href="../Linux/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86.html#IO%E5%A4%8D%E7%94%A8%E6%8E%A5%E5%8F%A3">LinuxIO多路复用接口</a>，使用<code>select</code>、<code>poll</code>和<code>epoll</code>方法来监听文件描述符状态。</p>
+<h5 id="select"><a class="header" href="#select">select</a></h5>
+<p><code>select</code>方法返回就绪的每类文件描述符，用户需要对描述符的状态进行查询（<code>sock_poll</code>）。</p>
+<pre><code class="language-python">r,w,x = select.select(rlist, wlist, xlist, timeout=None, /)
+</code></pre>
+<blockquote>
+<p><code>Windows</code>仅支持<code>select</code>方法监听<code>socket</code>。</p>
+</blockquote>
+<p><code>rlist</code>：读取准备就绪的文件描述符列表；</p>
+<blockquote>
+<p>文件描述符是<code>socket</code>、文件对象或文件对象的<code>fileno()</code>方法返回的整数值。</p>
+</blockquote>
+<p><code>wlist</code>：写入准备就绪的文件描述符列表；</p>
+<p>三类文件描述符中不需要监听的将对应参数设置为空列表（<code>[]</code>）。</p>
+<h5 id="epoll"><a class="header" href="#epoll">epoll</a></h5>
+<p>使用<code>epoll</code>的程序通常会执行以下步骤：</p>
+<ol>
+<li>
+<p>创建一个<code>epoll</code>类型对象<code>epl</code></p>
+</li>
+<li>
+<p>让对象监听指定文件描述符上的上的指定事件</p>
+<pre><code class="language-python">epl.register(fd, select.EPOLLIN)
+</code></pre>
+</li>
+<li>
+<p>轮询所有监听的文件描述符</p>
+<pre><code class="language-python">events = epl.poll(timeout=None, maxevents=-1)
+</code></pre>
+<blockquote>
+<p><code>timeout=None</code>则等待直到其中某个文件发生监听事件，<code>maxevents</code>表示最大返回事件数，默认无限制。</p>
+</blockquote>
+</li>
+<li>
+<p>基于轮询结果确定发生事件的文件及其对应的事件，从而执行相应的文件读写操作，然后修改相关文件的监听状态</p>
+</li>
+<li>
+<p>重复上述过程，直到程序推出前销毁<code>epoll</code>对象。</p>
+</li>
+</ol>
+<p>以下给出了使用套接字的示例：</p>
+<pre><code class="language-python">import select 
+EOF = b'\n\r\n'   # End of Request
+epl = select.epoll()       #: 创建一个epoll对象
+epl.register(serversocket.fileno(), select.EPOLLIN) # 注册socket读事件
+while True:
+  events = epl.poll(0.1)  # 等待0.1s进行轮询
+  for fn, event in events:
+    if fn == serversocket.fileno(): # accept new connection
+      connection, address = socket.accept()
+      connection.setblocking(0)   # 将新的socket设为非阻塞并注册读事件
+      epl.register(connection.fileno(), select.EPOLLIN)
+      # 记录连接对象和文件描述符的映射
+      connections[connection.fileno()] = connection # dict
+    elif event &amp; select.EPOLLIN:
+      # 对发生读事件的socket读取数据
+      requests[fn] += connections[fn].recv(1024)
+      if EOR in requests[fn]:
+        print(requests[fn]) # 处理客户请求
+        # 注册写事件（EPOLLOUT），响应客户端请求；
+        # 如果用户还有后续输入，则使用epl.register()
+        epl.register(fn, select.EPOLLOUT)
+        # 反之将注册时间修改为EPOLLOUT
+        eplmodify(fn, select.EPOLLOUT)         
+    elif event &amp; select.EPOLLOUT:
+      # 当套接字准备好发送新数据（可能之前有数据还未发送完成需要等待）
+      # 每次向客户端发送一定长度的响应内容，每次都更新余下待发送的响应内容
+      byteswritten = connections[fn].send(responses[fn])
+      responses[fn] = responses[fn][byteswritten:]
+      if len(responses[fn]) == 0:
+        epl.modify(fn, 0)  # 单次响应：完成服务，不再监听事件，关闭连接
+        close_connection(fn, socket.SHUT_RDWR);
+        # 如果是多次响应的服务，则使用epl.unregister()暂时取消输出就绪查询,
+        # 直到再次接收到数据或用户发送EOF指令或用户断开连接。
+        if requests[fn].endswith(EOF): 
+          close_connection(fn, socket.SHUT_RDWR)
+        else: 
+          el.unregister(fn, select.EPOLLOUT)
+    elif event &amp; select.EPOLLHUP: # HUP（挂起）表明客户端断开了连接
+      epl.unregister(fn)
+      close_connection(fn)
+epl.unregister(serversocket.fileno())
+epl.close()
+serversocket.close()
+</code></pre>
+<p>当一个连接中由多个请求需要处理时，需要在输入流中添加分隔各请求的序列<code>EOF</code>（例如非文本的特殊字符<code>\n\r\n</code>）；从而在服务器接收信息后检查请求接收完成并注册<code>EPOLLOUT</code>事件进行响应输出。<code>EOF</code>不应在请求内容中出现。</p>
+<blockquote>
+<p>等待输出准备完成：当并发数量较大时，多个输出Sockets将共享网络输出，使得输出数据消耗较慢，一个Sockets在完成输出并就绪之前可能收到新的输出请求，此时该Sockets将等待输出准备完成。</p>
+<pre><code class="language-python">def close_connection(fn, socket_opt=None):  # 服务端关闭连接，释放资源
+  if socket_opt is socket.SHUT_RDWR:
+      connections[fn].shutdown(socket.SHUT_RDWR)
+     else:
+      connections[fn].close(socket_opt)
+     del connections[fn], recv_buffer[fn], send_buffer[fn]
+</code></pre>
+</blockquote>
+<p><strong>Edge Triggered</strong>只在文件状态变化时通知应用。</p>
+<p>管道IO：假设需要从输入流<code>fd_read</code>读取数据并写入输出流<code>fd_write</code>，其中一个没准备好都不能完成读写。如果使用LT模式（Level Triggered），则在两者全部准备好之前会持续收到其中已准备好的文件的通知，从而浪费资源。在ET（Edge Triggered）模式下，在收到某个文件准备好的通知时，记录其状态，当所有相关文件状态都就绪时，进行读写操作直到返回<code>EAGAIN</code>，然后重置状态进入下一次读写准备阶段。</p>
+<p><a href="https://www.cnblogs.com/anker/p/3265058.html">select、poll、epoll之间的区别总结 - Rabbit_Dale - 博客园 (cnblogs.com)</a>。</p>
+<h3 id="非阻塞io"><a class="header" href="#非阻塞io">非阻塞IO</a></h3>
+<p>设置非阻塞IO：<code>read()</code>方法仅读取流中已有数据，并立即返回。为文件描述符添加<code>os.O_NONBLOCK</code>标识。</p>
+<pre><code class="language-python">import fcntl
+old_flags = fcntl.fcntl(f.fileno(), fcntl.F_GETFL)
+fcntl.fcntl(f.fileno(), fcntl.F_SETFL, old_flags | os.O_NONBLOCK)
+</code></pre>
+<blockquote>
+<p><code>fcntl</code>仅支持Linux。Windows上仅支持套接字的非阻塞模式（系统调用<code>socket.ioctl(control, option)</code>）。</p>
+</blockquote>
+<p>非阻塞方式通常与<a href="#IO%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8">IO多路复用</a>或<a href="#%E5%BC%82%E6%AD%A5IO">异步接口</a>结合使用，从而保证相应文件准备好读写内容。</p>
+<p><code>socket.SOCK_NONBLOCK=&gt;s.setblocking(False)=&gt;s.settimeout(0.0)</code></p>
+<h2 id="多任务执行"><a class="header" href="#多任务执行">多任务执行</a></h2>
+<p>多线程共享代码、内存数据，用于<strong>输入输出密集型</strong>（<em>IO-bound</em>）任务并行；多进程具有独立的代码、内存空间，用于<strong>计算密集型</strong>（<em>CPU-bound</em>）任务的并行。</p>
+<h3 id="线程"><a class="header" href="#线程">线程</a></h3>
+<p><code>threading</code>将线程封装为<code>threading.Thread</code>类。</p>
+<pre><code class="language-python">th = threading.Thread(traget=func_my_thread, args=(args,))
+class myThread(threading.Thread):  # 支持继承`threading.Thread`类：
+  def __init__(self, target, *args, **kwargs):
+    threading.Thread.__init__(self, target, *args, **kwargs)
+    # do customized init
+    pass
+ 	def run(self):
+    # thread code
+    pass
+th = myThread(args) # 创建线程
+</code></pre>
+<p>CPython（Python解释器）设置了<a href="http://cenalulu.github.io/python/gil-in-python/">全局解释器锁GIL(Global Interpreter Lock )</a>，导致多线程中仅有一个线程获取到互斥锁，因此==无法实现真正地多线程并行执行。但多线程能够切换，因此能应用于I/O密集型任务避免IO阻塞==。基于C扩展的模块，例如<code>numpy</code>、<code>pandas</code>在调用内部C代码时不受GIL限制，因此能够实现并行。</p>
+<blockquote>
+<p><code>thread</code>提供了低级别的、原始的线程以及一个简单的锁。<code>thread</code>模块已被废弃。用户可以使用<code>threading</code>模块代替。为了兼容性，Python3将 <code>thread</code>重命名为&quot;<code>_thread</code>&quot;。</p>
+<pre><code class="language-python">import _thread as thread
+thread.start_new_thread(func_thread, args)
+</code></pre>
+</blockquote>
+<h5 id="线程信息"><a class="header" href="#线程信息">线程信息</a></h5>
+<p><code>threading.currentThread()</code>：返回当前的线程变量（同<code>current_thread()</code>）。</p>
+<p><code>threading.main_thread()</code>：返回主线程信息。</p>
+<p><code>threading.enumerate()</code>：返回当前进程包含正在运行的线程的列表。</p>
+<p><code>threading.active_count()</code>：活动线程数量（<code>activeCount</code>）。</p>
+<p><code>th.setName(name)</code>：设置线程名。<code>th.getName()</code>获取线程名。</p>
+<blockquote>
+<p><code>th.name</code>。</p>
+<p><code>th.ident</code>：线程ID；<code>th.native_id</code>：内核返回的线程编号，与<code>ident</code>不同。</p>
+<p><code>th.daemon</code>：是否为守护线程（<code>th.isDaemon()</code>，仅当守护线程退出时整个程序才完全退出），新线程继承父线程的守护属性（默认为<code>False</code>）。</p>
+</blockquote>
+<h4 id="线程调度"><a class="header" href="#线程调度">线程调度</a></h4>
+<pre><code class="language-python">th.start()     # 启动线程
+th.join(time)  # 等待线程结束或超时
+</code></pre>
+<blockquote>
+<p>根据<code>th.is_alive()</code>判断线程是否已结束运行或超时。</p>
+</blockquote>
+<p>可在全局空间中声明一个对应线程的停止标识，当目标线程检测到该标识后，主动退出（从线程函数返回），而非从其他线程<a href="https://www.geeksforgeeks.org/python-different-ways-to-kill-a-thread/">强制停止该线程</a>。</p>
+<blockquote>
+<p>强制停止线程可能导致线程申请的资源未正确释放。</p>
+</blockquote>
+<h4 id="线程同步"><a class="header" href="#线程同步">线程同步</a></h4>
+<h5 id="互斥锁"><a class="header" href="#互斥锁">互斥锁</a></h5>
+<p>互斥锁变量可作为全局变量或作为参数传递给线程，多个线程可尝试申请互斥锁的使用权避免共享资源竞争。</p>
+<pre><code class="language-python">lock = threading.Lock()
+lock.aqcuire()
+lock.release()
+</code></pre>
+<p>参考<a href="#%E8%BF%9B%E7%A8%8B%E5%90%8C%E6%AD%A5">进程同步原语</a>。</p>
+<p>Python的<code>queue</code>模块中提供了同步的、线程安全的队列类，包括<code>Queue</code>（FIFO)，<code>LifoQueue</code>（LIFO），和优先级队列 <code>PriorityQueue</code>。这些队列都实现了锁原语，能够在多线程中直接使用，可以使用队列来实现线程间的同步。</p>
+<p>https://harveyqing.gitbooks.io/python-read-and-write/content/python_advance/python_thread_sync.html</p>
+<h3 id="创建进程"><a class="header" href="#创建进程">创建进程</a></h3>
+<p>在Unix系统中，创建进程包括两种方式：</p>
+<ul>
+<li>复制进程并共享代码空间，子进程与父进程执行不同的代码块；</li>
+<li>替换（复制）进程，子进程执行其他文件内容。</li>
+</ul>
+<p>Python提供上述两种方式的系统接口封装，并提供了抽象的类型封装。父进程可选择阻塞等待子进程执行结束或启动子进程后立即返回。</p>
+<h4 id="系统接口"><a class="header" href="#系统接口">系统接口</a></h4>
+<p><a href="../Linux/Unix%E7%8E%AF%E5%A2%83%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B.html#%E5%88%9B%E5%BB%BA%E8%BF%9B%E7%A8%8B"><code>os.fork()</code></a>复制当前进程创建新进程（Unix-Only）。</p>
+<p><code>os.system()</code>封装了标准C函数<code>system()</code>，启动一个shell环境（子进程）执行命令，并返回命令的完成状态。命令的输出将合并到当前进程。</p>
+<pre><code class="language-python">n = os.system('ls -l /home/user')  
+# &gt;&gt;&gt; sh -c ls -l /home/user  # -c read argumments as commands
+</code></pre>
+<blockquote>
+<p>Python封装了许多系统程序接口（<code>os</code>库），可直接访问这些Python接口函数，而无需使用<code>system()</code>函数调用shell命令。</p>
+</blockquote>
+<p><a href="https://docs.python.org/3/library/os.html#inheritance-of-file-descriptors">Inheritance of File Descriptors os — Miscellaneous operating system interfaces — Python 3.9.5 documentation</a></p>
+<h5 id="进程信息和控制接口"><a class="header" href="#进程信息和控制接口">进程信息和控制接口</a></h5>
+<pre><code class="language-python">os.getpid()
+os.getppid()
+os.kill(pid, signal.SIGTERM)
+</code></pre>
+<pre><code class="language-python">(repid, status) = os.waitpid(pid, options=0)    # 等待任意一个子进程结束
+(repid, status) = os.wait()      # 等待任意一个子进程结束
+(repid, status, resinfo) = os.wait3()
+(repid, status, resinfo) = os.wait4(pid,options)
+siginfo = os.waitid(os.P_PID|os.P_PGID|os.P_ALL, id, options) 
+</code></pre>
+<blockquote>
+<p>如果<code>pid=0</code>，获取当前进程所在进程组的任意子进程的状态；如果<code>pid=-1</code>，则等效于<code>wait()</code>；*如果<code>pid&lt;-1</code>，则获取进程组<code>|pid|</code>中任意进程的状态（可能应该是当前进程所在进程组）。*在Windows上<code>pid</code>只能是正数，且不需要是一个子进程。</p>
+</blockquote>
+<p><code>options</code>：<code>os.WNOHANG</code>（Unix）：立即返回，如果没有子进程终止，则返回<code>(0,0)</code>；</p>
+<p><code>status</code>：16位整数，低字节为终止进程的信号，高字节为返回值（信号为0）。如果产生core dump，则信号字节的最高位被设置（<code>waitstatus_to_exitcode()</code>）。</p>
+<p>通过<code>psutil</code>可以获取到所有进程的详细信息：</p>
+<pre><code class="language-python">psutil.pids()
+psutil.test()              # 模拟shell的ps命令
+p = psutil.Process(3776)   # 获取指定进程ID=3776的信息
+</code></pre>
+<p>通过<code>psutil.Process</code>可访问进程相关的信息。</p>
+<h4 id="共享代码的进程类型"><a class="header" href="#共享代码的进程类型">共享代码的进程类型</a></h4>
+<p><code>multiprocessing</code>库提供<code>Process</code>类创建子进程并运行指定代码（使用<code>Pool</code>创建<a href="#%E8%BF%9B%E7%A8%8B%E6%B1%A0">进程池</a>）。</p>
+<pre><code class="language-python">p = Process(target=func, name='ProcName', args=(), kwargs={}, daemon=None)
+p.start()   # 启动进程
+p.join()    # 等待并清理进程
+</code></pre>
+<p>调用<code>p.start()</code>启动子进程，子进程的运行函数为<code>p.run()</code>，其默认调用初始化的<code>target()</code>。父进程记录子进程信息后从<code>start()</code>方法返回（<strong>非阻塞模式</strong>）。</p>
+<blockquote>
+<p>可继承<code>Process</code>并重载<code> Process.run()</code>方法，添加子进程初始化以及清理代码。</p>
+</blockquote>
+<p><strong>阻塞模式</strong>：父进程在启动子进程后可调用<code>p.join()</code>阻塞等待子进程结束。</p>
+<blockquote>
+<p>使用<code>Process</code>创建的进程在子进程退出前不会主动退出（等效于退出前调用了<code>join()</code>）。==如果子进程是不会退出的服务，则主进程会阻塞而无法结束。==</p>
+</blockquote>
+<h5 id="进程启动方法"><a class="header" href="#进程启动方法">进程启动方法</a></h5>
+<pre><code class="language-python">import multiprocessing as mp
+if __name__ == '__main__':
+	mp.set_start_method('spawn')   # 在main中设置默认进程创建方法，不能调用多次
+   mp.set_executable(PYTHON_PATH) # 设置运行子进程的Python解释器路径
+</code></pre>
+<ul>
+<li>
+<p><code>spawn</code>：父进程启动一个<strong>全新的Python解释器进程</strong>。子进程只会继承那些运行进程对象的 <a href="https://docs.python.org/zh-cn/3/library/multiprocessing.html#multiprocessing.Process.run"><code>run()</code></a> 方法所需的资源，不必要的文件描述符等不会从父进程继承。使用此方法相对其他两种方法较慢但最可靠，Windows的默认设置。</p>
+</li>
+<li>
+<p><code>fork</code>：使用<code>os.fork()</code>复制Python解释器，因此子进程启动时与父进程相同，父进程的所有资源都由子进程继承。Unix中的默认值（仅UNIX可用）。==为了减少进程创建开销，应该使父进程尽量轻量，即避免在父进程中创建不必要的资源==。</p>
+<blockquote>
+<p>避免对具有多线程的进程执行复制操作，<code>fork</code>系统调用是面向单线程进程的，只有地址空间被复制，线程不能被继承。</p>
+</blockquote>
+</li>
+<li>
+<p><code>forkserver</code>：首先启动一个轻量的<code>server</code>进程（通过<code>spawn</code>方法创建），当需要创建进程时，复制<code>server</code>进程而不是当前进程。可在Unix平台上使用。<em>使用<code>context.set_forkserver_preload([modules])</code>为<code>server</code>进程<a href="http://www.bnikolic.co.uk/blog/python/parallelism/2019/11/13/python-forkserver-preload.html">预加载部分模块</a>（<code>modules</code>将会在主进程和<code>server</code>进程分别被导入一次，后续复制<code>server</code>进程是直接复制内存空间所以不会再加载模块）。</em></p>
+<blockquote>
+<p><code>server</code>进程为单线程，因此使用<code>os.fork()</code>时是安全的。</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>在<code>Unix</code>上使用<code>spawn</code>或<code>forkserver</code>方法还会启动一个资源追踪进程（resource tracker process），以追踪由进程创建的未连接的命名系统资源（例如命名信号量或共享内存对象）。当所有进程退出后，该追踪进程释放追踪的资源对象。如果一个进程被信号终止而未及时释放上述资源，可能导致资源泄漏。</p>
+</blockquote>
+<p>可以在同一个程序中建立多个上下文（Context），以使用不同的进程启动方法。<code>get_context()</code>返回<code>Context</code>对象并提供与<code>multiprocessing</code>模块相同的接口。</p>
+<pre><code class="language-python">ctx = mp.get_context('spawn')
+q = ctx.Queue()
+p = ctx.Process(target=foo, args=(q,))
+p.start()
+</code></pre>
+<ol>
+<li>Python forkserver and set_forkserver_preload()：http://www.bnikolic.co.uk/blog/python/parallelism/2019/11/13/python-forkserver-preload.html</li>
+</ol>
+<h5 id="进程属性"><a class="header" href="#进程属性">进程属性</a></h5>
+<ul>
+<li>
+<p><code>ident</code>和<code>pid</code>：进程ID。</p>
+</li>
+<li>
+<p><code>authkey</code>：当<code>multiprocessing</code>初始化时，主进程被分配的一个随机字符串；当进程被创建时继承父进程的<code>authkey</code>（可以手动修改该字符串）；</p>
+</li>
+<li>
+<p><code>Process.name</code></p>
+</li>
+<li>
+<p><code>Process.exitcode</code>：进程退出代码；</p>
+</li>
+<li>
+<p><code>Process.daemon</code>：必须在调用<code>start()</code>前设置（该值继承自父进程，并可以通过构造函数设置）。<strong>注意</strong>：<code>daemon=True</code>的进程不是UNIX守护程序或服务，其不再被允许创建子进程，父进程退出前会主动结束并清理此类进程。</p>
+</li>
+<li>
+<p><code>mp.current_process()</code>：返回当前进程。</p>
+</li>
+<li>
+<p><code>mp.active_children()</code>：返回活动子进程列表。</p>
+</li>
+<li>
+<p><code>mp.parent_process()</code>：获取父进程。</p>
+</li>
+<li>
+<p><code>is_alive()</code>：进程是否存活；</p>
+</li>
+</ul>
+<blockquote>
+<p><code>start</code>, <code>join</code>, <code>is_alive</code>, <code>terminate</code>和<code>exitcode</code>仅应该再父进程中被调用。</p>
+</blockquote>
+<h5 id="进程控制"><a class="header" href="#进程控制">进程控制</a></h5>
+<ul>
+<li><code>terminate()</code>：中止进程，发送<code>SIGTERM</code>信号（Linux）或使用<code>TerminateProcess()</code>（Windows）；进程立即退出，不会调用退出处理程序和<code>finally</code>语句块。<code>kill()</code>与<code>terminate()</code>一样，但发送<code>SIGKILL</code>信号；</li>
+</ul>
+<p><code>p.join(timeout=None)</code>：<strong>合并</strong>子进程并清理子进程资源；</p>
+<blockquote>
+<p>进程不能在自己的进程中调用<code>join</code>（会形成死锁，不允许这样调用会产生错误）；</p>
+<p><code>join()</code>不会返回进程退出状态，检查<code>exitcode</code>确定子进程的退出状态；</p>
+<p>已结束但还未合并的进程变为僵尸进程。每次新建子进程，调用<code>active_children()</code>或调用已完成进程的<code>is_alive()</code>方法时，所有已完成的子进程会被自动清理；仍然建议尽可能手动合并子进程。</p>
+<p>==如果父进程可能先于子进程退出，则应该在父进程中调用<code>join()</code>等待子进程退出，防止子进程变成僵尸进程后不会再被合并==。当一个子进程需要持续运行时，父进程调用<code>join()</code>来合并该子进程会导致阻塞而无法继续工作，令<code>daemon=True</code>可自动在主进程结束前尝试结束所有<code>daemonic</code>子进程防止其变为僵尸进程。</p>
+</blockquote>
+<h4 id="执行文件的进程类型"><a class="header" href="#执行文件的进程类型">执行文件的进程类型</a></h4>
+<p><code> subprocess</code>库提供方法在子进程中运行文件，用于替代<code>os.system(), os.spawn*()</code>。最常用的模式为接口为<code>run()</code>：给定执行命令与参数，在给定时间内等待子进程执行完成并获取其输出内容和返回值。（<strong>如果子进程需要脱离前台进程运行</strong>，则需要调用<code>Popen()</code>方法自定义与子进程的交互过程）。</p>
+<blockquote>
+<p><code>run()</code>等效于调用<code>Popen()</code>、<code>communicate()</code>和<code>wait()</code>。</p>
+<ul>
+<li><code>timeout</code>，<code>input</code>传递给<code>communicate()</code>；</li>
+<li><code>check</code>, 和<code>capture_output</code>外，其他参数都传递给<code>Popen()</code> 。</li>
+</ul>
+</blockquote>
+<pre><code class="language-python">import subprocess as sp
+sp.run(args, *,               
+       input=None,            # True =&gt; stdin=sp.PIPE
+       capture_output=False,  # True =&gt; stdout=sp.PIPE, stderr=sp.PIPE
+       timeout=None,
+       check=False,           # True =&gt; can raiseCalledProcessError
+       stdin,sdtout,stderr,
+       shell=False, 
+       cwd=None
+       text,                  # True =&gt; 文本模式
+       encoding,              # 使用文本模式并指定文本编码
+       errors,
+       env,                   # 环境变量字典
+       **popen_kwargs) -&gt; sp.CompletedProcess # 返回进程结束状态
+</code></pre>
+<p><code>args</code>：命令行参数为字符串或参数序列。在Windows上，参数序列将被转换为字符串传递给<a href="#%E4%BD%BF%E7%94%A8Popen%E5%88%9B%E5%BB%BA%E5%AD%90%E8%BF%9B%E7%A8%8B">底层进程创建函数</a>；在Linux上，==如果为字符串则整体视为执行的命令（不含参数）；如果为参数序列，则首个参数为可执行命令，其他为该命令的参数==。</p>
+<p><code>shell=True</code>：创建并使用Shell解释执行命令。在Linux上，如果传递的是参数序列，则首个参数作为Shell的命令输入（类似于命令行上输入的所有内容），<strong>其他参数作为Shell环境的参数</strong>；</p>
+<blockquote>
+<p>在Linux上需要设置<code>shell=True</code>的情况，</p>
+<ul>
+<li>需要对执行命令的Shell设置参数；</li>
+<li>命令中包含非命令参数的字符，例如==通配符、管道和重定向==运算符。</li>
+</ul>
+<p>在Windows上，参数表示方式对执行方式没有影响。但某些命令内置于shell中（如<code>dir</code>），因此需要设置<code>shell=True</code>使用Shell来解释命令以及参数，以免产生<code>FileNotFoundError</code>。</p>
+</blockquote>
+<h5 id="进程间输入输出"><a class="header" href="#进程间输入输出">进程间输入输出</a></h5>
+<p>默认子进程与父进程使用相同的标准输入输出流，无法捕获输出内容。可以将子进程的标准输入输出重定向到文件或者管道。</p>
+<ul>
+<li>管道：<code>sp.PIPE</code>表示创建一个连接到子进程的管道；
+<ul>
+<li><code>stdin=sp.PIPE</code>：<a href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E4%BA%A4%E4%BA%92%E6%B5%81%E7%A8%8B">父进程可以输入信息到子进程的标准输入</a>；</li>
+<li><code>stdout=sp.PIPE</code>：父进程可以从子进程的标准输出读取信息；</li>
+<li>合并标准输出和标准错误输出：<code>stdout=sp.PIPE</code>和<code>stderr=sp.STDOUT</code>；</li>
+</ul>
+</li>
+<li><code>sp.DEVNULL</code>将输出内容丢弃。</li>
+<li>其他合法的文件描述符。</li>
+</ul>
+<p>如果使用文本模式，则 <code>stdin</code>、<code>stdout</code>和 <code>stderr</code>传递字符串；反之为字节流模式，使用<code>bytes.decode('utf-8')</code>方法将输出的字节数组转换为字符串，以及<code>str.encode()</code>将字符串转换为输入的字节数组。</p>
+<blockquote>
+<p><code>Windows</code>终端默认编码是<code>GBK/GB2312</code>。</p>
+</blockquote>
+<p><strong>返回值</strong>：包含了命令行参数<code>args</code>（传递给<code>run()</code>方法的）、返回值<code>returncode</code>、捕获的标准/错误输出数据<code>stdout/stderr</code>（<code>capture_output=True</code>）等。</p>
+<pre><code class="language-python">proc = sp.run(['ps', '-ef'], capture_output=True, text=True)
+print(proc.returncode)
+print(proc.stdout)
+</code></pre>
+<blockquote>
+<p><code>os.popen()</code>由<code>sp.Popen()</code>实现，执行命令并捕获输出内容（相比于<code>sp.run()</code>，==不会返回命令的返回值==，捕获的标准输出和错误输出合并）。</p>
+<pre><code class="language-python">stream = os.popen('echo ps -ef')   # 返回标准输出的错误输出的流
+output = stream.read()  
+for r in stream.readlines(): print(r)
+</code></pre>
+</blockquote>
+<h5 id="使用popen创建子进程"><a class="header" href="#使用popen创建子进程">使用<code>Popen</code>创建子进程</a></h5>
+<pre><code class="language-python">proc = sp.Popen(args, *, bufsize, executable, ...) -&gt; sp.Popen
+</code></pre>
+<blockquote>
+<p>Linux上使用类似<code>os.execvp()</code>的方式创建子进程；Windows上使用<code>CreateProcess()</code>函数。</p>
+<p><code>executable</code>指定命令以代替<code>args</code>中的命令（如果<code>shell=True</code>，则代替shell；原来的命令作为进程的名称）。</p>
+<p>返回值封装子进程相关信息（参数、输入输出流、pid、返回值），后续调用可更新该对象。</p>
+</blockquote>
+<p>非阻塞执行：子进程创建后立即返回，使用<code>proc.poll()</code>查询命令执行状态（储存在<code>proc.returncode</code>），程序执行完成前返回<code>None</code>；</p>
+<p>阻塞执行：调用<a href="https://docs.python.org/3/library/subprocess.html#subprocess.Popen.wait"><code>wait()</code>方法</a>等待子进程结束并清理子进程。</p>
+<pre><code class="language-python">process.wait(timeout=10)  # [except TimeoutExpired] 等待和回收子进程
+</code></pre>
+<blockquote>
+<p>子进程结束后，需要在父进程中回收资源，避免子进程成为僵尸进程，浪费系统资源。</p>
+</blockquote>
+<p><strong>终止进程</strong>：</p>
+<pre><code class="language-python">proc.terminate()  # SIGTERM / TerminateProcess()
+proc.kill()       # SIGKILL / TerminateProcess()
+proc.send_signal(sig)
+</code></pre>
+<h5 id="自定义输入输出交互流程"><a class="header" href="#自定义输入输出交互流程">自定义输入输出交互流程</a></h5>
+<p>使用<code>communicate()</code>向子进程发送数据作为输入，并从标准输出流读取数据直到流结束（子进程退出），同时也执行<code>wait()</code>的功能清理子进程。</p>
+<pre><code class="language-python">try:
+	outs, errs = proc.communicate(input='input content', timeout=None)
+except TimeoutExpired: # 异常不会导致接收的数据丢失
+  proc.kill()  # 强制终止进程
+  outs, errs = proc.communicate()
+</code></pre>
+<blockquote>
+<p>使用<code>communicate</code>的前提是子进程与父进程已经<a href="#%E8%BF%9B%E7%A8%8B%E9%97%B4%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA">建立管道连接</a>。</p>
+<p>输入内容的类型（字节序列或字符串）与编码输入输出流的编码对应。</p>
+<p>父进程从子进程读到的数据缓存在内存中，因此<code>commucate()</code>不适合与子进程交换过大的数据。</p>
+</blockquote>
+<p>如果子进程与父进程建立了对应的管道，那么在主进程中<code>proc.stdin</code>可写入子进程的输入流，<code>proc.stdout,proc.stderr</code>可读取子进程的输出。</p>
+<blockquote>
+<p><code>readlines()</code>方法将读取子进程的所有输出，直到进程结束。<code>readline</code>或<code>readlines</code>将阻塞进程，如果在终端中强制终止该方法，将导致管道损坏，无法继续读写数据。</p>
+</blockquote>
+<p>使用管道将两个或多个子进程的输入输出连接：</p>
+<pre><code class="language-python">child1 = Popen(args1, stdout=subprocess.PIPE)  # 将子进程1的输出提供给父进程
+child2 = Popen(args2, stdin=child1.stdout)     # 子进程2将子进程1的输出作为输入
+</code></pre>
+<p><strong>创建ssh连接进程</strong>：</p>
+<p>如果输入输出缓存<code>bufsize</code>不为0，可能导致子进程不能及时接收到父进程发送的数据，可以使用<code>flush</code>强制刷新输入缓存。</p>
+<p>如果要向子进程发送多次信息，并且在每次发送后获取输出，需要在父进程中将读取<code>proc.stdout</code>设置为<a href="#%E9%9D%9E%E9%98%BB%E5%A1%9EIO">非阻塞模式</a>，使用异步方式读取输出内容。同时，添加特殊序列<code>EOF</code>以识别响应内容结束，从而进入下一条命令的发送。</p>
+<blockquote>
+<p>在文本模式下(<code>encoding='UTF-8'</code>)使用特殊字符作为EOF时注意，Linux终端会将输出内容中的<code>\r</code>转换为<code>\n</code>，从而可能导致未检测到<code>EOF</code>。</p>
+<p>如果子进程连续输出内容，为保证获取足够多的输出内容，可以在每次查询（<code>select</code>、<code>epoll</code>）输出是否可用前休眠一段时间。</p>
+<p><strong>注意</strong>：如果使用阻塞模式读取内容，则只能每次读取1个字节，以避免在读取到<code>EOF</code>之前发生阻塞。这种方式效率太低。</p>
+</blockquote>
+<pre><code class="language-python">proc_ssh = subprocess.Popen([&quot;ssh&quot;, &quot;-T&quot;, &quot;gary@myserver&quot;],
+                            stdin=subprocess.PIPE, 
+                            stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+EOF = b'\r\n\r'
+proc_ssh.stdin.write(b&quot;uname -a; echo -n {0}\n&quot;.format(EOF))
+proc_ssh.stdin.flush()   # 刷新缓冲区，使输入立即送到子进程
+# Fetch output
+for line in proc_ssh.stdout:
+    print(line.strip())
+proc_ssh.stdin.close()   # 关闭输入将使ssh退出
+proc_ssh.wait()
+</code></pre>
+<blockquote>
+<p><code>stderr=subprocess.STDOUT</code>导致输出提示<em>Pseudo-terminal will not be allocated because stdin is not a terminal</em>。使用<code>ssh -T</code>禁用伪终端分配可消除该信息。</p>
+</blockquote>
+<h5 id="subprocess提供的其他方法"><a class="header" href="#subprocess提供的其他方法">subprocess提供的其他方法</a></h5>
+<pre><code class="language-python">sp.call(args, *, stdin, stdout, stderr, shell)
+sp.check_call()  # 退出值非0抛出异常CalledProcessError
+sp.check_output() # 输出子进程的输出，退出值非0抛出异常
+</code></pre>
+<p><a href="https://janakiev.com/blog/python-shell-commands/">How to Execute Shell Commands with Python</a>。</p>
+<h5 id="spawn"><a class="header" href="#spawn">spawn</a></h5>
+<p><code>os.spawn*()</code>系列函数使用可执行文件创建<strong>新进程</strong>（<em><a href="../Linux/Unix%E7%8E%AF%E5%A2%83%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B.html#Copy-on-Write">fork and exec</a> on Linux</em>）。</p>
+<pre><code class="language-python">pid = os.spawnl(mode, file, *args)  # see also: spawnle
+os.spawnlpe(os.P_NOWAIT, 'python', 'python', 'ff.py', env)
+# l: 传递可变参数列表；v: 将参数列表封装为一个序列传递
+# p：使用环境变量中的PATH搜索可执行文件
+# e：传递自定义环境变量（默认不传递）
+</code></pre>
+<p><code>mode={P_NOWAIT|P_WAIT}</code>：非阻塞模式下返回进程ID，反之返回进程的退出值。</p>
+<blockquote>
+<p><a href="https://docs.python.org/3/library/os.html#os.spawnvpe">需要将首个参数指定为命令名</a>。<em>In either case, the arguments to the child process must start with the name of the command being run.</em></p>
+<p>无法重定向输入输出（使用subprocess）。</p>
+</blockquote>
+<h3 id="守护进程"><a class="header" href="#守护进程">守护进程</a></h3>
+<p>使新进程脱离父进程（<code>double-fork</code>）：</p>
+<pre><code class="language-python">import os
+from multiprocessing import Process
+
+def daemonize(func):
+  def wrapper(*args, **kwargs):
+    pid = os.fork()
+    if pid == 0:
+      # setsid()
+      ppid = os.fork()
+      if ppid == 0:
+        func(*args, **kwargs)
+      elif ppid &gt; 0:
+        sys.exit(0)   # intermediate process exit
+      else:
+        warnings.warn('create daemon process error.')
+    elif pid &gt; 0:  # parent process
+		  if waitpid(pid) != pid:
+        warnings.warn(f'wait sub-process [{pid}] error.')
+    else:   # sub-process
+      warnings.warn('create sub-process error.')
+  return wrapper
+
+def daemonize(func):
+  def subsubproc(*args, **kwargs):
+    # setsid()
+    # 让first child成为session leader并与控制终端脱离，
+    # 这样second child就无法再获得控制终端了（非session leader)
+    proc_daemon = Process(target=func, *args, **kwargs)
+    proc_daemon.start()
+    # &gt;&gt;&gt; proc_temp exit here &lt;&lt;&lt;
+    # &gt;&gt;&gt; proc_daemon becomes daemon (managed by init) &lt;&lt;&lt;
+  def subproc(*args, **kwargs):
+    proc_temp = Process(target=subsubproc, *args, **kwargs)
+    proc_temp.start()
+    proc_temp.join()  # waitpid，防止proc_temp成为僵尸进程
+ return subproc
+
+daemonize(f)('Async and detached!!!')
+
+@daemonize
+def func_daemon(message):
+    while True:
+	    time.sleep(5)
+  	  log(message)
+func_daemon('Async and detached!!!')  
+
+class DaemonProcess(Process):
+  def __init__(self, target=None, name=None, args=(), kwargs={}, daemon=None):
+    Process.__init__(self, target=target, name=name, args=args, kwargs=kwargs)
+ 	def run(self):
+    setsid()
+    proc = Process(target=func, *args, **kwargs)
+    proc.start()
+
+</code></pre>
+<h4 id=""><a class="header" href="#"></a></h4>
+<p>==在守护进程中创建<code>Manager</code>，以管理共享对象==。</p>
+<h3 id="进程同步"><a class="header" href="#进程同步">进程同步</a></h3>
+<p>==<code>multiprocessing</code>包含来自<a href="#%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5"><code>threading</code></a>的所有同步原语的等价物。==<code>multiprocessing</code>具有多种锁类型，根据使用情况自行选择：</p>
+<ul>
+<li>
+<p><a href="../Linux/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86.html#%E9%9D%9E%E9%80%92%E5%BD%92%E9%94%81">非递归锁</a><code>multiprocessing.synchronize.Lock</code></p>
+<pre><code class="language-python">from multiprocessing import Process, Lock
+def f(l, i):
+    l.acquire(block=True, timeout=None)   # 防止各子进程输出内容混杂
+    try:
+        print('hello world', i)
+    finally:
+        l.release()
+if __name__ == '__main__':
+  lock = Lock()
+  procs = [Process(target=f, args=(lock, num)) for num in range 10]
+  for p in procs: 
+    p.start()
+  for p in procs:
+    p.join()
+</code></pre>
+</li>
+<li>
+<p><a href="../Linux/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86.html#%E9%80%92%E5%BD%92%E9%94%81">递归锁</a>：<code>RLock()</code> ；</p>
+</li>
+<li>
+<p>信号量：<code>Semaphore(value=1)</code> 计数器锁（信号量锁），<code>value</code>为初始计数；</p>
+</li>
+<li>
+<p><code>BoundedSemaphore(value=1)</code> 带上限的计数器锁（信号量锁），<code>value</code>即是初始计数，同时也是允许的计数上限；</p>
+</li>
+<li>
+<p><code>Barrier</code></p>
+</li>
+<li>
+<p><code>Condition(lock=None)</code></p>
+</li>
+<li>
+<p><code>Event</code></p>
+</li>
+</ul>
+<h3 id="进程间通信"><a class="header" href="#进程间通信">进程间通信</a></h3>
+<ul>
+<li>避免在进程间传递大量数据。</li>
+<li>尽可能使用进程间共享对象类型（例如队列或管道），避免直接使用低层次的同步原语。</li>
+<li>避免调用<code>terminate()</code>方法，防止共享资源（例如锁、信号量、管道和队列）被损坏或不可用；</li>
+</ul>
+<h4 id="参数传递"><a class="header" href="#参数传递">参数传递</a></h4>
+<p>创建进程时将需要共享的对象通过参数传递给子进程，例如<a href="#%E7%AE%A1%E9%81%93">管道对象</a>、<a href="#%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97"><code>Queue</code>对象</a>、同步锁、信号量等。</p>
+<h4 id="文件锁"><a class="header" href="#文件锁">文件锁</a></h4>
+<p>锁定文件描述符：</p>
+<pre><code class="language-python">fcntl.flock(fd, operation)    # man flock(2), emulated using fcntl()
+fcntl.lockf(fd, cmd, len=0, start=0, whence=0)
+</code></pre>
+<blockquote>
+<p><code>cmd=LOCK_UN, LOCK_SH, LOCK_EX</code>：分别代表解锁、共享锁和互斥锁。可以与<code>LOCK_NB</code>共同使用以避免阻塞（产生<code>OSError</code>，异常属性包括<code>EACCESS</code>或<code>EAGAIN</code>）。<code>lockf</code>可通过<code>len, start, whence</code>来控制锁定文件的部分内容。</p>
+</blockquote>
+<p><code>filelock</code>是一个跨平台的库。</p>
+<pre><code class="language-python">from filelock import FileLock
+import logging
+logging.getLogger(&quot;filelock&quot;).setLevel(logging.ERROR)
+with FileLock('filename.lock', timeout=10): #=&gt; with FileLock(...).acquire():
+   open('filename', &quot;a&quot;).write(msg)
+</code></pre>
+<blockquote>
+<p>==加锁文件与需要读写的文件需要分开==。加锁文件所在的目录必须存在，加锁文件不存在将自动创建。</p>
+</blockquote>
+<p><a href="https://pypi.org/project/pid/">pid · PyPI</a></p>
+<h4 id="共享内存"><a class="header" href="#共享内存">共享内存</a></h4>
+<p>可以使用 <a href="https://docs.python.org/zh-cn/3/library/multiprocessing.html#multiprocessing.Value"><code>Value</code></a> 或 <a href="https://docs.python.org/zh-cn/3/library/multiprocessing.html#multiprocessing.Array"><code>Array</code></a> 将数据存储在共享内存映射中。在调用顺序不确定的情况下，应该结合同步机制访问共享内存中的数据。</p>
+<pre><code class="language-python">from multiprocessing import Process, Value, Array
+def f(n, a):
+  n.value = 3.1415927
+  for i in range(len(a)):
+    a[i] = -a[i]
+if __name__ == '__main__':
+    num = Value('d', 0.0)       # double type value
+    arr = Array('i', range(10)) # singed integer array
+    p = Process(target=f, args=(num, arr))
+    p.start()
+    p.join()
+    print(num.value)
+    print(arr[:])
+</code></pre>
+<h4 id="管道和消息队列"><a class="header" href="#管道和消息队列">管道和消息队列</a></h4>
+<p>管道和消息队列内部实现了同步机制，因此用户无需管理同步。</p>
+<h5 id="管道"><a class="header" href="#管道">管道</a></h5>
+<p>管道用于连接两个进程：</p>
+<pre><code class="language-python">from multiprocessing import Pipe
+def f(conn):
+  conn.send([42, None, 'hello'])
+  conn.close()
+
+if __name__ == '__main__':
+  parent_conn, child_conn = Pipe()  # 返回Connection对象
+  p = Process(target=f, args=(child_conn,)) # 将管道对端传递给子进程
+  p.start()
+  print(parent_conn.recv())   # prints &quot;[42, None, 'hello']&quot;
+  p.join()
+</code></pre>
+<blockquote>
+<p>管道对端连接描述符（<code>child_conn</code>）传递给子进程时会进行复制（连接计数+1），使得父进程和子进程都可以从管道对端读写数据。为了使父进程能够感知子进程已经关闭连接（或已经无数据可接收），父进程必须首先关闭管道对端。</p>
+</blockquote>
+<p><code>Connection</code>对象：用于传递可序列化的（<code>picklable</code>）对象或字节序列。</p>
+<ul>
+<li><code>conn.send(obj)</code>：</li>
+<li><code>obj = conn.recv()</code>：阻塞直到有数据收到，如果对端关闭或无数据可接收，返回<code>EOFError</code>（==实际运行发现未返回错误并一直阻塞==）。</li>
+<li><code>close()</code>：关闭连接（垃圾回收时自动关闭，但发送方主动关闭可让接收方感知到发送数据结束而不必持续等待）。</li>
+<li><code>poll(timeout)</code>；查询是否有数据可接收。如果未指定参数则立即返回，如果<code>timeout=None</code>则持续等待。</li>
+<li><code>send_bytes(buffer, offset=0, size=None)</code>：buffer类型为<a href="Python%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B#%E5%AD%97%E8%8A%82%E5%BA%8F%E5%88%97%E7%B1%BB%E5%9E%8B%EF%BC%88bytes%EF%BC%89">字节序列类型</a>，例如<code>bytes</code>。</li>
+<li><code>recv_bytes(maxlength=None)</code>：阻塞模式参考<code>recv</code>；</li>
+<li><code>recv_bytes_into(buffer, offset=0)</code>：</li>
+</ul>
+<p><code>mp.connection.wait(conn_list, timeout=None)</code>：等待<code>Connection</code>、<code>socket</code>、<code>Process.sentinel</code>等对象就绪（==有数据可读，或对端已经关闭==）；如果当前进程要同时接收其他多个进程的数据，则可以使用该方法实现IO复用。</p>
+<blockquote>
+<p>Unix：与<code>select.select(object_list, [], [], timeout)</code>几乎相同。</p>
+</blockquote>
+<p><code>conn.close()</code>：关闭连接并释放资源，支持<code>with</code>语法。</p>
+<h5 id="消息队列"><a class="header" href="#消息队列">消息队列</a></h5>
+<p>消息队列允许连接多个进程（生产者和消费者）。</p>
+<pre><code class="language-python">from multiprocessing import Queue,SimpleQueue,JoinableQueue
+def f(q):
+	q.put(obj, block, timeout)  # block控制阻塞，timeout控制阻塞时长
+  
+if __name__ == '__main__':
+   q = Queue(maxsize)   # qisze(), empty(), full()
+   p = Process(target=f, args=(q,))
+   p.start()
+   obj = q.get(block, timeout)
+   print(obj)    # &quot;[42, None, 'hello']&quot;
+   p.join()
+</code></pre>
+<blockquote>
+<p><code>Queue</code>使用标准库的<code>queue.Queue</code>，并基于管道、锁和信号量。</p>
+</blockquote>
+<p>https://docs.python.org/3/library/multiprocessing.html?highlight=process#pipes-and-queues</p>
+<h4 id="信号"><a class="header" href="#信号">信号</a></h4>
+<p>信号处理函数：</p>
+<pre><code class="language-python">def on_terminate(signum, frame):
+   print('Terminated by signal.', file=sys.stderr)
+   sys.exit(0)
+   
+signal.signal(signal.SIGTERM, on_terminate)
+</code></pre>
+<blockquote>
+<p>应用程序不能处理：<code>SIGKILL</code>、<code>SIGSTOP</code>信号。</p>
+<p><code>frame</code></p>
+</blockquote>
+<p><code>time.sleep(s)</code></p>
+<h4 id="套接字连接"><a class="header" href="#套接字连接">套接字连接</a></h4>
+<pre><code class="language-python">from multiprocessing.connection import Client, Listener
+client_conn = Client(address, family=, authkey=)
+listener = Listener(address, family=, backlog=, authkey=)
+with listener.accept() as conn: # 建立连接
+	conn.send(data)
+   conn.recv(data)
+</code></pre>
+<p>地址格式：</p>
+<ul>
+<li>TCP/IP套接字<code>AF_INET</code>：<code>(hostname, port)</code>；</li>
+<li>Unix域套接字<code>AF_UNIX</code>：文件路径名；</li>
+<li>命名管道<code>AF_PIPE</code>（Windows）：<code>r'\.\pipe{PipeName}'</code>或<code>r'\ServerName\pipe{PipeName}'</code>（远程）。</li>
+</ul>
+<p>建立连接后与<a href="#%E7%AE%A1%E9%81%93">管道</a>读写数据的方法一致。*但如果<code>Listener</code>要持续接受新的连接，则可能在读取连接的数据前阻塞在<code>Listener</code>处。*此时应该使用<code>socket</code>模块提供的<a href="#IO%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8">套接字接口</a>。</p>
+<h4 id="manager"><a class="header" href="#manager">Manager</a></h4>
+<p><code>Manager</code>创建一个服务进程并管理共享对象，其他进程通过代理访问共享对象。</p>
+<h5 id="syncmanager"><a class="header" href="#syncmanager">SyncManager</a></h5>
+<p>使用<code>SyncManager</code>自动生成子进程，已经注册了常用的数据类型以及用于进程同步数据类型，因此用户可直接创建这些类型变量进行共享。如果<code>SyncManager</code>对象被垃圾回收或者父进程退出，则<code>SyncManager</code>对应的进程也随之退出。</p>
+<pre><code class="language-python">from multiprocessing import Manager
+manager = Manager()  # Returns a started SyncManager object
+manager.shutdown()
+with Manager() as manager:
+  d = manager.dict()
+  l = manager.list(range(10))
+  p = Process(target=f, args=(d, l))  # 传递Manager管理的数据对象给子进程
+  # ...
+</code></pre>
+<blockquote>
+<p><code>SyncManager</code>不能直接传递给其他进程，而是应该传递其管理的数据（<code>Proxy</code>）。<code>SyncManager</code>没有公开的地址（内部使用Unix域套接字地址），无法通过地址远程访问（进程重新启动后无法再次访问原来的管理对象）。</p>
+<p>每个进程有自己独立的<code>SyncManager</code>。</p>
+</blockquote>
+<p>特殊数据类型：</p>
+<ul>
+<li>
+<p><code>Namespace</code>：在该命名空间中可创建变量，并通过空间名称引用；</p>
+<pre><code class="language-python">with Manager() as manager:
+  ns = manager.Namespace()
+  ns.x = 10
+  ns.y = 'hello'
+  print(ns)     # =&gt; Namespace(x=10, y='hello')
+</code></pre>
+</li>
+</ul>
+<h5 id="basemanager"><a class="header" href="#basemanager">BaseManager</a></h5>
+<p><code>BaseManager</code>支持远程进程访问共享对象（使用套接字）。</p>
+<pre><code class="language-python">from multiprocessing.managers import BaseManager
+manager = BaseManager(address=('', 50000), authkey=b'abc')
+manager.get_server().serve_forever() # 前台阻塞执行
+manager.start()  # 启动后台进程，类似于SyncManager
+</code></pre>
+<p>使用<code>Manager</code>管理共享队列，需要手动注册共享对象。</p>
+<pre><code class="language-python">from multiprocessing.managers import BaseManager
+from queue import Queue
+queue = Queue()   # 创建一个队列
+BaseManager.register('get_queue', callable=lambda:queue)
+m = BaseManager(address=('', 50000), authkey=b'abc')
+queue = m.get_queue()
+queue.put('hello')
+</code></pre>
+<pre><code class="language-python">m = BaseManager(address=('127.0.0.1', 50000), authkey=b'abc')
+BaseManager.register('get_queue')
+m.connect()   # connect to a manager server
+queue = m.get_queue()
+queue.get()
+</code></pre>
+<p><code>BaseManager.register</code>：</p>
+<h5 id="proxy对象"><a class="header" href="#proxy对象">Proxy对象</a></h5>
+<p>使用<code>Manager</code>创建的共享数据类型基于<code>BaseProxy</code>类型，通过该类型对象可访问被引用的共享对象。<code>Proxy</code>类型可以被序列化，因此能在进程间传递。</p>
+<p><code>Proxy</code>对象包含弱引用回调函数，当其被垃圾回收时，会向<code>Manager</code>注销其对共享对象的引用。当共享对象的引用数量减少为0时，<code>Manager</code>将删除共享对象。</p>
+<h3 id="服务框架"><a class="header" href="#服务框架">服务框架</a></h3>
+<p>使用<a href="Python%E7%BC%96%E7%A8%8B%E5%BA%94%E7%94%A8.html#Flask">Flask</a>等服务模型，简化请求响应式的多进程/线程的程序编写。开发人员只需编写对应请求的处理逻辑。</p>
+<h2 id="并行任务调度"><a class="header" href="#并行任务调度">并行任务调度</a></h2>
+<img src="Python高级编程.assets/PythonProcess.png" alt="image-20210414161141996" style="zoom:50%;" />
+<h3 id="并发模型"><a class="header" href="#并发模型">并发模型</a></h3>
+<p>由于GIL限制，Python多线程模型并非正真的并发，因此需要靠多进程实现并发。</p>
+<h4 id="进程池"><a class="header" href="#进程池">进程池</a></h4>
+<p><code>multiprocessing.Pool</code>类表示一个工作进程池，它允许以几种不同方式将任务分配到工作进程。适用于大并发短任务场景，无需反复创建销毁进程从而减小开销</p>
+<pre><code class="language-python">import multiprocessing
+def some_work(args):
+  pass
+pool = multiprocessing.Pool(processes=nproc) # start in __main__
+# 将任务发送给到进程池，可以反复调用发送任务
+async_result = pool.apply_async(some_work, (args)) 
+pool.close()
+with multiprocessing.Pool(processes=nproc):  # 使用上下文管理器
+   pool.apply_async(some_work, (args,))
+</code></pre>
+<p><code>apply</code>方法是阻塞的，不能实现并行。<code>apply_async</code>方法返回运算结果指示器<code>AsyncResult</code>，主程序后续可以通过适当方式查询<code>AsyncResult</code>的状态然后获取计算结果。</p>
+<h5 id="批量提交"><a class="header" href="#批量提交">批量提交</a></h5>
+<p><code>map/map_async</code>：将一批计算的参数构造成序列，序列的每个元素分别对应一个计算任务的输入，返回计算结果构成的序列。</p>
+<pre><code class="language-python">map(func, [args1,args2,...], chunksize)  # =&gt; starmap, starmap_async
+</code></pre>
+<p><a href="https://docs.python.org/3/library/multiprocessing.html#module-multiprocessing.pool">multiprocessing — Process-based parallelism — Python 3.9.6 documentation</a></p>
+<h4 id="pathos"><a class="header" href="#pathos"><code>pathos</code></a></h4>
+<p><code>pathos</code>是一个较为综合性的模块，既能多进程，也能多线程。其主要采用进程池/线程池方法。<code>pathos</code>本身有一套进程池方法，同时也集成了<code>multiprocess</code>、<code>pp</code>模块的进程池方法。</p>
+<h4 id="concurrentfutures"><a class="header" href="#concurrentfutures"><code>concurrent.futures</code></a></h4>
+<p><code>concurrent.futures</code>模块的接口与<code>multiprocessing</code>差异比较大，要理解如何用它，需要搞清楚<code>executor</code>和<code>future</code>两个概念：</p>
+<h5 id="executor"><a class="header" href="#executor">Executor</a></h5>
+<p><code>executor</code>可以类比为<code>multiprocessing</code>的进程池、<code>threading</code>的线程池，相当于一个多进程或多线程的环境。</p>
+<pre><code class="language-python">with ThreadPoolExecutor(max_workers=1) as executor:
+    future = executor.submit(pow, 323, 1235)
+    executor.submit(shutil.copy, 'src1.txt', 'dest1.txt')
+    print(future.result())
+</code></pre>
+<p>或：</p>
+<pre><code class="language-python">executor = ThreadPoolExecutor(max_workers=2)
+a = executor.submit(wait_on_b)
+b = executor.submit(wait_on_a)
+</code></pre>
+<h5 id="future"><a class="header" href="#future">Future</a></h5>
+<p><code>future</code>对象可以类比为添加到进程池或线程池的一条条具体任务。</p>
+<pre><code class="language-python">future.result(timeout=None)
+</code></pre>
+<p>等待直到完成任务或超时，返回计算结果或<code>concurrent.future.TimeoutError</code>。默认无时间限制。</p>
+<pre><code class="language-python">add_done_callback(fn)
+</code></pre>
+<p>当<code>future</code>完成或取消时会调用<code>fn</code>。使用<code>cancelled()</code>、<code>done()</code>和<code>running()</code>判断<code>future</code>的状态。</p>
+<h3 id="parallel-python"><a class="header" href="#parallel-python">Parallel Python</a></h3>
+<p><code>pp</code>模块（也即parallel python模块）是用纯Python编写的开源、跨平台、轻巧并行模块。</p>
+<p><code>pp</code>模块实现并行的方式与<code>multiprocessing</code>等不同，他是通过修改Python的GIL机制突破这个限制，而非开启多个解释器（未详细确认）。可能也是因为以上原因，<strong>pp模块调用子进程中的print函数可以正常输出到主进程标准输出</strong>，不像在<code>multiprocessing</code>、<code>multiprocess</code>、<code>pathos.multiprocessing.ProcessPool</code>、<code>concurrent.futures</code>等模块中还必须通过进程间通信传递给主进程操作。</p>
+<p>要建立多进程，首先需通过Server类创建进程服务器（类似于进程池）；然后，在这个服务中，创建具体的子进程任务Task。</p>
+<h2 id="终端"><a class="header" href="#终端">终端</a></h2>
+<p>获取终端的行列数：</p>
+<pre><code class="language-python">rc = os.get_terminal_size()
+# os.terminal_size(columns=80, lines=24)
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../Python/Python数值计算.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../Python/Python高级编程.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../Python/Python数值计算.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../Python/Python高级编程.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

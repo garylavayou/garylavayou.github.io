@@ -1,0 +1,1517 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>分布式大数据处理 - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html" class="active">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="分布式大数据处理"><a class="header" href="#分布式大数据处理">分布式大数据处理</a></h1>
+<h2 id="mapreduce"><a class="header" href="#mapreduce">MapReduce</a></h2>
+<p>Map操作将运算依次作用到序列的每个元素，并把运算结果作为新的序列返回。</p>
+<p>Reduce操作把运算依次作用在序列元素上进行聚合运算。</p>
+<img src="分布式大数据处理.assets/map.png" alt="map" style="zoom:80%;" />
+<p>Python内建了<code>map()</code>、<code>filter()</code>和<code>reduce()</code>函数。</p>
+<pre><code class="language-python">maped_set = map(fcn, dataset)  # 等价于 list=[fcn(x) for x in dataset]
+</code></pre>
+<pre><code class="language-python">tf = filter(lambda x: cond(x), list) # tf=[cond(x) for x in list]
+list = list(tf)		# list=[x for x in list if cond(x)]
+</code></pre>
+<pre><code class="language-python">from functools import reduce
+result = reduce(lambda x,y: x+y, dataset)
+</code></pre>
+<h2 id="hadoop-framework"><a class="header" href="#hadoop-framework">Hadoop Framework</a></h2>
+<blockquote>
+<p>The Apache Hadoop software library is a framework that allows for the distributed processing of large data sets across clusters of computers using simple programming models.</p>
+</blockquote>
+<p>Hadoop包括分布式文件系统HDFS和计算框架Hadoop Yarn。</p>
+<img src="分布式大数据处理.assets/hdfsarchitecture.png" alt="HDFS Architecture" style="zoom: 50%;" />
+<p>Hadoop的部署模式为主从模式，包括：</p>
+<ul>
+<li>
+<p>Master Node of HDFS：</p>
+<ul>
+<li><strong>NameNode</strong> manages the distributed file system and knows where are stored data blocks.</li>
+</ul>
+</li>
+<li>
+<p>Master Node of Yarn:</p>
+<ul>
+<li>资源管理器（<strong>ResourceManager</strong>） manages the YARN jobs and takes care of scheduling and executing processes on worker nodes.  调度器（<strong>Scheduler</strong>）是资源管理器的组成部分，allocating resources to applications based on the <strong>resource requirements</strong> of applications, subject to <strong>constraints of capacities, queues</strong> etc.</li>
+</ul>
+</li>
+<li>
+<p>Worker Nodes: store the actual data and provide processing power to run the jobs. </p>
+<ul>
+<li><strong>DataNode</strong>  manages the physical data stored on the node;</li>
+<li><strong>NodeManager</strong>：负责工作节点上运行任务（Container）的资源管理，并与<strong>ResourceManager</strong>交互。</li>
+<li><strong>Container</strong>: the abstract notion of resources, including memory, CPU, disk, network etc. </li>
+</ul>
+</li>
+</ul>
+<p><img src="%E5%88%86%E5%B8%83%E5%BC%8F%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86.assets/hadoop-cluster-overview.png" alt="img" /></p>
+<img src="分布式大数据处理.assets/hddg_0402.png" alt="How YARN runs an application" style="zoom:50%;" />
+<blockquote>
+<p><code>App Mstr</code>：<strong>ApplicationMaster</strong>，即应用主节点，是应用运行的主要容器，负责管理同一应用的其他容器并与调度器交互。</p>
+<p>Yarn的部署方式也是主从方式，但无需与HDFS的主从节点重合。</p>
+<p><em>HDFS daemons are <strong>NameNode</strong>, <strong>SecondaryNameNode</strong>, and <strong>DataNode</strong>.</em>
+<em>YARN daemons are <strong>ResourceManager</strong>, <strong>NodeManager</strong>, and <strong>WebAppProxy</strong>.</em></p>
+</blockquote>
+<h3 id="部署"><a class="header" href="#部署">部署</a></h3>
+<h4 id="下载安装"><a class="header" href="#下载安装">下载安装</a></h4>
+<p>从镜像站点<a href="https://hadoop.apache.org/releases.html">下载</a><code>hadoop-x.y.z.tar.gz</code>并解压缩到目标文件夹。</p>
+<p>版本：<a href="https://docs.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_6_version_packaging_download.html">CDH 6 Version, Packaging, and Download Information | 6.x | Cloudera Documentation</a>。</p>
+<h5 id="设置运行环境"><a class="header" href="#设置运行环境">设置运行环境</a></h5>
+<p>如果同时使用Hive则需要使用Java 8。</p>
+<blockquote>
+<p>Apache Hadoop 3.3 and upper supports Java 8 and Java 11 (runtime only). 
+Apache Hadoop from 3.0.x to 3.2.x now supports only Java 8.
+Apache Hadoop from 2.7.x to 2.10.x support both Java 7 and 8.</p>
+</blockquote>
+<p>用户环境变量</p>
+<pre><code class="language-sh"># edit /home/&lt;user&gt;/.bashrc
+# JAVA_HOME set to the root of your Java installation: 
+# update-alternatives --display java
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+export HADOOP_HOME=/usr/local/hadoop
+export PATH=${PATH}:${HADOOP_HOME}/bin:${HADOOP_HOME}/sbin
+</code></pre>
+<p>通过Hadoop环境配置文件<code>etc/hadoop/hadoop-env.sh</code>设置<code>JAVA_HOME</code>，不影响全局Java环境配置。</p>
+<h4 id="single-node"><a class="header" href="#single-node">Single Node</a></h4>
+<h5 id="pseudo-distributed-operation"><a class="header" href="#pseudo-distributed-operation">Pseudo-Distributed Operation</a></h5>
+<ol>
+<li>
+<p>配置<code>etc/hadoop/core-site.xml</code>和<code>etc/hadoop/hdfs-site.xml</code>（参考集群配置）。</p>
+</li>
+<li>
+<p>设置本地SSH免密登录</p>
+<pre><code class="language-sh">ssh-copy-id -i ~/.ssh/id_rsa.pub $hostname
+</code></pre>
+</li>
+<li>
+<p>格式化HDFS文件系统，由<code>dfs.namenode.name.dir</code>指定，默认位置<code>root=/tmp/hadoop-gary/dfs/name</code>：</p>
+<pre><code class="language-sh">hdfs namenode -format
+</code></pre>
+<blockquote>
+<p>不同版本的HDFS文件系统不兼容。</p>
+</blockquote>
+</li>
+<li>
+<p>启动Name Node和Data Node守护进程：<code>start-dfs.sh</code>（关闭<code>stop-dfs.sh</code>）</p>
+</li>
+<li>
+<p>执行MapReduce任务</p>
+</li>
+</ol>
+<h5 id="yarn-on-a-single-node"><a class="header" href="#yarn-on-a-single-node">YARN on a Single Node</a></h5>
+<ol>
+<li>在上述步骤基础上，配置<code>etc/hadoop/mapred-site.xml</code>和<code>etc/hadoop/yarn-site.xml</code>（参考Cluster配置）。</li>
+<li>启动守护进程：<code>start-yarn.sh</code>（停止：<code>stop-yarn.sh</code>）</li>
+</ol>
+<h4 id="cluster"><a class="header" href="#cluster">Cluster</a></h4>
+<blockquote>
+<p><em>Typically one machine in the cluster is designated as the NameNode and another machine as the ResourceManager, exclusively</em>. </p>
+<p><em>The rest of the machines (workers) in the cluster act as both DataNode and NodeManager.</em> </p>
+<p><em>If MapReduce is to be used, then the MapReduce Job History Server will also be running.</em> </p>
+<p><em>For large installations, these are generally running on separate hosts.</em></p>
+</blockquote>
+<blockquote>
+<p>如果使用虚拟机进行实验，可先将多数内容在单节点上创建完成，然后复制虚拟机。</p>
+</blockquote>
+<ol>
+<li>
+<p>编辑<code>/etc/hosts</code>，配置集群所有节点的域名映射。</p>
+</li>
+<li>
+<p>配置主节点（Name Node和Resource Manager）到从节点的SSH连接，实现[免密登录](../Linux and UNIX/Linux配置和管理#通过SSH访问服务器)，从而从主节点完成所有节点的配置（设置SSH服务的<code>PermitUserEnvironment</code>从而保证远程连接能够使用环境变量）。</p>
+</li>
+<li>
+<p>配置<a href="./scripts/core-site.xml"><code>etc/hadoop/core-site.xml</code></a>，<a href="./scripts/hdfs-site.xml"><code>etc/hadoop/hdfs-site.xml</code></a>，<a href="./scripts/mapred-site.xml"><code>etc/hadoop/mapred-site.xml</code></a>和<a href="./scripts/yarn-site.xml"><code>etc/hadoop/yarn-site.xml</code></a>（包括<a href="#Resource-Allocation-on-Yarn">Yarn的资源分配</a>）。</p>
+<blockquote>
+<p>如没有配置<code>hadoop.tmp.dir</code>参数，系统使用默认的临时目录：<code>/tmp/hadoo-hadoop</code>。而<a href="http://www.spring4all.com/article/18052">这个目录在每次重启后都会被删除</a>，必须重新执行format才行，否则会出错。</p>
+</blockquote>
+</li>
+<li>
+<p>创建文件读写目录。配置文件中设置的相关目录，需要运行<code>hadoop</code>的用户或其所属组具有写权限（使用<code>chmod</code>或<code>chown</code>修改相应权限）；否则应将相关目录设置到有权限的目录下。</p>
+<blockquote>
+<p><em>hadoop-master: ERROR: Cannot set priority of secondarynamenode process 3001</em>.</p>
+</blockquote>
+</li>
+<li>
+<p>编辑<code>etc/hadoop/workers</code>（Hadoop2.x为<code>slave</code>），配置工作节点（主机名）；</p>
+</li>
+<li>
+<p>配置内存分配规则（小内存节点需要）；</p>
+</li>
+<li>
+<p>将配置文件分发到各个节点：</p>
+<pre><code class="language-sh">for node in nodes; do
+	scp -r etc/hadoop/* $node:hadoop_home/etc/hadoop/;
+done
+</code></pre>
+<blockquote>
+<p>注意将配置文件的权限应该包括<code>scp</code>用户的可写权限。</p>
+</blockquote>
+</li>
+<li>
+<p>在NameNode节点上执行格式化HDFS文件系统</p>
+<blockquote>
+<p>完成格式化后显示<code>SHUTDOWN_MSG: Shutting down NameNode at hadoop-master/192.168.3.110</code>。输出日志中记载了文件系统的配置信息（包括磁盘路径）。</p>
+</blockquote>
+</li>
+<li>
+<p>在<code>NameNode</code>上启动HDFS：<code>start-dfs.sh</code>（停止：<code>stop-dfs.sh</code>）</p>
+</li>
+<li>
+<p>在作为<code>ResourceManager</code>上启动Yarn：<code>start-yarn.sh</code>（停止：<code>stop-yarn.sh</code>）</p>
+<blockquote>
+<p>在非<code>ResourceManager</code>的节点上（根据配置文件声明）启动Yarn会导致<code>ResourceManager</code>启动失败并触发<code>BindException</code>。因为启动脚本会监听域名/主机名对应的IP和端口，其并非当前主机的IP地址，所以导致上述异常。</p>
+</blockquote>
+</li>
+<li>
+<p>执行MapReduce任务。</p>
+</li>
+</ol>
+<blockquote>
+<p>https://hadoop.apache.org/docs/r3.3.0/hadoop-project-dist/hadoop-common/RackAwareness.html</p>
+</blockquote>
+<h5 id="网络拓扑"><a class="header" href="#网络拓扑">网络拓扑</a></h5>
+<p>Hadoop可根据集群的<a href="https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/RackAwareness.html">网络拓扑</a>优化数据读写。</p>
+<p>在<code>core-site.xml</code>中指定<a href="https://blog.csdn.net/amingo_ss/article/details/106014087">拓扑声明文件</a>：</p>
+<pre><code class="language-ini">net.topology.node.switch.mapping.impl=org.apache.hadoop.net.TableMapping
+net.topology.table.file.name=$FILEPATH/network.mapping
+</code></pre>
+<p>拓扑声明文件可手动编写或通过脚本生成：</p>
+<pre><code>172.28.76.111  /rack-001
+172.28.76.112  /rack-002
+172.28.76.113  /rack-003
+</code></pre>
+<h5 id="可能的问题"><a class="header" href="#可能的问题">可能的问题</a></h5>
+<ol>
+<li><code>pdsh</code>导致无法远程配置节点，卸载<code>pdsh</code>。</li>
+<li>DataNode的路径配置不正确，导致节点不能启动，检查<code>hdfs-site.xml</code>配置文件。</li>
+</ol>
+<h3 id="hadoop命令行"><a class="header" href="#hadoop命令行">Hadoop命令行</a></h3>
+<pre><code class="language-shell">shellcommand [SHELL_OPTIONS] [COMMAND] [GENERIC_OPTIONS] [COMMAND_OPTIONS]
+</code></pre>
+<p><code>shellcommand</code>：例如<code>hadoop, hdfs, yarn,...</code>，</p>
+<p><code>COMMAND</code>是子命令，</p>
+<p><code>GENERIC_OPTIONS</code>是多类命令通用的选项，</p>
+<ul>
+<li><code>-libjars xxx.jar,yyy.jar,...</code>：提交任务时在<code>CLASSPATH</code>中添加额外<code>jar</code>包。</li>
+</ul>
+<p><a href="https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/CommandsManual.html">Apache Hadoop 3.3.1 – Hadoop Commands Guide</a></p>
+<h4 id="hadoop命令"><a class="header" href="#hadoop命令">Hadoop命令</a></h4>
+<pre><code class="language-shell"> hadoop classpath [--glob | --jar &lt;path&gt; ]
+ hadoop jar &lt;jar&gt; [mainClass] args...  # 使用yarn jar启动YARN applications.
+</code></pre>
+<h4 id="hdfs命令"><a class="header" href="#hdfs命令">HDFS命令</a></h4>
+<p>HDFS命令用于管理HDFS数据。HDFS默认目录为<code>/user</code>。</p>
+<pre><code class="language-sh">hdfs dfs -cmd [options] args    # 等效命令：hadoop fs
+hdfs dfs -help/-usage [cmd ...] # 查看命令的帮助信息/使用语法
+</code></pre>
+<p>多数命令<code>cmd</code>与Linux命令相同，包括<code>ls</code>、<code>mkdir</code>、<code>rm</code>等。</p>
+<h5 id="文件系统信息"><a class="header" href="#文件系统信息">文件系统信息</a></h5>
+<pre><code class="language-shell">hdfs fsck PATH		          # 检查文件系统状态
+hdfs dfs -df -h [PATH ...]  # 查看指定路径所在文件系统的名称、容量、使用量、可用量、使用比例
+         -du -s -h PATH ... # 查看指定类路径下个目录的使用容量
+hdfs dfs -count -h PATH     # 统计指定路径下目录、文件数量和数据量
+</code></pre>
+<p>格式化输出文件/目录的统计信息，格式化字符串中可包含普通字符和<code>%</code>替换指令：</p>
+<pre><code class="language-shell">hdfs dfs -stat FORMAT PATH  # %n(name) %F(type) %u(user) %g(group) %b(filesize) %o(blocksize)   
+                            # %y(datetime) %Y(timestamp-ms) %r(replication)
+</code></pre>
+<p>设置文件的副本数量：</p>
+<pre><code class="language-shell">hadoop fs -setrep [-w] [-R] &lt;numReplicas&gt; &lt;path&gt;   # =&gt; hdfs dfs
+hadoop fs –setrep -w 3 hdfs:///some/path/spark-libs.jar
+</code></pre>
+<blockquote>
+<p><code>-w</code>：等待操作完成。<code>-R</code>选项用于向后兼容，如果找不到命令可添加该选项。</p>
+</blockquote>
+<h5 id="文件管理"><a class="header" href="#文件管理">文件管理</a></h5>
+<p>使用<code>get</code>命令导出数据到本地磁盘，使用<code>put</code>命令将本地磁盘的数据存入HDFS文件系统。</p>
+<pre><code class="language-shell">hdfs dfs -copyFromLocal|copyToLocal SRC DEST  # 本地系统与DHFS间文件复制 =&gt; -get/-put
+         -moveFromLocal/moveToLocal SRC DEST 
+         -appendToFile SRC ... DEST
+hdfs dfs -cp/-mv -f SRC DEST  # HDFS文件复制/移动
+hdfs dfs -ls -h -R PATH
+hdfs dfs -find PATH ... EXPRESSION ...  # =&gt; linux find
+hdfs dfs -rm -skipTrash FILE
+hdfs dfs -mkdir/-rmdir /user/gary/packages    # 创建/移除目录
+hdfs dfs -test -[defsrwz] PATH_URL  # 测试文件/目录信息(d:目录,e:存在,f:文件,s:非空,z:空文件) 
+hdfs dfs -touchz PATH               # 创建空文件
+</code></pre>
+<h5 id="权限管理"><a class="header" href="#权限管理">权限管理</a></h5>
+<pre><code class="language-shell">hdfs dfs -chgrp|chown|chmod -R ... PATH
+</code></pre>
+<h5 id="文件输入输出"><a class="header" href="#文件输入输出">文件输入输出</a></h5>
+<pre><code class="language-shell">hdfs dfs -cat SRC ..
+hdfs dfs -tail -f FILE  # Show the last 1KB of the file.
+hdfs dfs -truncate [-w] LENGTH PATH
+</code></pre>
+<h5 id="hdfs-url"><a class="header" href="#hdfs-url">HDFS URL</a></h5>
+<pre><code class="language-shell">hdfs:/hostname[:port]/path/file  # 使用域名或IP，端口可省略
+hdfs:///path/file    # 省略主机采用Hadoop集群配置
+/path/file           # 省略协议
+</code></pre>
+<blockquote>
+<p><strong>错误</strong>:<em>Operation category READ is not supported in state Standby</em>：集群使用了高可用配置，而HDFS地址指向了备份节点。<strong>解决方法</strong>：使用集群名称<code>HACluster</code>或省略主机名。</p>
+</blockquote>
+<blockquote>
+</blockquote>
+<p><a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html">Apache Hadoop 3.3.0 – HDFS Commands Guide</a></p>
+<ul>
+<li><a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html">Apache Hadoop 3.3.0 – File System Shell</a></li>
+</ul>
+<h4 id="提交mapreduce任务"><a class="header" href="#提交mapreduce任务">提交MapReduce任务</a></h4>
+<h4 id="yarn命令"><a class="header" href="#yarn命令">Yarn命令</a></h4>
+<p><a href="https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/YarnCommands.html#jar">Apache Hadoop 3.3.1 – YARN Commands</a></p>
+<h3 id="权限"><a class="header" href="#权限">权限</a></h3>
+<p>如果HDFS开启权限管控，则<a href="https://community.cloudera.com/t5/Support-Questions/Permission-denied-user-root-access-WRITE-inode-quot-user/td-p/4943">只有文件或目录授权的用户才能对相应目录进行操作</a>（主机的<code>root</code>用户如果不在<code>superuser</code>组中也也无法操作）。</p>
+<pre><code class="language-shell">sudo -u hdfs hadoop fs -mkdir /user/root  # /user目录的所有者为hdfs:superuser
+sudo -u hdfs hadoop fs -chown root /user/root
+</code></pre>
+<p>如果没有操作权限，则可能会出现以下错误：<em><code>Permission denied: user=root, access=WRITE, inode=&quot;/user&quot;:hdfs:supergroup:drwxr-xr-x</code></em>。</p>
+<h3 id="resource-allocation-on-yarn"><a class="header" href="#resource-allocation-on-yarn">Resource Allocation on Yarn</a></h3>
+<img src="分布式大数据处理.assets/hadoop-2-memory-allocation.jpg" alt="Schema of memory allocation properties" style="zoom:80%;" />
+<blockquote>
+<p><a href="https://www.linode.com/docs/databases/hadoop/how-to-install-and-set-up-hadoop-cluster/">How to Install and Set Up a 3-Node Hadoop Cluster</a></p>
+</blockquote>
+<h5 id="内存分配"><a class="header" href="#内存分配">内存分配</a></h5>
+<pre><code class="language-shell">yarn.scheduler.minimum-allocation-mb 256
+yarn.scheduler.maximum-allocation-mb 1024
+yarn.nodemanager.resource.memory-mb  2048
+</code></pre>
+<p>虚拟内存分配配置：</p>
+<pre><code class="language-xml">&lt;property&gt;
+   &lt;name&gt;yarn.nodemanager.vmem-pmem-ratio&lt;/name&gt;
+   &lt;value&gt;2.1&lt;/value&gt;   &lt;!--如果因为VMEM不足导致容器被终止，可适当将该值调大--&gt;
+&lt;/property&gt;
+&lt;property&gt;
+   &lt;name&gt;yarn.nodemanager.pmem-check-enabled&lt;/name&gt;
+   &lt;value&gt;false&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+   &lt;name&gt;yarn.nodemanager.vmem-check-enabled&lt;/name&gt;
+   &lt;value&gt;false&lt;/value&gt;
+&lt;/property&gt;
+</code></pre>
+<h5 id="fair-scheduler"><a class="header" href="#fair-scheduler">Fair Scheduler</a></h5>
+<p>为应用程序设置优先级（权重）；建立多个队列，并未每个队列设置优先级；系统<a href="./scripts/hadoop_fairshare.py">根据队列优先级按比例为各队列分配资源（同时考虑最小和最大资源约束）</a>。</p>
+<blockquote>
+<p>It can be configured to schedule with both memory and CPU, using the notion of Dominant Resource Fairness.</p>
+<p>队列中应用程序根据优先级按比例分配队列可用资源（只有1个应用时，该应用可占用所有资源）。</p>
+<p>每个队列可设置最大可运行的App数量。由于App按比例分配队列中的资源，当运行的App过多时，每个App可用的资源减少，新提交的App可能由于资源不足而挂起；已有App也可能因为抢占而被提前终止。</p>
+<p><a href="https://cloud.tencent.com/developer/article/1239472">yarn公平调度详细分析（一）</a>。</p>
+</blockquote>
+<h5 id="capacity-scheduler"><a class="header" href="#capacity-scheduler">Capacity Scheduler</a></h5>
+<p>The <a href="https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html"><code>CapacityScheduler</code></a> is designed to allow sharing a large cluster while giving each organization capacity guarantees.</p>
+<ul>
+<li><strong>Hierarchical Queues</strong></li>
+<li><strong>Capacity Guarantees</strong></li>
+<li><strong>Elasticity</strong> </li>
+<li><strong>Multi-tenancy</strong></li>
+<li><strong>Resource-based Scheduling</strong></li>
+<li><strong>Priority Scheduling</strong></li>
+</ul>
+<h4 id="using-gpu-on-yarn"><a class="header" href="#using-gpu-on-yarn">Using GPU on Yarn</a></h4>
+<p><a href="https://hadoop.apache.org/docs/r3.1.0/hadoop-yarn/hadoop-yarn-site/UsingGpus.html">Apache Hadoop 3.1.0 – Using GPU On YARN</a></p>
+<h2 id="分布式数据仓库hive"><a class="header" href="#分布式数据仓库hive">分布式数据仓库Hive</a></h2>
+<blockquote>
+<p>The Apache Hive ™ data warehouse software facilitates reading, writing, and managing large datasets residing in distributed storage using SQL. </p>
+</blockquote>
+<p>Hive提供类SQL查询语言<strong>HiveQL(Hive query Language)<strong>以读取数据，并在内部将HiveQL转换为</strong>MapReduce</strong>任务并在Hadoop集群上执行。</p>
+<h3 id="安装"><a class="header" href="#安装">安装</a></h3>
+<p>从镜像站点下载<code>apache-hive-3.1.2-bin.tar.gz</code>。</p>
+<blockquote>
+<p>Hive目前还不支持Java 11，Hive使用Hadoop指定的Java版本。</p>
+</blockquote>
+<h4 id="hive环境配置"><a class="header" href="#hive环境配置">Hive环境配置</a></h4>
+<pre><code class="language-shell">export HIVE_HOME=/usr/local/hive
+export PATH=${PATH}:${HIVE_HOME}/bin
+</code></pre>
+<p>Hive的数据存储于HDFS中，因此首先在HDFS中创建Hive数据存储路径（<code>hive.metastore.warehouse.dir</code>）并设置读写权限：</p>
+<pre><code class="language-sh">hdfs dfs -mkdir -p /tmp /user/hive/warehouse # 这是默认的数据仓库位置
+# drwxr-xr-x   - gary supergroup  0 2021-05-30 22:34 /hive/warehouse
+hdfs dfs -chmod g+w /tmp /user/hive/warehouse
+</code></pre>
+<p>Hive配置文件：<code>conf/hive-site.xml</code>（默认值<code>hive-site.xml.template</code>）。</p>
+<h4 id="初始化元数据库"><a class="header" href="#初始化元数据库">初始化元数据库</a></h4>
+<p>Hive应用在访问Hive数据前需要首先获取Hive的<a href="./Metastore.html">元数据库</a>（metastore）信息，因此需要配置对metastore的访问路径和方法等（具体配置参考相应的<a href="#%E5%B9%B6%E5%8F%91%E8%AE%BF%E9%97%AEHive">访问方式</a>）。</p>
+<pre><code class="language-shell">javax.jdo.option.ConnectionURL=jdbc:&lt;db_scheme&gt;
+javax.jdo.option.ConnectionDriverName=&lt;driver_name&gt;
+javax.jdo.option.ConnectionUserName=hiveuser
+javax.jdo.option.ConnectionPassword=hivepass
+</code></pre>
+<blockquote>
+<p><a href="https://stackoverflow.com/questions/29362166/how-to-get-database-username-and-password-in-hive">用户名（<code>ConnectionUserName</code>）和密码</a>用于初始化数据库，且不能改作其他名称，否则会产生错误：<code>Schema 'UNSERNAME' does not exist</code>。</p>
+</blockquote>
+<p>使用数据库前执行初始化，在执行初始化的位置生成<code>metastore_db</code>。根据元数据的存储方式设置<code>dbType</code>，默认存储在磁盘上使用<code>derby</code>。如果使用数据库，则选择相应的数据库类型，如<code>mysql</code>。初始化数据库前需要设置好配置文件，需要读取其中的访问方式以及用户凭据，==并且==在存储<a href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%98%E5%82%A8metastore">metastore的数据源</a>==设置hive访问权限==。</p>
+<pre><code class="language-sh">schematool -dbType &lt;db_type&gt; \ # 必须指定数据库类型e.g., derby, mysql
+           -initSchema         # 初始化metastore
+	        -upgradeSchema
+	        -validate           # 验证
+</code></pre>
+<p><strong>初始化错误</strong>：<em>NoSuchMethodError: .......Preconditions.checkArgument(......</em>。Hive与Hadoop中的Java包版本不兼容：<code>guava-xxx.jar</code>，使用Hadoop提供的包替换hive提供的包。</p>
+<pre><code class="language-sh"> hadoop/share/hadoop/common/lib/guava-27.0-jre.jar
+ hive/lib/guava-19.0.jar
+</code></pre>
+<blockquote>
+<p><a href="https://db.apache.org/derby/faq.html#schema_exist">Why do I get the error 'schema does not exist'?</a></p>
+<p><a href="https://cwiki.apache.org/confluence/display/Hive/AdminManual+Metastore+3.0+Administration">AdminManual Metastore 3.0 Administration</a></p>
+</blockquote>
+<h3 id="并发访问hive"><a class="header" href="#并发访问hive">并发访问Hive</a></h3>
+<p>要实现并发访问Hive，必须实现对元数据<code>metastore</code>的并发访问（Derby服务和数据库服务），或提供可并发的Hive数据读写服务（Hiveserver2、metastore服务）。Hive CLI、Beeline/Hiveserver2等应用利用内置Derby驱动、Derby服务或数据库服务读写metastore数据，提供查询Hive数据的应用和服务。metastore服务基于<code>metastore</code>数据提供Thrift接口（默认端口<code>tcp/9083</code>）以支持第三方应用分布式访问Hive数据。</p>
+<blockquote>
+<p>使用Derby网络服务或数据库服务读取metastore，从而允许多类客户端对metastore的并发访问。</p>
+</blockquote>
+<h4 id="metastore"><a class="header" href="#metastore">metastore</a></h4>
+<h5 id="本地metastore存储"><a class="header" href="#本地metastore存储">本地metastore存储</a></h5>
+<p>在未配置<code>ConnectionURL</code>的情况下，应用将尝试寻找是否存在<code>metastore</code>数据（默认当前工作目录下），并使用内置的derby driver访问本地<code>metastore</code>数据文件。其<code>metastore</code>的配置如下：</p>
+<pre><code class="language-shell">driver_name=org.apache.derby.jdbc.EmbeddedDriver
+db_scheme=derby:/local/path/metastore_db;create=true
+</code></pre>
+<blockquote>
+<p>嵌入模式下不支持使用URL作为数据库的源，<em>derby.jdbc.EmbeddedDriver claims to not accept jdbcUrl</em>。</p>
+<p><code>db_scheme</code>可额外指定一个参数<code>databaseName=metastore_db</code>，该参数将添加到路径后面。路径可为绝对或相对路径，如果留空，则表示读取该配置文件的程序的当前工作目录。</p>
+</blockquote>
+<p>该驱动方法将占用本地磁盘上的<code>metastore</code>文件，导致其他应用无法访问元数据（数据库文件目录下由<code>db.lck</code>和<code>dbex.lck</code>两个文件，防止其他客户端并发访问），从而无法并发访Hive数据。</p>
+<h5 id="通过derby服务访问metastore"><a class="header" href="#通过derby服务访问metastore">通过Derby服务访问metastore</a></h5>
+<p>为了支持并发访问数据库，可使用独立的Derby Network Server（<code>tcp/1527</code>，需要单独<a href="http://db.apache.org/derby/releases/release-10.14.2.0.cgi">下载</a>并首先<a href="https://cwiki.apache.org/confluence/display/Hive/HiveDerbyServerMode">启用该服务</a>）。在该模式下，Derby服务也将占用<code>metastore_db</code>，但Derby网络服务可支持并发连接。通过配置URL使用该服务，访问Hive的程序与Derby服务可以位于不同主机上。</p>
+<pre><code class="language-shell">driver_name=org.apache.derby.jdbc.ClientDriver
+db_scheme=derby://hadoop-master:1527//.../metastore_db;create=true
+</code></pre>
+<blockquote>
+<p>路径中在“<code>protocol://domain:port</code>”后使用<code>//</code>表示绝对路径。</p>
+</blockquote>
+<h5 id="数据库存储metastore"><a class="header" href="#数据库存储metastore">数据库存储metastore</a></h5>
+<p>由于数据库提供服务支持并发访问，因此也可以使用数据库（如<code>mysql-server 8.0</code>、<code>postgresql 12.6</code>等）来存储metastore数据。</p>
+<pre><code class="language-shell">driver_name=com.mysql.cj.jdbc.Driver
+db_scheme=jdbc:mysql://hadoop-namenode:3306/hive?createDatabaseIfNotExist=true
+</code></pre>
+<blockquote>
+<p>如果使用数据库，则需要相应的数据库驱动包（例如MySQL需要在官网下载<code>MySQL Connector/J</code> 安装包，驱动包安装在<code>/usr/share/java/mysql-connector-java-8.0.25.jar</code>）。</p>
+</blockquote>
+<p>需要在数据库中首先创建账户并配置访问权限。</p>
+<pre><code class="language-mysql">CREATE USER hiveuser@'%' IDENTIFIED BY 'PassWord';
+GRANT ALL ON hive_metastore.* TO hiveuser@'%';
+</code></pre>
+<h5 id="metastore-thrift服务"><a class="header" href="#metastore-thrift服务">Metastore Thrift服务</a></h5>
+<pre><code class="language-shell">hive --service metastore  &gt; /tmp/metastore.log 2&gt;&amp;1 &amp;
+</code></pre>
+<p>此时需要访问Hive的应用（应用所在目录的hive配置）无需配置<code>ConnectionURL</code>和<code>ConnectionDriverName</code>，而是配置<code>hive.metastore.uris</code>。</p>
+<pre><code class="language-shell">hive.metastore.uris=thrift://hadoop-namenode:9083
+</code></pre>
+<blockquote>
+<p>运行metastore服务的节点上<code>hive-site.xml</code>需配置<code>jdbc</code>的方式以使该服务访问<code>metastore</code>数据。需要访问Thrift服务的其他应用程序（同一节点或远程节点）应在自身的<code>hive-site.xml</code>文件（设置<code>HIVE_CONF_DIR</code>指定配置文件所在目录）中设置<code>hive.metastore.uris</code>。</p>
+</blockquote>
+<h4 id="数据访问"><a class="header" href="#数据访问">数据访问</a></h4>
+<h5 id="从命令行访问hive"><a class="header" href="#从命令行访问hive">从命令行访问Hive</a></h5>
+<p>Hive提供Hive CLI（已弃用）和Beeline/Hiveserver2访问Hive数据，提供HQL数据查询功能。</p>
+<pre><code class="language-sh">hive --silent		# --verbose for information
+</code></pre>
+<h6 id="beeline-hiveserver2-cli-"><a class="header" href="#beeline-hiveserver2-cli-">Beeline (Hiveserver2 CLI )</a></h6>
+<p>Beeline/Hiveserver2将数据查询的前后端分离，Hiveserver2作为服务在后台运行，提供访问Hive数据的<code>jdbc</code>接口（<code>jdbc:hive2://hadoop-master:10000</code>），因此支持多个Beeline客户端（或其他应用）接入服务，并由Hiveserver2统一调度Hive数据查询。除直接访问metastore数据的方式外，Hiveserver2也支持[读取Thrift接口访问metastore](#metastore service)。</p>
+<blockquote>
+<p>使用<code>org.apache.hive.jdbc.HiveDriver</code>访问Hiveserver2的接口。</p>
+<h6 id="启动hiveserver2服务"><a class="header" href="#启动hiveserver2服务">启动Hiveserver2服务</a></h6>
+<pre><code class="language-sh">hiveserver2 &gt; /tmp/hive/hiveserver2.log 2&gt;&amp;1 &amp;
+</code></pre>
+<p>Hiveserver2的接口包括<code>binary</code>（默认，使用10000端口）和<code>http</code>（使用10001端口）两种模式。如果使用<code>http</code>模式，则<a href="https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-ConnectionURLWhenHiveServer2IsRunninginHTTPMode">接口格式</a>为：</p>
+<pre><code class="language-shell">jdbc:hive2://hadoop-master:10001/;transportMode=http;httpPath=cliservice
+</code></pre>
+<p>URL需要以<code>/;</code>结尾以与后面的参数分隔。<code>http</code>模式的配置项：</p>
+<pre><code class="language-xml">hive.server2.transport.mode=http
+hive.server2.thrift.http.port=10001
+</code></pre>
+</blockquote>
+<p>默认不需要提供用户名和密码，<a href="https://stackoverflow.com/questions/43180305/cannot-connect-to-hive-using-beeline-user-root-cannot-impersonate-anonymous">以匿名用户登录</a>（<code>user=anonymous</code>），不具有对HDFS的写入权限。指定用户名<a href="#Hive%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E9%97%AE%E9%A2%98">登录</a>：注意此处的用户名应该是能够写HDFS中<a href="#Hive%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE">Hive数据仓库</a>的<a href="#Hive%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E9%97%AE%E9%A2%98">用户</a>，而非Hive配置文件中的用户。</p>
+<pre><code class="language-sh">beeline -u jdbc:hive2://localhost:10000/default -n gary
+#&gt; beeline
+#beeline&gt; !connect jdbc:hive2://localhost:10000/default
+</code></pre>
+<blockquote>
+<p><em>AccessControlException Permission denied: user=hiveuser, access=WRITE, inode=&quot;/user/hive/warehouse&quot;:gary:supergroup:drwxrwxr-x</em>。</p>
+</blockquote>
+<p>退出Beeline：</p>
+<pre><code class="language-sh">#0: jdbc:hive2://hadoop-master:10000&gt;!q  # exit CLI =&gt; !quit
+</code></pre>
+<h3 id="读写数据"><a class="header" href="#读写数据">读写数据</a></h3>
+<p>在命令行中，可通过<a href="../%E6%95%B0%E6%8D%AE%E5%BA%93/HiveSQL.html#Hive-SQL">SQL语句</a>执行数据库/表格的创建以及数据读写；</p>
+<h3 id="问题诊断"><a class="header" href="#问题诊断">问题诊断</a></h3>
+<p>查看<code>/tmp/&lt;user&gt;/hive.log</code>查看完整日志，启动服务时设置以下选项输出更多调试信息。</p>
+<pre><code class="language-shell">--hiveconf hive.root.logger=DEBUG,console
+</code></pre>
+<h6 id="hive-cli无法初始化会话"><a class="header" href="#hive-cli无法初始化会话">Hive CLI无法初始化会话</a></h6>
+<pre><code class="language-sh">FAILED: HiveException java.lang.RuntimeException: Unable to instantiate org.apache.hadoop.hive.ql.metadata.SessionHiveMetaStoreClient
+</code></pre>
+<h6 id="hiveserver2未监听10000端口但未产生错误提示"><a class="header" href="#hiveserver2未监听10000端口但未产生错误提示">Hiveserver2未监听10000端口，但未产生错误提示</a></h6>
+<p><a href="https://stackoverflow.com/questions/54196915/hiveserver2-not-listening-on-port-10000-and-10001/60670556#60670556">metastore版本</a>问题：上述两个问题可能是由于<code>metastore</code>的版本检查出错。可以通过配置<code>hive-site.xml</code>禁用版本检查（<code>hive.metastore.schema.verification=false</code>），或修改<code>metastore_db</code><a href="https://blog.csdn.net/qq_27882063/article/details/79886935">数据库中的版本信息</a>。不推荐上述修改方式，忽略版本兼容性或修改版本信息可能导致无法正确读取数据，<a href="#%E8%AE%BF%E9%97%AE%E9%9D%9E%E9%BB%98%E8%AE%A4%E7%89%88%E6%9C%ACHive">应该使对应版本的库读取数据</a>。</p>
+<p>上述问题也有可能是由于接管<code>metastore</code>的服务异常退出，导致<a href="https://stackoverflow.com/questions/22711364/java-lang-runtimeexceptionunable-to-instantiate-org-apache-hadoop-hive-metastor"><code>metastore_db/*.lck</code>未被删除</a>（直接访问metastore数据的配置下），从而无法再次启用相应的服务。Hiveserver2会不断尝试连接服务，并不会给出错误提示，需要==查看日志==。</p>
+<h6 id="hive用户登录问题"><a class="header" href="#hive用户登录问题">Hive用户登录问题</a></h6>
+<p><a href="https://stackoverflow.com/questions/36909002/authorizationexception-user-not-allowed-to-impersonate-user">User not allowed to impersonate User</a>：设置hive查询用户</p>
+<pre><code class="language-xml">&lt;property&gt; &lt;!--hive-site.xml--&gt;
+  &lt;!--true: 使用提交查询的用户(beeline登录用户)；
+  ----false: 使用hiveserver2进程所属用户  --&gt;
+  &lt;name&gt;hive.server2.enable.doAs&lt;/name&gt;
+  &lt;value&gt;true&lt;/value&gt;
+&lt;/property&gt;
+</code></pre>
+<p>Hive以上述两种用户身份登录，还需要设置Hadoop的<a href="./scripts/core-site.xml">代理用户</a>（<a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/Superusers.html"><em>Proxy user - Superusers Acting On Behalf Of Other Users</em></a>）。</p>
+<h6 id="没有读写权限"><a class="header" href="#没有读写权限">没有读写权限</a></h6>
+<blockquote>
+<p><em>Permission denied: user=anonymous, access=WRITE, inode=&quot;/user/hive/warehouse&quot;:gary:supergroup:drwxrwxr-x</em></p>
+</blockquote>
+<p>连接hive时需要<a href="#%E4%BB%8E%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%AE%BF%E9%97%AEHive">指定用户名</a>，否则以匿名用户登录，没有写入权限。</p>
+<h5 id="参考文献"><a class="header" href="#参考文献">参考文献</a></h5>
+<ol>
+<li><a href="https://cwiki.apache.org/confluence/display/Hive/GettingStarted">Hive Getting Started Guide</a></li>
+<li><a href="https://cwiki.apache.org/confluence/display/Hive/Setting+Up+HiveServer2">AdminManual SettingUpHiveServer</a></li>
+<li><a href="https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients">HiveServer2 Clients</a></li>
+</ol>
+<h2 id="hbase"><a class="header" href="#hbase">HBase</a></h2>
+<blockquote>
+<p>Java版本：JDK8。</p>
+</blockquote>
+<pre><code class="language-shell">vi hbase-env.sh
+export JAVA_HOME=/usr/jdk64/jdk1.8.0_112
+</code></pre>
+<h3 id="安装部署"><a class="header" href="#安装部署">安装部署</a></h3>
+<h4 id="测试"><a class="header" href="#测试">测试</a></h4>
+<h5 id="单机运行"><a class="header" href="#单机运行">单机运行</a></h5>
+<h5 id="伪分布式运行"><a class="header" href="#伪分布式运行">伪分布式运行</a></h5>
+<h4 id="分布式部署"><a class="header" href="#分布式部署">分布式部署</a></h4>
+<p><a href="https://hbase.apache.org/book.html#quickstart">Apache HBase ™ Reference Guide</a></p>
+<p><a href="https://hbase.apache.org/book.html#zookeeper">Apache HBase ™ Reference Guide -- ZooKeeper</a></p>
+<h2 id="spark"><a class="header" href="#spark">Spark</a></h2>
+<blockquote>
+<p><strong>Apache Spark™</strong> is a unified analytics engine for large-scale data processing.</p>
+</blockquote>
+<img src="分布式大数据处理.assets/spark-stack.png" alt="img" style="zoom:45%;" />
+<h3 id="框架概览"><a class="header" href="#框架概览">框架概览</a></h3>
+<p>Spark程序是运行在一个集群上的<strong>相互独立的程序集</strong>（<em>independent sets of processes</em>），由用户主程序（<em>driver program</em>）中的<code>SparkContext</code> 对象进行协调。<code>SparkContext</code>可以连接至多种集群管理器（<em>cluster managers</em>），例如Spark的独立集群管理器、Apache Mesos、<a href="https://zhuanlan.zhihu.com/p/54192454">Hadoop YARN</a>以及Kubernetes。建立连接后，Spark与集群节点上的执行器（<em>executors</em>）进行通信。</p>
+<img src="分布式大数据处理.assets/spark-cluster-overview.png" alt="Spark cluster components" style="zoom:80%;" />
+<blockquote>
+<p>集群管理器负责应用程序间的资源分配。</p>
+<p>执行器（Executor）是运行执行运算并储存结果的进程，每个应用程序有独立的执行器进程，并以多线程的方式运行计算任务（<em>Tasks</em>）。</p>
+</blockquote>
+<p>然后集群管理器将应用程序代码（传递给<code>SparkContext</code>的JAR或Python文件）发送给执行器。最后<code>SparkContext </code>将计算任务发送给执行器从而运行计算。</p>
+<h5 id="应用部署模式"><a class="header" href="#应用部署模式">应用部署模式</a></h5>
+<p><code>cluster</code>模式：driver程序在集群分配的主节点（如Hadoop集群的[ApplicationMaster](#Hadoop Framework)）中运行，客户端完应用提交后即退出。适用于提交位置与工作节点距离较远（当前独立模式不支持cluster模式下的Python应用提交）。</p>
+<p><code>client</code>模式：提交的应用（driver程序）在客户端上运行，集群上的主节点仅用于向集群请求资源。适用于提交应用位置与工作节点接近（例如在同一网络中，<code>shell</code>属于client模式）。</p>
+<h4 id="模块"><a class="header" href="#模块">模块</a></h4>
+<h3 id="安装-1"><a class="header" href="#安装-1">安装</a></h3>
+<p>选择稳定版的<a href="https://mirrors.tuna.tsinghua.edu.cn/apache/spark/spark-3.1.1/spark-3.1.1-bin-hadoop3.2.tgz">下载链接</a>，下载至本地并解压。Spark需要Java语言运行时。</p>
+<blockquote>
+<p><a href="https://spark.apache.org/releases/spark-release-3-0-0.html">Spark 3.0</a>已支持Java 11。</p>
+<p>在Windows上运行Spark需要添加<a href="https://github.com/cdarlint/winutils">Hadoop工具包</a>模拟Hadoop集群，并配置环境变量。</p>
+<pre><code class="language-powershell">$env:HADOOP_HOME=$WIN_UTILS_HOME/hadoop-VER
+</code></pre>
+<p>在Windows上运行Spark任务时，在任务结束后会出现异常<code>Exception while deleting Spark temp dir...</code>。这是由于Windows不允许删除正在被使用的文件。因此，只能在Spark程序推出后再进行清理。</p>
+</blockquote>
+<h4 id="pyspark安装配置"><a class="header" href="#pyspark安装配置">==PySpark安装配置==</a></h4>
+<p>如果需要通过Python运行Spark程序，需要使用PySpark库。Spark发行版本自带Python库（模块位于<code>$SPARK_HOME/python</code>、命令行工具<code>pyspark</code>位于<code>$SPARK_HOME/bin</code>）。如果仅需要Python环境，可不安装Spark发行包，而是从Python源安装PySpark库（同样包括上述内容，并安装Java模块运行所需的<code>jar</code>包），并单独<a href="#%E9%85%8D%E7%BD%AESpark%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83">指定Spark配置目录</a>等相关环境变量。</p>
+<blockquote>
+<p>如果是通过Python环境启动Spark，需要提前配置<code>SPARK_HOME</code>环境变量，否则启动脚本以其所在位置（Python环境的<code>Scripts</code>或<code>bin</code>目录）为<code>SPARK_HOME</code>，从而找不到Spark的库。</p>
+<pre><code class="language-shell">export SPARK_HOME=$PYTHON_HOME/lib/python3.10/site-packages/pyspark
+</code></pre>
+<pre><code class="language-powershell">$env:SPARK_HOME=$PYTHON_HOME/lib/python3.10/site-packages/pyspark
+</code></pre>
+</blockquote>
+<p>运行Spark集群的所有节点都需要安装Python环境（<a href="#%E9%85%8D%E7%BD%AESpark%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83">客户端通过配置</a><code>spark.pyspark.python</code>或<code>PYSPARK_PYTHON</code>指定使用的Python环境路径），根据节点是否安装Spark发行包决定是采用Spark内置Pyspark发行包或在Python环境中安装PySpark。</p>
+<pre><code class="language-shell">export PYSPARK_PYTHON=/usr/local/miniconda3/envs/dataproc/python
+export PYSPARK_DRIVER_PYTHON=/opt/apps/miniconda3/envs/process/bin/python
+</code></pre>
+<blockquote>
+<p>问题：<em><code>Exception: Python in worker has different version 2.7 than that in driver 3.7, PySpark cannot run with different minor versions.Please check environment variables PYSPARK_PYTHON and PYSPARK_DRIVER_PYTHON are correctly set.</code></em>。客户端程序和集群需要使用相同的Python版本。</p>
+</blockquote>
+<p>如果要使用Spark发行包自带的PySpark库，则在Python搜索路径中添加库文件所在路径：</p>
+<pre><code class="language-shell">export PYTHONPATH=&quot;${SPARK_HOME}/python/:$PYTHONPATH&quot;
+export PYTHONPATH=&quot;${SPARK_HOME}/python/lib/py4j-0.10.6-src.zip:$PYTHONPATH&quot;
+</code></pre>
+<blockquote>
+<p>问题：<em><code>java.util.NoSuchElementException: key not found: _PYSPARK_DRIVER_CALLBACK_HOST</code></em>，<a href="https://stackoverflow.com/a/50988318/6571140">安装的<code>py4j</code>版本和Spark支持的版本不一致</a>。创建Python环境时，需要使用与Spark分发版内置Python库相同的版本，通过设置<code>PYTHONPATH</code>指定（参考<code>bin/pyspark</code>脚本）。</p>
+<pre><code class="language-shell"># Name         Version        Build           Channel
+py4j           0.10.9         pyh9f0ad1d_0    conda-forge
+pyspark        3.1.2          pyh6c4a22f_0    conda-forge
+</code></pre>
+</blockquote>
+<h4 id="单机测试"><a class="header" href="#单机测试">单机测试</a></h4>
+<p><strong>测试Java/Scala环境</strong>：</p>
+<pre><code class="language-sh">./bin/run-example SparkPi 10
+</code></pre>
+<blockquote>
+<p><a href="#Spark-on-Yarn">未识别Hadoop的安装目录</a>，因此上述计算直接采用内置的java模块执行计算：<em>NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</em>。</p>
+</blockquote>
+<p><strong>测试PySpark环境</strong>：</p>
+<pre><code class="language-sh">./bin/spark-submit examples/src/main/python/pi.py 10
+</code></pre>
+<h4 id="配置spark运行环境"><a class="header" href="#配置spark运行环境">配置Spark运行环境</a></h4>
+<p>配置系统环境变量，以方便调用Spark命令。</p>
+<pre><code class="language-shell">export SPARK_HOME=/home/gary/apps/spark
+export PATH=$PATH:${SPARK_HOME}/bin
+export SPARK_CONF_DIR=${SPARK_HOME}/conf  # conf/spark-env.sh中的默认值
+</code></pre>
+<p>Spark的运行参数配置主要包括三个部分：</p>
+<ul>
+<li>
+<p>Spark属性：用于运行Spark应用程序的参数（<code>conf/spark-default.conf</code>）；</p>
+</li>
+<li>
+<p>Spark环境变量：继承系统环境变量，主要设置Spark集群相关环境变量（<code>conf/spark-env.sh</code>），在提交任务前加载；</p>
+<blockquote>
+<p>Spark on YARN in <code>cluster</code> mode: environment variables need to be set using the <code>spark.yarn.appMasterEnv.[EnvironmentVariableName]</code> property. Environment variables that are set in <code>spark-env.sh</code> will not be reflected in the YARN Application Master process in <code>cluster</code> mode. </p>
+</blockquote>
+</li>
+<li>
+<p><code>conf/log4j.properties</code>：控制日志。</p>
+<pre><code class="language-shell">log4j.rootCategory=WARN, console               # 后台日志 WARN ==&gt; INFO
+log4j.logger.org.apache.spark.repl.Main=WARN   # spark shell 日志级别
+</code></pre>
+<p>还可指定其他文件作为任务运行时的日志配置文件：</p>
+<pre><code class="language-shell">spark-submit --conf &quot;spark.driver.extraJavaOptions=-Dlog4j.configuration=file:log4j.properties&quot;
+</code></pre>
+</li>
+</ul>
+<p><strong>Spark属性</strong>：可通过配置文件、<a href="#%E6%8F%90%E4%BA%A4%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F">命令行参数</a>、<a href="#%E7%BC%96%E5%86%99%E5%BC%95%E7%94%A8%E7%A8%8B%E5%BA%8F">程序</a>中通过<code>SparkConf</code>设置。在提交应用程序时，后者具有更高优先级。</p>
+<blockquote>
+<p>在Client模式下，关于Client资源分配的属性无法通过程序设置，例如“<code>spark.driver.memory</code>”。这些属性在Client启动时已经确定，无法动态更改，因此需要由配置文件或命令行参数提供。</p>
+<p><code>--conf spark.prop=value</code>：从命令行参数设置配置文件中的配置项；
+<code>--properties-file</code>：指定配置文件（默认为<code>conf/spark-default.conf</code>）；</p>
+</blockquote>
+<h5 id="任务执行模式"><a class="header" href="#任务执行模式">任务执行模式</a></h5>
+<p><code>spark.master</code>(<code>--master</code>)：集群地址；</p>
+<p><code>spark.submit.deployMode</code>（<code>--deploy-mode</code>）：<a href="#%E8%BF%90%E8%A1%8CSpark%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F">任务提交</a>模式<code>cluster</code>或<code>client</code>；</p>
+<h5 id="执行器环境变量"><a class="header" href="#执行器环境变量">执行器环境变量</a></h5>
+<p><code>spark.executorEnv.[EnvironmentVariableName]</code>：当系统自动设置的环境变量不正确时，可设置此类环境变量。</p>
+<blockquote>
+<p><code>spark.executorEnv.PYTHONPATH</code>：执行节点的Python<a href="../Python/Python%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80.html#%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83">附加库搜索路径</a>。</p>
+</blockquote>
+<h5 id="spark任务路径和文件"><a class="header" href="#spark任务路径和文件">Spark任务路径和文件</a></h5>
+<p><code>spark.{driver|executor}.extraClassPath</code> (<code>--driver-class-path</code>，执行器无对应选项)：<em>Extra <a href="../Java/JAVA%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80.html#%E6%90%9C%E7%B4%A2%E5%A4%96%E9%83%A8%E7%B1%BB%EF%BC%88CLASSPATH%EF%BC%89">classpath</a> entries to ==prepend== to the classpath of the driver.</em>
+<code>spark.jars</code>（<code>--jars</code>）：从给定源读取并复制到每个<code>SparkContext</code>的工作目录下（Yarn模式支持自动清理，独立模式可配置<code>spark.worker.cleanup.appDataTtl</code>清理），文件的URL格式（==使用逗号分隔多个文件==，不支持路径展开，<strong>重复提供该选项不会叠加而是覆盖</strong>）：</p>
+<ul>
+<li>
+<p><code>file:/path/to/file</code>：集群节点从主程序（driver）内置的<strong>HTTP</strong>文件服务拉去拉取文件（即Driver所在节点的文件，==绝对路径标识==）；</p>
+<blockquote>
+<p><code>file://path/to/file</code>不是合法的路径标识，应该为<code>file:/</code>或<code>file:///</code>。</p>
+</blockquote>
+</li>
+<li>
+<p><code>{hdfs|http|https|ftp}://server:port/path</code>：集群节点从相应的URI获取文件（如果在<em>Spark-on-Yarn</em>模式下，HDFS可省略<code>server:port</code>，使用部署配置中的HDFS集群）；</p>
+</li>
+<li>
+<p><code>local:/path</code>：集群工作节点上的文件（存在于每个集群节点）。</p>
+<blockquote>
+<p><a href="https://spark.apache.org/docs/latest/submitting-applications.html#advanced-dependency-management">Advanced Dependency Management - Spark uses the following URL scheme to allow different strategies for disseminating jars</a>.</p>
+</blockquote>
+</li>
+</ul>
+<p><code>spark.jars.packages</code>（<code>--packages</code>）：driver和executor需要使用的位于Maven仓库的<code>jar</code>包（逗号分隔列表），包名的格式为<code>groupId:artifactId:version</code>（可从中央仓库查找）。</p>
+<p><code>spark.pyspark.python</code>：driver和executor使用的Python解释器（<code>PYSPARK_PYTHON</code>）。
+<code>spark.pyspark.driver.python</code>：Driver单独使用的Python解释器（<code>PYSPARK_DRIVER_PYTHON</code>）。
+<code>spark.submit.pyFiles</code> (<code>--py-files</code>)：上传<code>.zip</code>, <code>.egg</code>, or <code>.py</code> 并添加到<code>PYTHONPATH</code>。</p>
+<p><code>spark.files</code> (<code>--files</code>)：<em>list of files to be placed in the working directory of each executor.</em>
+<code>spark.archives</code> (<code>--archives</code>)：将指定文件解压到每个执行器<code>SparkContext</code>工作目录下，支持格式包括<code>.jar</code>, <code>.tar.gz</code>, <code>.tgz</code> 和 <code>.zip</code>（使用<code>file.zip#directory</code> [<code>3.1.0</code>]指定档释放后存放的目录）。</p>
+<p><code>spark.{driver|executor|yarn.am}.extraLibraryPath</code>：JVM加载的附加库目录，指定为执行节点上的本地路径（如<code>hadoop/lib/native</code>），<code>--driver-library-path</code>为驱动程序等效的命令行选项（执行器无对应选项）；</p>
+<h5 id="网络配置"><a class="header" href="#网络配置">网络配置</a></h5>
+<p><code>spark.driver.bindAddress</code>：<em>Hostname or IP address where to bind listening sockets.</em> (<code>SPARK_LOCAL_IP</code>)
+<code>spark.driver.host</code>：<em>Hostname or IP address for the driver. This is used for communicating with the executors and ==the standalone Master==.</em></p>
+<h5 id="应用配置"><a class="header" href="#应用配置">应用配置</a></h5>
+<p><code>spark.app.name=none</code> (<code>--name</code>)
+<code>spark.driver.maxResultSize=1g</code>：序列化结果的大小限制（0为无限制），受限于<code>spark.driver.memory</code>，同时需要考虑对象的内存占用量。
+<code>spark.driver.supervise</code>：<em>If true, restarts the driver automatically if it fails with a non-zero exit status on Spark standalone mode or Mesos cluster deploy mode.</em>
+<code>spark.python.worker.reuse</code>：<em>use a fixed number of Python workers, does not need to fork() a Python process for every task.</em> 
+<code>spark.local.dir</code>：<em>including map output files and RDDs that get stored on disk. on a fast, local disk in your system.</em> 
+<code>spark.driver.resource.{resourceName}.xxx</code>
+<code>spark.executor.resource.{resourceName}.xxx</code></p>
+<p>https://mapr.com/blog/resource-allocation-configuration-spark-yarn/</p>
+<p>Spark SQL：</p>
+<p>Spark Streaming：</p>
+<p><a href="https://spark.apache.org/docs/latest/configuration.html">Configuration - Spark 3.1.2 Documentation (apache.org)</a></p>
+<ul>
+<li><a href="https://spark.apache.org/docs/2.3.0/configuration.html#environment-variables">Environment Variables - Configuration - Spark 2.3.0 Documentation (apache.org)</a></li>
+</ul>
+<h3 id="集群部署"><a class="header" href="#集群部署">集群部署</a></h3>
+<p>Spark支持的部署模式及其主节点地址。</p>
+<div class="table-wrapper"><table><thead><tr><th>Master URL</th><th>说明</th></tr></thead><tbody>
+<tr><td><code>local[K]</code></td><td>本地使用<em>k</em>个工作线程运行spark，<code>local</code>等效于<code>local[1]</code>；<br/><code>local[*]</code>使用与机器逻辑处理相同数量的工作线程。</td></tr>
+<tr><td><code>spark://HOST:PORT</code></td><td>连接至<a href="https://spark.apache.org/docs/latest/spark-standalone.html">spark独立集群</a>主节点（默认端口为7077）。</td></tr>
+<tr><td><code>mesos://HOST:PORT</code></td><td></td></tr>
+<tr><td><code>yarn</code></td><td>主节点（Resource Manger）地址在<code>yarn-site.xml</code>中给出。</td></tr>
+<tr><td><code>k8s://HOST:PORT</code></td><td>连接至Kubernetes集群。</td></tr>
+</tbody></table>
+</div>
+<p>默认主节点在<code>spark-default.conf</code><a href="#Spark%E5%B1%9E%E6%80%A7">文件</a>中给出。</p>
+<pre><code class="language-sh">spark.master yarn
+</code></pre>
+<h4 id="spark-on-yarn"><a class="header" href="#spark-on-yarn">Spark on Yarn</a></h4>
+<h5 id="配置运行环境"><a class="header" href="#配置运行环境">配置运行环境</a></h5>
+<p>在hadoop yarn集群上运行Spark需要读取集群的配置文件，包括<code>core-site.xml</code>，<code>hdfs-site.xml</code>，<code>yarn-site.xml</code>和<code>hive-site.xml</code>等，因此需要在<code>conf/spark-env.sh</code>中配置这些配置文件的所在目录。</p>
+<pre><code class="language-shell">export HADOOP_CONF_DIR=${HADOOP_HOME}/etc/hadoop
+export YARN_CONF_DIR=${HADOOP_HOME}/etc/hadoop
+</code></pre>
+<p>通过<code>conf/spark-env.sh</code>配置运行应用实例的默认参数，这些参数也可以通过<code>conf/spark-default.conf</code>来设定。</p>
+<blockquote>
+<p><em>Spark context stopped while waiting for backend</em>：<em>可能是<a href="#Resource-Allocation-on-Yarn">虚拟内存分配</a>问题</em>。</p>
+</blockquote>
+<p>在没有设置<code>spark.yarn.jars</code>和<code>spark.yarn.archive</code>时，提交Spark应用时将给出提示并将从本地<code>spark/jars</code>目录搜索应用依赖的jar包并打包上传至yarn集群上的应用工作目录。为了避免应用多次运行造成重复上传，可以将上述目录中的所有文件<a href="#HDFS%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C">上传至HDFS</a>上，并通过<code>spark.yarn.jars</code>引用。此外，<code>spark.yarn.archive</code>设置时将覆盖<code>spark.yarn.jars</code>的设置，所有<code>jar</code>包应该在档案文件的根目录。</p>
+<pre><code class="language-shell"># spark-default.conf
+spark.yarn.jars    hdfs:///share/jars/spark/*.jar
+spark.yarn.archive hdfs:///share/jars/spark-libs.jar
+</code></pre>
+<p><code>spark.yarn.jars</code>接受的参数格式与<a href="#Spark%E4%BB%BB%E5%8A%A1%E8%B7%AF%E5%BE%84%E5%92%8C%E6%96%87%E4%BB%B6"><code>spark.jars</code>要求格式</a>相同，并支持路径展开（参考CDH配置）。</p>
+<blockquote>
+<p>HDFS：可手动设置依赖包<a href="#%E8%AE%BE%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84%E5%89%AF%E6%9C%AC%E6%95%B0%E9%87%8F">副本数量设置</a>为与HDFS数据节点数相同，保证Spark任务无需从其他节点读取依赖包数据。设置该选项后，必须保证HDFS的相应路径下有运行Spark程序所需的包，否则程序无法启动。</p>
+<p><code>spark.yarn.jars</code>不会应用到client部署模式下的客户端。因此，如果客户端有特殊需求的包（如数据库驱动<code>mysql-connector.jar</code>）可以放在客户端侧，或者通过<code>spark.jars</code>选项分发给客户端。</p>
+<p><em>设置<code>spark.yarn.jars</code>后，该选项的值在配置中可能显示为空字符串，但实际已传递给集群（可查看Yarn应用的日志看到应用的依赖库已经链接到HDFS上的文件。</em></p>
+</blockquote>
+<h4 id="问题"><a class="header" href="#问题">问题</a></h4>
+<p><strong>1. 远程启动Spark-Shell后出现超时或以客户端模式提交任务后无法执行。</strong></p>
+<p>可能出现的错误信息：</p>
+<pre><code>YarnScheduler: Initial job has not accepted any resources
+RpcTimeoutException: Cannot receive any reply from HOSTNAME:PORT in 120 seconds.
+RpcTimeoutException: Futures timed out after [120 seconds]
+</code></pre>
+<p>出现此错误是由于集群向客户端请求建立连接未完成。集群端正常情况下应该有以下日志：</p>
+<pre><code class="language-sh">:Registering the ApplicationMaster
+:Successfully created connection to CLIENTHOST/IP_ADDRESS:PORT after xx ms
+</code></pre>
+<p>在提交计算任务后，客户端会选择空闲端口（可配置）启动名为<code>NettyBlockTransferService</code>的服务（可通过客户端日志查看并通过<code>telnet</code>或<code>netstat</code>查看相应的IP地址和端口是否启动监听），当Spark集群为计算任务分配好资源后（<code>AM Container</code>和<code>Executor</code>），会向客户端的该服务发送确认信息。造成服务器与客户端连接不成功的原因可能是：</p>
+<ol>
+<li>
+<p>客户端有多个网络接口（IP地址），而上述服务仅监听了其中一个地址。Spark使用的域名映射地址与监听地址不一致，故无法建立通信。因此修改Spark配置文件：</p>
+<pre><code class="language-sh">spark.driver.bindAddress   192.168.137.1 	# 防止绑定到loopback地址
+spark.driver.host          ws-gary        # 指定域名或主机名
+spark.driver.port          (random)
+</code></pre>
+</li>
+<li>
+<p>如果将<code>spark.driver.host</code>设置为域名/主机名，则Hadoop集群在响应该客户端时必须能够解析该域名/主机名（修改集群每个节点的<code>hosts</code>文件，否则报<strong>未知主机异常</strong>，<em><code>UnknownHostException: hostname</code></em>）；也可将该配置项设置成客户端的IP地址，无需再设置<code>bindAddress</code>。</p>
+</li>
+<li>
+<p>如果在WSL2中启动Spark客户端访问物理机局域网中的Yarn集群时，客户端默认绑定WSL的虚拟网卡IP地址；该地址与集群不在同一网络，因此Yarn调度器无法与客户端直接通信。因此需要在配置文件中指定客户端使用物理机的==域名/主机名==并配置物理机的端口转发规则（<a href="../Windows/Windows%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86.html#WSL%E8%99%9A%E6%8B%9F%E7%BD%91%E7%BB%9C">WSL2需要配置端口转发</a>）。如果客户端配置域名/主机名与集群通信，则集群所有节点应配置该域名/主机名的解析地址。</p>
+<pre><code class="language-ini">spark.driver.bindAddress   0.0.0.0
+spark.driver.host          ws-gary
+</code></pre>
+</li>
+<li>
+<p>防火墙策略阻止了连接，修改防火墙策略以允许外部连接访问应用（<code>java</code>）或端口。在<code>Windows</code>上根据网络接口的网络类型（公用或专用）设置策略。</p>
+</li>
+</ol>
+<p><strong>2. 未配置hadoop共享库的位置</strong>，<em><code>Unable to load native-hadoop library for your platform</code></em></p>
+<p>在<code>conf/spark-env.sh</code>中配置：</p>
+<pre><code class="language-shell">export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${HADOOP_HOME}/lib/native
+</code></pre>
+<p><strong>3. 从HDFS读文件时找不到Hadoop依赖库</strong></p>
+<p>出现*<code>Compression codec com.hadoop.compression.lzo.LzoCodec not found.</code>*：Hadoop使用的压缩库不在搜索路径中。需要将相应的库<code>hadoop-lzo-xxx.jar</code>从<code>HADOOP/share/hadoop/common/lib</code>==复制到spark的<code>jar</code>目录（和HDFS集群<code>spark.yarn.jars</code>目录==）。</p>
+<h5 id="参考文献-1"><a class="header" href="#参考文献-1"><strong>参考文献</strong></a></h5>
+<p><a href="https://www.linode.com/docs/databases/hadoop/install-configure-run-spark-on-top-of-hadoop-yarn-cluster/">Install, Configure, and Run Spark on Top of a Hadoop YARN Cluster</a></p>
+<h4 id="独立spark集群"><a class="header" href="#独立spark集群">独立Spark集群</a></h4>
+<h5 id="建立主节点"><a class="header" href="#建立主节点">建立主节点</a></h5>
+<pre><code class="language-sh">./sbin/start-master.sh [-h,--host host] [-p port] [--webui-port PORT]
+</code></pre>
+<p>Spark默认使用主节点的主机名作为Spark服务的URL。这导致其他工作节点主机无法通过主机名或IP地址访问主节点。</p>
+<blockquote>
+<p>WARN Utils: Your hostname, ubuntu-vm resolves to a loopback address: 127.0.1.1; using 192.168.192.128 instead (on interface ens33)</p>
+<pre><code class="language-sh">Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State
+tcp6       0      0 ubuntu-vm:7077          [::]:*                  LISTEN
+</code></pre>
+<p>解决办法：</p>
+<ol>
+<li>
+<p>执行命令时，指定主节点所使用的IP地址</p>
+<pre><code class="language-sh">./sbin/start-master.sh --host IP_ADDR
+</code></pre>
+</li>
+<li>
+<p>删除<code>/etc/hosts</code>文件中的主机名映射，再启动服务</p>
+</li>
+<li>
+<p>修改Spark配置文件<code>conf/spark-env.sh</code>关于节点IP的设置（<em>以上两种方式似乎会导致工作节点仍然访问hostname</em>）</p>
+<pre><code class="language-sh">export SPARK_MASTER_HOST=IP_ADDR
+export SPARK_LOCAL_IP=192.168.137.99
+</code></pre>
+<p>注意：当主机IP发生变化时要及时更新此处设置的IP地址，否则服务无法正常开启。</p>
+<p>“<code>Service 'sparkDriver' could not bind on a random free port.</code>”</p>
+</li>
+</ol>
+</blockquote>
+<h5 id="建立工作节点"><a class="header" href="#建立工作节点">建立工作节点</a></h5>
+<pre><code class="language-sh">./sbin/start-slave.sh &lt;master-spark-URL&gt;
+</code></pre>
+<p><a href="https://spark.apache.org/docs/latest/spark-standalone.html">Spark Standalone Mode - Spark 3.3.0 Documentation (apache.org)</a></p>
+<h3 id="资源分配"><a class="header" href="#资源分配">资源分配</a></h3>
+<p>在<a href="./scripts/spark-default.conf"><code>spark-default.conf</code></a>中配置资源分配。</p>
+<blockquote>
+<p>在<code>conf/spark-defaul.conf</code>中配置的选项也可在<code>spark-env.sh</code>中配置：</p>
+<pre><code class="language-shell">export SPARK_WORKER_OPTS=\
+	&quot;-Dspark.executor.cores=2 \
+	 -Dspark.executor.memory=512m&quot;
+#内存分配可直接配置为环境变量
+export SPARK_EXECUTOR_MEMORY=512M
+export SPARK_DRIVER_MEMORY=512M
+</code></pre>
+</blockquote>
+<h5 id="节点资源"><a class="header" href="#节点资源">节点资源</a></h5>
+<p><strong>Yarn资源分配和调度</strong>：Spark任务包括执行计算的执行器和执行调度的Application Master。在cluster模式下，Application Master也是Client程序的容器。由于计算任务由Executor执行，而Executor映射到Yarn的容器，因此Executor的内存分配受到Yarn的容器内存分配规则（<a href="./scripts/yarn-site.xml">最大/最小分配量</a>）<a href="#Spark%E8%B5%84%E6%BA%90%E8%B0%83%E5%BA%A6">限制</a>。</p>
+<blockquote>
+<p>Executor的内存分配与MapReduce任务内存分配无关。</p>
+<p>https://mapr.com/blog/resource-allocation-configuration-spark-yarn/</p>
+</blockquote>
+<p><code>spark.python.worker.memory</code>：<em>memory to use per python worker process during aggregation. above this amount, spill the data into disks.</em></p>
+<h5 id="任务资源"><a class="header" href="#任务资源">任务资源</a></h5>
+<h6 id="任务资源需求"><a class="header" href="#任务资源需求">任务资源需求</a></h6>
+<p><code>spark.executor.instances</code>（<code>--num-executors</code>，启动的执行器数量）：根据对执行器核心数的配置以及工作节点的计算资源总量，可创建多个执行器；</p>
+<p><code>spark.cores.max </code>：设置任务在集群中可使用的计算单元数上限；未设置时，独立集群将其设置为<code>defaultCores</code>；而Mesos集群则默认是无穷（集群所有计算单元）。</p>
+<ul>
+<li><code>spark.deploy.defaultCores=10</code></li>
+</ul>
+<h6 id="cpu"><a class="header" href="#cpu">CPU</a></h6>
+<p><code>spark.executor.cores</code> ：每个执行器所需计算核心数。默认情况：在独立模式或Mesos粗粒度模式下，执行器将占用工作节点的的所有核心；==在Yarn模式下占用1个核心==。</p>
+<p><code>spark.yarn.am.cores</code> ：Yarn-Client模式下主程序CPU资源；
+<code>spark.driver.cores</code> ：<strong>Cluster模式</strong>下Client程序的CPU资源（<code>--driver-cores</code>）；</p>
+<h6 id="内存"><a class="header" href="#内存">内存</a></h6>
+<p><code>driver</code>内存总量计算方式：<code>driver.memory</code>+<code>driver.memoryOverhead</code>，上限不超过底层容器的<a href="#Yarn%E8%B5%84%E6%BA%90%E5%88%86%E9%85%8D%E5%92%8C%E8%B0%83%E5%BA%A6">最大内存容量</a>。<code>memoryOverhead</code>为虚拟机开销等其他本地开销（<code>driverMemory*0.1</code>, ==最小384MB==，在YARN, Mesos and Kubernetes上支持该选项）。</p>
+<blockquote>
+<p>驱动程序内存开销和JVM的额外开销（<em>VM overheads, interned strings, other native overheads......This option is currently supported on YARN, Mesos and Kubernetes.</em>）；</p>
+</blockquote>
+<ul>
+<li><code>spark.yarn.am.{memory|memoryOverhead}</code> ：Yarn-Client模式下主程序内存资源开销；</li>
+<li><code>spark.driver.{memory|memoryOverhead}</code> ：Cluster模式下Client程序（包括Application Master）的内存资源开销（<code>--driver-memory</code>）；</li>
+</ul>
+<p><code>executor</code>的内存总量为（YARN and Kubernetes上支持<code>memoryOverhead</code>）：<code>memoryOverhead</code>+<code>memory</code>+<code>offHeap.size</code>+<code>pyspark.memory</code>。</p>
+<ul>
+<li><code>spark.executor.{memory|memoryOverhead}</code> ：（<code>--executor-memory</code>）</li>
+<li><code>spark.executor.pyspark.memory*</code>（<code>2.4.0</code>）：</li>
+</ul>
+<blockquote>
+<p>内存分配不足：<em>System memory XXX must be at least 471859200. Please increase heap size using the <code>--driver-memory</code> option or <code>spark.driver.memory</code> in Spark configuration.</em> 根据提示至少应该提供需要450MB内存，但实际设置这么多仍然不够，可根据提示的可用数量反推比例并给出满足需求的最小内存。</p>
+</blockquote>
+<h3 id="任务调度"><a class="header" href="#任务调度">任务调度</a></h3>
+<p><code>spark.scheduler.mode=FIFO|FAIR </code>
+<code>spark.task.cpus</code>
+<code>spark.cores.max</code>：
+<code>spark.yarn.queue</code> (<code>--queue</code>)</p>
+<p>设置任务提交到<a href="%E9%85%8D%E7%BD%AE%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%BF%90%E8%A1%8C%E6%A8%A1%E5%BC%8F">Yarn的队列</a>中：（<code>spark.yarn.queue</code>或<code>--queue QUEUE_NAME</code>，默认为<code>default</code>）。</p>
+<h5 id="应用程序内部任务调度"><a class="header" href="#应用程序内部任务调度">应用程序内部任务调度</a></h5>
+<p>每个应用可包含多个任务。https://spark.apache.org/docs/latest/job-scheduling.html</p>
+<p>FIFO</p>
+<pre><code class="language-sh">spark.scheduler.mode FIFO   # FAIR
+spark.task.cpus 1
+</code></pre>
+<p>fair sharing: Spark assigns tasks between jobs in a “round robin” fashion.</p>
+<p>Fair Scheduler Pools: grouping jobs into <em>pools</em> with different weights</p>
+<h5 id="调度策略"><a class="header" href="#调度策略">调度策略</a></h5>
+<p>https://spark.apache.org/docs/latest/job-scheduling.html</p>
+<p>http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/FairScheduler.html</p>
+<p>http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html</p>
+<h5 id="动态资源分配"><a class="header" href="#动态资源分配">动态资源分配</a></h5>
+<p><a href="https://spark.apache.org/docs/latest/job-scheduling.html#dynamic-resource-allocation">多个应用可共享集群资源</a>，按需申请资源。在粗粒度集群管理器中可用，包括standalone、Mesos，yarn。</p>
+<pre><code class="language-sh">spark.dynamicAllocation.enabled  false
+</code></pre>
+<h3 id="运行spark应用程序"><a class="header" href="#运行spark应用程序">运行Spark应用程序</a></h3>
+<h4 id="提交应用程序"><a class="header" href="#提交应用程序">提交应用程序</a></h4>
+<p>提交程序：<code>./bin/spark-submit</code>脚本用于向集群提交并<a href="https://spark.apache.org/docs/latest/submitting-applications.html">启动应用程序</a>，并动态配置应用程序参数。默认的<a href="#%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2%E6%A8%A1%E5%BC%8F">应用部署模式</a>可在<a href="#Spark%E5%B1%9E%E6%80%A7"><code>spark-default.conf</code></a>中给出。</p>
+<pre><code class="language-bash">./bin/spark-submit \				  # from spark root folder
+  --master &lt;master-url&gt; \		
+  --deploy-mode &lt;deploy-mode&gt; \ # client | cluster
+  --name AppName                # 应用程序名称
+  --class &lt;main-class&gt; \        # entry point: full java class name
+  --conf &quot;&lt;key&gt;=&lt;value&gt;&quot; \      # spark.yarn.queue=root.share
+  #...other options
+  &lt;application-jar&gt;|app.py \    # application and dependencies
+  [application-arguments]
+</code></pre>
+<p>该脚本程序实际上是封装了Spark的<a href="https://github.com/apache/spark/blob/master/launcher/src/main/java/org/apache/spark/launcher/Main.java">启动器</a><code>org.apache.spark.launcher.Main</code>，用于处理输入参数（利用<code>SparkSubmitCommandBuilder</code>生成）和设置运行环境：</p>
+<pre><code class="language-shell">java -Xmx128m -cp &quot;jars/*&quot; org.apache.spark.launcher.Main &quot;$@&quot;
+</code></pre>
+<h5 id="命令行配置"><a class="header" href="#命令行配置">命令行配置</a></h5>
+<p><code>spark-shell</code>和<code>spark-submit</code>支持命令行参数作为选项，或通过<code>--conf</code>选项按配置文件中的格式设置。可以通过<code>spark-submit --help</code>获取可配置选项。</p>
+<ul>
+<li><code>--class</code>：仅在程序包含多个默认入口主函数，且在项目文件未指明入口函数时使用；</li>
+</ul>
+<h6 id="打包依赖项"><a class="header" href="#打包依赖项">打包依赖项</a></h6>
+<p>Java：将依赖项打包在应用程序的jar文件中，或者使用<code>--jars JARS</code>选项（以逗号分隔）将已封装好的jar包传输至集群（自动添加到应用程序环境的<code>CLASSPATH</code>中）。</p>
+<p>Python：使用<code>--py-files PY_FILES</code>参数添加<code>.py</code>，<code>.zip</code>，<code>.egg</code>类型的文件。集群模式下主程序运行于集群节点上，其依赖的Python文件上传需要上传至集群节点。</p>
+<blockquote>
+<p>Standalone集群不支持Python应用以cluster部署模式提交。</p>
+<p><code>sc.addPyFiles(path_url)</code>：在会话中添加Python依赖文件，之后执行的所有任务均可使用。</p>
+</blockquote>
+<p><a href="#Spark%E4%BB%BB%E5%8A%A1%E8%B7%AF%E5%BE%84%E5%92%8C%E6%96%87%E4%BB%B6">本地文件将上传到集群</a>各节点的工作目录。</p>
+<h5 id="使用交互环境"><a class="header" href="#使用交互环境">使用交互环境</a></h5>
+<p>交互环境本身即是一个Spark应用程序，包括Java/Scala交互环境、Python交互环境等。交互环境的启动命令支持与<code>spark-submit</code>相同的选项。</p>
+<ul>
+<li>
+<p>Java/Scala交互环境</p>
+<pre><code class="language-shell">./bin/spark-shell [--master MASTER_URL]
+#&gt;:q   # execute CLI
+</code></pre>
+<blockquote>
+<p>将<code>spark/bin</code>加入<code>$PATH</code>后，可以从任意位置执行命令。</p>
+</blockquote>
+</li>
+<li>
+<p>Python交互环境</p>
+<pre><code class="language-shell">./bin/pyspark --master spark://IP:PORT
+# =&gt; bin/spark-submit pyspark-shell-main --name PySparkShell &quot;$@&quot;
+</code></pre>
+<blockquote>
+<p><code>pyspark</code>交互环境会将Spark分发的Python包加入搜索路径（优先搜索）；</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="编写应用程序"><a class="header" href="#编写应用程序">编写应用程序</a></h4>
+<p>可以使用Maven编译Java应用（<code>jar</code>）。将Master URL传递给<code>SparkContext</code>构造对象。</p>
+<h5 id="java代码"><a class="header" href="#java代码">Java代码</a></h5>
+<pre><code class="language-java">SparkConf conf = new SparkConf()
+    .setMaster(&quot;local[2]&quot;)
+    .setAppName(&quot;SparkExample&quot;);
+SparkContext = new SparkContext(conf);
+</code></pre>
+<p>或者</p>
+<pre><code class="language-java">import org.apache.spark.sql.SparkSession;
+import org.apache.spark.sql.Dataset;
+public class SimpleApp {
+  public static void main(String[] args) {
+    SparkSession spark = SparkSession.builder().appName(&quot;App&quot;).getOrCreate();
+    // do your querying
+    spark.stop();   //spark.close()
+  }
+}
+</code></pre>
+<p>使用Maven为项目添加<code>spark-sql</code>依赖：</p>
+<pre><code class="language-xml">&lt;dependency&gt; &lt;!-- Spark dependency --&gt;
+  &lt;groupId&gt;org.apache.spark&lt;/groupId&gt;
+  &lt;artifactId&gt;spark-sql_2.12&lt;/artifactId&gt;
+  &lt;version&gt;2.4.5&lt;/version&gt;
+  &lt;scope&gt;provided&lt;/scope&gt;
+&lt;/dependency&gt;
+</code></pre>
+<h5 id="python代码"><a class="header" href="#python代码">Python代码</a></h5>
+<p>通过构建[<code>SparkContext</code>](Spark Python API.md#底层API)或[<code>SparkSession</code>](Spark Python API.md#Spark会话)开始编写Spark程序。Python代码提交：</p>
+<pre><code class="language-shell">spark-submit --deploy-mode cluster \
+  --conf spark.pyspark.python=.../envs/data/bin/python \  
+  pyspark_sql.py
+</code></pre>
+<p>除了<a href="#%E6%8F%90%E4%BA%A4%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F">标准的提交方式</a>（<code>spark-submit</code>），可直接用Python解释器执行程序（默认Client模式）。</p>
+<h3 id="与zookeeper集成"><a class="header" href="#与zookeeper集成">与ZooKeeper集成</a></h3>
+<h4 id="高可用性"><a class="header" href="#高可用性">高可用性</a></h4>
+<p>Standby Masters with ZooKeeper</p>
+<p>Single-Node Recovery with Local File System</p>
+<h2 id="管理控制"><a class="header" href="#管理控制">管理控制</a></h2>
+<h3 id="监控程序"><a class="header" href="#监控程序">监控程序</a></h3>
+<pre><code class="language-sh">hdfs dfsadmin -report   
+yarn node -list
+yarn application -list
+yarn application -status app_id
+jps | grep -v JPS		# 查看节点上运行的相关进程 JDK required
+</code></pre>
+<h4 id="hadoop端口信息"><a class="header" href="#hadoop端口信息">Hadoop端口信息</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>服务</th><th>默认端口</th><th>说明</th></tr></thead><tbody>
+<tr><td>HDFS NameNode</td><td>9000</td><td><code>fs.defaultFS</code></td></tr>
+<tr><td></td><td>9870</td><td>HDFSWeb服务端口<code>*</code></td></tr>
+<tr><td></td><td>50090</td><td>SecondaryNameNode</td></tr>
+<tr><td>Yarn</td><td>8030</td><td>资源调度器</td></tr>
+<tr><td></td><td>8031</td><td>资源追踪器<code>resource-tracker</code></td></tr>
+<tr><td></td><td>8032</td><td>资源管理</td></tr>
+<tr><td></td><td>8033</td><td></td></tr>
+<tr><td></td><td>8088</td><td>Web服务端口</td></tr>
+<tr><td></td><td>19888</td><td>任务历史Web应用<br /><code>mapreduce.jobhistory.webapp.address</code></td></tr>
+<tr><td></td><td>10020</td><td>任务历史<br /><code>mapreduce.jobhistory.address</code></td></tr>
+<tr><td>Hive</td><td>9083</td><td>Metastore</td></tr>
+<tr><td></td><td>10000</td><td><code>jdbc</code>接口</td></tr>
+<tr><td></td><td>10002</td><td>Web管理服务端口</td></tr>
+</tbody></table>
+</div>
+<blockquote>
+<p><code>*</code>：2.x版本为50070。</p>
+</blockquote>
+<h5 id="集群的网页"><a class="header" href="#集群的网页">集群的网页</a></h5>
+<p>可查看Hadoop集群应用的配置信息。</p>
+<pre><code class="language-sh">http://hadoop-namenode:9870   # dfs.namenode.http-address [50070-2.x]
+http://resource-manager:8088  # yarn cluster
+http://hadoop-namenode:10002  # hive web
+</code></pre>
+<h4 id="spark状态监控"><a class="header" href="#spark状态监控">Spark状态监控</a></h4>
+<p>http://driver-node:4040：通过web访问运行任务的信息。通过<code>Environment</code>选项卡可查看应用的配置信息（仅展示通过上述方式设置过的参数）。</p>
+<p>http://master-node:8080：访问主节点的运行信息。</p>
+<p>http://worker-node:8081：访问工作节点的运行信息。</p>
+<p>http://history-server:18080 ： </p>
+<h3 id="任务管理"><a class="header" href="#任务管理">任务管理</a></h3>
+<p>结束正在运行的任务：</p>
+<pre><code class="language-shell">yarn application -kill application_1450259063324_0001
+</code></pre>
+<h2 id="数据处理"><a class="header" href="#数据处理">数据处理</a></h2>
+<h3 id="hive数据"><a class="header" href="#hive数据">Hive数据</a></h3>
+<p>Hive数据查询模式：</p>
+<ul>
+<li>Hive（<code>Hiveserver2</code>）：使用自身的SQL引擎，MapReduce作为计算引擎；</li>
+<li>SparkSQL with Hive：SparkSQL使用Spark提供的SQL引擎，并使用Spark作为计算引擎。由于Spark的计算在内存中进行，因此相比MapReduce，可以显著提升计算效率。Spark读取的数据在内存中以RDD/DataSet的形式加载；
+<ul>
+<li>Spark JDBC server：基于SparkSQL with Hive运行的服务；客户端通过<code>jdbc:hive2</code>接口提交查询和计算并获取输出数据；</li>
+</ul>
+</li>
+<li>Hive on Spark：使用Hive SQL引擎，Spark作为计算引擎。</li>
+</ul>
+<p><a href="https://www.cnblogs.com/lixiaochun/p/9446350.html">Hive，Hive on Spark和SparkSQL区别 - 李晓春 - 博客园 (cnblogs.com)</a></p>
+<h4 id="sparksql-with-hive"><a class="header" href="#sparksql-with-hive">SparkSQL with Hive</a></h4>
+<p>Spark要访问Hive的数据，需要获取<code>metastore</code>数据库的访问方式。<strong>Spark不需要与Hive部署在同一主机上</strong>，仅需要配置Hive信息以及数据库驱动程序。Spark-shell使用上述配置方式中暴露的网络接口<a href="#%E8%AE%BF%E9%97%AEHive">访问Hive</a>。当Spark未与任何数据仓库连接，会在本地当前工作目录创建一个数据仓库。</p>
+<p>通过<code>conf/spark-default.conf</code>配置连接属性。以<code>metastore</code>使用MySQL为例：</p>
+<ol>
+<li>
+<p>将<code>$HIVE_HOME/conf/hive-site.xml</code>、<code>core-site.xml</code> (安全配置)和<code>hdfs-site.xml</code>(HDFS配置)<strong>复制或链接</strong>到<code>$SPARK_HOME/conf</code>下；编写程序时，也可以通过以下方法在代码中设定访问Hive的方式。</p>
+<pre><code class="language-scala">var spark = SparkSession
+	.builder()
+	.config(&quot;hive.metastore.uris&quot;, &quot;thrift://hadoop-master:9083&quot;)
+	.enableHiveSupport()
+	.getOrCreate()
+</code></pre>
+<blockquote>
+<p>Hive配置名可以为：<code>[spark.[hadoop.]]hive.metastore.uris</code>。缺少<code>spark</code>开头的配置项会生成警告<em>Ignoring non-Spark config property</em>（仍有效）。</p>
+</blockquote>
+</li>
+<li>
+<p>配置访问Hive元数据的JDBC驱动（Spark的库中不包含）。需要将驱动包部署到<code>jar</code>目录下（可使用符号链接），或在<code>spark-default.conf</code>配置以下两个参数添加<code>jar</code>包到搜索路径（==不能使用HDFS路径==）。</p>
+<pre><code class="language-sh">spark.executor.extraClassPath /path/mysql-connector-xxx.jar
+spark.driver.extraClassPath /path/mysql-connector-xxx.jar
+</code></pre>
+<p>或者直接引用相应版本的Hive依赖库目录（在其中添加JDBC驱动包）并配置。</p>
+<pre><code class="language-shell">spark.sql.hive.metastore.jars  /path/hive-VERSION/*
+</code></pre>
+<blockquote>
+<p>Spark已经内置derby驱动包，如果使用derby作为metastore服务，如果驱动不兼容则添加：</p>
+<pre><code class="language-sh">spark.executor.extraClassPath /.../derby/lib/derbyclient.jar
+spark.driver.extraClassPath   /.../derby/lib/derbyclient.jar
+</code></pre>
+</blockquote>
+<blockquote>
+<p>注意不要将整个<code>hive/lib</code>加入Spark的额外搜索路径，其中某些包与Spark不兼容。</p>
+</blockquote>
+</li>
+<li>
+<p>在完成相关设置后，<code>spark-shell</code>等内置应用能自动启用Hive读写。在<code>bin/beeline</code>可用于在<a href="#Beeline" title="Hiveserver2-CLI ">命令行访问Hive数据</a>（使用Hive配置）。</p>
+</li>
+</ol>
+<p><strong><a href="https://stackoverflow.com/questions/47523575/messagehive-schema-version-1-2-0-does-not-match-metastores-schema-version-2-1/47624770">访问非默认版本Hive</a></strong>：Spark发行版自带的hive库仅可访问指定版本的hive（Hive Schema可能不兼容，例如Spark 3.2使用的Hive Schema为2.3），需要将目标系统上对应的Hive依赖库复制到Spark客户端，并在<code>spark-default.conf</code>中指定：</p>
+<pre><code class="language-shell">spark.sql.hive.metastore.version        1.2.0
+spark.sql.hive.metastore.jars           /usr/local/spark3/jars/hive-1.2.0/*
+</code></pre>
+<h4 id="thrift-jdbcodbc-server"><a class="header" href="#thrift-jdbcodbc-server">Thrift JDBC/ODBC server</a></h4>
+<p>Spark-Shell默认支持访问metastore数据库服务（JDBC）的方式访问hive数据，或通过<code>thrift</code>服务访问hive数据库。要使用<code>jdbc:hive2:</code>的访问方式，需要配置连接JDBC服务。</p>
+<pre><code class="language-java">import java.sql.*;
+Connection con = DriverManager.getConnection(
+   &quot;jdbc:hive2://localhost:10000/default&quot;, &quot;hiveuser&quot;, &quot;&quot;); // 连接HiveServer（on Spark）
+Statement stmt = con.createStatement();
+String tableName = &quot;testHiveDriverTable&quot;;
+String sql = &quot;SHOW TABLES 'testHiveDriverTable'&quot;;
+ResultSet res = stmt.executeQuery(sql);
+</code></pre>
+<p><strong>HiveServer on Spark</strong>：对应Hive内置的Hiveserver2服务（Thrift JDBC/ODBC server） ，但运行在Spark集群上，使用Spark任务代替MapReduce任务。</p>
+<p><strong>Hive目录的权限问题</strong>：<em><code>root scratch dir on HDFS should be writable. Current permissions are: rwx------</code></em>。在HDFS上为Hive创建的临时目录的权限不正确，<a href="#Hive%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE">手动删除该目录</a>再尝试提交任务。</p>
+<p><a href="https://blog.csdn.net/u013332124/article/details/90339850">Spark Thrift Server 架构和原理介绍</a></p>
+<p><a href="https://cloud.tencent.com/developer/article/1437759">0643-Spark SQL Thrift简介 - 云+社区 - 腾讯云 (tencent.com)</a></p>
+<p><a href="https://spark.apache.org/docs/latest/sql-distributed-sql-engine.html">Distributed SQL Engine - Spark 3.1.2 Documentation (apache.org)</a></p>
+<h4 id="hive-on-spark"><a class="header" href="#hive-on-spark">Hive on Spark</a></h4>
+<p><a href="https://cwiki.apache.org/confluence/display/Hive/Hive+on+Spark%3A+Getting+Started">Hive on Spark: Getting Started - Apache Hive - Apache Software Foundation</a></p>
+<h3 id="elasticsearch-for-spark"><a class="header" href="#elasticsearch-for-spark">Elasticsearch for Spark</a></h3>
+<p><a href="https://www.elastic.co/guide/en/elasticsearch/hadoop/current/spark.html">Apache Spark support 7.14 | Elastic</a></p>
+<p><a href="https://www.elastic.co/guide/en/elasticsearch/hadoop/current/reference.html">Elasticsearch for Apache Hadoop 7.14 | Elastic</a></p>
+<h4 id="配置"><a class="header" href="#配置">配置</a></h4>
+<p><a href="https://www.elastic.co/guide/en/elasticsearch/hadoop/5.1/configuration.html">Configuration | Elasticsearch for Apache Hadoop 5.1 </a></p>
+<p>版本兼容性：注意选择与Spark内置Scala版本一致的<code>elasticsearch-spark</code>库。</p>
+<ul>
+<li>Spark 3.x内置Scala 2.12，<a href="https://mvnrepository.com/artifact/org.elasticsearch/elasticsearch-spark-30">Elasticsearch从7.12版本支持Scala 2.12</a>；</li>
+<li>Spark 2.x内置Scala 2.10/2.11，<a href="https://mvnrepository.com/artifact/org.elasticsearch/elasticsearch-spark-20">选择对应版本的库</a>（可通过<code>spark-shell</code>查看内置Scala版本）；</li>
+</ul>
+<h4 id="读取数据"><a class="header" href="#读取数据"><a href="https://www.elastic.co/guide/en/elasticsearch/hadoop/current/configuration.html">读取数据</a></a></h4>
+<pre><code class="language-python">es_options = {
+   &quot;nodes&quot;: &quot;es_ndoe1,es_ndoe2,es_ndoe3&quot;,
+   &quot;port&quot;: 9200,
+   &quot;pushdown&quot;: true  # translate Spark SQL into Query DSL
+}
+df = spark.read.format(&quot;org.elasticsearch.spark.sql&quot;)\
+               .options(**es_options)\
+               .option(&quot;es.read.field.as.array.include&quot;,&quot;domain_id,domain_name&quot;)\
+               .load(&quot;index_path&quot;)  # =&gt; es.resource
+</code></pre>
+<blockquote>
+<p>无法表示为<code>options</code>关键字参数的选项名，可通过<code>option</code>方法单独指定。</p>
+</blockquote>
+<p>必要选项：</p>
+<ul>
+<li>
+<p><code>es.resource/es.resource.read/es.resource.write</code>：数据索引，读取可指定多个索引（使用<code>,</code>分隔）或使用通配符；写入可使用基于数据字段生成的动态索引，例如：</p>
+<pre><code class="language-shell">my-index/{media_type}
+my-collection/{@timestamp|yyyy.MM.dd}  # 格式化时间字段
+</code></pre>
+</li>
+<li>
+<p><code>es.nodes,es.port</code>：集群地址，节点可单独指定端口；无需指定集群的所有节点，由<code>es</code>库自动发现。</p>
+</li>
+</ul>
+<p>读取选项：</p>
+<ul>
+<li>
+<p><code>es.read.field.include/exclude</code>：包括或排除读取的字段名列表（使用<code>,</code>分隔）；</p>
+</li>
+<li>
+<p><code>es.read.source.filter</code>：<a href="https://www.elastic.co/guide/en/elasticsearch/hadoop/current/configuration.html#configuration-options-index">[5.4]新增</a>，选取数据字段；</p>
+</li>
+<li>
+<p><code>es.read.field.as.array.include/exclude</code>：显式指定/排除一个或多个字段为序列类型，防止字段只有一个值而被推测为标量类型；可指定多维数<code>field_name:3</code>；<a href="https://stackoverflow.com/questions/49872218/spark-read-nested-array-from-elasticsearch">如果存在嵌套数组，应该单独声明</a>。</p>
+</li>
+<li>
+<p><code>es.query</code>：查询语句，支持DSL语句（JSON文本，需要将Python字典转换为字符串类型）；</p>
+<pre><code class="language-json">{ &quot;query&quot; : { &quot;term&quot; : { &quot;user&quot; : &quot;costinl&quot; } } }
+</code></pre>
+</li>
+</ul>
+<p>写入选项：</p>
+<ul>
+<li><code>es.write.operation=index|create|update|upsert</code>；<code>index</code>为默认值；</li>
+<li><code>es.mapping</code></li>
+</ul>
+<h4 id="错误"><a class="header" href="#错误">错误</a></h4>
+<ol>
+<li>
+<p><em>scala.MatchError: 2887535652 (of class java.lang.Long)</em>：数据中包含IP字段（该字段实际为整数<code>2887535652-&gt;172.28.76.112</code>）（==未复现==）；</p>
+<p><strong>解决方法</strong>：丢弃IP字段。</p>
+<pre><code class="language-scala">val df_valid = df.drop(&quot;collect_ip&quot;, &quot;dev_ip&quot;)
+val df_valid = df.select(&quot;user_name&quot;, &quot;user_id&quot;, ...)
+</code></pre>
+</li>
+<li>
+<p><em><code>scala.MatchError: Buffer(default)...WARNING: Field &quot;xxx&quot; is backed by an array but the associated Spark Schema does not reflect this;</code></em>
+<em><code> (use es.read.field.as.array.include/exclude)</code></em>：数据字段包含嵌套的序列对象，但未从数据自动解析为序列类型（由于数据为空或只有单个值）；</p>
+<p><strong>解决方法</strong>：1）设置指定列转换序列对象；2）丢弃可能为序列的无用列。</p>
+<pre><code class="language-shell">es.read.field.as.array.include author,client,project # spark-default.conf
+</code></pre>
+<blockquote>
+<p>可在运行时配置该选项。</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="kafka-streaming"><a class="header" href="#kafka-streaming">Kafka Streaming</a></h3>
+<h4 id="安装kafka集成模块"><a class="header" href="#安装kafka集成模块">安装Kafka集成模块</a></h4>
+<p>Kafka流处理模块作为Spark的可选插件需要单独安装：下载<code>spark-streaming-kafka-0-8-assembly.jar</code>到Spark的依赖库目录（如果使用Yarn模式，同步到HDFS）。该依赖库中已包含<code>kafka-client</code>等依赖库的字节码，因此不需要添加额外的依赖库引用。</p>
+<blockquote>
+<p>如果通过<code>spark-submit</code>提交任务且可连接Maven仓库，可以通过<code>--packages org.apache.spark:spark-streaming-kafka-0-8:2.4.6</code>选项从仓库下载依赖项。</p>
+</blockquote>
+<p><a href="https://spark.apache.org/docs/2.1.1/streaming-kafka-0-8-integration.html">Spark Streaming + Kafka Integration Guide</a></p>
+<h5 id="spark和kafka版本选择"><a class="header" href="#spark和kafka版本选择"><a href="https://spark.apache.org/docs/2.4.7/streaming-kafka-integration.html">Spark和Kafka版本选择</a></a></h5>
+<p><code>spark-streaming-kafka-0-8</code>从2.3版本开始被弃用，推荐使用<code>spark-streaming-kafka-0-10</code>（不提供Python API）。如果需要使用Python编写Kafka流处理程序，应该使用Spark 2.x+<code>spark-streaming-kafka-0-8</code>。此外，Spark 3.x支持<a href="#Kafka-Structured-Streaming%E6%A8%A1%E5%9D%97">结构化流处理</a>，可以切换使用<code>spark-sql-kafka</code>库以接入Kafka数据源。</p>
+<blockquote>
+<p>如果尝试PySpark 3.2+版本中引入Kafka库，会出现错误：<em><code>ModuleNotFoundError: No module named 'pyspark.streaming.kafka'</code></em>。</p>
+</blockquote>
+<h5 id="spark和kafka依赖冲突"><a class="header" href="#spark和kafka依赖冲突">Spark和Kafka依赖冲突</a></h5>
+<p>问题：<em><code>java.lang.NoSuchMethodError: net.jpountz.lz4.LZ4BlockInputStream.&lt;init&gt;(Ljava/io/InputStream;Z)V</code></em>。Spark<code>spark-core</code>和Kafka<code>spark-streaming-kafka</code>同时依赖<code>net.jpountz.lz4</code>包，但两者分别打包了不同版本的依赖包，即Spark依赖库目录下的<code>lz4-java-1.4.0.jar</code>和<code>spark-streaming-kafka</code>包中的<code>net/jpountz/lz4</code>，后者版本较低且包含上述方法定义，因此导致上述错误（由于依赖库加载顺序不确定，部分时候也能够引用正确Spark下的正确版本）。</p>
+<p>解决方法：删除<code>spark-streaming-kafka</code>包中的<code>net/jpountz/lz4</code>字节码目录，并修改<code>META-INF</code>目录下<code>spark-streaming-kafka-0-8_2.11/spark-streaming-kafka-0-8-assembly</code>关于<code>net.jpountz.lz4</code>的依赖声明：</p>
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;net.jpountz.lz4&lt;/groupId&gt;
+    &lt;artifactId&gt;lz4-java&lt;/artifactId&gt;
+    &lt;version&gt;1.4.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<h4 id="kafka-structured-streaming模块"><a class="header" href="#kafka-structured-streaming模块">Kafka Structured Streaming模块</a></h4>
+<p><a href="https://spark.apache.org/docs/latest/structured-streaming-kafka-integration.html">Structured Streaming + Kafka Integration Guide (Kafka broker version 0.10.0 or higher) - Spark 3.2.0 Documentation (apache.org)</a></p>
+<p>需要安装<code>spark-sql-kafka</code>及其<a href="https://stackoverflow.com/a/61605574/6571140">附加依赖项</a>：</p>
+<ul>
+<li><code>spark-sql-kafka-0-10_SCALA_VERSION-SPARK_VERSION.jar</code>；</li>
+<li><code>commons-pool2-2.8.0.jar</code>；</li>
+<li><code>kafka-clients-2.0.1.jar</code>；</li>
+<li><code>spark-token-provider-kafka-0-10_SCALA_VERSION-SPARK_VERSION[3.0+].jar</code>[optional]。</li>
+</ul>
+<blockquote>
+<p><code>spark-sql-kafka</code>库和<code>spark-streaming-kafka</code>库存在冲突，不要放在同一搜索路径下。</p>
+</blockquote>
+<h2 id="kubernetes"><a class="header" href="#kubernetes">Kubernetes</a></h2>
+<p>https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/</p>
+<h2 id="mesos"><a class="header" href="#mesos">Mesos</a></h2>
+<img src="分布式大数据处理.assets/architecture3.jpg" alt="Mesos Architecture" style="zoom: 50%;" />
+<h2 id="dask"><a class="header" href="#dask">Dask</a></h2>
+<p><a href="https://docs.dask.org/en/latest/spark.html">Comparison to Spark — Dask documentation</a></p>
+<img src="分布式大数据处理.assets/data_range_process.png" style="zoom: 60%;" />
+<pre><code class="language-sh">conda install dask
+pip install &quot;dask[complete]&quot;    # Install everything
+</code></pre>
+<p><a href="https://docs.dask.org/en/latest/scheduling.html">Scheduling — Dask documentation</a></p>
+<blockquote>
+<p><a href="https://docs.dask.org/en/latest/setup.html">Setup — Dask documentation</a></p>
+</blockquote>
+<p><a href="https://ml.dask.org/">Dask-ML — dask-ml 0.1 documentation</a></p>
+<p><a href="https://docs.dask.org/en/latest/gpu.html">GPUs — Dask documentation</a></p>
+<h3 id="运行环境"><a class="header" href="#运行环境">运行环境</a></h3>
+<p>代码传播：修改依赖库的代码后，需要同步到所有节点（重启工作进程）；非依赖库代码在程序运行时同步到各工作进程。</p>
+<h3 id="调度器设置"><a class="header" href="#调度器设置">调度器设置</a></h3>
+<img src="分布式大数据处理.assets/collections-schedulers.png" alt="Dask collections and schedulers" style="zoom:80%;" />
+<h4 id="单机调度器"><a class="header" href="#单机调度器">单机调度器</a></h4>
+<p>无需设置，直接使用，Dask会在开始计算时启动本地进程/线程池。</p>
+<pre><code class="language-python">import dask.dataframe as dd    # 本地单机执行
+df = dd.read_csv(...)
+df.x.sum().compute(scheduler=&quot;threads&quot;|&quot;processes&quot;|&quot;single-threaded&quot;)
+</code></pre>
+<ul>
+<li>
+<p><a href="../Python/Python%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B.html#%E5%B9%B6%E8%A1%8C%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6">本地线程池</a>（<code>concurrent.futures.ThreadPoolExecutor</code>）</p>
+<p><code>dask.array</code>, <code>dask.dataframe</code>, and <code>dask.delayed</code>的默认模式。由于在同一个进程中，任务间没有数据传输开销。但由于GIL的存在，只能提供non-Python代码的并行。</p>
+<pre><code class="language-python">import dask
+dask.config.set(scheduler='threads')  # overwrite global setting
+</code></pre>
+</li>
+<li>
+<p><a href="../Python/Python%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B.html#%E8%BF%9B%E7%A8%8B%E6%B1%A0">本地进程池</a>（<code>concurrent.futures.ProcessPoolExecutor</code>）</p>
+<p><code>dask.bag</code>的默认模式。任务及其依赖的数据传输到本地进程执行，再将结果返回主进程。即使纯Python代码（处理字符串、字典、列表等）也不受GIL限制。但是进程间来回传输数据代价增大，因此任务间数据交互少的情况下性能更好。</p>
+<pre><code class="language-python">import dask.multiprocessing
+dask.config.set(scheduler='processes')
+</code></pre>
+</li>
+<li>
+<p>单线程：用于调试（<code>scheduler='synchronous'</code>）。</p>
+</li>
+</ul>
+<h5 id="设置调度模式"><a class="header" href="#设置调度模式">设置调度模式</a></h5>
+<p>全局配置：</p>
+<blockquote>
+<p>必须放置在主模块<code>__main__</code>中，否则出现错误：</p>
+<pre><code class="language-sh">RuntimeError: An attempt has been made to start a new process before the current process has finished its bootstrapping phase.
+</code></pre>
+</blockquote>
+<p>使用上下文管理器：</p>
+<pre><code class="language-python">with dask.config.set(scheduler='threads'):
+    x.compute()
+</code></pre>
+<p>即时调用：</p>
+<pre><code class="language-python">x.compute(scheduler='threads')
+</code></pre>
+<h4 id="单机分布式调度器"><a class="header" href="#单机分布式调度器">单机分布式调度器</a></h4>
+<p>对于复杂工作负载，其中会产生大量中间结果，则推荐使用分布式调度器<code>dask.distributed</code>。分布式调度器可以在单机或集群运行。</p>
+<p>分布式调度器包含更多特性，即使是单机运行也更偏向使用分布式模式。</p>
+<ul>
+<li>提供异步API，例如<code>Futures</code>；</li>
+<li>提供诊断仪表板，查看性能和进度信息；</li>
+<li>更加灵活有效地处理数据位置问题。</li>
+</ul>
+<p>分布式环境配置：https://docs.dask.org/en/latest/setup.html。</p>
+<h5 id="预先配置计算资源池"><a class="header" href="#预先配置计算资源池">预先配置计算资源池</a></h5>
+<pre><code class="language-shell">dask-scheduler --host $(hostname) --port 8786 \
+    --dashboard-address &quot;localhost:8787&quot; --dashboard-prefix='/dask' \
+    --pid-file dask-local-scheduler.pid \
+    --scheduler-file dask-local-scheduler.info \
+    &gt; /tmp/dask/local-scheduler.log \
+    2&gt; /tmp/dask/local-scheduler.error.log &amp;
+# kill -SIGKILL $(cat dask-local-scheduler.pid)  # 停止集群
+dask-worker [tcp://]$(scheduler):8786 \
+    --nthreads 4 --nprocs 10 --memory-limit 2GiB \
+    --name dask-worker \
+    --pid-file dask-worker.pid \
+    --local-directory /var/local/dask \
+    &gt; dask-local-worker.log &amp;
+</code></pre>
+<p>dask-scheduler日志量过大：<a href="../Linux/Linux%E9%85%8D%E7%BD%AE%E5%92%8C%E7%AE%A1%E7%90%86.html#%E6%97%A5%E5%BF%97%E6%B8%85%E7%90%86">切分清理日志</a>。</p>
+<h5 id="按需创建计算资源池"><a class="header" href="#按需创建计算资源池">按需创建计算资源池</a></h5>
+<p>使用<code>Client</code>或<code>LocalCluster</code>在程序中按需创建本机集群。</p>
+<pre><code class="language-python">from dask.distributed import Client,LocalCluster,Worker
+if __name__ == &quot;__main__&quot;:
+  client = Client(**kwrags)   # 自动创建本地集群
+  cluster = LocalCluster(...) # 手动创建本地集群
+  client = Client(cluster)
+  df.x.sum().compute()        # 在本地集群上执行计算
+</code></pre>
+<p><strong>LocalCluster</strong>：在本地机器上创建调度器（<code>Scheduler</code>）和工作节点（<code>Worker</code>）。</p>
+<pre><code class="language-python">LocalCluster(n_workers=None, 
+             threads_per_worker=None, 
+             processes=True, 
+             host='localhost',   # scheduler listen address
+             scheduler_port=0,   # 8786 as default, 0 for random
+             dashboard_address=':8787',  # set to None to disable
+             worker_dashboard_address='localhost:8787', # disabled by default
+             service_kwargs=None, 
+             **worker_kwargs)
+</code></pre>
+<ul>
+<li><code>n_workers</code>：工作节点数量；</li>
+<li><code>process</code>：是否使用进程构造工作节点；</li>
+<li><code>threads_per_worker</code>：每个工作节点启动的线程数量；</li>
+<li><code>host</code>：调取器监听地址；</li>
+<li><code>dashboard_address</code>：仪表板地址；</li>
+<li><code>scheduler_kwargs</code>：</li>
+<li><code>worker_kwargs</code>：其余参数将传递给工作节点。</li>
+</ul>
+<p><strong>Worker</strong>：工作节点告知调度器其拥有的数据，并从调度器获取其他节点上的数据信息。</p>
+<pre><code class="language-python">Worker(nthreads=None, memory_limit='auto', **kwargs)
+</code></pre>
+<ul>
+<li><code>nthreads</code>：工作进程的线程数量。</li>
+<li><code>memory_limit='2GB'|2e9|auto</code>：计算节点内存限定。<code>auto</code>按工作进程数分配系统内存作为可用内存上限。对于单机集群模式，当数据量很大时，工作节点占用内存将达到系统内存上限。但是由于系统中其他进程还要占据一定内存，由此导致工作节点无法分配足够内存而重启。解决方法是为工作节点设置固定内存上限，当内存达到与上限相关的门限时，会触发将不适用的数据写回磁盘，从而避免耗尽系统内存。</li>
+</ul>
+<h4 id="分布式调度器"><a class="header" href="#分布式调度器">分布式调度器</a></h4>
+<h5 id="dask-with-ssh"><a class="header" href="#dask-with-ssh">Dask with SSH</a></h5>
+<p>使用SSH自动创建集群。</p>
+<pre><code class="language-shell">dask-ssh [OPTIONS] \
+    --scheduler &lt;scheduler&gt; \ # Defaults to first host.
+    --scheduler-port &lt;scheduler_port&gt;
+    --nthreads &lt;nthreads&gt; --nprocs &lt;nprocs&gt; --memory-limit &lt;memory_limit&gt;
+    --ssh-username &lt;ssh_username&gt; --ssh-port &lt;ssh_port&gt;
+    --log-directory &lt;log_directory&gt;
+    --local-directory &lt;local_directory&gt;
+    --remote-python &lt;remote_python&gt;  # Python环境路径
+    [HOSTNAMES]...
+</code></pre>
+<h5 id="dask-on-yarn"><a class="header" href="#dask-on-yarn">Dask on yarn</a></h5>
+<p><a href="https://yarn.dask.org/en/latest/">Dask-Yarn — Dask Yarn documentation</a></p>
+<h6 id="managing-python-environments"><a class="header" href="#managing-python-environments">Managing Python Environments</a></h6>
+<p><a href="https://yarn.dask.org/en/latest/environments.html">Managing Python Environments — Dask Yarn documentation</a></p>
+<h3 id="访问集群"><a class="header" href="#访问集群">访问集群</a></h3>
+<p><strong>Client</strong>：<code>Client</code>将用户连接至Dask集群。<code>Client</code>初始化后接管程序中所有的<code>dask.compute</code> 、<code>dask.persist</code>等计算任务。</p>
+<pre><code class="language-python">Client(address=None)
+cli.close()      # 关闭连接
+cli.shutdown()   # 关闭集群
+</code></pre>
+<ul>
+<li><code>address</code>：调度器地址和端口，例如<code>'127.0.0.1:8786'</code>，或集群对象，例如<code>LocalCluster()</code>（本地集群环境，当不提供集群地址时，将自动创建一个<a href="#%E6%8C%89%E9%9C%80%E5%88%9B%E5%BB%BA%E8%AE%A1%E7%AE%97%E8%B5%84%E6%BA%90%E6%B1%A0"><code>LocalCluster</code></a>）。</li>
+</ul>
+<h4 id="集群信息"><a class="header" href="#集群信息">集群信息</a></h4>
+<p><code>client.dashboard_link</code>：
+<code>client.get_scheduler_logs(n=N)</code>
+<code>client.has_what()</code>
+<code>client.status</code>
+<code>client.id</code>
+<code>client.scheduler</code>
+<code>client.scheduler_info()</code>
+<code>client.ncores</code>
+<code>client.nthreads</code></p>
+<h2 id="vaex"><a class="header" href="#vaex">vaex</a></h2>
+<p>https://vaex.readthedocs.io/en/latest/index.html</p>
+<pre><code class="language-sh">pip install --upgrade vaex
+conda install -c conda-forge vaex
+</code></pre>
+<h2 id="ray"><a class="header" href="#ray">ray</a></h2>
+<h3 id="概念"><a class="header" href="#概念">概念</a></h3>
+<h4 id="基础架构"><a class="header" href="#基础架构">基础架构</a></h4>
+<blockquote>
+<p><em>Ray Core provides a small number of core primitives (i.e., tasks, actors, objects) for building and scaling distributed applications.</em></p>
+<p><a href="https://docs.ray.io/en/latest/ray-core/key-concepts.html">Key Concepts of Ray Core — Ray 2.0.0</a></p>
+</blockquote>
+<h5 id="ray-cluster"><a class="header" href="#ray-cluster">Ray Cluster</a></h5>
+<blockquote>
+<p><em>to run Ray applications on multiple nodes you must first deploy a Ray cluster.</em></p>
+<p><img src="%E5%88%86%E5%B8%83%E5%BC%8F%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86.assets/ray-cluster.svg" alt="" /></p>
+<p><a href="https://docs.ray.io/en/latest/cluster/key-concepts.html">Key Concepts of Ray Clusters — Ray 2.0.0</a></p>
+</blockquote>
+<h5 id="数据处理模式"><a class="header" href="#数据处理模式">数据处理模式</a></h5>
+<p><img src="%E5%88%86%E5%B8%83%E5%BC%8F%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86.assets/dataset-loading-1.png" alt="../_images/dataset-loading-1.png" /></p>
+<p><img src="%E5%88%86%E5%B8%83%E5%BC%8F%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86.assets/dataset-loading-2.png" alt="../_images/dataset-loading-2.png" /></p>
+<h5 id="支持的数据格式"><a class="header" href="#支持的数据格式">支持的数据格式</a></h5>
+<p>CSV、JSON、Parquet、Numpy、Text、Spark/Dask/Python <code>DataFrame</code>、Python <code>object</code>、<code>ndarray</code>……；</p>
+<p><a href="https://docs.ray.io/en/latest/data/getting-started.html#datasets-getting-started">Getting Started — Ray 2.0.0</a></p>
+<p><a href="https://docs.ray.io/en/latest/data/key-concepts.html#data-key-concepts">Key Concepts — Ray 2.0.0</a></p>
+<p><img src="%E5%88%86%E5%B8%83%E5%BC%8F%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86.assets/dataset-arch.svg" alt="dataset-arch" /></p>
+<p><img src="%E5%88%86%E5%B8%83%E5%BC%8F%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86.assets/dataset-pipeline-2-mini.svg" alt="dataset-pipeline-2-mini.svg" /></p>
+<p><a href="https://docs.ray.io/en/latest/data/user-guide.html#data-user-guide">User Guides — Ray 2.0.0</a></p>
+<h3 id="安装-2"><a class="header" href="#安装-2">安装</a></h3>
+<pre><code class="language-shell">conda create -n ray -c conda-forge ray-all  # 安装所有模块
+pip install ray            # with minimal dependencies
+pip install &quot;ray[default]&quot; # + the dashboard + cluster launcher
+pip install &quot;ray[air]&quot;     # + dependencies for Ray AI Runtime
+pip install &quot;ray[data]&quot;    #
+pip install &quot;ray[serve]&quot;  # model-serving library    
+</code></pre>
+<blockquote>
+<p><em><a href="https://docs.ray.io/en/latest/ray-overview/installation.html">Ray on Windows is currently in beta</a>.</em></p>
+<p><em><a href="https://docs.ray.io/en/latest/ray-overview/installation.html">Python 3.10 support is currently experimental.</a></em></p>
+<p><em>Ray conda packages are maintained by the community, not the Ray team. While using a conda environment, it is recommended to install Ray from PyPi using <code>pip install ray</code> in the newly created environment.</em></p>
+</blockquote>
+<p><a href="https://docs.ray.io/en/latest/cluster/vms/user-guides/launching-clusters/on-premises.html#on-prem">Launching an On-Premise Cluster — Ray 2.0.0</a></p>
+<ul>
+<li>It also assumes that Ray is installed on each machine. </li>
+</ul>
+<p><a href="https://docs.ray.io/en/latest/cluster/vms/user-guides/community/yarn.html">Deploying on YARN — Ray 2.0.0</a>(In progress)</p>
+<h4 id="spark-on-ray"><a class="header" href="#spark-on-ray">Spark on Ray</a></h4>
+<p><a href="https://docs.ray.io/en/latest/data/raydp.html#spark-on-ray">Using Spark on Ray (RayDP) — Ray 2.0.0</a></p>
+<h4 id="dask-on-ray"><a class="header" href="#dask-on-ray">Dask on Ray</a></h4>
+<p><a href="https://docs.ray.io/en/latest/data/dask-on-ray.html#dask-on-ray">Using Dask on Ray — Ray 2.0.0</a></p>
+<h2 id="参考文献-2"><a class="header" href="#参考文献-2"><strong>参考文献</strong>：</a></h2>
+<ol>
+<li><a href="https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/SingleCluster.html">Hadoop: Setting up a Single Node Cluster.</a></li>
+<li><a href="https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/ClusterSetup.html">Hadoop Cluster Setup</a></li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../数据库/GraphDatabase.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../服务器/CDH6大数据集群离线安装.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../数据库/GraphDatabase.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../服务器/CDH6大数据集群离线安装.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>

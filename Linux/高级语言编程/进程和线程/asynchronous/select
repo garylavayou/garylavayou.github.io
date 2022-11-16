@@ -1,0 +1,55 @@
+select
+
+	select()和pselect()允许程序监视多个文件描述符，直到一个或多个文件描述
+符准备好某种I/O操作。如果执行一个I/O操作不会出现阻塞，则认为对应的文件描述
+符是准备好的。
+	函数原型：
+	int select(
+		int 	nfds,			//三个集合中文件描述符最大值加1
+		fd_set *readfds,		
+		fd_set *writefds,
+        fd_set *exceptfds,
+		struct timeval *timeout
+	);
+	int pselect(
+		int 	nfds,
+		fd_set *readfds,
+		fd_set *writefds,
+        fd_set *exceptfds,
+		const struct timespec *timeout,
+        const sigset_t *sigmask
+	);
+	三个独立的文件描述符集合被监视。readfds集合被监视看是否准备好读取（有可读的内容，文件描述符在end-of-file也是准备好的状态）。writefds集合被监视，看写数据是否会阻塞。exceptfds用于监视异常。三个参数都可以设置为NULL，表示不对任何文件描述符进行对应类型事件的监视。（这时候可以看成是使进程进行睡眠。）
+	timeout是select函数在返回前等待的最大时间，如果该参数的字段都设置为0，则select()立即返回。（这在轮询的时候有用。）如果该参数设置为NULL，则select()可以无限期阻塞。
+	如果成功执行，select和pselect()返回三个集合中准备好的文件描述符总数，同时通过参数返回准备好的描述符的三个集合。这时通过FD_ISSET()可以判断某个文件描述符是否在准备好的集合中。如果执行超时，则返回值为0，文件描述符集合应该为空。返回-1代表错误，文件集合参数的值的是未定义的，不应该使用。
+
+	select()和pselect()的操作是等同的，除了三点不同：
+	(1)select()使用timeval(seconds,microseconds)结构作为超时值，pselect()使用timespec(seconds,nanoseconds)结构。
+	(2)select()可以更新timeout参数的值，表示睡眠的剩余值，pselect()不会更改。
+	(3)select()没有信号掩码参数，与pselect()将掩码参数设置为NULL的行为一样。
+	sigmask是信号掩码的指针；如果不是NULL，则pselect()首先使用sigmask替换当前的信号掩码，然后执行select(),最后恢复原来的信号掩码。
+	如果在等待文件描述符准备好I/O的同时，还在等待信号的到来，则pselect()是很有用的。如果使用select()来完成该功能，则在信号到来时，select()将返回-1，并设置errno为EINTR，然后信号处理函数可以设置标志，在主循环中可以对该信号进行处理。如果信号到来时间是在主循环检查标识之后而在调用select()之前，则虽然信号到来，但由于select阻塞，导致主循环不能处理信号。使用pselect可以解决该问题。首先，在程序启动时，将上述要在pselect()中等待的信号阻塞，当调用pselect时，再设置信号掩码，取消对等待信号的阻塞。
+
+管理集合
+	系统提供了四个宏来管理集合。
+  	void FD_CLR(int fd, fd_set *set);	删除集合中的文件描述符
+    int  FD_ISSET(int fd, fd_set *set);	测试文件描述符是否在集合中
+    void FD_SET(int fd, fd_set *set);	添加文件描述符到集合
+    void FD_ZERO(fd_set *set);			清空集合
+
+注意
+	fd_set是固定大小的缓存，因此使用文件描述符的值为负数或大于FD_SETSIZE
+将导致未定义的行为。
+	
+使用Select的必须注意
+	1.应该总是使用没有超时限制的select()。因为如果程序没有数据，则超时以后，程序没有可以处理的，其次有超时限制不利于调试。
+	2.nfds必须取值合适,应该设置成三个集合中，文件描述符的最大值加1，在设置之前应该进行计算。
+	3.如果不对select()返回的结果进行检查或处理，则不必将任何描述符放入任何一个集合中，参看下一条。
+	4.当select()返回后，所有集合中的文件描述符都应该被检查，看是否准备好I/O操作。
+	5.函数read(),recv(),write(),send()不一定能处理所请求的全部数据。必须注意处理这样的情况。
+	6.除非要处理的数据量很少，否则尽可能一次读/写尽量多的数据，这样才能提高效率。
+	7.函数read(),recv(),write(),send()和select()都可能返回-1，同时返回错误号EINTR， 或返回错误号EAGAIN(EWOULDBLOCK)。这写结果必须被正确处理。如果程序不会收到任何信号，则不会得到EINTR；如果程序没有设置非阻塞I/O，则不会得到EAGAIN。
+	8.不要在调用read(),recv(),write(),send()时，使buffer length为0。
+	9.如果read(),recv(),write(),send()调用失败，返回的错误号不在第7条中，或返回值为0，则说明文件结束，则不应该再将该文件的描述符传入select()。
+	10.在每次调用select()之前，超时值都必须被重新初始化，因为某些系统会在调用select()之后更改该值。
+	11.因为select()每次返回都会更改文件描述符集合，因此每次调用select()都必须重新初始化这些集合。

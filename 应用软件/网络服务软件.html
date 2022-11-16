@@ -1,0 +1,818 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>网络服务 - Learning Programming Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The example book covers examples.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <!-- <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        <script async type="text/javascript" src="theme/MathJax.js"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefix.html">Prefix</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">程序设计语言</li><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Python/Python编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Python/Python开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../Python/Python数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Python/Python输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Python/Python编程应用.html">编程应用</a></li><li class="chapter-item expanded "><a href="../Python/Python数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../Python/Python系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Python/Python高级编程.html">高级编程</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">Java</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/JAVA编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../Java/Java开发环境.html">开发环境</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Java/Maven POM.html">Maven 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../Java/JAVA数据类型.html">数据类型</a></li><li class="chapter-item expanded "><a href="../Java/JAVA输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../Java/JAVA系统编程.html">系统编程</a></li><li class="chapter-item expanded "><a href="../Java/Scala.html">Scala</a></li><li class="chapter-item expanded "><a href="../Java/ScalaFrameworks.html">Scala 框架</a></li></ol></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">C#/.NET</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp编程基础.html">编程基础</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数据容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/CSharp数值计算.html">数值计算</a></li><li class="chapter-item expanded "><a href="../CSharp.NET/dotnet开发.html">.NET 开发</a></li></ol></li><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">C and C++</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/Modern C++.html">Modern C++</a></li><li class="chapter-item expanded "><a href="../CC++/C++开发环境.html">开发环境</a></li><li class="chapter-item expanded "><a href="../CC++/C++容器.html">数据容器</a></li><li class="chapter-item expanded "><a href="../CC++/输入输出.html">输入输出</a></li><li class="chapter-item expanded "><a href="../CC++/标准函数库.html">标准库</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CC++/数学函数.html">数学函数</a></li></ol></li></ol></li><li class="chapter-item expanded "><div>Web开发</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JavaScript/JavaScript.html">JavaScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/TypeScript.html">TypeScript</a></li><li class="chapter-item expanded "><a href="../JavaScript/JS开发环境.html">开发环境</a></li></ol></li><li class="chapter-item expanded "><div>开发工具</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../开发环境/git.html">Git</a></li><li class="chapter-item expanded "><a href="../笔记/正则表达式.html">正则表达式</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">操作系统</li><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Linux/Linux配置和管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Linux/Linux-Shell.html">Shell Script</a></li><li class="chapter-item expanded "><a href="../Linux/Linux发行版.html">Linux 发行版</a></li><li class="chapter-item expanded "><a href="../Linux/操作系统原理.html">操作系统原理</a></li></ol></li><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">Windows</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Windows/Windows配置管理.html">配置管理</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Shell.html">Shell</a></li><li class="chapter-item expanded "><a href="../Windows/Windows Applications.html">应用软件</a></li></ol></li><li class="chapter-item expanded "><div>应用软件</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../应用软件/程序开发软件.html">程序开发</a></li><li class="chapter-item expanded "><a href="../应用软件/服务器管理软件.html">服务器管理</a></li><li class="chapter-item expanded "><a href="../应用软件/网络访问软件.html">网络访问</a></li><li class="chapter-item expanded "><a href="../应用软件/网络服务软件.html" class="active">网络服务</a></li><li class="chapter-item expanded "><a href="../应用软件/文档生成软件.html">文档生成</a></li><li class="chapter-item expanded "><a href="../应用软件/文件处理软件.html">文件处理</a></li><li class="chapter-item expanded "><a href="../应用软件/协作办公软件.html">协作办公</a></li><li class="chapter-item expanded "><a href="../应用软件/知识管理软件.html">知识管理</a></li><li class="chapter-item expanded "><a href="../应用软件/多媒体编辑软件.html">多媒体编辑</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">机器学习</li><li class="chapter-item expanded "><a href="../机器学习/机器学习实践.html">机器学习实践</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ScikitLearn.html">scikit-learn</a></li><li class="chapter-item expanded "><a href="../机器学习/TensorFlow.html">TensorFlow</a></li><li class="chapter-item expanded "><a href="../机器学习/Pytorch.html">Pytorch</a></li><li class="chapter-item expanded "><a href="../机器学习/图神经网络.html">图神经网络</a></li></ol></li><li class="chapter-item expanded "><a href="../机器学习/机器学习原理与算法.html">原理与算法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/统计学习算法.html">统计学习算法</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">数据库</li><li class="chapter-item expanded "><a href="../数据库/SQL语法.html">SQL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/SQL DDL.html">SQL DDL</a></li><li class="chapter-item expanded "><a href="../数据库/SQL DML.html">SQL DML</a></li><li class="chapter-item expanded "><a href="../数据库/SQL数据类型.html">数据类型</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/MySQL.html">MySQL</a></li><li class="chapter-item expanded "><a href="../数据库/PostgreSQL.html">PostgreSQL</a></li><li class="chapter-item expanded "><a href="../数据库/HiveSQL.html">Hive SQL</a></li><li class="chapter-item expanded "><a href="../数据库/Elasticsearch.html">Elasticsearch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据库/Elastic Datasource.html">数据源</a></li></ol></li><li class="chapter-item expanded "><a href="../数据库/Mongodb.html">Mongodb</a></li><li class="chapter-item expanded "><a href="../数据库/GraphDatabase.html">图数据库</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">服务和大数据平台</li><li class="chapter-item expanded "><a href="../服务器/分布式大数据处理.html">分布式大数据处理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/CDH6大数据集群离线安装.html">CDH6 安装教程</a></li><li class="chapter-item expanded "><a href="../服务器/Spark Python API.html">Pyspark</a></li><li class="chapter-item expanded "><a href="../服务器/流数据处理.html">流数据处理</a></li></ol></li><li class="chapter-item expanded "><a href="../服务器/容器编排.html">容器编排</a></li><li class="chapter-item expanded "><a href="../服务器/虚拟化.html">虚拟化</a></li><li class="chapter-item expanded "><div>任务编排</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../服务器/Airflow.html">Airflow</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">其他</li><li class="chapter-item expanded "><div>数据标记语言</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../数据交换语言/JSON and YAML.html">JSON and YAML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/XML.html">XML</a></li><li class="chapter-item expanded "><a href="../数据交换语言/HTML.html">HTML</a></li></ol></li><li class="chapter-item expanded "><div>网络协议</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Protocols/http.html">HTTP</a></li><li class="chapter-item expanded "><a href="../Protocols/DNS.html">DNS</a></li><li class="chapter-item expanded "><a href="../Protocols/端口分配.html">端口分配</a></li><li class="chapter-item expanded "><a href="../Protocols/IP protocol numbers.html">IP 承载协议</a></li><li class="chapter-item expanded "><a href="../Protocols/RPC.html">RPC</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Learning Programming Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                        <h1 id="网络服务软件"><a class="header" href="#网络服务软件">网络服务软件</a></h1>
+<h2 id="apache2"><a class="header" href="#apache2">Apache2</a></h2>
+<h3 id="安装"><a class="header" href="#安装">安装</a></h3>
+<pre><code class="language-sh">sudo apt install apache2
+</code></pre>
+<p>安装完成后，服务器在后台运行，即可通过IP地址访问服务器。</p>
+<p>服务器以管理员身份运行。</p>
+<h5 id="服务器运行管理"><a class="header" href="#服务器运行管理">服务器运行管理</a></h5>
+<pre><code class="language-shell">sudo service apache2 start
+sudo /etc/init.d/apache2
+apache2ctl start|stop|restart|....	
+</code></pre>
+<h3 id="创建网站"><a class="header" href="#创建网站">创建网站</a></h3>
+<h4 id="默认站点"><a class="header" href="#默认站点">默认站点</a></h4>
+<p>内容位于<code>/var/www/html</code>（可通过配置文件<code>/etc/apache2/sites-enabled/000-default.conf</code>修改站点的根目录等信息）。</p>
+<h4 id="创建站点"><a class="header" href="#创建站点">创建站点</a></h4>
+<p>Apache通过编辑虚拟主机（Virtual Host）文件来管理多个站点。可以通过复制默认站点文件来创建新的站点的配置文件。</p>
+<pre><code class="language-sh">cd /etc/apache2/sites-available
+sudo cp 000-default.conf server.conf
+</code></pre>
+<blockquote>
+<p><code>000-default.conf</code>对应的是HTTP服务的默认站点，<code>default-ssl.conf</code>对应的是HTTPS服务的默认站点。</p>
+</blockquote>
+<h5 id="虚拟站点"><a class="header" href="#虚拟站点">虚拟站点</a></h5>
+<p>然后编辑站点的<a href="https://httpd.apache.org/docs/2.4/vhosts/examples.html">配置文件</a>*，其中</p>
+<pre><code class="language-xml">[Listen [ip_addr:][port]]
+
+&lt;VirtualHost [ip_addr][:port]&gt;
+    ServerAdmin yourname@example.com  # 管理员邮箱
+    DocumentRoot /var/www/server/     # 站点根目录
+    ServerName www.server.net         # 站点域名（默认文件中没有此项）
+&lt;/VirtualHost&gt;
+</code></pre>
+<blockquote>
+<p>IP地址可以为通配符（<code>*</code>）；</p>
+<p>一个配置文件可包含多个<code>VirtualHost</code>，默认站点不需要添加域名，其他站点需要设置唯一的<code>ServerName</code>。也可以将不同的<code>VirtualHost</code>放到单独的配置文件中。</p>
+</blockquote>
+<p>在<code>/var/www/</code>（或其他目录）下创建站点对应的文件夹。</p>
+<pre><code class="language-sh">sudo mkdir /var/www/server
+</code></pre>
+<p>完成上述配置后，需要运行以下命令以启用站点。</p>
+<pre><code class="language-sh">sudo a2ensite server.conf  # enable an apache2 site(virtual host) 
+</code></pre>
+<blockquote>
+<p>使用<code>a2dissite</code>停用站点。</p>
+</blockquote>
+<p>完成后重启Apache，</p>
+<pre><code class="language-sh">service apache2 reload # or
+systemctl reload apache2
+</code></pre>
+<h4 id="启用安全服务https"><a class="header" href="#启用安全服务https">启用安全服务(HTTPS)</a></h4>
+<p>启用<code>ssl</code>模块和安全站点的<a href="#%E5%88%9B%E5%BB%BA%E7%AB%99%E7%82%B9">配置文件</a>。</p>
+<pre><code class="language-sh">sudo a2enmod ssl
+systemctl restart apache2  # 重启Apache服务器
+</code></pre>
+<h3 id="服务器管理"><a class="header" href="#服务器管理">服务器管理</a></h3>
+<h5 id="配置文件"><a class="header" href="#配置文件">配置文件</a></h5>
+<p>配置文件位于：<code>/etc/apache2/</code>。</p>
+<pre><code>/etc/apache2/
+|-- apache2.conf
+|----  ports.conf
+|-- mods-enabled
+|---- *.load
+|---- *.conf
+|-- conf-enabled
+|---- *.conf
+|-- sites-enabled
+|---- *.conf
+</code></pre>
+<p><code>apache2.conf</code>是主要配置文件。</p>
+<p><code>ports.conf</code></p>
+<h2 id="httpd"><a class="header" href="#httpd">httpd</a></h2>
+<p>默认欢迎页面配置：<code>/etc/httpd/conf.d/welcome.conf</code>，移除该文件以禁用默认配置。</p>
+<p>支持在服务目录下访问符号链接的权限：</p>
+<ol>
+<li>
+<p>服务目录配置支持跟踪符号链接；</p>
+<pre><code class="language-xml">&lt;Directory &quot;/var/www/html&quot;&gt;
+    Options Indexes FollowSymLinks
+    AllowOverride None
+    Require all granted
+&lt;/Directory&gt;
+</code></pre>
+</li>
+<li>
+<p>http服务的运行用户（<code>apache</code>）具有<a href="https://unix.stackexchange.com/questions/20993/symbolic-link-not-allowed-or-link-target-not-accessible-apache-on-centos-6">访问（<code>execute</code>）目标目录（及其父目录）的权限</a>；</p>
+<blockquote>
+<p><em><code>httpd</code> Symbolic link not allowed or link target not accessible</em></p>
+</blockquote>
+</li>
+<li>
+<p>可能需要<a href="https://stackoverflow.com/questions/17442370/you-dont-have-permission-to-access-on-this-server">关闭SELinux</a>，以允许http服务访问服务目录外的位置。</p>
+<blockquote>
+<p><em>You don't have permission to access <code>/directory</code> on this server</em></p>
+</blockquote>
+</li>
+</ol>
+<h2 id="nginx"><a class="header" href="#nginx">Nginx</a></h2>
+<p><img src="%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E8%BD%AF%E4%BB%B6.assets/nginx.jpg" alt="img" /></p>
+<p>CentOS安装：Nginx位于<a href="../Linux/Linux%E5%8F%91%E8%A1%8C%E7%89%88.html#epel">EPEL软件源</a>中；Ubuntu软件源中已包含Nginx。</p>
+<p>Nginx服务通常通过<code>systemd</code>管理（<code>start|stop|restart|reload</code>）。</p>
+<h3 id="服务器配置"><a class="header" href="#服务器配置">服务器配置</a></h3>
+<h5 id="配置文件-1"><a class="header" href="#配置文件-1">配置文件</a></h5>
+<pre><code class="language-sh">/etc/nginx/
+-- /etc/nginx/nginx.conf           # top-level configuration file
+-- /etc/nginx/conf.d/              # HTTP server sites
+-- /etc/nginx/conf.d/default.conf  # configuration template
+-- /etc/nginx/sites-available      # apache-style config dir
+-- /etc/nginx/sites-enable
+</code></pre>
+<p><code>nginx.conf</code>是Nginx的主要配置文件，其中可以使用<code>include</code>指令将其他服务配置文件加入。如果某个配置项有错误，该配置项以及之后的配置项都不会被加载。在运行Nginx之前可先测试配置是否存在问题：</p>
+<pre><code class="language-shell">nginx -t -c /PATH/nginx.conf  # 使用绝对路径，否则nginx会从默认配置目录读取
+</code></pre>
+<h5 id="配置语法"><a class="header" href="#配置语法">配置语法</a></h5>
+<p>设置变量：<code>set $variable value;</code>，值如果包含空格等特殊字符，需要使用<code>&quot;&quot;</code>。</p>
+<h4 id="基本配置"><a class="header" href="#基本配置">基本配置</a></h4>
+<pre><code class="language-shell">access_log  /var/nginx/logs/access.log;
+error_log   /var/nginx/logs/error.log;      # 错误日志
+error_log   /var/nginx/logs/info.log  info; # 将指定级别日志输出到指定文件
+pid         /var/nginx/logs/nginx.pid;      # Nginx主进程ID
+</code></pre>
+<h5 id="日志格式"><a class="header" href="#日志格式">日志格式</a></h5>
+<pre><code class="language-nginx">log_format main '$remote_addr - $remote_user [$time_local] $server_name ...'
+</code></pre>
+<p>日志中NGINX提供的内置变量，以记录请求服务信息。</p>
+<ul>
+<li><code>$server_name/server_addr/server_port</code>：接受该请求的服务器名称（域名/IP地址）、地址、端口；</li>
+<li><code>$request_uri/$uri|$document_uri</code>：原始请求URI（包含参数）、规范化URI；</li>
+<li><code>$query_string|$args</code>：请求URI的查询参数；</li>
+<li><code>$scheme/$server_protocol/$request_method</code>：请求使用<code>http</code>/<code>https</code>、HTTP协议版本、HTTP方法；</li>
+<li><code>$https</code>：是否开启HTTPS、</li>
+<li><code>$request_length/$request</code>：请求数据长度（包括请求行、头部以及请求体）、请求行；</li>
+<li><code>$remote_addr/$remote_port/$remote_user/</code>：客户端地址、端口和用户名（基本认证机制）；</li>
+<li><code>$content_type/$cookie_name</code>：请求头部信息；</li>
+<li><code>$time_local</code>：服务器当前时间；</li>
+<li><code>status</code>：响应状态；</li>
+</ul>
+<h4 id="http静态站点"><a class="header" href="#http静态站点">HTTP静态站点</a></h4>
+<p>通过<code>server</code>块定义虚拟HTTP服务站点。其中<code>listen</code>和<code>server</code>用于定义虚拟服务的映射条件<sup class="footnote-reference"><a href="#nginx_server">1</a></sup>：</p>
+<ul>
+<li><code>listen</code>：映射目标IP和端口，多个虚拟服务可共用相同的地址和端口，通过域名进行区分；如果省略IP地址，则监听服务器的所有地址；如果省略端口，则默认监听端口为80或8000。</li>
+<li><code>server_name</code>：客户端请求域名，多个域名以空格分隔，支持通配符以及正则表达式匹配<sup class="footnote-reference"><a href="#nginx-server-name">2</a></sup>。如果未匹配到任何域名，则将请求转发至<code>listen</code>字段包括<code>default_server</code>的服务站点。</li>
+</ul>
+<pre><code class="language-shell">http {
+   server {
+      listen 80 default_server;       # 监听[ip_addr:]port
+      server_name www.example.com example.com; 
+      root /var/www;                  # 默认根目录(仅能访问根目录下的内容)
+      location / {                    # 根目录配置
+         index index.html index.htm;  # 默认主页，设置在根目录的配置下
+         root /usr/share/nginx/html;  # 根目录对应的物理目录[路径重定向]
+      }
+   }
+   server {   # 使用相同地址服务不同域名的HTTP服务
+      listen      80;
+      server_name test.example.com;  
+      root /var/test;
+   }
+}
+</code></pre>
+<blockquote>
+<p><code>default_server</code>：未匹配到域名时的默认服务。</p>
+</blockquote>
+<p>Nginx默认的服务进程用户为<code>nobody/nginx</code>，因此服务目录下文件应该对所有用户有读权限，所有目录对所有用户有访问权限，否则会产生<code>403 Forbidden</code>错误。</p>
+<h5 id="文件服务器"><a class="header" href="#文件服务器">文件服务器</a></h5>
+<pre><code class="language-nginx">http {
+  server {
+    autoindex on;            # 显示目录
+    autoindex_exact_size on; # 显示文件大小
+    autoindex_localtime on;  # 显示文件时间
+    # ...
+    root /share/fs;
+  }
+}
+</code></pre>
+<h4 id="反向代理转发"><a class="header" href="#反向代理转发">反向代理转发</a></h4>
+<pre><code class="language-nginx">location ^~ /test/ {
+    proxy_pass      http://host_addr:8080;
+}
+location ^~ /test/1 {
+    proxy_pass      http://127.0.0.1:8080;
+}
+location = /test/prefix/ {
+    proxy_pass      http://127.0.0.1:8080;
+}
+location ~ ^/debug(.*)/log(.*)/ {
+    proxy_pass      http://host_addr:8080/debug_log/$1/$2/;  #*
+}
+location / {
+    proxy_pass      http://127.0.0.1:8080;
+}
+</code></pre>
+<blockquote>
+<p><code>*</code>：如果匹配规则为正则表达式，转发地址中可包含正则表达式的捕获参数。</p>
+</blockquote>
+<p>URL位置匹配规则（匹配优先级从高到低）<sup class="footnote-reference"><a href="#nginx-loc">3</a></sup>：</p>
+<ul>
+<li>
+<p><strong>前缀匹配</strong>：以<code>=</code>、<code>^~</code>修饰或无修饰符的匹配规则，按书写顺序检查。</p>
+<ul>
+<li><code>location = URI</code>：<strong>精确</strong>匹配，匹配后立即响应请求。通常写在规则列表前面，用于匹配最常访问的URL如<code>location = /</code>。</li>
+<li><code>location ^~ URI</code>：<strong>优先</strong>最长匹配，如果请求路径包含指定前缀，在匹配所有前缀匹配规则后，返回带<code>^~</code>的最长匹配；通常用于匹配服务器上的资源目录。</li>
+<li><code>location URI</code>：<strong>最长</strong>匹配，记录下最长匹配记录，==但不做处理==（==优先级最低==，但搜索先于正则匹配；<em>可能是为了一同调用前缀匹配模块</em>）。</li>
+</ul>
+<p>以<code>/test/1</code>合上述规则为例，匹配顺序为：</p>
+<pre><code class="language-shell">priority prefix match for location: /test/
+priority prefix match for location: /test/1  # Final Match
+prefix match for location: /
+</code></pre>
+<blockquote>
+<p><a href="https://nginx.viraptor.info/">Nginx location match tester</a>.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>正则表达式匹配</strong>：<code>location ~ URI</code>（<code>~*</code>大小写敏感）按顺序查找，匹配到后立即响应请求；通常用于根据规则匹配URL，并在后续对URL进行修改。</p>
+</li>
+<li>
+<p><strong>最长前缀匹配</strong>：使用<strong>前缀匹配</strong>过程中记录到的最长匹配响应请求；通常会设置<code>location /</code>作为默认规则，因此，请求最后总能被一条规则所处。</p>
+<blockquote>
+<p>Nginx location block section：https://stackoverflow.com/a/59846239/6571140</p>
+</blockquote>
+</li>
+</ul>
+<p>编写匹配规则时，应该将较为精确的匹配项放在靠前的位置，否则更加模糊匹配项会覆盖精确匹配项，导致与期望的转发行为不一致。当出现转发失败或未按期望转发时，可对比Nginx的日志文件<code>access.log</code>和<code>error.log</code>（其中包含了用户的请求URL与Nginx的响应URL），排查错误原因。</p>
+<h5 id="资源路径重定向"><a class="header" href="#资源路径重定向">资源路径重定向</a></h5>
+<p><code>rewrite</code>将指定路径并替换为新的路径，<code>root</code>重新指定资源的根目录。</p>
+<pre><code class="language-shell">location [modifier] [URI] {
+  rewrite /path/($REGEX)/subpath/ replace_path break;
+  root base_path;   # 实际访问 base_path/replace_path
+}
+</code></pre>
+<blockquote>
+<p><code>$REGEX</code>表达式可使用正则表达式，<code>replace_path</code>和<code>base_path</code>可使用<code>rewrite</code>表达式的捕获组（<code>$1,$2,...</code>）。</p>
+</blockquote>
+<h4 id="https配置"><a class="header" href="#https配置">HTTPS配置</a></h4>
+<p><a href="https://docs.rocket.chat/installing-and-updating/docker-containers#5-installing-nginx-and-ssl-certificate">Docker Containers - Rocket.Chat Docs</a></p>
+<pre><code class="language-shell">server {
+   ssl_certificate /etc/nginx/certificate.crt;
+   ssl_certificate_key /etc/nginx/certificate.key;
+   ssl_dhparam /etc/nginx/dhparams.pem;
+}
+</code></pre>
+<blockquote>
+<ul>
+<li>
+<p><code>&quot;ngx_master_****&quot; was not signaled for 5s</code>：<a href="https://stackoverflow.com/questions/69896680/nginx-getting-the-event-ngx-master-was-not-signaled-for-5s">在Windows下，由于SSL密钥需要输入密码导致Nginx服务启动超时</a>。可将证书密码保存在文本文件中（放在安全位置），并在Nginx配置文件中添加</p>
+<pre><code class="language-nginx">ssl_password_file       pass.txt
+</code></pre>
+<p>或者将密钥的密码验证移除：</p>
+<pre><code class="language-shell">openssl rsa -in server.key -out serverunsecure.key
+</code></pre>
+</li>
+</ul>
+</blockquote>
+<h3 id="负载均衡"><a class="header" href="#负载均衡">负载均衡</a></h3>
+<pre><code class="language-nginx">http {
+  upstream load_balance_server {
+    least_conn;  # 负载均衡策略(默认为轮询)
+    server 192.168.1.11:80   weight=5;  #*
+    server 192.168.1.12:80   weight=1;
+    server 192.168.1.13:80   weight=6;
+  }
+  server {
+    location / {
+      proxy_pass http://load_balance_server;
+    }
+  }
+}
+</code></pre>
+<p>负载均衡策略：</p>
+<ul>
+<li>（加权）轮询：<code>weigth</code>参数表示权值，权值越高被分配到的几率越大。；</li>
+<li>（加权）最少连接：<code>least_conn</code>；</li>
+<li>IP映射：<code>ip_hash</code>；</li>
+<li>URL映射：<code>hash $request_uri</code>；</li>
+</ul>
+<h3 id="nginx常见错误"><a class="header" href="#nginx常见错误">Nginx常见错误</a></h3>
+<ul>
+<li>
+<p><em><code>unknown directive &quot;ssl&quot; nginx</code></em>：Nginx未安装SSL模块。</p>
+</li>
+<li>
+<p><code>403 Forbidden (nginx: Permission denied)</code>：1）文件及其上级目录权限配置不正确，Nginx工作进程所属用户无访问权限；SELinux开启阻止Nginx访问文件（特殊情况下，仅某个特殊文件无法被访问）。</p>
+<blockquote>
+<p><a href="https://www.nginx.com/blog/using-nginx-plus-with-selinux/">Modifying SELinux Settings for Full NGINX and NGINX Plus Functionality</a></p>
+</blockquote>
+</li>
+<li>
+<p><code>502 Bad Gateway (nginx: (13: Permission denied) while connecting to upstream)</code>：<a href="https://stackoverflow.com/questions/23948527/13-permission-denied-while-connecting-to-upstreamnginx">系统开启SELinux，默认不允许HTTP服务软件连接系统的其他服务（进行代理转发）</a>。可选择：1）关闭SELinux；2）<a href="../Linux/Linux%E9%85%8D%E7%BD%AE%E5%92%8C%E7%AE%A1%E7%90%86.html#SELinux%E7%AD%96%E7%95%A5">修改SELinux策略</a>；</p>
+<pre><code class="language-shell">setsebool -P httpd_can_network_connect on  # [on/1] -P for persistent
+</code></pre>
+</li>
+<li>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS">CORS</a>(<em><strong>cross-origin resource sharing</strong></em>，跨源资源共享)错误：客户端请求缺少CORS标准相关的HTTP头部字段，浏览器不允许上述跨域访问行为。在不修改客户端（HTML或JS代码等）的情况下，可通过NGINX代理修改HTTP请求头部实现跨域资源共享。</p>
+<pre><code class="language-nginx">add_header 'Access-Control-Allow-Origin' '*';                   #*
+add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS'; #**
+add_header 'Access-Control-Allow-Headers' '*';                  #***
+add_header 'Access-Control-Allow-Credentials' 'true';           #****
+if ($request_method = 'OPTIONS') {
+    return 204;
+}
+</code></pre>
+<blockquote>
+<p><code>*</code>：该头部选项允许通配符以允许匹配的请求源站点。</p>
+<p><code>**</code>：允许跨域访问的HTTP方法，支持通配符。</p>
+<p><code>***</code>：如果出现<code>Request header field xxx is not allowed by Access-Control-Allow-Headers in preflight response.</code>，添加该头部，支持通配符。</p>
+<p><code>****</code>：如果响应内容未携带该头部，浏览器将不会把响应内容返回给请求发送者。在响应附带身份凭证的请求时，不能将上述头部的值设置为通配符。</p>
+</blockquote>
+</li>
+<li>
+<p>修改配置重新加载不生效（例如日志配置无效不输出日志）：</p>
+<p>可能原因：Nginx后台进程未正常关闭（Windows），导致新启动的Nginx实例无法正常初始化。</p>
+<p>解决方法：手动结束所有Nginx进程后，重新启动Nginx。</p>
+</li>
+</ul>
+<h2 id="caddy"><a class="header" href="#caddy">Caddy</a></h2>
+<blockquote>
+<p><em>Fast and extensible multi-platform HTTP/3 web server with automatic HTTPS.</em></p>
+<ul>
+<li><a href="https://caddyserver.com/docs/quick-starts">Quick-starts — Caddy Documentation (caddyserver.com)</a></li>
+</ul>
+</blockquote>
+<h3 id="安装-1"><a class="header" href="#安装-1">安装</a></h3>
+<pre><code class="language-powershell">choco install caddy
+</code></pre>
+<h4 id="运行caddy服务"><a class="header" href="#运行caddy服务">运行Caddy服务</a></h4>
+<pre><code class="language-powershell">$env:XDG_DATA_HOME='path/'
+caddy run --config caddy.json/Caddyfile --watch #*
+caddy start|stop|reload  # 后台服务管理
+</code></pre>
+<p><code>caddy.json</code>或<code>Caddyfile</code>是<a href="#">配置文件</a>，如果未提供配置文件，则服务器只有管理接口可访问。</p>
+<blockquote>
+<p><code>*</code>：<code>--watch</code>将监视配置文件更改并自动重新加载。</p>
+</blockquote>
+<h4 id="管理接口"><a class="header" href="#管理接口">管理接口</a></h4>
+<p><code>http://localhost:2019/config/</code></p>
+<h4 id="caddy模块"><a class="header" href="#caddy模块">Caddy模块</a></h4>
+<p>Caddy预装了标准模块，如匹配器、处理器、反向代理、TLS和日志等。</p>
+<pre><code class="language-shell">.\caddy.exe list-modules
+</code></pre>
+<h3 id="配置caddy"><a class="header" href="#配置caddy">配置Caddy</a></h3>
+<p>可使用JSON或Caddyfile对Caddy服务进行配置。JSON格式信息完整，对计算机解析更加友好；Caddyfile相对更加简洁，适合人工配置。</p>
+<h4 id="json配置"><a class="header" href="#json配置">JSON配置</a></h4>
+<pre><code class="language-json">{
+    &quot;apps&quot;: {
+        &quot;http&quot;: {
+            &quot;servers&quot;: {
+                &quot;&lt;server-name&gt;&quot;: {
+                    &quot;listen&quot;: [
+                        &quot;[host]:port&quot;
+                    ],
+                    &quot;routes&quot;: [
+                        {
+                            &quot;match&quot;: [
+                                {&quot;host&quot;: [&quot;domain.name&quot;]}
+                            ],
+                            &quot;handle&quot;: [
+                                {
+                                    &quot;handler&quot;: &quot;file_server&quot;,
+                                    &quot;root&quot;: &quot;/path/to/html&quot;
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    &quot;admin&quot;: {/*...*/},
+    &quot;logging&quot;: {/*...*/},
+    &quot;storage&quot;: {/*...*/}
+}
+</code></pre>
+<p><a href="https://caddyserver.com/docs/json/">JSON Config Structure - Caddy Documentation (caddyserver.com)</a></p>
+<h5 id="routes"><a class="header" href="#routes">routes</a></h5>
+<p>定义了请求的匹配规则及其处理路径。<code>match</code>用于定义匹配规则，<code>handle</code>定义请求的处理方法。</p>
+<h5 id="handler"><a class="header" href="#handler">handler</a></h5>
+<ul>
+<li><code>static_response</code>：直接通过配置文件设置响应内容（<code>body</code>）；</li>
+<li><code>file_server</code>：响应服务器上的静态文件资源（<code>root</code>）。</li>
+<li><code>reverse_proxy</code>：反向代理。</li>
+</ul>
+<h4 id="caddyfile配置"><a class="header" href="#caddyfile配置">Caddyfile配置</a></h4>
+<p>Caddyfile包含全局选项（可选）、配置片段（可选）、一个或多个站点配置块以及注释（<code>#</code>开头后续内容）。如果配置文件只包含一个站点，其配置块的<code>{}</code>可省略。</p>
+<p><img src="%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E8%BD%AF%E4%BB%B6.assets/caddyfile-visual.png" alt="Caddyfile structure" /></p>
+<p>匹配器必须在站点内部定义，不存在跨站点的全局匹配器。</p>
+<p>站点地址格式：</p>
+<ul>
+<li><code>localhost</code>、<code>localhost:8080</code>、<code>127.0.0.1</code>：监听指定IP地址/主机名和端口的请求；</li>
+<li><code>example.com</code>、<code>http://example.com</code>：监听指定端口上的域名请求；</li>
+<li><code>:443</code>、<code>[::1]:2015</code>、<code>http://</code>：监听所有地址的指定端口；</li>
+<li><code>*.example.com</code>：监听所有匹配域名的请求。</li>
+</ul>
+<p>在Caddyfile中可引用Shell环境变量，<code>{$SITE_ADDRESS}</code>。</p>
+<h3 id="静态资源服务"><a class="header" href="#静态资源服务">静态资源服务</a></h3>
+<h4 id="文件服务"><a class="header" href="#文件服务">文件服务</a></h4>
+<pre><code class="language-nginx">example.com {  # 站点域名(IP地址端口)
+    root * /home/me/mysite
+    try_files {path} /index.html # 如果指定URL不存在, 则回落到index.html
+    templates                    # 支持模板
+    encode zstd gzip             # 开启内容压缩
+    file_server browse           #*
+}
+</code></pre>
+<blockquote>
+<p><code>*</code>：<code>browse</code>选项为没有<code>index.html</code>的目录提供自动文件索引，否则访问对应目录的URL将返回<code>404</code>。</p>
+</blockquote>
+<p>提供文件服务的快捷方式：</p>
+<pre><code class="language-shell">caddy file-server --listen :2015 --browse --root ~/mysite --domain my.domain
+</code></pre>
+<h4 id="静态响应"><a class="header" href="#静态响应">静态响应</a></h4>
+<pre><code class="language-nginx">localhost {
+    respond &quot;hello world!&quot;
+}
+</code></pre>
+<h3 id="反向代理"><a class="header" href="#反向代理">反向代理</a></h3>
+<pre><code class="language-nginx">example.com {
+    reverse_proxy &quot;/api/*&quot; localhost:5000
+    # handle /api/* {
+    #     reverse_proxy backend:8000
+    # }
+}
+</code></pre>
+<p>反向代理可与静态站点结合使用：反向代理仅转发API请求，通过<code>/api/*</code>过滤后的静态文件则直接通过文件服务器响应。==具有匹配规则的处理方法将被优先检查==。</p>
+<p>反向代理服务快捷方式：</p>
+<pre><code class="language-shell">caddy reverse-proxy --from :2080 --to :9000
+</code></pre>
+<blockquote>
+<p>省略<code>--form</code>，则默认监听<code>localhost:443</code>的请求（或在<code>.localhost</code>中定义的域名）。<code>--to</code>默认转发至协议为<code>http</code>，如果后端使用<code>https</code>，则在转发地址中显式指定<code>https://</code>。</p>
+</blockquote>
+<h3 id="https"><a class="header" href="#https">HTTPS</a></h3>
+<blockquote>
+<p><em><strong>By default, Caddy serves all sites over HTTPS.</strong></em></p>
+</blockquote>
+<p><code>local_certs</code>：（全局选项）所有证书采用通过本地签发，不通过公开的证书签发机构（用于开发环境）。</p>
+<h4 id="本地https"><a class="header" href="#本地https">本地HTTPS</a></h4>
+<blockquote>
+<p><em>To serve non-public sites over HTTPS, Caddy generates its own <strong>certificate authority</strong> (CA) and uses it to sign certificates. The trust chain consists of a <strong>root</strong> and <strong>intermediate certificate</strong>. <strong>Leaf certificates</strong> are signed by the intermediate. They are stored in <a href="https://caddyserver.com/docs/conventions#data-directory">Caddy's data directory</a> at <code>pki/authorities/local</code>.</em></p>
+</blockquote>
+<h2 id="pelican"><a class="header" href="#pelican">Pelican</a></h2>
+<p>Pelican is a static site generator</p>
+<ul>
+<li>Write your content directly with your editor of choice in <a href="http://docutils.sourceforge.net/rst.html">reStructuredText</a> or <a href="http://daringfireball.net/projects/markdown/">Markdown</a> formats</li>
+<li>Includes a simple CLI tool to (re)generate your site</li>
+</ul>
+<p>http://docs.getpelican.com/en/3.6.3/index.html</p>
+<p>http://docs.getpelican.com/en/3.6.3/publish.html#deployment</p>
+<h2 id="gunicorn"><a class="header" href="#gunicorn">Gunicorn</a></h2>
+<blockquote>
+<p><em>Gunicorn, 'Green Unicorn' is a Python WSGI HTTP Server for UNIX.</em></p>
+</blockquote>
+<blockquote>
+<p><em>It is best to use Gunicorn behind an HTTP proxy server. We strongly advise you to use nginx.</em></p>
+</blockquote>
+<h2 id="squid代理服务"><a class="header" href="#squid代理服务">Squid代理服务</a></h2>
+<p><em><strong>web proxy cache server</strong></em>：提供HTTP、FTP等协议的代理和缓存服务，支持全面、细粒度的访问控制机制。</p>
+<p>安装：</p>
+<pre><code class="language-shell">sudo apt install squid
+sudo systemctl start/stop/reload squid #* 非root用户需要使用sudo, 否则可能导致缓存目录创建失败
+</code></pre>
+<h3 id="配置"><a class="header" href="#配置">配置</a></h3>
+<p><code>/etc/squid/squid.conf</code></p>
+<h5 id="服务端口"><a class="header" href="#服务端口">服务端口</a></h5>
+<pre><code class="language-shell">http_port 3128 
+</code></pre>
+<p>服务地址：<code>http://proxy-server:http_port</code>。</p>
+<h5 id="磁盘缓存"><a class="header" href="#磁盘缓存">磁盘缓存</a></h5>
+<p>默认缓存在内存中（重启服务丢失），可指定多行以使用不同的磁盘分区。</p>
+<pre><code class="language-shell">cache_dir ufs/aufs/diskd Directory-Name Mbytes L1 L2 [options]
+cache_dir rock Directory-Name Mbytes [options]
+</code></pre>
+<ul>
+<li>
+<p>缓存数据格式，包括<code>ufs</code>（默认包含）、<code>aufs</code>、<code>diskd</code>、<code>rock</code>。不同系统中的分发版可能不包含所有格式，通过修改配置文件并尝试启动服务确定相应格式是否可用。</p>
+</li>
+<li>
+<p><code>Mbytes</code>：缓存容量限制（默认<code>100MB</code>）；</p>
+</li>
+<li>
+<p><code>L1</code>：缓存目录下一级子目录数量，默认为<code>16</code>，Squid将请求URL通过Hash计算确定缓存内容的目录；</p>
+<blockquote>
+<p>这些子目录不是动态生成的，因此在服务运行时删除缓存目录下生成的子目录，会导致后续缓存内容无法保存（从而无法响应客户端）。</p>
+</blockquote>
+</li>
+<li>
+<p><code>L2</code>：缓存一级子目录下二级子目录数量限制，默认为<code>256</code>；</p>
+</li>
+</ul>
+<h5 id="访问控制"><a class="header" href="#访问控制">访问控制</a></h5>
+<p>限定访问代理服务的用户IP、访问时间。</p>
+<pre><code class="language-shell">acl src_rule  src ip_addr/mask
+acl time_rule time M T W T F 9:00-17:00  # 工作日工作时段
+http_access allow src_rule time_rule   # 满足所有规则才可使用代理
+</code></pre>
+<h2 id="nexus代理服务"><a class="header" href="#nexus代理服务">Nexus代理服务</a></h2>
+<h3 id="安装-2"><a class="header" href="#安装-2">安装</a></h3>
+<h4 id="主机安装"><a class="header" href="#主机安装">主机安装</a></h4>
+<p><a href="https://help.sonatype.com/repomanager3/download/download-archives---repository-manager-3">下载Linux版本</a>的二进制档案文件，并解压到安装路径（例如<code>/opt/sonatype</code>），将<code>nexus-ver</code>重命名为<code>nexus</code>。档案的基本结构如右图所示。</p>
+<p>创建运行nexus服务的用户，并将nexus的安装目录所有权限更改为该用户。</p>
+<pre><code class="language-shell">useradd --system --no-create-home nexus
+chown -R nexus:nexus /opt/sonatype
+# edit: nexus/bin/nexus.rc
+run_as_user=&quot;nexus&quot;
+</code></pre>
+<p>设置数据和日志目录（<code>nexus/bin/nexus.vmoptions</code>）。如果默认位置的存储空间不够或读写速率较低，则可以修改以下配置项。</p>
+<pre><code class="language-shell">-XX:LogFile=../sonatype-work/nexus3/log/jvm.log
+-Dkaraf.data=../sonatype-work/nexus3
+-Dkaraf.log=../sonatype-work/nexus3/log      # 日志文件目录
+-Djava.io.tmpdir=../sonatype-work/nexus3/tmp
+</code></pre>
+<p>Nexus主要配置位于安装目录<code>etc/</code>目录下，其中<code>nexus-default.properties</code>为HTTP连接和网络应用默认配置。用户可在数据目录下的<code>$data_dir/etc/nexus.properties</code>修改相应属性（首次运行前该目录和文件不存在）<sup class="footnote-reference"><a href="#nexus-conf">4</a></sup>。</p>
+<blockquote>
+<pre><code class="language-properties">application-port=9081      # 网络连接
+nexus-context-path=/nexus/ # Base URL
+</code></pre>
+<p><code>base URL</code>也可以在运行后，通过<code>System/Capabilities/Base URL</code>来设置。</p>
+</blockquote>
+<p>更新Java运行环境（）：</p>
+<pre><code class="language-shell">export JAVA_HOME=/usr/local/openjdk8  # 或 JDK_HOME,INSTALL4j_JAVA_HOME
+INSTALL4J_JAVA_HOME_OVERRIDE=/usr/local/openjdk8  # edit: nexus/bin/nexus
+</code></pre>
+<p>修改打开文件限制（如果使用<code>systemd</code>启动则在服务配置文件中设置相应选项）：</p>
+<pre><code class="language-shell"># edit: /etc/security/limits.conf
+#&lt;domain&gt;      &lt;type&gt;  &lt;item&gt;         &lt;value&gt;
+  nexus         -       nofile         65536
+</code></pre>
+<p>配置为系统服务、<a href="../Linux/Linux%E9%85%8D%E7%BD%AE%E5%92%8C%E7%AE%A1%E7%90%86.html#systemd">加载服务配置并启用该服务</a>。</p>
+<pre><code class="language-shell">[Unit]
+Description=Nexus Service
+After=syslog.target network.target
+[Service]
+Type=forking
+LimitNOFILE=65536
+Environment=JAVA_HOME=/usr/local/openjdk8
+ExecStart=/opt/sonatype/nexus/bin/nexus start
+ExecStop=/opt/sonatype/nexus/bin/nexus stop
+User=nexus
+Group=nexus
+Restart=on-failure
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<blockquote>
+<p>注意启动命令不要使用符号链接，因为<code>nexus</code>启动时会根据可执行文件所在目录的相对路径来寻找数据目录<code>sonatype-work</code>，而符号链接会导致相对路径位置不正确。</p>
+</blockquote>
+<p>首次登录管理员：初始密码随机生成，存储在<code>/nexus-data/admin.password</code>。</p>
+<blockquote>
+<p>Windows下的服务管理，</p>
+<pre><code class="language-powershell">./nexus.exe /install/uninstall    # 安装卸载服务
+./nexus.exe /start/status/stop    # 启停服务，查看状态
+./nexus.exe /run                  # 直接运行服务
+</code></pre>
+</blockquote>
+<p><a href="https://www.fosslinux.com/27838/installing-sonatype-nexus-repository-oss-on-centos-7.htm">Installing Sonatype Nexus Repository OSS on CentOS 7 | FOSS Linux</a></p>
+<h5 id="存储配置"><a class="header" href="#存储配置">存储配置</a></h5>
+<p>仓库清理策略：通过<code>Repository/Cleanup Policies</code>添加清理策略，可按包的发布时间或最后下载时间设置清理策略。</p>
+<h5 id="http网络代理配置"><a class="header" href="#http网络代理配置">HTTP网络代理配置</a></h5>
+<p><code>System/HTTP/{HTTP proxy|HTTPS proxy}</code>（<em>例外项可使用<code>http.nonProxyHosts</code>通配符</em>）。</p>
+<h4 id="docker"><a class="header" href="#docker">docker</a></h4>
+<pre><code class="language-shell">docker run -d -p 8081:8081 --name nexus-porxy \
+           -v nexus-data:/nexus-data sonatype/nexus3
+</code></pre>
+<h3 id="配置软件源代理"><a class="header" href="#配置软件源代理">配置软件源代理</a></h3>
+<p>主要配置访问地址（仓库名称）、仓库的远程仓库地址和本地存储设置。</p>
+<img src="网络服务软件.assets/image-20210916004311944-16587252890037.png" alt="image-20210916004311944" style="zoom: 50%;" />
+<img src="网络服务软件.assets/image-20210916004416287-16587253199949.png" alt="image-20210916004416287" style="zoom: 60%;" />
+<blockquote>
+<p><code>Blocked</code>：阻止从远程仓库获取内容，适用于服务无法访问网络的情况以避免产生无效的网络请求。</p>
+</blockquote>
+<img src="网络服务软件.assets/image-20210916004455195-165872535016411.png" alt="image-20210916004455195" style="zoom:60%;" />
+<h5 id="pypi代理"><a class="header" href="#pypi代理">pypi代理</a></h5>
+<pre><code class="language-shell">Name=&quot;pypi-proxy&quot;
+Remote=&quot;https://pypi.doubanio.com&quot;  # 远端镜像去掉/simple后缀
+URL=&quot;http://localhost:8081/repository/pypi-proxy/simple&quot;
+</code></pre>
+<blockquote>
+<p><code>/simple</code>是仓库下的索引目录，Nexus会为远端地址自动添加该后缀。</p>
+</blockquote>
+<h5 id="conda代理"><a class="header" href="#conda代理">conda代理</a></h5>
+<pre><code class="language-shell">Name=&quot;conda-pkgs&quot;
+Remote=&quot;https://mirror.sjtu.edu.cn/anaconda/pkgs&quot;
+URL=&quot;http://localhost:8081/repository/conda-pkgs[/main]&quot; # 使用时去掉main后缀
+Name=&quot;conda-cloud&quot;
+Remote=&quot;https://mirror.sjtu.edu.cn/anaconda/cloud&quot;
+URL=&quot;http://localhost:8081/repository/conda-cloud[/main]&quot; # 使用时去掉main后缀
+</code></pre>
+<p>如果远程仓库中包含多个通道（如<code>conda-forge</code>和<code>pytorch</code>），则可将多个通道配置为一个代理仓库。配置<code>condarc</code>文件时，<code>custom_channels</code>对应的URL均为上述代理访问URL。</p>
+<h5 id="maven代理"><a class="header" href="#maven代理">maven代理</a></h5>
+<pre><code class="language-shell">Name=&quot;maven-central&quot;
+Remote=&quot;https://maven.aliyun.com/repository/central&quot;
+URL=&quot;http://localhost:8081/repository/maven-central/&quot;
+</code></pre>
+<h5 id="apt代理"><a class="header" href="#apt代理">apt代理</a></h5>
+<p>需要为不同版本设置不同的代理仓库（在配置中要填写版本名称，如<code>focal</code>，<code>jammy</code>），不支持多个仓库合并为组。</p>
+<pre><code class="language-shell">Name=&quot;ubuntu-focal&quot;
+Remote=&quot;https://mirrors.tuna.tsinghua.edu.cn/ubuntu/&quot;
+URL=&quot;http://localhost:8081/repository/ubuntu-focal/&quot;
+Name=&quot;ubuntu-jammy&quot;
+Remote=&quot;https://mirrors.tuna.tsinghua.edu.cn/ubuntu/&quot;
+URL=&quot;http://localhost:8081/repository/ubuntu-jammy/&quot;
+</code></pre>
+<h5 id="yum代理"><a class="header" href="#yum代理">yum代理</a></h5>
+<pre><code class="language-shell">Name=&quot;yum-centos&quot;
+Remote=&quot;http://mirrors.aliyun.com/centos/&quot;
+# https://mirrors.tuna.tsinghua.edu.cn/{fedora|centos}
+URL=&quot;http://localhost:8081/repository/yum-centos/&quot;
+</code></pre>
+<h3 id="配置合并镜像源group"><a class="header" href="#配置合并镜像源group">配置合并镜像源（group）</a></h3>
+<p>可从同一个地址获取多个仓库的内容（按顺序依次请求）。</p>
+<img src="网络服务软件.assets/image-20211017215604788-165872538423013.png" alt="image-20211017215604788" style="zoom:55%;" />
+<h3 id="web服务目录与反向代理"><a class="header" href="#web服务目录与反向代理">Web服务目录与反向代理</a></h3>
+<p>设置Web服务目录：1) ==修改配置文件==。2）通过Web管理界面“System/Capabilities/Create capabilities”添加“Base URL”（<code>http://addr_or_name:8081/prefix</code>）。</p>
+<pre><code class="language-nginx">client_max_body_size 1G;     # allow large uploads of files
+proxy_max_temp_file_size 2G; # optimize downloading files larger than 1G
+location /nexus {
+  # Use IPv4 address to avoid IPv6 DNS lookup
+  proxy_pass http://127.0.0.1:8081/nexus;
+  proxy_set_header Host $host;
+  proxy_set_header X-Real-IP $remote_addr;
+  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  proxy_set_header X-Forwarded-Proto &quot;https&quot;;  # If https terminated at nginx proxy
+}
+</code></pre>
+<h2 id="参考资料"><a class="header" href="#参考资料">参考资料</a></h2>
+<div class="footnote-definition" id="nexus-conf"><sup class="footnote-definition-label">4</sup>
+<p><a href="https://help.sonatype.com/repomanager3/installation-and-upgrades/configuring-the-runtime-environment?_ga=2.15475440.714739.1650532475-1707272426.1649329767">Configuring the Runtime Environment (sonatype.com)</a>
+<sup class="footnote-reference"><a href="#nginx_server">1</a></sup>: <a href="http://nginx.org/en/docs/http/request_processing.html">How nginx processes a request</a>
+<sup class="footnote-reference"><a href="#nginx-server-name">2</a></sup>: <a href="http://nginx.org/en/docs/http/server_names.html">Server names (nginx.org)</a></p>
+</div>
+<div class="footnote-definition" id="nginx-loc"><sup class="footnote-definition-label">3</sup>
+<p><a href="https://www.digitalocean.com/community/tutorials/nginx-location-directive">Tutorial: Nginx location directive examples, DigitalOcean</a>.</p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../应用软件/网络访问软件.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../应用软件/文档生成软件.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../应用软件/网络访问软件.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../应用软件/文档生成软件.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/MathJax.js"></script>
+    </body>
+</html>
